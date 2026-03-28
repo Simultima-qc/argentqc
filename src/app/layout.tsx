@@ -22,23 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${geist.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
-        {children}
-
-        {/* Google AdSense – Auto ads */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2932496105657945"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-
-        {/* Google Analytics */}
+      <head>
+        {/* Google Analytics – dans <head> pour validation Search Console */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EHYFT9BFCN"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -46,6 +36,17 @@ export default function RootLayout({
             gtag('config', 'G-EHYFT9BFCN');
           `}
         </Script>
+
+        {/* Google AdSense – Auto ads */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2932496105657945"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
+        {children}
       </body>
     </html>
   );
