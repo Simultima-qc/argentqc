@@ -1,0 +1,412 @@
+[
+  {
+    "id": "renoclimat-qc",
+    "nom": "Rénoclimat",
+    "organisme": "Transition énergétique Québec",
+    "niveau": "provincial",
+    "categorie": "renovation",
+    "montant_min": 100,
+    "montant_max": 10000,
+    "montant_affiche": "100 $ – 10 000 $",
+    "description": "Subventions pour améliorer l'efficacité énergétique de votre maison : isolation, fenêtres, portes, thermopompe et plus.",
+    "conditions": [
+      "Être propriétaire d'une résidence principale au Québec",
+      "Maison construite avant 2012",
+      "Faire réaliser une évaluation énergétique avant les travaux"
+    ],
+    "lien_officiel": "https://transitionenergetique.gouv.qc.ca/particuliers/renovation/renoclimat/",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "chauffez-vert-qc",
+    "nom": "Chauffez vert",
+    "organisme": "Transition énergétique Québec",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 1000,
+    "montant_max": 5000,
+    "montant_affiche": "1 000 $ – 5 000 $",
+    "description": "Aide financière pour remplacer un système de chauffage au mazout ou au propane par une énergie renouvelable (électricité, géothermie, biomasse).",
+    "conditions": [
+      "Être propriétaire au Québec",
+      "Système de chauffage actuel au mazout, propane ou gaz naturel",
+      "Remplacer par une thermopompe, géothermie ou biomasse"
+    ],
+    "lien_officiel": "https://transitionenergetique.gouv.qc.ca/particuliers/chauffage/chauffez-vert/",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "logibec-qc",
+    "nom": "LogiRénov",
+    "organisme": "Société d'habitation du Québec (SHQ)",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 1000,
+    "montant_max": 20000,
+    "montant_affiche": "Jusqu'à 20 000 $",
+    "description": "Programme d'aide pour les propriétaires à faible revenu pour effectuer des réparations majeures : toiture, fondations, plomberie, électricité.",
+    "conditions": [
+      "Être propriétaire occupant au Québec",
+      "Revenu annuel sous les seuils établis par la SHQ",
+      "Résidence principale seulement"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca/programmes/logirenov",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "revenu_max": 70000,
+      "renovation": true
+    }
+  },
+  {
+    "id": "reer-subvention-fed",
+    "nom": "Régime d'accession à la propriété (RAP)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "logement",
+    "montant_min": 0,
+    "montant_max": 35000,
+    "montant_affiche": "Jusqu'à 35 000 $ par personne",
+    "description": "Retirez jusqu'à 35 000 $ de votre REER sans impôt pour acheter votre première maison. Un couple peut retirer 70 000 $ au total.",
+    "conditions": [
+      "Acheteur d'une première propriété",
+      "REER doit avoir été ouvert depuis au moins 90 jours",
+      "Rembourser les fonds en 15 ans sans intérêt"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/reer-feer-regimes-epargne-retraite/regime-accession-propriete.html",
+    "criteres": {
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "credit-tps-fed",
+    "nom": "Crédit pour la TPS/TVH",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "credits_impot",
+    "montant_min": 100,
+    "montant_max": 700,
+    "montant_affiche": "Jusqu'à 700 $ par année",
+    "description": "Paiements trimestriels non imposables pour aider les personnes et familles à revenus faibles ou modestes à récupérer une partie de la TPS/TVH payée.",
+    "conditions": [
+      "Résider au Canada",
+      "Produire une déclaration de revenus",
+      "Avoir 19 ans ou plus (ou avoir un conjoint/enfant)"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-taxe-produits-services-taxe-vente-harmonisee-tps-tvh.html",
+    "criteres": {
+      "revenu_max": 50000,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "ace-fed",
+    "nom": "Allocation canadienne pour enfants (ACE)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "famille",
+    "montant_min": 1000,
+    "montant_max": 7787,
+    "montant_affiche": "Jusqu'à 7 787 $ par enfant/année",
+    "description": "Paiement mensuel non imposable pour les familles qui élèvent des enfants de moins de 18 ans. Montant basé sur le revenu familial net.",
+    "conditions": [
+      "Avoir au moins un enfant de moins de 18 ans",
+      "Résider au Canada",
+      "Être le principal responsable des soins de l'enfant"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants-apercu.html",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "irapvf-qc",
+    "nom": "Allocation famille (Québec)",
+    "organisme": "Retraite Québec",
+    "niveau": "provincial",
+    "categorie": "famille",
+    "montant_min": 100,
+    "montant_max": 2782,
+    "montant_affiche": "Jusqu'à 2 782 $ par enfant/année",
+    "description": "Versements mensuels pour les familles québécoises ayant des enfants de moins de 18 ans. S'ajoute à l'Allocation canadienne pour enfants.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir au moins un enfant de moins de 18 ans",
+      "Être le principal responsable de l'enfant"
+    ],
+    "lien_officiel": "https://www.retraitequebec.ca/fr/familles/allocation-famille/Pages/default.aspx",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "subv-auto-elec-qc",
+    "nom": "Roulez vert – Rabais à l'achat d'un VE",
+    "organisme": "Transition énergétique Québec",
+    "niveau": "provincial",
+    "categorie": "transport",
+    "montant_min": 500,
+    "montant_max": 7000,
+    "montant_affiche": "500 $ – 7 000 $",
+    "description": "Rabais à l'achat ou à la location d'un véhicule électrique ou hybride rechargeable neuf ou d'occasion. Montant selon le type de véhicule.",
+    "conditions": [
+      "Résider au Québec",
+      "Acheter ou louer un VÉ admissible (neuf ou usage)",
+      "Valeur du véhicule neuf inférieure à 65 000 $"
+    ],
+    "lien_officiel": "https://vehiculeselectriques.gouv.qc.ca/rabais/",
+    "criteres": {
+      "provinces": ["QC"],
+      "vehicule_elec": true
+    }
+  },
+  {
+    "id": "credit-reno-fed",
+    "nom": "Crédit pour rénovations multigénérationnelles",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "renovation",
+    "montant_min": 0,
+    "montant_max": 7500,
+    "montant_affiche": "Jusqu'à 7 500 $",
+    "description": "Crédit d'impôt remboursable de 15% sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée.",
+    "conditions": [
+      "Créer un logement secondaire dans votre domicile",
+      "Le logement est destiné à un aîné (65+) ou une personne handicapée",
+      "Dépenses admissibles minimales de 500 $"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/programmes/a-propos-agence-revenu-canada-arc/impot-cible/credit-renovation-domiciliaire-multigeneration.html",
+    "criteres": {
+      "proprietaire": true,
+      "renovation": true,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "sre-fed",
+    "nom": "Supplément de revenu garanti (SRG)",
+    "organisme": "Service Canada",
+    "niveau": "federal",
+    "categorie": "sante",
+    "montant_min": 1000,
+    "montant_max": 11000,
+    "montant_affiche": "Jusqu'à 11 000 $ par année",
+    "description": "Prestations mensuelles non imposables pour les aînés à faible revenu qui reçoivent la Sécurité de la vieillesse. Montant selon revenus et situation.",
+    "conditions": [
+      "Avoir 65 ans ou plus",
+      "Recevoir la Sécurité de la vieillesse",
+      "Faibles revenus (seuils selon situation conjugale)"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/emploi-developpement-social/programmes/securite-vieillesse/supplement-revenu-garanti.html",
+    "criteres": {
+      "retraite": true,
+      "age_min": 65,
+      "revenu_max": 22000,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "psv-fed",
+    "nom": "Sécurité de la vieillesse (SV)",
+    "organisme": "Service Canada",
+    "niveau": "federal",
+    "categorie": "sante",
+    "montant_min": 600,
+    "montant_max": 8000,
+    "montant_affiche": "Jusqu'à 8 000 $ par année",
+    "description": "Pension mensuelle pour les personnes de 65 ans et plus qui ont résidé au Canada pendant au moins 10 ans après l'âge de 18 ans.",
+    "conditions": [
+      "Avoir 65 ans ou plus",
+      "Résider ou avoir résidé au Canada",
+      "10 ans de résidence minimum au Canada après l'âge de 18 ans"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/emploi-developpement-social/programmes/securite-vieillesse.html",
+    "criteres": {
+      "retraite": true,
+      "age_min": 65,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "aide-solidarite-qc",
+    "nom": "Aide sociale (Programme d'aide sociale)",
+    "organisme": "Ministère de l'Emploi et de la Solidarité sociale",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 700,
+    "montant_max": 12000,
+    "montant_affiche": "Jusqu'à 12 000 $ par année",
+    "description": "Aide financière de dernier recours pour les personnes sans emploi et sans autres ressources au Québec.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir peu ou pas de revenus et d'actifs",
+      "Être dans une situation de besoin financier"
+    ],
+    "lien_officiel": "https://www.quebec.ca/aide-financiere-emploi",
+    "criteres": {
+      "provinces": ["QC"],
+      "revenu_max": 15000
+    }
+  },
+  {
+    "id": "hydro-bienergie",
+    "nom": "Programme Bi-énergie Hydro-Québec",
+    "organisme": "Hydro-Québec",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 500,
+    "montant_max": 2000,
+    "montant_affiche": "500 $ – 2 000 $",
+    "description": "Aide pour l'installation d'un système bi-énergie combinant l'électricité et un autre combustible pour le chauffage en période de pointe.",
+    "conditions": [
+      "Être client Hydro-Québec",
+      "Résidence principale au Québec",
+      "Chauffage électrique existant"
+    ],
+    "lien_officiel": "https://www.hydroquebec.com/residentiel/conseils-economies-energie/programme-aides-financieres/",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "hydro-thermopompe",
+    "nom": "Thermopompe – Aide Hydro-Québec",
+    "organisme": "Hydro-Québec",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 750,
+    "montant_max": 2000,
+    "montant_affiche": "750 $ – 2 000 $",
+    "description": "Aide à l'installation d'une thermopompe centrale ou de mini-splits pour remplacer le chauffage au mazout ou améliorer l'efficacité énergétique.",
+    "conditions": [
+      "Être client Hydro-Québec",
+      "Remplacer ou ajouter un système de chauffage/climatisation",
+      "Thermopompe certifiée ENERGY STAR"
+    ],
+    "lien_officiel": "https://www.hydroquebec.com/residentiel/conseils-economies-energie/programme-aides-financieres/",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "credit-loyer-qc",
+    "nom": "Crédit d'impôt pour solidarité (Québec)",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "credits_impot",
+    "montant_min": 150,
+    "montant_max": 2000,
+    "montant_affiche": "150 $ – 2 000 $",
+    "description": "Crédit d'impôt remboursable combinant l'ancien crédit de TPS, la TVQ et le crédit pour habitation. Versé mensuellement ou annuellement.",
+    "conditions": [
+      "Résider au Québec",
+      "Revenu familial sous les seuils établis",
+      "Produire une déclaration de revenus au Québec"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
+    "criteres": {
+      "provinces": ["QC"],
+      "revenu_max": 60000
+    }
+  },
+  {
+    "id": "allocation-logement-qc",
+    "nom": "Allocation-logement (Québec)",
+    "organisme": "Société d'habitation du Québec (SHQ)",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 100,
+    "montant_max": 1800,
+    "montant_affiche": "Jusqu'à 1 800 $ par année",
+    "description": "Aide financière annuelle pour les locataires à faible revenu qui consacrent une trop grande part de leurs revenus au loyer.",
+    "conditions": [
+      "Être locataire au Québec",
+      "Avoir 50 ans ou plus, ou avoir un enfant à charge",
+      "Revenu annuel brut sous les seuils établis"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca/programmes/allocation-logement",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 35000
+    }
+  },
+  {
+    "id": "credit-maintien-qc",
+    "nom": "Crédit d'impôt pour maintien à domicile des aînés",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "sante",
+    "montant_min": 500,
+    "montant_max": 6000,
+    "montant_affiche": "Jusqu'à 6 000 $",
+    "description": "Crédit d'impôt remboursable de 35% sur les dépenses admissibles pour aider les aînés à demeurer dans leur domicile (aide ménagère, soins, etc.).",
+    "conditions": [
+      "Avoir 70 ans ou plus",
+      "Résider au Québec",
+      "Dépenses pour services admissibles (aide ménagère, soins personnels, etc.)"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-maintien-a-domicile-des-aines/",
+    "criteres": {
+      "provinces": ["QC"],
+      "age_min": 70,
+      "retraite": true
+    }
+  },
+  {
+    "id": "subv-bornes-recharge-qc",
+    "nom": "Borne de recharge à domicile – Roulez vert",
+    "organisme": "Transition énergétique Québec",
+    "niveau": "provincial",
+    "categorie": "transport",
+    "montant_min": 350,
+    "montant_max": 600,
+    "montant_affiche": "350 $ – 600 $",
+    "description": "Subvention pour l'achat et l'installation d'une borne de recharge de niveau 2 à domicile pour votre véhicule électrique.",
+    "conditions": [
+      "Être propriétaire ou locataire au Québec",
+      "Posséder ou acheter un véhicule électrique rechargeable",
+      "Installation par un électricien certifié"
+    ],
+    "lien_officiel": "https://vehiculeselectriques.gouv.qc.ca/borne/",
+    "criteres": {
+      "provinces": ["QC"],
+      "vehicule_elec": true
+    }
+  },
+  {
+    "id": "credit-impot-reno-fed",
+    "nom": "Crédit d'impôt pour rénovation domiciliaire (CIHA)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "renovation",
+    "montant_min": 0,
+    "montant_max": 3750,
+    "montant_affiche": "Jusqu'à 3 750 $",
+    "description": "Crédit d'impôt de 15% sur les dépenses admissibles de rénovation résidentielle pour améliorer l'accessibilité ou permettre à une personne âgée de rester chez elle.",
+    "conditions": [
+      "Dépenses admissibles de rénovation domiciliaire",
+      "Améliorer l'accessibilité ou la sécurité du domicile",
+      "Maximum de 10 000 $ en dépenses admissibles"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tous-les-credits-deductions.html",
+    "criteres": {
+      "proprietaire": true,
+      "renovation": true,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  }
+]

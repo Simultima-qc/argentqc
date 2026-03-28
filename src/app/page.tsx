@@ -1,65 +1,154 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="flex flex-col min-h-screen">
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white px-5 pt-14 pb-12">
+        <div className="max-w-lg mx-auto text-center">
+          <div className="inline-block bg-yellow-400 text-blue-900 text-xs font-bold px-3 py-1 rounded-full mb-5 uppercase tracking-wide">
+            100% gratuit · Aucune inscription
+          </div>
+          <h1 className="text-3xl font-extrabold leading-tight mb-4">
+            Découvrez l&apos;argent que vous laissez sur la table
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-base text-blue-100 mb-8 leading-relaxed">
+            Crédits d&apos;impôt, subventions Hydro-Québec, aide auto électrique, allocations
+            familiales… Répondez à 8 questions pour obtenir votre liste personnalisée.
+          </p>
+          <Link
+            href="/questionnaire"
+            className="block w-full bg-yellow-400 active:bg-yellow-300 text-blue-900 font-bold text-lg py-4 rounded-2xl shadow-lg text-center"
+          >
+            Calculer mes aides →
+          </Link>
+          <p className="mt-3 text-blue-300 text-xs">
+            Moins de 2 minutes · Résultats immédiats
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Ad Banner */}
+      <div className="bg-slate-100 border-b border-slate-200 py-3 px-4">
+        <div className="max-w-lg mx-auto">
+          {/* Google AdSense – remplacer ce bloc par votre code AdSense */}
+          <div className="h-14 bg-slate-200 rounded-lg flex items-center justify-center text-slate-400 text-xs">
+            Publicité
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* Stats */}
+      <section className="bg-white py-8 px-5 border-b border-slate-100">
+        <div className="max-w-lg mx-auto grid grid-cols-3 gap-3 text-center">
+          <div>
+            <div className="text-2xl font-extrabold text-blue-700">19</div>
+            <div className="text-slate-500 mt-0.5 text-xs leading-tight">Programmes couverts</div>
+          </div>
+          <div>
+            <div className="text-2xl font-extrabold text-blue-700">50 k$</div>
+            <div className="text-slate-500 mt-0.5 text-xs leading-tight">Potentiel moyen</div>
+          </div>
+          <div>
+            <div className="text-2xl font-extrabold text-blue-700">2 min</div>
+            <div className="text-slate-500 mt-0.5 text-xs leading-tight">Pour vos résultats</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comment ça marche */}
+      <section className="py-10 px-5">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-xl font-bold text-center mb-7 text-slate-800">
+            Comment ça fonctionne
+          </h2>
+          <div className="flex flex-col gap-5">
+            {[
+              {
+                num: "1",
+                titre: "Répondez à 8 questions",
+                texte: "Situation familiale, revenus, logement, véhicule électrique…",
+              },
+              {
+                num: "2",
+                titre: "Notre algorithme analyse",
+                texte: "On croise vos réponses avec 19 programmes provinciaux et fédéraux.",
+              },
+              {
+                num: "3",
+                titre: "Récupérez votre argent",
+                texte: "Liste claire avec montants estimés et liens vers les formulaires officiels.",
+              },
+            ].map((item) => (
+              <div key={item.num} className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg font-bold shrink-0">
+                  {item.num}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-800 mb-1">{item.titre}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{item.texte}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <Link
+            href="/questionnaire"
+            className="block w-full bg-blue-700 active:bg-blue-800 text-white font-bold text-base py-4 rounded-2xl text-center mt-8 shadow"
+          >
+            Commencer maintenant →
+          </Link>
+        </div>
+      </section>
+
+      {/* Catégories */}
+      <section className="bg-white py-10 px-5 border-t border-slate-100">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-xl font-bold text-center mb-6 text-slate-800">
+            Programmes couverts
+          </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { emoji: "🏠", label: "Rénovation & logement" },
+              { emoji: "⚡", label: "Énergie & thermopompe" },
+              { emoji: "👨‍👩‍👧", label: "Famille & enfants" },
+              { emoji: "🚗", label: "Auto électrique" },
+              { emoji: "💰", label: "Crédits d'impôt" },
+              { emoji: "👴", label: "Aînés & retraite" },
+              { emoji: "🌱", label: "Environnement" },
+              { emoji: "🏙️", label: "Aide sociale QC" },
+            ].map((cat) => (
+              <div
+                key={cat.label}
+                className="bg-slate-50 rounded-xl p-4 text-center border border-slate-100"
+              >
+                <div className="text-2xl mb-1">{cat.emoji}</div>
+                <div className="text-xs font-medium text-slate-700 leading-snug">{cat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ad Banner bas de page */}
+      <section className="py-4 px-4 bg-slate-100">
+        <div className="max-w-lg mx-auto">
+          {/* Google AdSense – remplacer ce bloc par votre code AdSense */}
+          <div className="h-16 bg-slate-200 rounded-lg flex items-center justify-center text-slate-400 text-xs">
+            Publicité
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-800 text-slate-400 py-6 px-5 mt-auto">
+        <div className="max-w-lg mx-auto text-center text-xs leading-relaxed">
+          <p className="mb-1 font-medium text-slate-300">ArgentQC.ca</p>
+          <p>
+            Outil informatif non affilié au gouvernement. Les montants sont des estimations —
+            consultez toujours les sites officiels pour confirmer votre admissibilité.
+          </p>
+        </div>
+      </footer>
+    </main>
   );
 }
