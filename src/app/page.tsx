@@ -129,6 +129,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Liens SEO */}
+      <section className="py-10 px-5 bg-white border-t border-slate-100">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-xl font-bold text-center mb-6 text-slate-800">
+            Guides par situation
+          </h2>
+          <div className="flex flex-col gap-3">
+            {[
+              { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "Allocations, ACE, crédit solidarité" },
+              { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – combien ?", desc: "Montants 2026 détaillés" },
+              { href: "/credit-impot-quebec", titre: "Crédits d'impôt Québec", desc: "Tous les crédits remboursables" },
+              { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec", desc: "Rénoclimat, LogisVert, fédéral" },
+              { href: "/vehicule-electrique-quebec", titre: "Subvention véhicule électrique", desc: "Roulez vert 2026" },
+            ].map((lien) => (
+              <Link
+                key={lien.href}
+                href={lien.href}
+                className="flex items-center justify-between bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors"
+              >
+                <div>
+                  <div className="font-semibold text-slate-800 text-sm">{lien.titre}</div>
+                  <div className="text-slate-400 text-xs mt-0.5">{lien.desc}</div>
+                </div>
+                <span className="text-blue-500 text-sm shrink-0 ml-2">→</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Ad Banner bas de page */}
       <section className="py-4 px-4 bg-slate-100">
         <div className="max-w-lg mx-auto">
