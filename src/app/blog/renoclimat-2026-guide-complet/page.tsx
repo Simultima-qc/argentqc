@@ -88,7 +88,7 @@ export default function ArticleRenoclimat() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Combien pouvez-vous recevoir ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le montant de la subvention dépend de <strong>l&apos;amélioration de la cote énergétique</strong> de votre maison,
+            Le montant de la subvention dépend de <strong>l&apos;amélioration de la cote énergétique</strong>{" "}de votre maison,
             mesurée en unités ÉnerGuide. Plus l&apos;amélioration est grande, plus la subvention est élevée.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
@@ -160,7 +160,7 @@ export default function ArticleRenoclimat() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Le truc des experts : cumuler les programmes</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Ce que beaucoup de propriétaires ignorent : Rénoclimat est <strong>cumulable</strong> avec d&apos;autres programmes.
+            Ce que beaucoup de propriétaires ignorent : Rénoclimat est <strong>cumulable</strong>{" "}avec d&apos;autres programmes.
             En combinant les aides, certains projets peuvent être financés à plus de 50%.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
