@@ -25,6 +25,17 @@ export default function Home() {
           <p className="mt-3 text-blue-300 text-xs">
             Moins de 2 minutes · Résultats immédiats
           </p>
+          <div className="flex flex-wrap justify-center gap-3 mt-5">
+            {[
+              "🔒 Aucune donnée sauvegardée",
+              "✅ Programmes officiels",
+              "🎁 100% gratuit",
+            ].map((badge) => (
+              <span key={badge} className="bg-blue-800 text-blue-100 text-xs px-3 py-1.5 rounded-full">
+                {badge}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
