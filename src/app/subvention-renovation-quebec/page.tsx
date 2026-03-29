@@ -49,7 +49,7 @@ const programmes: Programme[] = [
     montant_affiche: "Jusqu'à 7 500 $",
     description: "Crédit d'impôt remboursable de 15% pour créer un logement secondaire pour un aîné ou une personne handicapée dans votre domicile.",
     conditions: ["Créer un logement secondaire dans votre domicile", "Destiné à un aîné (65+) ou une personne handicapée", "Dépenses entre 500 $ et 50 000 $"],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/programmes/a-propos-agence-revenu-canada-arc/impot-cible/credit-renovation-domiciliaire-multigeneration.html",
+    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-45355-cirhm.html",
     criteres: { proprietaire: true, renovation: true },
   },
   {
