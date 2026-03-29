@@ -204,6 +204,12 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <Link
+            href="/blog"
+            className="block text-center text-blue-600 text-sm font-medium mt-4 hover:underline"
+          >
+            Voir tous les articles du blogue →
+          </Link>
         </div>
       </section>
 
