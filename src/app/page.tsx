@@ -170,6 +170,17 @@ export default function Home() {
           <h2 className="text-xl font-bold text-center mb-6 text-slate-800">
             Guides par situation
           </h2>
+          <Link
+            href="/blog/renoclimat-2026-guide-complet"
+            className="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 mb-3 hover:border-blue-300 transition-colors"
+          >
+            <span className="text-2xl">📰</span>
+            <div>
+              <div className="font-semibold text-blue-800 text-sm">Nouveau : Rénoclimat 2026 – Guide complet</div>
+              <div className="text-blue-500 text-xs mt-0.5">Comment obtenir jusqu&apos;à 10 000 $ de subvention</div>
+            </div>
+            <span className="text-blue-400 text-sm shrink-0 ml-auto">→</span>
+          </Link>
           <div className="flex flex-col gap-3">
             {[
               { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "Allocations, ACE, crédit solidarité" },
