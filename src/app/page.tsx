@@ -177,6 +177,8 @@ export default function Home() {
               { href: "/credit-impot-quebec", titre: "Crédits d'impôt Québec", desc: "Tous les crédits remboursables" },
               { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec", desc: "Rénoclimat, LogisVert, fédéral" },
               { href: "/vehicule-electrique-quebec", titre: "Subvention véhicule électrique", desc: "Roulez vert 2026" },
+              { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec", desc: "Montants 2026 et conditions" },
+              { href: "/allocation-logement-quebec", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu" },
             ].map((lien) => (
               <Link
                 key={lien.href}
