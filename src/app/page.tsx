@@ -39,6 +39,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Exemples concrets */}
+      <section className="bg-white py-8 px-5 border-b border-slate-100">
+        <div className="max-w-lg mx-auto">
+          <p className="text-center text-xs font-semibold text-slate-400 uppercase tracking-wide mb-4">
+            Exemples de profils
+          </p>
+          <div className="flex flex-col gap-3">
+            {[
+              { profil: "Famille avec 2 enfants", montant: "9 800 $", desc: "Allocation famille + ACE + crédit solidarité" },
+              { profil: "Propriétaire qui rénove", montant: "16 700 $", desc: "Rénoclimat + LogisVert + crédits fédéraux" },
+              { profil: "Aîné de 70 ans", montant: "14 000 $", desc: "SV + SRG + maintien à domicile" },
+            ].map((ex) => (
+              <div key={ex.profil} className="flex items-center justify-between bg-green-50 border border-green-100 rounded-xl px-4 py-3">
+                <div>
+                  <div className="font-semibold text-slate-800 text-sm">{ex.profil}</div>
+                  <div className="text-slate-400 text-xs mt-0.5">{ex.desc}</div>
+                </div>
+                <div className="text-green-700 font-extrabold text-base shrink-0 ml-3">{ex.montant}<span className="text-xs font-normal text-green-600">/an</span></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Ad Banner */}
       <div className="bg-slate-100 border-b border-slate-200 py-3 px-4">
         <div className="max-w-lg mx-auto">
