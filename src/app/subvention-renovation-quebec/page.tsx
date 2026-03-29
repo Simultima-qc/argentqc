@@ -63,7 +63,7 @@ const programmes: Programme[] = [
     montant_affiche: "Jusqu'à 3 750 $",
     description: "Crédit d'impôt de 15% sur les dépenses de rénovation pour améliorer l'accessibilité ou la sécurité d'un domicile.",
     conditions: ["Travaux pour améliorer l'accessibilité ou la sécurité", "Maximum de 10 000 $ en dépenses admissibles", "Pour une personne âgée ou handicapée"],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tous-les-credits-deductions.html",
+    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-31285-depenses-accessibilite-domiciliaire.html",
     criteres: { proprietaire: true, renovation: true },
   },
 ];
