@@ -77,11 +77,11 @@ export default function Home() {
       <section className="bg-white py-8 px-5 border-b border-slate-100">
         <div className="max-w-lg mx-auto grid grid-cols-3 gap-3 text-center">
           <div>
-            <div className="text-2xl font-extrabold text-blue-700">19</div>
+            <div className="text-2xl font-extrabold text-blue-700">16</div>
             <div className="text-slate-500 mt-0.5 text-xs leading-tight">Programmes couverts</div>
           </div>
           <div>
-            <div className="text-2xl font-extrabold text-blue-700">50 k$</div>
+            <div className="text-2xl font-extrabold text-blue-700">20 k$</div>
             <div className="text-slate-500 mt-0.5 text-xs leading-tight">Potentiel moyen</div>
           </div>
           <div>
@@ -107,7 +107,7 @@ export default function Home() {
               {
                 num: "2",
                 titre: "Notre algorithme analyse",
-                texte: "On croise vos réponses avec 19 programmes provinciaux et fédéraux.",
+                texte: "On croise vos réponses avec 16 programmes provinciaux et fédéraux.",
               },
               {
                 num: "3",
