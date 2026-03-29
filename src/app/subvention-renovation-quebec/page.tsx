@@ -21,7 +21,7 @@ const programmes: Programme[] = [
     montant_affiche: "100 $ – 10 000 $",
     description: "Subventions pour améliorer l'efficacité énergétique : isolation, fenêtres, portes, thermopompe. Une évaluation énergétique avant et après les travaux est requise.",
     conditions: ["Être propriétaire d'une résidence principale au Québec", "Maison construite avant 2012", "Évaluation énergétique avant les travaux"],
-    lien_officiel: "https://www.quebec.ca/logement-territoire/chauffage-consommation-energie/aides-financieres-renovations/renoclimat",
+    lien_officiel: "https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aides-financieres-renovations/renoclimat",
     criteres: { proprietaire: true, provinces: ["QC"], renovation: true },
   },
   {
