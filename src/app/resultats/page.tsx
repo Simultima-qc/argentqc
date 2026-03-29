@@ -64,16 +64,27 @@ export default async function ResultatsPage({ searchParams }: Props) {
       <div className="max-w-lg mx-auto px-4 py-6">
 
         {/* Résumé total */}
-        <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 mb-5 text-center shadow-lg">
-          <p className="text-blue-200 mb-1 text-xs uppercase tracking-wide font-semibold">
+        <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 mb-5 shadow-lg">
+          <p className="text-blue-200 mb-1 text-xs uppercase tracking-wide font-semibold text-center">
             Vous pourriez récupérer jusqu&apos;à
           </p>
-          <div className="text-4xl font-extrabold mb-1">
+          <div className="text-5xl font-extrabold mb-1 text-center">
             {formaterArgent(total.max)}
           </div>
-          <p className="text-blue-300 text-sm">
+          <p className="text-blue-300 text-sm text-center mb-4">
             {programmes.length} programme{programmes.length > 1 ? "s" : ""} trouvé{programmes.length > 1 ? "s" : ""}
           </p>
+          <div className="border-t border-blue-500 pt-4 flex flex-col gap-2">
+            {programmes.map((prog) => (
+              <div key={prog.id} className="flex items-center justify-between text-sm">
+                <span className="text-blue-100 flex items-center gap-2">
+                  <span className="text-green-400">✓</span>
+                  {prog.nom}
+                </span>
+                <span className="font-bold text-white shrink-0 ml-2">{prog.montant_affiche}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Pub top résultats */}
