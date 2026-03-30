@@ -190,6 +190,10 @@ export default function Home() {
               { href: "/vehicule-electrique-quebec", titre: "Subvention véhicule électrique", desc: "Roulez vert 2026" },
               { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec", desc: "Montants 2026 et conditions" },
               { href: "/allocation-logement-quebec", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu" },
+              { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec", desc: "LogisVert + Rénoclimat, jusqu'à 9 700 $" },
+              { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Lunettes, dentiste, médicaments" },
+              { href: "/aide-lunettes-quebec", titre: "Aide pour lunettes Québec", desc: "Crédits d'impôt disponibles" },
+              { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec", desc: "ACE, allocation famille, frais de garde" },
             ].map((lien) => (
               <Link
                 key={lien.href}
