@@ -96,6 +96,11 @@ export default function SubventionRenovationQuebecPage() {
       programmes={programmes}
       faqs={faqs}
       motCle="Subvention rénovation Québec 2026"
+      pagesRelies={[
+        { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec" },
+        { href: "/blog/renoclimat-2026-guide-complet", titre: "Guide complet Rénoclimat 2026" },
+        { href: "/vehicule-electrique-quebec", titre: "Subvention véhicule électrique Québec" },
+      ]}
     />
   );
 }

@@ -12,6 +12,11 @@ interface FaqItem {
   reponse: string;
 }
 
+interface PageReliee {
+  href: string;
+  titre: string;
+}
+
 interface Props {
   titre: string;
   sousTitre: string;
@@ -19,6 +24,7 @@ interface Props {
   programmes: Programme[];
   faqs: FaqItem[];
   motCle: string;
+  pagesRelies?: PageReliee[];
 }
 
 export default function SeoProgrammesPage({
@@ -28,6 +34,7 @@ export default function SeoProgrammesPage({
   programmes,
   faqs,
   motCle,
+  pagesRelies,
 }: Props) {
   const totalMax = programmes.reduce((acc, p) => acc + p.montant_max, 0);
 
@@ -140,6 +147,27 @@ export default function SeoProgrammesPage({
             </div>
           ))}
         </div>
+
+        {/* Pages reliées */}
+        {pagesRelies && pagesRelies.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-base font-bold text-slate-700 uppercase tracking-wide mb-3">
+              Pages reliées
+            </h2>
+            <div className="flex flex-col gap-2">
+              {pagesRelies.map((page) => (
+                <Link
+                  key={page.href}
+                  href={page.href}
+                  className="flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors"
+                >
+                  <span className="text-slate-700 text-sm font-medium">{page.titre}</span>
+                  <span className="text-blue-500 text-sm shrink-0 ml-2">→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA final */}
         <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 text-center mb-8">

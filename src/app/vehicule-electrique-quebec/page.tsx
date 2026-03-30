@@ -68,6 +68,11 @@ export default function VehiculeElectriqueQuebecPage() {
       programmes={programmes}
       faqs={faqs}
       motCle="Subvention véhicule électrique Québec 2026"
+      pagesRelies={[
+        { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec" },
+        { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec" },
+        { href: "/credit-impot-quebec", titre: "Tous les crédits d'impôt Québec" },
+      ]}
     />
   );
 }

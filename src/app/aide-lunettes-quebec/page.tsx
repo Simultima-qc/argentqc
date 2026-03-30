@@ -96,6 +96,11 @@ export default function AideLunettesQuebecPage() {
       programmes={programmes}
       faqs={faqs}
       motCle="Aide lunettes Québec 2026"
+      pagesRelies={[
+        { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit d'impôt frais médicaux Québec" },
+        { href: "/credit-impot-quebec", titre: "Tous les crédits d'impôt Québec" },
+        { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec" },
+      ]}
     />
   );
 }

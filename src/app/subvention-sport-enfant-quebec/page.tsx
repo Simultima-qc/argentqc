@@ -95,6 +95,11 @@ export default function SubventionSportEnfantPage() {
       programmes={programmes}
       faqs={faqs}
       motCle="Subvention sport enfant Québec 2026"
+      pagesRelies={[
+        { href: "/aide-famille-quebec", titre: "Aide financière famille Québec" },
+        { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – montants" },
+        { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit d'impôt frais médicaux Québec" },
+      ]}
     />
   );
 }

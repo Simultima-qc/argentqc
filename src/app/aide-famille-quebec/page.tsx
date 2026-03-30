@@ -96,6 +96,11 @@ export default function AideFamilleQuebecPage() {
       programmes={programmes}
       faqs={faqs}
       motCle="Aide financière famille Québec"
+      pagesRelies={[
+        { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – montants" },
+        { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec" },
+        { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec" },
+      ]}
     />
   );
 }
