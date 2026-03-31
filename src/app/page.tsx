@@ -176,6 +176,7 @@ export default function Home() {
               { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "Allocations, ACE, crédit solidarité" },
               { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – combien ?", desc: "Montants 2026 détaillés" },
               { href: "/credit-impot-quebec", titre: "Crédits d'impôt Québec", desc: "Tous les crédits remboursables" },
+              { href: "/subventions-maison-quebec", titre: "Subventions maison Québec 2026", desc: "Guide complet — jusqu'à 50 000 $" },
               { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec", desc: "Rénoclimat, LogisVert, fédéral" },
               { href: "/vehicule-electrique-quebec", titre: "Subvention véhicule électrique", desc: "Roulez vert 2026" },
               { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec", desc: "Montants 2026 et conditions" },
