@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/frais-garde-enfants-quebec-2026`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/subventions-maison-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/aide-financiere-sport-enfant-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/cout-vie-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/aide-lunettes-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/subvention-sport-enfant-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/credit-impot-frais-medicaux-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

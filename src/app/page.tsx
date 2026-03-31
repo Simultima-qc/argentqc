@@ -184,6 +184,7 @@ export default function Home() {
               { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec", desc: "LogisVert + Rénoclimat, jusqu'à 9 700 $" },
               { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Lunettes, dentiste, médicaments" },
               { href: "/aide-lunettes-quebec", titre: "Aide pour lunettes Québec", desc: "Crédits d'impôt disponibles" },
+              { href: "/cout-vie-quebec", titre: "Coût de la vie Québec 2026", desc: "Budget par profil + aides disponibles" },
               { href: "/aide-financiere-sport-enfant-quebec", titre: "Aide financière sport enfant Québec", desc: "Guide complet — tous les programmes" },
               { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec", desc: "ACE, allocation famille, frais de garde" },
             ].map((lien) => (
