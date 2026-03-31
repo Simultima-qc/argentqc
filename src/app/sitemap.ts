@@ -24,5 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/subvention-sport-enfant-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/credit-impot-frais-medicaux-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/subvention-thermopompe-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/subvention-isolation-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/reno-climat-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/borne-recharge-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

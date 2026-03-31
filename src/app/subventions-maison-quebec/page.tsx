@@ -23,7 +23,6 @@ const programmes = [
     nom: "LogisVert – Thermopompe",
     organisme: "Hydro-Québec",
     montant: "Jusqu'à 6 700 $",
-    description: "Aide directe pour l'achat et l'installation d'une thermopompe certifiée ENERGY STAR.",
     href: "/subvention-thermopompe-quebec",
     badge: "Provincial",
     badgeColor: "bg-blue-100 text-blue-700",
@@ -33,8 +32,7 @@ const programmes = [
     nom: "Rénoclimat",
     organisme: "Transition énergétique Québec",
     montant: "100 $ – 10 000 $",
-    description: "Subvention basée sur l'amélioration de l'efficacité énergétique : isolation, fenêtres, thermopompe.",
-    href: "/subvention-renovation-quebec",
+    href: "/reno-climat-quebec",
     badge: "Provincial",
     badgeColor: "bg-blue-100 text-blue-700",
     categorie: "Rénovation",
@@ -43,7 +41,6 @@ const programmes = [
     nom: "Crédit rénovations multigénérationnelles",
     organisme: "Gouvernement du Canada",
     montant: "Jusqu'à 7 500 $",
-    description: "Crédit remboursable de 15% pour créer un logement secondaire pour un aîné ou une personne handicapée.",
     href: "/subvention-renovation-quebec",
     badge: "Fédéral",
     badgeColor: "bg-red-100 text-red-700",
@@ -53,7 +50,6 @@ const programmes = [
     nom: "Crédit accessibilité domiciliaire (CIHA)",
     organisme: "Gouvernement du Canada",
     montant: "Jusqu'à 3 750 $",
-    description: "Crédit de 15% sur les travaux d'accessibilité pour aider les aînés ou personnes handicapées à rester chez elles.",
     href: "/subvention-renovation-quebec",
     badge: "Fédéral",
     badgeColor: "bg-red-100 text-red-700",
@@ -62,8 +58,7 @@ const programmes = [
   {
     nom: "RAP – Régime d'accession à la propriété",
     organisme: "Gouvernement du Canada",
-    montant: "Jusqu'à 35 000 $ par personne",
-    description: "Retirez jusqu'à 35 000 $ de votre REER sans impôt pour acheter votre première maison (70 000 $ pour un couple).",
+    montant: "Jusqu'à 35 000 $ / personne",
     href: "/questionnaire",
     badge: "Fédéral",
     badgeColor: "bg-red-100 text-red-700",
@@ -73,8 +68,7 @@ const programmes = [
     nom: "Borne de recharge – Roulez vert",
     organisme: "Transition énergétique Québec",
     montant: "600 $",
-    description: "Subvention pour l'achat et l'installation d'une borne de recharge de niveau 2 à domicile.",
-    href: "/vehicule-electrique-quebec",
+    href: "/borne-recharge-quebec",
     badge: "Provincial",
     badgeColor: "bg-blue-100 text-blue-700",
     categorie: "Transport",
@@ -90,31 +84,22 @@ const cumuls = [
   { programme: "Borne de recharge Roulez vert", montant: "600 $", organisme: "TEQ" },
 ];
 
+const travauxAdmissibles = [
+  { type: "Thermopompe air-air ou air-eau", programmes: "LogisVert + Rénoclimat", montant: "Jusqu'à 9 700 $", href: "/subvention-thermopompe-quebec" },
+  { type: "Isolation des murs, grenier, sous-sol", programmes: "Rénoclimat", montant: "Jusqu'à 5 000 $", href: "/subvention-isolation-quebec" },
+  { type: "Fenêtres et portes extérieures", programmes: "Rénoclimat", montant: "Variable selon cote ÉnerGuide", href: "/reno-climat-quebec" },
+  { type: "Ventilateur récupérateur de chaleur (VRC)", programmes: "Rénoclimat", montant: "Variable selon cote ÉnerGuide", href: "/reno-climat-quebec" },
+  { type: "Borne de recharge niveau 2 à domicile", programmes: "Roulez vert", montant: "600 $", href: "/borne-recharge-quebec" },
+  { type: "Logement secondaire pour aîné/handicapé", programmes: "Crédit multigénérationnel", montant: "Jusqu'à 7 500 $", href: "/subvention-renovation-quebec" },
+  { type: "Travaux d'accessibilité (rampe, salle de bain…)", programmes: "CIHA fédéral", montant: "Jusqu'à 3 750 $", href: "/subvention-renovation-quebec" },
+];
+
 const satellites = [
-  {
-    href: "/subvention-thermopompe-quebec",
-    titre: "Subvention thermopompe Québec 2026",
-    desc: "LogisVert + Rénoclimat, jusqu'à 9 700 $",
-    emoji: "🌡️",
-  },
-  {
-    href: "/subvention-renovation-quebec",
-    titre: "Subvention rénovation Québec 2026",
-    desc: "Rénoclimat, crédits fédéraux, guide complet",
-    emoji: "🔨",
-  },
-  {
-    href: "/blog/renoclimat-2026-guide-complet",
-    titre: "Rénoclimat 2026 – Guide étape par étape",
-    desc: "Comment faire votre demande et maximiser votre subvention",
-    emoji: "📋",
-  },
-  {
-    href: "/vehicule-electrique-quebec",
-    titre: "Subvention borne de recharge Québec",
-    desc: "600 $ pour installer une borne à domicile",
-    emoji: "⚡",
-  },
+  { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec 2026", desc: "LogisVert + Rénoclimat, jusqu'à 9 700 $", emoji: "🌡️" },
+  { href: "/subvention-isolation-quebec", titre: "Subvention isolation maison Québec 2026", desc: "Rénoclimat — isolation murs, grenier, sous-sol", emoji: "🧱" },
+  { href: "/reno-climat-quebec", titre: "Guide Rénoclimat Québec 2026 — étape par étape", desc: "Comment faire votre demande et maximiser votre subvention", emoji: "📋" },
+  { href: "/borne-recharge-quebec", titre: "Subvention borne de recharge Québec 2026", desc: "600 $ pour installer une borne à domicile", emoji: "⚡" },
+  { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec 2026", desc: "Crédits fédéraux, multigénérationnel, accessibilité", emoji: "🔨" },
 ];
 
 const faqs = [
@@ -163,9 +148,12 @@ export default function SubventionsMaisonPage() {
           <p className="text-blue-300 text-xs uppercase tracking-wide font-semibold mb-2">
             Guide de référence · Aide rénovation Québec 2026
           </p>
-          <h1 className="text-3xl font-extrabold leading-tight mb-6">
+          <h1 className="text-3xl font-extrabold leading-tight mb-4">
             Liste des subventions maison Québec 2026 (thermopompe, rénovation, énergie)
           </h1>
+          <p className="text-blue-200 text-sm leading-relaxed mb-6">
+            Voici la liste complète des subventions maison au Québec en 2026, mise à jour selon les programmes gouvernementaux actuels.
+          </p>
 
           {/* Bloc En résumé */}
           <div className="bg-blue-800 border border-blue-600 rounded-2xl p-5 mb-6">
@@ -190,12 +178,11 @@ export default function SubventionsMaisonPage() {
       <div className="max-w-2xl mx-auto px-4 py-8">
 
         {/* H2 : Quelles subventions disponibles */}
-        <h2 className="text-xl font-bold text-slate-800 mb-4">Quelles sont les subventions maison disponibles en 2026 ?</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-2">Quelles sont les subventions maison disponibles en 2026 ?</h2>
         <p className="text-slate-600 text-sm leading-relaxed mb-5">
           Le gouvernement du Québec et le gouvernement fédéral offrent plusieurs programmes d&apos;aide financière
-          pour les propriétaires en 2026. Ces programmes de rénovation et d&apos;aide énergie au Québec
-          peuvent être cumulés pour maximiser votre remboursement. Voici la liste complète des subventions maison
-          disponibles, par ordre de popularité.
+          pour les propriétaires en 2026. Ces aides énergie et rénovation au Québec peuvent être cumulées
+          pour maximiser votre remboursement.
         </p>
         <div className="flex flex-col gap-3 mb-10">
           {programmes.map((prog) => (
@@ -222,12 +209,35 @@ export default function SubventionsMaisonPage() {
           ))}
         </div>
 
-        {/* H2 : Combien pouvez-vous recevoir */}
-        <h2 className="text-xl font-bold text-slate-800 mb-3">Combien pouvez-vous recevoir en subventions au Québec ?</h2>
+        {/* H2 : Quels travaux admissibles */}
+        <h2 className="text-xl font-bold text-slate-800 mb-2">Quels travaux sont admissibles aux subventions ?</h2>
         <p className="text-slate-600 text-sm leading-relaxed mb-4">
-          Le chiffre de 50 000 $ n&apos;est pas magique — c&apos;est la somme réelle que peut atteindre
-          un propriétaire qui cumule intelligemment les programmes provinciaux et fédéraux. Voici
-          comment on y arrive, programme par programme :
+          Tous les travaux ne sont pas subventionnés de la même façon. Voici les travaux les plus
+          courants et les programmes auxquels ils donnent accès :
+        </p>
+        <div className="flex flex-col gap-2 mb-10">
+          {travauxAdmissibles.map((t) => (
+            <Link
+              key={t.type}
+              href={t.href}
+              className="bg-white rounded-xl border border-slate-100 px-4 py-3 flex items-center justify-between hover:border-blue-200 transition-colors"
+            >
+              <div className="flex-1 min-w-0 mr-3">
+                <p className="font-semibold text-slate-800 text-sm">{t.type}</p>
+                <p className="text-slate-400 text-xs mt-0.5">{t.programmes}</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="font-bold text-green-700 text-xs">{t.montant}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* H2 : Combien pouvez-vous recevoir */}
+        <h2 className="text-xl font-bold text-slate-800 mb-2">Combien pouvez-vous recevoir en subventions au Québec ?</h2>
+        <p className="text-slate-600 text-sm leading-relaxed mb-4">
+          Le chiffre de 50 000 $ est la somme réelle que peut atteindre un propriétaire qui cumule
+          intelligemment les programmes provinciaux et fédéraux. Voici comment on y arrive :
         </p>
         <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-5">
           <div className="space-y-2 mb-4">
@@ -248,105 +258,16 @@ export default function SubventionsMaisonPage() {
           <p className="text-xs text-slate-500 mt-3">
             * Le RAP REER s&apos;applique à l&apos;achat d&apos;une première propriété uniquement.
             Les autres programmes s&apos;appliquent à la rénovation d&apos;une propriété existante.
-            Un ménage peut recevoir plusieurs programmes simultanément.
           </p>
-        </div>
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-10">
-          <p className="text-xs font-semibold text-slate-500 uppercase mb-3">Exemples de projets courants</p>
-          <div className="space-y-3">
-            {[
-              { projet: "Thermopompe seulement", montant: "Jusqu'à 9 700 $", detail: "LogisVert 6 700 $ + Rénoclimat 3 000 $" },
-              { projet: "Isolation complète", montant: "Jusqu'à 5 000 $", detail: "Rénoclimat uniquement" },
-              { projet: "Rénovation écoénergétique complète", montant: "Jusqu'à 17 500 $", detail: "Rénoclimat + crédits fédéraux" },
-              { projet: "Premier acheteur + rénovations", montant: "Jusqu'à 50 000 $", detail: "RAP REER + Rénoclimat + crédits fédéraux" },
-            ].map((ex) => (
-              <div key={ex.projet} className="flex items-center justify-between border-b border-slate-100 pb-2 last:border-0 last:pb-0">
-                <div>
-                  <p className="font-semibold text-slate-800 text-sm">{ex.projet}</p>
-                  <p className="text-slate-400 text-xs">{ex.detail}</p>
-                </div>
-                <p className="font-extrabold text-green-700 text-sm shrink-0 ml-2">{ex.montant}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* H2 : Subvention thermopompe */}
-        <h2 className="text-xl font-bold text-slate-800 mb-3">Subvention thermopompe Québec 2026</h2>
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
-          <p className="text-green-700 font-bold text-base mb-3">Jusqu&apos;à 9 700 $ cumulables</p>
-          <p className="text-slate-600 text-sm leading-relaxed mb-3">
-            La subvention thermopompe au Québec combine deux programmes distincts : <strong>LogisVert</strong>{" "}
-            d&apos;Hydro-Québec (jusqu&apos;à 6 700 $) et <strong>Rénoclimat</strong>{" "}
-            (jusqu&apos;à 3 000 $). Ces deux aides énergie au Québec sont cumulables et peuvent couvrir
-            50% à 70% du coût total d&apos;installation. La thermopompe remplace le chauffage électrique
-            traditionnel et réduit la facture d&apos;électricité de 30% à 50% — un investissement qui se
-            rembourse en 4 à 7 ans, subventions incluses.
-          </p>
-          <Link href="/subvention-thermopompe-quebec" className="text-blue-600 text-sm font-semibold">
-            Guide complet subvention thermopompe Québec →
-          </Link>
-        </div>
-
-        {/* H2 : Subvention isolation */}
-        <h2 className="text-xl font-bold text-slate-800 mb-3">Subvention isolation maison Québec</h2>
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
-          <p className="text-green-700 font-bold text-base mb-3">Jusqu&apos;à 5 000 $ via Rénoclimat</p>
-          <p className="text-slate-600 text-sm leading-relaxed mb-3">
-            L&apos;isolation des murs, du toit et du sous-sol est l&apos;un des travaux les mieux
-            subventionnés par le programme Rénoclimat. C&apos;est souvent le meilleur retour sur investissement :
-            une maison bien isolée réduit la facture de chauffage de 20% à 40%, en plus de recevoir
-            une subvention basée sur l&apos;amélioration de la cote énergétique ÉnerGuide.
-            Les travaux admissibles incluent : isolation des murs extérieurs, isolation du grenier,
-            isolation du sous-sol, remplacement de fenêtres et de portes.
-          </p>
-          <Link href="/subvention-renovation-quebec" className="text-blue-600 text-sm font-semibold">
-            Guide subvention rénovation maison Québec →
-          </Link>
-        </div>
-
-        {/* H2 : Programme Rénoclimat */}
-        <h2 className="text-xl font-bold text-slate-800 mb-3">Programme Rénoclimat — comment ça fonctionne</h2>
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
-          <p className="text-slate-600 text-sm leading-relaxed mb-4">
-            Rénoclimat est le principal programme de rénovation écoénergétique au Québec. Il couvre
-            isolation, thermopompe, fenêtres, VRC (ventilation) et plus. Le montant de l&apos;aide
-            financière maison est calculé selon l&apos;amélioration de la cote ÉnerGuide de votre maison :
-            plus les travaux améliorent l&apos;efficacité de votre habitation, plus la subvention est élevée.
-            C&apos;est pourquoi il est possible de combiner plusieurs types de travaux dans une seule demande
-            pour maximiser le montant reçu.
-          </p>
-          <div className="bg-slate-50 rounded-xl p-4 mb-4">
-            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Étapes clés</p>
-            <ol className="space-y-1.5 text-sm text-slate-700">
-              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">1.</span> Évaluation énergétique avant les travaux (obligatoire)</li>
-              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">2.</span> Travaux par entrepreneur certifié RBQ</li>
-              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">3.</span> Deuxième évaluation après les travaux</li>
-              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">4.</span> Subvention versée en 8 à 16 semaines</li>
-            </ol>
-          </div>
-          <div className="flex gap-3 flex-wrap">
-            <Link href="/blog/renoclimat-2026-guide-complet" className="text-blue-600 text-sm font-semibold">
-              Guide Rénoclimat étape par étape →
-            </Link>
-            <a
-              href="https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/renoclimat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-500 text-sm font-medium"
-            >
-              Site officiel Rénoclimat ↗
-            </a>
-          </div>
         </div>
 
         {/* H2 : Qui est admissible */}
-        <h2 className="text-xl font-bold text-slate-800 mb-3">Qui est admissible aux subventions maison au Québec ?</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-2 mt-8">Qui est admissible aux subventions maison au Québec ?</h2>
         <p className="text-slate-600 text-sm leading-relaxed mb-4">
-          C&apos;est la question la plus fréquente. Les critères varient selon le programme, mais voici
-          les conditions générales qui s&apos;appliquent à la majorité des aides disponibles en 2026 :
+          Les critères varient selon le programme, mais voici les conditions générales pour la majorité
+          des aides disponibles en 2026 :
         </p>
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-4">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-3">
           <div className="space-y-3">
             {[
               { label: "Statut", valeur: "Propriétaire occupant (résidence principale)" },
@@ -376,19 +297,18 @@ export default function SubventionsMaisonPage() {
         </div>
 
         {/* H2 : Comment faire une demande */}
-        <h2 className="text-xl font-bold text-slate-800 mb-3">Comment faire une demande de subvention maison ?</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-2">Comment faire une demande de subvention maison ?</h2>
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-10">
           <p className="text-slate-600 text-sm leading-relaxed mb-4">
-            Chaque programme a son propre processus, mais les étapes générales sont similaires.
             Voici comment procéder pour obtenir vos subventions maison au Québec en 2026 :
           </p>
           <div className="space-y-3 mb-4">
             {[
-              { num: "1", titre: "Vérifiez votre admissibilité", texte: "Utilisez notre questionnaire gratuit pour voir tous les programmes auxquels vous avez droit — 2 minutes suffit." },
-              { num: "2", titre: "Faites l'évaluation énergétique (si requis)", texte: "Obligatoire pour Rénoclimat — à commander AVANT les travaux via un conseiller énergétique accrédité." },
-              { num: "3", titre: "Obtenez des soumissions d'entrepreneurs certifiés RBQ", texte: "Comparez au moins 3 soumissions. L'entrepreneur doit être certifié RBQ pour les programmes provinciaux." },
-              { num: "4", titre: "Réalisez les travaux", texte: "Conservez toutes les factures et contrats. Prenez des photos avant/après si possible." },
-              { num: "5", titre: "Soumettez votre demande", texte: "Délais maximums : 9 mois après installation (LogisVert) ; après 2e évaluation (Rénoclimat). Ne tardez pas." },
+              { num: "1", titre: "Vérifiez votre admissibilité", texte: "Utilisez notre questionnaire gratuit pour voir tous les programmes auxquels vous avez droit — 2 minutes." },
+              { num: "2", titre: "Faites l'évaluation énergétique (si requis)", texte: "Obligatoire pour Rénoclimat — à commander AVANT les travaux via un conseiller accrédité." },
+              { num: "3", titre: "Obtenez des soumissions d'entrepreneurs certifiés RBQ", texte: "Comparez au moins 3 soumissions. L'entrepreneur doit être certifié RBQ." },
+              { num: "4", titre: "Réalisez les travaux", texte: "Conservez toutes les factures et contrats. Prenez des photos avant/après." },
+              { num: "5", titre: "Soumettez votre demande", texte: "Délais max : 9 mois après installation (LogisVert) ; après 2e évaluation (Rénoclimat)." },
               { num: "6", titre: "Recevez votre subvention", texte: "Par dépôt direct ou chèque, en 4 à 16 semaines selon le programme." },
             ].map((e) => (
               <div key={e.num} className="flex gap-3 items-start">
@@ -413,7 +333,7 @@ export default function SubventionsMaisonPage() {
           </div>
         </div>
 
-        {/* Guides détaillés */}
+        {/* Guides détaillés — liens SEO exacts */}
         <h2 className="text-xl font-bold text-slate-800 mb-4">Guides détaillés par programme</h2>
         <div className="flex flex-col gap-3 mb-10">
           {satellites.map((s) => (
