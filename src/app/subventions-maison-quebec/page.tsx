@@ -2,14 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Subventions maison Québec 2026 – Guide complet (jusqu'à 50 000 $)",
+  title: "Subventions maison Québec 2026 : toutes les aides disponibles (jusqu'à 50 000 $)",
   description:
-    "Toutes les subventions et aides disponibles pour votre maison au Québec en 2026 : thermopompe, rénovation, isolation, premier acheteur. Montants, conditions et liens officiels.",
+    "Guide complet des subventions maison au Québec en 2026 : thermopompe, isolation, rénovation écoénergétique, premier acheteur. Montants, admissibilité et liens officiels.",
   keywords: [
     "subventions maison Québec 2026",
+    "aide rénovation Québec",
+    "subvention maison Québec",
+    "programme rénovation Québec",
+    "aide énergie Québec",
     "aide financière maison Québec",
-    "subvention rénovation Québec 2026",
-    "programme maison Québec",
   ],
 };
 
@@ -127,13 +129,6 @@ const faqs = [
 ];
 
 export default function SubventionsMaisonPage() {
-  const totalMax = programmes.reduce((acc, p) => {
-    const match = p.montant.match(/[\d\s]+/g);
-    if (!match) return acc;
-    const nums = match.map((n) => parseInt(n.replace(/\s/g, ""), 10)).filter(Boolean);
-    return acc + Math.max(...nums);
-  }, 0);
-
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Header */}
@@ -150,16 +145,23 @@ export default function SubventionsMaisonPage() {
       <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white px-5 py-12">
         <div className="max-w-2xl mx-auto">
           <p className="text-blue-300 text-xs uppercase tracking-wide font-semibold mb-2">
-            Page de référence · Subventions maison Québec 2026
+            Guide de référence · Aide rénovation Québec 2026
           </p>
-          <h1 className="text-3xl font-extrabold leading-tight mb-4">
-            Toutes les subventions disponibles pour votre maison au Québec
+          <h1 className="text-3xl font-extrabold leading-tight mb-6">
+            Subventions maison Québec 2026 : toutes les aides disponibles (jusqu&apos;à 50 000 $)
           </h1>
-          <p className="text-blue-100 text-base leading-relaxed mb-6">
-            Thermopompe, isolation, rénovation écoénergétique, premier acheteur — un propriétaire
-            québécois peut cumuler jusqu&apos;à <strong>50 000 $</strong> d&apos;aides gouvernementales.
-            Voici tous les programmes disponibles en 2026.
-          </p>
+
+          {/* Bloc En résumé */}
+          <div className="bg-blue-800 border border-blue-600 rounded-2xl p-5 mb-6">
+            <p className="font-bold text-white text-sm mb-3 uppercase tracking-wide">En résumé</p>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-start gap-2"><span className="text-yellow-400 shrink-0">💰</span><span className="text-blue-100">Jusqu&apos;à <strong>50 000 $</strong>{" "}cumulables en subventions et crédits</span></li>
+              <li className="flex items-start gap-2"><span className="text-yellow-400 shrink-0">🏠</span><span className="text-blue-100">Principales aides : thermopompe, isolation, rénovation écoénergétique</span></li>
+              <li className="flex items-start gap-2"><span className="text-yellow-400 shrink-0">⏱</span><span className="text-blue-100">Délai pour recevoir les fonds : 4 à 16 semaines selon le programme</span></li>
+              <li className="flex items-start gap-2"><span className="text-yellow-400 shrink-0">✅</span><span className="text-blue-100">Admissibilité de base : propriétaire occupant, maison construite avant 2012</span></li>
+            </ul>
+          </div>
+
           <Link
             href="/questionnaire"
             className="block w-full bg-yellow-400 text-blue-900 font-bold text-base py-4 rounded-2xl text-center"
@@ -171,15 +173,13 @@ export default function SubventionsMaisonPage() {
 
       <div className="max-w-2xl mx-auto px-4 py-8">
 
-        {/* Résumé rapide */}
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-8 text-center">
-          <p className="text-xs text-blue-600 uppercase font-semibold tracking-wide mb-1">Potentiel total estimé</p>
-          <p className="text-4xl font-extrabold text-blue-800">50 000 $+</p>
-          <p className="text-xs text-blue-500 mt-1">{programmes.length} programmes disponibles en 2026</p>
-        </div>
-
-        {/* Tableau de tous les programmes */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Tous les programmes d&apos;un coup d&apos;œil</h2>
+        {/* H2 : Quelles subventions disponibles */}
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Quelles sont les subventions maison disponibles en 2026 ?</h2>
+        <p className="text-slate-600 text-sm leading-relaxed mb-5">
+          Le gouvernement du Québec et le gouvernement fédéral offrent plusieurs programmes d&apos;aide financière
+          pour les propriétaires en 2026. Ces programmes de rénovation et d&apos;aide énergie au Québec
+          peuvent être cumulés pour maximiser votre remboursement.
+        </p>
         <div className="flex flex-col gap-3 mb-10">
           {programmes.map((prog) => (
             <Link
@@ -205,92 +205,148 @@ export default function SubventionsMaisonPage() {
           ))}
         </div>
 
-        {/* Sections thématiques */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Par thème</h2>
-
-        {/* Thermopompe */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-4">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-2xl">🌡️</span>
-            <div>
-              <h3 className="font-bold text-slate-800">Thermopompe</h3>
-              <p className="text-green-700 font-bold text-sm">Jusqu&apos;à 9 700 $</p>
-            </div>
-          </div>
+        {/* H2 : Subvention thermopompe */}
+        <h2 className="text-xl font-bold text-slate-800 mb-3">Subvention thermopompe Québec 2026</h2>
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
+          <p className="text-green-700 font-bold text-base mb-3">Jusqu&apos;à 9 700 $ cumulables</p>
           <p className="text-slate-600 text-sm leading-relaxed mb-3">
-            La meilleure combinaison disponible : <strong>LogisVert</strong>{" "}d&apos;Hydro-Québec (jusqu&apos;à 6 700 $)
-            + <strong>Rénoclimat</strong>{" "}(jusqu&apos;à 3 000 $). Ces deux programmes sont cumulables et peuvent
-            couvrir plus de 50% du coût d&apos;une thermopompe.
+            La subvention thermopompe au Québec combine deux programmes distincts : <strong>LogisVert</strong>{" "}
+            d&apos;Hydro-Québec (jusqu&apos;à 6 700 $) et <strong>Rénoclimat</strong>{" "}
+            (jusqu&apos;à 3 000 $). Ces deux aides énergie au Québec sont cumulables et peuvent couvrir
+            50% à 70% du coût total d&apos;installation.
           </p>
-          <Link href="/subvention-thermopompe-quebec" className="text-blue-600 text-sm font-medium">
-            Guide complet thermopompe →
+          <Link href="/subvention-thermopompe-quebec" className="text-blue-600 text-sm font-semibold">
+            Guide complet subvention thermopompe Québec →
           </Link>
         </div>
 
-        {/* Rénovation écoénergétique */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-4">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-2xl">🔨</span>
-            <div>
-              <h3 className="font-bold text-slate-800">Rénovation écoénergétique</h3>
-              <p className="text-green-700 font-bold text-sm">Jusqu&apos;à 10 000 $ (Rénoclimat)</p>
-            </div>
-          </div>
+        {/* H2 : Subvention isolation */}
+        <h2 className="text-xl font-bold text-slate-800 mb-3">Subvention isolation maison Québec</h2>
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
+          <p className="text-green-700 font-bold text-base mb-3">Jusqu&apos;à 5 000 $ via Rénoclimat</p>
           <p className="text-slate-600 text-sm leading-relaxed mb-3">
-            Rénoclimat couvre isolation, fenêtres, portes, VRC et plus. Le montant est calculé selon
-            l&apos;amélioration de la cote énergétique de votre maison — une évaluation énergétique
-            avant les travaux est obligatoire.
+            L&apos;isolation des murs, du toit et du sous-sol est l&apos;un des travaux les mieux
+            subventionnés par le programme Rénoclimat. C&apos;est souvent le meilleur retour sur investissement :
+            une maison bien isolée réduit la facture de chauffage de 20% à 40%, en plus de recevoir
+            une subvention basée sur l&apos;amélioration de la cote énergétique.
           </p>
+          <Link href="/subvention-renovation-quebec" className="text-blue-600 text-sm font-semibold">
+            Guide subvention rénovation maison Québec →
+          </Link>
+        </div>
+
+        {/* H2 : Programme Rénoclimat */}
+        <h2 className="text-xl font-bold text-slate-800 mb-3">Programme Rénoclimat — comment ça fonctionne</h2>
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            Rénoclimat est le principal programme de rénovation écoénergétique au Québec. Il couvre
+            isolation, thermopompe, fenêtres, VRC (ventilation) et plus. Le montant de l&apos;aide
+            financière maison est calculé selon l&apos;amélioration de la cote ÉnerGuide de votre maison.
+          </p>
+          <div className="bg-slate-50 rounded-xl p-4 mb-4">
+            <p className="text-xs font-semibold text-slate-500 uppercase mb-2">Étapes clés</p>
+            <ol className="space-y-1.5 text-sm text-slate-700">
+              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">1.</span> Évaluation énergétique avant les travaux (obligatoire)</li>
+              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">2.</span> Travaux par entrepreneur certifié RBQ</li>
+              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">3.</span> Deuxième évaluation après les travaux</li>
+              <li className="flex gap-2"><span className="font-bold text-blue-700 shrink-0">4.</span> Subvention versée en 8 à 16 semaines</li>
+            </ol>
+          </div>
           <div className="flex gap-3 flex-wrap">
-            <Link href="/subvention-renovation-quebec" className="text-blue-600 text-sm font-medium">
-              Guide rénovation →
-            </Link>
-            <Link href="/blog/renoclimat-2026-guide-complet" className="text-blue-600 text-sm font-medium">
+            <Link href="/blog/renoclimat-2026-guide-complet" className="text-blue-600 text-sm font-semibold">
               Guide Rénoclimat étape par étape →
             </Link>
+            <a
+              href="https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/renoclimat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 text-sm font-medium"
+            >
+              Site officiel Rénoclimat ↗
+            </a>
           </div>
         </div>
 
-        {/* Multigen + accessibilité */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-4">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-2xl">👴</span>
-            <div>
-              <h3 className="font-bold text-slate-800">Aînés et accessibilité</h3>
-              <p className="text-green-700 font-bold text-sm">Jusqu&apos;à 11 250 $ (fédéral)</p>
-            </div>
+        {/* H2 : Qui est admissible */}
+        <h2 className="text-xl font-bold text-slate-800 mb-3">Qui est admissible aux subventions maison ?</h2>
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-8">
+          <div className="space-y-3">
+            {[
+              { label: "Statut", valeur: "Propriétaire occupant (résidence principale)" },
+              { label: "Âge de la maison", valeur: "Construite avant 2012 (pour Rénoclimat)" },
+              { label: "Type de bâtiment", valeur: "Unifamiliale, jumelée, maison de ville" },
+              { label: "Localisation", valeur: "Partout au Québec" },
+              { label: "Entrepreneur", valeur: "Certifié RBQ obligatoire pour la plupart des programmes" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-start gap-3 text-sm">
+                <span className="text-green-500 shrink-0 mt-0.5">✓</span>
+                <div>
+                  <span className="font-semibold text-slate-800">{item.label} :</span>{" "}
+                  <span className="text-slate-600">{item.valeur}</span>
+                </div>
+              </div>
+            ))}
           </div>
-          <p className="text-slate-600 text-sm leading-relaxed mb-3">
-            Le crédit pour rénovations multigénérationnelles (7 500 $) et le crédit pour
-            l&apos;accessibilité domiciliaire CIHA (3 750 $) sont deux crédits fédéraux distincts
-            et cumulables pour adapter votre domicile.
-          </p>
-          <Link href="/subvention-renovation-quebec" className="text-blue-600 text-sm font-medium">
-            Voir les crédits fédéraux →
-          </Link>
         </div>
 
-        {/* Premier acheteur */}
+        {/* H2 : Combien pouvez-vous recevoir */}
+        <h2 className="text-xl font-bold text-slate-800 mb-3">Combien pouvez-vous recevoir ?</h2>
+        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-8">
+          <p className="text-sm text-slate-600 mb-4">Exemples de combinaisons selon votre projet :</p>
+          <div className="space-y-3">
+            {[
+              { projet: "Thermopompe seulement", montant: "Jusqu'à 9 700 $", detail: "LogisVert + Rénoclimat" },
+              { projet: "Isolation complète", montant: "Jusqu'à 5 000 $", detail: "Rénoclimat" },
+              { projet: "Rénovation complète", montant: "Jusqu'à 17 500 $", detail: "Rénoclimat + crédits fédéraux" },
+              { projet: "Premier acheteur", montant: "Jusqu'à 35 000 $", detail: "RAP REER (par personne)" },
+            ].map((ex) => (
+              <div key={ex.projet} className="flex items-center justify-between bg-white rounded-xl px-4 py-3">
+                <div>
+                  <p className="font-semibold text-slate-800 text-sm">{ex.projet}</p>
+                  <p className="text-slate-400 text-xs">{ex.detail}</p>
+                </div>
+                <p className="font-extrabold text-green-700 text-sm shrink-0 ml-2">{ex.montant}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* H2 : Comment faire une demande */}
+        <h2 className="text-xl font-bold text-slate-800 mb-3">Comment faire une demande de subvention maison ?</h2>
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-10">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-2xl">🏠</span>
-            <div>
-              <h3 className="font-bold text-slate-800">Premier acheteur</h3>
-              <p className="text-green-700 font-bold text-sm">Jusqu&apos;à 35 000 $ par personne (RAP)</p>
-            </div>
-          </div>
-          <p className="text-slate-600 text-sm leading-relaxed mb-3">
-            Le Régime d&apos;accession à la propriété (RAP) vous permet de retirer jusqu&apos;à 35 000 $
-            de votre REER sans impôt pour acheter une première maison — 70 000 $ pour un couple.
-            Remboursable sur 15 ans sans intérêt.
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            Chaque programme a son propre processus. Voici les étapes générales pour les principaux
+            programmes de rénovation au Québec :
           </p>
-          <Link href="/questionnaire" className="text-blue-600 text-sm font-medium">
-            Vérifier mon admissibilité →
-          </Link>
+          <div className="space-y-3 mb-4">
+            {[
+              { num: "1", titre: "Vérifiez votre admissibilité", texte: "Utilisez notre questionnaire pour voir tous les programmes auxquels vous avez droit." },
+              { num: "2", titre: "Faites l'évaluation énergétique (si requis)", texte: "Obligatoire pour Rénoclimat — à faire AVANT les travaux." },
+              { num: "3", titre: "Obtenez des soumissions d'entrepreneurs RBQ", texte: "Plusieurs entrepreneurs avant de choisir." },
+              { num: "4", titre: "Réalisez les travaux", texte: "Conservez toutes les factures et contrats." },
+              { num: "5", titre: "Soumettez votre demande", texte: "Délais : 9 mois (LogisVert), après 2e évaluation (Rénoclimat)." },
+            ].map((e) => (
+              <div key={e.num} className="flex gap-3 items-start">
+                <div className="w-7 h-7 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0">{e.num}</div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-sm">{e.titre}</p>
+                  <p className="text-slate-500 text-xs mt-0.5">{e.texte}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-3 flex-wrap">
+            <Link href="/questionnaire" className="text-sm font-semibold bg-blue-700 text-white px-4 py-2 rounded-xl">
+              Vérifier mon admissibilité →
+            </Link>
+            <a href="https://www.hydroquebec.com/residentiel/mieux-consommer/conseils/fenetres-chauffage-climatisation/thermopompes/aide-financiere.html" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-medium py-2">
+              LogisVert officiel ↗
+            </a>
+          </div>
         </div>
 
-        {/* Pages satellites */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Guides détaillés par programme</h2>
+        {/* Guides détaillés */}
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Guides détaillés par programme</h2>
         <div className="flex flex-col gap-3 mb-10">
           {satellites.map((s) => (
             <Link
@@ -308,8 +364,28 @@ export default function SubventionsMaisonPage() {
           ))}
         </div>
 
+        {/* Liens internes vers autres piliers */}
+        <div className="grid grid-cols-1 gap-3 mb-10">
+          <Link href="/cout-vie-quebec" className="flex items-center gap-3 bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors">
+            <span className="text-xl shrink-0">📊</span>
+            <div className="flex-1 min-w-0">
+              <div className="font-semibold text-slate-700 text-sm">Coût de la vie au Québec 2026</div>
+              <div className="text-slate-400 text-xs mt-0.5">Budget mensuel par profil + toutes les aides</div>
+            </div>
+            <span className="text-blue-500 text-sm shrink-0">→</span>
+          </Link>
+          <Link href="/questionnaire" className="flex items-center gap-3 bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors">
+            <span className="text-xl shrink-0">💡</span>
+            <div className="flex-1 min-w-0">
+              <div className="font-semibold text-slate-700 text-sm">Toutes les aides financières au Québec</div>
+              <div className="text-slate-400 text-xs mt-0.5">Questionnaire personnalisé en 2 minutes</div>
+            </div>
+            <span className="text-blue-500 text-sm shrink-0">→</span>
+          </Link>
+        </div>
+
         {/* FAQ */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Questions fréquentes</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">Questions fréquentes</h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
             <div key={i} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
@@ -320,11 +396,19 @@ export default function SubventionsMaisonPage() {
         </div>
 
         {/* CTA final */}
-        <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 text-center mb-8">
-          <p className="font-bold text-xl mb-2">Découvrez tout ce à quoi vous avez droit</p>
-          <p className="text-blue-200 text-sm mb-4">
-            Répondez à 8 questions — liste personnalisée avec montants estimés en 2 minutes.
+        <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 mb-8">
+          <p className="font-bold text-xl mb-2 text-center">Calculez vos subventions maison en 2 minutes</p>
+          <p className="text-blue-200 text-sm mb-4 text-center">
+            Répondez à 8 questions — liste personnalisée avec montants estimés.
           </p>
+          <div className="bg-blue-700 rounded-xl p-4 mb-4">
+            <p className="text-xs font-semibold text-blue-300 uppercase mb-2">Mini-checklist avant de commencer</p>
+            <ul className="space-y-1.5 text-sm text-blue-100">
+              <li className="flex gap-2"><span className="text-green-400 shrink-0">✓</span> Vous êtes propriétaire occupant</li>
+              <li className="flex gap-2"><span className="text-green-400 shrink-0">✓</span> Votre maison a plus de 10 ans</li>
+              <li className="flex gap-2"><span className="text-green-400 shrink-0">✓</span> Vous planifiez des travaux (ou voulez magasiner)</li>
+            </ul>
+          </div>
           <Link
             href="/questionnaire"
             className="block w-full bg-yellow-400 text-blue-900 font-bold py-4 rounded-2xl text-center"
