@@ -1,4 +1,5 @@
 import Link from "next/link";
+import articles from "@/data/articles";
 
 export default function Home() {
   return (
@@ -170,17 +171,6 @@ export default function Home() {
           <h2 className="text-xl font-bold text-center mb-6 text-slate-800">
             Guides par situation
           </h2>
-          <Link
-            href="/blog/renoclimat-2026-guide-complet"
-            className="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 mb-3 hover:border-blue-300 transition-colors"
-          >
-            <span className="text-2xl">📰</span>
-            <div>
-              <div className="font-semibold text-blue-800 text-sm">Nouveau : Rénoclimat 2026 – Guide complet</div>
-              <div className="text-blue-500 text-xs mt-0.5">Comment obtenir jusqu&apos;à 10 000 $ de subvention</div>
-            </div>
-            <span className="text-blue-400 text-sm shrink-0 ml-auto">→</span>
-          </Link>
           <div className="flex flex-col gap-3">
             {[
               { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "Allocations, ACE, crédit solidarité" },
@@ -208,11 +198,36 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Derniers articles */}
+      <section className="py-10 px-5 border-t border-slate-100">
+        <div className="max-w-lg mx-auto">
+          <h2 className="text-xl font-bold text-center mb-6 text-slate-800">
+            Derniers articles
+          </h2>
+          <div className="flex flex-col gap-3">
+            {articles.slice(0, 3).map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="flex items-start gap-3 bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors"
+              >
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 shrink-0 mt-0.5">{article.categorie}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-slate-800 text-sm leading-snug">{article.titre}</div>
+                  <div className="text-slate-400 text-xs mt-0.5">{article.tempsLecture} de lecture</div>
+                </div>
+                <span className="text-blue-500 text-sm shrink-0">→</span>
+              </Link>
+            ))}
+          </div>
           <Link
             href="/blog"
             className="block text-center text-blue-600 text-sm font-medium mt-4 hover:underline"
           >
-            Voir tous les articles du blogue →
+            Voir tous les articles →
           </Link>
         </div>
       </section>
