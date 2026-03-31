@@ -47,12 +47,12 @@ export default function ArticleFraisGarde() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">C&apos;est quoi exactement ce crédit ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Le crédit d&apos;impôt pour frais de garde d&apos;enfants est un crédit <strong>remboursable</strong> du
+            Le crédit d&apos;impôt pour frais de garde d&apos;enfants est un crédit <strong>remboursable</strong>{" "}du
             gouvernement du Québec. Remboursable signifie que même si vous ne devez pas d&apos;impôt, vous recevez
             quand même l&apos;argent — c&apos;est un chèque que vous recevez.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            Le taux du crédit varie entre <strong>26% et 75%</strong> de vos frais admissibles, selon votre revenu
+            Le taux du crédit varie entre <strong>26% et 75%</strong>{" "}de vos frais admissibles, selon votre revenu
             familial. Plus votre revenu est faible, plus le pourcentage remboursé est élevé. C&apos;est une des
             mesures les plus progressives du système fiscal québécois.
           </p>
