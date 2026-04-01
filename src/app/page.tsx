@@ -23,8 +23,8 @@ export default function Home() {
           >
             Calculer mes aides →
           </Link>
-          <p className="mt-3 text-blue-300 text-xs">
-            Moins de 2 minutes · Résultats immédiats
+          <p className="mt-3 text-blue-300 text-xs text-center">
+            Gratuit · 2 minutes · estimation personnalisée
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-5">
             {[

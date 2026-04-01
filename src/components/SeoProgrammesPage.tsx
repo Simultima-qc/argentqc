@@ -66,6 +66,7 @@ export default function SeoProgrammesPage({
           >
             Calculer mes aides personnalisées →
           </Link>
+          <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>
         </div>
       </section>
 
@@ -181,6 +182,7 @@ export default function SeoProgrammesPage({
           >
             Commencer le questionnaire →
           </Link>
+          <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>
         </div>
 
         <p className="text-slate-400 text-xs text-center leading-relaxed">
