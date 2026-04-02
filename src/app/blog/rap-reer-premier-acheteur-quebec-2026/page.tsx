@@ -63,7 +63,7 @@ export default function ArticleRapReer() {
           <p className="text-slate-600 leading-relaxed mb-3">
             Le Régime d&apos;accession à la propriété (RAP) est un programme du gouvernement fédéral canadien
             qui permet aux premiers acheteurs de retirer des fonds de leur REER pour acheter ou construire
-            une habitation admissible. Le grand avantage : ce retrait n&apos;est <strong>pas imposé</strong> l&apos;année
+            une habitation admissible. Le grand avantage : ce retrait n&apos;est <strong>pas imposé</strong>{" "}l&apos;année
             du retrait, contrairement à un retrait REER ordinaire.
           </p>
           <p className="text-slate-600 leading-relaxed">
