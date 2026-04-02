@@ -11,6 +11,14 @@ export interface Article {
 // L'agent automatique ajoute chaque nouvel article ici.
 const articles: Article[] = [
   {
+    slug: "rap-reer-premier-acheteur-quebec-2026",
+    titre: "RAP 2026 : Comment utiliser votre REER pour acheter votre première maison au Québec",
+    description: "Le RAP vous permet de retirer jusqu'à 35 000 $ de votre REER sans impôt pour votre première maison. Cumulable avec le CELIAPP pour un couple : jusqu'à 150 000 $ de mise de fonds.",
+    date: "2026-04-02",
+    categorie: "Immobilier",
+    tempsLecture: "6 min",
+  },
+  {
     slug: "frais-garde-enfants-quebec-2026",
     titre: "Frais de garde d'enfants au Québec 2026 : récupérez jusqu'à 75% de vos dépenses",
     description: "Le crédit d'impôt pour frais de garde peut couvrir jusqu'à 75% de vos frais de garderie. Montants 2026, conditions et comment cumuler provincial et fédéral.",
