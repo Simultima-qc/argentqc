@@ -1,6 +1,11 @@
 import Link from "next/link";
 import type { Programme } from "@/types";
 
+const DARK = "#060D1A";
+const GOLD = "#F5C842";
+const GREEN = "#10B981";
+const PARCH = "#F7F3EC";
+
 const NIVEAUX_LABELS: Record<string, { label: string; couleur: string }> = {
   federal: { label: "Fédéral", couleur: "bg-red-100 text-red-700" },
   provincial: { label: "Provincial", couleur: "bg-blue-100 text-blue-700" },
@@ -37,87 +42,118 @@ export default function SeoProgrammesPage({
   pagesRelies,
 }: Props) {
   const totalMax = programmes.reduce((acc, p) => acc + p.montant_max, 0);
+  const totalFormate = new Intl.NumberFormat("fr-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 }).format(totalMax);
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main style={{ minHeight: "100vh", background: PARCH }}>
+
       {/* Header */}
-      <header className="bg-blue-700 text-white px-4 py-4 sticky top-0 z-10 shadow-md">
-        <div className="max-w-lg mx-auto flex items-center justify-between">
-          <Link href="/" className="font-bold text-base">
+      <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
             ArgentQC.ca
           </Link>
-          <Link href="/questionnaire" className="text-yellow-300 text-sm font-medium underline">
+          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Calculer mes aides
           </Link>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white px-5 py-10">
-        <div className="max-w-lg mx-auto">
-          <p className="text-blue-300 text-xs uppercase tracking-wide font-semibold mb-2">
+      <section style={{ background: DARK, position: "relative", overflow: "hidden", padding: "48px 20px 40px" }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: `radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,200,66,0.07) 0%, transparent 70%)`
+        }} />
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05,
+          backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
+          backgroundSize: "24px 24px"
+        }} />
+        <div style={{ maxWidth: "512px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <p style={{ color: GOLD, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8 }}>
             {motCle}
           </p>
-          <h1 className="text-2xl font-extrabold leading-tight mb-3">{titre}</h1>
-          <p className="text-blue-100 text-sm leading-relaxed mb-6">{sousTitre}</p>
+          <h1 style={{
+            fontFamily: "var(--font-playfair)",
+            color: "#F0EBE0",
+            fontSize: "clamp(1.6rem, 5vw, 2.2rem)",
+            fontWeight: 800,
+            lineHeight: 1.2,
+            marginBottom: "12px"
+          }}>{titre}</h1>
+          <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>{sousTitre}</p>
           <Link
             href="/questionnaire"
-            className="block w-full bg-yellow-400 text-blue-900 font-bold text-base py-4 rounded-2xl text-center"
+            style={{
+              display: "block",
+              background: GOLD,
+              color: DARK,
+              fontWeight: 800,
+              fontSize: "15px",
+              padding: "14px",
+              borderRadius: "14px",
+              textAlign: "center",
+              textDecoration: "none",
+              boxShadow: `0 0 28px rgba(245,200,66,0.2)`,
+            }}
           >
             Calculer mes aides personnalisées →
           </Link>
-          <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>
+            Gratuit · 2 minutes · estimation personnalisée
+          </p>
         </div>
       </section>
 
-      <div className="max-w-lg mx-auto px-4 py-6">
+      <div style={{ maxWidth: "512px", margin: "0 auto", padding: "24px 16px" }}>
 
         {/* Intro */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 mb-5">
-          <p className="text-slate-700 text-sm leading-relaxed">{intro}</p>
+        <div style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", padding: "20px", marginBottom: "20px", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
+          <p style={{ color: "#44403C", fontSize: "14px", lineHeight: 1.75 }}>{intro}</p>
         </div>
 
-        {/* Résumé */}
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-5 text-center">
-          <p className="text-xs text-blue-600 uppercase font-semibold tracking-wide mb-1">
+        {/* Résumé total */}
+        <div style={{ background: DARK, borderRadius: "16px", padding: "20px", marginBottom: "20px", textAlign: "center" }}>
+          <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>
             Potentiel total estimé
           </p>
-          <p className="text-3xl font-extrabold text-blue-800">
-            {new Intl.NumberFormat("fr-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 }).format(totalMax)}
+          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2.5rem", fontWeight: 800, lineHeight: 1, marginBottom: "4px" }}>
+            {totalFormate}
           </p>
-          <p className="text-xs text-blue-500 mt-1">{programmes.length} programmes disponibles</p>
+          <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px" }}>{programmes.length} programmes disponibles</p>
         </div>
 
         {/* Liste des programmes */}
-        <h2 className="text-base font-bold text-slate-700 uppercase tracking-wide mb-3">
+        <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
           Programmes disponibles
         </h2>
 
-        <div className="flex flex-col gap-4 mb-8">
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
           {programmes.map((prog) => {
             const niveau = NIVEAUX_LABELS[prog.niveau];
             return (
-              <div key={prog.id} className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
-                <div className="bg-green-50 border-b border-green-100 px-4 py-3 flex items-center justify-between">
-                  <div className="flex gap-2 flex-wrap">
+              <div key={prog.id} style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", overflow: "hidden", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
+                <div style={{ background: "#F0FDF4", borderBottom: "1px solid #D1FAE5", padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${niveau.couleur}`}>
                       {niveau.label}
                     </span>
                   </div>
-                  <span className="text-green-700 font-extrabold text-base shrink-0 ml-2">
+                  <span style={{ color: "#059669", fontWeight: 800, fontSize: "15px", flexShrink: 0, marginLeft: "8px" }}>
                     {prog.montant_affiche}
                   </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-slate-800 text-base leading-snug mb-1">
+                <div style={{ padding: "16px" }}>
+                  <h3 style={{ fontWeight: 700, fontSize: "15px", color: "#1C1C1E", marginBottom: "4px", lineHeight: 1.35 }}>
                     {prog.nom}
                   </h3>
-                  <p className="text-slate-400 text-xs mb-3">{prog.organisme}</p>
-                  <p className="text-slate-600 text-sm mb-3 leading-relaxed">{prog.description}</p>
-                  <ul className="space-y-1 mb-4">
+                  <p style={{ color: "#A8A29E", fontSize: "12px", marginBottom: "12px" }}>{prog.organisme}</p>
+                  <p style={{ color: "#57534E", fontSize: "13px", marginBottom: "12px", lineHeight: 1.65 }}>{prog.description}</p>
+                  <ul style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
                     {prog.conditions.map((c, i) => (
-                      <li key={i} className="text-sm text-slate-600 flex gap-2 leading-snug">
-                        <span className="text-green-500 shrink-0 mt-0.5">✓</span>
+                      <li key={i} style={{ fontSize: "13px", color: "#57534E", display: "flex", gap: "8px", lineHeight: 1.5 }}>
+                        <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>✓</span>
                         {c}
                       </li>
                     ))}
@@ -126,7 +162,19 @@ export default function SeoProgrammesPage({
                     href={prog.lien_officiel}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full bg-blue-700 text-white text-sm font-semibold py-3 rounded-xl text-center"
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      background: DARK,
+                      color: GOLD,
+                      fontSize: "13px",
+                      fontWeight: 700,
+                      padding: "12px",
+                      borderRadius: "12px",
+                      textAlign: "center",
+                      textDecoration: "none",
+                      border: `1px solid rgba(245,200,66,0.15)`,
+                    }}
                   >
                     Faire une demande →
                   </a>
@@ -137,33 +185,42 @@ export default function SeoProgrammesPage({
         </div>
 
         {/* FAQ */}
-        <h2 className="text-base font-bold text-slate-700 uppercase tracking-wide mb-3">
+        <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
           Questions fréquentes
         </h2>
-        <div className="flex flex-col gap-3 mb-8">
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "32px" }}>
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-              <h3 className="font-bold text-slate-800 text-sm mb-2">{faq.question}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{faq.reponse}</p>
+            <div key={i} style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", padding: "16px", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
+              <h3 style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E", marginBottom: "8px" }}>{faq.question}</h3>
+              <p style={{ fontSize: "13px", color: "#57534E", lineHeight: 1.7 }}>{faq.reponse}</p>
             </div>
           ))}
         </div>
 
         {/* Pages reliées */}
         {pagesRelies && pagesRelies.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-base font-bold text-slate-700 uppercase tracking-wide mb-3">
+          <div style={{ marginBottom: "32px" }}>
+            <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
               Pages reliées
             </h2>
-            <div className="flex flex-col gap-2">
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {pagesRelies.map((page) => (
                 <Link
                   key={page.href}
                   href={page.href}
-                  className="flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    background: "white",
+                    border: "1px solid #EDE9E0",
+                    borderRadius: "12px",
+                    padding: "12px 16px",
+                    textDecoration: "none",
+                  }}
                 >
-                  <span className="text-slate-700 text-sm font-medium">{page.titre}</span>
-                  <span className="text-blue-500 text-sm shrink-0 ml-2">→</span>
+                  <span style={{ fontSize: "14px", fontWeight: 600, color: "#1C1C1E" }}>{page.titre}</span>
+                  <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>→</span>
                 </Link>
               ))}
             </div>
@@ -171,29 +228,44 @@ export default function SeoProgrammesPage({
         )}
 
         {/* CTA final */}
-        <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 text-center mb-8">
-          <p className="font-bold text-lg mb-1">Trouvez tout ce à quoi vous avez droit</p>
-          <p className="text-blue-200 text-sm mb-4">
+        <div style={{ background: DARK, borderRadius: "20px", padding: "28px 24px", textAlign: "center", marginBottom: "32px" }}>
+          <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.2rem", fontWeight: 800, marginBottom: "8px" }}>
+            Trouvez tout ce à quoi vous avez droit
+          </p>
+          <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "20px" }}>
             Répondez à 8 questions — résultats personnalisés en 2 minutes.
           </p>
           <Link
             href="/questionnaire"
-            className="block w-full bg-yellow-400 text-blue-900 font-bold py-4 rounded-2xl text-center"
+            style={{
+              display: "block",
+              background: GOLD,
+              color: DARK,
+              fontWeight: 800,
+              fontSize: "15px",
+              padding: "14px",
+              borderRadius: "14px",
+              textAlign: "center",
+              textDecoration: "none",
+            }}
           >
             Commencer le questionnaire →
           </Link>
-          <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", marginTop: "8px" }}>
+            Gratuit · 2 minutes · estimation personnalisée
+          </p>
         </div>
 
-        <p className="text-slate-400 text-xs text-center leading-relaxed">
+        <p style={{ color: "#A8A29E", fontSize: "11px", textAlign: "center", lineHeight: 1.7 }}>
           ArgentQC.ca est un outil informatif non affilié au gouvernement. Les montants sont des
           estimations — consultez toujours les sites officiels pour confirmer votre admissibilité.
         </p>
       </div>
 
-      <footer className="bg-slate-800 text-slate-400 py-5 px-4">
-        <div className="max-w-lg mx-auto text-center text-xs">
-          ArgentQC.ca – Outil informatif non affilié au gouvernement.
+      <footer style={{ background: DARK, padding: "24px 16px" }}>
+        <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
+          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
         </div>
       </footer>
     </main>

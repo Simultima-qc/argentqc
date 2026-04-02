@@ -133,25 +133,27 @@ export default function SubventionsMaisonPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Header */}
-      <header className="bg-blue-700 text-white px-4 py-4 sticky top-0 z-10 shadow-md">
+      <header style={{ background: "#060D1A", position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" className="font-bold text-base">ArgentQC.ca</Link>
-          <Link href="/questionnaire" className="text-yellow-300 text-sm font-medium underline">
+          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/questionnaire" style={{ color: "#F5C842", fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Calculer mes aides
           </Link>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white px-5 py-12">
+      <section style={{ background: "#060D1A", position: "relative", overflow: "hidden" }} className="px-5 py-12">
         <div className="max-w-2xl mx-auto">
-          <p className="text-blue-300 text-xs uppercase tracking-wide font-semibold mb-2">
+          <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,200,66,0.07) 0%, transparent 70%)" }} />
+          <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
+          <p style={{ color: "#F5C842", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8, position: "relative" }}>
             Guide de référence · Aide rénovation Québec 2026
           </p>
-          <h1 className="text-3xl font-extrabold leading-tight mb-4">
+          <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.6rem, 5vw, 2.2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "12px", position: "relative" }}>
             Liste des subventions maison Québec 2026 (thermopompe, rénovation, énergie)
           </h1>
-          <p className="text-blue-200 text-sm leading-relaxed mb-6">
+          <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px", position: "relative" }}>
             Voici la liste complète des subventions maison au Québec en 2026, mise à jour selon les programmes gouvernementaux actuels.
           </p>
 
@@ -168,11 +170,11 @@ export default function SubventionsMaisonPage() {
 
           <Link
             href="/questionnaire"
-            className="block w-full bg-yellow-400 text-blue-900 font-bold text-base py-4 rounded-2xl text-center"
+            style={{ display: "block", background: "#F5C842", color: "#060D1A", fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)", position: "relative" }}
           >
             Calculer mes aides personnalisées →
           </Link>
-          <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px", position: "relative" }}>Gratuit · 2 minutes · estimation personnalisée</p>
         </div>
       </section>
 
@@ -413,9 +415,10 @@ export default function SubventionsMaisonPage() {
         </p>
       </div>
 
-      <footer className="bg-slate-800 text-slate-400 py-5 px-4">
-        <div className="max-w-2xl mx-auto text-center text-xs">
-          ArgentQC.ca – Outil informatif non affilié au gouvernement.
+      <footer style={{ background: "#060D1A", padding: "24px 16px" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
         </div>
       </footer>
     </main>

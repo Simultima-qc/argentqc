@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function ArticleFraisGarde() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      <header className="bg-blue-700 text-white px-4 py-4 shadow-md">
+    <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
+      <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" className="font-bold text-base">ArgentQC.ca</Link>
-          <Link href="/blog" className="text-blue-200 text-sm">← Blogue</Link>
+          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>← Blogue</Link>
         </div>
       </header>
 
@@ -175,12 +175,12 @@ export default function ArticleFraisGarde() {
           </div>
         </section>
 
-        <div className="bg-blue-700 text-white rounded-2xl p-6 text-center mb-6">
-          <p className="font-bold text-lg mb-2">Découvrez toutes vos aides en 2 minutes</p>
-          <p className="text-blue-200 text-sm mb-4">Frais de garde, allocation famille, ACE — calculez tout ce à quoi vous avez droit.</p>
+        <div style={{ background: "#060D1A", borderRadius: "20px", padding: "24px", textAlign: "center", marginBottom: "24px" }}>
+          <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontWeight: 800, fontSize: "1.1rem", marginBottom: "8px" }}>Découvrez toutes vos aides en 2 minutes</p>
+          <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "16px" }}>Frais de garde, allocation famille, ACE — calculez tout ce à quoi vous avez droit.</p>
           <Link
             href="/questionnaire"
-            className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
+            style={{ display: "inline-block", background: "#F5C842", color: "#060D1A", fontWeight: 800, padding: "12px 24px", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}
           >
             Calculer mes aides →
           </Link>
@@ -213,9 +213,10 @@ export default function ArticleFraisGarde() {
         </p>
       </article>
 
-      <footer className="bg-slate-800 text-slate-400 py-5 px-4 mt-4">
-        <div className="max-w-2xl mx-auto text-center text-xs">
-          ArgentQC.ca – Outil informatif non affilié au gouvernement. Les montants sont des estimations.
+      <footer style={{ background: "#060D1A", padding: "24px 16px", marginTop: "16px" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
         </div>
       </footer>
     </main>

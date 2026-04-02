@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description: "Voici les programmes gouvernementaux auxquels vous pourriez avoir droit.",
 };
 
+const DARK = "#060D1A";
+const GOLD = "#F5C842";
+const GREEN = "#10B981";
+const PARCH = "#F7F3EC";
+
 const CATEGORIES_LABELS: Record<string, string> = {
   renovation: "Rénovation",
   energie: "Énergie",
@@ -48,84 +53,103 @@ export default async function ResultatsPage({ searchParams }: Props) {
   const total = calculerTotal(programmes);
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Header sticky */}
-      <header className="bg-blue-700 text-white px-4 py-4 sticky top-0 z-10 shadow-md">
-        <div className="max-w-lg mx-auto flex items-center justify-between">
-          <Link href="/" className="font-bold text-base">
+    <main style={{ minHeight: "100vh", background: PARCH }}>
+
+      {/* Header */}
+      <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>
             ArgentQC.ca
           </Link>
-          <Link href="/questionnaire" className="text-yellow-300 text-sm font-medium underline">
+          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.8 }}>
             Recommencer
           </Link>
         </div>
       </header>
 
-      <div className="max-w-lg mx-auto px-4 py-6">
+      <div style={{ maxWidth: "512px", margin: "0 auto", padding: "24px 16px" }}>
 
         {/* Résumé total */}
-        <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 mb-5 shadow-lg">
-          <p className="text-blue-200 mb-1 text-xs uppercase tracking-wide font-semibold text-center">
+        <div style={{
+          background: DARK,
+          borderRadius: "20px",
+          padding: "28px 24px",
+          marginBottom: "20px",
+          position: "relative",
+          overflow: "hidden"
+        }}>
+          <div style={{
+            position: "absolute", inset: 0, pointerEvents: "none",
+            background: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,200,66,0.08) 0%, transparent 70%)`
+          }} />
+          <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center", marginBottom: "6px" }}>
             Vous pourriez récupérer jusqu&apos;à
           </p>
-          <div className="text-5xl font-extrabold mb-1 text-center">
+          <p style={{
+            fontFamily: "var(--font-playfair)",
+            color: GOLD,
+            fontSize: "clamp(2.5rem, 10vw, 3.5rem)",
+            fontWeight: 800,
+            textAlign: "center",
+            lineHeight: 1,
+            marginBottom: "6px"
+          }}>
             {formaterArgent(total.max)}
-          </div>
-          <p className="text-blue-300 text-sm text-center mb-4">
+          </p>
+          <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "13px", textAlign: "center", marginBottom: "20px" }}>
             {programmes.length} programme{programmes.length > 1 ? "s" : ""} trouvé{programmes.length > 1 ? "s" : ""}
           </p>
-          <div className="border-t border-blue-500 pt-4 flex flex-col gap-2">
-            {programmes.map((prog) => (
-              <div key={prog.id} className="flex items-center justify-between text-sm">
-                <span className="text-blue-100 flex items-center gap-2">
-                  <span className="text-green-400">✓</span>
-                  {prog.nom}
-                </span>
-                <span className="font-bold text-white shrink-0 ml-2">{prog.montant_affiche}</span>
-              </div>
-            ))}
-          </div>
+          {programmes.length > 0 && (
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
+              {programmes.map((prog) => (
+                <div key={prog.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13px" }}>
+                  <span style={{ color: "rgba(240,235,224,0.65)", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <span style={{ color: GREEN }}>✓</span>
+                    {prog.nom}
+                  </span>
+                  <span style={{ fontWeight: 700, color: "#F0EBE0", flexShrink: 0, marginLeft: "8px" }}>{prog.montant_affiche}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Pub top résultats */}
-        <div className="bg-white rounded-xl border border-slate-100 p-2 mb-5">
-          {/* Google AdSense – remplacer ce bloc par votre code AdSense */}
-          <div className="h-14 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 text-xs">
+        {/* Pub top */}
+        <div style={{ background: "white", borderRadius: "12px", border: "1px solid #EDE9E0", padding: "8px", marginBottom: "20px" }}>
+          <div style={{ height: "56px", background: PARCH, borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px" }}>
             Publicité
           </div>
         </div>
 
         {programmes.length === 0 ? (
-          <div className="bg-white rounded-2xl p-8 text-center shadow-sm border border-slate-100">
-            <div className="text-4xl mb-3">🔍</div>
-            <h2 className="text-lg font-bold text-slate-700 mb-2">Aucun programme trouvé</h2>
-            <p className="text-slate-500 text-sm mb-5">
+          <div style={{ background: "white", borderRadius: "20px", padding: "40px 24px", textAlign: "center", border: "1px solid #EDE9E0" }}>
+            <div style={{ fontSize: "3rem", marginBottom: "12px" }}>🔍</div>
+            <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.2rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "8px" }}>
+              Aucun programme trouvé
+            </h2>
+            <p style={{ fontSize: "14px", color: "#78716C", marginBottom: "24px", lineHeight: 1.6 }}>
               Selon vos réponses, nous n&apos;avons pas trouvé de programmes correspondants.
             </p>
             <Link
               href="/questionnaire"
-              className="block w-full bg-blue-700 text-white font-semibold py-3 rounded-xl text-center"
+              style={{ display: "block", background: DARK, color: GOLD, fontWeight: 700, padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none" }}
             >
               Refaire le questionnaire
             </Link>
           </div>
         ) : (
           <>
-            <h2 className="text-base font-bold text-slate-700 mb-3 uppercase tracking-wide">
+            <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
               Vos programmes admissibles
             </h2>
 
-            <div className="flex flex-col gap-4">
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {programmes.map((prog) => {
                 const niveau = NIVEAUX_LABELS[prog.niveau];
                 return (
-                  <div
-                    key={prog.id}
-                    className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden"
-                  >
-                    {/* Montant en haut bien visible */}
-                    <div className="bg-green-50 border-b border-green-100 px-4 py-3 flex items-center justify-between">
-                      <div className="flex gap-2 flex-wrap">
+                  <div key={prog.id} style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", overflow: "hidden", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
+                    <div style={{ background: "#F0FDF4", borderBottom: "1px solid #D1FAE5", padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                         <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${niveau.couleur}`}>
                           {niveau.label}
                         </span>
@@ -133,40 +157,45 @@ export default async function ResultatsPage({ searchParams }: Props) {
                           {CATEGORIES_LABELS[prog.categorie] ?? prog.categorie}
                         </span>
                       </div>
-                      <span className="text-green-700 font-extrabold text-base shrink-0 ml-2">
+                      <span style={{ color: "#059669", fontWeight: 800, fontSize: "15px", flexShrink: 0, marginLeft: "8px" }}>
                         {prog.montant_affiche}
                       </span>
                     </div>
-
-                    <div className="p-4">
-                      <h3 className="font-bold text-slate-800 text-base leading-snug mb-0.5">
+                    <div style={{ padding: "16px" }}>
+                      <h3 style={{ fontWeight: 700, fontSize: "15px", color: "#1C1C1E", marginBottom: "4px", lineHeight: 1.35 }}>
                         {prog.nom}
                       </h3>
-                      <p className="text-slate-400 text-xs mb-3">{prog.organisme}</p>
-
-                      <p className="text-slate-600 text-sm mb-3 leading-relaxed">
-                        {prog.description}
-                      </p>
-
-                      <div className="mb-4">
-                        <p className="text-xs font-semibold text-slate-500 uppercase mb-1.5">
+                      <p style={{ color: "#A8A29E", fontSize: "12px", marginBottom: "12px" }}>{prog.organisme}</p>
+                      <p style={{ fontSize: "13px", color: "#57534E", marginBottom: "12px", lineHeight: 1.65 }}>{prog.description}</p>
+                      <div style={{ marginBottom: "16px" }}>
+                        <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "8px" }}>
                           Conditions
                         </p>
-                        <ul className="space-y-1">
+                        <ul style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                           {prog.conditions.map((c, i) => (
-                            <li key={i} className="text-sm text-slate-600 flex gap-2 leading-snug">
-                              <span className="text-green-500 shrink-0 mt-0.5">✓</span>
+                            <li key={i} style={{ fontSize: "13px", color: "#57534E", display: "flex", gap: "8px", lineHeight: 1.5 }}>
+                              <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>✓</span>
                               {c}
                             </li>
                           ))}
                         </ul>
                       </div>
-
                       <a
                         href={prog.lien_officiel}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block w-full bg-blue-700 active:bg-blue-800 text-white text-sm font-semibold py-3 rounded-xl text-center"
+                        style={{
+                          display: "block",
+                          background: DARK,
+                          color: GOLD,
+                          fontSize: "13px",
+                          fontWeight: 700,
+                          padding: "12px",
+                          borderRadius: "12px",
+                          textAlign: "center",
+                          textDecoration: "none",
+                          border: `1px solid rgba(245,200,66,0.15)`,
+                        }}
                       >
                         Faire une demande →
                       </a>
@@ -177,21 +206,30 @@ export default async function ResultatsPage({ searchParams }: Props) {
             </div>
 
             {/* Pub milieu */}
-            <div className="bg-white rounded-xl border border-slate-100 p-2 my-5">
-              {/* Google AdSense – remplacer ce bloc par votre code AdSense */}
-              <div className="h-16 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 text-xs">
+            <div style={{ background: "white", borderRadius: "12px", border: "1px solid #EDE9E0", padding: "8px", margin: "20px 0" }}>
+              <div style={{ height: "64px", background: PARCH, borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px" }}>
                 Publicité
               </div>
             </div>
 
             {/* CTA refaire */}
-            <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 text-center">
-              <p className="text-slate-700 font-medium text-sm mb-3">
+            <div style={{ background: DARK, borderRadius: "16px", padding: "20px 24px", textAlign: "center" }}>
+              <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", marginBottom: "14px" }}>
                 Votre situation a changé ? Recalculez vos aides.
               </p>
               <Link
                 href="/questionnaire"
-                className="block w-full bg-blue-700 active:bg-blue-800 text-white font-semibold py-3 rounded-xl text-center"
+                style={{
+                  display: "block",
+                  background: GOLD,
+                  color: DARK,
+                  fontWeight: 800,
+                  padding: "13px",
+                  borderRadius: "12px",
+                  textAlign: "center",
+                  textDecoration: "none",
+                  fontSize: "14px",
+                }}
               >
                 Refaire le questionnaire
               </Link>
@@ -199,18 +237,16 @@ export default async function ResultatsPage({ searchParams }: Props) {
           </>
         )}
 
-        {/* Avertissement légal */}
-        <p className="text-slate-400 text-xs text-center mt-6 leading-relaxed">
+        <p style={{ color: "#A8A29E", fontSize: "11px", textAlign: "center", marginTop: "24px", lineHeight: 1.7 }}>
           Les montants affichés sont des estimations à titre informatif. L&apos;admissibilité finale
-          dépend des critères officiels de chaque programme. Consultez toujours les sites
-          gouvernementaux pour confirmer votre situation.
+          dépend des critères officiels de chaque programme.
         </p>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-slate-800 text-slate-400 py-5 px-4 mt-4">
-        <div className="max-w-lg mx-auto text-center text-xs">
-          ArgentQC.ca – Outil informatif non affilié au gouvernement.
+      <footer style={{ background: DARK, padding: "24px 16px", marginTop: "16px" }}>
+        <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
+          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
         </div>
       </footer>
     </main>
