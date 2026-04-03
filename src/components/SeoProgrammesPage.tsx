@@ -266,7 +266,10 @@ export default function SeoProgrammesPage({
         <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
-          <a href="mailto:contact@argentqc.ca" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>contact@argentqc.ca</a>
+          <div style={{ marginTop: "8px", display: "flex", justifyContent: "center", gap: "16px" }}>
+            <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px" }}>Contact</a>
+            <a href="mailto:contact@argentqc.ca" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px" }}>contact@argentqc.ca</a>
+          </div>
         </div>
       </footer>
     </main>
