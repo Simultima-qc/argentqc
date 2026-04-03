@@ -217,10 +217,7 @@ export default function ArticleFraisGarde() {
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <div style={{ marginTop: "8px", display: "flex", justifyContent: "center", gap: "16px" }}>
-            <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px" }}>Contact</a>
-            <a href="mailto:contact@argentqc.ca" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px" }}>contact@argentqc.ca</a>
-          </div>
+          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contact</a>
         </div>
       </footer>
     </main>
