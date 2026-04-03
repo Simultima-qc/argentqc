@@ -403,7 +403,7 @@ export default function Home() {
             Outil informatif non affilié au gouvernement. Les montants sont des estimations —<br />
             consultez toujours les sites officiels pour confirmer votre admissibilité.
           </p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "12px", display: "block", marginTop: "8px" }}>Contact</Link>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "12px", display: "block", marginTop: "8px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>
