@@ -229,6 +229,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── HUB FINANCES PERSONNELLES ── */}
+      <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="py-12 px-5">
+        <div className="max-w-lg mx-auto">
+          <h2 style={{
+            fontFamily: "var(--font-playfair)",
+            fontSize: "1.6rem",
+            fontWeight: 800,
+            color: "#1C1C1E",
+            textAlign: "center",
+            marginBottom: "6px"
+          }}>
+            Finances personnelles Québec
+          </h2>
+          <p style={{ textAlign: "center", color: "#78716C", fontSize: "13px", marginBottom: "1.75rem" }}>
+            Guides pratiques adaptés au marché québécois
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { href: "/demenagement", emoji: "📦", label: "Déménagement", desc: "Guide, coûts, checklist", color: "#DBEAFE", textColor: "#1D4ED8" },
+              { href: "/budget", emoji: "💰", label: "Budget & coût de la vie", desc: "Calculateur, comparatifs", color: "#D1FAE5", textColor: "#065F46" },
+              { href: "/assurances", emoji: "🛡️", label: "Assurances", desc: "Auto, habitation Québec", color: "#FEF3C7", textColor: "#92400E" },
+              { href: "/retraite", emoji: "🏖️", label: "Retraite", desc: "REER, CELI, RRQ", color: "#EDE9FE", textColor: "#5B21B6" },
+            ].map((cat) => (
+              <Link
+                key={cat.href}
+                href={cat.href}
+                style={{
+                  display: "block",
+                  background: "#F7F3EC",
+                  borderRadius: "14px",
+                  padding: "18px 14px",
+                  border: "1px solid #EDE9E0",
+                  textDecoration: "none",
+                  transition: "border-color 0.15s, box-shadow 0.15s"
+                }}
+              >
+                <div style={{ fontSize: "1.75rem", marginBottom: "8px" }}>{cat.emoji}</div>
+                <div style={{ fontWeight: 700, fontSize: "13px", color: "#1C1C1E", lineHeight: 1.3, marginBottom: "4px" }}>{cat.label}</div>
+                <div style={{ fontSize: "11px", color: "#A8A29E" }}>{cat.desc}</div>
+                <div style={{ marginTop: "10px" }}>
+                  <span style={{
+                    display: "inline-block",
+                    background: cat.color, color: cat.textColor,
+                    fontSize: "10px", fontWeight: 700,
+                    padding: "2px 8px", borderRadius: "100px"
+                  }}>Voir les guides →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CATÉGORIES ── */}
       <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="py-12 px-5">
         <div className="max-w-lg mx-auto">
@@ -296,6 +349,11 @@ export default function Home() {
               { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Lunettes, dentiste, médicaments" },
               { href: "/aide-lunettes-quebec", titre: "Aide pour lunettes Québec", desc: "Crédits d'impôt disponibles" },
               { href: "/cout-vie-quebec", titre: "Coût de la vie Québec 2026", desc: "Budget par profil + aides disponibles" },
+              { href: "/demenagement", titre: "Guide déménagement Québec 2026", desc: "Étapes, coûts, checklist, 1er juillet" },
+              { href: "/demenagement/cout", titre: "Coût d'un déménagement au Québec", desc: "Tableaux comparatifs camion vs déménageurs" },
+              { href: "/demenagement/checklist", titre: "Checklist déménagement Québec", desc: "Ne rien oublier — liste interactive" },
+              { href: "/budget", titre: "Budget mensuel au Québec 2026", desc: "Coût de la vie détaillé par poste" },
+              { href: "/budget/calculateur", titre: "Calculateur budget Québec", desc: "Bilan mensuel personnalisé + graphique" },
               { href: "/aide-financiere-sport-enfant-quebec", titre: "Aide financière sport enfant Québec", desc: "Guide complet — tous les programmes" },
               { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec", desc: "ACE, allocation famille, frais de garde" },
               { href: "/blog", titre: "Blog – Conseils aides financières", desc: "Articles pratiques mis à jour" },
