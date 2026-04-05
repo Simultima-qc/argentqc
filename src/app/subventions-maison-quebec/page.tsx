@@ -65,6 +65,15 @@ const programmes = [
     categorie: "Achat",
   },
   {
+    nom: "Chauffez vert",
+    organisme: "Transition énergétique Québec",
+    montant: "1 000 $ – 5 000 $",
+    href: "/chauffez-vert-quebec",
+    badge: "Provincial",
+    badgeColor: "bg-blue-100 text-blue-700",
+    categorie: "Énergie",
+  },
+  {
     nom: "Borne de recharge – Roulez vert",
     organisme: "Transition énergétique Québec",
     montant: "600 $",
@@ -81,6 +90,7 @@ const cumuls = [
   { programme: "Rénovations multigénérationnelles", montant: "7 500 $", organisme: "Fédéral" },
   { programme: "Crédit accessibilité domiciliaire (CIHA)", montant: "3 750 $", organisme: "Fédéral" },
   { programme: "RAP REER (premier acheteur)", montant: "35 000 $ / personne", organisme: "Fédéral" },
+  { programme: "Chauffez vert (remplacement mazout/propane)", montant: "5 000 $", organisme: "TEQ" },
   { programme: "Borne de recharge Roulez vert", montant: "600 $", organisme: "TEQ" },
 ];
 
@@ -89,6 +99,7 @@ const travauxAdmissibles = [
   { type: "Isolation des murs, grenier, sous-sol", programmes: "Rénoclimat", montant: "Jusqu'à 5 000 $", href: "/subvention-isolation-quebec" },
   { type: "Fenêtres et portes extérieures", programmes: "Rénoclimat", montant: "Variable selon cote ÉnerGuide", href: "/reno-climat-quebec" },
   { type: "Ventilateur récupérateur de chaleur (VRC)", programmes: "Rénoclimat", montant: "Variable selon cote ÉnerGuide", href: "/reno-climat-quebec" },
+  { type: "Remplacement chauffage mazout/propane/gaz", programmes: "Chauffez vert", montant: "1 000 $ – 5 000 $", href: "/chauffez-vert-quebec" },
   { type: "Borne de recharge niveau 2 à domicile", programmes: "Roulez vert", montant: "600 $", href: "/borne-recharge-quebec" },
   { type: "Logement secondaire pour aîné/handicapé", programmes: "Crédit multigénérationnel", montant: "Jusqu'à 7 500 $", href: "/subvention-renovation-quebec" },
   { type: "Travaux d'accessibilité (rampe, salle de bain…)", programmes: "CIHA fédéral", montant: "Jusqu'à 3 750 $", href: "/subvention-renovation-quebec" },
@@ -100,6 +111,7 @@ const satellites = [
   { href: "/reno-climat-quebec", titre: "Guide Rénoclimat Québec 2026 — étape par étape", desc: "Comment faire votre demande et maximiser votre subvention", emoji: "📋" },
   { href: "/borne-recharge-quebec", titre: "Subvention borne de recharge Québec 2026", desc: "600 $ pour installer une borne à domicile", emoji: "⚡" },
   { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec 2026", desc: "Crédits fédéraux, multigénérationnel, accessibilité", emoji: "🔨" },
+  { href: "/chauffez-vert-quebec", titre: "Chauffez vert Québec 2026", desc: "Abandonnez le mazout — jusqu'à 11 700 $ cumulables", emoji: "🔥" },
 ];
 
 const faqs = [
@@ -129,9 +141,43 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.r,
+    },
+  })),
+};
+
+const programmeSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Subventions maison Québec 2026",
+  "itemListElement": programmes.map((prog, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": prog.nom,
+    "description": `${prog.organisme} — ${prog.montant}`,
+    "url": `https://argentqc.ca${prog.href}`,
+  })),
+};
+
 export default function SubventionsMaisonPage() {
   return (
     <main className="min-h-screen bg-slate-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(programmeSchema) }}
+      />
       {/* Header */}
       <header style={{ background: "#060D1A", position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
@@ -148,7 +194,7 @@ export default function SubventionsMaisonPage() {
           <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,200,66,0.07) 0%, transparent 70%)" }} />
           <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
           <p style={{ color: "#F5C842", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8, position: "relative" }}>
-            Guide de référence · Aide rénovation Québec 2026
+            Guide de référence · Aide rénovation Québec 2026 · <time dateTime="2026-03">Mis à jour mars 2026</time>
           </p>
           <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.6rem, 5vw, 2.2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "12px", position: "relative" }}>
             Liste des subventions maison Québec 2026 (thermopompe, rénovation, énergie)
