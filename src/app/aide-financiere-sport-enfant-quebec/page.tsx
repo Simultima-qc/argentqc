@@ -114,7 +114,7 @@ export default function AideFinanciereSportEnfantPage() {
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
           <Link href="/questionnaire" style={{ color: "#F5C842", fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
-            Calculer mes aides
+            Trouver mes aides
           </Link>
         </div>
       </header>
@@ -139,7 +139,7 @@ export default function AideFinanciereSportEnfantPage() {
             href="/questionnaire"
             style={{ display: "block", background: "#F5C842", color: "#060D1A", fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)" }}
           >
-            Calculer mes aides personnalisées →
+            Trouver mes aides →
           </Link>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>Gratuit · 2 minutes · estimation personnalisée</p>
         </div>

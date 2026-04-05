@@ -80,7 +80,7 @@ export default function Home() {
               transition: "transform 0.15s, box-shadow 0.15s",
             }}
           >
-            Calculer mes aides →
+            Trouver mes aides →
           </Link>
           <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px", marginTop: "10px", textAlign: "center" }}>
             Gratuit · 2 minutes · estimation personnalisée

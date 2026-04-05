@@ -196,7 +196,7 @@ export default function ArticleRapReer() {
             href="/questionnaire"
             style={{ display: "inline-block", background: "#F5C842", color: "#060D1A", fontWeight: 800, padding: "12px 28px", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}
           >
-            Calculer mes aides →
+            Trouver mes aides →
           </Link>
         </div>
 

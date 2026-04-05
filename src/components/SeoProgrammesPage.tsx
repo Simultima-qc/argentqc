@@ -54,7 +54,7 @@ export default function SeoProgrammesPage({
             ArgentQC.ca
           </Link>
           <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
-            Calculer mes aides
+            Trouver mes aides
           </Link>
         </div>
       </header>
@@ -98,7 +98,7 @@ export default function SeoProgrammesPage({
               boxShadow: `0 0 28px rgba(245,200,66,0.2)`,
             }}
           >
-            Calculer mes aides personnalisées →
+            Trouver mes aides →
           </Link>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>
             Gratuit · 2 minutes · estimation personnalisée

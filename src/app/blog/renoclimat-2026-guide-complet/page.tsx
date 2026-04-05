@@ -191,7 +191,7 @@ export default function ArticleRenoclimat() {
             href="/questionnaire"
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
           >
-            Calculer mes aides →
+            Trouver mes aides →
           </Link>
         </div>
 

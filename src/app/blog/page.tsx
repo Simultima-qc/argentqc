@@ -22,7 +22,7 @@ export default function BlogPage() {
             ArgentQC.ca
           </Link>
           <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.8 }}>
-            Calculer mes aides
+            Trouver mes aides
           </Link>
         </div>
       </header>
