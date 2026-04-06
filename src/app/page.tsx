@@ -251,6 +251,7 @@ export default function Home() {
               { href: "/budget", emoji: "💰", label: "Budget & coût de la vie", desc: "Calculateur, comparatifs", color: "#D1FAE5", textColor: "#065F46" },
               { href: "/assurances", emoji: "🛡️", label: "Assurances", desc: "Auto, habitation Québec", color: "#FEF3C7", textColor: "#92400E" },
               { href: "/retraite", emoji: "🏖️", label: "Retraite", desc: "REER, CELI, RRQ", color: "#EDE9FE", textColor: "#5B21B6" },
+              { href: "/impots", emoji: "🧾", label: "Impôts Québec", desc: "Dates, remboursement, logiciels", color: "#FEE2E2", textColor: "#991B1B" },
             ].map((cat) => (
               <Link
                 key={cat.href}
@@ -363,6 +364,10 @@ export default function Home() {
               { href: "/retraite/rrq", titre: "RRQ — Votre rente de retraite", desc: "Montants 60/65/70 ans, RRQ vs RPC" },
               { href: "/aide-financiere-sport-enfant-quebec", titre: "Aide financière sport enfant Québec", desc: "Guide complet — tous les programmes" },
               { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec", desc: "ACE, allocation famille, frais de garde" },
+              { href: "/impots", titre: "Impôts au Québec en 2026", desc: "ARC + Revenu Québec — tout comprendre" },
+              { href: "/impots/dates", titre: "Dates limites impôts Québec 2026", desc: "30 avril salariés · 15 juin travailleurs autonomes" },
+              { href: "/impots/remboursement", titre: "Remboursement d'impôts Québec 2026", desc: "Délais, suivi et crédits souvent oubliés" },
+              { href: "/impots/logiciels", titre: "Logiciels impôts gratuits Québec 2026", desc: "Wealthsimple, TurboImpôt, H&R Block — comparatif" },
               { href: "/blog", titre: "Blog – Conseils aides financières", desc: "Articles pratiques mis à jour" },
             ].map((lien) => (
               <Link

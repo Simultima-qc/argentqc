@@ -294,6 +294,7 @@ export default function BudgetPage() {
           {[
             { href: "/demenagement", emoji: "📦", titre: "Guide déménagement Québec", desc: "Loyers par ville, étapes clés, 1er juillet" },
             { href: "/retraite", emoji: "🏖️", titre: "Pensez à votre retraite", desc: "REER, CELI, RRQ — comment épargner au Québec" },
+            { href: "/impots", emoji: "🧾", titre: "Planifiez votre saison d'impôts", desc: "Dates limites, remboursements et logiciels gratuits" },
             { href: "/questionnaire", emoji: "🔍", titre: "Trouver mes aides gouvernementales", desc: "Subventions, crédits, allocations auxquels j'ai droit" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>

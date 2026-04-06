@@ -282,6 +282,7 @@ export default function ReerPage() {
             { href: "/retraite/celi", emoji: "📈", titre: "CELI — Guide complet", desc: "Comparer REER et CELI, droits 2026, erreurs à éviter" },
             { href: "/retraite/rrq", emoji: "🏛️", titre: "RRQ — Votre rente de retraite", desc: "Montants 2026 et impact du choix de l'âge" },
             { href: "/retraite", emoji: "🏖️", titre: "Guide retraite Québec", desc: "Les 5 piliers et combien épargner selon votre profil" },
+            { href: "/impots/remboursement", emoji: "🧾", titre: "Calculez votre retour d'impôts REER", desc: "Crédits, délais de remboursement et maximiser votre retour" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
               <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{l.emoji}</span>
