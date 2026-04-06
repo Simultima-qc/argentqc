@@ -36,9 +36,9 @@ export default function ArticleSecuriteVieillesse() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             La pension de la Sécurité de la vieillesse (SV) est la prestation fédérale versée automatiquement à la plupart
-            des Canadiens dès 65 ans. En 2026, elle peut atteindre jusqu&apos;à <strong>727 $ par mois</strong> — et
+            des Canadiens dès 65 ans. En 2026, elle peut atteindre jusqu&apos;à <strong>727 $ par mois</strong>{' '} — et
             jusqu&apos;à <strong>800 $ si vous avez 75 ans ou plus</strong>{" "}. Cumulée avec le Supplément de revenu garanti,
-            certains aînés reçoivent plus de <strong>1 800 $ par mois</strong> du gouvernement fédéral seulement.
+            certains aînés reçoivent plus de <strong>1 800 $ par mois</strong>{' '} du gouvernement fédéral seulement.
           </p>
         </div>
 
@@ -46,10 +46,10 @@ export default function ArticleSecuriteVieillesse() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Admissible dès <strong>65 ans</strong> si vous avez vécu au Canada au moins 10 ans depuis vos 18 ans</li>
-            <li>✓ Montant 2026 : environ <strong>727 $/mois</strong> (65-74 ans) ou <strong>800 $/mois</strong> (75 ans et plus)</li>
-            <li>✓ Différer à 70 ans augmente votre pension de <strong>36 %</strong> à vie</li>
-            <li>✓ Cumulable avec le SRG : jusqu&apos;à <strong>1 073 $ de plus</strong> par mois si votre revenu est faible</li>
+            <li>✓ Admissible dès <strong>65 ans</strong>{' '} si vous avez vécu au Canada au moins 10 ans depuis vos 18 ans</li>
+            <li>✓ Montant 2026 : environ <strong>727 $/mois</strong>{' '} (65-74 ans) ou <strong>800 $/mois</strong>{' '} (75 ans et plus)</li>
+            <li>✓ Différer à 70 ans augmente votre pension de <strong>36 %</strong>{' '} à vie</li>
+            <li>✓ Cumulable avec le SRG : jusqu&apos;à <strong>1 073 $ de plus</strong>{' '} par mois si votre revenu est faible</li>
           </ul>
         </div>
 
@@ -58,7 +58,7 @@ export default function ArticleSecuriteVieillesse() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">C&apos;est quoi la Sécurité de la vieillesse ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
             La Sécurité de la vieillesse est un programme fédéral administré par Service Canada. Contrairement au Régime
-            de rentes du Québec (RRQ), elle ne dépend <strong>pas de vos cotisations</strong> au cours de votre vie active.
+            de rentes du Québec (RRQ), elle ne dépend <strong>pas de vos cotisations</strong>{' '} au cours de votre vie active.
             Son admissibilité repose uniquement sur votre âge et le nombre d&apos;années de résidence au Canada.
           </p>
           <p className="text-slate-600 leading-relaxed">
@@ -89,7 +89,7 @@ export default function ArticleSecuriteVieillesse() {
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">
             <p className="font-semibold mb-1">Pension partielle</p>
             <p>
-              Si vous avez vécu au Canada entre 10 et 39 ans, vous recevez une <strong>pension partielle</strong> :
+              Si vous avez vécu au Canada entre 10 et 39 ans, vous recevez une <strong>pension partielle</strong>{' '} :
               1/40e de la pension complète par année de résidence. Par exemple, 25 ans de résidence =
               25/40e (62,5 %) de la pension maximale.
             </p>
@@ -121,7 +121,7 @@ export default function ArticleSecuriteVieillesse() {
             <p className="text-blue-500 text-xs mt-4">* Pension complète (40 ans de résidence). Revérifiez sur canada.ca pour le trimestre en cours.</p>
           </div>
           <p className="text-slate-600 leading-relaxed text-sm">
-            La récupération (clawback) s&apos;applique si votre revenu net dépasse <strong>90 997 $ en 2025</strong>
+            La récupération (clawback) s&apos;applique si votre revenu net dépasse <strong>90 997 $ en 2025</strong>{" "}
             (seuil indexé annuellement). Au-delà, la pension est réduite de 0,15 $ pour chaque dollar de revenu
             supplémentaire jusqu&apos;à extinction complète vers 147 000 $.
           </p>
@@ -131,9 +131,9 @@ export default function ArticleSecuriteVieillesse() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Différer sa pension : la bonification à 70 ans</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Vous pouvez choisir de <strong>retarder</strong> le début de votre pension SV jusqu&apos;à l&apos;âge de 70 ans.
+            Vous pouvez choisir de <strong>retarder</strong>{' '} le début de votre pension SV jusqu&apos;à l&apos;âge de 70 ans.
             Pour chaque mois de report après 65 ans, la pension augmente de <strong>0,6 %</strong>{" "}, soit une
-            bonification permanente de <strong>36 %</strong> si vous attendez jusqu&apos;à 70 ans.
+            bonification permanente de <strong>36 %</strong>{' '} si vous attendez jusqu&apos;à 70 ans.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-4">
             <p className="font-bold text-green-800 mb-3">Comparaison : 65 ans vs 70 ans (groupe 65-74)</p>
@@ -158,7 +158,7 @@ export default function ArticleSecuriteVieillesse() {
             </div>
           </div>
           <p className="text-slate-500 text-sm leading-relaxed">
-            <strong>Attention :</strong> il n&apos;est plus possible de demander un paiement rétroactif au-delà de 11 mois.
+            <strong>Attention :</strong>{' '} il n&apos;est plus possible de demander un paiement rétroactif au-delà de 11 mois.
             Assurez-vous de faire votre demande à temps pour ne pas perdre de versements.
           </p>
         </section>
@@ -167,7 +167,7 @@ export default function ArticleSecuriteVieillesse() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Le SRG : jusqu&apos;à 1 073 $ de plus par mois</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le Supplément de revenu garanti (SRG) est une prestation <strong>non imposable</strong> versée en plus de la
+            Le Supplément de revenu garanti (SRG) est une prestation <strong>non imposable</strong>{' '} versée en plus de la
             pension SV aux aînés à faible revenu. Contrairement à la SV, il faut en faire la demande chaque année
             (ou activer le renouvellement automatique via votre déclaration de revenus).
           </p>
@@ -190,8 +190,8 @@ export default function ArticleSecuriteVieillesse() {
             </div>
           </div>
           <p className="text-slate-600 leading-relaxed text-sm">
-            SV + SRG combinés : une personne seule à faible revenu peut recevoir jusqu&apos;à <strong>1 801 $/mois</strong> du
-            gouvernement fédéral, soit plus de <strong>21 600 $ par an</strong> — entièrement libre d&apos;impôt pour la
+            SV + SRG combinés : une personne seule à faible revenu peut recevoir jusqu&apos;à <strong>1 801 $/mois</strong>{' '} du
+            gouvernement fédéral, soit plus de <strong>21 600 $ par an</strong>{' '} — entièrement libre d&apos;impôt pour la
             portion SRG. Pour en savoir plus sur l&apos;admissibilité, consultez notre guide sur le{" "}
             <Link href="/blog/renoclimat-2026-guide-complet" className="text-blue-700 underline">SRG 2026</Link>.
           </p>
