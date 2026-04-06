@@ -36,5 +36,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Section Budget
     { url: `${base}/budget`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/budget/calculateur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    // Section Assurances (Phase 2)
+    { url: `${base}/assurances`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/assurances/auto`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/assurances/habitation`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    // Section Retraite (Phase 2)
+    { url: `${base}/retraite`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/retraite/reer`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/retraite/celi`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/retraite/rrq`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
 }
