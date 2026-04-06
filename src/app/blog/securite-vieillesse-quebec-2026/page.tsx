@@ -37,7 +37,7 @@ export default function ArticleSecuriteVieillesse() {
           <p className="text-lg text-slate-600 leading-relaxed">
             La pension de la Sécurité de la vieillesse (SV) est la prestation fédérale versée automatiquement à la plupart
             des Canadiens dès 65 ans. En 2026, elle peut atteindre jusqu&apos;à <strong>727 $ par mois</strong> — et
-            jusqu&apos;à <strong>800 $ si vous avez 75 ans ou plus</strong>. Cumulée avec le Supplément de revenu garanti,
+            jusqu&apos;à <strong>800 $ si vous avez 75 ans ou plus</strong>{" "}. Cumulée avec le Supplément de revenu garanti,
             certains aînés reçoivent plus de <strong>1 800 $ par mois</strong> du gouvernement fédéral seulement.
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function ArticleSecuriteVieillesse() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Différer sa pension : la bonification à 70 ans</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             Vous pouvez choisir de <strong>retarder</strong> le début de votre pension SV jusqu&apos;à l&apos;âge de 70 ans.
-            Pour chaque mois de report après 65 ans, la pension augmente de <strong>0,6 %</strong>, soit une
+            Pour chaque mois de report après 65 ans, la pension augmente de <strong>0,6 %</strong>{" "}, soit une
             bonification permanente de <strong>36 %</strong> si vous attendez jusqu&apos;à 70 ans.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-4">
