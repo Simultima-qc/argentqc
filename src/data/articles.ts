@@ -11,6 +11,14 @@ export interface Article {
 // L'agent automatique ajoute chaque nouvel article ici.
 const articles: Article[] = [
   {
+    slug: "securite-vieillesse-quebec-2026",
+    titre: "Sécurité de la vieillesse 2026 : Montants, admissibilité et comment faire votre demande",
+    description: "Pension SV 2026 : jusqu'à 800 $/mois à 75 ans, bonification de 36 % si vous reportez à 70 ans, et cumul avec le SRG pour les aînés à faible revenu.",
+    date: "2026-04-06",
+    categorie: "Retraite",
+    tempsLecture: "6 min",
+  },
+  {
     slug: "rap-reer-premier-acheteur-quebec-2026",
     titre: "RAP 2026 : Comment utiliser votre REER pour acheter votre première maison au Québec",
     description: "Le RAP vous permet de retirer jusqu'à 35 000 $ de votre REER sans impôt pour votre première maison. Cumulable avec le CELIAPP pour un couple : jusqu'à 150 000 $ de mise de fonds.",
