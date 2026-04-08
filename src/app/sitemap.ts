@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/demenagement`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/demenagement/cout`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/demenagement/checklist`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/demenagement/montreal`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Section Budget
     { url: `${base}/budget`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/budget/calculateur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
@@ -41,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/assurances`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/assurances/auto`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/assurances/habitation`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/assurances/comparateur`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     // Section Retraite (Phase 2)
     { url: `${base}/retraite`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retraite/reer`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
