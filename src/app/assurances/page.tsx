@@ -259,6 +259,16 @@ export default function AssurancesPage() {
           ))}
         </div>
 
+        {/* Lien comparateur */}
+        <Link href="/assurances/comparateur" style={{ display: "flex", alignItems: "center", gap: "12px", background: DARK, border: "1px solid rgba(245,200,66,0.2)", borderRadius: "14px", padding: "14px 16px", textDecoration: "none", marginBottom: "2.5rem" }}>
+          <span style={{ fontSize: "1.5rem" }}>⚖️</span>
+          <div className="flex-1">
+            <div style={{ fontWeight: 700, fontSize: "14px", color: "#F0EBE0" }}>Comparer les assureurs au Québec</div>
+            <div style={{ fontSize: "12px", color: "rgba(240,235,224,0.5)", marginTop: "2px" }}>Estimations habitation et auto par profil — 6 assureurs comparés</div>
+          </div>
+          <span style={{ color: GOLD, fontSize: "14px" }}>→</span>
+        </Link>
+
         {/* Cards CTA */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
           Guides détaillés
