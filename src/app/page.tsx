@@ -252,6 +252,7 @@ export default function Home() {
               { href: "/assurances", emoji: "🛡️", label: "Assurances", desc: "Auto, habitation Québec", color: "#FEF3C7", textColor: "#92400E" },
               { href: "/retraite", emoji: "🏖️", label: "Retraite", desc: "REER, CELI, RRQ", color: "#EDE9FE", textColor: "#5B21B6" },
               { href: "/impots", emoji: "🧾", label: "Impôts Québec", desc: "Dates, remboursement, logiciels", color: "#FEE2E2", textColor: "#991B1B" },
+              { href: "/internet", emoji: "🌐", label: "Internet Québec", desc: "Comparateur fournisseurs 2026", color: "#CFFAFE", textColor: "#155E75" },
             ].map((cat) => (
               <Link
                 key={cat.href}

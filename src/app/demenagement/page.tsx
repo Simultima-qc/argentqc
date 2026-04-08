@@ -340,6 +340,7 @@ export default function DemenagementPage() {
             { href: "/demenagement/checklist", emoji: "✅", titre: "Checklist déménagement interactive", desc: "Ne rien oublier — liste cochable avec rappels" },
             { href: "/demenagement/montreal", emoji: "🏙️", titre: "Déménager à Montréal en 2026", desc: "Quartiers, loyers, métro, ressources locales" },
             { href: "/assurances/habitation", emoji: "🛡️", titre: "Assurance habitation Québec", desc: "À prévoir avant le jour du déménagement" },
+            { href: "/internet/comparateur", emoji: "🌐", titre: "Comparateur internet Québec", desc: "Trouvez le meilleur forfait dans votre nouvelle adresse" },
             { href: "/budget/calculateur", emoji: "📊", titre: "Calculateur budget mensuel", desc: "Simulez votre nouveau budget dans la nouvelle ville" },
           ].map((cta) => (
             <Link

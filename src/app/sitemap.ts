@@ -48,6 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/retraite/reer`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retraite/celi`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retraite/rrq`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    // Section Internet (Phase 3)
+    { url: `${base}/internet`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/internet/comparateur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Section Impôts (Phase 3)
     { url: `${base}/impots`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/impots/dates`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
