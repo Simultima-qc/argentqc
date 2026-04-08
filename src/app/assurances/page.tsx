@@ -39,8 +39,8 @@ const typesAssurance = [
     emoji: "❤️",
     obligatoire: false,
     desc: "Protège vos proches en cas de décès. Recommandée dès que vous avez des dépendants (enfants, conjoint) ou des dettes importantes (hypothèque).",
-    href: null,
-    cta: null,
+    href: "/assurances/vie",
+    cta: "Guide assurance vie →",
   },
   {
     type: "Assurance invalidité",
@@ -291,6 +291,16 @@ export default function AssurancesPage() {
             </h3>
             <p style={{ color: "#78716C", fontSize: "12px", lineHeight: 1.6, marginBottom: "12px" }}>
               Locataire vs propriétaire, ce qui est couvert, prix moyens par type de logement.
+            </p>
+            <span style={{ color: "#3B82F6", fontWeight: 700, fontSize: "13px" }}>Lire le guide →</span>
+          </Link>
+          <Link href="/assurances/vie" style={{ display: "block", background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
+            <div style={{ fontSize: "2rem", marginBottom: "10px" }}>❤️</div>
+            <h3 style={{ fontFamily: "var(--font-playfair)", color: "#1C1C1E", fontSize: "1.1rem", fontWeight: 800, marginBottom: "8px" }}>
+              Assurance vie Québec
+            </h3>
+            <p style={{ color: "#78716C", fontSize: "12px", lineHeight: 1.6, marginBottom: "12px" }}>
+              Temporaire vs permanente, principaux assureurs, estimateur de couverture personnalisé.
             </p>
             <span style={{ color: "#3B82F6", fontWeight: 700, fontSize: "13px" }}>Lire le guide →</span>
           </Link>

@@ -245,6 +245,7 @@ export default function AssuranceHabitationPage() {
           {[
             { href: "/demenagement", emoji: "📦", titre: "Guide déménagement Québec", desc: "Souscrire une assurance habitation est une étape clé avant le déménagement" },
             { href: "/assurances/auto", emoji: "🚗", titre: "Assurance auto Québec", desc: "Regroupez auto + habitation pour un rabais de 5 à 15%" },
+            { href: "/assurances/vie", emoji: "❤️", titre: "Protégez aussi votre famille — Assurance vie", desc: "Temporaire ou permanente : estimez votre couverture idéale" },
             { href: "/budget/calculateur", emoji: "📊", titre: "Calculateur budget mensuel", desc: "Intégrez votre prime habitation à votre budget" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>

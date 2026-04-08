@@ -317,6 +317,7 @@ export default function AssuranceAutoPage() {
           {[
             { href: "/budget/calculateur", emoji: "📊", titre: "Intégrez votre prime à votre budget mensuel", desc: "Calculateur budget personnalisé — inclus transport et assurances" },
             { href: "/assurances/habitation", emoji: "🏠", titre: "Assurance habitation Québec", desc: "Regroupez auto + habitation pour économiser 5 à 15%" },
+            { href: "/assurances/vie", emoji: "❤️", titre: "Protégez aussi votre famille — Assurance vie", desc: "Temporaire ou permanente : estimez votre couverture idéale" },
             { href: "/assurances", emoji: "🛡️", titre: "Retour au guide assurances Québec", desc: "Vue d'ensemble des types d'assurance" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>

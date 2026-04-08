@@ -256,6 +256,7 @@ export default function RetraitePage() {
             { href: "/retraite/reer", emoji: "💰", titre: "REER — Guide complet", desc: "Plafond 2026, économie d'impôt, REER vs CELI", color: DARK, titleColor: "#F0EBE0", descColor: "rgba(240,235,224,0.6)", ctaColor: GOLD },
             { href: "/retraite/celi", emoji: "📈", titre: "CELI — Tout comprendre", desc: "Droits de cotisation, placements, erreurs à éviter", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
             { href: "/retraite/rrq", emoji: "🏛️", titre: "RRQ — Votre rente", desc: "Montants 2026, âge optimal, RRQ vs RPC", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
+            { href: "/retraite/celiapp", emoji: "🏡", titre: "CELIAPP — Premier achat", desc: "8 000$/an, 40 000$ à vie, retraits libres d'impôt", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
           ].map((c) => (
             <Link key={c.href} href={c.href} style={{ display: "block", background: c.color, border: c.color === "white" ? "1px solid #EDE9E0" : "none", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
               <div style={{ fontSize: "1.75rem", marginBottom: "8px" }}>{c.emoji}</div>
@@ -301,6 +302,14 @@ export default function RetraitePage() {
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Calculateur budget mensuel</div>
               <div style={{ fontSize: "12px", color: "#A8A29E" }}>Intégrez vos cotisations REER et CELI à votre budget</div>
+            </div>
+            <span style={{ color: "#3B82F6" }}>→</span>
+          </Link>
+          <Link href="/assurances/vie" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
+            <span style={{ fontSize: "1.4rem" }}>❤️</span>
+            <div className="flex-1">
+              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Assurance vie et planification retraite</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Protégez vos proches et intégrez l&apos;assurance à votre plan</div>
             </div>
             <span style={{ color: "#3B82F6" }}>→</span>
           </Link>

@@ -43,11 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/assurances/auto`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/assurances/habitation`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/assurances/comparateur`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/assurances/vie`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Section Retraite (Phase 2)
     { url: `${base}/retraite`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retraite/reer`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retraite/celi`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retraite/rrq`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/retraite/celiapp`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Section Internet (Phase 3)
     { url: `${base}/internet`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/internet/comparateur`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
