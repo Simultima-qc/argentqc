@@ -208,7 +208,7 @@ export default function ComparateurInternetPage() {
             Pour choisir le bon forfait, considérez vos{" "}
             <strong>besoins réels en vitesse</strong>{" "}(100 Mbps suffit pour la plupart des
             foyers), votre <strong>budget mensuel</strong>, et votre tolérance à un{" "}
-            <strong>engagement contractuel</strong>. Les fournisseurs alternatifs n'exigent
+            <strong>engagement contractuel</strong>. Les fournisseurs alternatifs n&apos;exigent
             généralement aucun contrat, mais peuvent avoir un support client moins accessible.
           </p>
           <p style={{ fontSize: "13px", color: "#44403C", lineHeight: 1.7, margin: 0 }}>

@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/subvention-thermopompe-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/subvention-isolation-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/reno-climat-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/chauffez-vert-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/borne-recharge-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
     // Section Déménagement

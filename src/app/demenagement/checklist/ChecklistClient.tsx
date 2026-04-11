@@ -116,20 +116,26 @@ function getAllIds(): string[] {
 }
 
 export default function ChecklistClient() {
-  const [checked, setChecked] = useState<Set<string>>(new Set());
-  const [loaded, setLoaded] = useState(false);
+  const [checked, setChecked] = useState<Set<string>>(() => {
+    if (typeof window === "undefined") {
+      return new Set();
+    }
+
+    try {
+      const saved = sessionStorage.getItem(STORAGE_KEY);
+      return saved ? new Set(JSON.parse(saved)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
 
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        setChecked(new Set(JSON.parse(saved)));
-      }
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(checked)));
     } catch {
       // ignore
     }
-    setLoaded(true);
-  }, []);
+  }, [checked]);
 
   const toggle = (id: string) => {
     setChecked((prev) => {
@@ -160,8 +166,6 @@ export default function ChecklistClient() {
   const totalTaches = getAllIds().length;
   const totalCochees = checked.size;
   const progres = totalTaches > 0 ? Math.round((totalCochees / totalTaches) * 100) : 0;
-
-  if (!loaded) return null;
 
   return (
     <main className="min-h-screen" style={{ background: PARCH }}>
@@ -359,7 +363,7 @@ export default function ChecklistClient() {
             <span style={{ fontSize: "1.4rem" }}>🛡️</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Assurance habitation Québec</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>À ne pas oublier avant d'entrer dans votre logement</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>À ne pas oublier avant d&apos;entrer dans votre logement</div>
             </div>
             <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
