@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/frais-garde-enfants-quebec-2026`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog/rap-reer-premier-acheteur-quebec-2026`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/blog/securite-vieillesse-quebec-2026`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog/aide-sociale-quebec-2026`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/subventions-maison-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/aide-financiere-sport-enfant-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/cout-vie-quebec`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },

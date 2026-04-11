@@ -11,6 +11,14 @@ export interface Article {
 // L'agent automatique ajoute chaque nouvel article ici.
 const articles: Article[] = [
   {
+    slug: "aide-sociale-quebec-2026",
+    titre: "Aide sociale Québec 2026 : Montants, conditions et comment faire une demande",
+    description: "Aide sociale et solidarité sociale 2026 : montants de 780 $ à 1 870 $/mois selon votre situation, conditions d'admissibilité, démarches de demande et avantages connexes.",
+    date: "2026-04-11",
+    categorie: "Aide sociale",
+    tempsLecture: "6 min",
+  },
+  {
     slug: "securite-vieillesse-quebec-2026",
     titre: "Sécurité de la vieillesse 2026 : Montants, admissibilité et comment faire votre demande",
     description: "Pension SV 2026 : jusqu'à 800 $/mois à 75 ans, bonification de 36 % si vous reportez à 70 ans, et cumul avec le SRG pour les aînés à faible revenu.",
