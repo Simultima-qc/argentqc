@@ -1,14 +1,25 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import type { BlogArticle } from "@/data/blog/types";
 
-export const metadata: Metadata = {
+const slug = "renoclimat-2026-guide-complet";
+
+const baseMetadata: Metadata = {
   title: "Rénoclimat 2026 : Guide complet pour obtenir votre subvention",
   description:
     "Tout sur Rénoclimat en 2026 : montants jusqu'à 10 000 $, travaux admissibles, étapes de demande et comment cumuler avec LogisVert Hydro-Québec.",
   keywords: ["Rénoclimat 2026", "subvention Rénoclimat", "comment faire demande Rénoclimat", "Rénoclimat montant"],
 };
 
-export default function ArticleRenoclimat() {
+const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    canonical: "https://argentqc.ca/blog/renoclimat-2026-guide-complet",
+  },
+};
+
+function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
@@ -219,3 +230,17 @@ export default function ArticleRenoclimat() {
     </main>
   );
 }
+
+const article: BlogArticle = {
+  slug,
+  titre: "Rénoclimat 2026 : Guide complet pour obtenir votre subvention",
+  description: "Tout ce que vous devez savoir sur Rénoclimat : montants, travaux admissibles, étapes pour faire votre demande et comment maximiser votre remboursement.",
+  date: "2026-03-29",
+  categorie: "Rénovation",
+  tempsLecture: "6 min",
+  metadata,
+  Content,
+};
+
+export default article;
+

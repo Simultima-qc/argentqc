@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import type { BlogArticle } from "@/data/blog/types";
 
-export const metadata: Metadata = {
+const slug = "rap-reer-premier-acheteur-quebec-2026";
+
+const baseMetadata: Metadata = {
   title: "RAP 2026 : Comment utiliser votre REER pour acheter votre première maison au Québec",
   description:
     "Le Régime d'accession à la propriété (RAP) vous permet de retirer jusqu'à 35 000 $ de votre REER sans impôt pour acheter votre première maison. Guide complet 2026.",
@@ -14,7 +17,15 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ArticleRapReer() {
+const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    canonical: "https://argentqc.ca/blog/rap-reer-premier-acheteur-quebec-2026",
+  },
+};
+
+function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
@@ -243,3 +254,17 @@ export default function ArticleRapReer() {
     </main>
   );
 }
+
+const article: BlogArticle = {
+  slug,
+  titre: "RAP 2026 : Comment utiliser votre REER pour acheter votre première maison au Québec",
+  description: "Le RAP vous permet de retirer jusqu'à 35 000 $ de votre REER sans impôt pour votre première maison. Cumulable avec le CELIAPP pour un couple : jusqu'à 150 000 $ de mise de fonds.",
+  date: "2026-04-02",
+  categorie: "Immobilier",
+  tempsLecture: "6 min",
+  metadata,
+  Content,
+};
+
+export default article;
+

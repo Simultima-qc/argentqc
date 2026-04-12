@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import type { BlogArticle } from "@/data/blog/types";
 
-export const metadata: Metadata = {
+const slug = "aide-sociale-quebec-2026";
+
+const baseMetadata: Metadata = {
   title: "Aide sociale Québec 2026 : Montants, conditions et comment faire une demande",
   description:
     "Aide sociale et solidarité sociale 2026 : montants selon votre situation, conditions d&apos;admissibilité, démarches de demande et autres avantages inclus.",
@@ -14,7 +17,15 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ArticleAideSociale() {
+const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    canonical: "https://argentqc.ca/blog/aide-sociale-quebec-2026",
+  },
+};
+
+function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
@@ -310,3 +321,17 @@ export default function ArticleAideSociale() {
     </main>
   );
 }
+
+const article: BlogArticle = {
+  slug,
+  titre: "Aide sociale Québec 2026 : Montants, conditions et comment faire une demande",
+  description: "Aide sociale et solidarité sociale 2026 : montants de 780 $ à 1 870 $/mois selon votre situation, conditions d'admissibilité, démarches de demande et avantages connexes.",
+  date: "2026-04-11",
+  categorie: "Aide sociale",
+  tempsLecture: "6 min",
+  metadata,
+  Content,
+};
+
+export default article;
+

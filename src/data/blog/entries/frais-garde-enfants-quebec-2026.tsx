@@ -1,14 +1,25 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import type { BlogArticle } from "@/data/blog/types";
 
-export const metadata: Metadata = {
+const slug = "frais-garde-enfants-quebec-2026";
+
+const baseMetadata: Metadata = {
   title: "Frais de garde d'enfants Québec 2026 – Crédit d'impôt jusqu'à 75%",
   description:
     "Le crédit d'impôt pour frais de garde au Québec peut couvrir jusqu'à 75% de vos frais de garderie, camp de jour ou service de garde. Montants 2026, conditions et comment le réclamer.",
   keywords: ["frais garde enfants Québec 2026", "crédit impôt frais garde Québec", "remboursement garderie Québec 2026"],
 };
 
-export default function ArticleFraisGarde() {
+const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    canonical: "https://argentqc.ca/blog/frais-garde-enfants-quebec-2026",
+  },
+};
+
+function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
@@ -223,3 +234,17 @@ export default function ArticleFraisGarde() {
     </main>
   );
 }
+
+const article: BlogArticle = {
+  slug,
+  titre: "Frais de garde d'enfants au Québec 2026 : récupérez jusqu'à 75% de vos dépenses",
+  description: "Le crédit d'impôt pour frais de garde peut couvrir jusqu'à 75% de vos frais de garderie. Montants 2026, conditions et comment cumuler provincial et fédéral.",
+  date: "2026-03-30",
+  categorie: "Famille",
+  tempsLecture: "5 min",
+  metadata,
+  Content,
+};
+
+export default article;
+

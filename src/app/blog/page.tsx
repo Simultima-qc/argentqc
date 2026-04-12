@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Blogue – Guides sur les aides gouvernementales au Québec | ArgentQC.ca",
   description:
     "Guides pratiques sur les subventions, crédits d'impôt et aides gouvernementales au Québec. Rénoclimat, allocation famille, crédit solidarité et plus.",
+  alternates: {
+    canonical: "https://argentqc.ca/blog",
+  },
 };
 
 const DARK = "#060D1A";

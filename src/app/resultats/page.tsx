@@ -6,6 +6,10 @@ import type { ReponseQuestionnaire } from "@/types";
 export const metadata: Metadata = {
   title: "Vos résultats – ArgentQC.ca",
   description: "Voici les programmes gouvernementaux auxquels vous pourriez avoir droit.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 const DARK = "#060D1A";

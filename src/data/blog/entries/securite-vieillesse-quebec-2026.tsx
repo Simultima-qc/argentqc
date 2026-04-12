@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
+import type { BlogArticle } from "@/data/blog/types";
 
-export const metadata: Metadata = {
+const slug = "securite-vieillesse-quebec-2026";
+
+const baseMetadata: Metadata = {
   title: "Sécurité de la vieillesse 2026 : Montants, admissibilité et comment faire votre demande",
   description:
     "Tout sur la pension de la Sécurité de la vieillesse en 2026 : montants mensuels, qui y a droit à 65 ans, bonification à 70 ans et cumul avec le Supplément de revenu garanti (SRG).",
@@ -14,7 +17,15 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ArticleSecuriteVieillesse() {
+const metadata: Metadata = {
+  ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    canonical: "https://argentqc.ca/blog/securite-vieillesse-quebec-2026",
+  },
+};
+
+function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
@@ -279,3 +290,17 @@ export default function ArticleSecuriteVieillesse() {
     </main>
   );
 }
+
+const article: BlogArticle = {
+  slug,
+  titre: "Sécurité de la vieillesse 2026 : Montants, admissibilité et comment faire votre demande",
+  description: "Pension SV 2026 : jusqu'à 800 $/mois à 75 ans, bonification de 36 % si vous reportez à 70 ans, et cumul avec le SRG pour les aînés à faible revenu.",
+  date: "2026-04-06",
+  categorie: "Retraite",
+  tempsLecture: "6 min",
+  metadata,
+  Content,
+};
+
+export default article;
+

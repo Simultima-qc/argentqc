@@ -1,10 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import articles from "@/data/articles";
+import { homeHubPageDefinitions } from "@/data/seo-pages";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
 const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
+
+export const metadata: Metadata = {
+  title: "ArgentQC.ca | Aides, subventions et credits d'impot au Quebec",
+  description: "Questionnaire gratuit et guides pratiques pour trouver les aides financieres, subventions et credits d'impot au Quebec.",
+  alternates: {
+    canonical: "https://argentqc.ca",
+  },
+};
 
 export default function Home() {
   return (
@@ -338,42 +348,10 @@ export default function Home() {
             Guides par situation
           </h2>
           <div className="flex flex-col gap-2">
-            {[
-              { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "Allocations, ACE, crédit solidarité" },
-              { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – combien ?", desc: "Montants 2026 détaillés" },
-              { href: "/credit-impot-quebec", titre: "Crédits d'impôt Québec", desc: "Tous les crédits remboursables" },
-              { href: "/subventions-maison-quebec", titre: "Subventions maison Québec 2026", desc: "Guide complet — jusqu'à 50 000 $" },
-              { href: "/subvention-renovation-quebec", titre: "Subvention rénovation Québec", desc: "Rénoclimat, LogisVert, fédéral" },
-              { href: "/vehicule-electrique-quebec", titre: "Subvention véhicule électrique", desc: "Roulez vert 2026" },
-              { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec", desc: "Montants 2026 et conditions" },
-              { href: "/allocation-logement-quebec", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu" },
-              { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec", desc: "LogisVert + Rénoclimat, jusqu'à 9 700 $" },
-              { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Lunettes, dentiste, médicaments" },
-              { href: "/aide-lunettes-quebec", titre: "Aide pour lunettes Québec", desc: "Crédits d'impôt disponibles" },
-              { href: "/cout-vie-quebec", titre: "Coût de la vie Québec 2026", desc: "Budget par profil + aides disponibles" },
-              { href: "/demenagement", titre: "Guide déménagement Québec 2026", desc: "Étapes, coûts, checklist, 1er juillet" },
-              { href: "/demenagement/cout", titre: "Coût d'un déménagement au Québec", desc: "Tableaux comparatifs camion vs déménageurs" },
-              { href: "/demenagement/checklist", titre: "Checklist déménagement Québec", desc: "Ne rien oublier — liste interactive" },
-              { href: "/budget", titre: "Budget mensuel au Québec 2026", desc: "Coût de la vie détaillé par poste" },
-              { href: "/budget/calculateur", titre: "Calculateur budget Québec", desc: "Bilan mensuel personnalisé + graphique" },
-              { href: "/assurances", titre: "Assurances au Québec 2026", desc: "Auto, habitation — guide complet" },
-              { href: "/assurances/auto", titre: "Assurance auto Québec", desc: "Régime SAAQ/privé, prix par profil, 7 conseils" },
-              { href: "/assurances/habitation", titre: "Assurance habitation Québec", desc: "Locataire vs propriétaire, prix moyens" },
-              { href: "/retraite", titre: "Planifier sa retraite au Québec", desc: "5 piliers : RRQ, SV, REER, CELI, employeur" },
-              { href: "/retraite/reer", titre: "REER — Guide complet 2026", desc: "Plafond, économies d'impôt, REER vs CELI" },
-              { href: "/retraite/celi", titre: "CELI — Tout comprendre 2026", desc: "Droits cumulatifs 109 000 $, placements, erreurs" },
-              { href: "/retraite/rrq", titre: "RRQ — Votre rente de retraite", desc: "Montants 60/65/70 ans, RRQ vs RPC" },
-              { href: "/aide-financiere-sport-enfant-quebec", titre: "Aide financière sport enfant Québec", desc: "Guide complet — tous les programmes" },
-              { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec", desc: "ACE, allocation famille, frais de garde" },
-              { href: "/impots", titre: "Impôts au Québec en 2026", desc: "ARC + Revenu Québec — tout comprendre" },
-              { href: "/impots/dates", titre: "Dates limites impôts Québec 2026", desc: "30 avril salariés · 15 juin travailleurs autonomes" },
-              { href: "/impots/remboursement", titre: "Remboursement d'impôts Québec 2026", desc: "Délais, suivi et crédits souvent oubliés" },
-              { href: "/impots/logiciels", titre: "Logiciels impôts gratuits Québec 2026", desc: "Wealthsimple, TurboImpôt, H&R Block — comparatif" },
-              { href: "/blog", titre: "Blog – Conseils aides financières", desc: "Articles pratiques mis à jour" },
-            ].map((lien) => (
+            {homeHubPageDefinitions.map((lien) => (
               <Link
-                key={lien.href}
-                href={lien.href}
+                key={lien.path}
+                href={lien.path}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -387,10 +365,10 @@ export default function Home() {
                 }}
               >
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: "14px", color: "#1C1C1E" }}>{lien.titre}</div>
-                  <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>{lien.desc}</div>
+                  <div style={{ fontWeight: 600, fontSize: "14px", color: "#1C1C1E" }}>{lien.title}</div>
+                  <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>{lien.description}</div>
                 </div>
-                <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>→</span>
+                <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>&rarr;</span>
               </Link>
             ))}
           </div>
