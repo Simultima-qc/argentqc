@@ -1,6 +1,17 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import {
+  assureursAuto2026,
+  assureursHabitation2026,
+  multAgeAuto2026,
+  multBiensHabitation2026,
+  multRegionAuto2026,
+  multRegionHabitation2026,
+  multStatutHabitation2026,
+  multUsageAuto2026,
+  multVehiculeAuto2026,
+} from "@/data/finance-2026";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -8,7 +19,8 @@ const GREEN = "#10B981";
 
 // ─── Données habitation ────────────────────────────────────────────────────────
 
-const assureursHabitation = [
+const assureursHabitation = assureursHabitation2026;
+/*
   { nom: "Desjardins", emoji: "🏦", type: "Mutuelle / Direct", prix_base: [28, 45] as [number, number], url: "https://www.desjardins.com/assurances/habitation/" },
   { nom: "Intact", emoji: "🏢", type: "Direct / Courtiers", prix_base: [30, 50] as [number, number], url: "https://www.intact.ca/fr/assurance-habitation/" },
   { nom: "Belair Direct", emoji: "💻", type: "Direct en ligne", prix_base: [25, 42] as [number, number], url: "https://www.belairdirect.com/fr/assurance-habitation.html" },
@@ -23,7 +35,8 @@ const multBiens: Record<string, number> = { bas: 0.85, moyen: 1.0, eleve: 1.25, 
 
 // ─── Données auto ─────────────────────────────────────────────────────────────
 
-const assureursAuto = [
+const assureursAuto = assureursAuto2026;
+/*
   { nom: "Desjardins", emoji: "🏦", type: "Mutuelle / Direct", prix_base: [95, 140] as [number, number], url: "https://www.desjardins.com/assurances/auto/" },
   { nom: "Intact", emoji: "🏢", type: "Direct / Courtiers", prix_base: [100, 155] as [number, number], url: "https://www.intact.ca/fr/assurance-auto/" },
   { nom: "Belair Direct", emoji: "💻", type: "Direct en ligne", prix_base: [88, 135] as [number, number], url: "https://www.belairdirect.com/fr/assurance-auto.html" },
@@ -36,8 +49,18 @@ const multAge: Record<string, number> = { jeune: 2.2, jeune_adulte: 1.35, adulte
 const multVehicule: Record<string, number> = { berline: 1.0, vus_compact: 1.12, vus_grand: 1.28, camionnette: 1.22, electrique: 1.08 };
 const multRegionAuto: Record<string, number> = { montreal: 1.30, quebec: 1.0, laval: 1.18, rive_sud: 1.12, region: 0.88 };
 const multUsage: Record<string, number> = { faible: 0.95, moyen: 1.0, eleve: 1.15 };
+*/
 
 // ─── Composant ────────────────────────────────────────────────────────────────
+
+const multStatut = multStatutHabitation2026;
+const multRegionHab = multRegionHabitation2026;
+const multBiens = multBiensHabitation2026;
+const assureursAuto = assureursAuto2026;
+const multAge = multAgeAuto2026;
+const multVehicule = multVehiculeAuto2026;
+const multRegionAuto = multRegionAuto2026;
+const multUsage = multUsageAuto2026;
 
 type TypeAssurance = "habitation" | "auto";
 
@@ -177,9 +200,9 @@ export default function ComparateurClient() {
   const resultatsHab = useMemo(() => {
     const statutKey = hab.logement === "condo" ? "condo" : hab.statut === "proprietaire" ? "proprietaire" : "locataire";
     if (!hab.logement || !hab.statut || !hab.region || !hab.biens) return null;
-    const m1 = multStatut[statutKey] ?? 1;
-    const m2 = multRegionHab[hab.region] ?? 1;
-    const m3 = multBiens[hab.biens] ?? 1;
+    const m1 = multStatut[statutKey as keyof typeof multStatut] ?? 1;
+    const m2 = multRegionHab[hab.region as keyof typeof multRegionHab] ?? 1;
+    const m3 = multBiens[hab.biens as keyof typeof multBiens] ?? 1;
     return assureursHabitation
       .map((a) => ({
         ...a,
@@ -192,10 +215,10 @@ export default function ComparateurClient() {
   // ── Calcul résultats auto ──
   const resultatsAuto = useMemo(() => {
     if (!auto.age || !auto.vehicule || !auto.region || !auto.usage) return null;
-    const m1 = multAge[auto.age] ?? 1;
-    const m2 = multVehicule[auto.vehicule] ?? 1;
-    const m3 = multRegionAuto[auto.region] ?? 1;
-    const m4 = multUsage[auto.usage] ?? 1;
+    const m1 = multAge[auto.age as keyof typeof multAge] ?? 1;
+    const m2 = multVehicule[auto.vehicule as keyof typeof multVehicule] ?? 1;
+    const m3 = multRegionAuto[auto.region as keyof typeof multRegionAuto] ?? 1;
+    const m4 = multUsage[auto.usage as keyof typeof multUsage] ?? 1;
     return assureursAuto
       .map((a) => ({
         ...a,

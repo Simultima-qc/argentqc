@@ -1,7 +1,7 @@
 import type { Programme, ReponseQuestionnaire } from "@/types";
-import programmesData from "@/data/programmes.json";
+import { programmes2026 } from "@/data/finance-2026";
 
-const programmes = programmesData as Programme[];
+const programmes = programmes2026 as Programme[];
 
 function parseRevenu(fourchette: string): number {
   const map: Record<string, number> = {
