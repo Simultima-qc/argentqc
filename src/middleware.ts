@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { defaultLocale, isLocale } from "@/i18n/routing";
+import { isLocale } from "@/i18n/routing";
 
 export function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
@@ -51,17 +51,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`${legacyTarget}${search}`, request.url), 308);
   }
 
-  const requestHeaders = new Headers(request.headers);
   const firstSegment = pathname.split("/").filter(Boolean)[0];
-  const locale = firstSegment && isLocale(firstSegment) ? firstSegment : defaultLocale;
+  if (firstSegment && isLocale(firstSegment)) {
+    return NextResponse.next();
+  }
 
-  requestHeaders.set("x-argentqc-locale", locale);
-
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  return NextResponse.next();
 }
 
 export const config = {

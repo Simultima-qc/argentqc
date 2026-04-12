@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
@@ -15,11 +14,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const requestHeaders = await headers();
-  const htmlLang = requestHeaders.get("x-argentqc-locale") ?? "fr";
-
   return (
-    <html lang={htmlLang} className="h-full">
+    <html lang="fr" className="h-full">
       <head>
         {/* Google Analytics – dans <head> pour validation Search Console */}
         <Script
