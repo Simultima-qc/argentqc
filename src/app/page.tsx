@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
 
-      {/* ── HERO ── */}
+      {/* â”€â”€ HERO â”€â”€ */}
       <section
         style={{ background: DARK, position: "relative", overflow: "hidden" }}
         className="px-5 pt-16 pb-14"
@@ -46,11 +46,11 @@ export default function Home() {
           }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: GOLD, display: "inline-block", flexShrink: 0 }} />
             <span style={{ color: GOLD, fontSize: "11px", fontWeight: 700, letterSpacing: "0.09em", textTransform: "uppercase" }}>
-              100 % gratuit · aucune inscription
+              100 % gratuit Â· aucune inscription
             </span>
           </div>
 
-          {/* Headline — serif */}
+          {/* Headline â€” serif */}
           <h1 style={{
             fontFamily: "var(--font-playfair)",
             color: "#F0EBE0",
@@ -60,7 +60,7 @@ export default function Home() {
             letterSpacing: "-0.01em",
             marginBottom: "1.25rem"
           }}>
-            Découvrez l&apos;argent que<br />vous{" "}
+            DÃ©couvrez l&apos;argent que<br />vous{" "}
             <em style={{ color: GOLD, fontStyle: "italic" }}>laissez sur la table</em>
           </h1>
 
@@ -71,7 +71,7 @@ export default function Home() {
             maxWidth: "380px",
             margin: "0 auto 2rem"
           }}>
-            Crédits d&apos;impôt, subventions, allocations — répondez à 8 questions pour obtenir votre liste personnalisée.
+            CrÃ©dits d&apos;impÃ´t, subventions, allocations â€” rÃ©pondez Ã  8 questions pour obtenir votre liste personnalisÃ©e.
           </p>
 
           {/* Primary CTA */}
@@ -90,18 +90,18 @@ export default function Home() {
               transition: "transform 0.15s, box-shadow 0.15s",
             }}
           >
-            Trouver mes aides →
+            Trouver mes aides â†’
           </Link>
           <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px", marginTop: "10px", textAlign: "center" }}>
-            Gratuit · 2 minutes · estimation personnalisée
+            Gratuit Â· 2 minutes Â· estimation personnalisÃ©e
           </p>
 
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-2" style={{ marginTop: "1.25rem" }}>
             {[
-              "🔒 Aucune donnée sauvegardée",
-              "✅ Programmes officiels",
-              "🎁 100 % gratuit",
+              "ðŸ”’ Aucune donnÃ©e sauvegardÃ©e",
+              "âœ… Programmes officiels",
+              "ðŸŽ 100 % gratuit",
             ].map((b) => (
               <span key={b} style={{
                 background: "rgba(255,255,255,0.05)",
@@ -116,7 +116,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── EXEMPLES ── */}
+      {/* â”€â”€ EXEMPLES â”€â”€ */}
       <section style={{ background: PARCH, borderBottom: "1px solid #E8E0D4" }} className="py-10 px-5">
         <div className="max-w-lg mx-auto">
           <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", textAlign: "center", marginBottom: "1.25rem" }}>
@@ -124,9 +124,9 @@ export default function Home() {
           </p>
           <div className="flex flex-col gap-3">
             {[
-              { profil: "Famille avec 2 enfants", montant: "9 800 $", desc: "Allocation famille + ACE + crédit solidarité" },
-              { profil: "Propriétaire qui rénove", montant: "16 700 $", desc: "Rénoclimat + LogisVert + crédits fédéraux" },
-              { profil: "Aîné de 70 ans", montant: "14 000 $", desc: "SV + SRG + maintien à domicile" },
+              { profil: "Famille avec 2 enfants", montant: "9 800 $", desc: "Allocation famille + ACE + crÃ©dit solidaritÃ©" },
+              { profil: "PropriÃ©taire qui rÃ©nove", montant: "16 700 $", desc: "RÃ©noclimat + LogisVert + crÃ©dits fÃ©dÃ©raux" },
+              { profil: "AÃ®nÃ© de 70 ans", montant: "14 000 $", desc: "SV + SRG + maintien Ã  domicile" },
             ].map((ex) => (
               <div key={ex.profil} style={{
                 background: "white",
@@ -152,22 +152,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── AD ── */}
+      {/* â”€â”€ AD â”€â”€ */}
       <div style={{ background: "#EDE9E0", borderBottom: "1px solid #E0D9CE" }} className="py-3 px-4">
         <div className="max-w-lg mx-auto">
           <div style={{ height: "56px", background: "#E5DFD4", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px" }}>
-            Publicité
+            PublicitÃ©
           </div>
         </div>
       </div>
 
-      {/* ── STATS ── */}
+      {/* â”€â”€ STATS â”€â”€ */}
       <section style={{ background: "#0F172A" }} className="py-9 px-5">
         <div className="max-w-lg mx-auto grid grid-cols-3 gap-4 text-center">
           {[
             { val: "16", label: "programmes couverts" },
             { val: "20k$", label: "potentiel moyen" },
-            { val: "2min", label: "pour vos résultats" },
+            { val: "2min", label: "pour vos rÃ©sultats" },
           ].map((s) => (
             <div key={s.label}>
               <div style={{
@@ -183,7 +183,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMMENT ÇA MARCHE ── */}
+      {/* â”€â”€ COMMENT Ã‡A MARCHE â”€â”€ */}
       <section style={{ background: PARCH, borderTop: "1px solid #E8E0D4" }} className="py-12 px-5">
         <div className="max-w-lg mx-auto">
           <h2 style={{
@@ -194,13 +194,13 @@ export default function Home() {
             textAlign: "center",
             marginBottom: "2rem"
           }}>
-            Comment ça fonctionne
+            Comment Ã§a fonctionne
           </h2>
           <div className="flex flex-col gap-6">
             {[
-              { num: "1", titre: "Répondez à 8 questions", texte: "Situation familiale, revenus, logement, véhicule électrique…" },
-              { num: "2", titre: "Notre algorithme analyse", texte: "On croise vos réponses avec 16 programmes provinciaux et fédéraux." },
-              { num: "3", titre: "Récupérez votre argent", texte: "Liste claire avec montants estimés et liens vers les formulaires officiels." },
+              { num: "1", titre: "RÃ©pondez Ã  8 questions", texte: "Situation familiale, revenus, logement, vÃ©hicule Ã©lectriqueâ€¦" },
+              { num: "2", titre: "Notre algorithme analyse", texte: "On croise vos rÃ©ponses avec 16 programmes provinciaux et fÃ©dÃ©raux." },
+              { num: "3", titre: "RÃ©cupÃ©rez votre argent", texte: "Liste claire avec montants estimÃ©s et liens vers les formulaires officiels." },
             ].map((item) => (
               <div key={item.num} style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
                 <div style={{
@@ -234,12 +234,12 @@ export default function Home() {
               border: `1px solid rgba(245,200,66,0.2)`,
             }}
           >
-            Commencer maintenant →
+            Commencer maintenant â†’
           </Link>
         </div>
       </section>
 
-      {/* ── HUB FINANCES PERSONNELLES ── */}
+      {/* â”€â”€ HUB FINANCES PERSONNELLES â”€â”€ */}
       <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="py-12 px-5">
         <div className="max-w-lg mx-auto">
           <h2 style={{
@@ -250,19 +250,19 @@ export default function Home() {
             textAlign: "center",
             marginBottom: "6px"
           }}>
-            Finances personnelles Québec
+            Finances personnelles QuÃ©bec
           </h2>
           <p style={{ textAlign: "center", color: "#78716C", fontSize: "13px", marginBottom: "1.75rem" }}>
-            Guides pratiques adaptés au marché québécois
+            Guides pratiques adaptÃ©s au marchÃ© quÃ©bÃ©cois
           </p>
           <div className="grid grid-cols-2 gap-3">
             {[
-              { href: "/demenagement", emoji: "📦", label: "Déménagement", desc: "Guide, coûts, checklist", color: "#DBEAFE", textColor: "#1D4ED8" },
-              { href: "/budget", emoji: "💰", label: "Budget & coût de la vie", desc: "Calculateur, comparatifs", color: "#D1FAE5", textColor: "#065F46" },
-              { href: "/assurances", emoji: "🛡️", label: "Assurances", desc: "Auto, habitation Québec", color: "#FEF3C7", textColor: "#92400E" },
-              { href: "/retraite", emoji: "🏖️", label: "Retraite", desc: "REER, CELI, RRQ", color: "#EDE9FE", textColor: "#5B21B6" },
-              { href: "/impots", emoji: "🧾", label: "Impôts Québec", desc: "Dates, remboursement, logiciels", color: "#FEE2E2", textColor: "#991B1B" },
-              { href: "/internet", emoji: "🌐", label: "Internet Québec", desc: "Comparateur fournisseurs 2026", color: "#CFFAFE", textColor: "#155E75" },
+              { href: "/demenagement", emoji: "ðŸ“¦", label: "DÃ©mÃ©nagement", desc: "Guide, coÃ»ts, checklist", color: "#DBEAFE", textColor: "#1D4ED8" },
+              { href: "/budget", emoji: "ðŸ’°", label: "Budget & coÃ»t de la vie", desc: "Calculateur, comparatifs", color: "#D1FAE5", textColor: "#065F46" },
+              { href: "/assurances", emoji: "ðŸ›¡ï¸", label: "Assurances", desc: "Auto, habitation QuÃ©bec", color: "#FEF3C7", textColor: "#92400E" },
+              { href: "/retraite", emoji: "ðŸ–ï¸", label: "Retraite", desc: "REER, CELI, RRQ", color: "#EDE9FE", textColor: "#5B21B6" },
+              { href: "/impots", emoji: "ðŸ§¾", label: "ImpÃ´ts QuÃ©bec", desc: "Dates, remboursement, logiciels", color: "#FEE2E2", textColor: "#991B1B" },
+              { href: "/internet", emoji: "ðŸŒ", label: "Internet QuÃ©bec", desc: "Comparateur fournisseurs 2026", color: "#CFFAFE", textColor: "#155E75" },
             ].map((cat) => (
               <Link
                 key={cat.href}
@@ -286,7 +286,7 @@ export default function Home() {
                     background: cat.color, color: cat.textColor,
                     fontSize: "10px", fontWeight: 700,
                     padding: "2px 8px", borderRadius: "100px"
-                  }}>Voir les guides →</span>
+                  }}>Voir les guides â†’</span>
                 </div>
               </Link>
             ))}
@@ -294,7 +294,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CATÉGORIES ── */}
+      {/* â”€â”€ CATÃ‰GORIES â”€â”€ */}
       <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="py-12 px-5">
         <div className="max-w-lg mx-auto">
           <h2 style={{
@@ -309,14 +309,14 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-2 gap-3">
             {[
-              { emoji: "🏠", label: "Rénovation & logement" },
-              { emoji: "⚡", label: "Énergie & thermopompe" },
-              { emoji: "👨‍👩‍👧", label: "Famille & enfants" },
-              { emoji: "🚗", label: "Auto électrique" },
-              { emoji: "💰", label: "Crédits d'impôt" },
-              { emoji: "👴", label: "Aînés & retraite" },
-              { emoji: "🌱", label: "Environnement" },
-              { emoji: "🏙️", label: "Aide sociale QC" },
+              { emoji: "ðŸ ", label: "RÃ©novation & logement" },
+              { emoji: "âš¡", label: "Ã‰nergie & thermopompe" },
+              { emoji: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§", label: "Famille & enfants" },
+              { emoji: "ðŸš—", label: "Auto Ã©lectrique" },
+              { emoji: "ðŸ’°", label: "CrÃ©dits d'impÃ´t" },
+              { emoji: "ðŸ‘´", label: "AÃ®nÃ©s & retraite" },
+              { emoji: "ðŸŒ±", label: "Environnement" },
+              { emoji: "ðŸ™ï¸", label: "Aide sociale QC" },
             ].map((cat) => (
               <div key={cat.label} style={{
                 background: PARCH,
@@ -334,7 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── GUIDES SEO ── */}
+      {/* â”€â”€ GUIDES SEO â”€â”€ */}
       <section style={{ background: PARCH, borderTop: "1px solid #E8E0D4" }} className="py-12 px-5">
         <div className="max-w-lg mx-auto">
           <h2 style={{
@@ -375,7 +375,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── DERNIERS ARTICLES ── */}
+      {/* â”€â”€ DERNIERS ARTICLES â”€â”€ */}
       <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="py-12 px-5">
         <div className="max-w-lg mx-auto">
           <h2 style={{
@@ -414,7 +414,7 @@ export default function Home() {
                   <div style={{ fontWeight: 600, fontSize: "14px", color: "#1C1C1E", lineHeight: 1.45 }}>{article.titre}</div>
                   <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "3px" }}>{article.tempsLecture} de lecture</div>
                 </div>
-                <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0 }}>→</span>
+                <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0 }}>â†’</span>
               </Link>
             ))}
           </div>
@@ -430,27 +430,27 @@ export default function Home() {
               textDecoration: "none"
             }}
           >
-            Voir tous les articles →
+            Voir tous les articles â†’
           </Link>
         </div>
       </section>
 
-      {/* ── AD BAS ── */}
+      {/* â”€â”€ AD BAS â”€â”€ */}
       <section style={{ background: "#EDE9E0", borderTop: "1px solid #E0D9CE" }} className="py-4 px-4">
         <div className="max-w-lg mx-auto">
           <div style={{ height: "64px", background: "#E5DFD4", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px" }}>
-            Publicité
+            PublicitÃ©
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
+      {/* â”€â”€ FOOTER â”€â”€ */}
       <footer style={{ background: DARK }} className="py-8 px-5 mt-auto">
         <div className="max-w-lg mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px", lineHeight: 1.7 }}>
-            Outil informatif non affilié au gouvernement. Les montants sont des estimations —<br />
-            consultez toujours les sites officiels pour confirmer votre admissibilité.
+            Outil informatif non affiliÃ© au gouvernement. Les montants sont des estimations â€”<br />
+            consultez toujours les sites officiels pour confirmer votre admissibilitÃ©.
           </p>
           <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "12px", display: "block", marginTop: "8px" }}>Contactez-nous</Link>
         </div>

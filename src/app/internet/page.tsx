@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Internet au Québec en 2026 — Fournisseurs et forfaits | ArgentQC.ca",
+  title: "Internet au QuÃ©bec en 2026 â€” Fournisseurs et forfaits | ArgentQC.ca",
   description:
-    "Guide complet des fournisseurs internet au Québec en 2026 : Vidéotron, Bell, Fizz, Oxio, TekSavvy. Fibre vs câble, sans contrat, meilleur prix selon votre région.",
+    "Guide complet des fournisseurs internet au QuÃ©bec en 2026 : VidÃ©otron, Bell, Fizz, Oxio, TekSavvy. Fibre vs cÃ¢ble, sans contrat, meilleur prix selon votre rÃ©gion.",
   keywords: [
-    "internet Québec 2026",
-    "fournisseur internet Québec",
-    "meilleur internet Québec",
-    "forfait internet Québec",
-    "fibre optique Québec",
+    "internet QuÃ©bec 2026",
+    "fournisseur internet QuÃ©bec",
+    "meilleur internet QuÃ©bec",
+    "forfait internet QuÃ©bec",
+    "fibre optique QuÃ©bec",
   ],
 };
 
@@ -21,64 +21,64 @@ const PARCH = "#F7F3EC";
 const typesFournisseurs = [
   {
     type: "Fibre optique",
-    emoji: "⚡",
-    desc: "Connexion symétrique (upload = download), très stable, idéale pour le télétravail et le streaming 4K. Disponible principalement à Montréal, Québec et Laval. Bell et Vidéotron déploient activement leur réseau fibre.",
-    avantages: ["Vitesse symétrique", "Très faible latence", "Stable et fiable"],
-    inconvenients: ["Disponibilité limitée", "Prix plus élevé"],
+    emoji: "âš¡",
+    desc: "Connexion symÃ©trique (upload = download), trÃ¨s stable, idÃ©ale pour le tÃ©lÃ©travail et le streaming 4K. Disponible principalement Ã  MontrÃ©al, QuÃ©bec et Laval. Bell et VidÃ©otron dÃ©ploient activement leur rÃ©seau fibre.",
+    avantages: ["Vitesse symÃ©trique", "TrÃ¨s faible latence", "Stable et fiable"],
+    inconvenients: ["DisponibilitÃ© limitÃ©e", "Prix plus Ã©levÃ©"],
   },
   {
-    type: "Câble coaxial",
-    emoji: "📡",
-    desc: "Technologie dominante au Québec. Vitesse de téléchargement élevée mais upload plus lent. Réseau partagé dans le quartier — performances peuvent varier en soirée.",
-    avantages: ["Large disponibilité", "Bon rapport prix/vitesse", "Installations existantes"],
-    inconvenients: ["Upload plus lent", "Réseau partagé"],
+    type: "CÃ¢ble coaxial",
+    emoji: "ðŸ“¡",
+    desc: "Technologie dominante au QuÃ©bec. Vitesse de tÃ©lÃ©chargement Ã©levÃ©e mais upload plus lent. RÃ©seau partagÃ© dans le quartier â€” performances peuvent varier en soirÃ©e.",
+    avantages: ["Large disponibilitÃ©", "Bon rapport prix/vitesse", "Installations existantes"],
+    inconvenients: ["Upload plus lent", "RÃ©seau partagÃ©"],
   },
 ];
 
 const criteres = [
   {
-    titre: "Vitesse de téléchargement (download)",
-    emoji: "⬇️",
-    desc: "Pour la navigation, Netflix et YouTube. 100 Mbps suffit pour 2–3 appareils. 500 Mbps pour une famille connectée.",
+    titre: "Vitesse de tÃ©lÃ©chargement (download)",
+    emoji: "â¬‡ï¸",
+    desc: "Pour la navigation, Netflix et YouTube. 100 Mbps suffit pour 2â€“3 appareils. 500 Mbps pour une famille connectÃ©e.",
   },
   {
     titre: "Vitesse d'envoi (upload)",
-    emoji: "⬆️",
-    desc: "Crucial pour le télétravail, les visioconférences et le stockage en nuage. La fibre offre des vitesses symétriques — le câble peut être 10× plus lent en upload.",
+    emoji: "â¬†ï¸",
+    desc: "Crucial pour le tÃ©lÃ©travail, les visioconfÃ©rences et le stockage en nuage. La fibre offre des vitesses symÃ©triques â€” le cÃ¢ble peut Ãªtre 10Ã— plus lent en upload.",
   },
   {
     titre: "Contrat et engagement",
-    emoji: "📋",
-    desc: "Plusieurs fournisseurs offrent des forfaits sans contrat (Fizz, Oxio, TekSavvy). Bell exige généralement 24 mois. Un contrat peut offrir un rabais initial, mais limite votre flexibilité.",
+    emoji: "ðŸ“‹",
+    desc: "Plusieurs fournisseurs offrent des forfaits sans contrat (Fizz, Oxio, TekSavvy). Bell exige gÃ©nÃ©ralement 24 mois. Un contrat peut offrir un rabais initial, mais limite votre flexibilitÃ©.",
   },
   {
     titre: "Location du modem",
-    emoji: "📦",
-    desc: "Certains fournisseurs facturent 5–10 $/mois pour le modem. Acheter votre propre équipement compatible peut économiser 60–120 $/an. Vérifiez la liste des modems approuvés.",
+    emoji: "ðŸ“¦",
+    desc: "Certains fournisseurs facturent 5â€“10 $/mois pour le modem. Acheter votre propre Ã©quipement compatible peut Ã©conomiser 60â€“120 $/an. VÃ©rifiez la liste des modems approuvÃ©s.",
   },
   {
-    titre: "Service à la clientèle et fiabilité",
-    emoji: "🛠️",
-    desc: "Oxio et Fizz misent sur un support 100% numérique. Vidéotron et Bell offrent des techniciens en personne. Les fournisseurs alternatifs (Oxio, TekSavvy) louent le réseau de Vidéotron ou Bell.",
+    titre: "Service Ã  la clientÃ¨le et fiabilitÃ©",
+    emoji: "ðŸ› ï¸",
+    desc: "Oxio et Fizz misent sur un support 100% numÃ©rique. VidÃ©otron et Bell offrent des techniciens en personne. Les fournisseurs alternatifs (Oxio, TekSavvy) louent le rÃ©seau de VidÃ©otron ou Bell.",
   },
 ];
 
 const faqs = [
   {
-    q: "Fibre ou câble : quelle différence concrète au Québec ?",
-    r: "La fibre offre des vitesses symétriques (upload = download), ce qui est déterminant pour le télétravail et les visioconférences. Le câble est asymétrique — vous téléchargez vite mais l'envoi est lent. Pour la navigation et le streaming, le câble haute vitesse est souvent suffisant. Pour le télétravail intensif, la fibre est recommandée.",
+    q: "Fibre ou cÃ¢ble : quelle diffÃ©rence concrÃ¨te au QuÃ©bec ?",
+    r: "La fibre offre des vitesses symÃ©triques (upload = download), ce qui est dÃ©terminant pour le tÃ©lÃ©travail et les visioconfÃ©rences. Le cÃ¢ble est asymÃ©trique â€” vous tÃ©lÃ©chargez vite mais l'envoi est lent. Pour la navigation et le streaming, le cÃ¢ble haute vitesse est souvent suffisant. Pour le tÃ©lÃ©travail intensif, la fibre est recommandÃ©e.",
   },
   {
-    q: "Quel est le meilleur fournisseur internet à Montréal ?",
-    r: "Cela dépend de votre priorité. Pour le prix, Oxio (44$/mois) ou Fizz (47–58$/mois) sont imbattables. Pour la vitesse fibre, Vidéotron et Bell dominent. Pour la flexibilité sans contrat, Fizz et Oxio n'exigent aucun engagement. Bell impose un contrat de 24 mois mais inclut le modem.",
+    q: "Quel est le meilleur fournisseur internet Ã  MontrÃ©al ?",
+    r: "Cela dÃ©pend de votre prioritÃ©. Pour le prix, Oxio (44$/mois) ou Fizz (47â€“58$/mois) sont imbattables. Pour la vitesse fibre, VidÃ©otron et Bell dominent. Pour la flexibilitÃ© sans contrat, Fizz et Oxio n'exigent aucun engagement. Bell impose un contrat de 24 mois mais inclut le modem.",
   },
   {
     q: "Combien de temps pour l'installation d'un nouvel abonnement ?",
-    r: "Pour le câble, l'activation peut parfois être faite en libre-service si l'infrastructure est déjà en place (2–5 jours). Pour la fibre ou un nouvel immeuble, comptez 1–3 semaines pour un rendez-vous technicien. Planifiez à l'avance lors d'un déménagement.",
+    r: "Pour le cÃ¢ble, l'activation peut parfois Ãªtre faite en libre-service si l'infrastructure est dÃ©jÃ  en place (2â€“5 jours). Pour la fibre ou un nouvel immeuble, comptez 1â€“3 semaines pour un rendez-vous technicien. Planifiez Ã  l'avance lors d'un dÃ©mÃ©nagement.",
   },
   {
     q: "Les fournisseurs alternatifs (Fizz, Oxio) sont-ils fiables ?",
-    r: "Oui. Fizz (filiale de Vidéotron) et Oxio utilisent le réseau câblé de Vidéotron — vous avez la même infrastructure physique, mais une expérience client et un prix différents. TekSavvy est un revendeur agréé bien établi. La principale différence est le support client : 100% en ligne pour ces fournisseurs.",
+    r: "Oui. Fizz (filiale de VidÃ©otron) et Oxio utilisent le rÃ©seau cÃ¢blÃ© de VidÃ©otron â€” vous avez la mÃªme infrastructure physique, mais une expÃ©rience client et un prix diffÃ©rents. TekSavvy est un revendeur agrÃ©Ã© bien Ã©tabli. La principale diffÃ©rence est le support client : 100% en ligne pour ces fournisseurs.",
   },
 ];
 
@@ -164,7 +164,7 @@ export default function InternetPage() {
             >
               Accueil
             </Link>
-            {" › "}
+            {" â€º "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Internet</span>
           </nav>
           <p
@@ -178,7 +178,7 @@ export default function InternetPage() {
               opacity: 0.8,
             }}
           >
-            Guide complet · Québec 2026
+            Guide complet Â· QuÃ©bec 2026
           </p>
           <h1
             style={{
@@ -190,7 +190,7 @@ export default function InternetPage() {
               marginBottom: "12px",
             }}
           >
-            Internet au Québec en 2026
+            Internet au QuÃ©bec en 2026
           </h1>
           <p
             style={{
@@ -200,9 +200,9 @@ export default function InternetPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Comparez Vidéotron, Bell, Fizz, Oxio, TekSavvy et Cogeco. Fibre vs câble,
-            contrat vs sans engagement — tout ce qu&apos;il faut savoir pour choisir
-            le meilleur forfait internet selon votre région et votre budget.
+            Comparez VidÃ©otron, Bell, Fizz, Oxio, TekSavvy et Cogeco. Fibre vs cÃ¢ble,
+            contrat vs sans engagement â€” tout ce qu&apos;il faut savoir pour choisir
+            le meilleur forfait internet selon votre rÃ©gion et votre budget.
           </p>
           <Link
             href="/internet/comparateur"
@@ -219,7 +219,7 @@ export default function InternetPage() {
               textDecoration: "none",
             }}
           >
-            Comparer les forfaits →
+            Comparer les forfaits â†’
           </Link>
         </div>
       </section>
@@ -240,7 +240,7 @@ export default function InternetPage() {
             marginBottom: "2rem",
           }}
         >
-          Publicité
+          PublicitÃ©
         </div>
 
         {/* Types de connexion */}
@@ -253,7 +253,7 @@ export default function InternetPage() {
             marginBottom: "1.25rem",
           }}
         >
-          Fibre vs câble : quelle technologie choisir ?
+          Fibre vs cÃ¢ble : quelle technologie choisir ?
         </h2>
         <div className="flex flex-col gap-4 mb-10">
           {typesFournisseurs.map((t) => (
@@ -288,7 +288,7 @@ export default function InternetPage() {
                       borderRadius: "100px",
                     }}
                   >
-                    ✓ {a}
+                    âœ“ {a}
                   </span>
                 ))}
                 {t.inconvenients.map((i) => (
@@ -303,7 +303,7 @@ export default function InternetPage() {
                       borderRadius: "100px",
                     }}
                   >
-                    ✗ {i}
+                    âœ— {i}
                   </span>
                 ))}
               </div>
@@ -335,16 +335,16 @@ export default function InternetPage() {
                 marginBottom: "4px",
               }}
             >
-              Comparateur internet Québec
+              Comparateur internet QuÃ©bec
             </div>
             <div style={{ color: "rgba(240,235,224,0.5)", fontSize: "12px" }}>
               Filtrez par budget, vitesse et type de connexion
             </div>
           </div>
-          <span style={{ color: GOLD, fontSize: "1.4rem" }}>→</span>
+          <span style={{ color: GOLD, fontSize: "1.4rem" }}>â†’</span>
         </Link>
 
-        {/* Critères de choix */}
+        {/* CritÃ¨res de choix */}
         <h2
           style={{
             fontFamily: "var(--font-playfair)",
@@ -354,7 +354,7 @@ export default function InternetPage() {
             marginBottom: "1.25rem",
           }}
         >
-          5 critères pour bien choisir
+          5 critÃ¨res pour bien choisir
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {criteres.map((c, i) => (
@@ -412,7 +412,7 @@ export default function InternetPage() {
             marginBottom: "2rem",
           }}
         >
-          Publicité
+          PublicitÃ©
         </div>
 
         {/* Liens internes */}
@@ -431,21 +431,21 @@ export default function InternetPage() {
           {[
             {
               href: "/internet/comparateur",
-              emoji: "🌐",
-              titre: "Comparateur internet Québec 2026",
+              emoji: "ðŸŒ",
+              titre: "Comparateur internet QuÃ©bec 2026",
               desc: "Filtres par budget, vitesse, type et sans contrat",
             },
             {
               href: "/demenagement",
-              emoji: "📦",
-              titre: "Guide déménagement Québec",
-              desc: "Tout prévoir : résiliation, transfert, nouvel abonnement",
+              emoji: "ðŸ“¦",
+              titre: "Guide dÃ©mÃ©nagement QuÃ©bec",
+              desc: "Tout prÃ©voir : rÃ©siliation, transfert, nouvel abonnement",
             },
             {
               href: "/budget/calculateur",
-              emoji: "🧮",
-              titre: "Calculateur de budget Québec",
-              desc: "Intégrez le coût de votre internet dans votre budget mensuel",
+              emoji: "ðŸ§®",
+              titre: "Calculateur de budget QuÃ©bec",
+              desc: "IntÃ©grez le coÃ»t de votre internet dans votre budget mensuel",
             },
           ].map((lien) => (
             <Link
@@ -471,7 +471,7 @@ export default function InternetPage() {
                   {lien.desc}
                 </div>
               </div>
-              <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
+              <span style={{ color: "#3B82F6", fontSize: "14px" }}>â†’</span>
             </Link>
           ))}
         </div>
@@ -486,7 +486,7 @@ export default function InternetPage() {
             marginBottom: "1.25rem",
           }}
         >
-          Questions fréquentes
+          Questions frÃ©quentes
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
@@ -553,7 +553,7 @@ export default function InternetPage() {
             ArgentQC.ca
           </p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>
-            Outil informatif non affilié aux fournisseurs internet ou au gouvernement.
+            Outil informatif non affiliÃ© aux fournisseurs internet ou au gouvernement.
           </p>
           <Link
             href="/contact"

@@ -2,57 +2,57 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Coût de la vie au Québec 2026 – Budget mensuel complet",
+  title: "CoÃ»t de la vie au QuÃ©bec 2026 â€“ Budget mensuel complet",
   description:
-    "Combien ça coûte vraiment vivre au Québec en 2026 ? Logement, épicerie, enfants, sport, transport — et toutes les aides gouvernementales pour réduire vos dépenses.",
+    "Combien Ã§a coÃ»te vraiment vivre au QuÃ©bec en 2026 ? Logement, Ã©picerie, enfants, sport, transport â€” et toutes les aides gouvernementales pour rÃ©duire vos dÃ©penses.",
   keywords: [
-    "coût de la vie Québec 2026",
-    "budget mensuel Québec",
-    "combien coûte vivre au Québec",
-    "coût enfant Québec",
+    "coÃ»t de la vie QuÃ©bec 2026",
+    "budget mensuel QuÃ©bec",
+    "combien coÃ»te vivre au QuÃ©bec",
+    "coÃ»t enfant QuÃ©bec",
   ],
 };
 
 const postes = [
   {
     categorie: "Logement",
-    emoji: "🏠",
-    coutSeul: "900 $ – 1 800 $",
-    coutFamille: "1 400 $ – 2 500 $",
-    note: "Loyer moyen à Montréal. Québec et régions: 20-30% moins cher.",
+    emoji: "ðŸ ",
+    coutSeul: "900 $ â€“ 1 800 $",
+    coutFamille: "1 400 $ â€“ 2 500 $",
+    note: "Loyer moyen Ã  MontrÃ©al. QuÃ©bec et rÃ©gions: 20-30% moins cher.",
     aides: [
       { label: "Allocation-logement SHQ", href: "/allocation-logement-quebec" },
-      { label: "Crédit de solidarité", href: "/credit-solidarite-quebec" },
+      { label: "CrÃ©dit de solidaritÃ©", href: "/credit-solidarite-quebec" },
     ],
   },
   {
-    categorie: "Épicerie",
-    emoji: "🛒",
-    coutSeul: "350 $ – 500 $",
-    coutFamille: "800 $ – 1 200 $",
-    note: "Famille de 4 personnes. Les prix ont augmenté de ~20% depuis 2022.",
+    categorie: "Ã‰picerie",
+    emoji: "ðŸ›’",
+    coutSeul: "350 $ â€“ 500 $",
+    coutFamille: "800 $ â€“ 1 200 $",
+    note: "Famille de 4 personnes. Les prix ont augmentÃ© de ~20% depuis 2022.",
     aides: [
-      { label: "Crédit TPS/TVH", href: "/credit-impot-quebec" },
-      { label: "Crédit de solidarité", href: "/credit-solidarite-quebec" },
+      { label: "CrÃ©dit TPS/TVH", href: "/credit-impot-quebec" },
+      { label: "CrÃ©dit de solidaritÃ©", href: "/credit-solidarite-quebec" },
     ],
   },
   {
     categorie: "Enfants & garderie",
-    emoji: "👶",
-    coutSeul: "–",
-    coutFamille: "200 $ – 1 500 $",
-    note: "CPE subventionné à ~10 $/jour. Garderie privée non subventionnée: 40-55 $/jour.",
+    emoji: "ðŸ‘¶",
+    coutSeul: "â€“",
+    coutFamille: "200 $ â€“ 1 500 $",
+    note: "CPE subventionnÃ© Ã  ~10 $/jour. Garderie privÃ©e non subventionnÃ©e: 40-55 $/jour.",
     aides: [
-      { label: "Crédit frais de garde (75%)", href: "/blog/frais-garde-enfants-quebec-2026" },
+      { label: "CrÃ©dit frais de garde (75%)", href: "/blog/frais-garde-enfants-quebec-2026" },
       { label: "Allocation famille", href: "/aide-famille-quebec" },
     ],
   },
   {
     categorie: "Sport & loisirs enfants",
-    emoji: "⚽",
-    coutSeul: "–",
-    coutFamille: "500 $ – 3 000 $",
-    note: "Soccer, hockey, natation — les sports d'hiver (hockey) sont les plus coûteux.",
+    emoji: "âš½",
+    coutSeul: "â€“",
+    coutFamille: "500 $ â€“ 3 000 $",
+    note: "Soccer, hockey, natation â€” les sports d'hiver (hockey) sont les plus coÃ»teux.",
     aides: [
       { label: "Guide aides sport enfant", href: "/aide-financiere-sport-enfant-quebec" },
       { label: "Jumpstart (familles modestes)", href: "https://jumpstart.canadiantire.ca/fr" },
@@ -60,84 +60,84 @@ const postes = [
   },
   {
     categorie: "Transport",
-    emoji: "🚗",
-    coutSeul: "150 $ – 800 $",
-    coutFamille: "300 $ – 1 200 $",
-    note: "Transport en commun ~100 $/mois à Montréal. Voiture: assurance + essence + entretien.",
+    emoji: "ðŸš—",
+    coutSeul: "150 $ â€“ 800 $",
+    coutFamille: "300 $ â€“ 1 200 $",
+    note: "Transport en commun ~100 $/mois Ã  MontrÃ©al. Voiture: assurance + essence + entretien.",
     aides: [
-      { label: "Subvention véhicule électrique", href: "/vehicule-electrique-quebec" },
+      { label: "Subvention vÃ©hicule Ã©lectrique", href: "/vehicule-electrique-quebec" },
       { label: "Borne de recharge (600 $)", href: "/vehicule-electrique-quebec" },
     ],
   },
   {
-    categorie: "Santé",
-    emoji: "🏥",
-    coutSeul: "100 $ – 400 $",
-    coutFamille: "200 $ – 800 $",
-    note: "Médicaments, dentiste, lunettes, physio — couverts partiellement par les crédits d'impôt.",
+    categorie: "SantÃ©",
+    emoji: "ðŸ¥",
+    coutSeul: "100 $ â€“ 400 $",
+    coutFamille: "200 $ â€“ 800 $",
+    note: "MÃ©dicaments, dentiste, lunettes, physio â€” couverts partiellement par les crÃ©dits d'impÃ´t.",
     aides: [
-      { label: "Crédit frais médicaux", href: "/credit-impot-frais-medicaux-quebec" },
-      { label: "Aide lunettes Québec", href: "/aide-lunettes-quebec" },
+      { label: "CrÃ©dit frais mÃ©dicaux", href: "/credit-impot-frais-medicaux-quebec" },
+      { label: "Aide lunettes QuÃ©bec", href: "/aide-lunettes-quebec" },
     ],
   },
 ];
 
 const profils = [
   {
-    profil: "Personne seule, Montréal",
+    profil: "Personne seule, MontrÃ©al",
     revenu: "45 000 $",
     depenses: "2 800 $ / mois",
     aides: "~1 200 $ / an",
-    emoji: "👤",
+    emoji: "ðŸ‘¤",
   },
   {
     profil: "Couple sans enfant",
     revenu: "80 000 $",
     depenses: "4 200 $ / mois",
     aides: "~800 $ / an",
-    emoji: "👫",
+    emoji: "ðŸ‘«",
   },
   {
     profil: "Famille 2 enfants",
     revenu: "70 000 $",
     depenses: "5 500 $ / mois",
     aides: "~12 000 $ / an",
-    emoji: "👨‍👩‍👧‍👦",
+    emoji: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§â€ðŸ‘¦",
   },
   {
-    profil: "Aîné seul, 70 ans",
+    profil: "AÃ®nÃ© seul, 70 ans",
     revenu: "22 000 $",
     depenses: "2 000 $ / mois",
     aides: "~14 000 $ / an",
-    emoji: "👴",
+    emoji: "ðŸ‘´",
   },
 ];
 
 const satellites = [
-  { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "ACE, allocation famille, crédit solidarité", emoji: "👨‍👩‍👧" },
-  { href: "/blog/frais-garde-enfants-quebec-2026", titre: "Coût garderie Québec – crédit jusqu'à 75%", desc: "Récupérez une grande partie de vos frais", emoji: "🏫" },
-  { href: "/aide-financiere-sport-enfant-quebec", titre: "Coût sport enfant Québec", desc: "Aides disponibles pour les activités", emoji: "⚽" },
-  { href: "/allocation-logement-quebec", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu", emoji: "🏠" },
-  { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Récupérez jusqu'à 20% de vos dépenses", emoji: "💊" },
-  { href: "/subventions-maison-quebec", titre: "Subventions maison Québec", desc: "Réduire le coût de votre propriété", emoji: "🔨" },
+  { href: "/aide-famille-quebec", titre: "Aide financiÃ¨re famille QuÃ©bec", desc: "ACE, allocation famille, crÃ©dit solidaritÃ©", emoji: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§" },
+  { href: "/blog/frais-garde-enfants-quebec-2026", titre: "CoÃ»t garderie QuÃ©bec â€“ crÃ©dit jusqu'Ã  75%", desc: "RÃ©cupÃ©rez une grande partie de vos frais", emoji: "ðŸ«" },
+  { href: "/aide-financiere-sport-enfant-quebec", titre: "CoÃ»t sport enfant QuÃ©bec", desc: "Aides disponibles pour les activitÃ©s", emoji: "âš½" },
+  { href: "/allocation-logement-quebec", titre: "Allocation logement QuÃ©bec", desc: "Aide pour locataires Ã  faible revenu", emoji: "ðŸ " },
+  { href: "/credit-impot-frais-medicaux-quebec", titre: "CrÃ©dit frais mÃ©dicaux QuÃ©bec", desc: "RÃ©cupÃ©rez jusqu'Ã  20% de vos dÃ©penses", emoji: "ðŸ’Š" },
+  { href: "/subventions-maison-quebec", titre: "Subventions maison QuÃ©bec", desc: "RÃ©duire le coÃ»t de votre propriÃ©tÃ©", emoji: "ðŸ”¨" },
 ];
 
 const faqs = [
   {
-    q: "Combien coûte la vie au Québec par mois pour une personne seule ?",
-    r: "Pour une personne seule à Montréal, le budget mensuel réaliste est de 2 500 $ à 3 500 $ : loyer (900-1 800 $), épicerie (350-500 $), transport (150-400 $), et autres dépenses. En région (Québec, Sherbrooke, Saguenay), le coût est généralement 15-25% moins élevé, principalement grâce aux loyers plus bas.",
+    q: "Combien coÃ»te la vie au QuÃ©bec par mois pour une personne seule ?",
+    r: "Pour une personne seule Ã  MontrÃ©al, le budget mensuel rÃ©aliste est de 2 500 $ Ã  3 500 $ : loyer (900-1 800 $), Ã©picerie (350-500 $), transport (150-400 $), et autres dÃ©penses. En rÃ©gion (QuÃ©bec, Sherbrooke, Saguenay), le coÃ»t est gÃ©nÃ©ralement 15-25% moins Ã©levÃ©, principalement grÃ¢ce aux loyers plus bas.",
   },
   {
-    q: "Combien coûte élever un enfant au Québec ?",
-    r: "Selon les estimations, élever un enfant au Québec coûte entre 10 000 $ et 15 000 $ par année jusqu'à 18 ans, incluant garderie/école, vêtements, nourriture, sports et loisirs. Grâce aux aides gouvernementales (ACE + allocation famille + crédit frais de garde), une famille peut récupérer 5 000 $ à 12 000 $ par an selon son revenu.",
+    q: "Combien coÃ»te Ã©lever un enfant au QuÃ©bec ?",
+    r: "Selon les estimations, Ã©lever un enfant au QuÃ©bec coÃ»te entre 10 000 $ et 15 000 $ par annÃ©e jusqu'Ã  18 ans, incluant garderie/Ã©cole, vÃªtements, nourriture, sports et loisirs. GrÃ¢ce aux aides gouvernementales (ACE + allocation famille + crÃ©dit frais de garde), une famille peut rÃ©cupÃ©rer 5 000 $ Ã  12 000 $ par an selon son revenu.",
   },
   {
-    q: "Le Québec est-il moins cher que le reste du Canada ?",
-    r: "Oui, le Québec est généralement moins cher que l'Ontario et la Colombie-Britannique, principalement grâce aux loyers plus bas (surtout hors Montréal), aux CPE subventionnés (~10 $/jour vs 40-70 $ ailleurs), aux tarifs d'électricité parmi les plus bas en Amérique du Nord, et aux nombreuses aides gouvernementales.",
+    q: "Le QuÃ©bec est-il moins cher que le reste du Canada ?",
+    r: "Oui, le QuÃ©bec est gÃ©nÃ©ralement moins cher que l'Ontario et la Colombie-Britannique, principalement grÃ¢ce aux loyers plus bas (surtout hors MontrÃ©al), aux CPE subventionnÃ©s (~10 $/jour vs 40-70 $ ailleurs), aux tarifs d'Ã©lectricitÃ© parmi les plus bas en AmÃ©rique du Nord, et aux nombreuses aides gouvernementales.",
   },
   {
-    q: "Quelles aides sont disponibles pour réduire mon coût de la vie ?",
-    r: "Plusieurs programmes gouvernementaux peuvent réduire votre coût de la vie : crédit de solidarité (jusqu'à 2 000 $/an), crédit TPS/TVH fédéral (jusqu'à 700 $/an), allocation-logement (jusqu'à 170 $/mois), crédit pour frais médicaux, et plus. Utilisez notre questionnaire pour voir tout ce à quoi vous avez droit.",
+    q: "Quelles aides sont disponibles pour rÃ©duire mon coÃ»t de la vie ?",
+    r: "Plusieurs programmes gouvernementaux peuvent rÃ©duire votre coÃ»t de la vie : crÃ©dit de solidaritÃ© (jusqu'Ã  2 000 $/an), crÃ©dit TPS/TVH fÃ©dÃ©ral (jusqu'Ã  700 $/an), allocation-logement (jusqu'Ã  170 $/mois), crÃ©dit pour frais mÃ©dicaux, et plus. Utilisez notre questionnaire pour voir tout ce Ã  quoi vous avez droit.",
   },
 ];
 
@@ -159,22 +159,22 @@ export default function CoutVieQuebecPage() {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <p style={{ color: "#F5C842", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8 }}>
-            Page de référence · Coût de la vie Québec 2026
+            Page de rÃ©fÃ©rence Â· CoÃ»t de la vie QuÃ©bec 2026
           </p>
           <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.6rem, 5vw, 2.2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "12px" }}>
-            Coût de la vie au Québec 2026 — et comment réduire vos dépenses
+            CoÃ»t de la vie au QuÃ©bec 2026 â€” et comment rÃ©duire vos dÃ©penses
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>
-            Logement, épicerie, enfants, sport, santé — voici ce que ça coûte vraiment vivre au Québec
-            en 2026, et toutes les aides gouvernementales disponibles pour alléger votre budget.
+            Logement, Ã©picerie, enfants, sport, santÃ© â€” voici ce que Ã§a coÃ»te vraiment vivre au QuÃ©bec
+            en 2026, et toutes les aides gouvernementales disponibles pour allÃ©ger votre budget.
           </p>
           <Link
             href="/questionnaire"
             style={{ display: "block", background: "#F5C842", color: "#060D1A", fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)" }}
           >
-            Trouver mes aides →
+            Trouver mes aides â†’
           </Link>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>Gratuit · 2 minutes · estimation personnalisée</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>Gratuit Â· 2 minutes Â· estimation personnalisÃ©e</p>
         </div>
       </section>
 
@@ -194,11 +194,11 @@ export default function CoutVieQuebecPage() {
               </div>
               <div className="flex justify-between text-sm">
                 <div className="text-center">
-                  <p className="text-slate-500 text-xs mb-0.5">Dépenses</p>
+                  <p className="text-slate-500 text-xs mb-0.5">DÃ©penses</p>
                   <p className="font-bold text-slate-800">{p.depenses}</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-slate-500 text-xs mb-0.5">Aides reçues</p>
+                  <p className="text-slate-500 text-xs mb-0.5">Aides reÃ§ues</p>
                   <p className="font-bold text-green-700">{p.aides}</p>
                 </div>
               </div>
@@ -206,8 +206,8 @@ export default function CoutVieQuebecPage() {
           ))}
         </div>
 
-        {/* Postes de dépenses */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Coûts détaillés par poste</h2>
+        {/* Postes de dÃ©penses */}
+        <h2 className="text-lg font-bold text-slate-800 mb-4">CoÃ»ts dÃ©taillÃ©s par poste</h2>
         <div className="flex flex-col gap-4 mb-10">
           {postes.map((poste) => (
             <div key={poste.categorie} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
@@ -236,7 +236,7 @@ export default function CoutVieQuebecPage() {
                         href={aide.href}
                         className="text-xs bg-green-50 text-green-700 border border-green-100 rounded-full px-3 py-1 hover:border-green-300 transition-colors"
                       >
-                        {aide.label} →
+                        {aide.label} â†’
                       </Link>
                     ))}
                   </div>
@@ -247,7 +247,7 @@ export default function CoutVieQuebecPage() {
         </div>
 
         {/* Pages satellites */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Guides pour réduire vos dépenses</h2>
+        <h2 className="text-lg font-bold text-slate-800 mb-4">Guides pour rÃ©duire vos dÃ©penses</h2>
         <div className="flex flex-col gap-3 mb-10">
           {satellites.map((s) => (
             <Link
@@ -260,13 +260,13 @@ export default function CoutVieQuebecPage() {
                 <div className="font-semibold text-slate-800 text-sm">{s.titre}</div>
                 <div className="text-slate-400 text-xs mt-0.5">{s.desc}</div>
               </div>
-              <span className="text-blue-500 text-sm shrink-0">→</span>
+              <span className="text-blue-500 text-sm shrink-0">â†’</span>
             </Link>
           ))}
         </div>
 
         {/* FAQ */}
-        <h2 className="text-lg font-bold text-slate-800 mb-4">Questions fréquentes</h2>
+        <h2 className="text-lg font-bold text-slate-800 mb-4">Questions frÃ©quentes</h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
             <div key={i} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
@@ -278,29 +278,29 @@ export default function CoutVieQuebecPage() {
 
         {/* CTA */}
         <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 text-center mb-8">
-          <p className="font-bold text-xl mb-2">Réduisez votre coût de la vie dès maintenant</p>
+          <p className="font-bold text-xl mb-2">RÃ©duisez votre coÃ»t de la vie dÃ¨s maintenant</p>
           <p className="text-blue-200 text-sm mb-4">
-            Découvrez toutes les aides auxquelles vous avez droit en 2 minutes.
+            DÃ©couvrez toutes les aides auxquelles vous avez droit en 2 minutes.
           </p>
           <Link
             href="/questionnaire"
             className="block w-full bg-yellow-400 text-blue-900 font-bold py-4 rounded-2xl text-center"
           >
-            Commencer le questionnaire →
+            Commencer le questionnaire â†’
           </Link>
-          <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>
+          <p className="text-blue-300 text-xs text-center mt-2">Gratuit Â· 2 minutes Â· estimation personnalisÃ©e</p>
         </div>
 
         <p className="text-slate-400 text-xs text-center leading-relaxed">
-          Les montants affichés sont des estimations basées sur des données disponibles en 2026.
+          Les montants affichÃ©s sont des estimations basÃ©es sur des donnÃ©es disponibles en 2026.
         </p>
       </div>
 
       <footer style={{ background: "#060D1A", padding: "24px 16px" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
-          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</a>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affiliÃ© au gouvernement.</p>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>

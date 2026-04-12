@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { BlogArticle } from "@/data/blog/types";
 
@@ -25,7 +25,7 @@ function Content() {
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>← Blogue</Link>
+          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>? Blogue</Link>
         </div>
       </header>
 
@@ -50,10 +50,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Subvention de <strong>100 $ à 10 000 $</strong> selon les travaux</li>
-            <li>✓ Cumulable avec LogisVert Hydro-Québec (jusqu&apos;à 6 700 $ de plus)</li>
-            <li>✓ Évaluation énergétique obligatoire avant ET après les travaux</li>
-            <li>✓ Maisons construites avant 2012 seulement</li>
+            <li>? Subvention de <strong>100 $ à 10 000 $</strong> selon les travaux</li>
+            <li>? Cumulable avec LogisVert Hydro-Québec (jusqu&apos;à 6 700 $ de plus)</li>
+            <li>? Évaluation énergétique obligatoire avant ET après les travaux</li>
+            <li>? Maisons construites avant 2012 seulement</li>
           </ul>
         </div>
 
@@ -202,7 +202,7 @@ function Content() {
             href="/questionnaire"
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
           >
-            Trouver mes aides →
+            Trouver mes aides ?
           </Link>
         </div>
 
@@ -224,7 +224,7 @@ function Content() {
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</a>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>

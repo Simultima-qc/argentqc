@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
@@ -9,13 +10,16 @@ export const metadata: Metadata = {
   keywords: ["subventions", "aides gouvernementales", "crédits d'impôt", "Québec", "Canada"],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const htmlLang = requestHeaders.get("x-argentqc-locale") ?? "fr";
+
   return (
-    <html lang="fr" className="h-full">
+    <html lang={htmlLang} className="h-full">
       <head>
         {/* Google Analytics – dans <head> pour validation Search Console */}
         <Script

@@ -1,4 +1,5 @@
 import type { Programme, ReponseQuestionnaire } from "@/types";
+import type { Locale } from "@/i18n/routing";
 import { programmes2026 } from "@/data/finance-2026";
 
 const programmes = programmes2026 as Programme[];
@@ -80,8 +81,8 @@ export function calculerTotal(programmes: Programme[]): { min: number; max: numb
   );
 }
 
-export function formaterArgent(montant: number): string {
-  return new Intl.NumberFormat("fr-CA", {
+export function formaterArgent(montant: number, locale: Locale = "fr"): string {
+  return new Intl.NumberFormat(locale === "fr" ? "fr-CA" : "en-CA", {
     style: "currency",
     currency: "CAD",
     maximumFractionDigits: 0,

@@ -4,7 +4,7 @@ import { trouverProgrammes, calculerTotal, formaterArgent } from "@/lib/matching
 import type { ReponseQuestionnaire } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Vos résultats – ArgentQC.ca",
+  title: "Vos rÃ©sultats â€“ ArgentQC.ca",
   description: "Voici les programmes gouvernementaux auxquels vous pourriez avoir droit.",
   robots: {
     index: false,
@@ -18,18 +18,18 @@ const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
 
 const CATEGORIES_LABELS: Record<string, string> = {
-  renovation: "Rénovation",
-  energie: "Énergie",
+  renovation: "RÃ©novation",
+  energie: "Ã‰nergie",
   famille: "Famille",
   transport: "Transport",
   logement: "Logement",
-  credits_impot: "Crédits d'impôt",
-  sante: "Santé & aînés",
+  credits_impot: "CrÃ©dits d'impÃ´t",
+  sante: "SantÃ© & aÃ®nÃ©s",
   agriculture: "Agriculture",
 };
 
 const NIVEAUX_LABELS: Record<string, { label: string; couleur: string }> = {
-  federal: { label: "Fédéral", couleur: "bg-red-100 text-red-700" },
+  federal: { label: "FÃ©dÃ©ral", couleur: "bg-red-100 text-red-700" },
   provincial: { label: "Provincial", couleur: "bg-blue-100 text-blue-700" },
   municipal: { label: "Municipal", couleur: "bg-green-100 text-green-700" },
 };
@@ -73,7 +73,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
 
       <div style={{ maxWidth: "512px", margin: "0 auto", padding: "24px 16px" }}>
 
-        {/* Résumé total */}
+        {/* RÃ©sumÃ© total */}
         <div style={{
           background: DARK,
           borderRadius: "20px",
@@ -87,7 +87,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
             background: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,200,66,0.08) 0%, transparent 70%)`
           }} />
           <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center", marginBottom: "6px" }}>
-            Vous pourriez récupérer jusqu&apos;à
+            Vous pourriez rÃ©cupÃ©rer jusqu&apos;Ã 
           </p>
           <p style={{
             fontFamily: "var(--font-playfair)",
@@ -101,14 +101,14 @@ export default async function ResultatsPage({ searchParams }: Props) {
             {formaterArgent(total.max)}
           </p>
           <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "13px", textAlign: "center", marginBottom: "20px" }}>
-            {programmes.length} programme{programmes.length > 1 ? "s" : ""} trouvé{programmes.length > 1 ? "s" : ""}
+            {programmes.length} programme{programmes.length > 1 ? "s" : ""} trouvÃ©{programmes.length > 1 ? "s" : ""}
           </p>
           {programmes.length > 0 && (
             <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
               {programmes.map((prog) => (
                 <div key={prog.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13px" }}>
                   <span style={{ color: "rgba(240,235,224,0.65)", display: "flex", alignItems: "center", gap: "8px" }}>
-                    <span style={{ color: GREEN }}>✓</span>
+                    <span style={{ color: GREEN }}>âœ“</span>
                     {prog.nom}
                   </span>
                   <span style={{ fontWeight: 700, color: "#F0EBE0", flexShrink: 0, marginLeft: "8px" }}>{prog.montant_affiche}</span>
@@ -121,18 +121,18 @@ export default async function ResultatsPage({ searchParams }: Props) {
         {/* Pub top */}
         <div style={{ background: "white", borderRadius: "12px", border: "1px solid #EDE9E0", padding: "8px", marginBottom: "20px" }}>
           <div style={{ height: "56px", background: PARCH, borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px" }}>
-            Publicité
+            PublicitÃ©
           </div>
         </div>
 
         {programmes.length === 0 ? (
           <div style={{ background: "white", borderRadius: "20px", padding: "40px 24px", textAlign: "center", border: "1px solid #EDE9E0" }}>
-            <div style={{ fontSize: "3rem", marginBottom: "12px" }}>🔍</div>
+            <div style={{ fontSize: "3rem", marginBottom: "12px" }}>ðŸ”</div>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.2rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "8px" }}>
-              Aucun programme trouvé
+              Aucun programme trouvÃ©
             </h2>
             <p style={{ fontSize: "14px", color: "#78716C", marginBottom: "24px", lineHeight: 1.6 }}>
-              Selon vos réponses, nous n&apos;avons pas trouvé de programmes correspondants.
+              Selon vos rÃ©ponses, nous n&apos;avons pas trouvÃ© de programmes correspondants.
             </p>
             <Link
               href="/questionnaire"
@@ -178,7 +178,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
                         <ul style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                           {prog.conditions.map((c, i) => (
                             <li key={i} style={{ fontSize: "13px", color: "#57534E", display: "flex", gap: "8px", lineHeight: 1.5 }}>
-                              <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>✓</span>
+                              <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>âœ“</span>
                               {c}
                             </li>
                           ))}
@@ -201,7 +201,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
                           border: `1px solid rgba(245,200,66,0.15)`,
                         }}
                       >
-                        Faire une demande →
+                        Faire une demande â†’
                       </a>
                     </div>
                   </div>
@@ -212,14 +212,14 @@ export default async function ResultatsPage({ searchParams }: Props) {
             {/* Pub milieu */}
             <div style={{ background: "white", borderRadius: "12px", border: "1px solid #EDE9E0", padding: "8px", margin: "20px 0" }}>
               <div style={{ height: "64px", background: PARCH, borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px" }}>
-                Publicité
+                PublicitÃ©
               </div>
             </div>
 
             {/* CTA refaire */}
             <div style={{ background: DARK, borderRadius: "16px", padding: "20px 24px", textAlign: "center" }}>
               <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", marginBottom: "14px" }}>
-                Votre situation a changé ? Recalculez vos aides.
+                Votre situation a changÃ© ? Recalculez vos aides.
               </p>
               <Link
                 href="/questionnaire"
@@ -242,16 +242,16 @@ export default async function ResultatsPage({ searchParams }: Props) {
         )}
 
         <p style={{ color: "#A8A29E", fontSize: "11px", textAlign: "center", marginTop: "24px", lineHeight: 1.7 }}>
-          Les montants affichés sont des estimations à titre informatif. L&apos;admissibilité finale
-          dépend des critères officiels de chaque programme.
+          Les montants affichÃ©s sont des estimations Ã  titre informatif. L&apos;admissibilitÃ© finale
+          dÃ©pend des critÃ¨res officiels de chaque programme.
         </p>
       </div>
 
       <footer style={{ background: DARK, padding: "24px 16px", marginTop: "16px" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
-          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</a>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affiliÃ© au gouvernement.</p>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>

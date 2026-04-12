@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { BlogArticle } from "@/data/blog/types";
 
@@ -25,7 +25,7 @@ function Content() {
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>← Blogue</Link>
+          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>? Blogue</Link>
         </div>
       </header>
 
@@ -48,10 +48,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Crédit <strong>remboursable</strong> de 26% à 75% selon votre revenu</li>
-            <li>✓ Garderie, camp de jour, garde en milieu familial, aide à domicile admissibles</li>
-            <li>✓ Enfants de moins de 16 ans (sans limite si handicap)</li>
-            <li>✓ Cumulable avec la déduction fédérale pour frais de garde</li>
+            <li>? Crédit <strong>remboursable</strong> de 26% à 75% selon votre revenu</li>
+            <li>? Garderie, camp de jour, garde en milieu familial, aide à domicile admissibles</li>
+            <li>? Enfants de moins de 16 ans (sans limite si handicap)</li>
+            <li>? Cumulable avec la déduction fédérale pour frais de garde</li>
           </ul>
         </div>
 
@@ -193,7 +193,7 @@ function Content() {
             href="/questionnaire"
             style={{ display: "inline-block", background: "#F5C842", color: "#060D1A", fontWeight: 800, padding: "12px 24px", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}
           >
-            Trouver mes aides →
+            Trouver mes aides ?
           </Link>
         </div>
 
@@ -211,7 +211,7 @@ function Content() {
               className="flex items-center justify-between bg-white border border-slate-100 rounded-xl px-4 py-3 hover:border-blue-200 transition-colors"
             >
               <span className="text-slate-700 text-sm">{lien.titre}</span>
-              <span className="text-blue-500 text-sm">→</span>
+              <span className="text-blue-500 text-sm">?</span>
             </Link>
           ))}
         </div>
@@ -228,7 +228,7 @@ function Content() {
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</a>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>

@@ -7,7 +7,7 @@ const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
 
 const NIVEAUX_LABELS: Record<string, { label: string; couleur: string }> = {
-  federal: { label: "Fédéral", couleur: "bg-red-100 text-red-700" },
+  federal: { label: "FÃ©dÃ©ral", couleur: "bg-red-100 text-red-700" },
   provincial: { label: "Provincial", couleur: "bg-blue-100 text-blue-700" },
   municipal: { label: "Municipal", couleur: "bg-green-100 text-green-700" },
 };
@@ -98,10 +98,10 @@ export default function SeoProgrammesPage({
               boxShadow: `0 0 28px rgba(245,200,66,0.2)`,
             }}
           >
-            Trouver mes aides →
+            Trouver mes aides â†’
           </Link>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>
-            Gratuit · 2 minutes · estimation personnalisée
+            Gratuit Â· 2 minutes Â· estimation personnalisÃ©e
           </p>
         </div>
       </section>
@@ -113,10 +113,10 @@ export default function SeoProgrammesPage({
           <p style={{ color: "#44403C", fontSize: "14px", lineHeight: 1.75 }}>{intro}</p>
         </div>
 
-        {/* Résumé total */}
+        {/* RÃ©sumÃ© total */}
         <div style={{ background: DARK, borderRadius: "16px", padding: "20px", marginBottom: "20px", textAlign: "center" }}>
           <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>
-            Potentiel total estimé
+            Potentiel total estimÃ©
           </p>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2.5rem", fontWeight: 800, lineHeight: 1, marginBottom: "4px" }}>
             {totalFormate}
@@ -153,7 +153,7 @@ export default function SeoProgrammesPage({
                   <ul style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
                     {prog.conditions.map((c, i) => (
                       <li key={i} style={{ fontSize: "13px", color: "#57534E", display: "flex", gap: "8px", lineHeight: 1.5 }}>
-                        <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>✓</span>
+                        <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>âœ“</span>
                         {c}
                       </li>
                     ))}
@@ -176,7 +176,7 @@ export default function SeoProgrammesPage({
                       border: `1px solid rgba(245,200,66,0.15)`,
                     }}
                   >
-                    Faire une demande →
+                    Faire une demande â†’
                   </a>
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function SeoProgrammesPage({
 
         {/* FAQ */}
         <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
-          Questions fréquentes
+          Questions frÃ©quentes
         </h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "32px" }}>
           {faqs.map((faq, i) => (
@@ -197,11 +197,11 @@ export default function SeoProgrammesPage({
           ))}
         </div>
 
-        {/* Pages reliées */}
+        {/* Pages reliÃ©es */}
         {pagesRelies && pagesRelies.length > 0 && (
           <div style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
-              Pages reliées
+              Pages reliÃ©es
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {pagesRelies.map((page) => (
@@ -220,7 +220,7 @@ export default function SeoProgrammesPage({
                   }}
                 >
                   <span style={{ fontSize: "14px", fontWeight: 600, color: "#1C1C1E" }}>{page.titre}</span>
-                  <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>→</span>
+                  <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>â†’</span>
                 </Link>
               ))}
             </div>
@@ -230,10 +230,10 @@ export default function SeoProgrammesPage({
         {/* CTA final */}
         <div style={{ background: DARK, borderRadius: "20px", padding: "28px 24px", textAlign: "center", marginBottom: "32px" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.2rem", fontWeight: 800, marginBottom: "8px" }}>
-            Trouvez tout ce à quoi vous avez droit
+            Trouvez tout ce Ã  quoi vous avez droit
           </p>
           <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "20px" }}>
-            Répondez à 8 questions — résultats personnalisés en 2 minutes.
+            RÃ©pondez Ã  8 questions â€” rÃ©sultats personnalisÃ©s en 2 minutes.
           </p>
           <Link
             href="/questionnaire"
@@ -249,24 +249,24 @@ export default function SeoProgrammesPage({
               textDecoration: "none",
             }}
           >
-            Commencer le questionnaire →
+            Commencer le questionnaire â†’
           </Link>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", marginTop: "8px" }}>
-            Gratuit · 2 minutes · estimation personnalisée
+            Gratuit Â· 2 minutes Â· estimation personnalisÃ©e
           </p>
         </div>
 
         <p style={{ color: "#A8A29E", fontSize: "11px", textAlign: "center", lineHeight: 1.7 }}>
-          ArgentQC.ca est un outil informatif non affilié au gouvernement. Les montants sont des
-          estimations — consultez toujours les sites officiels pour confirmer votre admissibilité.
+          ArgentQC.ca est un outil informatif non affiliÃ© au gouvernement. Les montants sont des
+          estimations â€” consultez toujours les sites officiels pour confirmer votre admissibilitÃ©.
         </p>
       </div>
 
       <footer style={{ background: DARK, padding: "24px 16px" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
-          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</a>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affiliÃ© au gouvernement.</p>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>

@@ -17,18 +17,18 @@ interface Ligne {
 }
 
 const lignesDepenses: Ligne[] = [
-  { label: "Loyer / hypothèque", key: "loyer", emoji: "🏠", placeholder: "ex: 1200", color: "#3B82F6" },
-  { label: "Épicerie", key: "epicerie", emoji: "🛒", placeholder: "ex: 400", color: "#10B981" },
-  { label: "Transport (auto + commun)", key: "transport", emoji: "🚗", placeholder: "ex: 300", color: "#F59E0B" },
-  { label: "Restaurants & sorties", key: "restos", emoji: "🍽️", placeholder: "ex: 200", color: "#EC4899" },
-  { label: "Internet + cellulaire", key: "internet", emoji: "📱", placeholder: "ex: 120", color: "#8B5CF6" },
-  { label: "Électricité (Hydro-QC)", key: "electricite", emoji: "⚡", placeholder: "ex: 80", color: "#F97316" },
-  { label: "Assurances (auto, habitation)", key: "assurances", emoji: "🛡️", placeholder: "ex: 150", color: "#06B6D4" },
-  { label: "Loisirs & abonnements", key: "loisirs", emoji: "🎬", placeholder: "ex: 100", color: "#84CC16" },
-  { label: "Santé (dentiste, physio, etc.)", key: "sante", emoji: "💊", placeholder: "ex: 80", color: "#EF4444" },
-  { label: "Dettes & remboursements", key: "dettes", emoji: "💳", placeholder: "ex: 200", color: "#6B7280" },
-  { label: "Épargne & investissements", key: "epargne", emoji: "💰", placeholder: "ex: 150", color: "#059669" },
-  { label: "Autres dépenses", key: "autres", emoji: "📦", placeholder: "ex: 100", color: "#A78BFA" },
+  { label: "Loyer / hypothÃ¨que", key: "loyer", emoji: "ðŸ ", placeholder: "ex: 1200", color: "#3B82F6" },
+  { label: "Ã‰picerie", key: "epicerie", emoji: "ðŸ›’", placeholder: "ex: 400", color: "#10B981" },
+  { label: "Transport (auto + commun)", key: "transport", emoji: "ðŸš—", placeholder: "ex: 300", color: "#F59E0B" },
+  { label: "Restaurants & sorties", key: "restos", emoji: "ðŸ½ï¸", placeholder: "ex: 200", color: "#EC4899" },
+  { label: "Internet + cellulaire", key: "internet", emoji: "ðŸ“±", placeholder: "ex: 120", color: "#8B5CF6" },
+  { label: "Ã‰lectricitÃ© (Hydro-QC)", key: "electricite", emoji: "âš¡", placeholder: "ex: 80", color: "#F97316" },
+  { label: "Assurances (auto, habitation)", key: "assurances", emoji: "ðŸ›¡ï¸", placeholder: "ex: 150", color: "#06B6D4" },
+  { label: "Loisirs & abonnements", key: "loisirs", emoji: "ðŸŽ¬", placeholder: "ex: 100", color: "#84CC16" },
+  { label: "SantÃ© (dentiste, physio, etc.)", key: "sante", emoji: "ðŸ’Š", placeholder: "ex: 80", color: "#EF4444" },
+  { label: "Dettes & remboursements", key: "dettes", emoji: "ðŸ’³", placeholder: "ex: 200", color: "#6B7280" },
+  { label: "Ã‰pargne & investissements", key: "epargne", emoji: "ðŸ’°", placeholder: "ex: 150", color: "#059669" },
+  { label: "Autres dÃ©penses", key: "autres", emoji: "ðŸ“¦", placeholder: "ex: 100", color: "#A78BFA" },
 ];
 
 type Depenses = Record<string, string>;
@@ -160,35 +160,35 @@ export default function CalculateurClient() {
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
             <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
-            {" › "}
+            {" â€º "}
             <Link href="/budget" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Budget</Link>
-            {" › "}
+            {" â€º "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Calculateur</span>
           </nav>
           <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.5rem, 5vw, 2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "10px" }}>
-            Calculateur budget mensuel Québec
+            Calculateur budget mensuel QuÃ©bec
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.6 }}>
-            Entrez vos revenus et dépenses pour obtenir votre bilan mensuel avec graphique.
-            Aucune donnée n&apos;est sauvegardée — tout reste dans votre navigateur.
+            Entrez vos revenus et dÃ©penses pour obtenir votre bilan mensuel avec graphique.
+            Aucune donnÃ©e n&apos;est sauvegardÃ©e â€” tout reste dans votre navigateur.
           </p>
         </div>
       </section>
 
       <div className="max-w-2xl mx-auto px-4 py-8">
 
-        {/* Badge confidentialité */}
+        {/* Badge confidentialitÃ© */}
         <div style={{ background: "#ECFDF5", border: "1px solid #A7F3D0", borderRadius: "10px", padding: "10px 14px", display: "flex", alignItems: "center", gap: "8px", marginBottom: "1.5rem" }}>
-          <span style={{ fontSize: "1.1rem" }}>🔒</span>
+          <span style={{ fontSize: "1.1rem" }}>ðŸ”’</span>
           <p style={{ fontSize: "12px", color: "#065F46", margin: 0, lineHeight: 1.5 }}>
-            <strong>Confidentialité :</strong>{" "}aucune donnée n&apos;est envoyée à nos serveurs. Le calcul se fait entièrement dans votre navigateur.
+            <strong>ConfidentialitÃ© :</strong>{" "}aucune donnÃ©e n&apos;est envoyÃ©e Ã  nos serveurs. Le calcul se fait entiÃ¨rement dans votre navigateur.
           </p>
         </div>
 
         {/* Revenu */}
         <div style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", marginBottom: "1.25rem" }}>
           <label style={{ display: "block", fontWeight: 700, fontSize: "15px", color: "#1C1C1E", marginBottom: "10px" }}>
-            💵 Revenu mensuel net (après impôts)
+            ðŸ’µ Revenu mensuel net (aprÃ¨s impÃ´ts)
           </label>
           <div style={{ position: "relative" }}>
             <input
@@ -215,10 +215,10 @@ export default function CalculateurClient() {
           </div>
         </div>
 
-        {/* Dépenses */}
+        {/* DÃ©penses */}
         <div style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", marginBottom: "1.25rem" }}>
           <h2 style={{ fontSize: "15px", fontWeight: 700, color: "#1C1C1E", marginBottom: "1rem" }}>
-            📊 Dépenses mensuelles
+            ðŸ“Š DÃ©penses mensuelles
           </h2>
           <div className="flex flex-col gap-3">
             {lignesDepenses.map((l) => (
@@ -252,7 +252,7 @@ export default function CalculateurClient() {
           </div>
           {totalDepenses > 0 && (
             <div style={{ borderTop: "1px solid #F0EBE0", marginTop: "1rem", paddingTop: "1rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ fontSize: "13px", fontWeight: 700, color: "#78716C" }}>Total dépenses</span>
+              <span style={{ fontSize: "13px", fontWeight: 700, color: "#78716C" }}>Total dÃ©penses</span>
               <span style={{ fontSize: "16px", fontWeight: 800, color: "#EF4444" }}>{totalDepenses.toFixed(0)} $</span>
             </div>
           )}
@@ -277,10 +277,10 @@ export default function CalculateurClient() {
             transition: "background 0.15s",
           }}
         >
-          Calculer mon bilan →
+          Calculer mon bilan â†’
         </button>
 
-        {/* Résultats */}
+        {/* RÃ©sultats */}
         {calcule && (
           <div id="resultats">
             {/* Bilan */}
@@ -290,11 +290,11 @@ export default function CalculateurClient() {
             <div className="grid grid-cols-3 gap-3 mb-6">
               <div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "14px", padding: "14px 10px", textAlign: "center" }}>
                 <div style={{ fontSize: "11px", color: "#1D4ED8", fontWeight: 600, marginBottom: "6px" }}>Revenus</div>
-                <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#1D4ED8" }}>{revenuNum > 0 ? revenuNum.toFixed(0) + " $" : "—"}</div>
+                <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#1D4ED8" }}>{revenuNum > 0 ? revenuNum.toFixed(0) + " $" : "â€”"}</div>
               </div>
               <div style={{ background: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "14px", padding: "14px 10px", textAlign: "center" }}>
-                <div style={{ fontSize: "11px", color: "#DC2626", fontWeight: 600, marginBottom: "6px" }}>Dépenses</div>
-                <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#DC2626" }}>{totalDepenses > 0 ? totalDepenses.toFixed(0) + " $" : "—"}</div>
+                <div style={{ fontSize: "11px", color: "#DC2626", fontWeight: 600, marginBottom: "6px" }}>DÃ©penses</div>
+                <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "#DC2626" }}>{totalDepenses > 0 ? totalDepenses.toFixed(0) + " $" : "â€”"}</div>
               </div>
               <div style={{
                 background: solde >= 0 ? "#ECFDF5" : "#FEF2F2",
@@ -303,7 +303,7 @@ export default function CalculateurClient() {
               }}>
                 <div style={{ fontSize: "11px", color: solde >= 0 ? "#065F46" : "#DC2626", fontWeight: 600, marginBottom: "6px" }}>Solde</div>
                 <div style={{ fontSize: "1.2rem", fontWeight: 800, color: solde >= 0 ? GREEN : "#DC2626" }}>
-                  {revenuNum > 0 ? (solde >= 0 ? "+" : "") + solde.toFixed(0) + " $" : "—"}
+                  {revenuNum > 0 ? (solde >= 0 ? "+" : "") + solde.toFixed(0) + " $" : "â€”"}
                 </div>
               </div>
             </div>
@@ -320,13 +320,13 @@ export default function CalculateurClient() {
                 <p style={{ fontSize: "13px", color: solde >= 0 ? "#065F46" : "#92400E", lineHeight: 1.6, margin: 0 }}>
                   {solde >= 0 ? (
                     <>
-                      ✅ <strong>Budget équilibré.</strong>{" "}Vos dépenses représentent{" "}<strong>{taux}%</strong>{" "}de vos revenus.
-                      {taux <= 70 ? " Excellent ! Vous avez de la marge pour épargner davantage." : " Essayez de réduire quelques postes pour augmenter votre épargne."}
+                      âœ… <strong>Budget Ã©quilibrÃ©.</strong>{" "}Vos dÃ©penses reprÃ©sentent{" "}<strong>{taux}%</strong>{" "}de vos revenus.
+                      {taux <= 70 ? " Excellent ! Vous avez de la marge pour Ã©pargner davantage." : " Essayez de rÃ©duire quelques postes pour augmenter votre Ã©pargne."}
                     </>
                   ) : (
                     <>
-                      ⚠️ <strong>Budget déficitaire.</strong>{" "}Vos dépenses dépassent vos revenus de{" "}
-                      <strong>{Math.abs(solde).toFixed(0)} $</strong>{" "}par mois. Identifiez les postes à réduire, et vérifiez si vous avez droit à des aides gouvernementales.
+                      âš ï¸ <strong>Budget dÃ©ficitaire.</strong>{" "}Vos dÃ©penses dÃ©passent vos revenus de{" "}
+                      <strong>{Math.abs(solde).toFixed(0)} $</strong>{" "}par mois. Identifiez les postes Ã  rÃ©duire, et vÃ©rifiez si vous avez droit Ã  des aides gouvernementales.
                     </>
                   )}
                 </p>
@@ -337,15 +337,15 @@ export default function CalculateurClient() {
             {totalDepenses > 0 && (
               <div style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", marginBottom: "1.5rem" }}>
                 <h3 style={{ fontSize: "14px", fontWeight: 700, color: "#1C1C1E", marginBottom: "1rem", textAlign: "center" }}>
-                  Répartition de vos dépenses
+                  RÃ©partition de vos dÃ©penses
                 </h3>
                 <canvas ref={chartRef} style={{ maxHeight: "320px" }} />
               </div>
             )}
 
-            {/* Détail */}
+            {/* DÃ©tail */}
             <div style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", marginBottom: "1.5rem" }}>
-              <h3 style={{ fontSize: "14px", fontWeight: 700, color: "#1C1C1E", marginBottom: "0.75rem" }}>Détail par poste</h3>
+              <h3 style={{ fontSize: "14px", fontWeight: 700, color: "#1C1C1E", marginBottom: "0.75rem" }}>DÃ©tail par poste</h3>
               <div className="flex flex-col gap-2">
                 {lignesDepenses
                   .filter((l) => parseFloat(depenses[l.key]) > 0)
@@ -371,20 +371,20 @@ export default function CalculateurClient() {
             {/* CTA aides */}
             <div style={{ background: DARK, borderRadius: "16px", padding: "1.25rem", textAlign: "center", marginBottom: "1.5rem" }}>
               <p style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px", marginBottom: "8px" }}>
-                Des aides gouvernementales pourraient alléger votre budget
+                Des aides gouvernementales pourraient allÃ©ger votre budget
               </p>
               <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "12px", marginBottom: "1rem", lineHeight: 1.6 }}>
-                Crédits d&apos;impôt, allocations, subventions — trouvez ce à quoi vous avez droit en 2 minutes.
+                CrÃ©dits d&apos;impÃ´t, allocations, subventions â€” trouvez ce Ã  quoi vous avez droit en 2 minutes.
               </p>
               <Link
                 href="/questionnaire"
                 style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "14px", padding: "12px 24px", borderRadius: "12px", textDecoration: "none" }}
               >
-                Trouver mes aides →
+                Trouver mes aides â†’
               </Link>
             </div>
 
-            {/* Réinitialiser */}
+            {/* RÃ©initialiser */}
             <button
               onClick={handleReset}
               style={{
@@ -405,20 +405,20 @@ export default function CalculateurClient() {
         {/* Liens */}
         <div className="flex flex-col gap-3 mb-4">
           <Link href="/budget" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
-            <span style={{ fontSize: "1.4rem" }}>📊</span>
+            <span style={{ fontSize: "1.4rem" }}>ðŸ“Š</span>
             <div className="flex-1">
-              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Coût de la vie au Québec — données de référence</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Loyers, épicerie, comparaison par ville</div>
+              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>CoÃ»t de la vie au QuÃ©bec â€” donnÃ©es de rÃ©fÃ©rence</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Loyers, Ã©picerie, comparaison par ville</div>
             </div>
-            <span style={{ color: "#3B82F6" }}>→</span>
+            <span style={{ color: "#3B82F6" }}>â†’</span>
           </Link>
           <Link href="/demenagement" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
-            <span style={{ fontSize: "1.4rem" }}>📦</span>
+            <span style={{ fontSize: "1.4rem" }}>ðŸ“¦</span>
             <div className="flex-1">
-              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Guide déménagement Québec</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Intégrez les coûts de déménagement à votre budget</div>
+              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Guide dÃ©mÃ©nagement QuÃ©bec</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>IntÃ©grez les coÃ»ts de dÃ©mÃ©nagement Ã  votre budget</div>
             </div>
-            <span style={{ color: "#3B82F6" }}>→</span>
+            <span style={{ color: "#3B82F6" }}>â†’</span>
           </Link>
         </div>
       </div>
@@ -426,7 +426,7 @@ export default function CalculateurClient() {
       <footer style={{ background: DARK, padding: "24px 16px" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif — aucune donnée personnelle n&apos;est collectée par cet outil.</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif â€” aucune donnÃ©e personnelle n&apos;est collectÃ©e par cet outil.</p>
           <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>

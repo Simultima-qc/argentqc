@@ -3,15 +3,15 @@ import Link from "next/link";
 import ComparateurInternetClient from "./ComparateurInternetClient";
 
 export const metadata: Metadata = {
-  title: "Comparateur Internet Québec 2026 — Meilleur Fournisseur | ArgentQC.ca",
+  title: "Comparateur Internet QuÃ©bec 2026 â€” Meilleur Fournisseur | ArgentQC.ca",
   description:
-    "Comparez les forfaits internet des fournisseurs au Québec : Vidéotron, Bell, Fizz, Oxio, TekSavvy. Trouvez le meilleur prix selon votre vitesse et budget.",
+    "Comparez les forfaits internet des fournisseurs au QuÃ©bec : VidÃ©otron, Bell, Fizz, Oxio, TekSavvy. Trouvez le meilleur prix selon votre vitesse et budget.",
   keywords: [
-    "comparateur internet Québec",
-    "meilleur fournisseur internet Québec",
-    "forfait internet Québec 2026",
-    "internet pas cher Québec",
-    "fibre internet Québec",
+    "comparateur internet QuÃ©bec",
+    "meilleur fournisseur internet QuÃ©bec",
+    "forfait internet QuÃ©bec 2026",
+    "internet pas cher QuÃ©bec",
+    "fibre internet QuÃ©bec",
   ],
   alternates: {
     canonical: "https://argentqc.ca/internet/comparateur",
@@ -24,20 +24,20 @@ const PARCH = "#F7F3EC";
 
 const faqs = [
   {
-    q: "Quel est le fournisseur internet le moins cher au Québec en 2026 ?",
-    r: "Oxio (44 $/mois, 120 Mbps) et Fizz (47 $/mois, 200 Mbps) sont les options les moins chères disponibles à Montréal et Québec. Ces fournisseurs n'exigent aucun contrat et offrent un modem en location à faible coût. Pour les régions hors des grands centres, Bell est souvent le seul fournisseur fibre disponible.",
+    q: "Quel est le fournisseur internet le moins cher au QuÃ©bec en 2026 ?",
+    r: "Oxio (44 $/mois, 120 Mbps) et Fizz (47 $/mois, 200 Mbps) sont les options les moins chÃ¨res disponibles Ã  MontrÃ©al et QuÃ©bec. Ces fournisseurs n'exigent aucun contrat et offrent un modem en location Ã  faible coÃ»t. Pour les rÃ©gions hors des grands centres, Bell est souvent le seul fournisseur fibre disponible.",
   },
   {
-    q: "Fibre ou câble : quelle différence pour le quotidien ?",
-    r: "La fibre offre des vitesses d'envoi (upload) beaucoup plus rapides — un avantage majeur pour le télétravail, les visioconférences et le téléversement de fichiers. Le câble est asymétrique : téléchargement rapide, envoi lent. Pour la navigation et le streaming, la différence est imperceptible. Pour le télétravail intensif, la fibre est recommandée.",
+    q: "Fibre ou cÃ¢ble : quelle diffÃ©rence pour le quotidien ?",
+    r: "La fibre offre des vitesses d'envoi (upload) beaucoup plus rapides â€” un avantage majeur pour le tÃ©lÃ©travail, les visioconfÃ©rences et le tÃ©lÃ©versement de fichiers. Le cÃ¢ble est asymÃ©trique : tÃ©lÃ©chargement rapide, envoi lent. Pour la navigation et le streaming, la diffÃ©rence est imperceptible. Pour le tÃ©lÃ©travail intensif, la fibre est recommandÃ©e.",
   },
   {
     q: "Bell exige-t-il toujours un contrat de 24 mois ?",
-    r: "Bell propose généralement ses forfaits avec un engagement de 24 mois, en échange d'un prix fixe et du modem inclus. Des forfaits sans contrat existent mais à prix plus élevé. Si vous cherchez la flexibilité, Fizz, Oxio et TekSavvy offrent des forfaits sans engagement.",
+    r: "Bell propose gÃ©nÃ©ralement ses forfaits avec un engagement de 24 mois, en Ã©change d'un prix fixe et du modem inclus. Des forfaits sans contrat existent mais Ã  prix plus Ã©levÃ©. Si vous cherchez la flexibilitÃ©, Fizz, Oxio et TekSavvy offrent des forfaits sans engagement.",
   },
   {
-    q: "Combien de temps faut-il pour l'installation lors d'un déménagement ?",
-    r: "Pour le câble dans un immeuble déjà câblé, l'activation peut prendre 2–5 jours ouvrables. Pour la fibre ou un nouvel immeuble, prévoyez 2–3 semaines pour le rendez-vous technicien. Planifiez votre abonnement au moins 3 semaines avant votre déménagement pour éviter une interruption de service.",
+    q: "Combien de temps faut-il pour l'installation lors d'un dÃ©mÃ©nagement ?",
+    r: "Pour le cÃ¢ble dans un immeuble dÃ©jÃ  cÃ¢blÃ©, l'activation peut prendre 2â€“5 jours ouvrables. Pour la fibre ou un nouvel immeuble, prÃ©voyez 2â€“3 semaines pour le rendez-vous technicien. Planifiez votre abonnement au moins 3 semaines avant votre dÃ©mÃ©nagement pour Ã©viter une interruption de service.",
   },
 ];
 
@@ -123,14 +123,14 @@ export default function ComparateurInternetPage() {
             >
               Accueil
             </Link>
-            {" › "}
+            {" â€º "}
             <Link
               href="/internet"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Internet
             </Link>
-            {" › "}
+            {" â€º "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Comparateur</span>
           </nav>
           <p
@@ -144,7 +144,7 @@ export default function ComparateurInternetPage() {
               opacity: 0.8,
             }}
           >
-            Outil interactif · Québec 2026
+            Outil interactif Â· QuÃ©bec 2026
           </p>
           <h1
             style={{
@@ -156,7 +156,7 @@ export default function ComparateurInternetPage() {
               marginBottom: "12px",
             }}
           >
-            Comparateur Internet Québec 2026
+            Comparateur Internet QuÃ©bec 2026
           </h1>
           <p
             style={{
@@ -165,7 +165,7 @@ export default function ComparateurInternetPage() {
               lineHeight: 1.7,
             }}
           >
-            Comparez les forfaits de 7 fournisseurs internet au Québec. Filtrez par budget,
+            Comparez les forfaits de 7 fournisseurs internet au QuÃ©bec. Filtrez par budget,
             vitesse et type de connexion pour trouver la meilleure offre selon votre
             situation.
           </p>
@@ -193,29 +193,29 @@ export default function ComparateurInternetPage() {
               marginBottom: "10px",
             }}
           >
-            Le marché internet au Québec en 2026
+            Le marchÃ© internet au QuÃ©bec en 2026
           </h2>
           <p style={{ fontSize: "13px", color: "#44403C", lineHeight: 1.7, marginBottom: "10px" }}>
-            Le marché des télécommunications au Québec est dominé par{" "}
-            <strong>Vidéotron</strong>{" "}et{" "}
+            Le marchÃ© des tÃ©lÃ©communications au QuÃ©bec est dominÃ© par{" "}
+            <strong>VidÃ©otron</strong>{" "}et{" "}
             <strong>Bell</strong>,{" "}mais les fournisseurs alternatifs comme{" "}
             <strong>Fizz</strong>, <strong>Oxio</strong>{" "}et{" "}
-            <strong>TekSavvy</strong>{" "}offrent des options compétitives sans contrat.
-            La fibre optique se déploie rapidement dans les grands centres, tandis que le
-            câble coaxial reste dominant en banlieue et en région.
+            <strong>TekSavvy</strong>{" "}offrent des options compÃ©titives sans contrat.
+            La fibre optique se dÃ©ploie rapidement dans les grands centres, tandis que le
+            cÃ¢ble coaxial reste dominant en banlieue et en rÃ©gion.
           </p>
           <p style={{ fontSize: "13px", color: "#44403C", lineHeight: 1.7, marginBottom: "10px" }}>
-            Pour choisir le bon forfait, considérez vos{" "}
-            <strong>besoins réels en vitesse</strong>{" "}(100 Mbps suffit pour la plupart des
-            foyers), votre <strong>budget mensuel</strong>, et votre tolérance à un{" "}
+            Pour choisir le bon forfait, considÃ©rez vos{" "}
+            <strong>besoins rÃ©els en vitesse</strong>{" "}(100 Mbps suffit pour la plupart des
+            foyers), votre <strong>budget mensuel</strong>, et votre tolÃ©rance Ã  un{" "}
             <strong>engagement contractuel</strong>. Les fournisseurs alternatifs n&apos;exigent
-            généralement aucun contrat, mais peuvent avoir un support client moins accessible.
+            gÃ©nÃ©ralement aucun contrat, mais peuvent avoir un support client moins accessible.
           </p>
           <p style={{ fontSize: "13px", color: "#44403C", lineHeight: 1.7, margin: 0 }}>
-            N&apos;oubliez pas de prévoir la <strong>location du modem</strong>{" "}(5–10 $/mois
-            selon le fournisseur) ou l&apos;achat d&apos;un modem compatible pour économiser
-            sur le long terme. Lors d&apos;un déménagement, planifiez votre abonnement{" "}
-            3 semaines à l&apos;avance pour éviter toute interruption de service.
+            N&apos;oubliez pas de prÃ©voir la <strong>location du modem</strong>{" "}(5â€“10 $/mois
+            selon le fournisseur) ou l&apos;achat d&apos;un modem compatible pour Ã©conomiser
+            sur le long terme. Lors d&apos;un dÃ©mÃ©nagement, planifiez votre abonnement{" "}
+            3 semaines Ã  l&apos;avance pour Ã©viter toute interruption de service.
           </p>
         </section>
 
@@ -233,7 +233,7 @@ export default function ComparateurInternetPage() {
             marginBottom: "2rem",
           }}
         >
-          Publicité
+          PublicitÃ©
         </div>
 
         {/* Comparateur interactif */}
@@ -266,16 +266,16 @@ export default function ComparateurInternetPage() {
               textDecoration: "none",
             }}
           >
-            <span style={{ fontSize: "1.5rem" }}>🌐</span>
+            <span style={{ fontSize: "1.5rem" }}>ðŸŒ</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>
-                Guide internet au Québec
+                Guide internet au QuÃ©bec
               </div>
               <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>
-                Fibre vs câble, critères de choix, fournisseurs alternatifs
+                Fibre vs cÃ¢ble, critÃ¨res de choix, fournisseurs alternatifs
               </div>
             </div>
-            <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
+            <span style={{ color: "#3B82F6", fontSize: "14px" }}>â†’</span>
           </Link>
           <Link
             href="/demenagement"
@@ -290,16 +290,16 @@ export default function ComparateurInternetPage() {
               textDecoration: "none",
             }}
           >
-            <span style={{ fontSize: "1.5rem" }}>📦</span>
+            <span style={{ fontSize: "1.5rem" }}>ðŸ“¦</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>
-                Guide déménagement Québec
+                Guide dÃ©mÃ©nagement QuÃ©bec
               </div>
               <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>
-                Résiliation, transfert internet, délais à prévoir
+                RÃ©siliation, transfert internet, dÃ©lais Ã  prÃ©voir
               </div>
             </div>
-            <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
+            <span style={{ color: "#3B82F6", fontSize: "14px" }}>â†’</span>
           </Link>
           <Link
             href="/budget/calculateur"
@@ -314,16 +314,16 @@ export default function ComparateurInternetPage() {
               textDecoration: "none",
             }}
           >
-            <span style={{ fontSize: "1.5rem" }}>🧮</span>
+            <span style={{ fontSize: "1.5rem" }}>ðŸ§®</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>
-                Calculateur de budget Québec
+                Calculateur de budget QuÃ©bec
               </div>
               <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>
-                Intégrez le coût de votre internet dans votre budget mensuel
+                IntÃ©grez le coÃ»t de votre internet dans votre budget mensuel
               </div>
             </div>
-            <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
+            <span style={{ color: "#3B82F6", fontSize: "14px" }}>â†’</span>
           </Link>
         </div>
 
@@ -337,7 +337,7 @@ export default function ComparateurInternetPage() {
             marginBottom: "1.25rem",
           }}
         >
-          Questions fréquentes
+          Questions frÃ©quentes
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
@@ -403,7 +403,7 @@ export default function ComparateurInternetPage() {
             marginBottom: "2rem",
           }}
         >
-          Publicité
+          PublicitÃ©
         </div>
       </div>
 
@@ -421,7 +421,7 @@ export default function ComparateurInternetPage() {
             ArgentQC.ca
           </p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>
-            Outil informatif non affilié aux fournisseurs internet ou au gouvernement.
+            Outil informatif non affiliÃ© aux fournisseurs internet ou au gouvernement.
           </p>
           <Link
             href="/contact"

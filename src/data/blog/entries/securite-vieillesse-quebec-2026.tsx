@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { BlogArticle } from "@/data/blog/types";
 
@@ -31,7 +31,7 @@ function Content() {
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>← Blogue</Link>
+          <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>? Blogue</Link>
         </div>
       </header>
 
@@ -57,10 +57,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Admissible dès <strong>65 ans</strong>{' '} si vous avez vécu au Canada au moins 10 ans depuis vos 18 ans</li>
-            <li>✓ Montant 2026 : environ <strong>727 $/mois</strong>{' '} (65-74 ans) ou <strong>800 $/mois</strong>{' '} (75 ans et plus)</li>
-            <li>✓ Différer à 70 ans augmente votre pension de <strong>36 %</strong>{' '} à vie</li>
-            <li>✓ Cumulable avec le SRG : jusqu&apos;à <strong>1 073 $ de plus</strong>{' '} par mois si votre revenu est faible</li>
+            <li>? Admissible dès <strong>65 ans</strong>{' '} si vous avez vécu au Canada au moins 10 ans depuis vos 18 ans</li>
+            <li>? Montant 2026 : environ <strong>727 $/mois</strong>{' '} (65-74 ans) ou <strong>800 $/mois</strong>{' '} (75 ans et plus)</li>
+            <li>? Différer à 70 ans augmente votre pension de <strong>36 %</strong>{' '} à vie</li>
+            <li>? Cumulable avec le SRG : jusqu&apos;à <strong>1 073 $ de plus</strong>{' '} par mois si votre revenu est faible</li>
           </ul>
         </div>
 
@@ -262,7 +262,7 @@ function Content() {
             className="inline-block font-bold px-6 py-3 rounded-xl"
             style={{ background: "#F5C842", color: "#060D1A" }}
           >
-            Trouver mes aides →
+            Trouver mes aides ?
           </Link>
         </div>
 
@@ -284,7 +284,7 @@ function Content() {
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <a href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</a>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
     </main>
