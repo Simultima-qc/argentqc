@@ -58,6 +58,7 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/retraite/celi", title: "CELI Quebec", description: "Guide CELI, plafond et strategie.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/retraite/rrq", title: "RRQ Quebec", description: "Guide RRQ, montants et admissibilite.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/retraite/celiapp", title: "CELIAPP Quebec", description: "Guide CELIAPP pour premier achat immobilier.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/transfert-reer", title: "Transfert REER Quebec", description: "Guide pratique pour transferer un REER sans retrait imposable.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },
   { path: "/internet", title: "Internet Quebec", description: "Hub internet et comparateur de forfaits.", changeFrequency: "monthly", priority: 0.8, includeInHomeHub: true },
   { path: "/internet/comparateur", title: "Comparateur internet Quebec", description: "Comparer les fournisseurs internet au Quebec.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/impots", title: "Impots Quebec", description: "Hub impots, dates, remboursements et logiciels.", changeFrequency: "monthly", priority: 0.8, includeInHomeHub: true },
