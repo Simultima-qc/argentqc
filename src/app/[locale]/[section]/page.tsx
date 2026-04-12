@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
 import LocalizedHubPage from "@/components/LocalizedHubPage";
 import { getHubDictionary, localizedHubRouteKeys } from "@/i18n/hubs";
-import { getRouteKeyForLocalizedSegment, getRoutePath, isLocale, locales, type Locale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/seo";
+import { getRouteKeyForLocalizedSegment, getRoutePath, isLocale, locales, type Locale } from "@/i18n/routing";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     localizedHubRouteKeys.map((routeKey) => ({
       locale,
-      hub: getRoutePath(locale, routeKey).split("/").filter(Boolean)[1],
+      section: getRoutePath(locale, routeKey).split("/").filter(Boolean)[1],
     }))
   );
 }
@@ -16,14 +16,14 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; hub: string }>;
+  params: Promise<{ locale: string; section: string }>;
 }) {
-  const { locale, hub } = await params;
+  const { locale, section } = await params;
   if (!isLocale(locale)) {
     return {};
   }
 
-  const routeKey = getRouteKeyForLocalizedSegment(locale, hub);
+  const routeKey = getRouteKeyForLocalizedSegment(locale, section);
   if (!routeKey || !localizedHubRouteKeys.includes(routeKey as (typeof localizedHubRouteKeys)[number])) {
     return {};
   }
@@ -40,14 +40,19 @@ export async function generateMetadata({
 export default async function LocalizedHubRoute({
   params,
 }: {
-  params: Promise<{ locale: Locale; hub: string }>;
+  params: Promise<{ locale: Locale; section: string }>;
 }) {
-  const { locale, hub } = await params;
-  const routeKey = getRouteKeyForLocalizedSegment(locale, hub);
+  const { locale, section } = await params;
+  const routeKey = getRouteKeyForLocalizedSegment(locale, section);
 
   if (!routeKey || !localizedHubRouteKeys.includes(routeKey as (typeof localizedHubRouteKeys)[number])) {
     notFound();
   }
 
-  return <LocalizedHubPage locale={locale} dictionary={getHubDictionary(locale, routeKey as (typeof localizedHubRouteKeys)[number])} />;
+  return (
+    <LocalizedHubPage
+      locale={locale}
+      dictionary={getHubDictionary(locale, routeKey as (typeof localizedHubRouteKeys)[number])}
+    />
+  );
 }
