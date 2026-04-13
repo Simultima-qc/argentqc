@@ -165,20 +165,20 @@ const fr: SiteDictionary = {
     metadata: {
       title: "Questionnaire | ArgentQC.ca",
       description:
-        "Repondez a 8 questions pour estimer les aides gouvernementales et credits d'impot qui peuvent s'appliquer a votre situation.",
+        "Répondez à 8 questions pour estimer les aides gouvernementales et crédits d'impôt qui peuvent s'appliquer à votre situation.",
     },
     progressLabel: "Question",
-    previousQuestion: "Question precedente",
-    answersNotSaved: "Vos reponses ne sont pas enregistrees",
+    previousQuestion: "Question précédente",
+    answersNotSaved: "Vos réponses ne sont pas enregistrées",
     yes: "Oui",
     no: "Non",
     steps: [
       {
         id: "statut_logement",
-        question: "Etes-vous proprietaire ou locataire ?",
+        question: "Êtes-vous propriétaire ou locataire ?",
         type: "choix",
         options: [
-          { value: "proprietaire", label: "Proprietaire" },
+          { value: "proprietaire", label: "Propriétaire" },
           { value: "locataire", label: "Locataire" },
         ],
       },
@@ -194,7 +194,7 @@ const fr: SiteDictionary = {
       },
       {
         id: "enfants",
-        question: "Avez-vous des enfants de moins de 18 ans a charge ?",
+        question: "Avez-vous des enfants de moins de 18 ans à charge ?",
         type: "oui_non",
       },
       {
@@ -211,32 +211,32 @@ const fr: SiteDictionary = {
       },
       {
         id: "vehicule_elec",
-        question: "Avez-vous ou prevoyez-vous un vehicule electrique ?",
+        question: "Avez-vous ou prévoyez-vous un véhicule électrique ?",
         type: "choix",
         options: [
-          { value: "oui", label: "Oui, j'en ai deja un" },
-          { value: "prevu", label: "Oui, j'en prevois un" },
+          { value: "oui", label: "Oui, j'en ai déjà un" },
+          { value: "prevu", label: "Oui, j'en prévois un" },
           { value: "non", label: "Non" },
         ],
       },
       {
         id: "renovation",
-        question: "Prevoyez-vous des travaux de renovation ou d'amelioration energetique ?",
+        question: "Prévoyez-vous des travaux de rénovation ou d'amélioration énergétique ?",
         type: "oui_non",
       },
       {
         id: "retraite",
-        question: "Etes-vous a la retraite ou age de 65 ans et plus ?",
+        question: "Êtes-vous à la retraite ou âgé de 65 ans et plus ?",
         type: "oui_non",
       },
       {
         id: "age",
-        question: "Dans quelle tranche d'age vous situez-vous ?",
+        question: "Dans quelle tranche d'âge vous situez-vous ?",
         type: "choix",
         options: [
-          { value: "18-30", label: "18 a 30 ans" },
-          { value: "31-45", label: "31 a 45 ans" },
-          { value: "46-65", label: "46 a 65 ans" },
+          { value: "18-30", label: "18 à 30 ans" },
+          { value: "31-45", label: "31 à 45 ans" },
+          { value: "46-65", label: "46 à 65 ans" },
           { value: "65+", label: "65 ans et plus" },
         ],
       },
@@ -244,39 +244,39 @@ const fr: SiteDictionary = {
   },
   results: {
     metadata: {
-      title: "Vos resultats | ArgentQC.ca",
+      title: "Vos résultats | ArgentQC.ca",
       description:
-        "Consultez votre liste initiale de programmes gouvernementaux potentiellement admissibles selon vos reponses.",
+        "Consultez votre liste initiale de programmes gouvernementaux potentiellement admissibles selon vos réponses.",
     },
     restart: "Recommencer",
-    summaryLabel: "Vous pourriez recuperer jusqu'a",
+    summaryLabel: "Vous pourriez récupérer jusqu'à",
     programmesFound: {
-      singular: "programme trouve",
-      plural: "programmes trouves",
+      singular: "programme trouvé",
+      plural: "programmes trouvés",
     },
     emptyState: {
-      title: "Aucun programme trouve",
+      title: "Aucun programme trouvé",
       description:
-        "Selon vos reponses actuelles, nous n'avons pas trouve de programme correspondant dans ce perimetre.",
+        "Selon vos réponses actuelles, nous n'avons pas trouvé de programme correspondant dans ce périmètre.",
       cta: "Refaire le questionnaire",
     },
     eligibleLabel: "Vos programmes admissibles",
     adsLabel: "Publicite",
     conditionsTitle: "Conditions",
     applyCta: "Voir la page officielle",
-    recalculateText: "Votre situation a change ? Recalculez vos aides.",
+    recalculateText: "Votre situation a changé ? Recalculez vos aides.",
     recalculateCta: "Refaire le questionnaire",
     estimateDisclaimer:
-      "Les montants affiches sont des estimations a titre informatif. L'admissibilite finale depend des criteres officiels de chaque programme.",
-    footerDisclaimer: "Outil informatif non affilie au gouvernement.",
+      "Les montants affichés sont des estimations à titre informatif. L'admissibilité finale dépend des critères officiels de chaque programme.",
+    footerDisclaimer: "Outil informatif non affilié au gouvernement.",
     categoryLabels: {
-      renovation: "Renovation",
-      energie: "Energie",
+      renovation: "Rénovation",
+      energie: "Énergie",
       famille: "Famille",
       transport: "Transport",
       logement: "Logement",
-      credits_impot: "Credits d'impot",
-      sante: "Sante et aines",
+      credits_impot: "Crédits d'impôt",
+      sante: "Santé et aînés",
       agriculture: "Agriculture",
     },
     levelLabels: {
