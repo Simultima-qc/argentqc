@@ -160,7 +160,7 @@ export default function LocalizedTaxRefundPage({ locale }: { locale: Locale }) {
               {dictionary.ctaLabel}
             </Link>
             <Link href={taxesHubPath} className="inline-block rounded-2xl border px-5 py-3 text-sm font-semibold no-underline" style={{ borderColor: "rgba(240,235,224,0.16)", color: "#F0EBE0" }}>
-              {locale === "fr" ? "Retour au hub impots" : "Back to taxes hub"}
+              {locale === "fr" ? "Retour au thème impôts" : "Back to tax topic"}
             </Link>
           </div>
         </section>

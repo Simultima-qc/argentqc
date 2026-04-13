@@ -60,7 +60,7 @@ const fr: BudgetSolidarityCreditDictionary = {
   officialLabel: "Faire une demande",
   relatedLinks: [
     { href: "/fr/budget/allocation-logement", title: "Allocation logement" },
-    { href: "/fr/budget", title: "Hub budget" },
+    { href: "/fr/budget", title: "Thème budget" },
     { href: "/fr/questionnaire", title: "Questionnaire aides" },
   ],
   faqs: [
@@ -179,7 +179,7 @@ const en: BudgetSolidarityCreditDictionary = {
   officialLabel: "Apply on official site",
   relatedLinks: [
     { href: "/en/budget/housing-allowance", title: "Housing allowance" },
-    { href: "/en/budget", title: "Budget hub" },
+    { href: "/en/budget", title: "Budget topic" },
     { href: "/en/questionnaire", title: "Benefits questionnaire" },
   ],
   faqs: [

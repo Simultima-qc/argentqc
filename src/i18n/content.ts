@@ -28,9 +28,8 @@ export interface HomeDictionary {
     text: string;
   }>;
   secondaryCta: string;
-  foundationTitle: string;
-  foundationDescription: string;
-  foundationPoints: string[];
+  topicsTitle: string;
+  topicsDescription: string;
   footerDisclaimer: string;
 }
 
@@ -100,73 +99,67 @@ const fr: SiteDictionary = {
   languageSwitcherLabel: "Changer de langue",
   home: {
     metadata: {
-      title: "ArgentQC.ca | Trouvez les aides et credits d'impot au Quebec",
+      title: "ArgentQC.ca | Trouvez les aides et crédits d'impôt au Québec",
       description:
-        "Questionnaire gratuit et guides pratiques pour reperer les aides financieres, subventions et credits d'impot qui peuvent s'appliquer a votre situation au Quebec.",
+        "Questionnaire gratuit et guides pratiques pour repérer les aides financières, subventions et crédits d'impôt qui peuvent s'appliquer à votre situation au Québec.",
     },
     badge: "100 % gratuit · aucune inscription",
-    title: "Decouvrez les aides et credits que vous pourriez reclamer au Quebec",
+    title: "Découvrez les aides et crédits que vous pourriez réclamer au Québec",
     description:
-      "Repondez a quelques questions et obtenez une premiere estimation claire des programmes gouvernementaux qui peuvent correspondre a votre situation.",
+      "Répondez à quelques questions et obtenez une première estimation claire des programmes gouvernementaux qui peuvent correspondre à votre situation.",
     primaryCta: "Trouver mes aides",
     ctaMeta: "Gratuit · 2 minutes · estimation personnalisee",
     trustBadges: [
-      "Aucune donnee sauvegardee",
-      "Programmes officiels et verifiables",
-      "Base bilingue prete pour le Canada",
+      "Aucune donnée sauvegardée",
+      "Programmes officiels et vérifiables",
     ],
     examplesLabel: "Exemples de profils",
     examples: [
       {
         profile: "Famille avec 2 enfants",
         amount: "9 800 $",
-        description: "ACE, Allocation famille et credit pour la solidarite",
+        description: "ACE, Allocation famille et crédit pour la solidarité",
       },
       {
-        profile: "Proprietaire qui renove",
+        profile: "Propriétaire qui rénove",
         amount: "16 700 $",
-        description: "RenoClimat, LogisVert et credits federaux",
+        description: "RenoClimat, LogisVert et crédits fédéraux",
       },
       {
-        profile: "Aine admissible",
+        profile: "Aîné admissible",
         amount: "14 000 $",
-        description: "SV, SRG et maintien a domicile",
+        description: "SV, SRG et maintien à domicile",
       },
     ],
     stats: [
       { value: "16", label: "programmes couverts" },
       { value: "20k$", label: "potentiel maximal moyen" },
-      { value: "2 min", label: "pour vos resultats" },
+      { value: "2 min", label: "pour vos résultats" },
     ],
-    stepsTitle: "Comment ca fonctionne",
+    stepsTitle: "Comment ça fonctionne",
     steps: [
       {
         number: "1",
-        title: "Vous repondez au questionnaire",
-        text: "Logement, revenu, famille, retraite et projets de renovation.",
+        title: "Vous répondez au questionnaire",
+        text: "Logement, revenu, famille, retraite et projets de rénovation.",
       },
       {
         number: "2",
         title: "On filtre les programmes",
-        text: "La logique met en correspondance vos reponses avec les criteres de 2026.",
+        text: "La logique met en correspondance vos réponses avec les critères de 2026.",
       },
       {
         number: "3",
         title: "Vous obtenez une base actionnable",
-        text: "Montants estimes, conditions d'admissibilite et liens officiels.",
+        text: "Montants estimés, conditions d'admissibilité et liens officiels.",
       },
     ],
     secondaryCta: "Commencer le questionnaire",
-    foundationTitle: "Une fondation bilingue simple et durable",
-    foundationDescription:
-      "Cette premiere passe pose une structure claire par langue pour les pages qui comptent le plus dans le funnel.",
-    foundationPoints: [
-      "URLs distinctes en /fr et /en",
-      "Metadonnees localisees et hreflang sur le perimetre migre",
-      "Questionnaire et resultats relies a une meme logique metier",
-    ],
+    topicsTitle: "Explorer par thème",
+    topicsDescription:
+      "Consultez directement nos principaux thèmes pour comparer les options, comprendre les programmes et trouver les pages les plus utiles.",
     footerDisclaimer:
-      "Outil informatif non affilie au gouvernement. Les montants affiches sont des estimations a valider sur les sites officiels.",
+      "Outil informatif non affilié au gouvernement. Les montants affichés sont des estimations à valider sur les sites officiels.",
   },
   questionnaire: {
     metadata: {
@@ -356,14 +349,9 @@ const en: SiteDictionary = {
       },
     ],
     secondaryCta: "Run the questionnaire",
-    foundationTitle: "A clean bilingual foundation for future expansion",
-    foundationDescription:
-      "This first rollout focuses on the core funnel so French and English can scale without duplicating business logic.",
-    foundationPoints: [
-      "Distinct /fr and /en URLs",
-      "Localized metadata and hreflang on the migrated scope",
-      "Shared matching logic with localized UI and SEO copy",
-    ],
+    topicsTitle: "Browse by topic",
+    topicsDescription:
+      "Go straight to the main topics to compare options, understand the programs, and find the most useful guides faster.",
     footerDisclaimer:
       "Informational tool only and not affiliated with the government. Amounts are estimates and should be confirmed on official websites.",
   },

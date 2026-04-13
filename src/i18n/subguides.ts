@@ -732,7 +732,7 @@ const frInsuranceComparator: InsuranceComparatorDictionary = {
     { title: "Assurance auto", description: "Comprendre le regime Quebec, les couvertures et les prix.", href: "/fr/assurances/auto", emoji: "A1" },
     { title: "Assurance habitation", description: "Comparer locataire, condo et proprietaire.", href: "/fr/assurances/habitation", emoji: "A2" },
     { title: "Assurance vie", description: "Voir quand elle devient vraiment utile.", href: "/fr/assurances/vie", emoji: "A3" },
-    { title: "Hub assurances", description: "Revenir a la vue d'ensemble du sujet.", href: "/fr/assurances", emoji: "A4" },
+    { title: "Thème assurances", description: "Revenir à la vue d'ensemble du sujet.", href: "/fr/assurances", emoji: "A4" },
   ],
   faqsTitle: "Questions frequentes",
   faqs: [
@@ -849,7 +849,7 @@ const enInsuranceComparator: InsuranceComparatorDictionary = {
     { title: "Auto insurance", description: "Review the Quebec framework, coverages, and pricing logic.", href: "/en/insurance/auto", emoji: "A1" },
     { title: "Home insurance", description: "Compare renter, condo, and owner protection.", href: "/en/insurance/home", emoji: "A2" },
     { title: "Life insurance", description: "See when life coverage materially matters.", href: "/en/insurance/life", emoji: "A3" },
-    { title: "Insurance hub", description: "Go back to the broader insurance overview.", href: "/en/insurance", emoji: "A4" },
+    { title: "Insurance topic", description: "Go back to the broader insurance overview.", href: "/en/insurance", emoji: "A4" },
   ],
   faqsTitle: "Frequently asked questions",
   faqs: [
@@ -1003,7 +1003,7 @@ const enBudgetCostOfLiving: BudgetCostOfLivingDictionary = {
       note: "Montreal is usually the high point; Quebec City and many regions can be 20 to 30% cheaper.",
       supports: [
         { label: "Benefits questionnaire", href: "/en/questionnaire" },
-        { label: "Budget hub", href: "/en/budget" },
+        { label: "Budget topic", href: "/en/budget" },
       ],
     },
     {
@@ -1025,7 +1025,7 @@ const enBudgetCostOfLiving: BudgetCostOfLivingDictionary = {
       note: "The range depends heavily on the type of childcare. Subsidized spaces change the math significantly.",
       supports: [
         { label: "Benefits questionnaire", href: "/en/questionnaire" },
-        { label: "Budget hub", href: "/en/budget" },
+        { label: "Budget topic", href: "/en/budget" },
       ],
     },
     {
@@ -1166,7 +1166,7 @@ const frRetirementFhsa: RetirementFhsaDictionary = {
   ctaLinks: [
     { title: "Guide REER", description: "Voir le RAP et la logique de deduction fiscale.", href: "/fr/retraite/reer", emoji: "R1" },
     { title: "Guide CELI", description: "Comprendre quand utiliser le CELI en parallele.", href: "/fr/retraite/celi", emoji: "R2" },
-    { title: "Hub retraite", description: "Revenir a la vue d'ensemble retraite.", href: "/fr/retraite", emoji: "R3" },
+    { title: "Thème retraite", description: "Revenir à la vue d'ensemble retraite.", href: "/fr/retraite", emoji: "R3" },
   ],
   footerText: "Outil informatif. Une planification personnalisee peut exiger un conseiller financier ou fiscal selon votre situation.",
   footerContact: "Contactez-nous",
@@ -1265,7 +1265,7 @@ const enRetirementFhsa: RetirementFhsaDictionary = {
   ctaLinks: [
     { title: "RRSP guide", description: "Review the Home Buyers' Plan and deduction logic.", href: "/en/retirement/rrsp", emoji: "R1" },
     { title: "TFSA guide", description: "See when the TFSA still matters alongside the FHSA.", href: "/en/retirement/tfsa", emoji: "R2" },
-    { title: "Retirement hub", description: "Back to the broader retirement overview.", href: "/en/retirement", emoji: "R3" },
+    { title: "Retirement topic", description: "Back to the broader retirement overview.", href: "/en/retirement", emoji: "R3" },
   ],
   footerText: "Informational tool only. Personalized planning may require a financial or tax advisor depending on your situation.",
   footerContact: "Contact us",
@@ -1396,11 +1396,11 @@ const frTaxSoftware: TaxSoftwareDictionary = {
         "Pas forcement. Rester sur le meme produit simplifie l'historique, mais il faut revoir le prix, la couverture et la facilite d'usage quand votre situation change.",
     },
   ],
-  ctaTitle: "Continuer sur le hub fiscal",
+  ctaTitle: "Continuer sur le thème fiscal",
   ctaLinks: [
     { title: "Dates limites", description: "Verifier les echeances et penalites 2026.", href: "/fr/impots/dates", emoji: "D1" },
     { title: "Remboursement", description: "Comprendre delais et causes de retard.", href: "/fr/impots/remboursement", emoji: "D2" },
-    { title: "Hub impots", description: "Revenir a la vue d'ensemble fiscale.", href: "/fr/impots", emoji: "D3" },
+    { title: "Thème impôts", description: "Revenir à la vue d'ensemble fiscale.", href: "/fr/impots", emoji: "D3" },
   ],
   footerText:
     "Contenu informatif non affilie aux logiciels cites. Verifiez toujours les tarifs, restrictions et certifications directement chez l'editeur.",
@@ -1532,11 +1532,11 @@ const enTaxSoftware: TaxSoftwareDictionary = {
         "Not automatically. Staying with one product helps with continuity, but pricing, feature coverage, and usability should be reviewed when your tax profile changes.",
     },
   ],
-  ctaTitle: "Keep going inside the tax hub",
+  ctaTitle: "Keep going inside the tax topic",
   ctaLinks: [
     { title: "Deadlines", description: "Review key filing dates and penalties.", href: "/en/taxes/deadlines", emoji: "D1" },
     { title: "Refund timing", description: "Understand timing and common delays.", href: "/en/taxes/refund", emoji: "D2" },
-    { title: "Taxes hub", description: "Back to the broader Quebec tax overview.", href: "/en/taxes", emoji: "D3" },
+    { title: "Tax topic", description: "Back to the broader Quebec tax overview.", href: "/en/taxes", emoji: "D3" },
   ],
   footerText:
     "Informational content only. We are not affiliated with the software listed here. Check pricing, limits, and certifications directly with each provider.",
@@ -1577,9 +1577,9 @@ const frBudgetCalculator: BudgetCalculatorDictionary = {
   ctaText: "Credits d'impot, allocations et subventions: trouvez ce qui peut soulager vos finances en quelques minutes.",
   ctaLabel: "Trouver mes aides",
   resetLabel: "Recommencer le calcul",
-  relatedBudgetTitle: "Hub budget Quebec",
+  relatedBudgetTitle: "Thème budget Québec",
   relatedBudgetText: "Replacer ce calculateur dans une vue plus large du cout de la vie et des arbitrages budgetaires.",
-  relatedMovingTitle: "Hub demenagement",
+  relatedMovingTitle: "Thème déménagement",
   relatedMovingText: "Utile si vous voulez integrer un projet de demenagement dans votre budget global.",
   footerText: "Outil informatif. Aucune donnee personnelle n'est conservee.",
   footerContact: "Contactez-nous",
@@ -1634,9 +1634,9 @@ const enBudgetCalculator: BudgetCalculatorDictionary = {
   ctaText: "Refundable credits, benefits, and grants can change the picture faster than a minor expense cut.",
   ctaLabel: "Find my programs",
   resetLabel: "Start over",
-  relatedBudgetTitle: "Quebec budget hub",
+  relatedBudgetTitle: "Quebec budget topic",
   relatedBudgetText: "Place this calculator inside a broader view of cost of living and budget tradeoffs.",
-  relatedMovingTitle: "Moving hub",
+  relatedMovingTitle: "Moving topic",
   relatedMovingText: "Helpful if you want to fold a move into your overall monthly planning.",
   footerText: "Informational tool. No personal data is stored.",
   footerContact: "Contact us",
@@ -1695,8 +1695,8 @@ const frInternetComparator: InternetComparatorDictionary = {
   ],
   relatedTitle: "Guides connexes",
   relatedLinks: [
-    { title: "Hub internet Quebec", description: "Replacer le comparateur dans une vue plus large des offres et des criteres de choix.", href: "/fr/internet", emoji: "🌐" },
-    { title: "Hub demenagement", description: "Utile pour gerer la transition, la resiliation et les delais d'installation.", href: "/fr/demenagement", emoji: "📦" },
+    { title: "Thème internet Québec", description: "Replacer le comparateur dans une vue plus large des offres et des critères de choix.", href: "/fr/internet", emoji: "🌐" },
+    { title: "Thème déménagement", description: "Utile pour gérer la transition, la résiliation et les délais d'installation.", href: "/fr/demenagement", emoji: "📦" },
     { title: "Calculateur budget", description: "Integrer le cout de votre forfait dans le budget global du foyer.", href: "/fr/budget/calculateur", emoji: "🧮" },
   ],
   faqsTitle: "Questions frequentes",
@@ -1747,8 +1747,8 @@ const enInternetComparator: InternetComparatorDictionary = {
   ],
   relatedTitle: "Related guides",
   relatedLinks: [
-    { title: "Quebec internet hub", description: "Put the comparator inside a broader view of providers and selection criteria.", href: "/en/internet", emoji: "🌐" },
-    { title: "Moving hub", description: "Helpful for service transfer timing, cancellation, and installation planning.", href: "/en/moving", emoji: "📦" },
+    { title: "Quebec internet topic", description: "Put the comparator inside a broader view of providers and selection criteria.", href: "/en/internet", emoji: "🌐" },
+    { title: "Moving topic", description: "Helpful for service transfer timing, cancellation, and installation planning.", href: "/en/moving", emoji: "📦" },
     { title: "Budget calculator", description: "Fold your internet bill into the household budget view.", href: "/en/budget/calculator", emoji: "🧮" },
   ],
   faqsTitle: "Frequently asked questions",

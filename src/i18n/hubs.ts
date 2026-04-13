@@ -25,7 +25,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       title: "Budget au Quebec | ArgentQC.ca",
       description: "Un point d'entree simple pour piloter budget, cout de la vie et arbitrages financiers utiles au Quebec.",
     },
-    eyebrow: "Hub budget Quebec",
+    eyebrow: "Thème budget Québec",
     title: "Budget et cout de la vie au Quebec",
     description: "Comprendre les postes qui comptent vraiment avant d'optimiser le detail.",
     keyPoints: [
@@ -54,7 +54,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       title: "Impots Quebec | ArgentQC.ca",
       description: "Les bases utiles pour comprendre impots, dates et credits au Quebec.",
     },
-    eyebrow: "Hub impots Quebec",
+    eyebrow: "Thème impôts Québec",
     title: "Impots au Quebec sans angle mort",
     description: "Une base claire entre ARC, Revenu Quebec, echeances et credits importants.",
     keyPoints: [
@@ -81,7 +81,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       title: "Retraite Quebec | ArgentQC.ca",
       description: "Les grands reperes pour relier RRQ, SV, REER, CELI et besoins de revenu futur.",
     },
-    eyebrow: "Hub retraite Quebec",
+    eyebrow: "Thème retraite Québec",
     title: "Retraite au Quebec : les bons piliers dans le bon ordre",
     description: "Une vue d'ensemble avant de rentrer dans les details de produits et de decaissement.",
     keyPoints: [
@@ -109,7 +109,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       title: "Assurances Quebec | ArgentQC.ca",
       description: "Comprendre les grandes decisions d'assurance dans le contexte propre au Quebec.",
     },
-    eyebrow: "Hub assurances Quebec",
+    eyebrow: "Thème assurances Québec",
     title: "Assurances au Quebec sans payer a l'aveugle",
     description: "Une base simple pour distinguer les risques a couvrir des protections superflues.",
     keyPoints: [
@@ -136,7 +136,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       title: "Internet Quebec | ArgentQC.ca",
       description: "Les grands criteres pour choisir un forfait internet au Quebec selon usage, budget et region.",
     },
-    eyebrow: "Hub internet Quebec",
+    eyebrow: "Thème internet Québec",
     title: "Internet au Quebec sans payer pour de la vitesse inutile",
     description: "Une vue claire sur les vrais criteres de choix entre fibre, cable, contrat et budget.",
     keyPoints: [
@@ -147,7 +147,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     cards: [
       { title: "Comparateur internet", description: "Comparer les offres principales.", href: "/fr/internet/comparateur" },
       { title: "Questionnaire aides", description: "Voir aussi les autres leviers budgetaires.", href: "/fr/questionnaire" },
-      { title: "Hub budget", description: "Remettre les telecoms dans le budget global.", href: "/fr/budget" },
+      { title: "Thème budget", description: "Remettre les télécoms dans le budget global.", href: "/fr/budget" },
     ],
     faqs: [
       { question: "La fibre vaut-elle toujours le surcout ?", answer: "Pas toujours. Elle devient surtout pertinente pour les usages intensifs, simultanes ou tres sensibles a la stabilite." },
@@ -163,7 +163,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       title: "Demenagement Quebec | ArgentQC.ca",
       description: "Les bases utiles pour planifier un demenagement au Quebec et en maitriser les couts.",
     },
-    eyebrow: "Hub demenagement Quebec",
+    eyebrow: "Thème déménagement Québec",
     title: "Demenager au Quebec avec une vraie feuille de route",
     description: "Une base simple pour cadrer couts, calendrier et changements administratifs.",
     keyPoints: [
@@ -190,7 +190,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
   budget: {
     routeKey: "budget",
     metadata: { title: "Budget in Quebec | ArgentQC.ca", description: "A practical starting point for budget and cost-of-living tradeoffs in Quebec." },
-    eyebrow: "Quebec budget hub",
+    eyebrow: "Quebec budget topic",
     title: "Budget and cost of living in Quebec",
     description: "A clear view of the spending lines that matter before you optimize the details.",
     keyPoints: [
@@ -216,7 +216,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
   taxes: {
     routeKey: "taxes",
     metadata: { title: "Taxes in Quebec | ArgentQC.ca", description: "A clear Quebec-focused starting point on filing, deadlines, and important credits." },
-    eyebrow: "Quebec taxes hub",
+    eyebrow: "Quebec tax topic",
     title: "Taxes in Quebec without the blind spots",
     description: "A simple overview of CRA, Revenu Quebec, deadlines, and useful credits.",
     keyPoints: [
@@ -240,7 +240,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
   retirement: {
     routeKey: "retirement",
     metadata: { title: "Retirement in Quebec | ArgentQC.ca", description: "A practical overview of RRQ, OAS, RRSPs, TFSAs, and retirement income logic in Quebec." },
-    eyebrow: "Quebec retirement hub",
+    eyebrow: "Quebec retirement topic",
     title: "Retirement in Quebec: the right pillars in the right order",
     description: "A simple overview before you move into product detail and withdrawal strategy.",
     keyPoints: [
@@ -265,7 +265,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
   insurance: {
     routeKey: "insurance",
     metadata: { title: "Insurance in Quebec | ArgentQC.ca", description: "A Quebec-focused overview of core insurance choices and the risks they really cover." },
-    eyebrow: "Quebec insurance hub",
+    eyebrow: "Quebec insurance topic",
     title: "Insurance in Quebec without paying blindly",
     description: "A practical foundation for separating essential protection from unnecessary overlap.",
     keyPoints: [
@@ -289,7 +289,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
   internet: {
     routeKey: "internet",
     metadata: { title: "Internet in Quebec | ArgentQC.ca", description: "The main decision criteria for choosing an internet plan in Quebec by usage, budget, and region." },
-    eyebrow: "Quebec internet hub",
+    eyebrow: "Quebec internet topic",
     title: "Internet in Quebec without paying for speed you do not need",
     description: "A clear view on the real tradeoffs between speed, upload, contract flexibility, and total cost.",
     keyPoints: [
@@ -300,7 +300,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
     cards: [
       { title: "Internet comparator", description: "Compare major offers and providers.", href: "/en/internet/comparator" },
       { title: "Benefits questionnaire", description: "Check the rest of the household cost picture too.", href: "/en/questionnaire" },
-      { title: "Budget hub", description: "Put telecom back inside your full budget.", href: "/en/budget" },
+      { title: "Budget topic", description: "Put telecom back inside your full budget.", href: "/en/budget" },
     ],
     faqs: [
       { question: "Is fibre always worth more?", answer: "Not always. It becomes more valuable for heavier simultaneous use and high upload needs." },
@@ -313,7 +313,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
   moving: {
     routeKey: "moving",
     metadata: { title: "Moving in Quebec | ArgentQC.ca", description: "A practical starting point for planning a move in Quebec and keeping costs under control." },
-    eyebrow: "Quebec moving hub",
+    eyebrow: "Quebec moving topic",
     title: "Moving in Quebec with a real action plan",
     description: "A simple foundation for framing costs, timing, and administrative updates.",
     keyPoints: [

@@ -167,7 +167,7 @@ export default function LocalizedRetirementTfsaPage({ locale }: { locale: Locale
               {locale === "fr" ? "Voir le guide REER" : "See the RRSP guide"}
             </Link>
             <Link href={retirementHubPath} className="inline-block rounded-2xl border px-5 py-3 text-sm font-semibold no-underline" style={{ borderColor: "rgba(240,235,224,0.16)", color: "#F0EBE0" }}>
-              {locale === "fr" ? "Retour au hub retraite" : "Back to retirement hub"}
+              {locale === "fr" ? "Retour au thème retraite" : "Back to retirement topic"}
             </Link>
           </div>
         </section>

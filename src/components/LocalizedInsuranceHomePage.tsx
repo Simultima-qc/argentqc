@@ -165,7 +165,7 @@ export default function LocalizedInsuranceHomePage({ locale }: { locale: Locale 
               {locale === "fr" ? "Trouver mes aides" : "Find my programs"}
             </Link>
             <Link href={insuranceHubPath} className="inline-block rounded-2xl border px-5 py-3 text-sm font-semibold no-underline" style={{ borderColor: "rgba(240,235,224,0.16)", color: "#F0EBE0" }}>
-              {locale === "fr" ? "Retour au hub assurances" : "Back to insurance hub"}
+              {locale === "fr" ? "Retour au thème assurances" : "Back to insurance topic"}
             </Link>
           </div>
         </section>

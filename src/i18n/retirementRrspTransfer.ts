@@ -327,7 +327,7 @@ const en: RetirementRrspTransferDictionary = {
     links: [
       { href: "/en/retirement/rrsp", title: "Review the RRSP guide first", description: "Contribution logic, deduction value, and key mistakes.", emoji: "💼" },
       { href: "/en/taxes/refund", title: "See how a withdrawal can affect taxes", description: "Withholding, taxable income, and refund timing.", emoji: "🧾" },
-      { href: "/en/retirement", title: "Explore the rest of the retirement hub", description: "RRSP, TFSA, QPP, and related retirement choices.", emoji: "🧭" },
+      { href: "/en/retirement", title: "Explore the rest of the retirement topic", description: "RRSP, TFSA, QPP, and related retirement choices.", emoji: "🧭" },
     ],
   },
   footerText: "General practical information only. Always confirm the final details with your institution.",

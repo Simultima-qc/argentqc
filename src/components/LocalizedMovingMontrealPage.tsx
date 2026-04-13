@@ -131,7 +131,7 @@ export default function LocalizedMovingMontrealPage({ locale }: { locale: Locale
               {dictionary.ctaCostTitle}
             </Link>
             <Link href={movingHubPath} className="rounded-2xl border px-5 py-3 text-sm font-semibold no-underline" style={{ borderColor: "rgba(240,235,224,0.16)", color: "#F0EBE0" }}>
-              {locale === "fr" ? "Retour au hub demenagement" : "Back to moving hub"}
+              {locale === "fr" ? "Retour au thème déménagement" : "Back to moving topic"}
             </Link>
           </div>
           <div className="mt-4 flex flex-col gap-2 text-sm leading-7 text-stone-300 sm:flex-row sm:justify-center sm:gap-6">

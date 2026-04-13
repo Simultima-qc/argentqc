@@ -60,7 +60,7 @@ const fr: BudgetHousingAllowanceDictionary = {
   officialLabel: "Faire une demande",
   relatedLinks: [
     { href: "/credit-solidarite-quebec", title: "Credit de solidarite Quebec" },
-    { href: "/fr/budget", title: "Hub budget" },
+    { href: "/fr/budget", title: "Thème budget" },
     { href: "/fr/questionnaire", title: "Questionnaire aides" },
   ],
   faqs: [
@@ -179,7 +179,7 @@ const en: BudgetHousingAllowanceDictionary = {
   officialLabel: "Apply on official site",
   relatedLinks: [
     { href: "/credit-solidarite-quebec", title: "Quebec solidarity tax credit" },
-    { href: "/en/budget", title: "Budget hub" },
+    { href: "/en/budget", title: "Budget topic" },
     { href: "/en/questionnaire", title: "Benefits questionnaire" },
   ],
   faqs: [

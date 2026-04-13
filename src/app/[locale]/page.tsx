@@ -38,11 +38,11 @@ export default async function LocalizedHomePage({
   const questionnairePath = getRoutePath(locale, "questionnaire");
   const hubCards = [
     { key: "budget" as const, title: locale === "fr" ? "Budget" : "Budget" },
-    { key: "taxes" as const, title: locale === "fr" ? "Impots" : "Taxes" },
+    { key: "taxes" as const, title: locale === "fr" ? "Impôts" : "Taxes" },
     { key: "retirement" as const, title: locale === "fr" ? "Retraite" : "Retirement" },
     { key: "insurance" as const, title: locale === "fr" ? "Assurances" : "Insurance" },
     { key: "internet" as const, title: locale === "fr" ? "Internet" : "Internet" },
-    { key: "moving" as const, title: locale === "fr" ? "Demenagement" : "Moving" },
+    { key: "moving" as const, title: locale === "fr" ? "Déménagement" : "Moving" },
   ];
 
   return (
@@ -197,32 +197,13 @@ export default async function LocalizedHomePage({
       </section>
 
       <section className="border-t bg-white px-5 py-12" style={{ borderColor: "#F0EBE0" }}>
-        <div className="mx-auto max-w-3xl rounded-[28px] border p-8" style={{ borderColor: "#EDE9E0", background: "#FCFAF7" }}>
-          <h2 className="mb-3 text-3xl font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
-            {dictionary.home.foundationTitle}
-          </h2>
-          <p className="mb-5 max-w-2xl text-sm leading-7 text-stone-600">
-            {dictionary.home.foundationDescription}
-          </p>
-          <div className="grid gap-3 md:grid-cols-3">
-            {dictionary.home.foundationPoints.map((point) => (
-              <div
-                key={point}
-                className="rounded-2xl border bg-white px-4 py-5 text-sm font-medium text-stone-700"
-                style={{ borderColor: "#EDE9E0" }}
-              >
-                {point}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t bg-white px-5 py-12" style={{ borderColor: "#F0EBE0" }}>
         <div className="mx-auto max-w-3xl">
-          <h2 className="mb-6 text-3xl font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
-            {locale === "fr" ? "Hubs structurants" : "Core hubs"}
+          <h2 className="mb-3 text-3xl font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
+            {dictionary.home.topicsTitle}
           </h2>
+          <p className="mb-6 max-w-2xl text-sm leading-7 text-stone-600">
+            {dictionary.home.topicsDescription}
+          </p>
           <div className="grid gap-3 md:grid-cols-3">
             {hubCards.map((hub) => (
               <Link
