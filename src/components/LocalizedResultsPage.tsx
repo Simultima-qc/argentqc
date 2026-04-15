@@ -18,6 +18,35 @@ interface LocalizedResultsPageProps {
   reponses: ReponseQuestionnaire;
 }
 
+function buildProfileChips(reponses: ReponseQuestionnaire, dictionary: LocalizedResultsPageProps["dictionary"]): string[] {
+  const chips: string[] = [];
+  chips.push(reponses.statut_logement === "proprietaire" ? dictionary.profileChips.owner : dictionary.profileChips.renter);
+  if (reponses.situation_familiale === "famille" || reponses.enfants) chips.push(dictionary.profileChips.family);
+  else if (reponses.situation_familiale === "couple") chips.push(dictionary.profileChips.couple);
+  else chips.push(dictionary.profileChips.single);
+  if (dictionary.revenueLabels[reponses.revenu]) chips.push(`💰 ${dictionary.revenueLabels[reponses.revenu]}`);
+  if (reponses.renovation) chips.push(dictionary.profileChips.renovation);
+  if (reponses.vehicule_elec !== "non") chips.push(dictionary.profileChips.ev);
+  if (reponses.retraite) chips.push(dictionary.profileChips.retirement);
+  return chips;
+}
+
+function buildHubLinks(reponses: ReponseQuestionnaire, locale: Locale) {
+  const links: Array<{ href: string; label: string }> = [];
+  links.push({ href: getRoutePath(locale, "taxes"), label: locale === "fr" ? "📋 Impôts & crédits" : "📋 Taxes & credits" });
+  links.push({ href: getRoutePath(locale, "budget"), label: locale === "fr" ? "💡 Guide budget" : "💡 Budget guide" });
+  if (reponses.retraite || reponses.age === "46-65" || reponses.age === "65+") {
+    links.push({ href: getRoutePath(locale, "retirement"), label: locale === "fr" ? "🏖️ Retraite" : "🏖️ Retirement" });
+  }
+  if (reponses.renovation) {
+    links.push({ href: "/aides-financieres", label: locale === "fr" ? "💰 Aides financières" : "💰 Financial aids" });
+  }
+  if (reponses.vehicule_elec !== "non") {
+    links.push({ href: getRoutePath(locale, "insurance"), label: locale === "fr" ? "⚡ Assurances & VÉ" : "⚡ Insurance & EV" });
+  }
+  return links.slice(0, 4);
+}
+
 export default function LocalizedResultsPage({
   locale,
   dictionary,
@@ -28,6 +57,9 @@ export default function LocalizedResultsPage({
   const homePath = getRoutePath(locale, "home");
   const questionnairePath = getRoutePath(locale, "questionnaire");
   const ui = getCommonUiLabels(locale);
+  const profileChips = buildProfileChips(reponses, dictionary);
+  const topProgrammes = [...programmes].sort((a, b) => b.montant_max - a.montant_max).slice(0, 3);
+  const hubLinks = buildHubLinks(reponses, locale);
 
   return (
     <main style={{ minHeight: "100vh", background: PARCH }}>
@@ -104,6 +136,20 @@ export default function LocalizedResultsPage({
           )}
         </div>
 
+        {/* ── PROFIL CHIPS ── */}
+        <div className="mb-3 flex flex-wrap gap-2">
+          <span className="text-xs font-bold uppercase tracking-[0.12em] text-stone-400 self-center">{dictionary.profileLabel} ·</span>
+          {profileChips.map((chip) => (
+            <span
+              key={chip}
+              className="rounded-full border px-3 py-1 text-xs font-semibold text-stone-600"
+              style={{ background: "white", borderColor: "#EDE9E0" }}
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
+
         <div className="mb-5 rounded-xl border bg-white p-2" style={{ borderColor: "#EDE9E0" }}>
           <div className="flex h-14 items-center justify-center rounded-lg text-xs text-stone-400" style={{ background: PARCH }}>
             {dictionary.adsLabel}
@@ -130,6 +176,31 @@ export default function LocalizedResultsPage({
           </div>
         ) : (
           <>
+            {/* ── PLAN D'ACTION ── */}
+            {topProgrammes.length > 0 && (
+              <div className="mb-5 rounded-2xl border bg-white p-5" style={{ borderColor: "#EDE9E0" }}>
+                <h2 className="mb-4 text-base font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
+                  🎯 {dictionary.actionPlanTitle}
+                </h2>
+                <ol className="flex flex-col gap-3" style={{ listStyle: "none", padding: 0 }}>
+                  {topProgrammes.map((prog, i) => (
+                    <li key={prog.id} className="flex gap-3 items-start">
+                      <span
+                        className="flex shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
+                        style={{ width: "26px", height: "26px", background: DARK, color: GOLD }}
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="pt-0.5">
+                        <p className="text-sm font-bold text-stone-900">{prog.nom}</p>
+                        <p className="text-xs font-semibold" style={{ color: GREEN }}>{prog.montant_affiche}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
             <h2 className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-stone-400">
               {dictionary.eligibleLabel}
             </h2>
@@ -191,6 +262,25 @@ export default function LocalizedResultsPage({
                 {dictionary.adsLabel}
               </div>
             </div>
+
+            {/* ── GUIDES PERTINENTS ── */}
+            {hubLinks.length > 0 && (
+              <div className="mb-5 rounded-2xl border bg-white p-5" style={{ borderColor: "#EDE9E0" }}>
+                <h2 className="mb-3 text-sm font-extrabold text-stone-900">{dictionary.guidesTitle}</h2>
+                <div className="flex flex-wrap gap-2">
+                  {hubLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="rounded-xl border px-4 py-2 text-sm font-semibold no-underline"
+                      style={{ background: PARCH, borderColor: "#EDE9E0", color: DARK }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="rounded-2xl px-6 py-6 text-center" style={{ background: DARK }}>
               <p className="mb-4 text-sm text-stone-300">{dictionary.recalculateText}</p>

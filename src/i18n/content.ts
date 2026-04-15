@@ -84,6 +84,20 @@ export interface ResultsDictionary {
   footerDisclaimer: string;
   categoryLabels: Record<string, string>;
   levelLabels: Record<string, { label: string; className: string }>;
+  profileLabel: string;
+  actionPlanTitle: string;
+  guidesTitle: string;
+  profileChips: {
+    owner: string;
+    renter: string;
+    single: string;
+    couple: string;
+    family: string;
+    renovation: string;
+    ev: string;
+    retirement: string;
+  };
+  revenueLabels: Record<string, string>;
 }
 
 export interface SiteDictionary {
@@ -284,6 +298,26 @@ const fr: SiteDictionary = {
       provincial: { label: "Provincial", className: "bg-blue-100 text-blue-700" },
       municipal: { label: "Municipal", className: "bg-green-100 text-green-700" },
     },
+    profileLabel: "Votre profil",
+    actionPlanTitle: "Par où commencer",
+    guidesTitle: "Guides utiles selon votre profil",
+    profileChips: {
+      owner: "🏠 Propriétaire",
+      renter: "🔑 Locataire",
+      single: "🧑 Seul(e)",
+      couple: "👫 Couple",
+      family: "👨‍👩‍👧 Famille",
+      renovation: "🔨 Rénovation",
+      ev: "⚡ VÉ",
+      retirement: "🏖️ Retraite",
+    },
+    revenueLabels: {
+      "0-30000": "< 30 k$",
+      "30000-50000": "30–50 k$",
+      "50000-75000": "50–75 k$",
+      "75000-100000": "75–100 k$",
+      "100000+": "> 100 k$",
+    },
   },
 };
 
@@ -477,6 +511,26 @@ const en: SiteDictionary = {
       federal: { label: "Federal", className: "bg-red-100 text-red-700" },
       provincial: { label: "Quebec", className: "bg-blue-100 text-blue-700" },
       municipal: { label: "Municipal", className: "bg-green-100 text-green-700" },
+    },
+    profileLabel: "Your profile",
+    actionPlanTitle: "Where to start",
+    guidesTitle: "Relevant guides for your profile",
+    profileChips: {
+      owner: "🏠 Owner",
+      renter: "🔑 Renter",
+      single: "🧑 Single",
+      couple: "👫 Couple",
+      family: "👨‍👩‍👧 Family",
+      renovation: "🔨 Renovation",
+      ev: "⚡ EV",
+      retirement: "🏖️ Retirement",
+    },
+    revenueLabels: {
+      "0-30000": "< $30k",
+      "30000-50000": "$30–50k",
+      "50000-75000": "$50–75k",
+      "75000-100000": "$75–100k",
+      "100000+": "> $100k",
     },
   },
 };
