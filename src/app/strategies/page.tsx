@@ -36,7 +36,7 @@ const strategies = [
       "Si revenu retraite < revenu actuel → REER prioritaire",
       "Utilise le CELI pour les projets à court et moyen terme",
     ],
-    lien: "/retraite/reer",
+    lien: "/strategies/reer-vs-celi",
   },
   {
     emoji: "📊",
@@ -58,7 +58,7 @@ const strategies = [
       "Prévoir un fractionnement de la pension (après 65 ans)",
       "Prêter de l'argent au conjoint au taux prescrit pour investir",
     ],
-    lien: "/retraite/reer",
+    lien: "/strategies/fractionnement-revenu",
   },
   {
     emoji: "🎯",
@@ -102,7 +102,7 @@ const strategies = [
       "Utiliser le CELI pour combler les revenus variables",
       "Évaluer si différer la RRQ (jusqu'à 70 ans) est avantageux",
     ],
-    lien: "/retraite",
+    lien: "/strategies/decaissement-retraite",
   },
 ];
 

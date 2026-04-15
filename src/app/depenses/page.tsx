@@ -25,8 +25,8 @@ const categoriesDepenses = [
       "Évaluer si la TV câblée vaut encore son prix vs streaming",
       "Regrouper internet + mobile pour obtenir un rabais",
     ],
-    lien: "/internet",
-    libelleBtn: "Comparer les forfaits internet",
+    lien: "/depenses/internet",
+    libelleBtn: "Réduire ma facture internet",
   },
   {
     emoji: "🛡️",
@@ -38,8 +38,8 @@ const categoriesDepenses = [
       "Réviser tes franchises — une franchise plus élevée réduit la prime",
       "Retirer les couvertures inutiles (ex. valeur de remplacement sur vieille voiture)",
     ],
-    lien: "/assurances",
-    libelleBtn: "Comparer les assurances",
+    lien: "/depenses/assurances",
+    libelleBtn: "Réduire mes assurances",
   },
   {
     emoji: "📱",

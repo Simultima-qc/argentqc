@@ -18,6 +18,7 @@ const categoriesAides = [
   {
     emoji: "👨‍👩‍👧",
     titre: "Famille & enfants",
+    guideLien: "/aides-financieres/famille",
     aides: [
       { nom: "Allocation canadienne pour enfants (ACE)", montant: "jusqu'à 7 787 $/enfant/an", lien: "/allocation-enfant-quebec" },
       { nom: "Allocation famille Québec", montant: "jusqu'à 2 847 $/enfant/an", lien: "/aide-famille-quebec" },
@@ -28,6 +29,7 @@ const categoriesAides = [
   {
     emoji: "🏠",
     titre: "Logement & rénovation",
+    guideLien: "/aides-financieres/logement",
     aides: [
       { nom: "Allocation-logement Québec", montant: "jusqu'à 170 $/mois", lien: "/allocation-logement-quebec" },
       { nom: "Crédit de solidarité", montant: "jusqu'à 2 279 $/an", lien: "/credit-solidarite-quebec" },
@@ -229,6 +231,26 @@ export default function AidesFinancieresPage() {
                         <span style={{ fontSize: "13px", fontWeight: 700, color: "#059669", flexShrink: 0 }}>{aide.montant}</span>
                       </Link>
                     ))}
+                    {cat.guideLien && (
+                      <div style={{ padding: "12px 20px", borderTop: "1px solid #F5F0EA" }}>
+                        <Link
+                          href={cat.guideLien}
+                          style={{
+                            display: "inline-block",
+                            background: PARCH,
+                            color: DARK,
+                            fontWeight: 700,
+                            fontSize: "13px",
+                            padding: "8px 16px",
+                            borderRadius: "10px",
+                            textDecoration: "none",
+                            border: "1px solid #EDE9E0",
+                          }}
+                        >
+                          Guide complet →
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
