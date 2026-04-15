@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Planifier sa retraite au QuÃ©bec â€” Guide 2026 | ArgentQC.ca",
@@ -136,15 +137,9 @@ const faqs = [
 
 export default function RetraitePage() {
   return (
-    <main className="min-h-screen" style={{ background: PARCH }}>
-      <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
-        <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
-            Trouver mes aides
-          </Link>
-        </div>
-      </header>
+    <>
+      <Header />
+      <main className="min-h-screen" style={{ background: PARCH }}>
 
       {/* Hero */}
       <section style={{ background: DARK, position: "relative", overflow: "hidden" }} className="px-5 py-12">
@@ -169,11 +164,72 @@ export default function RetraitePage() {
         </div>
       </section>
 
+      {/* ── EXEMPLE CONCRET ── */}
+      <section style={{ background: "#0F172A" }} className="px-5 py-8">
+        <div className="max-w-2xl mx-auto">
+          <div style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", borderRadius: "14px", padding: "20px" }}>
+            <p style={{ color: GREEN, fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "10px" }}>
+              💡 Exemple concret
+            </p>
+            <p style={{ color: "#F0EBE0", fontSize: "15px", fontWeight: 600, lineHeight: 1.5, marginBottom: "10px" }}>
+              Gilles, 58 ans, revenu 75 000 $ — impact des décisions de retraite
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              {[
+                ["Cotisation REER max (13 500 $)", "remboursement ~5 130 $"],
+                ["Différer RRQ de 65 à 70 ans", "+ 42 % sur chaque versement à vie"],
+                ["Stratégie CELI pour décaissement", "3 000-6 000 $/an d'impôt évité"],
+                ["Crédit en raison de l'âge (dès 65 ans)", "jusqu'à 1 530 $/an"],
+              ].map(([label, montant]) => (
+                <div key={label} style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", gap: "8px" }}>
+                  <span style={{ color: "rgba(240,235,224,0.65)" }}>{label}</span>
+                  <span style={{ color: GREEN, fontWeight: 700, flexShrink: 0 }}>{montant}</span>
+                </div>
+              ))}
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "8px" }}>
+                <Link href="/scenarios/pre-retraite" style={{ color: GREEN, fontWeight: 700, fontSize: "13px", textDecoration: "underline" }}>
+                  → Voir le scénario pré-retraite complet
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUOI FAIRE MAINTENANT ── */}
+      <section style={{ background: "white", borderBottom: "1px solid #F0EBE0" }} className="px-5 py-8">
+        <div className="max-w-2xl mx-auto">
+          <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.2rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1rem" }}>
+            🎯 Quoi faire maintenant
+          </h2>
+          <ol style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
+            {[
+              { step: "1", text: "Vérifier tes droits REER disponibles dans l'avis de cotisation de l'ARC (Mon dossier ARC en ligne)" },
+              { step: "2", text: "Décider si tu priorises le REER ou le CELI selon ton taux marginal actuel vs estimé à la retraite" },
+              { step: "3", text: "Planifier l'âge de début de la RRQ — différer jusqu'à 70 ans peut valoir 100 000 $ ou plus sur une vie" },
+            ].map((item) => (
+              <li key={item.step} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: DARK, color: GOLD, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 800, flexShrink: 0 }}>{item.step}</span>
+                <p style={{ fontSize: "14px", color: "#44403C", lineHeight: 1.6, paddingTop: "4px" }}>{item.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "1.25rem" }}>
+            <Link href="/retraite/reer" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
+              Guide REER complet →
+            </Link>
+            <Link href="/scenarios/pre-retraite" style={{ display: "inline-block", background: PARCH, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none", border: "1px solid #EDE9E0" }}>
+              Scénario pré-retraite →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <div className="max-w-2xl mx-auto px-4 py-8">
 
         {/* Ad */}
         <div style={{ background: "#EDE9E0", borderRadius: "12px", height: "60px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px", marginBottom: "2rem" }}>
-          PublicitÃ©
+          Publicité
         </div>
 
         {/* 5 piliers */}
@@ -327,6 +383,7 @@ export default function RetraitePage() {
           <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }

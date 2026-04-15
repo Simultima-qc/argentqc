@@ -219,6 +219,48 @@ export default async function LocalizedHomePage({
         </div>
       </section>
 
+      {/* ── SCÉNARIOS & OUTILS ── */}
+      <section className="border-t px-5 py-12" style={{ background: PARCH, borderColor: "#E8E0D4" }}>
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-2 text-2xl font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
+            Scénarios concrets
+          </h2>
+          <p className="mb-6 text-sm leading-7 text-stone-500">
+            Vois exactement ce que tu peux récupérer selon ta situation.
+          </p>
+          <div className="grid gap-3 md:grid-cols-2">
+            {[
+              { emoji: "👨‍👩‍👧‍👦", label: "Famille avec 2 enfants · 90 000 $", gain: "~ 3 200 $/an", href: "/scenarios/famille-2-enfants" },
+              { emoji: "🧑", label: "Célibataire locataire · 50 000 $", gain: "~ 4 681 $/an", href: "/scenarios/celibataire-locataire" },
+              { emoji: "👫", label: "Couple sans enfant · 120 000 $", gain: "~ 1 220 $/an", href: "/scenarios/couple-sans-enfant" },
+              { emoji: "🏡", label: "Propriétaire avec hypothèque", gain: "~ 15 000 $ en subventions", href: "/scenarios/proprietaire-hypotheque" },
+              { emoji: "👴", label: "Pré-retraite · 55 ans", gain: "6 000 $/an évités", href: "/scenarios/pre-retraite" },
+            ].map((sc) => (
+              <Link
+                key={sc.href}
+                href={sc.href}
+                className="flex items-center justify-between rounded-2xl border bg-white px-5 py-4 no-underline"
+                style={{ borderColor: "#EDE9E0" }}
+              >
+                <span className="text-sm font-semibold text-stone-900">{sc.emoji} {sc.label}</span>
+                <span className="ml-3 shrink-0 text-sm font-bold" style={{ color: GREEN }}>{sc.gain} →</span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/aides-financieres" className="rounded-xl border px-4 py-2 text-sm font-bold no-underline" style={{ background: "white", borderColor: "#EDE9E0", color: DARK }}>
+              💰 Aides financières
+            </Link>
+            <Link href="/depenses" className="rounded-xl border px-4 py-2 text-sm font-bold no-underline" style={{ background: "white", borderColor: "#EDE9E0", color: DARK }}>
+              📉 Réduire ses dépenses
+            </Link>
+            <Link href="/strategies" className="rounded-xl border px-4 py-2 text-sm font-bold no-underline" style={{ background: "white", borderColor: "#EDE9E0", color: DARK }}>
+              📊 Stratégies fiscales
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <footer className="mt-auto px-5 py-8" style={{ background: DARK }}>
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-3 text-lg font-bold" style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}>

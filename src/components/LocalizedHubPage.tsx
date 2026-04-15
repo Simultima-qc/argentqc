@@ -6,6 +6,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
+const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
 
 interface LocalizedHubPageProps {
@@ -41,6 +42,53 @@ export default function LocalizedHubPage({ locale, dictionary }: LocalizedHubPag
           <p className="max-w-2xl text-base leading-8 text-stone-300">{dictionary.description}</p>
         </div>
       </section>
+
+      {/* ── EXEMPLE CONCRET ── */}
+      {dictionary.example && (
+        <section style={{ background: "#0F172A" }} className="px-5 py-8">
+          <div className="mx-auto max-w-3xl">
+            <div style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", borderRadius: "14px", padding: "20px" }}>
+              <p style={{ color: GREEN, fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "10px" }}>
+                💡 Exemple concret
+              </p>
+              <p style={{ color: "#F0EBE0", fontSize: "15px", fontWeight: 600, lineHeight: 1.5, marginBottom: "12px" }}>
+                {dictionary.example.label}
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                {dictionary.example.items.map((item) => (
+                  <div key={item.label} style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
+                    <span style={{ color: "rgba(240,235,224,0.65)" }}>{item.label}</span>
+                    <span style={{ color: GREEN, fontWeight: 700 }}>{item.amount}</span>
+                  </div>
+                ))}
+                <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "8px", display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>{dictionary.example.totalLabel}</span>
+                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>{dictionary.example.totalAmount}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── QUOI FAIRE MAINTENANT ── */}
+      {dictionary.actionSteps && (
+        <section style={{ background: "white", borderBottom: "1px solid #F0EBE0" }} className="px-5 py-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.2rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1rem" }}>
+              🎯 Quoi faire maintenant
+            </h2>
+            <ol style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
+              {dictionary.actionSteps.map((step, i) => (
+                <li key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                  <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: DARK, color: GOLD, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 800, flexShrink: 0 }}>{i + 1}</span>
+                  <p style={{ fontSize: "14px", color: "#44403C", lineHeight: 1.6, paddingTop: "4px" }}>{step.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
 
       <div className="mx-auto flex max-w-3xl flex-col gap-10 px-5 py-10">
         <section>

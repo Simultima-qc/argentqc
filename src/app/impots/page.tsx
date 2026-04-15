@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Impôts au Québec en 2026 - Tout ce qu'il faut savoir | ArgentQC.ca",
@@ -34,15 +35,13 @@ const faqs = [
   { q: "Quand arrive le remboursement ?", r: "Avec dépôt direct et transmission en ligne, le fédéral est souvent plus rapide, puis le provincial suit dans les semaines suivantes." },
 ];
 
+const GREEN = "#10B981";
+
 export default function ImpotsPage() {
   return (
-    <main className="min-h-screen" style={{ background: PARCH }}>
-      <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px" }}>
-        <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline" }}>Trouver mes aides</Link>
-        </div>
-      </header>
+    <>
+      <Header />
+      <main className="min-h-screen" style={{ background: PARCH }}>
 
       <section style={{ background: DARK }} className="px-5 py-12">
         <div className="max-w-3xl mx-auto">
@@ -58,6 +57,66 @@ export default function ImpotsPage() {
           <p style={{ color: "rgba(240,235,224,0.72)", fontSize: "15px", lineHeight: 1.7, maxWidth: "720px" }}>
             Les résidents du Québec doivent gérer deux déclarations. Voici la vue simple des dates, des outils et des crédits à ne pas oublier.
           </p>
+        </div>
+      </section>
+
+      {/* ── EXEMPLE CONCRET ── */}
+      <section style={{ background: "#0F172A" }} className="px-5 py-8">
+        <div className="max-w-3xl mx-auto">
+          <div style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", borderRadius: "14px", padding: "20px" }}>
+            <p style={{ color: GREEN, fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "10px" }}>
+              💡 Exemple concret
+            </p>
+            <p style={{ color: "#F0EBE0", fontSize: "15px", fontWeight: 600, lineHeight: 1.5, marginBottom: "10px" }}>
+              Marie, salariée à 55 000 $ — ce qu'elle récupère en produisant ses deux déclarations
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              {[
+                ["Crédit TPS/TVH fédéral", "+ 496 $"],
+                ["Crédit de solidarité Québec (locataire)", "+ 1 185 $"],
+                ["Remboursement REER cotisé (8 000 $)", "+ 2 560 $"],
+                ["Crédit d'impôt frais médicaux", "+ 320 $"],
+              ].map(([label, montant]) => (
+                <div key={label} style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
+                  <span style={{ color: "rgba(240,235,224,0.65)" }}>{label}</span>
+                  <span style={{ color: GREEN, fontWeight: 700 }}>{montant}</span>
+                </div>
+              ))}
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "8px", display: "flex", justifyContent: "space-between" }}>
+                <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Total estimé</span>
+                <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>4 561 $</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUOI FAIRE MAINTENANT ── */}
+      <section style={{ background: "white", borderBottom: "1px solid #F0EBE0" }} className="px-5 py-8">
+        <div className="max-w-3xl mx-auto">
+          <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.2rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1rem" }}>
+            🎯 Quoi faire maintenant
+          </h2>
+          <ol style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
+            {[
+              { step: "1", text: "Rassemble tes feuillets T4/Relevé 1 et tout autre document de revenu avant de commencer" },
+              { step: "2", text: "Produis la déclaration fédérale via l'ARC (logiciel gratuit disponible) avant le 30 avril" },
+              { step: "3", text: "Produis la déclaration provinciale via Revenu Québec — ne pas oublier le formulaire TP-1" },
+            ].map((item) => (
+              <li key={item.step} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: DARK, color: GOLD, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 800, flexShrink: 0 }}>{item.step}</span>
+                <p style={{ fontSize: "14px", color: "#44403C", lineHeight: 1.6, paddingTop: "4px" }}>{item.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "1.25rem" }}>
+            <Link href="/impots/logiciels" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
+              Logiciels gratuits →
+            </Link>
+            <Link href="/impots/dates" style={{ display: "inline-block", background: PARCH, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none", border: "1px solid #EDE9E0" }}>
+              Toutes les dates →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -116,7 +175,8 @@ export default function ImpotsPage() {
           </div>
         </section>
       </div>
-    </main>
+      </main>
+    </>
   );
 }
 

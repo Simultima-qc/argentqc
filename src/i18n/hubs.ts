@@ -14,6 +14,13 @@ export interface HubDictionary {
   ctaTitle: string;
   ctaText: string;
   ctaLabel: string;
+  example?: {
+    label: string;
+    items: Array<{ label: string; amount: string }>;
+    totalLabel: string;
+    totalAmount: string;
+  };
+  actionSteps?: Array<{ text: string }>;
 }
 
 export const localizedHubRouteKeys = ["budget", "taxes", "retirement", "insurance", "internet", "moving"] as const;
@@ -47,6 +54,22 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Voir ce qui peut alléger le budget",
     ctaText: "Le questionnaire complète la vision budget en ajoutant les programmes potentiellement accessibles.",
     ctaLabel: "Lancer le questionnaire",
+    example: {
+      label: "Sophie, couple locataire à 65 000 $ — économies trouvées en 1 heure",
+      items: [
+        { label: "Changement fournisseur internet", amount: "- 300 $/an" },
+        { label: "Regroupement assurances auto + habitation", amount: "- 380 $/an" },
+        { label: "Optimisation forfaits mobiles (2 lignes)", amount: "- 240 $/an" },
+        { label: "Crédit de solidarité (locataire)", amount: "+ 1 185 $/an" },
+      ],
+      totalLabel: "Total récupéré",
+      totalAmount: "2 105 $/an",
+    },
+    actionSteps: [
+      { text: "Liste tes 3 plus grosses dépenses fixes — logement, transport, télécoms — et cherche le levier le plus rapide" },
+      { text: "Compare ton forfait internet actuel : un changement de fournisseur peut économiser 25-40 $/mois sans sacrifice" },
+      { text: "Vérifie ton admissibilité au crédit de solidarité — souvent non réclamé par les locataires à revenu moyen" },
+    ],
   },
   taxes: {
     routeKey: "taxes",
@@ -74,6 +97,22 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Croiser impots et aides",
     ctaText: "Le questionnaire permet de repérer les programmes qui n'apparaissent pas toujours dans un simple raisonnement fiscal.",
     ctaLabel: "Trouver mes aides",
+    example: {
+      label: "Marie, salariée à 55 000 $ — ce qu'elle récupère en produisant ses deux déclarations",
+      items: [
+        { label: "Crédit TPS/TVH fédéral", amount: "+ 496 $" },
+        { label: "Crédit de solidarité Québec (locataire)", amount: "+ 1 185 $" },
+        { label: "Remboursement REER cotisé (8 000 $)", amount: "+ 2 560 $" },
+        { label: "Crédit d'impôt frais médicaux", amount: "+ 320 $" },
+      ],
+      totalLabel: "Total estimé",
+      totalAmount: "4 561 $",
+    },
+    actionSteps: [
+      { text: "Rassemble tes feuillets T4/Relevé 1 et tout autre document de revenu avant de commencer" },
+      { text: "Produis la déclaration fédérale via l'ARC (logiciel gratuit disponible) avant le 30 avril" },
+      { text: "Produis la déclaration provinciale via Revenu Québec — ne pas oublier le formulaire TP-1" },
+    ],
   },
   retirement: {
     routeKey: "retirement",
@@ -102,6 +141,22 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Voir les programmes lies a votre situation",
     ctaText: "Certaines aides et certains credits croisent les enjeux retraite, surtout pour les aines.",
     ctaLabel: "Estimer mes programmes",
+    example: {
+      label: "Gilles, 58 ans, salarié à 75 000 $ — impact des bonnes décisions maintenant",
+      items: [
+        { label: "Économie d'impôt REER (13 500 $ cotisés)", amount: "+ 5 130 $" },
+        { label: "RRQ différée à 70 ans (vs 65 ans)", amount: "+ 42 % à vie" },
+        { label: "Décaissement REER + CELI optimal", amount: "3 000-6 000 $/an" },
+        { label: "Crédit en raison de l'âge (dès 65 ans)", amount: "+ 1 530 $" },
+      ],
+      totalLabel: "Voir le scénario complet",
+      totalAmount: "→",
+    },
+    actionSteps: [
+      { text: "Vérifie tes droits REER inutilisés sur Mon dossier ARC — chaque dollar cotisé maintenant réduit l'impôt au taux marginal le plus élevé" },
+      { text: "Évalue le report de la RRQ : chaque année de report après 65 ans augmente la pension de 8,4 % à vie" },
+      { text: "Planifie l'ordre de décaissement REER + CELI pour minimiser l'impôt en retraite" },
+    ],
   },
   insurance: {
     routeKey: "insurance",
@@ -129,6 +184,21 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Replacer l'assurance dans la vue d'ensemble",
     ctaText: "Le questionnaire aide a remettre les decisions de couverture dans votre contexte financier global.",
     ctaLabel: "Voir mon profil",
+    example: {
+      label: "Marc, propriétaire avec 2 voitures — ce qu'il a économisé en magasinant",
+      items: [
+        { label: "Regroupement auto + habitation (même assureur)", amount: "- 420 $/an" },
+        { label: "Hausse de franchise (500 $ → 1 000 $)", amount: "- 180 $/an" },
+        { label: "Suppression doublon assurance vie crédit", amount: "- 240 $/an" },
+      ],
+      totalLabel: "Économie annuelle",
+      totalAmount: "840 $/an",
+    },
+    actionSteps: [
+      { text: "Regroupe auto et habitation chez le même assureur — le rabais de regroupement est souvent de 15-20 %" },
+      { text: "Magasine à la date de renouvellement : obtiens 2-3 soumissions 30 jours avant l'échéance" },
+      { text: "Élimine les doublons : assurance vie sur carte de crédit, assurance accident déjà couverte ailleurs" },
+    ],
   },
   internet: {
     routeKey: "internet",
@@ -156,6 +226,20 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Voir l'impact dans le budget global",
     ctaText: "Le bon forfait est aussi un arbitrage avec les autres depenses recurrentes du foyer.",
     ctaLabel: "Lancer le questionnaire",
+    example: {
+      label: "Julie, famille de 4 — économies télécom sans sacrifier la vitesse",
+      items: [
+        { label: "Passage Bell → Fizz fibre (même vitesse)", amount: "- 35 $/mois" },
+        { label: "2 lignes mobiles → opérateur virtuel", amount: "- 40 $/mois" },
+      ],
+      totalLabel: "Économie annuelle",
+      totalAmount: "900 $/an",
+    },
+    actionSteps: [
+      { text: "Note ta vitesse actuelle réelle (teste sur fast.com) — la plupart des foyers n'utilisent pas ce pour quoi ils paient" },
+      { text: "Compare avec un opérateur alternatif (Fizz, Oxio, Distributel) : même infrastructure, prix 20-40 % moins cher" },
+      { text: "Fais de même pour les mobiles : un forfait 30-40 $/mois chez un opérateur virtuel remplace souvent un 65 $/mois chez un grand" },
+    ],
   },
   moving: {
     routeKey: "moving",
