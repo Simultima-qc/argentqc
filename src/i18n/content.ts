@@ -8,28 +8,50 @@ export interface HomeDictionary {
   badge: string;
   title: string;
   description: string;
+  proofLine: string;
   primaryCta: string;
   ctaMeta: string;
-  trustBadges: string[];
-  examplesLabel: string;
+  stickyCta: string;
+  lossTitle: string;
+  lossItems: string[];
+  lossConclusion: string;
+  lossCta: string;
+  examplesTitle: string;
+  examplesSubtitle: string;
+  examplesRecoveredLabel: string;
+  examplesCta: string;
+  examplesCtaBlockTitle: string;
+  examplesCtaBlockSubtext: string;
   examples: Array<{
     profile: string;
+    revenue: string;
     amount: string;
     description: string;
   }>;
-  stats: Array<{
-    value: string;
-    label: string;
-  }>;
+  positioningTitle: string;
+  positioningText: string;
+  pilaresTitle: string;
+  pilaresSubtitle: string;
+  pilaresExploreLabel: string;
+  piliers: Array<{ label: string; desc: string }>;
+  scenariosTitle: string;
+  scenariosSubtitle: string;
+  scenariosCta: string;
+  scenarios: Array<{ emoji: string; profil: string; detail: string; gain: string }>;
+  toolBadge: string;
+  toolTitle: string;
+  toolDescription: string;
+  toolBenefits: string[];
+  toolCta: string;
   stepsTitle: string;
   steps: Array<{
     number: string;
     title: string;
     text: string;
   }>;
-  secondaryCta: string;
   topicsTitle: string;
   topicsDescription: string;
+  topicsLabels: string[];
   footerDisclaimer: string;
 }
 
@@ -117,63 +139,104 @@ const fr: SiteDictionary = {
       description:
         "Questionnaire gratuit et guides pratiques pour repérer les aides financières, subventions et crédits d'impôt qui peuvent s'appliquer à votre situation au Québec.",
     },
-    badge: "100 % gratuit · aucune inscription",
-    title: "Découvrez les aides et crédits que vous pourriez réclamer au Québec",
+    badge: "100 % gratuit — aucune inscription",
+    title: "Récupérez jusqu'à plusieurs milliers de dollars au Québec",
     description:
-      "Répondez à quelques questions et obtenez une première estimation claire des programmes gouvernementaux qui peuvent correspondre à votre situation.",
-    primaryCta: "Trouver mes aides",
-    ctaMeta: "Gratuit · 2 minutes · estimation personnalisee",
-    trustBadges: [
-      "Aucune donnée sauvegardée",
-      "Programmes officiels et vérifiables",
+      "Crédits, impôts, dépenses et stratégies : découvrez exactement quoi faire avec votre argent selon votre situation.",
+    proofLine: "En moyenne, nos utilisateurs identifient entre 1 000 $ et 5 000 $ par année.",
+    primaryCta: "Voir combien je peux récupérer",
+    ctaMeta: "2 minutes · estimation personnalisée · aucune donnée conservée",
+    stickyCta: "Calculer mes aides →",
+    lossTitle: "Ce que vous perdez en ce moment",
+    lossItems: [
+      "Crédits et aides non réclamés",
+      "Mauvaises décisions REER vs CELI",
+      "Dépenses trop élevées (internet, assurances, etc.)",
     ],
-    examplesLabel: "Exemples de profils",
+    lossConclusion: "La majorité des Québécois laissent de l'argent sur la table sans le savoir.",
+    lossCta: "Voir ce que je peux récupérer",
+    examplesTitle: "Exemples réels de montants récupérés",
+    examplesSubtitle: "Des résultats concrets pour des profils réels",
+    examplesRecoveredLabel: "récupérés",
+    examplesCta: "Voir des exemples similaires à ma situation",
+    examplesCtaBlockTitle: "Ces montants sont possibles selon votre situation",
+    examplesCtaBlockSubtext: "Découvrez ce que vous pouvez récupérer en 2 minutes",
     examples: [
       {
         profile: "Famille avec 2 enfants",
+        revenue: "revenu ~90 000 $",
         amount: "9 800 $",
-        description: "ACE, Allocation famille et crédit pour la solidarité",
+        description: "Allocation famille, ACE, crédit solidarité, optimisation REER",
       },
       {
         profile: "Propriétaire qui rénove",
+        revenue: "subventions disponibles",
         amount: "16 700 $",
-        description: "RenoClimat, LogisVert et crédits fédéraux",
+        description: "Rénoclimat, thermopompe, isolation, crédit écorénov",
       },
       {
         profile: "Aîné admissible",
+        revenue: "65 ans et plus",
         amount: "14 000 $",
-        description: "SV, SRG et maintien à domicile",
+        description: "Programmes et soutien disponibles selon votre situation",
       },
     ],
-    stats: [
-      { value: "16", label: "programmes couverts" },
-      { value: "20k$", label: "potentiel maximal moyen" },
-      { value: "2 min", label: "pour vos résultats" },
+    positioningTitle: "Plus qu'un site d'information",
+    positioningText:
+      "Les sites gouvernementaux vous expliquent les programmes. Ici, vous voyez concrètement ce que ça donne dans votre situation et quoi faire.",
+    pilaresTitle: "Optimisez votre argent, pas juste vos crédits",
+    pilaresSubtitle: "Cinq domaines pour agir concrètement sur votre situation financière",
+    pilaresExploreLabel: "Explorer →",
+    piliers: [
+      { label: "Aides financières", desc: "Trouvez les crédits et subventions que vous pouvez réellement obtenir" },
+      { label: "Impôts", desc: "Réduisez ce que vous payez et optimisez vos déclarations" },
+      { label: "Épargne & retraite", desc: "REER, CELI, décaissement : prenez les bonnes décisions" },
+      { label: "Dépenses", desc: "Internet, assurances et autres : réduisez vos coûts récurrents" },
+      { label: "Stratégies financières", desc: "Priorisez les bonnes actions selon votre situation" },
     ],
+    scenariosTitle: "Voyez exactement quoi faire selon votre situation",
+    scenariosSubtitle: "Cliquez sur le profil qui vous ressemble le plus",
+    scenariosCta: "Voir mon scénario",
+    scenarios: [
+      { emoji: "👨‍👩‍👧‍👦", profil: "Famille avec 2 enfants", detail: "90 000 $", gain: "+ 3 200 $/an" },
+      { emoji: "👤", profil: "Célibataire locataire", detail: "50 000 $", gain: "+ 4 681 $/an" },
+      { emoji: "👫", profil: "Couple sans enfant", detail: "120 000 $", gain: "+ 1 220 $/an" },
+      { emoji: "🏠", profil: "Propriétaire avec hypothèque", detail: "projet de rénovation", gain: "+ 15 000 $ en subventions" },
+      { emoji: "🧓", profil: "Pré-retraite", detail: "55 ans", gain: "6 000 $ optimisés" },
+    ],
+    toolBadge: "Outil gratuit",
+    toolTitle: "Obtenez un plan personnalisé en 2 minutes",
+    toolDescription: "Répondez à quelques questions et obtenez :",
+    toolBenefits: [
+      "une estimation des montants récupérables",
+      "des actions concrètes à prioriser",
+      "des recommandations adaptées à votre situation",
+    ],
+    toolCta: "Lancer mon diagnostic",
     stepsTitle: "Comment ça fonctionne",
     steps: [
       {
         number: "1",
-        title: "Vous répondez au questionnaire",
+        title: "Vous répondez à quelques questions",
         text: "Logement, revenu, famille, retraite et projets de rénovation.",
       },
       {
         number: "2",
-        title: "On filtre les programmes",
+        title: "Nous analysons votre situation",
         text: "La logique met en correspondance vos réponses avec les critères de 2026.",
       },
       {
         number: "3",
-        title: "Vous obtenez une base actionnable",
-        text: "Montants estimés, conditions d'admissibilité et liens officiels.",
+        title: "Vous obtenez des résultats concrets et actionnables",
+        text: "Montants estimés, actions à prioriser et liens officiels.",
       },
     ],
-    secondaryCta: "Commencer le questionnaire",
     topicsTitle: "Explorer par thème",
     topicsDescription:
       "Consultez directement nos principaux thèmes pour comparer les options, comprendre les programmes et trouver les pages les plus utiles.",
+    topicsLabels: ["Budget", "Impôts", "Retraite", "Assurances", "Internet", "Déménagement"],
     footerDisclaimer:
-      "Outil informatif non affilié au gouvernement. Les montants affichés sont des estimations à valider sur les sites officiels.",
+      "Outil informatif non affilié au gouvernement. Les montants sont des estimations à valider selon votre situation.",
   },
   questionnaire: {
     metadata: {
@@ -330,64 +393,104 @@ const en: SiteDictionary = {
       description:
         "Take a free questionnaire to spot Quebec and federal benefits, grants, and tax credits that may apply to your household.",
     },
-    badge: "Free to use · no sign-up required",
-    title: "Find the Quebec and federal money you may be leaving unclaimed",
+    badge: "100% free — no sign-up required",
+    title: "Recover thousands of dollars you may be leaving on the table in Quebec",
     description:
-      "Answer a short questionnaire and get a practical first-pass estimate of the government programs that may fit your situation.",
-    primaryCta: "Start the questionnaire",
-    ctaMeta: "Free · about 2 minutes · personalized estimate",
-    trustBadges: [
-      "No account or saved answers",
-      "Official programs with source links",
-      "Built on a bilingual SEO-ready structure",
+      "Credits, taxes, expenses and strategies: find out exactly what to do with your money based on your situation.",
+    proofLine: "On average, our users identify between $1,000 and $5,000 per year.",
+    primaryCta: "See how much I can recover",
+    ctaMeta: "2 minutes · personalized estimate · no data stored",
+    stickyCta: "Calculate my benefits →",
+    lossTitle: "What you're losing right now",
+    lossItems: [
+      "Unclaimed credits and benefits",
+      "Wrong decisions between RRSP vs TFSA",
+      "Overpaying on internet, insurance, and more",
     ],
-    examplesLabel: "Example profiles",
+    lossConclusion: "Most Quebecers leave money on the table without knowing it.",
+    lossCta: "See what I can recover",
+    examplesTitle: "Real examples of recovered amounts",
+    examplesSubtitle: "Concrete results for real profiles",
+    examplesRecoveredLabel: "recovered",
+    examplesCta: "See examples similar to my situation",
+    examplesCtaBlockTitle: "These amounts are possible based on your situation",
+    examplesCtaBlockSubtext: "Find out what you can recover in 2 minutes",
     examples: [
       {
         profile: "Family with 2 children",
+        revenue: "~$90,000 income",
         amount: "$9,800",
-        description: "CCB, Quebec family allowance, and solidarity tax credit",
+        description: "Family allowance, CCB, solidarity tax credit, RRSP optimization",
       },
       {
-        profile: "Homeowner planning upgrades",
+        profile: "Homeowner renovating",
+        revenue: "available grants",
         amount: "$16,700",
-        description: "RenoClimat, LogisVert, and federal home credits",
+        description: "RenoClimat, heat pump, insulation, EcoRénov credit",
       },
       {
         profile: "Eligible senior",
+        revenue: "65 and over",
         amount: "$14,000",
-        description: "OAS, GIS, and home support tax assistance",
+        description: "Programs and support available based on your situation",
       },
     ],
-    stats: [
-      { value: "16", label: "programs covered" },
-      { value: "$20k", label: "average top-end potential" },
-      { value: "2 min", label: "to see results" },
+    positioningTitle: "More than an information website",
+    positioningText:
+      "Government websites explain the programs. Here, you see concretely what it means for your situation and what to do.",
+    pilaresTitle: "Optimize your money, not just your credits",
+    pilaresSubtitle: "Five areas to take concrete action on your financial situation",
+    pilaresExploreLabel: "Explore →",
+    piliers: [
+      { label: "Benefits", desc: "Find the credits and grants you can actually receive" },
+      { label: "Taxes", desc: "Reduce what you pay and optimize your returns" },
+      { label: "Savings & retirement", desc: "RRSP, TFSA, withdrawals: make the right decisions" },
+      { label: "Expenses", desc: "Internet, insurance and more: cut your recurring costs" },
+      { label: "Financial strategies", desc: "Prioritize the right moves for your situation" },
     ],
+    scenariosTitle: "See exactly what to do based on your situation",
+    scenariosSubtitle: "Click on the profile that best matches yours",
+    scenariosCta: "See my scenario",
+    scenarios: [
+      { emoji: "👨‍👩‍👧‍👦", profil: "Family with 2 kids", detail: "$90,000", gain: "+ $3,200/yr" },
+      { emoji: "👤", profil: "Single renter", detail: "$50,000", gain: "+ $4,681/yr" },
+      { emoji: "👫", profil: "Couple, no kids", detail: "$120,000", gain: "+ $1,220/yr" },
+      { emoji: "🏠", profil: "Homeowner with mortgage", detail: "renovation project", gain: "+ $15,000 in grants" },
+      { emoji: "🧓", profil: "Pre-retirement", detail: "55 years old", gain: "$6,000 optimized" },
+    ],
+    toolBadge: "Free tool",
+    toolTitle: "Get a personalized plan in 2 minutes",
+    toolDescription: "Answer a few questions and get:",
+    toolBenefits: [
+      "an estimate of recoverable amounts",
+      "concrete actions to prioritize",
+      "recommendations tailored to your situation",
+    ],
+    toolCta: "Start my diagnosis",
     stepsTitle: "How it works",
     steps: [
       {
         number: "1",
-        title: "You answer the questionnaire",
+        title: "You answer a few questions",
         text: "Housing, income, family, retirement, and renovation plans.",
       },
       {
         number: "2",
-        title: "We filter the programs",
-        text: "The matching logic compares your answers against 2026 eligibility rules.",
+        title: "We analyze your situation",
+        text: "The logic matches your answers against 2026 eligibility rules.",
       },
       {
         number: "3",
-        title: "You get an action-oriented shortlist",
-        text: "Estimated amounts, eligibility conditions, and official source links.",
+        title: "You get concrete, actionable results",
+        text: "Estimated amounts, actions to prioritize, and official source links.",
       },
     ],
-    secondaryCta: "Run the questionnaire",
     topicsTitle: "Browse by topic",
     topicsDescription:
       "Go straight to the main topics to compare options, understand the programs, and find the most useful guides faster.",
+    topicsLabels: ["Budget", "Taxes", "Retirement", "Insurance", "Internet", "Moving"],
     footerDisclaimer:
-      "Informational tool only and not affiliated with the government. Amounts are estimates and should be confirmed on official websites.",
+      "Informational tool only, not affiliated with the government. Amounts are estimates to be validated based on your situation.",
   },
   questionnaire: {
     metadata: {
