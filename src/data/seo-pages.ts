@@ -65,6 +65,15 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/impots/dates", title: "Dates impots Quebec", description: "Dates importantes pour la declaration de revenus.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/impots/remboursement", title: "Remboursement impot Quebec", description: "Comprendre le remboursement d'impot et les delais.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/impots/logiciels", title: "Logiciels impot Quebec", description: "Comparer les logiciels d'impot utiles au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/aides-financieres", title: "Aides financieres Quebec", description: "Guide des aides financieres disponibles au Quebec.", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/depenses", title: "Reduire ses depenses Quebec", description: "Strategies pour reduire ses depenses au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/strategies", title: "Strategies fiscales Quebec", description: "Strategies fiscales et optimisation financiere au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/scenarios", title: "Scenarios finances personnelles Quebec", description: "Scenarios concrets de finances personnelles au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/scenarios/famille-2-enfants", title: "Scenario famille 2 enfants Quebec", description: "Simulation financiere pour une famille avec 2 enfants au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/scenarios/celibataire-locataire", title: "Scenario celibataire locataire Quebec", description: "Simulation financiere pour un celibataire locataire au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/scenarios/couple-sans-enfant", title: "Scenario couple sans enfant Quebec", description: "Simulation financiere pour un couple sans enfant au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/scenarios/proprietaire-hypotheque", title: "Scenario proprietaire hypotheque Quebec", description: "Simulation financiere pour un proprietaire avec hypotheque au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/scenarios/pre-retraite", title: "Scenario pre-retraite Quebec", description: "Simulation financiere pour un profil pre-retraite au Quebec.", changeFrequency: "monthly", priority: 0.75 },
 ];
 
 export const homeHubPageDefinitions = [
