@@ -267,6 +267,21 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Refaire le point apres un changement de situation",
     ctaText: "Un déménagement peut modifier votre budget et votre admissibilité à certains programmes.",
     ctaLabel: "Refaire le point",
+    example: {
+      label: "Luc et Sarah, couple qui déménage Québec → Montréal pour un nouvel emploi",
+      items: [
+        { label: "Frais de déménagement déductibles (déménagement pour travail)", amount: "+ 1 800 $" },
+        { label: "Camion de location vs déménageur professionnel", amount: "- 600 $" },
+        { label: "Date 15 juin au lieu du 1er juillet (tarif haute saison)", amount: "- 450 $" },
+      ],
+      totalLabel: "Économie totale",
+      totalAmount: "2 850 $",
+    },
+    actionSteps: [
+      { text: "Conserve toutes les factures si tu déménages pour le travail — les frais sont déductibles d'impôt quand tu te rapproches de 40 km ou plus de ton nouvel emploi" },
+      { text: "Évite le 1er juillet : les déménageurs chargent 30-60 % plus cher ce jour-là — mid-juin ou août coûtent sensiblement moins" },
+      { text: "Lance ta checklist de changements d'adresse dès la signature du bail : SAAQ, Revenu Québec, ARC, banque, assurances" },
+    ],
   },
 };
 
@@ -296,6 +311,22 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "See what may improve your budget",
     ctaText: "The questionnaire adds the benefits view to the budgeting view.",
     ctaLabel: "Start the questionnaire",
+    example: {
+      label: "Sophie, renting couple at $65,000 — savings found in one hour",
+      items: [
+        { label: "Switched internet provider", amount: "- $300/yr" },
+        { label: "Bundled auto + home insurance", amount: "- $380/yr" },
+        { label: "Optimized mobile plans (2 lines)", amount: "- $240/yr" },
+        { label: "Solidarity tax credit (renter)", amount: "+ $1,185/yr" },
+      ],
+      totalLabel: "Total recovered",
+      totalAmount: "$2,105/yr",
+    },
+    actionSteps: [
+      { text: "List your 3 biggest fixed expenses — housing, transportation, telecoms — and find the fastest lever" },
+      { text: "Compare your current internet plan: switching providers can save $25-40/month with no quality loss" },
+      { text: "Check your eligibility for the solidarity tax credit — often unclaimed by renters at moderate income" },
+    ],
   },
   taxes: {
     routeKey: "taxes",
@@ -320,6 +351,22 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Cross-check taxes with benefits",
     ctaText: "The questionnaire surfaces programs that tax logic alone may not highlight.",
     ctaLabel: "Find my programs",
+    example: {
+      label: "Marie, salaried employee at $55,000 — what she recovers by filing both returns",
+      items: [
+        { label: "GST/HST federal credit", amount: "+ $496" },
+        { label: "Quebec solidarity credit (renter)", amount: "+ $1,185" },
+        { label: "RRSP refund on $8,000 contribution", amount: "+ $2,560" },
+        { label: "Medical expense tax credit", amount: "+ $320" },
+      ],
+      totalLabel: "Estimated total",
+      totalAmount: "$4,561",
+    },
+    actionSteps: [
+      { text: "Gather your T4/Relevé 1 slips and all other income documents before starting" },
+      { text: "File your federal return through CRA (free software available) before April 30" },
+      { text: "File your provincial return through Revenu Quebec — don't forget form TP-1" },
+    ],
   },
   retirement: {
     routeKey: "retirement",
@@ -345,6 +392,22 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "See related programs too",
     ctaText: "Some benefits and credits intersect directly with retirement planning, especially for seniors.",
     ctaLabel: "Estimate my programs",
+    example: {
+      label: "Gilles, 58, salaried at $75,000 — impact of the right decisions today",
+      items: [
+        { label: "Tax saving from RRSP ($13,500 contributed)", amount: "+ $5,130" },
+        { label: "QPP deferred to 70 vs 65", amount: "+ 42% for life" },
+        { label: "Optimized RRSP + TFSA withdrawal", amount: "$3,000-6,000/yr" },
+        { label: "Age amount credit (from age 65)", amount: "+ $1,530" },
+      ],
+      totalLabel: "See full scenario",
+      totalAmount: "→",
+    },
+    actionSteps: [
+      { text: "Check your unused RRSP room on My CRA Account — every dollar contributed now reduces tax at your highest marginal rate" },
+      { text: "Model QPP deferral: each year past 65 increases the pension by 8.4% for life" },
+      { text: "Plan your RRSP + TFSA withdrawal order to minimize tax in retirement" },
+    ],
   },
   insurance: {
     routeKey: "insurance",
@@ -369,6 +432,21 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Place insurance in the wider picture",
     ctaText: "The questionnaire helps you reframe insurance decisions inside your full financial context.",
     ctaLabel: "Review my situation",
+    example: {
+      label: "Marc, homeowner with 2 cars — what he saved by shopping around",
+      items: [
+        { label: "Auto + home bundled with same insurer", amount: "- $420/yr" },
+        { label: "Raised deductible ($500 → $1,000)", amount: "- $180/yr" },
+        { label: "Removed duplicate credit card life insurance", amount: "- $240/yr" },
+      ],
+      totalLabel: "Annual savings",
+      totalAmount: "$840/yr",
+    },
+    actionSteps: [
+      { text: "Bundle auto and home with the same insurer — the multi-policy discount is typically 15-20%" },
+      { text: "Shop at renewal time: get 2-3 quotes 30 days before your policy expires" },
+      { text: "Remove overlapping coverage: credit card life insurance, accident coverage already included elsewhere" },
+    ],
   },
   internet: {
     routeKey: "internet",
@@ -393,6 +471,20 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "See the internet line inside your budget",
     ctaText: "The right plan is a broader budget tradeoff, not only a speed decision.",
     ctaLabel: "Start the questionnaire",
+    example: {
+      label: "Julie, family of 4 — telecom savings without losing speed",
+      items: [
+        { label: "Switched from Bell to Fizz fibre (same speed)", amount: "- $35/month" },
+        { label: "2 mobile lines moved to a virtual carrier", amount: "- $40/month" },
+      ],
+      totalLabel: "Annual savings",
+      totalAmount: "$900/yr",
+    },
+    actionSteps: [
+      { text: "Test your actual speed at fast.com — most households are paying for bandwidth they never use" },
+      { text: "Compare with an alternative provider (Fizz, Oxio, Distributel): same infrastructure, typically 20-40% cheaper" },
+      { text: "Do the same for mobile: a $30-40/month virtual carrier plan often replaces a $65/month plan from a major carrier" },
+    ],
   },
   moving: {
     routeKey: "moving",
@@ -417,6 +509,21 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ctaTitle: "Reassess after a change in situation",
     ctaText: "A move can affect both your budget and your eligibility picture.",
     ctaLabel: "Reassess my situation",
+    example: {
+      label: "Alex and Marie, couple relocating from Quebec City to Montreal for a new job",
+      items: [
+        { label: "Moving expenses tax deduction (work relocation, 40+ km rule)", amount: "+ $1,800" },
+        { label: "Self-move rental truck vs professional movers", amount: "- $600" },
+        { label: "Mid-June move vs July 1st peak pricing", amount: "- $450" },
+      ],
+      totalLabel: "Total saved",
+      totalAmount: "$2,850",
+    },
+    actionSteps: [
+      { text: "Keep all receipts if moving for work — expenses are tax-deductible when you move 40+ km closer to a new job location" },
+      { text: "Avoid July 1st: movers charge 30-60% more on peak dates — mid-June or August moves cost significantly less" },
+      { text: "Start your address-change checklist the day you sign the lease: SAAQ, Revenu Quebec, CRA, bank, and insurance" },
+    ],
   },
 };
 
