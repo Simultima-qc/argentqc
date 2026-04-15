@@ -74,6 +74,13 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/scenarios/couple-sans-enfant", title: "Scenario couple sans enfant Quebec", description: "Simulation financiere pour un couple sans enfant au Quebec.", changeFrequency: "monthly", priority: 0.75 },
   { path: "/scenarios/proprietaire-hypotheque", title: "Scenario proprietaire hypotheque Quebec", description: "Simulation financiere pour un proprietaire avec hypotheque au Quebec.", changeFrequency: "monthly", priority: 0.75 },
   { path: "/scenarios/pre-retraite", title: "Scenario pre-retraite Quebec", description: "Simulation financiere pour un profil pre-retraite au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/strategies/reer-vs-celi", title: "REER vs CELI Quebec", description: "REER ou CELI : lequel choisir selon son revenu au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/strategies/fractionnement-revenu", title: "Fractionnement revenu couple Quebec", description: "Guide du fractionnement du revenu en couple au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/strategies/decaissement-retraite", title: "Decaissement retraite Quebec", description: "Ordre de decaissement optimal a la retraite au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/depenses/internet", title: "Reduire facture internet Quebec", description: "Comparer et reduire sa facture internet au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/depenses/assurances", title: "Reduire assurances Quebec", description: "Comparer et reduire ses assurances auto et habitation au Quebec.", changeFrequency: "monthly", priority: 0.75 },
+  { path: "/aides-financieres/famille", title: "Aides financieres famille Quebec", description: "Toutes les aides financieres pour les familles quebecoises en 2026.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/aides-financieres/logement", title: "Aides logement Quebec", description: "Allocation-logement, credit solidarite et aides au logement au Quebec.", changeFrequency: "monthly", priority: 0.8 },
 ];
 
 export const homeHubPageDefinitions = [
