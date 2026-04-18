@@ -41,7 +41,7 @@ export default function DecaissementRetraitePage() {
               Ordre de décaissement optimal à la retraite
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              L'ordre dans lequel tu retires tes épargnes peut faire une différence de 3 000 $ à 8 000 $/an en impôt — pour le même niveau de vie.
+              L&apos;ordre dans lequel tu retires tes épargnes peut faire une différence de 3 000 $ à 8 000 $/an en impôt — pour le même niveau de vie.
             </p>
           </div>
         </section>

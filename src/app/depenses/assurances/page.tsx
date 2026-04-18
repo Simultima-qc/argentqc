@@ -41,7 +41,7 @@ export default function DepensesAssurancesPage() {
               Réduire ses assurances auto et habitation
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Obtenir 3 soumissions avant le renouvellement prend 30 minutes et économise en moyenne 300 à 900 $/an. Voici comment s'y prendre.
+              Obtenir 3 soumissions avant le renouvellement prend 30 minutes et économise en moyenne 300 à 900 $/an. Voici comment s&apos;y prendre.
             </p>
           </div>
         </section>
@@ -246,7 +246,7 @@ export default function DepensesAssurancesPage() {
           <div className="max-w-lg mx-auto text-center">
             <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px" }}>ArgentQC.ca</p>
             <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", lineHeight: 1.7 }}>
-              Outil informatif non affilié aux assureurs. Comparez toujours les offres et lisez les conditions avant de changer d'assureur.
+              Outil informatif non affilié aux assureurs. Comparez toujours les offres et lisez les conditions avant de changer d&apos;assureur.
             </p>
           </div>
         </footer>

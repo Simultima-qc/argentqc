@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "DÃ©mÃ©nager Ã  MontrÃ©al en 2026 : guide complet | ArgentQC.ca",
+  title: "Déménager à Montréal en 2026 : guide complet | ArgentQC.ca",
   description:
-    "Tout ce qu'il faut savoir pour dÃ©mÃ©nager Ã  MontrÃ©al en 2026 : loyers par quartier, le 1er juillet, permis de stationnement, ressources locales et dÃ©marches administratives.",
+    "Tout ce qu'il faut savoir pour déménager à Montréal en 2026 : loyers par quartier, le 1er juillet, permis de stationnement, ressources locales et démarches administratives.",
   keywords: [
-    "dÃ©mÃ©nager Ã  MontrÃ©al",
-    "dÃ©mÃ©nagement MontrÃ©al 2026",
-    "loyer MontrÃ©al quartier",
-    "guide dÃ©mÃ©nagement MontrÃ©al",
-    "1er juillet MontrÃ©al",
+    "déménager à Montréal",
+    "déménagement Montréal 2026",
+    "loyer Montréal quartier",
+    "guide déménagement Montréal",
+    "1er juillet Montréal",
   ],
 };
 
@@ -21,182 +21,182 @@ const PARCH = "#F7F3EC";
 const quartiers = [
   {
     nom: "Le Plateau-Mont-Royal",
-    emoji: "ðŸ˜ï¸",
-    loyer31: "1 100â€“1 500 $",
-    loyer41: "1 400â€“2 000 $",
-    loyer51: "1 800â€“2 800 $",
-    profil: "Jeunes professionnels, artistes, familles branchÃ©es",
-    note: "Quartier le plus demandÃ© â€” marchÃ© trÃ¨s tendu, disponibilitÃ©s rares.",
+    emoji: "🏘️",
+    loyer31: "1 100–1 500 $",
+    loyer41: "1 400–2 000 $",
+    loyer51: "1 800–2 800 $",
+    profil: "Jeunes professionnels, artistes, familles branchées",
+    note: "Quartier le plus demandé — marché très tendu, disponibilités rares.",
   },
   {
-    nom: "Rosemontâ€“La Petite-Patrie",
-    emoji: "ðŸŒ¿",
-    loyer31: "1 000â€“1 400 $",
-    loyer41: "1 300â€“1 850 $",
-    loyer51: "1 700â€“2 500 $",
+    nom: "Rosemont–La Petite-Patrie",
+    emoji: "🌿",
+    loyer31: "1 000–1 400 $",
+    loyer41: "1 300–1 850 $",
+    loyer51: "1 700–2 500 $",
     profil: "Familles, jeunes professionnels, cyclistes",
-    note: "Quartier prisÃ© avec pistes cyclables, marchÃ©s locaux et bonne desserte STM.",
+    note: "Quartier prisé avec pistes cyclables, marchés locaux et bonne desserte STM.",
   },
   {
     nom: "Verdun",
-    emoji: "ðŸŒŠ",
-    loyer31: "900â€“1 200 $",
-    loyer41: "1 150â€“1 600 $",
-    loyer51: "1 450â€“2 100 $",
+    emoji: "🌊",
+    loyer31: "900–1 200 $",
+    loyer41: "1 150–1 600 $",
+    loyer51: "1 450–2 100 $",
     profil: "Familles, premiers acheteurs de quartier, bord de fleuve",
-    note: "En forte gentrification â€” encore accessible mais les prix montent vite.",
+    note: "En forte gentrification — encore accessible mais les prix montent vite.",
   },
   {
-    nom: "Villerayâ€“Saint-Michel",
-    emoji: "ðŸ™ï¸",
-    loyer31: "900â€“1 150 $",
-    loyer41: "1 100â€“1 500 $",
-    loyer51: "1 350â€“1 950 $",
-    profil: "Familles, immigrants rÃ©cents, budget modÃ©rÃ©",
-    note: "Quartier diversifiÃ©, bien desservi par le mÃ©tro (ligne orange).",
+    nom: "Villeray–Saint-Michel",
+    emoji: "🏙️",
+    loyer31: "900–1 150 $",
+    loyer41: "1 100–1 500 $",
+    loyer51: "1 350–1 950 $",
+    profil: "Familles, immigrants récents, budget modéré",
+    note: "Quartier diversifié, bien desservi par le métro (ligne orange).",
   },
   {
-    nom: "Notre-Dame-de-GrÃ¢ce (NDG)",
-    emoji: "ðŸŽ“",
-    loyer31: "950â€“1 250 $",
-    loyer41: "1 200â€“1 700 $",
-    loyer51: "1 500â€“2 200 $",
-    profil: "Ã‰tudiants, familles anglophones, professionnels",
-    note: "Ambiance rÃ©sidentielle calme, proche de Concordia et McGill.",
+    nom: "Notre-Dame-de-Grâce (NDG)",
+    emoji: "🎓",
+    loyer31: "950–1 250 $",
+    loyer41: "1 200–1 700 $",
+    loyer51: "1 500–2 200 $",
+    profil: "Étudiants, familles anglophones, professionnels",
+    note: "Ambiance résidentielle calme, proche de Concordia et McGill.",
   },
   {
     nom: "Hochelaga-Maisonneuve",
-    emoji: "ðŸ­",
-    loyer31: "800â€“1 100 $",
-    loyer41: "1 000â€“1 400 $",
-    loyer51: "1 250â€“1 750 $",
-    profil: "Artistes, jeunes, budget serrÃ©",
-    note: "Le quartier le plus abordable proche du centre â€” en gentrification rapide.",
+    emoji: "🏭",
+    loyer31: "800–1 100 $",
+    loyer41: "1 000–1 400 $",
+    loyer51: "1 250–1 750 $",
+    profil: "Artistes, jeunes, budget serré",
+    note: "Le quartier le plus abordable proche du centre — en gentrification rapide.",
   },
   {
-    nom: "CÃ´te-des-Neiges",
-    emoji: "ðŸŒ",
-    loyer31: "850â€“1 150 $",
-    loyer41: "1 050â€“1 500 $",
-    loyer51: "1 350â€“1 950 $",
-    profil: "Ã‰tudiants (UdeM), communautÃ©s immigrantes, familles",
-    note: "Quartier trÃ¨s multiculturel, bien desservi, logements souvent disponibles.",
+    nom: "Côte-des-Neiges",
+    emoji: "🌐",
+    loyer31: "850–1 150 $",
+    loyer41: "1 050–1 500 $",
+    loyer51: "1 350–1 950 $",
+    profil: "Étudiants (UdeM), communautés immigrantes, familles",
+    note: "Quartier très multiculturel, bien desservi, logements souvent disponibles.",
   },
   {
     nom: "Saint-Laurent",
-    emoji: "ðŸ¢",
-    loyer31: "900â€“1 200 $",
-    loyer41: "1 100â€“1 550 $",
-    loyer51: "1 400â€“2 000 $",
+    emoji: "🏢",
+    loyer31: "900–1 200 $",
+    loyer41: "1 100–1 550 $",
+    loyer51: "1 400–2 000 $",
     profil: "Familles, travailleurs des zones industrielles",
-    note: "Bon accÃ¨s Ã  l'autoroute et aux parcs industriels â€” moins touristique.",
+    note: "Bon accès à l'autoroute et aux parcs industriels — moins touristique.",
   },
 ];
 
 const ressourcesLocales = [
   {
-    label: "Permis de stationnement â€” Ville de MontrÃ©al",
-    desc: "RÃ©server des places sur rue pour le jour du dÃ©mÃ©nagement (~75 $)",
+    label: "Permis de stationnement — Ville de Montréal",
+    desc: "Réserver des places sur rue pour le jour du déménagement (~75 $)",
     href: "https://montreal.ca/sujets/permis-de-stationnement-pour-demenagement",
   },
   {
-    label: "STM â€” Planifier votre trajet",
-    desc: "MÃ©tro, bus, REM â€” vÃ©rifier l'accÃ¨s en transport en commun de votre nouveau quartier",
+    label: "STM — Planifier votre trajet",
+    desc: "Métro, bus, REM — vérifier l'accès en transport en commun de votre nouveau quartier",
     href: "https://www.stm.info/fr/infos/reseaux/metro",
   },
   {
-    label: "Registre des loyers â€” TAL",
-    desc: "VÃ©rifier le loyer payÃ© par l'ancien locataire dans votre logement",
+    label: "Registre des loyers — TAL",
+    desc: "Vérifier le loyer payé par l'ancien locataire dans votre logement",
     href: "https://www.tal.gouv.qc.ca/fr/registre-des-loyers",
   },
   {
-    label: "BibliothÃ¨que de MontrÃ©al â€” Carte de bibliothÃ¨que",
-    desc: "AccÃ¨s gratuit Ã  plus de 45 bibliothÃ¨ques â€” Ã  mettre Ã  jour aprÃ¨s le dÃ©mÃ©nagement",
+    label: "Bibliothèque de Montréal — Carte de bibliothèque",
+    desc: "Accès gratuit à plus de 45 bibliothèques — à mettre à jour après le déménagement",
     href: "https://montreal.ca/articles/obtenir-ou-renouveler-une-carte-de-bibliotheque",
   },
   {
-    label: "Cour municipale â€” Changement d'adresse",
+    label: "Cour municipale — Changement d'adresse",
     desc: "Si vous avez des contraventions en cours ou un dossier ouvert",
     href: "https://montreal.ca/sujets/cour-municipale-de-montreal",
   },
   {
-    label: "SAAQ â€” Changement d'adresse (30 jours)",
-    desc: "Obligatoire dans les 30 jours suivant le dÃ©mÃ©nagement",
+    label: "SAAQ — Changement d'adresse (30 jours)",
+    desc: "Obligatoire dans les 30 jours suivant le déménagement",
     href: "https://saaq.gouv.qc.ca/services-en-ligne/changement-adresse/",
   },
 ];
 
 const conseilsMontreal = [
   {
-    emoji: "ðŸš—",
-    titre: "RÃ©servez un permis de stationnement",
+    emoji: "🚗",
+    titre: "Réservez un permis de stationnement",
     detail:
-      "La Ville de MontrÃ©al exige un permis pour bloquer des cases de stationnement sur rue lors d'un dÃ©mÃ©nagement. CoÃ»t : environ 75 $. Faites la demande au moins 5 jours ouvrables Ã  l'avance sur Montreal.ca.",
+      "La Ville de Montréal exige un permis pour bloquer des cases de stationnement sur rue lors d'un déménagement. Coût : environ 75 $. Faites la demande au moins 5 jours ouvrables à l'avance sur Montreal.ca.",
   },
   {
-    emoji: "ðŸ“…",
-    titre: "Ã‰vitez absolument le 1er juillet",
+    emoji: "📅",
+    titre: "Évitez absolument le 1er juillet",
     detail:
-      "MontrÃ©al est l'Ã©picentre du 1er juillet quÃ©bÃ©cois. Les camions sont rÃ©servÃ©s 3 Ã  4 mois Ã  l'avance, les tarifs explosent (+30 Ã  50 %), et les rues sont bloquÃ©es. Si vous pouvez dÃ©mÃ©nager le 29 ou 30 juin, vous Ã©conomisez et vous Ã©vitez le chaos.",
+      "Montréal est l'épicentre du 1er juillet québécois. Les camions sont réservés 3 à 4 mois à l'avance, les tarifs explosent (+30 à 50 %), et les rues sont bloquées. Si vous pouvez déménager le 29 ou 30 juin, vous économisez et vous évitez le chaos.",
   },
   {
-    emoji: "ðŸš‡",
-    titre: "VÃ©rifiez l'accÃ¨s au mÃ©tro et au REM",
+    emoji: "🚇",
+    titre: "Vérifiez l'accès au métro et au REM",
     detail:
-      "La STM dessert la majoritÃ© des quartiers centraux. Le REM dessert maintenant la Rive-Sud, l'Ouest-de-l'ÃŽle et la Rive-Nord. Un logement Ã  5 minutes d'une station vaut souvent un loyer lÃ©gÃ¨rement plus Ã©levÃ© si vous Ã©vitez une voiture.",
+      "La STM dessert la majorité des quartiers centraux. Le REM dessert maintenant la Rive-Sud, l'Ouest-de-l'Île et la Rive-Nord. Un logement à 5 minutes d'une station vaut souvent un loyer légèrement plus élevé si vous évitez une voiture.",
   },
   {
-    emoji: "ðŸ“¦",
-    titre: "Montez-meubles et ascenseurs : rÃ©servez tÃ´t",
+    emoji: "📦",
+    titre: "Montez-meubles et ascenseurs : réservez tôt",
     detail:
-      "Dans les immeubles en hauteur, les ascenseurs de service doivent Ãªtre rÃ©servÃ©s. Contactez votre syndicat de copropriÃ©tÃ© ou votre propriÃ©taire dÃ¨s que vous connaissez la date. Certains immeubles louent aussi un monte-meubles pour les Ã©tages.",
+      "Dans les immeubles en hauteur, les ascenseurs de service doivent être réservés. Contactez votre syndicat de copropriété ou votre propriétaire dès que vous connaissez la date. Certains immeubles louent aussi un monte-meubles pour les étages.",
   },
   {
-    emoji: "ðŸ”",
+    emoji: "🔍",
     titre: "Utilisez le Registre des loyers avant de signer",
     detail:
-      "Ã€ MontrÃ©al, les hausses de loyer abusives sont frÃ©quentes. Avant de signer votre bail, vÃ©rifiez gratuitement sur le Registre des loyers du TAL quel loyer payait le locataire prÃ©cÃ©dent. Vous pouvez contester une hausse abusive.",
+      "À Montréal, les hausses de loyer abusives sont fréquentes. Avant de signer votre bail, vérifiez gratuitement sur le Registre des loyers du TAL quel loyer payait le locataire précédent. Vous pouvez contester une hausse abusive.",
   },
   {
-    emoji: "ðŸ…¿ï¸",
-    titre: "VÃ©rifiez les rÃ¨gles de vignettes de stationnement",
+    emoji: "🅿️",
+    titre: "Vérifiez les règles de vignettes de stationnement",
     detail:
-      "Plusieurs quartiers montrÃ©alais ont des zones de stationnement rÃ©servÃ©es aux rÃ©sidents. Assurez-vous que votre rue permet l'obtention d'une vignette avant de dÃ©mÃ©nager si vous avez une voiture.",
+      "Plusieurs quartiers montréalais ont des zones de stationnement réservées aux résidents. Assurez-vous que votre rue permet l'obtention d'une vignette avant de déménager si vous avez une voiture.",
   },
 ];
 
 const arrondissements = [
-  { profil: "ðŸ‘¨â€ðŸ‘©â€ðŸ‘§ Famille avec enfants", recommandations: "Rosemont, Villeray, Verdun, Saint-Laurent", raison: "Parcs, Ã©coles, espaces verts, loyers plus accessibles" },
-  { profil: "ðŸŽ“ Ã‰tudiant", recommandations: "CÃ´te-des-Neiges, NDG, Plateau, Hochelaga", raison: "Proxi universitÃ©s (UdeM, McGill, UQAM, Concordia)" },
-  { profil: "ðŸ’¼ Professionnel sans voiture", recommandations: "Plateau, Rosemont, Mile-End, Verdun", raison: "MÃ©tro, REM, pistes cyclables â€” tout Ã  pied ou Ã  vÃ©lo" },
-  { profil: "ðŸ’° Budget serrÃ©", recommandations: "Hochelaga, Villeray, Saint-Michel, CÃ´te-des-Neiges", raison: "Loyers encore accessibles sous les 1 100 $ pour un 3Â½" },
-  { profil: "ðŸŒ Nouveaux arrivants", recommandations: "CÃ´te-des-Neiges, Saint-Laurent, Villeray", raison: "CommunautÃ©s Ã©tablies, ressources d'accueil, services multilingues" },
+  { profil: "👨‍👩‍👧 Famille avec enfants", recommandations: "Rosemont, Villeray, Verdun, Saint-Laurent", raison: "Parcs, écoles, espaces verts, loyers plus accessibles" },
+  { profil: "🎓 Étudiant", recommandations: "Côte-des-Neiges, NDG, Plateau, Hochelaga", raison: "Proxi universités (UdeM, McGill, UQAM, Concordia)" },
+  { profil: "💼 Professionnel sans voiture", recommandations: "Plateau, Rosemont, Mile-End, Verdun", raison: "Métro, REM, pistes cyclables — tout à pied ou à vélo" },
+  { profil: "💰 Budget serré", recommandations: "Hochelaga, Villeray, Saint-Michel, Côte-des-Neiges", raison: "Loyers encore accessibles sous les 1 100 $ pour un 3½" },
+  { profil: "🌍 Nouveaux arrivants", recommandations: "Côte-des-Neiges, Saint-Laurent, Villeray", raison: "Communautés établies, ressources d'accueil, services multilingues" },
 ];
 
 const faqs = [
   {
-    q: "Quelle est la meilleure pÃ©riode pour dÃ©mÃ©nager Ã  MontrÃ©al ?",
-    r: "Ã‰vitez le 1er juillet Ã  tout prix â€” c'est la journÃ©e la plus chaotique de l'annÃ©e Ã  MontrÃ©al. La meilleure pÃ©riode est de mi-aoÃ»t Ã  fin septembre : les camions sont disponibles, les tarifs sont normaux et la mÃ©tÃ©o est encore clÃ©mente. Janvier-fÃ©vrier est le moins cher, mais le froid et la neige compliquent la logistique.",
+    q: "Quelle est la meilleure période pour déménager à Montréal ?",
+    r: "Évitez le 1er juillet à tout prix — c'est la journée la plus chaotique de l'année à Montréal. La meilleure période est de mi-août à fin septembre : les camions sont disponibles, les tarifs sont normaux et la météo est encore clémente. Janvier-février est le moins cher, mais le froid et la neige compliquent la logistique.",
   },
   {
-    q: "Ai-je besoin d'un permis pour dÃ©mÃ©nager Ã  MontrÃ©al ?",
-    r: "Pas un permis de dÃ©mÃ©nagement en tant que tel, mais si vous voulez bloquer des cases de stationnement sur rue pour votre camion, vous devez obtenir un permis de stationnement temporaire auprÃ¨s de la Ville de MontrÃ©al (~75 $). Faites la demande au moins 5 jours ouvrables Ã  l'avance sur Montreal.ca.",
+    q: "Ai-je besoin d'un permis pour déménager à Montréal ?",
+    r: "Pas un permis de déménagement en tant que tel, mais si vous voulez bloquer des cases de stationnement sur rue pour votre camion, vous devez obtenir un permis de stationnement temporaire auprès de la Ville de Montréal (~75 $). Faites la demande au moins 5 jours ouvrables à l'avance sur Montreal.ca.",
   },
   {
-    q: "Quel quartier est le plus abordable Ã  MontrÃ©al en 2026 ?",
-    r: "Hochelaga-Maisonneuve reste le quartier central le plus abordable, avec des 3Â½ entre 800 $ et 1 100 $. Villerayâ€“Saint-Michel et CÃ´te-des-Neiges offrent aussi de bons rapports qualitÃ©-prix. Pour moins cher encore, les arrondissements pÃ©riphÃ©riques comme Saint-Laurent ou MontrÃ©al-Nord sont accessibles mais moins branchÃ©s.",
+    q: "Quel quartier est le plus abordable à Montréal en 2026 ?",
+    r: "Hochelaga-Maisonneuve reste le quartier central le plus abordable, avec des 3½ entre 800 $ et 1 100 $. Villeray–Saint-Michel et Côte-des-Neiges offrent aussi de bons rapports qualité-prix. Pour moins cher encore, les arrondissements périphériques comme Saint-Laurent ou Montréal-Nord sont accessibles mais moins branchés.",
   },
   {
-    q: "Mon propriÃ©taire peut-il refuser que je dÃ©mÃ©nage le 1er juillet ?",
-    r: "Non. Si votre bail se termine le 30 juin, vous avez le droit de quitter le logement le 1er juillet. Le propriÃ©taire ne peut pas vous forcer Ã  rester. Assurez-vous simplement d'avoir donnÃ© votre prÃ©avis dans les dÃ©lais requis (3 mois pour un bail annuel).",
+    q: "Mon propriétaire peut-il refuser que je déménage le 1er juillet ?",
+    r: "Non. Si votre bail se termine le 30 juin, vous avez le droit de quitter le logement le 1er juillet. Le propriétaire ne peut pas vous forcer à rester. Assurez-vous simplement d'avoir donné votre préavis dans les délais requis (3 mois pour un bail annuel).",
   },
   {
-    q: "Comment vÃ©rifier si le loyer demandÃ© est raisonnable Ã  MontrÃ©al ?",
-    r: "Utilisez le Registre des loyers du Tribunal administratif du logement (TAL) pour vÃ©rifier le loyer payÃ© par le locataire prÃ©cÃ©dent dans le mÃªme logement. Si le nouveau propriÃ©taire demande une hausse importante, vous pouvez la contester devant le TAL dans les 10 jours suivant la rÃ©ception de l'avis.",
+    q: "Comment vérifier si le loyer demandé est raisonnable à Montréal ?",
+    r: "Utilisez le Registre des loyers du Tribunal administratif du logement (TAL) pour vérifier le loyer payé par le locataire précédent dans le même logement. Si le nouveau propriétaire demande une hausse importante, vous pouvez la contester devant le TAL dans les 10 jours suivant la réception de l'avis.",
   },
   {
-    q: "Quelles dÃ©marches administratives dois-je faire aprÃ¨s mon dÃ©mÃ©nagement Ã  MontrÃ©al ?",
-    r: "Dans les 30 jours : SAAQ (permis de conduire et immatriculation), banque, employeur, Revenu QuÃ©bec (Mon dossier), Revenu Canada (Mon dossier CRA), RAMQ (carte d'assurance maladie). Pensez aussi Ã  la STM (abonnement), la bibliothÃ¨que de MontrÃ©al et votre vignette de stationnement si applicable.",
+    q: "Quelles démarches administratives dois-je faire après mon déménagement à Montréal ?",
+    r: "Dans les 30 jours : SAAQ (permis de conduire et immatriculation), banque, employeur, Revenu Québec (Mon dossier), Revenu Canada (Mon dossier CRA), RAMQ (carte d'assurance maladie). Pensez aussi à la STM (abonnement), la bibliothèque de Montréal et votre vignette de stationnement si applicable.",
   },
 ];
 
@@ -270,15 +270,15 @@ export default function DemenagementMontrealPage() {
             <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
               Accueil
             </Link>
-            {" â€º "}
+            {" › "}
             <Link
               href="/demenagement"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
-              DÃ©mÃ©nagement
+              Déménagement
             </Link>
-            {" â€º "}
-            <span style={{ color: "rgba(240,235,224,0.7)" }}>MontrÃ©al</span>
+            {" › "}
+            <span style={{ color: "rgba(240,235,224,0.7)" }}>Montréal</span>
           </nav>
           <p
             style={{
@@ -291,7 +291,7 @@ export default function DemenagementMontrealPage() {
               opacity: 0.8,
             }}
           >
-            Guide local Â· DÃ©mÃ©nagement MontrÃ©al 2026
+            Guide local · Déménagement Montréal 2026
           </p>
           <h1
             style={{
@@ -303,7 +303,7 @@ export default function DemenagementMontrealPage() {
               marginBottom: "12px",
             }}
           >
-            DÃ©mÃ©nager Ã  MontrÃ©al en 2026 : guide complet
+            Déménager à Montréal en 2026 : guide complet
           </h1>
           <p
             style={{
@@ -314,7 +314,7 @@ export default function DemenagementMontrealPage() {
             }}
           >
             Loyers par quartier, le 1er juillet, permis de stationnement, meilleurs arrondissements
-            selon votre profil â€” tout ce qu&apos;il faut savoir pour bien dÃ©mÃ©nager Ã  MontrÃ©al.
+            selon votre profil — tout ce qu&apos;il faut savoir pour bien déménager à Montréal.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -330,7 +330,7 @@ export default function DemenagementMontrealPage() {
                 textDecoration: "none",
               }}
             >
-              CoÃ»ts du dÃ©mÃ©nagement â†’
+              Coûts du déménagement →
             </Link>
             <Link
               href="/demenagement/checklist"
@@ -346,7 +346,7 @@ export default function DemenagementMontrealPage() {
                 border: "1px solid rgba(255,255,255,0.12)",
               }}
             >
-              Ma checklist â†’
+              Ma checklist →
             </Link>
           </div>
         </div>
@@ -367,10 +367,10 @@ export default function DemenagementMontrealPage() {
             marginBottom: "2rem",
           }}
         >
-          PublicitÃ©
+          Publicité
         </div>
 
-        {/* Le 1er juillet â€” bloc d'alerte */}
+        {/* Le 1er juillet — bloc d'alerte */}
         <div
           style={{
             background: "#FEF3C7",
@@ -381,7 +381,7 @@ export default function DemenagementMontrealPage() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-            <span style={{ fontSize: "1.5rem" }}>ðŸ“…</span>
+            <span style={{ fontSize: "1.5rem" }}>📅</span>
             <h2
               style={{
                 fontFamily: "var(--font-playfair)",
@@ -391,20 +391,20 @@ export default function DemenagementMontrealPage() {
                 margin: 0,
               }}
             >
-              Le 1er juillet Ã  MontrÃ©al â€” ce qu&apos;il faut savoir
+              Le 1er juillet à Montréal — ce qu&apos;il faut savoir
             </h2>
           </div>
           <p style={{ fontSize: "13px", color: "#78350F", lineHeight: 1.65, margin: 0 }}>
-            MontrÃ©al est l&apos;Ã©picentre du 1er juillet quÃ©bÃ©cois. La majoritÃ© des baux se
+            Montréal est l&apos;épicentre du 1er juillet québécois. La majorité des baux se
             terminant le 30 juin, des{" "}
-            <strong>dizaines de milliers de mÃ©nages dÃ©mÃ©nagent le mÃªme jour</strong>{" "}dans toute la
-            ville. Camions rÃ©servÃ©s des mois Ã  l&apos;avance, rues bloquÃ©es, tarifs en hausse de 30
-            Ã  50 %, ascenseurs monopolisÃ©s â€” la journÃ©e peut vite tourner au cauchemar.
+            <strong>dizaines de milliers de ménages déménagent le même jour</strong>{" "}dans toute la
+            ville. Camions réservés des mois à l&apos;avance, rues bloquées, tarifs en hausse de 30
+            à 50 %, ascenseurs monopolisés — la journée peut vite tourner au cauchemar.
             <br />
             <br />
-            <strong>Notre conseil :</strong>{" "}dÃ©mÃ©nagez le 29 ou 30 juin si possible, ou choisissez
-            un bail qui se termine Ã  une autre date. Sinon, rÃ©servez votre camion{" "}
-            <strong>au minimum 3 Ã  4 mois Ã  l&apos;avance</strong>{" "}et prÃ©voyez une journÃ©e longue.
+            <strong>Notre conseil :</strong>{" "}déménagez le 29 ou 30 juin si possible, ou choisissez
+            un bail qui se termine à une autre date. Sinon, réservez votre camion{" "}
+            <strong>au minimum 3 à 4 mois à l&apos;avance</strong>{" "}et prévoyez une journée longue.
           </p>
         </div>
 
@@ -418,11 +418,11 @@ export default function DemenagementMontrealPage() {
             marginBottom: "0.5rem",
           }}
         >
-          Loyers moyens par quartier Ã  MontrÃ©al (2026)
+          Loyers moyens par quartier à Montréal (2026)
         </h2>
         <p style={{ fontSize: "13px", color: "#78716C", lineHeight: 1.65, marginBottom: "1.25rem" }}>
-          Estimations basÃ©es sur les donnÃ©es du marchÃ© locatif montrÃ©alais en 2026. Les prix varient
-          selon l&apos;Ã©tat, l&apos;Ã©tage et les commoditÃ©s du logement.
+          Estimations basées sur les données du marché locatif montréalais en 2026. Les prix varient
+          selon l&apos;état, l&apos;étage et les commodités du logement.
         </p>
         <div style={{ overflowX: "auto", marginBottom: "2.5rem" }}>
           <table
@@ -442,13 +442,13 @@ export default function DemenagementMontrealPage() {
                   Quartier
                 </th>
                 <th style={{ padding: "10px 14px", textAlign: "center", fontWeight: 700, fontSize: "12px" }}>
-                  3Â½
+                  3½
                 </th>
                 <th style={{ padding: "10px 14px", textAlign: "center", fontWeight: 700, fontSize: "12px" }}>
-                  4Â½
+                  4½
                 </th>
                 <th style={{ padding: "10px 14px", textAlign: "center", fontWeight: 700, fontSize: "12px" }}>
-                  5Â½
+                  5½
                 </th>
               </tr>
             </thead>
@@ -529,10 +529,10 @@ export default function DemenagementMontrealPage() {
             marginBottom: "2.5rem",
           }}
         >
-          PublicitÃ©
+          Publicité
         </div>
 
-        {/* Conseils spÃ©cifiques MontrÃ©al */}
+        {/* Conseils spécifiques Montréal */}
         <h2
           style={{
             fontFamily: "var(--font-playfair)",
@@ -542,7 +542,7 @@ export default function DemenagementMontrealPage() {
             marginBottom: "1.25rem",
           }}
         >
-          6 choses Ã  savoir avant de dÃ©mÃ©nager Ã  MontrÃ©al
+          6 choses à savoir avant de déménager à Montréal
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {conseilsMontreal.map((c) => (
@@ -570,7 +570,7 @@ export default function DemenagementMontrealPage() {
           ))}
         </div>
 
-        {/* Droits locataires MontrÃ©al */}
+        {/* Droits locataires Montréal */}
         <div
           style={{
             background: "#EEF2FF",
@@ -589,7 +589,7 @@ export default function DemenagementMontrealPage() {
               marginBottom: "0.75rem",
             }}
           >
-            âš–ï¸ Vos droits comme locataire Ã  MontrÃ©al
+            ⚖️ Vos droits comme locataire à Montréal
           </h2>
           <ul
             style={{
@@ -601,10 +601,10 @@ export default function DemenagementMontrealPage() {
             }}
           >
             {[
-              "Le locataire a le droit au maintien dans les lieux â€” le propriÃ©taire ne peut vous expulser sans motif lÃ©gal valide.",
-              "Une hausse de loyer doit vous Ãªtre signifiÃ©e au moins 3 mois avant la fin du bail â€” vous avez 1 mois pour la contester.",
-              "Utilisez le Registre des loyers du TAL pour vÃ©rifier le loyer de l'ancien locataire avant de signer.",
-              "Pour les logements construits avant 2005, la clause G (reconduction) s'applique â€” le bail est reconduit automatiquement.",
+              "Le locataire a le droit au maintien dans les lieux — le propriétaire ne peut vous expulser sans motif légal valide.",
+              "Une hausse de loyer doit vous être signifiée au moins 3 mois avant la fin du bail — vous avez 1 mois pour la contester.",
+              "Utilisez le Registre des loyers du TAL pour vérifier le loyer de l'ancien locataire avant de signer.",
+              "Pour les logements construits avant 2005, la clause G (reconduction) s'applique — le bail est reconduit automatiquement.",
               "Le TAL (Tribunal administratif du logement) est accessible gratuitement, sans avocat, pour tout litige locatif.",
             ].map((d, i) => (
               <li key={i} style={{ fontSize: "13px", color: "#3730A3", lineHeight: 1.6 }}>
@@ -624,7 +624,7 @@ export default function DemenagementMontrealPage() {
             marginBottom: "1.25rem",
           }}
         >
-          Ressources utiles pour dÃ©mÃ©nager Ã  MontrÃ©al
+          Ressources utiles pour déménager à Montréal
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {ressourcesLocales.map((r) => (
@@ -649,7 +649,7 @@ export default function DemenagementMontrealPage() {
                 <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>{r.desc}</div>
               </div>
               <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>
-                â†—
+                ↗
               </span>
             </a>
           ))}
@@ -665,7 +665,7 @@ export default function DemenagementMontrealPage() {
             marginBottom: "1.25rem",
           }}
         >
-          Questions frÃ©quentes
+          Questions fréquentes
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
@@ -719,33 +719,33 @@ export default function DemenagementMontrealPage() {
           {[
             {
               href: "/demenagement/cout",
-              emoji: "ðŸ’¸",
-              titre: "Combien coÃ»te un dÃ©mÃ©nagement Ã  MontrÃ©al ?",
-              desc: "Camion vs dÃ©mÃ©nageurs, coÃ»ts cachÃ©s, conseils pour Ã©conomiser",
+              emoji: "💸",
+              titre: "Combien coûte un déménagement à Montréal ?",
+              desc: "Camion vs déménageurs, coûts cachés, conseils pour économiser",
             },
             {
               href: "/demenagement/checklist",
-              emoji: "âœ…",
-              titre: "Checklist dÃ©mÃ©nagement complÃ¨te",
-              desc: "Ne rien oublier â€” 8 semaines avant au jour J",
+              emoji: "✅",
+              titre: "Checklist déménagement complète",
+              desc: "Ne rien oublier — 8 semaines avant au jour J",
             },
             {
               href: "/assurances/habitation",
-              emoji: "ðŸ›¡ï¸",
-              titre: "Assurance habitation au QuÃ©bec",
-              desc: "Ã€ souscrire avant d'emmÃ©nager dans votre nouveau logement",
+              emoji: "🛡️",
+              titre: "Assurance habitation au Québec",
+              desc: "À souscrire avant d'emménager dans votre nouveau logement",
             },
             {
               href: "/budget/calculateur",
-              emoji: "ðŸ“Š",
+              emoji: "📊",
               titre: "Calculateur budget mensuel",
-              desc: "Simulez votre budget avec le nouveau loyer montrÃ©alais",
+              desc: "Simulez votre budget avec le nouveau loyer montréalais",
             },
             {
               href: "/demenagement",
-              emoji: "ðŸ“‹",
-              titre: "Guide complet dÃ©mÃ©nagement QuÃ©bec",
-              desc: "Toutes les Ã©tapes, droits des locataires, loyers par ville",
+              emoji: "📋",
+              titre: "Guide complet déménagement Québec",
+              desc: "Toutes les étapes, droits des locataires, loyers par ville",
             },
           ].map((cta) => (
             <Link
@@ -771,7 +771,7 @@ export default function DemenagementMontrealPage() {
                   {cta.desc}
                 </div>
               </div>
-              <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0 }}>â†’</span>
+              <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0 }}>→</span>
             </Link>
           ))}
         </div>
@@ -790,7 +790,7 @@ export default function DemenagementMontrealPage() {
             marginBottom: "1rem",
           }}
         >
-          PublicitÃ©
+          Publicité
         </div>
         <p
           style={{
@@ -800,8 +800,8 @@ export default function DemenagementMontrealPage() {
             lineHeight: 1.6,
           }}
         >
-          Les loyers indiquÃ©s sont des estimations basÃ©es sur les donnÃ©es du marchÃ© locatif
-          montrÃ©alais en 2026. Les prix varient selon le quartier, l&apos;Ã©tat et les commoditÃ©s du
+          Les loyers indiqués sont des estimations basées sur les données du marché locatif
+          montréalais en 2026. Les prix varient selon le quartier, l&apos;état et les commodités du
           logement.
         </p>
       </div>
@@ -820,7 +820,7 @@ export default function DemenagementMontrealPage() {
             ArgentQC.ca
           </p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>
-            Outil informatif non affiliÃ© au gouvernement.
+            Outil informatif non affilié au gouvernement.
           </p>
           <Link
             href="/contact"

@@ -265,7 +265,7 @@ export default function DepensesPage() {
               Où en es-tu avec tes finances ?
             </h2>
             <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "14px", marginBottom: "1.5rem", lineHeight: 1.7 }}>
-              Le diagnostic gratuit identifie tes principales opportunités d'économies en 2 minutes.
+              Le diagnostic gratuit identifie tes principales opportunités d&apos;économies en 2 minutes.
             </p>
             <Link
               href="/questionnaire"

@@ -276,10 +276,10 @@ export default function DepensesInternetPage() {
         <section style={{ background: DARK }} className="px-5 py-10">
           <div className="max-w-lg mx-auto text-center">
             <h2 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.75rem" }}>
-              Voir toutes tes opportunités d'économies
+              Voir toutes tes opportunités d&apos;économies
             </h2>
             <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "14px", marginBottom: "1.5rem", lineHeight: 1.7 }}>
-              Le diagnostic identifie tes principales pistes d'économie en 2 minutes.
+              Le diagnostic identifie tes principales pistes d&apos;économie en 2 minutes.
             </p>
             <Link
               href="/questionnaire"

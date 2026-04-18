@@ -41,7 +41,7 @@ export default function AidesFinancieresFamillePage() {
               Aides financières famille Québec
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Allocations fédérales et provinciales, crédits d'impôt pour la garde, subventions sport — une famille de 2 enfants peut récupérer 3 000 $ à 10 000 $/an selon sa situation.
+              Allocations fédérales et provinciales, crédits d&apos;impôt pour la garde, subventions sport — une famille de 2 enfants peut récupérer 3 000 $ à 10 000 $/an selon sa situation.
             </p>
           </div>
         </section>

@@ -109,7 +109,7 @@ export default function AidesFinancieresPage() {
               Toutes les aides financières au Québec
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Crédits d'impôt, subventions, allocations — un guide complet des programmes disponibles en 2026 selon ta situation.
+              Crédits d&apos;impôt, subventions, allocations — un guide complet des programmes disponibles en 2026 selon ta situation.
             </p>
           </div>
         </section>

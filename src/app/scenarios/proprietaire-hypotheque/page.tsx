@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
-const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
 
 export default function ScenarioProprietairePage() {
@@ -36,7 +35,7 @@ export default function ScenarioProprietairePage() {
               Propriétaire avec hypothèque — 15 000 $ en subventions
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75 }}>
-              Julie et Marc, propriétaires d'une maison de 1970 avec hypothèque de 350 000 $. Ils veulent rénover et réduire leur facture d'énergie. Voici ce qui est disponible.
+              Julie et Marc, propriétaires d&apos;une maison de 1970 avec hypothèque de 350 000 $. Ils veulent rénover et réduire leur facture d&apos;énergie. Voici ce qui est disponible.
             </p>
           </div>
         </section>
@@ -103,7 +102,7 @@ export default function ScenarioProprietairePage() {
         <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="px-5 py-10">
           <div className="max-w-2xl mx-auto">
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.3rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-              🎯 Plan d'action — 3 étapes
+              🎯 Plan d&apos;action — 3 étapes
             </h2>
             <ol style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "14px" }}>
               {[

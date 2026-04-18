@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "CELI â€” Tout comprendre pour mieux Ã©pargner en 2026 | ArgentQC.ca",
+  title: "CELI — Tout comprendre pour mieux épargner en 2026 | ArgentQC.ca",
   description:
     "Guide complet CELI 2026 : droits de cotisation cumulatifs, placements admissibles, erreurs classiques (surcotisation, retraits) et comment utiliser le CELI selon vos objectifs.",
   keywords: [
-    "CELI QuÃ©bec",
+    "CELI Québec",
     "CELI 2026",
     "droits de cotisation CELI 2026",
     "comment utiliser CELI",
@@ -42,43 +42,43 @@ const droitsCumulatifs = [
 ];
 
 const placements = [
-  { type: "DÃ©pÃ´ts Ã  terme et CPG", emoji: "ðŸ¦", desc: "SÃ»rs et garantis. Taux actuels : 3â€“5%. IdÃ©al pour l'Ã©pargne d'urgence ou un objectif Ã  court terme.", risque: "Faible" },
-  { type: "FNB d'indices (ETF)", emoji: "ðŸ“Š", desc: "Fonds nÃ©gociÃ©s en bourse qui reproduisent un indice (S&P 500, TSX). Frais trÃ¨s bas (~0,1%), diversification automatique. RecommandÃ© pour la retraite.", risque: "Moyen-Ã©levÃ©" },
-  { type: "Fonds communs de placement", emoji: "ðŸ’¼", desc: "GÃ©rÃ©s activement, frais plus Ã©levÃ©s que les FNB. Vendus par les banques et conseillers. VÃ©rifiez le ratio des frais de gestion (RFG).", risque: "Moyen" },
-  { type: "Actions individuelles", emoji: "ðŸ“ˆ", desc: "Acheter des actions d'entreprises directement. Plus de risque et de gestion nÃ©cessaire, mais potentiel plus Ã©levÃ©.", risque: "Ã‰levÃ©" },
-  { type: "Obligations", emoji: "ðŸ“œ", desc: "PrÃªts Ã  des gouvernements ou entreprises. Plus stables que les actions, rendement plus prÃ©visible.", risque: "Faible-moyen" },
-  { type: "Compte d'Ã©pargne Ã  intÃ©rÃªt Ã©levÃ© (CEIE)", emoji: "ðŸ’°", desc: "Liquide et sans risque. IdÃ©al pour le fonds d'urgence dans le CELI ou en attendant d'investir.", risque: "Minimal" },
+  { type: "Dépôts à terme et CPG", emoji: "🏦", desc: "Sûrs et garantis. Taux actuels : 3–5%. Idéal pour l'épargne d'urgence ou un objectif à court terme.", risque: "Faible" },
+  { type: "FNB d'indices (ETF)", emoji: "📊", desc: "Fonds négociés en bourse qui reproduisent un indice (S&P 500, TSX). Frais très bas (~0,1%), diversification automatique. Recommandé pour la retraite.", risque: "Moyen-élevé" },
+  { type: "Fonds communs de placement", emoji: "💼", desc: "Gérés activement, frais plus élevés que les FNB. Vendus par les banques et conseillers. Vérifiez le ratio des frais de gestion (RFG).", risque: "Moyen" },
+  { type: "Actions individuelles", emoji: "📈", desc: "Acheter des actions d'entreprises directement. Plus de risque et de gestion nécessaire, mais potentiel plus élevé.", risque: "Élevé" },
+  { type: "Obligations", emoji: "📜", desc: "Prêts à des gouvernements ou entreprises. Plus stables que les actions, rendement plus prévisible.", risque: "Faible-moyen" },
+  { type: "Compte d'épargne à intérêt élevé (CEIE)", emoji: "💰", desc: "Liquide et sans risque. Idéal pour le fonds d'urgence dans le CELI ou en attendant d'investir.", risque: "Minimal" },
 ];
 
 const usages = [
   {
     usage: "Fonds d'urgence",
-    emoji: "ðŸš¨",
-    desc: "Gardez 3 Ã  6 mois de dÃ©penses dans un CELI avec un compte d'Ã©pargne Ã  intÃ©rÃªt Ã©levÃ©. Accessible immÃ©diatement, sans impÃ´t au retrait.",
+    emoji: "🚨",
+    desc: "Gardez 3 à 6 mois de dépenses dans un CELI avec un compte d'épargne à intérêt élevé. Accessible immédiatement, sans impôt au retrait.",
     ideal: "Court terme",
     color: "#FEF3C7",
     textColor: "#92400E",
   },
   {
-    usage: "Ã‰pargne pour un projet",
-    emoji: "ðŸ ",
-    desc: "Achat d'une voiture, voyage, maison (avec le CELIAPP en parallÃ¨le), rÃ©novations. Retirez quand vous voulez, sans consÃ©quence fiscale.",
+    usage: "Épargne pour un projet",
+    emoji: "🏠",
+    desc: "Achat d'une voiture, voyage, maison (avec le CELIAPP en parallèle), rénovations. Retirez quand vous voulez, sans conséquence fiscale.",
     ideal: "Moyen terme",
     color: "#DBEAFE",
     textColor: "#1D4ED8",
   },
   {
-    usage: "Retraite complÃ©mentaire",
-    emoji: "ðŸ–ï¸",
-    desc: "Investissez en FNB d'indices. Les retraits Ã  la retraite ne s'ajoutent pas Ã  votre revenu â€” ne rÃ©duisent pas la SV ni le SRG.",
+    usage: "Retraite complémentaire",
+    emoji: "🏖️",
+    desc: "Investissez en FNB d'indices. Les retraits à la retraite ne s'ajoutent pas à votre revenu — ne réduisent pas la SV ni le SRG.",
     ideal: "Long terme",
     color: "#D1FAE5",
     textColor: "#065F46",
   },
   {
-    usage: "Revenu passif dÃ©fiscalisÃ©",
-    emoji: "ðŸ’¸",
-    desc: "Dividendes et gains en capital dans le CELI ne sont jamais imposÃ©s, mÃªme lors du retrait. IdÃ©al pour accumuler des revenus passifs.",
+    usage: "Revenu passif défiscalisé",
+    emoji: "💸",
+    desc: "Dividendes et gains en capital dans le CELI ne sont jamais imposés, même lors du retrait. Idéal pour accumuler des revenus passifs.",
     ideal: "Long terme",
     color: "#EDE9FE",
     textColor: "#5B21B6",
@@ -88,32 +88,32 @@ const usages = [
 const erreurs = [
   {
     erreur: "Surcotiser au CELI",
-    detail: "Si vous dÃ©passez vos droits de cotisation, l'ARC impose une pÃ©nalitÃ© de 1%/mois sur le montant en excÃ¨s. VÃ©rifiez vos droits sur Mon dossier CRA avant de cotiser.",
-    emoji: "âš ï¸",
+    detail: "Si vous dépassez vos droits de cotisation, l'ARC impose une pénalité de 1%/mois sur le montant en excès. Vérifiez vos droits sur Mon dossier CRA avant de cotiser.",
+    emoji: "⚠️",
     grave: true,
   },
   {
-    erreur: "Retirer et recotiser dans la mÃªme annÃ©e civile",
-    detail: "Les droits libÃ©rÃ©s par un retrait ne sont rÃ©cupÃ©rables qu'au 1er janvier de l'annÃ©e SUIVANTE. Retirer 5 000 $ en juin et le remettre en aoÃ»t = surcotisation. Attendez janvier.",
-    emoji: "ðŸ“…",
+    erreur: "Retirer et recotiser dans la même année civile",
+    detail: "Les droits libérés par un retrait ne sont récupérables qu'au 1er janvier de l'année SUIVANTE. Retirer 5 000 $ en juin et le remettre en août = surcotisation. Attendez janvier.",
+    emoji: "📅",
     grave: true,
   },
   {
-    erreur: "Garder son CELI en dÃ©pÃ´t bancaire seulement",
-    detail: "Un CELI avec 1,5% d'intÃ©rÃªt sur 30 ans fait peu. Investir en FNB d'indices dans le CELI avec un rendement moyen de 7% transforme 7 000 $/an en ~660 000 $ en 30 ans.",
-    emoji: "ðŸ“‰",
+    erreur: "Garder son CELI en dépôt bancaire seulement",
+    detail: "Un CELI avec 1,5% d'intérêt sur 30 ans fait peu. Investir en FNB d'indices dans le CELI avec un rendement moyen de 7% transforme 7 000 $/an en ~660 000 $ en 30 ans.",
+    emoji: "📉",
     grave: false,
   },
   {
-    erreur: "Penser que les retraits rÃ©duisent les prestations gouvernementales",
-    detail: "Les retraits CELI ne comptent PAS comme revenu. Ils n'affectent donc pas le SRG, l'allocation famille, les crÃ©dits d'impÃ´t basÃ©s sur le revenu â€” contrairement aux retraits REER.",
-    emoji: "âœ…",
+    erreur: "Penser que les retraits réduisent les prestations gouvernementales",
+    detail: "Les retraits CELI ne comptent PAS comme revenu. Ils n'affectent donc pas le SRG, l'allocation famille, les crédits d'impôt basés sur le revenu — contrairement aux retraits REER.",
+    emoji: "✅",
     grave: false,
   },
   {
-    erreur: "Ne pas maximiser les droits accumulÃ©s",
-    detail: "Si vous avez 18 ans ou plus depuis 2009 et n'avez jamais ouvert de CELI, vous avez potentiellement 109 000 $ de droits disponibles en 2026. Chaque annÃ©e perdue = croissance perdue.",
-    emoji: "â°",
+    erreur: "Ne pas maximiser les droits accumulés",
+    detail: "Si vous avez 18 ans ou plus depuis 2009 et n'avez jamais ouvert de CELI, vous avez potentiellement 109 000 $ de droits disponibles en 2026. Chaque année perdue = croissance perdue.",
+    emoji: "⏰",
     grave: false,
   },
 ];
@@ -121,19 +121,19 @@ const erreurs = [
 const faqs = [
   {
     q: "Quel est le plafond de cotisation CELI en 2026 ?",
-    r: "Le nouveau plafond annuel 2026 est de 7 000 $. Si vous Ãªtes admissible depuis 2009 et n'avez jamais cotisÃ©, vos droits cumulatifs totaux sont de 109 000 $ en 2026. Vos droits personnels (incluant retraits passÃ©s) figurent sur Mon dossier CRA.",
+    r: "Le nouveau plafond annuel 2026 est de 7 000 $. Si vous êtes admissible depuis 2009 et n'avez jamais cotisé, vos droits cumulatifs totaux sont de 109 000 $ en 2026. Vos droits personnels (incluant retraits passés) figurent sur Mon dossier CRA.",
   },
   {
-    q: "Qu'arrive-t-il Ã  mes droits CELI si je ne cotise pas une annÃ©e ?",
-    r: "Ils s'accumulent indÃ©finiment. Si vous ne cotisez pas pendant 5 ans (7 000 $/an), vous accumulez 35 000 $ de droits supplÃ©mentaires que vous pouvez utiliser n'importe quand par la suite. Les droits inutilisÃ©s ne disparaissent pas.",
+    q: "Qu'arrive-t-il à mes droits CELI si je ne cotise pas une année ?",
+    r: "Ils s'accumulent indéfiniment. Si vous ne cotisez pas pendant 5 ans (7 000 $/an), vous accumulez 35 000 $ de droits supplémentaires que vous pouvez utiliser n'importe quand par la suite. Les droits inutilisés ne disparaissent pas.",
   },
   {
-    q: "Puis-je avoir plusieurs CELI dans diffÃ©rentes institutions ?",
-    r: "Oui. Vous pouvez avoir autant de CELI que vous voulez dans diffÃ©rentes banques ou courtiers. Mais le plafond total s'applique Ã  l'ensemble de vos CELI combinÃ©s â€” pas par compte. C'est Ã  vous de suivre vos cotisations pour ne pas dÃ©passer vos droits.",
+    q: "Puis-je avoir plusieurs CELI dans différentes institutions ?",
+    r: "Oui. Vous pouvez avoir autant de CELI que vous voulez dans différentes banques ou courtiers. Mais le plafond total s'applique à l'ensemble de vos CELI combinés — pas par compte. C'est à vous de suivre vos cotisations pour ne pas dépasser vos droits.",
   },
   {
-    q: "CELI ou REER pour ma retraite â€” lequel prioriser ?",
-    r: "Si votre revenu actuel est Ã©levÃ© (50 000 $+), le REER est souvent prioritaire pour la dÃ©duction immÃ©diate. Si votre revenu est plus faible, ou si vous prÃ©voyez un revenu similaire Ã  la retraite, le CELI est plus flexible. IdÃ©alement, maximisez les deux. La rÃ¨gle simple : REER pour rÃ©duire l'impÃ´t maintenant, CELI pour la flexibilitÃ© Ã  long terme.",
+    q: "CELI ou REER pour ma retraite — lequel prioriser ?",
+    r: "Si votre revenu actuel est élevé (50 000 $+), le REER est souvent prioritaire pour la déduction immédiate. Si votre revenu est plus faible, ou si vous prévoyez un revenu similaire à la retraite, le CELI est plus flexible. Idéalement, maximisez les deux. La règle simple : REER pour réduire l'impôt maintenant, CELI pour la flexibilité à long terme.",
   },
 ];
 
@@ -156,20 +156,20 @@ export default function CeliPage() {
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
             <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
-            {" â€º "}
+            {" › "}
             <Link href="/retraite" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Retraite</Link>
-            {" â€º "}
+            {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>CELI</span>
           </nav>
           <p style={{ color: GOLD, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8 }}>
-            Guide complet Â· CELI 2026
+            Guide complet · CELI 2026
           </p>
           <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.6rem, 5vw, 2.2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "12px" }}>
-            CELI â€” Tout comprendre pour mieux Ã©pargner en 2026
+            CELI — Tout comprendre pour mieux épargner en 2026
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7 }}>
-            Droits cumulatifs depuis 2009, placements admissibles, usages stratÃ©giques
-            et les erreurs classiques qui coÃ»tent cher.
+            Droits cumulatifs depuis 2009, placements admissibles, usages stratégiques
+            et les erreurs classiques qui coûtent cher.
           </p>
         </div>
       </section>
@@ -179,21 +179,21 @@ export default function CeliPage() {
         {/* Explication */}
         <div style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", marginBottom: "1.5rem" }}>
           <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.2rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "12px" }}>
-            ðŸ“ˆ C&apos;est quoi un CELI, concrÃ¨tement ?
+            📈 C&apos;est quoi un CELI, concrètement ?
           </h2>
           <p style={{ fontSize: "13px", color: "#44403C", lineHeight: 1.7, marginBottom: "12px" }}>
-            Le CELI (Compte d&apos;Ã©pargne libre d&apos;impÃ´t) est le compte d&apos;Ã©pargne le plus flexible offert aux Canadiens. Disponible depuis 2009 pour toute personne de 18 ans et plus, il offre :
+            Le CELI (Compte d&apos;épargne libre d&apos;impôt) est le compte d&apos;épargne le plus flexible offert aux Canadiens. Disponible depuis 2009 pour toute personne de 18 ans et plus, il offre :
           </p>
           <div className="flex flex-col gap-2">
             {[
-              "Croissance des placements Ã  l'abri de l'impÃ´t",
-              "Retraits sans impÃ´t â€” en tout temps, pour n'importe quelle raison",
-              "Les retraits ne comptent pas comme revenu (n'affectent pas SV, SRG, crÃ©dits)",
-              "Droits de cotisation rÃ©cupÃ©rÃ©s l'annÃ©e suivante aprÃ¨s un retrait",
-              "Aucun Ã¢ge limite de cotisation",
+              "Croissance des placements à l'abri de l'impôt",
+              "Retraits sans impôt — en tout temps, pour n'importe quelle raison",
+              "Les retraits ne comptent pas comme revenu (n'affectent pas SV, SRG, crédits)",
+              "Droits de cotisation récupérés l'année suivante après un retrait",
+              "Aucun âge limite de cotisation",
             ].map((a, i) => (
               <div key={i} style={{ display: "flex", gap: "8px", alignItems: "flex-start", fontSize: "13px", color: "#065F46" }}>
-                <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>âœ…</span>
+                <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>✅</span>
                 <span>{a}</span>
               </div>
             ))}
@@ -204,7 +204,7 @@ export default function CeliPage() {
         <div style={{ background: DARK, borderRadius: "16px", padding: "1.25rem", marginBottom: "1.5rem", textAlign: "center" }}>
           <p style={{ color: "rgba(240,235,224,0.5)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>Plafond CELI 2026</p>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2rem", fontWeight: 800, marginBottom: "4px" }}>7 000 $</p>
-          <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "13px" }}>nouveau plafond annuel Â· droits cumulatifs depuis 2009 : <strong style={{ color: "#F0EBE0" }}>109 000 $</strong></p>
+          <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "13px" }}>nouveau plafond annuel · droits cumulatifs depuis 2009 : <strong style={{ color: "#F0EBE0" }}>109 000 $</strong></p>
         </div>
 
         {/* Tableau droits cumulatifs */}
@@ -215,7 +215,7 @@ export default function CeliPage() {
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "12px", background: "white", borderRadius: "14px", overflow: "hidden", border: "1px solid #EDE9E0" }}>
             <thead>
               <tr style={{ background: DARK, color: "#F0EBE0" }}>
-                <th style={{ padding: "9px 14px", textAlign: "center", fontWeight: 700 }}>AnnÃ©e</th>
+                <th style={{ padding: "9px 14px", textAlign: "center", fontWeight: 700 }}>Année</th>
                 <th style={{ padding: "9px 14px", textAlign: "center", fontWeight: 700 }}>Plafond annuel</th>
                 <th style={{ padding: "9px 14px", textAlign: "center", fontWeight: 700 }}>Cumul total</th>
               </tr>
@@ -237,7 +237,7 @@ export default function CeliPage() {
 
         {/* Ad */}
         <div style={{ background: "#EDE9E0", borderRadius: "12px", height: "60px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px", marginBottom: "2.5rem" }}>
-          PublicitÃ©
+          Publicité
         </div>
 
         {/* Placements */}
@@ -253,8 +253,8 @@ export default function CeliPage() {
                   <span style={{ fontWeight: 700, fontSize: "13px", color: "#1C1C1E" }}>{p.type}</span>
                   <span style={{
                     fontSize: "10px", fontWeight: 700, padding: "2px 6px", borderRadius: "100px",
-                    background: p.risque === "Minimal" || p.risque === "Faible" ? "#D1FAE5" : p.risque === "Ã‰levÃ©" ? "#FEE2E2" : "#FEF3C7",
-                    color: p.risque === "Minimal" || p.risque === "Faible" ? "#065F46" : p.risque === "Ã‰levÃ©" ? "#991B1B" : "#92400E",
+                    background: p.risque === "Minimal" || p.risque === "Faible" ? "#D1FAE5" : p.risque === "Élevé" ? "#FEE2E2" : "#FEF3C7",
+                    color: p.risque === "Minimal" || p.risque === "Faible" ? "#065F46" : p.risque === "Élevé" ? "#991B1B" : "#92400E",
                     flexShrink: 0,
                   }}>Risque {p.risque}</span>
                 </div>
@@ -285,7 +285,7 @@ export default function CeliPage() {
 
         {/* Erreurs */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-          Erreurs classiques Ã  Ã©viter avec le CELI
+          Erreurs classiques à éviter avec le CELI
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {erreurs.map((e) => (
@@ -293,7 +293,7 @@ export default function CeliPage() {
               <span style={{ fontSize: "1.3rem", flexShrink: 0 }}>{e.emoji}</span>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
-                  {e.grave && <span style={{ background: "#FEE2E2", color: "#DC2626", fontSize: "10px", fontWeight: 700, padding: "1px 6px", borderRadius: "100px" }}>PÃ©nalitÃ© possible</span>}
+                  {e.grave && <span style={{ background: "#FEE2E2", color: "#DC2626", fontSize: "10px", fontWeight: 700, padding: "1px 6px", borderRadius: "100px" }}>Pénalité possible</span>}
                   <span style={{ fontWeight: 700, fontSize: "13px", color: "#1C1C1E" }}>{e.erreur}</span>
                 </div>
                 <p style={{ fontSize: "12px", color: "#78716C", lineHeight: 1.6, margin: 0 }}>{e.detail}</p>
@@ -304,7 +304,7 @@ export default function CeliPage() {
 
         {/* FAQ */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-          Questions frÃ©quentes
+          Questions fréquentes
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
@@ -333,10 +333,10 @@ export default function CeliPage() {
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-4">
           {[
-            { href: "/retraite/reer", emoji: "ðŸ’°", titre: "REER â€” Guide complet", desc: "Comparer REER et CELI, plafond 2026, Ã©conomies d'impÃ´t" },
-            { href: "/retraite/celiapp", emoji: "ðŸ¡", titre: "CELIAPP vs CELI â†’", desc: "DiffÃ©rences clÃ©s, rÃ¨gles d'admissibilitÃ© et stratÃ©gie combinÃ©e" },
-            { href: "/retraite/rrq", emoji: "ðŸ›ï¸", titre: "RRQ â€” Votre rente de retraite", desc: "Montants et impact du choix de l'Ã¢ge de retraite" },
-            { href: "/retraite", emoji: "ðŸ–ï¸", titre: "Guide retraite QuÃ©bec", desc: "Les 5 piliers â€” RRQ, SV, REER, CELI, rÃ©gime d'employeur" },
+            { href: "/retraite/reer", emoji: "💰", titre: "REER — Guide complet", desc: "Comparer REER et CELI, plafond 2026, économies d'impôt" },
+            { href: "/retraite/celiapp", emoji: "🏡", titre: "CELIAPP vs CELI →", desc: "Différences clés, règles d'admissibilité et stratégie combinée" },
+            { href: "/retraite/rrq", emoji: "🏛️", titre: "RRQ — Votre rente de retraite", desc: "Montants et impact du choix de l'âge de retraite" },
+            { href: "/retraite", emoji: "🏖️", titre: "Guide retraite Québec", desc: "Les 5 piliers — RRQ, SV, REER, CELI, régime d'employeur" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
               <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{l.emoji}</span>
@@ -344,7 +344,7 @@ export default function CeliPage() {
                 <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>{l.titre}</div>
                 <div style={{ fontSize: "12px", color: "#A8A29E" }}>{l.desc}</div>
               </div>
-              <span style={{ color: "#3B82F6" }}>â†’</span>
+              <span style={{ color: "#3B82F6" }}>→</span>
             </Link>
           ))}
         </div>
@@ -353,7 +353,7 @@ export default function CeliPage() {
       <footer style={{ background: DARK, padding: "24px 16px" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif. Consultez un conseiller financier pour une planification personnalisÃ©e.</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif. Consultez un conseiller financier pour une planification personnalisée.</p>
           <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>

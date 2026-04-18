@@ -7,7 +7,7 @@ const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
 
 const NIVEAUX_LABELS: Record<string, { label: string; couleur: string }> = {
-  federal: { label: "FÃ©dÃ©ral", couleur: "bg-red-100 text-red-700" },
+  federal: { label: "Fédéral", couleur: "bg-red-100 text-red-700" },
   provincial: { label: "Provincial", couleur: "bg-blue-100 text-blue-700" },
   municipal: { label: "Municipal", couleur: "bg-green-100 text-green-700" },
 };
@@ -42,12 +42,14 @@ export default function SeoProgrammesPage({
   pagesRelies,
 }: Props) {
   const totalMax = programmes.reduce((acc, p) => acc + p.montant_max, 0);
-  const totalFormate = new Intl.NumberFormat("fr-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 }).format(totalMax);
+  const totalFormate = new Intl.NumberFormat("fr-CA", {
+    style: "currency",
+    currency: "CAD",
+    maximumFractionDigits: 0,
+  }).format(totalMax);
 
   return (
     <main style={{ minHeight: "100vh", background: PARCH }}>
-
-      {/* Header */}
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
@@ -59,29 +61,41 @@ export default function SeoProgrammesPage({
         </div>
       </header>
 
-      {/* Hero */}
       <section style={{ background: DARK, position: "relative", overflow: "hidden", padding: "48px 20px 40px" }}>
-        <div style={{
-          position: "absolute", inset: 0, pointerEvents: "none",
-          background: `radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,200,66,0.07) 0%, transparent 70%)`
-        }} />
-        <div style={{
-          position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05,
-          backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
-          backgroundSize: "24px 24px"
-        }} />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245,200,66,0.07) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            opacity: 0.05,
+            backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         <div style={{ maxWidth: "512px", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <p style={{ color: GOLD, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8 }}>
             {motCle}
           </p>
-          <h1 style={{
-            fontFamily: "var(--font-playfair)",
-            color: "#F0EBE0",
-            fontSize: "clamp(1.6rem, 5vw, 2.2rem)",
-            fontWeight: 800,
-            lineHeight: 1.2,
-            marginBottom: "12px"
-          }}>{titre}</h1>
+          <h1
+            style={{
+              fontFamily: "var(--font-playfair)",
+              color: "#F0EBE0",
+              fontSize: "clamp(1.6rem, 5vw, 2.2rem)",
+              fontWeight: 800,
+              lineHeight: 1.2,
+              marginBottom: "12px",
+            }}
+          >
+            {titre}
+          </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>{sousTitre}</p>
           <Link
             href="/questionnaire"
@@ -95,28 +109,25 @@ export default function SeoProgrammesPage({
               borderRadius: "14px",
               textAlign: "center",
               textDecoration: "none",
-              boxShadow: `0 0 28px rgba(245,200,66,0.2)`,
+              boxShadow: "0 0 28px rgba(245,200,66,0.2)",
             }}
           >
-            Trouver mes aides â†’
+            Trouver mes aides →
           </Link>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>
-            Gratuit Â· 2 minutes Â· estimation personnalisÃ©e
+            Gratuit · 2 minutes · estimation personnalisée
           </p>
         </div>
       </section>
 
       <div style={{ maxWidth: "512px", margin: "0 auto", padding: "24px 16px" }}>
-
-        {/* Intro */}
         <div style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", padding: "20px", marginBottom: "20px", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
           <p style={{ color: "#44403C", fontSize: "14px", lineHeight: 1.75 }}>{intro}</p>
         </div>
 
-        {/* RÃ©sumÃ© total */}
         <div style={{ background: DARK, borderRadius: "16px", padding: "20px", marginBottom: "20px", textAlign: "center" }}>
           <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>
-            Potentiel total estimÃ©
+            Potentiel total estimé
           </p>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2.5rem", fontWeight: 800, lineHeight: 1, marginBottom: "4px" }}>
             {totalFormate}
@@ -124,7 +135,6 @@ export default function SeoProgrammesPage({
           <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px" }}>{programmes.length} programmes disponibles</p>
         </div>
 
-        {/* Liste des programmes */}
         <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
           Programmes disponibles
         </h2>
@@ -136,24 +146,18 @@ export default function SeoProgrammesPage({
               <div key={prog.id} style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", overflow: "hidden", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
                 <div style={{ background: "#F0FDF4", borderBottom: "1px solid #D1FAE5", padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                   <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${niveau.couleur}`}>
-                      {niveau.label}
-                    </span>
+                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${niveau.couleur}`}>{niveau.label}</span>
                   </div>
-                  <span style={{ color: "#059669", fontWeight: 800, fontSize: "15px", flexShrink: 0, marginLeft: "8px" }}>
-                    {prog.montant_affiche}
-                  </span>
+                  <span style={{ color: "#059669", fontWeight: 800, fontSize: "15px", flexShrink: 0, marginLeft: "8px" }}>{prog.montant_affiche}</span>
                 </div>
                 <div style={{ padding: "16px" }}>
-                  <h3 style={{ fontWeight: 700, fontSize: "15px", color: "#1C1C1E", marginBottom: "4px", lineHeight: 1.35 }}>
-                    {prog.nom}
-                  </h3>
+                  <h3 style={{ fontWeight: 700, fontSize: "15px", color: "#1C1C1E", marginBottom: "4px", lineHeight: 1.35 }}>{prog.nom}</h3>
                   <p style={{ color: "#A8A29E", fontSize: "12px", marginBottom: "12px" }}>{prog.organisme}</p>
                   <p style={{ color: "#57534E", fontSize: "13px", marginBottom: "12px", lineHeight: 1.65 }}>{prog.description}</p>
                   <ul style={{ display: "flex", flexDirection: "column", gap: "6px", marginBottom: "16px" }}>
                     {prog.conditions.map((c, i) => (
                       <li key={i} style={{ fontSize: "13px", color: "#57534E", display: "flex", gap: "8px", lineHeight: 1.5 }}>
-                        <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>âœ“</span>
+                        <span style={{ color: GREEN, flexShrink: 0, marginTop: "1px" }}>✓</span>
                         {c}
                       </li>
                     ))}
@@ -173,10 +177,10 @@ export default function SeoProgrammesPage({
                       borderRadius: "12px",
                       textAlign: "center",
                       textDecoration: "none",
-                      border: `1px solid rgba(245,200,66,0.15)`,
+                      border: "1px solid rgba(245,200,66,0.15)",
                     }}
                   >
-                    Faire une demande â†’
+                    Faire une demande →
                   </a>
                 </div>
               </div>
@@ -184,9 +188,8 @@ export default function SeoProgrammesPage({
           })}
         </div>
 
-        {/* FAQ */}
         <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
-          Questions frÃ©quentes
+          Questions fréquentes
         </h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "32px" }}>
           {faqs.map((faq, i) => (
@@ -197,11 +200,10 @@ export default function SeoProgrammesPage({
           ))}
         </div>
 
-        {/* Pages reliÃ©es */}
         {pagesRelies && pagesRelies.length > 0 && (
           <div style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
-              Pages reliÃ©es
+              Pages reliées
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               {pagesRelies.map((page) => (
@@ -220,20 +222,19 @@ export default function SeoProgrammesPage({
                   }}
                 >
                   <span style={{ fontSize: "14px", fontWeight: 600, color: "#1C1C1E" }}>{page.titre}</span>
-                  <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>â†’</span>
+                  <span style={{ color: "#3B82F6", fontSize: "14px", flexShrink: 0, marginLeft: "8px" }}>→</span>
                 </Link>
               ))}
             </div>
           </div>
         )}
 
-        {/* CTA final */}
         <div style={{ background: DARK, borderRadius: "20px", padding: "28px 24px", textAlign: "center", marginBottom: "32px" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.2rem", fontWeight: 800, marginBottom: "8px" }}>
-            Trouvez tout ce Ã  quoi vous avez droit
+            Trouvez tout ce à quoi vous avez droit
           </p>
           <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "20px" }}>
-            RÃ©pondez Ã  8 questions â€” rÃ©sultats personnalisÃ©s en 2 minutes.
+            Répondez à 8 questions — résultats personnalisés en 2 minutes.
           </p>
           <Link
             href="/questionnaire"
@@ -249,24 +250,26 @@ export default function SeoProgrammesPage({
               textDecoration: "none",
             }}
           >
-            Commencer le questionnaire â†’
+            Commencer le questionnaire →
           </Link>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", marginTop: "8px" }}>
-            Gratuit Â· 2 minutes Â· estimation personnalisÃ©e
+            Gratuit · 2 minutes · estimation personnalisée
           </p>
         </div>
 
         <p style={{ color: "#A8A29E", fontSize: "11px", textAlign: "center", lineHeight: 1.7 }}>
-          ArgentQC.ca est un outil informatif non affiliÃ© au gouvernement. Les montants sont des
-          estimations â€” consultez toujours les sites officiels pour confirmer votre admissibilitÃ©.
+          ArgentQC.ca est un outil informatif non affilié au gouvernement. Les montants sont des
+          estimations — consultez toujours les sites officiels pour confirmer votre admissibilité.
         </p>
       </div>
 
       <footer style={{ background: DARK, padding: "24px 16px" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affiliÃ© au gouvernement.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
+          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>
+            Contactez-nous
+          </Link>
         </div>
       </footer>
     </main>

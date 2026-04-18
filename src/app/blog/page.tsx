@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import articles from "@/data/articles";
 
 export const metadata: Metadata = {
-  title: "Blogue â€“ Guides sur les aides gouvernementales au QuÃ©bec | ArgentQC.ca",
+  title: "Blogue – Guides sur les aides gouvernementales au Québec | ArgentQC.ca",
   description:
-    "Guides pratiques sur les subventions, crÃ©dits d'impÃ´t et aides gouvernementales au QuÃ©bec. RÃ©noclimat, allocation famille, crÃ©dit solidaritÃ© et plus.",
+    "Guides pratiques sur les subventions, crédits d'impôt et aides gouvernementales au Québec. Rénoclimat, allocation famille, crédit solidarité et plus.",
   alternates: {
     canonical: "https://argentqc.ca/blog",
   },
@@ -41,7 +41,7 @@ export default function BlogPage() {
           Blogue
         </h1>
         <p style={{ fontSize: "15px", color: "#78716C", marginBottom: "36px", lineHeight: 1.6 }}>
-          Guides pratiques pour maximiser vos aides gouvernementales au QuÃ©bec.
+          Guides pratiques pour maximiser vos aides gouvernementales au Québec.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -76,7 +76,7 @@ export default function BlogPage() {
                 marginBottom: "10px"
               }}>{article.titre}</h2>
               <p style={{ fontSize: "13px", color: "#78716C", lineHeight: 1.65, marginBottom: "14px" }}>{article.description}</p>
-              <span style={{ color: "#3B82F6", fontSize: "13px", fontWeight: 600 }}>Lire l&apos;article â†’</span>
+              <span style={{ color: "#3B82F6", fontSize: "13px", fontWeight: 600 }}>Lire l&apos;article →</span>
             </Link>
           ))}
         </div>
@@ -85,7 +85,7 @@ export default function BlogPage() {
       <footer style={{ background: DARK, padding: "24px 16px", marginTop: "32px" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affiliÃ© au gouvernement.</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
           <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>

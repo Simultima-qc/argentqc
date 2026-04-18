@@ -68,7 +68,7 @@ export default function ImpotsPage() {
               💡 Exemple concret
             </p>
             <p style={{ color: "#F0EBE0", fontSize: "15px", fontWeight: 600, lineHeight: 1.5, marginBottom: "10px" }}>
-              Marie, salariée à 55 000 $ — ce qu'elle récupère en produisant ses deux déclarations
+              Marie, salariée à 55 000 $ — ce qu&apos;elle récupère en produisant ses deux déclarations
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
               {[

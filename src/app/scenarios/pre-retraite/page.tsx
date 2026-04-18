@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
-const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
 
 export default function ScenarioPreRetraitePage() {
@@ -33,7 +32,7 @@ export default function ScenarioPreRetraitePage() {
               👴 Scénario pré-retraite
             </div>
             <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.75rem, 5vw, 2.3rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "1rem" }}>
-              Pré-retraite (55 ans) — 6 000 $ d'impôt évités/an
+              Pré-retraite (55 ans) — 6 000 $ d&apos;impôt évités/an
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75 }}>
               Gilles, 55 ans, propriétaire, revenu de 80 000 $, prévoit prendre sa retraite à 65 ans. 10 ans pour optimiser sa stratégie — les décisions prises maintenant auront un impact majeur.
@@ -120,7 +119,7 @@ export default function ScenarioPreRetraitePage() {
         <section style={{ background: PARCH, borderTop: "1px solid #E8E0D4" }} className="px-5 py-10">
           <div className="max-w-2xl mx-auto">
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.3rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1rem" }}>
-              📊 Impact de l'âge de début de la RRQ
+              📊 Impact de l&apos;âge de début de la RRQ
             </h2>
             <div style={{ background: "white", borderRadius: "14px", border: "1px solid #EDE9E0", overflow: "hidden" }}>
               <div style={{ background: DARK, padding: "12px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px" }}>
@@ -148,7 +147,7 @@ export default function ScenarioPreRetraitePage() {
         <section style={{ background: "white", borderTop: "1px solid #F0EBE0" }} className="px-5 py-10">
           <div className="max-w-2xl mx-auto">
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.3rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-              🗓️ Plan d'action — Les 10 prochaines années
+              🗓️ Plan d&apos;action — Les 10 prochaines années
             </h2>
             <ol style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "14px" }}>
               {[

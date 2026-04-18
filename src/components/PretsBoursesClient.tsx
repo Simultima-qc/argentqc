@@ -5,7 +5,6 @@ import type { PretsBoursesPageDictionary } from "@/i18n/prets-bourses";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
-const GREEN = "#10B981";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 

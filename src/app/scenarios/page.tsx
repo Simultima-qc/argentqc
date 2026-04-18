@@ -97,7 +97,7 @@ export default function ScenariosPage() {
               Scénarios financiers types
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Des exemples concrets avec profils réels, calculs détaillés et plan d'action. Trouve le scénario qui ressemble le plus à ta situation.
+              Des exemples concrets avec profils réels, calculs détaillés et plan d&apos;action. Trouve le scénario qui ressemble le plus à ta situation.
             </p>
           </div>
         </section>

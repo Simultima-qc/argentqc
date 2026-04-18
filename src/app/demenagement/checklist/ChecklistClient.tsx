@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -24,91 +24,91 @@ interface Section {
 const sections: Section[] = [
   {
     titre: "8 semaines avant",
-    emoji: "ðŸ“‹",
+    emoji: "📋",
     taches: [
-      { id: "8-1", texte: "Donner son prÃ©avis au propriÃ©taire (minimum 3 mois pour bail annuel)", note: "RecommandÃ© en recommandÃ© avec accusÃ© de rÃ©ception." },
+      { id: "8-1", texte: "Donner son préavis au propriétaire (minimum 3 mois pour bail annuel)", note: "Recommandé en recommandé avec accusé de réception." },
       { id: "8-2", texte: "Commencer la recherche de logement (Kijiji, LesPAC, Centris)" },
-      { id: "8-3", texte: "VÃ©rifier le registre des loyers (TAL) avant de signer", note: "Droit de connaÃ®tre le loyer payÃ© par l'ancien locataire." },
-      { id: "8-4", texte: "Obtenir au moins 3 soumissions de compagnies de dÃ©mÃ©nagement" },
-      { id: "8-5", texte: "Commencer Ã  dÃ©sencombrer â€” vendre, donner, recycler" },
-      { id: "8-6", texte: "Commencer Ã  constituer des Ã©conomies pour les frais de dÃ©mÃ©nagement" },
+      { id: "8-3", texte: "Vérifier le registre des loyers (TAL) avant de signer", note: "Droit de connaître le loyer payé par l'ancien locataire." },
+      { id: "8-4", texte: "Obtenir au moins 3 soumissions de compagnies de déménagement" },
+      { id: "8-5", texte: "Commencer à désencombrer — vendre, donner, recycler" },
+      { id: "8-6", texte: "Commencer à constituer des économies pour les frais de déménagement" },
     ],
   },
   {
     titre: "4 semaines avant",
-    emoji: "ðŸ“¦",
+    emoji: "📦",
     taches: [
-      { id: "4-1", texte: "RÃ©server la compagnie de dÃ©mÃ©nagement ou louer le camion" },
-      { id: "4-2", texte: "Commencer Ã  emballer les objets non essentiels" },
-      { id: "4-3", texte: "RÃ©cupÃ©rer des boÃ®tes gratuites (SAQ, Ã©piceries, Marketplace)" },
-      { id: "4-4", texte: "Aviser Canada Post â€” rÃ©expÃ©dition de courrier", note: "Faire la demande en ligne sur canadapost.ca" },
-      { id: "4-5", texte: "Contacter votre assureur habitation â€” assurer le nouveau logement" },
+      { id: "4-1", texte: "Réserver la compagnie de déménagement ou louer le camion" },
+      { id: "4-2", texte: "Commencer à emballer les objets non essentiels" },
+      { id: "4-3", texte: "Récupérer des boîtes gratuites (SAQ, épiceries, Marketplace)" },
+      { id: "4-4", texte: "Aviser Canada Post — réexpédition de courrier", note: "Faire la demande en ligne sur canadapost.ca" },
+      { id: "4-5", texte: "Contacter votre assureur habitation — assurer le nouveau logement" },
       { id: "4-6", texte: "Informer l'employeur du changement d'adresse" },
-      { id: "4-7", texte: "Informer l'Ã©cole des enfants et prÃ©voir le transfert de dossier" },
-      { id: "4-8", texte: "RÃ©server l'ascenseur ou monte-meuble (immeuble) si nÃ©cessaire" },
+      { id: "4-7", texte: "Informer l'école des enfants et prévoir le transfert de dossier" },
+      { id: "4-8", texte: "Réserver l'ascenseur ou monte-meuble (immeuble) si nécessaire" },
     ],
   },
   {
     titre: "2 semaines avant",
-    emoji: "ðŸ“®",
+    emoji: "📮",
     taches: [
-      { id: "2-1", texte: "SAAQ â€” changement d'adresse (permis de conduire, immatriculation)", note: "Obligatoire dans les 30 jours suivant le dÃ©mÃ©nagement." },
-      { id: "2-2", texte: "Revenu QuÃ©bec â€” changement d'adresse (clic-sequr.gouv.qc.ca)" },
-      { id: "2-3", texte: "Agence du revenu du Canada â€” Mon dossier (canada.ca)" },
-      { id: "2-4", texte: "Banques et institutions financiÃ¨res â€” cartes de crÃ©dit, prÃªts" },
-      { id: "2-5", texte: "RAMQ â€” mise Ã  jour de l'adresse (ramq.gouv.qc.ca)" },
-      { id: "2-6", texte: "MÃ©decin et dentiste de famille" },
-      { id: "2-7", texte: "Hydro-QuÃ©bec â€” clÃ´turer l'ancien compte et ouvrir le nouveau" },
-      { id: "2-8", texte: "Internet et cÃ¢ble â€” rÃ©silier / transfÃ©rer le contrat" },
-      { id: "2-9", texte: "Compagnie de cellulaire â€” mise Ã  jour de l'adresse de facturation" },
+      { id: "2-1", texte: "SAAQ — changement d'adresse (permis de conduire, immatriculation)", note: "Obligatoire dans les 30 jours suivant le déménagement." },
+      { id: "2-2", texte: "Revenu Québec — changement d'adresse (clic-sequr.gouv.qc.ca)" },
+      { id: "2-3", texte: "Agence du revenu du Canada — Mon dossier (canada.ca)" },
+      { id: "2-4", texte: "Banques et institutions financières — cartes de crédit, prêts" },
+      { id: "2-5", texte: "RAMQ — mise à jour de l'adresse (ramq.gouv.qc.ca)" },
+      { id: "2-6", texte: "Médecin et dentiste de famille" },
+      { id: "2-7", texte: "Hydro-Québec — clôturer l'ancien compte et ouvrir le nouveau" },
+      { id: "2-8", texte: "Internet et câble — résilier / transférer le contrat" },
+      { id: "2-9", texte: "Compagnie de cellulaire — mise à jour de l'adresse de facturation" },
     ],
   },
   {
     titre: "1 semaine avant",
-    emoji: "ðŸ”‘",
+    emoji: "🔑",
     taches: [
-      { id: "1-1", texte: "Confirmer les dÃ©tails finaux avec la compagnie de dÃ©mÃ©nagement" },
-      { id: "1-2", texte: "PrÃ©parer une boÃ®te de survie (draps, vÃªtements 2 jours, cafÃ©, nÃ©cessaire bain)" },
-      { id: "1-3", texte: "DÃ©faire les meubles dÃ©montables (lits, bibliothÃ¨ques)" },
-      { id: "1-4", texte: "Vider le congÃ©lateur (consommer ou distribuer les aliments)" },
-      { id: "1-5", texte: "Confirmer la remise des clÃ©s et l'Ã©tat des lieux avec le propriÃ©taire" },
-      { id: "1-6", texte: "PrÃ©parer le paiement des dÃ©mÃ©nageurs (espÃ¨ces ou carte selon leur politique)" },
+      { id: "1-1", texte: "Confirmer les détails finaux avec la compagnie de déménagement" },
+      { id: "1-2", texte: "Préparer une boîte de survie (draps, vêtements 2 jours, café, nécessaire bain)" },
+      { id: "1-3", texte: "Défaire les meubles démontables (lits, bibliothèques)" },
+      { id: "1-4", texte: "Vider le congélateur (consommer ou distribuer les aliments)" },
+      { id: "1-5", texte: "Confirmer la remise des clés et l'état des lieux avec le propriétaire" },
+      { id: "1-6", texte: "Préparer le paiement des déménageurs (espèces ou carte selon leur politique)" },
     ],
   },
   {
     titre: "Jour J",
-    emoji: "ðŸš›",
+    emoji: "🚛",
     taches: [
-      { id: "j-1", texte: "Photographier chaque piÃ¨ce de l'ancien logement AVANT de partir", note: "Crucial en cas de litige sur le dÃ©pÃ´t de garantie." },
-      { id: "j-2", texte: "Relever les compteurs (Ã©lectricitÃ©, gaz, eau) â€” noter les chiffres" },
-      { id: "j-3", texte: "Inspecter le nouveau logement Ã  la livraison (noter les dommages existants)" },
-      { id: "j-4", texte: "Remettre les clÃ©s au propriÃ©taire et obtenir une confirmation Ã©crite" },
-      { id: "j-5", texte: "VÃ©rifier que tous les meubles et cartons sont arrivÃ©s" },
+      { id: "j-1", texte: "Photographier chaque pièce de l'ancien logement AVANT de partir", note: "Crucial en cas de litige sur le dépôt de garantie." },
+      { id: "j-2", texte: "Relever les compteurs (électricité, gaz, eau) — noter les chiffres" },
+      { id: "j-3", texte: "Inspecter le nouveau logement à la livraison (noter les dommages existants)" },
+      { id: "j-4", texte: "Remettre les clés au propriétaire et obtenir une confirmation écrite" },
+      { id: "j-5", texte: "Vérifier que tous les meubles et cartons sont arrivés" },
       { id: "j-6", texte: "Tester les serrures, la plomberie, le chauffage du nouveau logement" },
     ],
   },
   {
-    titre: "AprÃ¨s le dÃ©mÃ©nagement",
-    emoji: "âœ…",
+    titre: "Après le déménagement",
+    emoji: "✅",
     taches: [
-      { id: "a-1", texte: "SAAQ â€” mettre Ã  jour permis et immatriculation (dÃ©lai lÃ©gal : 30 jours)" },
-      { id: "a-2", texte: "CÃ©gep ou universitÃ© â€” mise Ã  jour du dossier Ã©tudiant" },
-      { id: "a-3", texte: "Tester les dÃ©tecteurs de fumÃ©e et de monoxyde de carbone" },
-      { id: "a-4", texte: "Conserver les reÃ§us de dÃ©mÃ©nagement (possiblement dÃ©ductibles d'impÃ´t)" },
-      { id: "a-5", texte: "Voter lors des prochaines Ã©lections â€” mise Ã  jour de l'inscription Ã©lectorale" },
-      { id: "a-6", texte: "Accuser rÃ©ception du courrier rÃ©expÃ©diÃ© (confirmer que Ã§a fonctionne)" },
-      { id: "a-7", texte: "Obtenir les clÃ©s de secours au nouveau logement et les confier Ã  quelqu'un" },
+      { id: "a-1", texte: "SAAQ — mettre à jour permis et immatriculation (délai légal : 30 jours)" },
+      { id: "a-2", texte: "Cégep ou université — mise à jour du dossier étudiant" },
+      { id: "a-3", texte: "Tester les détecteurs de fumée et de monoxyde de carbone" },
+      { id: "a-4", texte: "Conserver les reçus de déménagement (possiblement déductibles d'impôt)" },
+      { id: "a-5", texte: "Voter lors des prochaines élections — mise à jour de l'inscription électorale" },
+      { id: "a-6", texte: "Accuser réception du courrier réexpédié (confirmer que ça fonctionne)" },
+      { id: "a-7", texte: "Obtenir les clés de secours au nouveau logement et les confier à quelqu'un" },
     ],
   },
 ];
 
 const organismes = [
-  { nom: "Canada Post â€” RÃ©expÃ©dition", desc: "Faire rÃ©expÃ©dier votre courrier", href: "https://www.canadapost-postescanada.ca/cpc/fr/particuliers/postez-et-recevez/gerer-votre-courrier/reacheminement.page", emoji: "ðŸ“¬" },
-  { nom: "SAAQ â€” Changement d'adresse", desc: "Permis de conduire et immatriculation", href: "https://saaq.gouv.qc.ca/services-en-ligne/changement-adresse/", emoji: "ðŸš—" },
-  { nom: "Revenu QuÃ©bec â€” Mon dossier", desc: "Adresse auprÃ¨s de Revenu QuÃ©bec", href: "https://www.revenuquebec.ca/fr/services-en-ligne/", emoji: "ðŸ’°" },
-  { nom: "ARC â€” Mon dossier CRA", desc: "Adresse auprÃ¨s du gouvernement fÃ©dÃ©ral", href: "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html", emoji: "ðŸ" },
-  { nom: "RAMQ â€” Mise Ã  jour", desc: "Carte d'assurance maladie", href: "https://www.ramq.gouv.qc.ca/fr/citoyens/informations-importantes", emoji: "ðŸ¥" },
-  { nom: "Hydro-QuÃ©bec â€” DÃ©mÃ©nagement", desc: "ClÃ´turer et ouvrir un compte", href: "https://www.hydroquebec.com/residentiel/demenagement.html", emoji: "âš¡" },
+  { nom: "Canada Post — Réexpédition", desc: "Faire réexpédier votre courrier", href: "https://www.canadapost-postescanada.ca/cpc/fr/particuliers/postez-et-recevez/gerer-votre-courrier/reacheminement.page", emoji: "📬" },
+  { nom: "SAAQ — Changement d'adresse", desc: "Permis de conduire et immatriculation", href: "https://saaq.gouv.qc.ca/services-en-ligne/changement-adresse/", emoji: "🚗" },
+  { nom: "Revenu Québec — Mon dossier", desc: "Adresse auprès de Revenu Québec", href: "https://www.revenuquebec.ca/fr/services-en-ligne/", emoji: "💰" },
+  { nom: "ARC — Mon dossier CRA", desc: "Adresse auprès du gouvernement fédéral", href: "https://www.canada.ca/fr/agence-revenu/services/services-electroniques/services-electroniques-particuliers/dossier-particuliers.html", emoji: "🍁" },
+  { nom: "RAMQ — Mise à jour", desc: "Carte d'assurance maladie", href: "https://www.ramq.gouv.qc.ca/fr/citoyens/informations-importantes", emoji: "🏥" },
+  { nom: "Hydro-Québec — Déménagement", desc: "Clôturer et ouvrir un compte", href: "https://www.hydroquebec.com/residentiel/demenagement.html", emoji: "⚡" },
 ];
 
 function getAllIds(): string[] {
@@ -185,20 +185,20 @@ export default function ChecklistClient() {
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
             <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
-            {" â€º "}
-            <Link href="/demenagement" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>DÃ©mÃ©nagement</Link>
-            {" â€º "}
+            {" › "}
+            <Link href="/demenagement" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Déménagement</Link>
+            {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Checklist</span>
           </nav>
           <p style={{ color: GOLD, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8 }}>
-            Outil interactif Â· Checklist dÃ©mÃ©nagement QuÃ©bec
+            Outil interactif · Checklist déménagement Québec
           </p>
           <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.6rem, 5vw, 2.2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "12px" }}>
-            Checklist dÃ©mÃ©nagement QuÃ©bec â€” Ne rien oublier
+            Checklist déménagement Québec — Ne rien oublier
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7 }}>
-            De 8 semaines avant au jour J. Cochez chaque tÃ¢che au fur et Ã  mesure â€”
-            votre progression est mÃ©morisÃ©e dans l&apos;onglet.
+            De 8 semaines avant au jour J. Cochez chaque tâche au fur et à mesure —
+            votre progression est mémorisée dans l&apos;onglet.
           </p>
         </div>
       </section>
@@ -209,7 +209,7 @@ export default function ChecklistClient() {
         <div style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", marginBottom: "1.5rem" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
             <span style={{ fontSize: "13px", fontWeight: 700, color: "#1C1C1E" }}>Progression</span>
-            <span style={{ fontSize: "13px", fontWeight: 800, color: GREEN }}>{totalCochees} / {totalTaches} tÃ¢ches ({progres}%)</span>
+            <span style={{ fontSize: "13px", fontWeight: 800, color: GREEN }}>{totalCochees} / {totalTaches} tâches ({progres}%)</span>
           </div>
           <div style={{ height: "10px", background: "#F3F4F6", borderRadius: "100px", overflow: "hidden" }}>
             <div style={{
@@ -222,16 +222,16 @@ export default function ChecklistClient() {
           </div>
           {progres === 100 && (
             <p style={{ fontSize: "13px", color: GREEN, fontWeight: 700, textAlign: "center", marginTop: "10px" }}>
-              ðŸŽ‰ FÃ©licitations â€” checklist complÃ¨te !
+              🎉 Félicitations — checklist complète !
             </p>
           )}
         </div>
 
-        {/* Note confidentialitÃ© */}
+        {/* Note confidentialité */}
         <div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "10px", padding: "10px 14px", marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "8px" }}>
-          <span style={{ fontSize: "1rem" }}>ðŸ’¾</span>
+          <span style={{ fontSize: "1rem" }}>💾</span>
           <p style={{ fontSize: "12px", color: "#1D4ED8", margin: 0 }}>
-            Votre progression est sauvegardÃ©e dans cet onglet (sessionStorage). Elle sera perdue si vous fermez l&apos;onglet.
+            Votre progression est sauvegardée dans cet onglet (sessionStorage). Elle sera perdue si vous fermez l&apos;onglet.
           </p>
         </div>
 
@@ -254,7 +254,7 @@ export default function ChecklistClient() {
                   <span style={{ fontSize: "1.4rem" }}>{section.emoji}</span>
                   <h2 style={{ fontWeight: 800, fontSize: "15px", color: sectionComplete ? GREEN : "#1C1C1E", margin: 0 }}>
                     {section.titre}
-                    {sectionComplete && <span style={{ marginLeft: "8px", fontSize: "14px" }}>âœ…</span>}
+                    {sectionComplete && <span style={{ marginLeft: "8px", fontSize: "14px" }}>✅</span>}
                   </h2>
                 </div>
                 <span style={{ fontSize: "12px", color: "#A8A29E" }}>{tachesCochees}/{section.taches.length}</span>
@@ -296,7 +296,7 @@ export default function ChecklistClient() {
                         </span>
                         {tache.note && (
                           <p style={{ fontSize: "11px", color: "#A8A29E", margin: "3px 0 0 0", lineHeight: 1.5 }}>
-                            â„¹ï¸ {tache.note}
+                            ℹ️ {tache.note}
                           </p>
                         )}
                       </div>
@@ -308,9 +308,9 @@ export default function ChecklistClient() {
           );
         })}
 
-        {/* Organismes Ã  aviser */}
+        {/* Organismes à aviser */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", margin: "2rem 0 1.25rem" }}>
-          Organismes Ã  aviser â€” liens directs
+          Organismes à aviser — liens directs
         </h2>
         <div className="flex flex-col gap-3 mb-8">
           {organismes.map((o) => (
@@ -326,12 +326,12 @@ export default function ChecklistClient() {
                 <div style={{ fontWeight: 600, fontSize: "14px", color: "#1C1C1E" }}>{o.nom}</div>
                 <div style={{ fontSize: "12px", color: "#A8A29E", marginTop: "2px" }}>{o.desc}</div>
               </div>
-              <span style={{ color: "#3B82F6", flexShrink: 0 }}>â†—</span>
+              <span style={{ color: "#3B82F6", flexShrink: 0 }}>↗</span>
             </a>
           ))}
         </div>
 
-        {/* RÃ©initialiser */}
+        {/* Réinitialiser */}
         {totalCochees > 0 && (
           <button
             onClick={handleReset}
@@ -345,27 +345,27 @@ export default function ChecklistClient() {
               marginBottom: "1.5rem",
             }}
           >
-            Remettre la checklist Ã  zÃ©ro
+            Remettre la checklist à zéro
           </button>
         )}
 
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-4">
           <Link href="/demenagement/cout" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
-            <span style={{ fontSize: "1.4rem" }}>ðŸ’¸</span>
+            <span style={{ fontSize: "1.4rem" }}>💸</span>
             <div className="flex-1">
-              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Combien coÃ»te un dÃ©mÃ©nagement ?</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Tableaux de prix et conseils pour Ã©conomiser</div>
+              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Combien coûte un déménagement ?</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Tableaux de prix et conseils pour économiser</div>
             </div>
-            <span style={{ color: "#3B82F6" }}>â†’</span>
+            <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
           <Link href="/assurances/habitation" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
-            <span style={{ fontSize: "1.4rem" }}>ðŸ›¡ï¸</span>
+            <span style={{ fontSize: "1.4rem" }}>🛡️</span>
             <div className="flex-1">
-              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Assurance habitation QuÃ©bec</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Ã€ ne pas oublier avant d&apos;entrer dans votre logement</div>
+              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Assurance habitation Québec</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>À ne pas oublier avant d&apos;entrer dans votre logement</div>
             </div>
-            <span style={{ color: "#3B82F6" }}>â†’</span>
+            <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
         </div>
       </div>
@@ -373,7 +373,7 @@ export default function ChecklistClient() {
       <footer style={{ background: DARK, padding: "24px 16px" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affiliÃ© au gouvernement.</p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
           <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
         </div>
       </footer>

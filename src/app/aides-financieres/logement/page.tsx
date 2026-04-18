@@ -41,7 +41,7 @@ export default function AidesFinancieresLogementPage() {
               Aides au logement au Québec
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Locataires, propriétaires et acheteurs — plusieurs programmes gouvernementaux peuvent réduire le poids du logement dans votre budget. Tour d'horizon complet pour 2026.
+              Locataires, propriétaires et acheteurs — plusieurs programmes gouvernementaux peuvent réduire le poids du logement dans votre budget. Tour d&apos;horizon complet pour 2026.
             </p>
           </div>
         </section>
@@ -129,7 +129,7 @@ export default function AidesFinancieresLogementPage() {
         <section className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.5rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.75rem" }}>
-              Programmes d'aide au logement
+              Programmes d&apos;aide au logement
             </h2>
             <div className="flex flex-col gap-5">
               {[
@@ -302,7 +302,7 @@ export default function AidesFinancieresLogementPage() {
           <div className="max-w-lg mx-auto text-center">
             <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px" }}>ArgentQC.ca</p>
             <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", lineHeight: 1.7 }}>
-              Outil informatif non affilié au gouvernement. Consultez la SHQ, Revenu Québec et l'ARC pour confirmer votre admissibilité.
+              Outil informatif non affilié au gouvernement. Consultez la SHQ, Revenu Québec et l&apos;ARC pour confirmer votre admissibilité.
             </p>
           </div>
         </footer>

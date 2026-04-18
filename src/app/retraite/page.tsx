@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Planifier sa retraite au QuÃ©bec â€” Guide 2026 | ArgentQC.ca",
+  title: "Planifier sa retraite au Québec — Guide 2026 | ArgentQC.ca",
   description:
-    "Guide complet pour planifier sa retraite au QuÃ©bec en 2026 : les 5 piliers (RRQ, RPC, REER, CELI, rÃ©gime d'employeur), Ã  quel Ã¢ge prendre sa retraite et combien Ã©pargner.",
+    "Guide complet pour planifier sa retraite au Québec en 2026 : les 5 piliers (RRQ, RPC, REER, CELI, régime d'employeur), à quel âge prendre sa retraite et combien épargner.",
   keywords: [
-    "retraite QuÃ©bec",
-    "planification retraite QuÃ©bec 2026",
-    "Ã¢ge retraite QuÃ©bec",
-    "combien Ã©pargner retraite QuÃ©bec",
-    "RRQ REER CELI QuÃ©bec",
+    "retraite Québec",
+    "planification retraite Québec 2026",
+    "âge retraite Québec",
+    "combien épargner retraite Québec",
+    "RRQ REER CELI Québec",
   ],
 };
 
@@ -22,63 +22,63 @@ const PARCH = "#F7F3EC";
 
 const piliers = [
   {
-    nom: "Rente de retraite du QuÃ©bec (RRQ)",
+    nom: "Rente de retraite du Québec (RRQ)",
     type: "Obligatoire",
     typeColor: "#1D4ED8",
     typeBg: "#DBEAFE",
-    emoji: "ðŸ›ï¸",
-    desc: "RÃ©gime public obligatoire pour tous les travailleurs du QuÃ©bec. Cotisations prÃ©levÃ©es sur le salaire tout au long de la carriÃ¨re. La rente est versÃ©e Ã  partir de 60 ans (avec rÃ©duction) ou 65 ans.",
-    montant: "~820 $/mois (max. Ã  65 ans)",
+    emoji: "🏛️",
+    desc: "Régime public obligatoire pour tous les travailleurs du Québec. Cotisations prélevées sur le salaire tout au long de la carrière. La rente est versée à partir de 60 ans (avec réduction) ou 65 ans.",
+    montant: "~820 $/mois (max. à 65 ans)",
     href: "/retraite/rrq",
   },
   {
-    nom: "RÃ©gime de pensions du Canada (RPC)",
-    type: "FÃ©dÃ©ral",
+    nom: "Régime de pensions du Canada (RPC)",
+    type: "Fédéral",
     typeColor: "#D97706",
     typeBg: "#FEF3C7",
-    emoji: "ðŸ",
-    desc: "L'Ã©quivalent fÃ©dÃ©ral de la RRQ. Les travailleurs du QuÃ©bec cotisent UNIQUEMENT Ã  la RRQ, pas au RPC â€” sauf pour la bonification RPC2 depuis 2024.",
-    montant: "Non applicable pour la majoritÃ© des QuÃ©bÃ©cois",
+    emoji: "🍁",
+    desc: "L'équivalent fédéral de la RRQ. Les travailleurs du Québec cotisent UNIQUEMENT à la RRQ, pas au RPC — sauf pour la bonification RPC2 depuis 2024.",
+    montant: "Non applicable pour la majorité des Québécois",
     href: null,
   },
   {
-    nom: "SÃ©curitÃ© de la vieillesse (SV)",
-    type: "FÃ©dÃ©ral",
+    nom: "Sécurité de la vieillesse (SV)",
+    type: "Fédéral",
     typeColor: "#D97706",
     typeBg: "#FEF3C7",
-    emoji: "ðŸ‡¨ðŸ‡¦",
-    desc: "Pension mensuelle fÃ©dÃ©rale versÃ©e Ã  toute personne de 65 ans et plus ayant rÃ©sidÃ© au Canada suffisamment longtemps. Pas besoin d'avoir travaillÃ©.",
-    montant: "~698 $/mois Ã  65 ans (2026)",
+    emoji: "🇨🇦",
+    desc: "Pension mensuelle fédérale versée à toute personne de 65 ans et plus ayant résidé au Canada suffisamment longtemps. Pas besoin d'avoir travaillé.",
+    montant: "~698 $/mois à 65 ans (2026)",
     href: null,
   },
   {
-    nom: "REER (RÃ©gime enregistrÃ© d'Ã©pargne-retraite)",
-    type: "Ã‰pargne privÃ©e",
+    nom: "REER (Régime enregistré d'épargne-retraite)",
+    type: "Épargne privée",
     typeColor: "#065F46",
     typeBg: "#D1FAE5",
-    emoji: "ðŸ’°",
-    desc: "Compte d'Ã©pargne Ã  avantage fiscal. Vos cotisations rÃ©duisent votre revenu imposable. Les placements fructifient Ã  l'abri de l'impÃ´t jusqu'au retrait.",
-    montant: "18% du revenu gagnÃ© (max. 32 490 $ en 2026)",
+    emoji: "💰",
+    desc: "Compte d'épargne à avantage fiscal. Vos cotisations réduisent votre revenu imposable. Les placements fructifient à l'abri de l'impôt jusqu'au retrait.",
+    montant: "18% du revenu gagné (max. 32 490 $ en 2026)",
     href: "/retraite/reer",
   },
   {
-    nom: "CELI (Compte d'Ã©pargne libre d'impÃ´t)",
-    type: "Ã‰pargne privÃ©e",
+    nom: "CELI (Compte d'épargne libre d'impôt)",
+    type: "Épargne privée",
     typeColor: "#065F46",
     typeBg: "#D1FAE5",
-    emoji: "ðŸ“ˆ",
-    desc: "Ã‰pargne et investissements qui croissent sans impÃ´t, et les retraits sont aussi sans impÃ´t. Plus flexible que le REER â€” idÃ©al pour complÃ©ter la retraite.",
+    emoji: "📈",
+    desc: "Épargne et investissements qui croissent sans impôt, et les retraits sont aussi sans impôt. Plus flexible que le REER — idéal pour compléter la retraite.",
     montant: "7 000 $/an en 2026 (cumulatif depuis 2009 : ~95 000 $)",
     href: "/retraite/celi",
   },
   {
-    nom: "RÃ©gime de retraite d'employeur",
+    nom: "Régime de retraite d'employeur",
     type: "Optionnel",
     typeColor: "#7C3AED",
     typeBg: "#EDE9FE",
-    emoji: "ðŸ¢",
-    desc: "RÃ©gime Ã  prestations dÃ©terminÃ©es (RPD) ou Ã  cotisations dÃ©terminÃ©es (RCD). Offert par certains employeurs â€” secteur public, grandes entreprises. TrÃ¨s avantageux si disponible.",
-    montant: "Variable selon le rÃ©gime",
+    emoji: "🏢",
+    desc: "Régime à prestations déterminées (RPD) ou à cotisations déterminées (RCD). Offert par certains employeurs — secteur public, grandes entreprises. Très avantageux si disponible.",
+    montant: "Variable selon le régime",
     href: null,
   },
 ];
@@ -86,31 +86,31 @@ const piliers = [
 const ageRetraite = [
   {
     age: "60 ans",
-    emoji: "â°",
-    rrq: "RÃ©duction permanente de 7,2%/an avant 65 ans (max. -36%)",
-    sv: "Non disponible (commence Ã  65 ans)",
-    avantages: "LibertÃ© anticipÃ©e, profiter de sa santÃ©",
-    inconvenients: "Rente RRQ rÃ©duite pour toujours, moins d'annÃ©es de cotisation REER/CELI",
+    emoji: "⏰",
+    rrq: "Réduction permanente de 7,2%/an avant 65 ans (max. -36%)",
+    sv: "Non disponible (commence à 65 ans)",
+    avantages: "Liberté anticipée, profiter de sa santé",
+    inconvenients: "Rente RRQ réduite pour toujours, moins d'années de cotisation REER/CELI",
     color: "#FEF3C7",
     borderColor: "#FCD34D",
   },
   {
     age: "65 ans",
-    emoji: "âœ…",
-    rrq: "Montant standard â€” aucune rÃ©duction ni bonification",
-    sv: "Pension SV complÃ¨te disponible",
-    avantages: "Rente standard + SV, point d'Ã©quilibre optimal pour la majoritÃ©",
-    inconvenients: "Devoir continuer Ã  travailler 5 ans de plus qu'Ã  60 ans",
+    emoji: "✅",
+    rrq: "Montant standard — aucune réduction ni bonification",
+    sv: "Pension SV complète disponible",
+    avantages: "Rente standard + SV, point d'équilibre optimal pour la majorité",
+    inconvenients: "Devoir continuer à travailler 5 ans de plus qu'à 60 ans",
     color: "#D1FAE5",
     borderColor: "#34D399",
   },
   {
     age: "70 ans",
-    emoji: "ðŸ“ˆ",
-    rrq: "Bonification de 8,4%/an aprÃ¨s 65 ans (+42% Ã  70 ans)",
-    sv: "Bonification de 7,2%/an (+36% Ã  70 ans)",
-    avantages: "Rente maximale, protection longÃ©vitÃ©, moins d'annÃ©es Ã  financer",
-    inconvenients: "Moins d'annÃ©es pour profiter de la retraite, dÃ©pend de la santÃ©",
+    emoji: "📈",
+    rrq: "Bonification de 8,4%/an après 65 ans (+42% à 70 ans)",
+    sv: "Bonification de 7,2%/an (+36% à 70 ans)",
+    avantages: "Rente maximale, protection longévité, moins d'années à financer",
+    inconvenients: "Moins d'années pour profiter de la retraite, dépend de la santé",
     color: "#EDE9FE",
     borderColor: "#8B5CF6",
   },
@@ -118,20 +118,20 @@ const ageRetraite = [
 
 const faqs = [
   {
-    q: "Combien faut-il Ã©pargner pour la retraite au QuÃ©bec ?",
-    r: "La rÃ¨gle du 70% suggÃ¨re qu'Ã  la retraite, vous aurez besoin d'environ 70% de votre revenu de travail pour maintenir votre style de vie. Pour un revenu de 60 000 $/an, visez 42 000 $/an Ã  la retraite. En soustrayant la RRQ (~9 800 $/an) et la SV (~8 400 $/an), il faut gÃ©nÃ©rer environ 23 800 $/an de sources privÃ©es (REER, CELI, rÃ©gime d'employeur). Avec un taux de retrait prudent de 4%, cela reprÃ©sente un capital d'environ 595 000 $.",
+    q: "Combien faut-il épargner pour la retraite au Québec ?",
+    r: "La règle du 70% suggère qu'à la retraite, vous aurez besoin d'environ 70% de votre revenu de travail pour maintenir votre style de vie. Pour un revenu de 60 000 $/an, visez 42 000 $/an à la retraite. En soustrayant la RRQ (~9 800 $/an) et la SV (~8 400 $/an), il faut générer environ 23 800 $/an de sources privées (REER, CELI, régime d'employeur). Avec un taux de retrait prudent de 4%, cela représente un capital d'environ 595 000 $.",
   },
   {
-    q: "Est-ce que la RRQ et la SV suffisent pour vivre Ã  la retraite au QuÃ©bec ?",
-    r: "En 2026, la RRQ maximale est d'environ 820 $/mois et la SV d'environ 698 $/mois â€” soit environ 1 518 $/mois (18 216 $/an) combinÃ©s. C'est insuffisant pour maintenir un style de vie confortable au QuÃ©bec, mais le SupplÃ©ment de revenu garanti (SRG) peut s'ajouter pour les personnes Ã  faible revenu. L'Ã©pargne personnelle via REER et CELI reste essentielle.",
+    q: "Est-ce que la RRQ et la SV suffisent pour vivre à la retraite au Québec ?",
+    r: "En 2026, la RRQ maximale est d'environ 820 $/mois et la SV d'environ 698 $/mois — soit environ 1 518 $/mois (18 216 $/an) combinés. C'est insuffisant pour maintenir un style de vie confortable au Québec, mais le Supplément de revenu garanti (SRG) peut s'ajouter pour les personnes à faible revenu. L'épargne personnelle via REER et CELI reste essentielle.",
   },
   {
-    q: "REER ou CELI â€” lequel prioriser pour la retraite ?",
-    r: "Si votre revenu actuel est plus Ã©levÃ© que votre revenu prÃ©vu Ã  la retraite, le REER est gÃ©nÃ©ralement plus avantageux (vous Ã©conomisez de l'impÃ´t maintenant, vous en payez moins Ã  la retraite). Si votre revenu sera similaire, ou si vous voulez plus de flexibilitÃ©, le CELI est excellent. IdÃ©alement, utilisez les deux selon vos droits disponibles.",
+    q: "REER ou CELI — lequel prioriser pour la retraite ?",
+    r: "Si votre revenu actuel est plus élevé que votre revenu prévu à la retraite, le REER est généralement plus avantageux (vous économisez de l'impôt maintenant, vous en payez moins à la retraite). Si votre revenu sera similaire, ou si vous voulez plus de flexibilité, le CELI est excellent. Idéalement, utilisez les deux selon vos droits disponibles.",
   },
   {
-    q: "Puis-je recevoir la RRQ et continuer Ã  travailler aprÃ¨s 65 ans ?",
-    r: "Oui. Depuis 2013, vous pouvez recevoir votre rente RRQ tout en continuant Ã  travailler aprÃ¨s 65 ans au QuÃ©bec. Si vous continuez Ã  cotiser aprÃ¨s 65 ans (obligatoire si vous Ãªtes employÃ©), votre rente augmentera. Vous pouvez aussi choisir de cesser de cotiser Ã  la RRQ aprÃ¨s 65 ans si vous recevez dÃ©jÃ  votre rente.",
+    q: "Puis-je recevoir la RRQ et continuer à travailler après 65 ans ?",
+    r: "Oui. Depuis 2013, vous pouvez recevoir votre rente RRQ tout en continuant à travailler après 65 ans au Québec. Si vous continuez à cotiser après 65 ans (obligatoire si vous êtes employé), votre rente augmentera. Vous pouvez aussi choisir de cesser de cotiser à la RRQ après 65 ans si vous recevez déjà votre rente.",
   },
 ];
 
@@ -148,18 +148,18 @@ export default function RetraitePage() {
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
             <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
-            {" â€º "}
+            {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Retraite</span>
           </nav>
           <p style={{ color: GOLD, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px", opacity: 0.8 }}>
-            Guide complet Â· Retraite QuÃ©bec 2026
+            Guide complet · Retraite Québec 2026
           </p>
           <h1 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "clamp(1.6rem, 5vw, 2.2rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "12px" }}>
-            Planifier sa retraite au QuÃ©bec â€” Guide 2026
+            Planifier sa retraite au Québec — Guide 2026
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7 }}>
-            Les 5 piliers de la retraite quÃ©bÃ©coise, l&apos;impact du choix de l&apos;Ã¢ge de retraite,
-            combien Ã©pargner et comment combiner RRQ, SV, REER et CELI.
+            Les 5 piliers de la retraite québécoise, l&apos;impact du choix de l&apos;âge de retraite,
+            combien épargner et comment combiner RRQ, SV, REER et CELI.
           </p>
         </div>
       </section>
@@ -206,7 +206,7 @@ export default function RetraitePage() {
             {[
               { step: "1", text: "Vérifier tes droits REER disponibles dans l'avis de cotisation de l'ARC (Mon dossier ARC en ligne)" },
               { step: "2", text: "Décider si tu priorises le REER ou le CELI selon ton taux marginal actuel vs estimé à la retraite" },
-              { step: "3", text: "Planifier l'âge de début de la RRQ — différer jusqu'à 70 ans peut valoir 100 000 $ ou plus sur une vie" },
+              { step: "3", text: "Planifier l'âge de début de la RRQ à différer jusqu'à 70 ans peut valoir 100 000 $ ou plus sur une vie" },
             ].map((item) => (
               <li key={item.step} style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                 <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: DARK, color: GOLD, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 800, flexShrink: 0 }}>{item.step}</span>
@@ -234,7 +234,7 @@ export default function RetraitePage() {
 
         {/* 5 piliers */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-          Les 5 piliers de la retraite quÃ©bÃ©coise
+          Les 5 piliers de la retraite québécoise
         </h2>
         <div className="flex flex-col gap-4 mb-10">
           {piliers.map((p) => (
@@ -252,51 +252,51 @@ export default function RetraitePage() {
               <p style={{ fontSize: "13px", color: "#44403C", lineHeight: 1.65, margin: "0 0 12px 0" }}>{p.desc}</p>
               {p.href && (
                 <Link href={p.href} style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#F7F3EC", border: "1px solid #EDE9E0", color: "#1C1C1E", fontWeight: 700, fontSize: "12px", padding: "7px 14px", borderRadius: "8px", textDecoration: "none" }}>
-                  Guide complet â†’
+                  Guide complet →
                 </Link>
               )}
             </div>
           ))}
         </div>
 
-        {/* RÃ¨gle du 70% */}
+        {/* Règle du 70% */}
         <div style={{ background: DARK, borderRadius: "20px", padding: "1.5rem", marginBottom: "2.5rem" }}>
           <h2 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.2rem", fontWeight: 800, marginBottom: "12px" }}>
-            ðŸ’¡ La rÃ¨gle du 70% â€” combien Ã©pargner ?
+            💡 La règle du 70% — combien épargner ?
           </h2>
           <p style={{ color: "rgba(240,235,224,0.7)", fontSize: "13px", lineHeight: 1.7, marginBottom: "1rem" }}>
-            Ã€ la retraite, la plupart des dÃ©penses diminuent (hypothÃ¨que payÃ©e, enfants autonomes, moins de transport). La rÃ¨gle dit qu&apos;il vous faut environ <strong style={{ color: GOLD }}>70% de votre revenu de travail</strong>{" "}pour maintenir votre style de vie.
+            À la retraite, la plupart des dépenses diminuent (hypothèque payée, enfants autonomes, moins de transport). La règle dit qu&apos;il vous faut environ <strong style={{ color: GOLD }}>70% de votre revenu de travail</strong>{" "}pour maintenir votre style de vie.
           </p>
           <div style={{ background: "rgba(245,200,66,0.08)", border: "1px solid rgba(245,200,66,0.15)", borderRadius: "12px", padding: "1rem" }}>
             <p style={{ color: "#F0EBE0", fontSize: "13px", lineHeight: 1.7, margin: 0 }}>
               <strong style={{ color: GOLD }}>Exemple :</strong>{" "}Revenu de travail 65 000 $/an
-              <br />â†’ Besoin Ã  la retraite : <strong style={{ color: GOLD }}>45 500 $/an</strong>
-              <br />â†’ RRQ (moy.) : ~9 800 $/an | SV : ~8 400 $/an
-              <br />â†’ Ã€ gÃ©nÃ©rer par l&apos;Ã©pargne privÃ©e : <strong style={{ color: GOLD }}>~27 300 $/an</strong>
-              <br />â†’ Capital requis (taux 4%) : <strong style={{ color: GOLD }}>~682 500 $</strong>
+              <br />→ Besoin à la retraite : <strong style={{ color: GOLD }}>45 500 $/an</strong>
+              <br />→ RRQ (moy.) : ~9 800 $/an | SV : ~8 400 $/an
+              <br />→ À générer par l&apos;épargne privée : <strong style={{ color: GOLD }}>~27 300 $/an</strong>
+              <br />→ Capital requis (taux 4%) : <strong style={{ color: GOLD }}>~682 500 $</strong>
             </p>
           </div>
         </div>
 
-        {/* Ã‚ge de retraite */}
+        {/* Âge de retraite */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-          Ã€ quel Ã¢ge prendre sa retraite ? Impact sur la RRQ
+          À quel âge prendre sa retraite ? Impact sur la RRQ
         </h2>
         <div className="flex flex-col gap-4 mb-10">
           {ageRetraite.map((a) => (
             <div key={a.age} style={{ background: a.color, border: `1.5px solid ${a.borderColor}`, borderRadius: "16px", padding: "1.25rem" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
                 <span style={{ fontSize: "1.4rem" }}>{a.emoji}</span>
-                <h3 style={{ fontWeight: 800, fontSize: "16px", color: "#1C1C1E", margin: 0 }}>Retraite Ã  {a.age}</h3>
+                <h3 style={{ fontWeight: 800, fontSize: "16px", color: "#1C1C1E", margin: 0 }}>Retraite à {a.age}</h3>
               </div>
               <div className="grid grid-cols-1 gap-2" style={{ fontSize: "12px" }}>
                 <div><span style={{ fontWeight: 700, color: "#44403C" }}>RRQ : </span><span style={{ color: "#44403C" }}>{a.rrq}</span></div>
                 <div><span style={{ fontWeight: 700, color: "#44403C" }}>SV : </span><span style={{ color: "#44403C" }}>{a.sv}</span></div>
                 <div style={{ marginTop: "4px" }}>
-                  <span style={{ fontWeight: 700, color: "#065F46" }}>âœ… Avantages : </span><span style={{ color: "#065F46" }}>{a.avantages}</span>
+                  <span style={{ fontWeight: 700, color: "#065F46" }}>✅ Avantages : </span><span style={{ color: "#065F46" }}>{a.avantages}</span>
                 </div>
                 <div>
-                  <span style={{ fontWeight: 700, color: "#991B1B" }}>âš ï¸ InconvÃ©nients : </span><span style={{ color: "#991B1B" }}>{a.inconvenients}</span>
+                  <span style={{ fontWeight: 700, color: "#991B1B" }}>⚠️ Inconvénients : </span><span style={{ color: "#991B1B" }}>{a.inconvenients}</span>
                 </div>
               </div>
             </div>
@@ -305,27 +305,27 @@ export default function RetraitePage() {
 
         {/* Cards CTA */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-          Guides dÃ©taillÃ©s
+          Guides détaillés
         </h2>
         <div className="grid grid-cols-1 gap-3 mb-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
           {[
-            { href: "/retraite/reer", emoji: "ðŸ’°", titre: "REER â€” Guide complet", desc: "Plafond 2026, Ã©conomie d'impÃ´t, REER vs CELI", color: DARK, titleColor: "#F0EBE0", descColor: "rgba(240,235,224,0.6)", ctaColor: GOLD },
-            { href: "/retraite/celi", emoji: "ðŸ“ˆ", titre: "CELI â€” Tout comprendre", desc: "Droits de cotisation, placements, erreurs Ã  Ã©viter", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
-            { href: "/retraite/rrq", emoji: "ðŸ›ï¸", titre: "RRQ â€” Votre rente", desc: "Montants 2026, Ã¢ge optimal, RRQ vs RPC", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
-            { href: "/retraite/celiapp", emoji: "ðŸ¡", titre: "CELIAPP â€” Premier achat", desc: "8 000$/an, 40 000$ Ã  vie, retraits libres d'impÃ´t", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
+            { href: "/retraite/reer", emoji: "💰", titre: "REER — Guide complet", desc: "Plafond 2026, économie d'impôt, REER vs CELI", color: DARK, titleColor: "#F0EBE0", descColor: "rgba(240,235,224,0.6)", ctaColor: GOLD },
+            { href: "/retraite/celi", emoji: "📈", titre: "CELI — Tout comprendre", desc: "Droits de cotisation, placements, erreurs à éviter", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
+            { href: "/retraite/rrq", emoji: "🏛️", titre: "RRQ — Votre rente", desc: "Montants 2026, âge optimal, RRQ vs RPC", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
+            { href: "/retraite/celiapp", emoji: "🏡", titre: "CELIAPP — Premier achat", desc: "8 000$/an, 40 000$ à vie, retraits libres d'impôt", color: "white", titleColor: "#1C1C1E", descColor: "#78716C", ctaColor: "#3B82F6" },
           ].map((c) => (
             <Link key={c.href} href={c.href} style={{ display: "block", background: c.color, border: c.color === "white" ? "1px solid #EDE9E0" : "none", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
               <div style={{ fontSize: "1.75rem", marginBottom: "8px" }}>{c.emoji}</div>
               <h3 style={{ fontFamily: "var(--font-playfair)", color: c.titleColor, fontSize: "1rem", fontWeight: 800, marginBottom: "6px" }}>{c.titre}</h3>
               <p style={{ color: c.descColor, fontSize: "12px", lineHeight: 1.6, marginBottom: "10px" }}>{c.desc}</p>
-              <span style={{ color: c.ctaColor, fontWeight: 700, fontSize: "13px" }}>Lire le guide â†’</span>
+              <span style={{ color: c.ctaColor, fontWeight: 700, fontSize: "13px" }}>Lire le guide →</span>
             </Link>
           ))}
         </div>
 
         {/* FAQ */}
         <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.25rem" }}>
-          Questions frÃ©quentes
+          Questions fréquentes
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           {faqs.map((faq, i) => (
@@ -354,25 +354,25 @@ export default function RetraitePage() {
         {/* Liens */}
         <div className="flex flex-col gap-3 mb-4">
           <Link href="/budget/calculateur" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
-            <span style={{ fontSize: "1.4rem" }}>ðŸ“Š</span>
+            <span style={{ fontSize: "1.4rem" }}>📊</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Calculateur budget mensuel</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>IntÃ©grez vos cotisations REER et CELI Ã  votre budget</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Intégrez vos cotisations REER et CELI à votre budget</div>
             </div>
-            <span style={{ color: "#3B82F6" }}>â†’</span>
+            <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
           <Link href="/assurances/vie" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
-            <span style={{ fontSize: "1.4rem" }}>â¤ï¸</span>
+            <span style={{ fontSize: "1.4rem" }}>❤️</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Assurance vie et planification retraite</div>
-              <div style={{ fontSize: "12px", color: "#A8A29E" }}>ProtÃ©gez vos proches et intÃ©grez l&apos;assurance Ã  votre plan</div>
+              <div style={{ fontSize: "12px", color: "#A8A29E" }}>Protégez vos proches et intégrez l&apos;assurance à votre plan</div>
             </div>
-            <span style={{ color: "#3B82F6" }}>â†’</span>
+            <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
         </div>
 
         <div style={{ background: "#EDE9E0", borderRadius: "12px", height: "60px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px", marginTop: "1.5rem" }}>
-          PublicitÃ©
+          Publicité
         </div>
       </div>
 

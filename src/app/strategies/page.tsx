@@ -338,7 +338,7 @@ export default function StrategiesPage() {
         <section style={{ background: PARCH, borderTop: "1px solid #E8E0D4" }} className="px-5 py-10">
           <div className="max-w-2xl mx-auto text-center">
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.3rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "0.75rem" }}>
-              Vois comment ça s'applique à ta situation
+              Vois comment ça s&apos;applique à ta situation
             </h2>
             <p style={{ fontSize: "14px", color: "#78716C", marginBottom: "1.5rem" }}>
               Explore les scénarios types pour voir des calculs concrets selon ton profil.

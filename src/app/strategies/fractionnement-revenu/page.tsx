@@ -41,7 +41,7 @@ export default function FractionnementRevenuPage() {
               Fractionnement du revenu en couple
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Quand un conjoint gagne beaucoup plus que l'autre, le fractionnement du revenu réduit la facture fiscale combinée du couple — légalement et significativement.
+              Quand un conjoint gagne beaucoup plus que l&apos;autre, le fractionnement du revenu réduit la facture fiscale combinée du couple — légalement et significativement.
             </p>
           </div>
         </section>

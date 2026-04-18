@@ -130,7 +130,7 @@ export default function ReerVsCeliPage() {
         <section className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.5rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "1.75rem" }}>
-              La règle d'or REER vs CELI
+              La règle d&apos;or REER vs CELI
             </h2>
 
             <div className="flex flex-col gap-5">
