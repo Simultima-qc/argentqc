@@ -23,6 +23,7 @@ const CATEGORIES_LABELS: Record<string, string> = {
   credits_impot: "Crédits d'impôt",
   sante: "Santé & aînés",
   agriculture: "Agriculture",
+  education: "Études",
 };
 
 const NIVEAUX_LABELS: Record<string, { label: string; couleur: string }> = {
@@ -60,6 +61,17 @@ function getStrategies(r: ReponseQuestionnaire): Array<{
   libelleBtn: string;
 }> {
   const strats = [];
+
+  if (r.etudiant) {
+    strats.push({
+      emoji: "🎓",
+      titre: "Prêts, bourses et crédits pour étudiants",
+      desc: "AFE, REEP, crédits d'impôt frais de scolarité — guide complet avec estimateur indicatif pour financer vos études au Québec.",
+      lien: "/prets-bourses-etudiants",
+      libelleBtn: "Guide aides étudiants",
+    });
+    return strats.slice(0, 2);
+  }
 
   if (r.retraite || r.age === "65+") {
     strats.push({
@@ -194,6 +206,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
     renovation: params.renovation === "true",
     retraite: params.retraite === "true",
     age: params.age ?? "31-45",
+    etudiant: params.etudiant === "true",
   };
 
   const programmes = trouverProgrammes(reponses);

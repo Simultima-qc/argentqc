@@ -367,5 +367,47 @@
       "renovation": true,
       "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
     }
+  },
+  {
+    "id": "aides-etudiants-afe-qc",
+    "nom": "Aide financière aux études (AFE) — Prêts et bourses",
+    "organisme": "Gouvernement du Québec",
+    "niveau": "provincial",
+    "categorie": "education",
+    "montant_min": 500,
+    "montant_max": 17500,
+    "montant_affiche": "500 $ – 17 500 $/année",
+    "description": "Prêts remboursables et bourses non remboursables pour les étudiants inscrits dans un établissement reconnu au Québec. Le montant dépend des frais réels et du revenu familial.",
+    "conditions": [
+      "Être inscrit dans un programme reconnu par l'AFE",
+      "Résider au Québec depuis au moins 12 mois consécutifs",
+      "Satisfaire les critères de revenu (personnel, parental ou conjugal)",
+      "Temps plein ou temps partiel selon conditions"
+    ],
+    "lien_officiel": "https://argentqc.ca/prets-bourses-etudiants",
+    "criteres": {
+      "provinces": ["QC"],
+      "etudiant": true
+    }
+  },
+  {
+    "id": "reep-etudes-canada",
+    "nom": "REEP — Régime d'encouragement à l'éducation permanente",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "education",
+    "montant_min": 0,
+    "montant_max": 10000,
+    "montant_affiche": "Jusqu'à 10 000 $/année (20 000 $ cumulatif)",
+    "description": "Retrait du REER sans impôt immédiat pour financer ses propres études ou celles de son conjoint. Remboursement sur 10 ans.",
+    "conditions": [
+      "Avoir un REER avec des fonds disponibles",
+      "Être inscrit à temps plein dans un programme admissible d'au moins 3 mois",
+      "Rembourser sur 10 ans dans son REER"
+    ],
+    "lien_officiel": "https://argentqc.ca/prets-bourses-etudiants",
+    "criteres": {
+      "etudiant": true
+    }
   }
 ]

@@ -81,6 +81,7 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/depenses/assurances", title: "Reduire assurances Quebec", description: "Comparer et reduire ses assurances auto et habitation au Quebec.", changeFrequency: "monthly", priority: 0.75 },
   { path: "/aides-financieres/famille", title: "Aides financieres famille Quebec", description: "Toutes les aides financieres pour les familles quebecoises en 2026.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/aides-financieres/logement", title: "Aides logement Quebec", description: "Allocation-logement, credit solidarite et aides au logement au Quebec.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/prets-bourses-etudiants", title: "Prets et bourses etudiants Quebec 2026", description: "Guide complet des prets et bourses etudiants au Quebec : AFE, Bourse Perspective, REEP, remise en region.", changeFrequency: "monthly", priority: 0.85, includeInHomeHub: true },
 ];
 
 export const homeHubPageDefinitions = [

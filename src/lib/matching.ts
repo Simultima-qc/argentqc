@@ -67,6 +67,9 @@ export function trouverProgrammes(reponses: ReponseQuestionnaire): Programme[] {
     // Âge max
     if (c.age_max !== undefined && age > c.age_max) return false;
 
+    // Étudiant
+    if (c.etudiant === true && !reponses.etudiant) return false;
+
     return true;
   });
 }

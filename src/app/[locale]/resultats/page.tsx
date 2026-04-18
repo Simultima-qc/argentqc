@@ -44,6 +44,7 @@ export default async function ResultsPage({
     renovation: query.renovation === "true",
     retraite: query.retraite === "true",
     age: query.age ?? "31-45",
+    etudiant: query.etudiant === "true",
   };
 
   return <LocalizedResultsPage locale={locale} dictionary={getDictionary(locale).results} reponses={reponses} />;

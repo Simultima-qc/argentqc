@@ -6,7 +6,8 @@ export type Categorie =
   | "logement"
   | "credits_impot"
   | "sante"
-  | "agriculture";
+  | "agriculture"
+  | "education";
 
 export interface Programme {
   id: string;
@@ -32,6 +33,7 @@ export interface Programme {
     renovation?: boolean;
     age_min?: number;
     age_max?: number;
+    etudiant?: boolean;
   };
 }
 
@@ -45,4 +47,5 @@ export interface ReponseQuestionnaire {
   renovation: boolean;
   retraite: boolean;
   age: string; // fourchette ex: "18-30"
+  etudiant: boolean;
 }

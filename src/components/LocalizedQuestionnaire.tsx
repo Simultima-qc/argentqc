@@ -24,6 +24,7 @@ const DEFAULT_ANSWERS: ReponseQuestionnaire = {
   renovation: false,
   retraite: false,
   age: "",
+  etudiant: false,
 };
 
 interface LocalizedQuestionnaireProps {

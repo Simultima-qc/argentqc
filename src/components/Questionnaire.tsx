@@ -79,6 +79,11 @@ const ETAPES = [
       { valeur: "65+", label: "65 ans et plus" },
     ],
   },
+  {
+    id: "etudiant",
+    question: "Êtes-vous actuellement aux études (CÉGEP, université, DEP, formation professionnelle) ?",
+    type: "oui_non",
+  },
 ];
 
 const DEFAUTS: ReponseQuestionnaire = {
@@ -91,6 +96,7 @@ const DEFAUTS: ReponseQuestionnaire = {
   renovation: false,
   retraite: false,
   age: "",
+  etudiant: false,
 };
 
 export default function Questionnaire() {
