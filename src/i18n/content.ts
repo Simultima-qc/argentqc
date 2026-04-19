@@ -73,7 +73,7 @@ export interface QuestionnaireDictionary {
         options: Array<{ value: string; label: string }>;
       }
     | {
-        id: "enfants" | "renovation" | "retraite";
+        id: "enfants" | "renovation" | "retraite" | "etudiant";
         question: string;
         type: "oui_non";
       }
@@ -242,7 +242,7 @@ const fr: SiteDictionary = {
     metadata: {
       title: "Questionnaire | ArgentQC.ca",
       description:
-        "Répondez à 8 questions pour estimer les aides gouvernementales et crédits d'impôt qui peuvent s'appliquer à votre situation.",
+        "Répondez à 9 questions pour estimer les aides gouvernementales et crédits d'impôt qui peuvent s'appliquer à votre situation.",
     },
     progressLabel: "Question",
     previousQuestion: "Question précédente",
@@ -316,6 +316,11 @@ const fr: SiteDictionary = {
           { value: "46-65", label: "46 à 65 ans" },
           { value: "65+", label: "65 ans et plus" },
         ],
+      },
+      {
+        id: "etudiant",
+        question: "Êtes-vous actuellement aux études (CÉGEP, université, DEP, formation professionnelle) ?",
+        type: "oui_non",
       },
     ],
   },
@@ -496,7 +501,7 @@ const en: SiteDictionary = {
     metadata: {
       title: "Questionnaire | ArgentQC.ca",
       description:
-        "Answer 8 questions to estimate which government benefits and tax credits may apply to your situation.",
+        "Answer 9 questions to estimate which government benefits and tax credits may apply to your situation.",
     },
     progressLabel: "Question",
     previousQuestion: "Previous question",
@@ -570,6 +575,11 @@ const en: SiteDictionary = {
           { value: "46-65", label: "46 to 65" },
           { value: "65+", label: "65 and over" },
         ],
+      },
+      {
+        id: "etudiant",
+        question: "Are you currently a student in CEGEP, university, vocational training, or a professional program?",
+        type: "oui_non",
       },
     ],
   },

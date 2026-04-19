@@ -1,29 +1,311 @@
-﻿import fs from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
 
 const rootDir = process.cwd();
 const appDir = path.join(rootDir, "src", "app");
+const srcDir = path.join(rootDir, "src");
+const scriptsDir = path.join(rootDir, "scripts");
 const articleEntriesDir = path.join(rootDir, "src", "data", "blog", "entries");
 const seoPagesFile = path.join(rootDir, "src", "data", "seo-pages.ts");
+const routingFile = path.join(rootDir, "src", "i18n", "routing.ts");
+const contentFile = path.join(rootDir, "src", "i18n", "content.ts");
+const hubsFile = path.join(rootDir, "src", "i18n", "hubs.ts");
+const subguidesFile = path.join(rootDir, "src", "i18n", "subguides.ts");
+const questionnaireFile = path.join(rootDir, "src", "components", "Questionnaire.tsx");
+const localizedQuestionnaireFile = path.join(rootDir, "src", "components", "LocalizedQuestionnaire.tsx");
+const resultatsPageFile = path.join(appDir, "resultats", "page.tsx");
+const localizedResultatsPageFile = path.join(appDir, "[locale]", "resultats", "page.tsx");
+const matchingFile = path.join(rootDir, "src", "lib", "matching.ts");
+const typesFile = path.join(rootDir, "src", "types", "index.ts");
 const dynamicBlogRouteFile = path.join(appDir, "blog", "[slug]", "page.tsx");
 
-function fail(message, details = []) {
-  console.error(`SEO check failed: ${message}`);
-  for (const detail of details) {
-    console.error(`- ${detail}`);
+const errors = [];
+
+function report(message, details = []) {
+  errors.push({ message, details });
+}
+
+function finish() {
+  if (errors.length === 0) {
+    return;
+  }
+
+  console.error(`SEO check failed with ${errors.length} issue${errors.length > 1 ? "s" : ""}:`);
+  for (const { message, details } of errors) {
+    console.error(`\n${message}`);
+    for (const detail of details) {
+      console.error(`- ${detail}`);
+    }
   }
   process.exit(1);
 }
 
+function read(filePath) {
+  return fs.readFileSync(filePath, "utf8");
+}
+
+function relative(filePath) {
+  return path.relative(rootDir, filePath).replace(/\\/g, "/");
+}
+
+function unique(values) {
+  return [...new Set(values)];
+}
+
+function sorted(values) {
+  return [...values].sort((a, b) => a.localeCompare(b));
+}
+
+function diffSets(expected, actual, label) {
+  const missing = sorted(expected.filter((value) => !actual.includes(value))).map((value) => `missing ${label}: ${value}`);
+  const extra = sorted(actual.filter((value) => !expected.includes(value))).map((value) => `unexpected ${label}: ${value}`);
+  return [...missing, ...extra];
+}
+
 function extractMatches(filePath, regex, label) {
-  const source = fs.readFileSync(filePath, "utf8");
+  const source = read(filePath);
   const matches = [...source.matchAll(regex)].flatMap((match) => match.slice(1).filter(Boolean));
 
   if (matches.length === 0) {
-    fail(`unable to read ${label}`, [`Expected at least one match in ${path.relative(rootDir, filePath)}`]);
+    report(`Unable to read ${label}`, [`Expected at least one match in ${relative(filePath)}`]);
   }
 
   return matches;
+}
+
+function findMatching(source, openIndex, openChar = "{", closeChar = "}") {
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let inLineComment = false;
+  let inBlockComment = false;
+
+  for (let index = openIndex; index < source.length; index += 1) {
+    const char = source[index];
+    const next = source[index + 1];
+
+    if (inLineComment) {
+      if (char === "\n") inLineComment = false;
+      continue;
+    }
+
+    if (inBlockComment) {
+      if (char === "*" && next === "/") {
+        inBlockComment = false;
+        index += 1;
+      }
+      continue;
+    }
+
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = null;
+      }
+      continue;
+    }
+
+    if (char === "/" && next === "/") {
+      inLineComment = true;
+      index += 1;
+      continue;
+    }
+
+    if (char === "/" && next === "*") {
+      inBlockComment = true;
+      index += 1;
+      continue;
+    }
+
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+
+    if (char === openChar) depth += 1;
+    if (char === closeChar) depth -= 1;
+    if (depth === 0) return index;
+  }
+
+  return -1;
+}
+
+function extractBlockAfter(source, marker, openChar = "{", closeChar = "}") {
+  const markerIndex = source.indexOf(marker);
+  if (markerIndex === -1) return null;
+  const openIndex = source.indexOf(openChar, markerIndex);
+  if (openIndex === -1) return null;
+  const closeIndex = findMatching(source, openIndex, openChar, closeChar);
+  if (closeIndex === -1) return null;
+  return source.slice(openIndex, closeIndex + 1);
+}
+
+function skipWhitespaceAndComments(source, index) {
+  let current = index;
+  while (current < source.length) {
+    if (/\s/.test(source[current])) {
+      current += 1;
+      continue;
+    }
+
+    if (source[current] === "/" && source[current + 1] === "/") {
+      current = source.indexOf("\n", current + 2);
+      if (current === -1) return source.length;
+      continue;
+    }
+
+    if (source[current] === "/" && source[current + 1] === "*") {
+      const end = source.indexOf("*/", current + 2);
+      current = end === -1 ? source.length : end + 2;
+      continue;
+    }
+
+    break;
+  }
+  return current;
+}
+
+function readObjectKey(source, index) {
+  const char = source[index];
+  if (char === "\"" || char === "'") {
+    let current = index + 1;
+    let escaped = false;
+    let key = "";
+    while (current < source.length) {
+      const currentChar = source[current];
+      if (escaped) {
+        key += currentChar;
+        escaped = false;
+      } else if (currentChar === "\\") {
+        escaped = true;
+      } else if (currentChar === char) {
+        return { key, nextIndex: current + 1 };
+      } else {
+        key += currentChar;
+      }
+      current += 1;
+    }
+    return null;
+  }
+
+  const match = source.slice(index).match(/^([A-Za-z_$][\w$-]*)/);
+  if (!match) return null;
+  return { key: match[1], nextIndex: index + match[1].length };
+}
+
+function skipValue(source, index) {
+  let current = index;
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+
+  while (current < source.length) {
+    const char = source[current];
+    const next = source[current + 1];
+
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = null;
+      }
+      current += 1;
+      continue;
+    }
+
+    if (char === "/" && next === "/") {
+      const end = source.indexOf("\n", current + 2);
+      current = end === -1 ? source.length : end + 1;
+      continue;
+    }
+
+    if (char === "/" && next === "*") {
+      const end = source.indexOf("*/", current + 2);
+      current = end === -1 ? source.length : end + 2;
+      continue;
+    }
+
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      current += 1;
+      continue;
+    }
+
+    if (char === "{" || char === "[" || char === "(") depth += 1;
+    if (char === "}" || char === "]" || char === ")") {
+      if (depth === 0) return current;
+      depth -= 1;
+    }
+
+    if (depth === 0 && char === ",") return current + 1;
+    current += 1;
+  }
+
+  return current;
+}
+
+function collectObjectKeyPaths(source, openIndex = 0, prefix = [], paths = new Set()) {
+  let current = openIndex + 1;
+
+  while (current < source.length) {
+    current = skipWhitespaceAndComments(source, current);
+    if (source[current] === "}") return current + 1;
+    if (source[current] === ",") {
+      current += 1;
+      continue;
+    }
+
+    const keyResult = readObjectKey(source, current);
+    if (!keyResult) {
+      current += 1;
+      continue;
+    }
+
+    current = skipWhitespaceAndComments(source, keyResult.nextIndex);
+    if (source[current] !== ":") {
+      current += 1;
+      continue;
+    }
+
+    const nextPrefix = [...prefix, keyResult.key];
+    paths.add(nextPrefix.join("."));
+    current = skipWhitespaceAndComments(source, current + 1);
+
+    if (source[current] === "{") {
+      current = collectObjectKeyPaths(source, current, nextPrefix, paths);
+    } else {
+      current = skipValue(source, current);
+    }
+  }
+
+  return current;
+}
+
+function objectKeyPathsFromConst(source, constName) {
+  const block = extractBlockAfter(source, `const ${constName}`);
+  if (!block) {
+    report(`Unable to read ${constName} dictionary`, [`Expected a const named ${constName}`]);
+    return [];
+  }
+
+  const paths = new Set();
+  collectObjectKeyPaths(block, 0, [], paths);
+  return sorted([...paths]);
+}
+
+function extractStringArray(source, constName) {
+  const match = source.match(new RegExp(`export const ${constName} = \\[([\\s\\S]*?)\\] as const`));
+  if (!match) {
+    report(`Unable to read ${constName}`, [`Expected exported const array in ${constName}`]);
+    return [];
+  }
+
+  return [...match[1].matchAll(/"([^"]+)"/g)].map((entry) => entry[1]);
 }
 
 function walkPages(currentDir, pageFiles) {
@@ -31,7 +313,7 @@ function walkPages(currentDir, pageFiles) {
     const entryPath = path.join(currentDir, entry.name);
 
     if (entry.isDirectory()) {
-      if (entry.name === "api" || entry.name.startsWith("_") || entry.name.startsWith("[")) {
+      if (entry.name === "api" || entry.name.startsWith("_")) {
         continue;
       }
 
@@ -45,61 +327,307 @@ function walkPages(currentDir, pageFiles) {
   }
 }
 
-const articleEntryFiles = fs.readdirSync(articleEntriesDir, { withFileTypes: true })
-  .filter((entry) => entry.isFile() && entry.name.endsWith(".tsx"))
-  .map((entry) => entry.name)
-  .sort();
+function walkTextFiles(currentDir, files) {
+  const textExtensions = new Set([".js", ".mjs", ".ts", ".tsx", ".json", ".md"]);
 
-const articleSlugs = articleEntryFiles.map((fileName) => fileName.replace(/\.tsx$/, ""));
-const seoPaths = extractMatches(seoPagesFile, /path:\s*"([^"]+)"/g, "SEO page paths");
+  for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
+    const entryPath = path.join(currentDir, entry.name);
 
-if (!fs.existsSync(dynamicBlogRouteFile)) {
-  fail("dynamic blog route is missing", ["Create src/app/blog/[slug]/page.tsx"]);
-}
+    if (entry.isDirectory()) {
+      if (entry.name === "node_modules" || entry.name === ".next") continue;
+      walkTextFiles(entryPath, files);
+      continue;
+    }
 
-const duplicateArticleSlugs = articleSlugs.filter((slug, index) => articleSlugs.indexOf(slug) !== index);
-if (duplicateArticleSlugs.length > 0) {
-  fail("duplicate article slugs detected", duplicateArticleSlugs);
-}
-
-for (const fileName of articleEntryFiles) {
-  const filePath = path.join(articleEntriesDir, fileName);
-  const declaredSlugs = extractMatches(filePath, /const slug = "([^"]+)"|slug:\s*"([^"]+)"/g, `blog slug in ${fileName}`);
-  const expectedSlug = fileName.replace(/\.tsx$/, "");
-
-  if (!declaredSlugs.includes(expectedSlug)) {
-    fail("blog entry slug does not match its filename", [`${fileName} should declare slug ${expectedSlug}`]);
+    if (entry.isFile() && textExtensions.has(path.extname(entry.name))) {
+      files.push(entryPath);
+    }
   }
 }
 
-const seoRoutes = seoPaths.filter((route) => route !== "/" && route !== "/blog").sort();
-const missingStaticRouteFiles = seoRoutes.filter((routePath) => {
-  const routeFile = path.join(appDir, ...routePath.slice(1).split("/"), "page.tsx");
-  return !fs.existsSync(routeFile);
-});
-
-if (missingStaticRouteFiles.length > 0) {
-  fail("SEO registry references missing route files", missingStaticRouteFiles);
+function routePathForPageFile(filePath) {
+  const relativeDir = path.relative(appDir, path.dirname(filePath)).replace(/\\/g, "/");
+  return relativeDir === "" ? "/" : `/${relativeDir}`;
 }
 
-const pageFiles = [];
-walkPages(appDir, pageFiles);
+function checkBlogAndSeoRoutes() {
+  const articleEntryFiles = fs.readdirSync(articleEntriesDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".tsx"))
+    .map((entry) => entry.name)
+    .sort();
 
-const ignoredRoutes = new Set(["/blog", "/resultats"]);
-const missingMetadata = pageFiles
-  .map((filePath) => {
-    const relativeDir = path.relative(appDir, path.dirname(filePath)).replace(/\\/g, "/");
-    const routePath = relativeDir === "" ? "/" : `/${relativeDir}`;
-    const source = fs.readFileSync(filePath, "utf8");
-    const hasMetadata = source.includes("export const metadata") || source.includes("export async function generateMetadata");
-    return { routePath, hasMetadata };
-  })
-  .filter(({ routePath, hasMetadata }) => !ignoredRoutes.has(routePath) && !hasMetadata)
-  .map(({ routePath }) => routePath);
+  const articleSlugs = articleEntryFiles.map((fileName) => fileName.replace(/\.tsx$/, ""));
+  const seoPaths = extractMatches(seoPagesFile, /path:\s*"([^"]+)"/g, "SEO page paths");
 
-if (missingMetadata.length > 0) {
-  fail("public pages missing exported metadata", missingMetadata);
+  if (!fs.existsSync(dynamicBlogRouteFile)) {
+    report("Dynamic blog route is missing", ["Create src/app/blog/[slug]/page.tsx"]);
+  }
+
+  const duplicateArticleSlugs = articleSlugs.filter((slug, index) => articleSlugs.indexOf(slug) !== index);
+  if (duplicateArticleSlugs.length > 0) {
+    report("Duplicate article slugs detected", duplicateArticleSlugs);
+  }
+
+  for (const fileName of articleEntryFiles) {
+    const filePath = path.join(articleEntriesDir, fileName);
+    const declaredSlugs = extractMatches(filePath, /const slug = "([^"]+)"|slug:\s*"([^"]+)"/g, `blog slug in ${fileName}`);
+    const expectedSlug = fileName.replace(/\.tsx$/, "");
+
+    if (!declaredSlugs.includes(expectedSlug)) {
+      report("Blog entry slug does not match its filename", [`${fileName} should declare slug ${expectedSlug}`]);
+    }
+  }
+
+  const seoRoutes = seoPaths.filter((route) => route !== "/" && route !== "/blog").sort();
+  const missingStaticRouteFiles = seoRoutes.filter((routePath) => {
+    const routeFile = path.join(appDir, ...routePath.slice(1).split("/"), "page.tsx");
+    return !fs.existsSync(routeFile);
+  });
+
+  if (missingStaticRouteFiles.length > 0) {
+    report("SEO registry references missing route files", missingStaticRouteFiles);
+  }
+
+  return { seoRoutes, articleSlugs };
 }
 
-console.log(`SEO check passed for ${seoRoutes.length} static routes and ${articleSlugs.length} blog articles.`);
+function checkMetadataExports() {
+  const pageFiles = [];
+  walkPages(appDir, pageFiles);
 
+  const metadataExceptions = new Map([
+    ["/resultats", "Noindex questionnaire result page; metadata is still preferred when present."],
+  ]);
+
+  const missingMetadata = pageFiles
+    .map((filePath) => {
+      const routePath = routePathForPageFile(filePath);
+      const source = read(filePath);
+      const hasMetadata =
+        source.includes("export const metadata") ||
+        source.includes("export async function generateMetadata") ||
+        source.includes("export function generateMetadata");
+      return { routePath, hasMetadata };
+    })
+    .filter(({ routePath, hasMetadata }) => !metadataExceptions.has(routePath) && !hasMetadata)
+    .map(({ routePath }) => routePath);
+
+  if (missingMetadata.length > 0) {
+    report("Public pages missing exported metadata", missingMetadata);
+  }
+}
+
+function checkLocalizedRoutes() {
+  const routingSource = read(routingFile);
+  const hubSource = read(hubsFile);
+  const subguideSource = read(subguidesFile);
+
+  const routeKeyUnion = unique([...routingSource.matchAll(/\|\s*"([^"]+)"/g)].map((match) => match[1]));
+  const routeSegmentMatches = [...routingSource.matchAll(/^\s{2}([A-Za-z]\w*):\s*{\s*fr:\s*"([^"]*)",\s*en:\s*"([^"]*)"\s*}/gm)];
+  const routeSegments = routeSegmentMatches.map((match) => ({
+    key: match[1],
+    fr: match[2],
+    en: match[3],
+  }));
+  const routeSegmentKeys = routeSegments.map((route) => route.key);
+
+  const keyDiffs = diffSets(routeKeyUnion, routeSegmentKeys, "route key");
+  if (keyDiffs.length > 0) {
+    report("RouteKey union and routeSegments diverge", keyDiffs);
+  }
+
+  for (const locale of ["fr", "en"]) {
+    const duplicateSegments = routeSegments
+      .map((route) => route[locale])
+      .filter((segment, index, segments) => segment !== "" && segments.indexOf(segment) !== index);
+
+    if (duplicateSegments.length > 0) {
+      report(`Duplicate localized ${locale.toUpperCase()} route segments`, unique(duplicateSegments));
+    }
+  }
+
+  const hubRouteKeys = extractStringArray(hubSource, "localizedHubRouteKeys");
+  const subguideRouteKeys = extractStringArray(subguideSource, "localizedSubguideRouteKeys");
+  const contentRouteKeys = new Set(["home", "questionnaire", "results", ...hubRouteKeys, ...subguideRouteKeys]);
+  const missingContentRouteKeys = routeSegmentKeys.filter((key) => !contentRouteKeys.has(key));
+
+  if (missingContentRouteKeys.length > 0) {
+    report("Localized route keys are not covered by a page registry", missingContentRouteKeys);
+  }
+
+  const invalidHubRoutes = routeSegments
+    .filter((route) => hubRouteKeys.includes(route.key))
+    .flatMap((route) =>
+      ["fr", "en"]
+        .filter((locale) => route[locale].split("/").filter(Boolean).length !== 1)
+        .map((locale) => `${route.key}.${locale} should be a one-segment hub route`)
+    );
+
+  const invalidSubguideRoutes = routeSegments
+    .filter((route) => subguideRouteKeys.includes(route.key))
+    .flatMap((route) =>
+      ["fr", "en"]
+        .filter((locale) => route[locale].split("/").filter(Boolean).length !== 2)
+        .map((locale) => `${route.key}.${locale} should be a two-segment subguide route`)
+    );
+
+  if (invalidHubRoutes.length > 0 || invalidSubguideRoutes.length > 0) {
+    report("Localized routes do not match their expected page shape", [...invalidHubRoutes, ...invalidSubguideRoutes]);
+  }
+}
+
+function checkDictionaryShapes() {
+  const contentSource = read(contentFile);
+  const frPaths = objectKeyPathsFromConst(contentSource, "fr");
+  const enPaths = objectKeyPathsFromConst(contentSource, "en");
+  const shapeDiffs = diffSets(frPaths, enPaths, "dictionary path");
+
+  if (shapeDiffs.length > 0) {
+    report("FR/EN site dictionaries have divergent object keys", shapeDiffs);
+  }
+
+  for (const locale of ["fr", "en"]) {
+    const dictionaryBlock = extractBlockAfter(contentSource, `const ${locale}`);
+    const questionnaireBlock = dictionaryBlock ? extractBlockAfter(dictionaryBlock, "questionnaire:") : null;
+    const stepIds = questionnaireBlock ? unique([...questionnaireBlock.matchAll(/id:\s*"([^"]+)"/g)].map((match) => match[1])) : [];
+    const expectedStepIds = getQuestionnaireFields().filter((field) => field !== "province");
+    const diffs = diffSets(expectedStepIds, stepIds, `${locale} questionnaire step id`);
+
+    if (diffs.length > 0) {
+      report(`${locale.toUpperCase()} questionnaire dictionary steps do not match ReponseQuestionnaire`, diffs);
+    }
+  }
+}
+
+function getQuestionnaireFields() {
+  const typesSource = read(typesFile);
+  const block = extractBlockAfter(typesSource, "export interface ReponseQuestionnaire");
+  if (!block) {
+    report("Unable to read ReponseQuestionnaire fields", [`Expected interface in ${relative(typesFile)}`]);
+    return [];
+  }
+
+  return [...block.matchAll(/^\s{2}([A-Za-z_]\w*)[?:]?:/gm)].map((match) => match[1]);
+}
+
+function objectKeysFromConst(filePath, constName) {
+  const source = read(filePath);
+  const block = extractBlockAfter(source, `const ${constName}`);
+  if (!block) {
+    report(`Unable to read ${constName}`, [`Expected const in ${relative(filePath)}`]);
+    return [];
+  }
+
+  return [...block.matchAll(/^\s{2}([A-Za-z_]\w*):/gm)].map((match) => match[1]);
+}
+
+function reponseKeysFromPage(filePath) {
+  const source = read(filePath);
+  const marker = "const reponses: ReponseQuestionnaire";
+  const block = extractBlockAfter(source, marker);
+  if (!block) {
+    report("Unable to read ReponseQuestionnaire construction", [`Expected ${marker} in ${relative(filePath)}`]);
+    return [];
+  }
+
+  return [...block.matchAll(/^\s{4}([A-Za-z_]\w*):/gm)].map((match) => match[1]);
+}
+
+function checkQuestionnairePropagation() {
+  const fields = getQuestionnaireFields();
+  const stepFields = fields.filter((field) => field !== "province");
+  const questionnaireSource = read(questionnaireFile);
+  const localizedQuestionnaireSource = read(localizedQuestionnaireFile);
+  const matchingSource = read(matchingFile);
+
+  const defaultDiffs = [
+    ...diffSets(fields, objectKeysFromConst(questionnaireFile, "DEFAUTS"), "Questionnaire default field"),
+    ...diffSets(fields, objectKeysFromConst(localizedQuestionnaireFile, "DEFAULT_ANSWERS"), "LocalizedQuestionnaire default field"),
+  ];
+
+  if (defaultDiffs.length > 0) {
+    report("Questionnaire defaults do not cover ReponseQuestionnaire", defaultDiffs);
+  }
+
+  const questionnaireStepIds = unique([...questionnaireSource.matchAll(/id:\s*"([^"]+)"/g)].map((match) => match[1]));
+  const stepDiffs = diffSets(stepFields, questionnaireStepIds, "Questionnaire step id");
+  if (stepDiffs.length > 0) {
+    report("Questionnaire steps do not cover ReponseQuestionnaire fields", stepDiffs);
+  }
+
+  const resultDiffs = [
+    ...diffSets(fields, reponseKeysFromPage(resultatsPageFile), "resultats field"),
+    ...diffSets(fields, reponseKeysFromPage(localizedResultatsPageFile), "localized resultats field"),
+  ];
+
+  if (resultDiffs.length > 0) {
+    report("Results pages do not rebuild all ReponseQuestionnaire fields", resultDiffs);
+  }
+
+  const matchingExpectations = [
+    ["province", "reponses.province"],
+    ["statut_logement", "reponses.statut_logement"],
+    ["enfants", "reponses.enfants"],
+    ["revenu", "reponses.revenu"],
+    ["vehicule_elec", "reponses.vehicule_elec"],
+    ["renovation", "reponses.renovation"],
+    ["retraite", "reponses.retraite"],
+    ["age", "reponses.age"],
+    ["etudiant", "reponses.etudiant"],
+  ];
+  const missingMatchingFields = matchingExpectations
+    .filter(([field, token]) => fields.includes(field) && !matchingSource.includes(token))
+    .map(([field, token]) => `${field} is not referenced through ${token}`);
+
+  if (missingMatchingFields.length > 0) {
+    report("Matching logic does not consume questionnaire fields used by programme criteria", missingMatchingFields);
+  }
+}
+
+function checkEncoding() {
+  const files = [];
+  walkTextFiles(srcDir, files);
+  walkTextFiles(scriptsDir, files);
+
+  const mojibakePattern = /(?:\u00c3[\u0080-\u00bf]|\u00c2[\u0080-\u00bf]|\u00e2\u20ac[\u0080-\u00bf]|\ufffd)/g;
+  const suspicious = [];
+
+  for (const filePath of files) {
+    const source = read(filePath);
+    const matches = [...source.matchAll(mojibakePattern)];
+    if (matches.length === 0) continue;
+
+    const lineStarts = [0];
+    for (let index = 0; index < source.length; index += 1) {
+      if (source[index] === "\n") lineStarts.push(index + 1);
+    }
+
+    const lineForIndex = (index) => {
+      let low = 0;
+      let high = lineStarts.length - 1;
+      while (low <= high) {
+        const mid = Math.floor((low + high) / 2);
+        if (lineStarts[mid] <= index) low = mid + 1;
+        else high = mid - 1;
+      }
+      return high + 1;
+    };
+
+    const lines = unique(matches.slice(0, 5).map((match) => lineForIndex(match.index)));
+    suspicious.push(`${relative(filePath)}:${lines.join(",")}`);
+  }
+
+  if (suspicious.length > 0) {
+    report("Suspicious French accent encoding sequences detected", suspicious);
+  }
+}
+
+const { seoRoutes, articleSlugs } = checkBlogAndSeoRoutes();
+checkMetadataExports();
+checkLocalizedRoutes();
+checkDictionaryShapes();
+checkQuestionnairePropagation();
+checkEncoding();
+finish();
+
+console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, and text encoding.`);
