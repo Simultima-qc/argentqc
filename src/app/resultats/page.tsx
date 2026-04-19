@@ -279,37 +279,51 @@ export default async function ResultatsPage({ searchParams }: Props) {
         }}>
           <div style={{
             position: "absolute", inset: 0, pointerEvents: "none",
-            background: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,200,66,0.08) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.10) 0%, transparent 70%)`,
           }} />
-          <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center", marginBottom: "6px" }}>
-            Vous pourriez récupérer jusqu&apos;à
-          </p>
-          <p style={{
-            fontFamily: "var(--font-playfair)",
-            color: GOLD,
-            fontSize: "clamp(2.5rem, 10vw, 3.5rem)",
-            fontWeight: 800,
-            textAlign: "center",
-            lineHeight: 1,
-            marginBottom: "6px",
-          }}>
-            {formaterArgent(total.max)}
-          </p>
-          <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "13px", textAlign: "center", marginBottom: programmes.length > 0 ? "20px" : "0" }}>
-            {programmes.length} programme{programmes.length > 1 ? "s" : ""} trouvé{programmes.length > 1 ? "s" : ""}
-          </p>
-          {programmes.length > 0 && (
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
-              {programmes.map((prog) => (
-                <div key={prog.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13px" }}>
-                  <span style={{ color: "rgba(240,235,224,0.65)", display: "flex", alignItems: "center", gap: "8px" }}>
-                    <span style={{ color: GREEN }}>✓</span>
-                    {prog.nom}
-                  </span>
-                  <span style={{ fontWeight: 700, color: "#F0EBE0", flexShrink: 0, marginLeft: "8px" }}>{prog.montant_affiche}</span>
-                </div>
-              ))}
-            </div>
+          {programmes.length === 0 ? (
+            <p style={{ color: "rgba(240,235,224,0.65)", fontSize: "16px", fontWeight: 600, textAlign: "center", lineHeight: 1.6 }}>
+              Plusieurs programmes peuvent s&apos;appliquer à votre situation
+            </p>
+          ) : (
+            <>
+              <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "12px", fontWeight: 700, letterSpacing: "0.08em", textAlign: "center", marginBottom: "8px" }}>
+                💰 Vous pourriez récupérer jusqu&apos;à
+              </p>
+              <p style={{
+                fontFamily: "var(--font-playfair)",
+                color: GREEN,
+                fontSize: "clamp(2.5rem, 10vw, 3.5rem)",
+                fontWeight: 800,
+                textAlign: "center",
+                lineHeight: 1,
+                marginBottom: "4px",
+              }}>
+                {formaterArgent(total.max)}
+              </p>
+              <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "13px", textAlign: "center", marginBottom: "8px" }}>
+                cette année
+              </p>
+              {total.min > 0 && total.min !== total.max && (
+                <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "12px", textAlign: "center", marginBottom: "8px" }}>
+                  Entre {formaterArgent(total.min)} et {formaterArgent(total.max)} selon votre situation
+                </p>
+              )}
+              <p style={{ color: "rgba(240,235,224,0.25)", fontSize: "12px", textAlign: "center", marginBottom: "20px" }}>
+                {programmes.length} programme{programmes.length > 1 ? "s" : ""} trouvé{programmes.length > 1 ? "s" : ""}
+              </p>
+              <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "16px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                {programmes.map((prog) => (
+                  <div key={prog.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: "13px" }}>
+                    <span style={{ color: "rgba(240,235,224,0.65)", display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span style={{ color: GREEN }}>✓</span>
+                      {prog.nom}
+                    </span>
+                    <span style={{ fontWeight: 700, color: "#F0EBE0", flexShrink: 0, marginLeft: "8px" }}>{prog.montant_affiche}</span>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
 
