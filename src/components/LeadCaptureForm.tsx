@@ -91,9 +91,16 @@ export default function LeadCaptureForm({
       </p>
 
       {status === "success" ? (
-        <p className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
-          ✓ {isFr ? "Parfait ! Vous recevrez vos résultats sous peu." : "Done! You'll receive your results shortly."}
-        </p>
+        <div className="rounded-xl bg-emerald-50 px-4 py-3">
+          <p className="text-sm font-semibold text-emerald-700">
+            ✔️ {isFr ? "Parfait. Votre demande a bien été enregistrée." : "Done. Your request has been recorded."}
+          </p>
+          <p className="mt-1 text-xs text-emerald-600">
+            {isFr
+              ? "Nous vous informerons si de nouveaux programmes correspondent à votre profil."
+              : "We'll notify you if new programs match your profile."}
+          </p>
+        </div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
           <input

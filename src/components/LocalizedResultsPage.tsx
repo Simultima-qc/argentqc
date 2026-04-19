@@ -118,8 +118,13 @@ export default function LocalizedResultsPage({
           >
             {formaterArgent(total.max, locale)}
           </p>
-          <p className="mb-5 text-center text-sm text-stone-400">
+          <p className="mb-2 text-center text-sm text-stone-400">
             {programmes.length} {programmes.length === 1 ? dictionary.programmesFound.singular : dictionary.programmesFound.plural}
+          </p>
+          <p className="mb-5 text-center text-xs text-stone-500">
+            {locale === "fr"
+              ? "Estimation basée sur les programmes correspondant à votre profil."
+              : "Estimate based on programs matching your profile."}
           </p>
 
           {programmes.length > 0 && (
