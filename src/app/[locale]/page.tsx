@@ -2,9 +2,13 @@ import Link from "next/link";
 import { getDictionary } from "@/i18n/content";
 import { getRoutePath, isLocale, type Locale } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/seo";
+import { logCriticalRender, startServerTimer } from "@/lib/server-timing";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import TrackingLink from "@/components/TrackingLink";
-import StickyCta from "@/components/StickyCta";
+
+// Stable editorial content: prerender and serve from ISR instead of rendering on every hit/RSC request.
+export const revalidate = 86400;
+export const dynamic = "force-static";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -35,6 +39,7 @@ export default async function LocalizedHomePage({
 }: {
   params: Promise<{ locale: Locale }>;
 }) {
+  const timer = startServerTimer();
   const { locale } = await params;
   const d = getDictionary(locale);
   const h = d.home;
@@ -71,11 +76,10 @@ export default async function LocalizedHomePage({
     href: getRoutePath(locale, key),
     label: h.topicsLabels[i],
   }));
+  logCriticalRender("home", timer);
 
   return (
-    <main className="flex min-h-screen flex-col pb-20 md:pb-0">
-      <StickyCta label={h.stickyCta} href={questionnairePath} toolSectionId="tool-section" />
-
+    <main className="flex min-h-screen flex-col">
       {/* ── HERO ── */}
       <section className="px-5 pb-14 pt-6" style={{ background: DARK, position: "relative", overflow: "hidden" }}>
         <div style={{

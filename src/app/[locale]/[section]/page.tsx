@@ -4,6 +4,10 @@ import { getHubDictionary, localizedHubRouteKeys } from "@/i18n/hubs";
 import { buildPageMetadata } from "@/lib/seo";
 import { getRouteKeyForLocalizedSegment, getRoutePath, isLocale, locales, type Locale } from "@/i18n/routing";
 
+// Hub pages are editorial and should be served from the static cache on traffic/RSC prefetch.
+export const revalidate = 86400;
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
     localizedHubRouteKeys.map((routeKey) => ({

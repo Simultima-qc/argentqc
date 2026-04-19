@@ -40,15 +40,15 @@ const delayReasons = {
 const missedCredits = {
   fr: [
     { title: "Frais medicaux", text: "Lunettes, soins, physiotherapie et primes d'assurance peuvent faire une vraie difference.", href: "/credit-impot-frais-medicaux-quebec", badge: "Jusqu'a env. 1 200 a 2 000 $" },
-    { title: "Frais de demenagement", text: "Plusieurs couts lies a un demenagement admissible peuvent etre deductibles.", href: "/demenagement/cout", badge: "Deduction variable" },
-    { title: "Credit de solidarite", text: "Au Quebec, ce credit remboursable est souvent sous-estime ou mal renseigne.", href: "/credit-solidarite-quebec", badge: "Jusqu'a 1 194 $/an" },
-    { title: "Cotisations REER", text: "Les cotisations admissibles reduisent directement le revenu imposable.", href: "/retraite/reer", badge: "Economie fiscale potentielle" },
+    { title: "Frais de demenagement", text: "Plusieurs couts lies a un demenagement admissible peuvent etre deductibles.", href: "/fr/demenagement/cout", badge: "Deduction variable" },
+    { title: "Credit de solidarite", text: "Au Quebec, ce credit remboursable est souvent sous-estime ou mal renseigne.", href: "/fr/budget/credit-solidarite", badge: "Jusqu'a 1 194 $/an" },
+    { title: "Cotisations REER", text: "Les cotisations admissibles reduisent directement le revenu imposable.", href: "/fr/retraite/reer", badge: "Economie fiscale potentielle" },
   ],
   en: [
     { title: "Medical expenses", text: "Glasses, care, physiotherapy, and insurance premiums can move the final refund meaningfully.", href: "/credit-impot-frais-medicaux-quebec", badge: "Often worth 1,200 to 2,000 CAD" },
-    { title: "Moving expenses", text: "Several qualifying moving costs may still be deductible depending on the move context.", href: "/demenagement/cout", badge: "Variable deduction" },
-    { title: "Solidarity tax credit", text: "In Quebec this refundable credit is often under-claimed or poorly completed.", href: "/credit-solidarite-quebec", badge: "Up to 1,194 CAD/year" },
-    { title: "RRSP contributions", text: "Eligible RRSP contributions reduce taxable income directly.", href: "/retraite/reer", badge: "Potential tax savings" },
+    { title: "Moving expenses", text: "Several qualifying moving costs may still be deductible depending on the move context.", href: "/en/moving/cost", badge: "Variable deduction" },
+    { title: "Solidarity tax credit", text: "In Quebec this refundable credit is often under-claimed or poorly completed.", href: "/en/budget/solidarity-tax-credit", badge: "Up to 1,194 CAD/year" },
+    { title: "RRSP contributions", text: "Eligible RRSP contributions reduce taxable income directly.", href: "/en/retirement/rrsp", badge: "Potential tax savings" },
   ],
 } as const;
 

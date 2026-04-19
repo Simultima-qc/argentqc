@@ -11,11 +11,13 @@ type TrackingLinkProps = ComponentPropsWithoutRef<typeof Link> & {
 export default function TrackingLink({
   tracking,
   onClick,
+  prefetch = false,
   ...props
 }: TrackingLinkProps) {
   return (
     <Link
       {...props}
+      prefetch={prefetch}
       onClick={(e) => {
         trackCtaClick(tracking);
         onClick?.(e);

@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/i18n/routing";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }

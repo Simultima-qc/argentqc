@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ["subventions", "aides gouvernementales", "crédits d'impôt", "Québec", "Canada"],
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -20,9 +20,9 @@ export default async function RootLayout({
         {/* Google Analytics – dans <head> pour validation Search Console */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-EHYFT9BFCN"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="beforeInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -36,7 +36,7 @@ export default async function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2932496105657945"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />
       </head>
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">

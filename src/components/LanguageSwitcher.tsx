@@ -27,6 +27,7 @@ function LanguageSwitcherInner({ currentLocale, label }: LanguageSwitcherProps) 
             href={href}
             hrefLang={locale}
             locale={false}
+            prefetch={false}
             className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
               isActive ? "bg-white text-slate-950" : "text-white/70 hover:text-white"
             }`}
