@@ -8,6 +8,7 @@ const scriptsDir = path.join(rootDir, "scripts");
 const articleEntriesDir = path.join(rootDir, "src", "data", "blog", "entries");
 const seoPagesFile = path.join(rootDir, "src", "data", "seo-pages.ts");
 const routingFile = path.join(rootDir, "src", "i18n", "routing.ts");
+const i18nDir = path.join(rootDir, "src", "i18n");
 const contentFile = path.join(rootDir, "src", "i18n", "content.ts");
 const hubsFile = path.join(rootDir, "src", "i18n", "hubs.ts");
 const subguidesFile = path.join(rootDir, "src", "i18n", "subguides.ts");
@@ -308,6 +309,10 @@ function extractStringArray(source, constName) {
   return [...match[1].matchAll(/"([^"]+)"/g)].map((entry) => entry[1]);
 }
 
+function extractConstNames(source) {
+  return [...source.matchAll(/\bconst\s+([A-Za-z_$][\w$]*)\b/g)].map((match) => match[1]);
+}
+
 function walkPages(currentDir, pageFiles) {
   for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
     const entryPath = path.join(currentDir, entry.name);
@@ -350,6 +355,11 @@ function routePathForPageFile(filePath) {
   return relativeDir === "" ? "/" : `/${relativeDir}`;
 }
 
+function routeFileForSeoPath(routePath) {
+  if (routePath === "/") return path.join(appDir, "page.tsx");
+  return path.join(appDir, ...routePath.slice(1).split("/"), "page.tsx");
+}
+
 function checkBlogAndSeoRoutes() {
   const articleEntryFiles = fs.readdirSync(articleEntriesDir, { withFileTypes: true })
     .filter((entry) => entry.isFile() && entry.name.endsWith(".tsx"))
@@ -358,9 +368,19 @@ function checkBlogAndSeoRoutes() {
 
   const articleSlugs = articleEntryFiles.map((fileName) => fileName.replace(/\.tsx$/, ""));
   const seoPaths = extractMatches(seoPagesFile, /path:\s*"([^"]+)"/g, "SEO page paths");
+  const duplicateSeoPaths = seoPaths.filter((route, index) => seoPaths.indexOf(route) !== index);
+  const malformedSeoPaths = seoPaths.filter((route) => !route.startsWith("/") || (route.length > 1 && route.endsWith("/")));
 
   if (!fs.existsSync(dynamicBlogRouteFile)) {
     report("Dynamic blog route is missing", ["Create src/app/blog/[slug]/page.tsx"]);
+  }
+
+  if (duplicateSeoPaths.length > 0) {
+    report("Duplicate SEO route paths detected", unique(duplicateSeoPaths));
+  }
+
+  if (malformedSeoPaths.length > 0) {
+    report("SEO route paths must start with / and avoid trailing slashes", malformedSeoPaths);
   }
 
   const duplicateArticleSlugs = articleSlugs.filter((slug, index) => articleSlugs.indexOf(slug) !== index);
@@ -378,10 +398,9 @@ function checkBlogAndSeoRoutes() {
     }
   }
 
-  const seoRoutes = seoPaths.filter((route) => route !== "/" && route !== "/blog").sort();
+  const seoRoutes = seoPaths.sort();
   const missingStaticRouteFiles = seoRoutes.filter((routePath) => {
-    const routeFile = path.join(appDir, ...routePath.slice(1).split("/"), "page.tsx");
-    return !fs.existsSync(routeFile);
+    return !fs.existsSync(routeFileForSeoPath(routePath));
   });
 
   if (missingStaticRouteFiles.length > 0) {
@@ -423,7 +442,10 @@ function checkLocalizedRoutes() {
   const subguideSource = read(subguidesFile);
 
   const routeKeyUnion = unique([...routingSource.matchAll(/\|\s*"([^"]+)"/g)].map((match) => match[1]));
-  const routeSegmentMatches = [...routingSource.matchAll(/^\s{2}([A-Za-z]\w*):\s*{\s*fr:\s*"([^"]*)",\s*en:\s*"([^"]*)"\s*}/gm)];
+  const routeSegmentsBlock = extractBlockAfter(routingSource, "const routeSegments");
+  const routeSegmentMatches = routeSegmentsBlock
+    ? [...routeSegmentsBlock.matchAll(/\b([A-Za-z]\w*):\s*{\s*fr:\s*"([^"]*)",\s*en:\s*"([^"]*)"\s*}/g)]
+    : [];
   const routeSegments = routeSegmentMatches.map((match) => ({
     key: match[1],
     fr: match[2],
@@ -434,6 +456,10 @@ function checkLocalizedRoutes() {
   const keyDiffs = diffSets(routeKeyUnion, routeSegmentKeys, "route key");
   if (keyDiffs.length > 0) {
     report("RouteKey union and routeSegments diverge", keyDiffs);
+  }
+
+  if (!routeSegmentsBlock) {
+    report("Unable to read routeSegments", [`Expected const routeSegments in ${relative(routingFile)}`]);
   }
 
   for (const locale of ["fr", "en"]) {
@@ -474,18 +500,65 @@ function checkLocalizedRoutes() {
   if (invalidHubRoutes.length > 0 || invalidSubguideRoutes.length > 0) {
     report("Localized routes do not match their expected page shape", [...invalidHubRoutes, ...invalidSubguideRoutes]);
   }
+
+  const missingLocalizedPageFiles = routeSegments
+    .filter((route) => route.key !== "home")
+    .filter((route) => {
+      const depth = route.fr.split("/").filter(Boolean).length;
+      const expectedFile = depth === 1
+        ? path.join(appDir, "[locale]", "[section]", "page.tsx")
+        : path.join(appDir, "[locale]", "[section]", "[page]", "page.tsx");
+      return !fs.existsSync(expectedFile);
+    })
+    .map((route) => route.key);
+
+  if (missingLocalizedPageFiles.length > 0) {
+    report("Localized route keys do not have a matching App Router page shape", unique(missingLocalizedPageFiles));
+  }
+}
+
+function checkDictionaryPair(filePath, frConstName, enConstName, label) {
+  const source = read(filePath);
+  const frPaths = objectKeyPathsFromConst(source, frConstName);
+  const enPaths = objectKeyPathsFromConst(source, enConstName);
+  const shapeDiffs = diffSets(frPaths, enPaths, "dictionary path");
+
+  if (shapeDiffs.length > 0) {
+    report(`FR/EN dictionaries diverge in ${label}`, shapeDiffs);
+  }
+}
+
+function checkI18nDictionaryPairs() {
+  const i18nFiles = fs.readdirSync(i18nDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".ts"))
+    .map((entry) => path.join(i18nDir, entry.name));
+
+  for (const filePath of i18nFiles) {
+    const source = read(filePath);
+    const constNames = extractConstNames(source);
+
+    if (constNames.includes("fr") || constNames.includes("en")) {
+      if (!constNames.includes("fr") || !constNames.includes("en")) {
+        report("Locale dictionary pair is incomplete", [`${relative(filePath)} should define both const fr and const en`]);
+      } else {
+        checkDictionaryPair(filePath, "fr", "en", `${relative(filePath)}:fr/en`);
+      }
+    }
+
+    for (const frConstName of constNames.filter((name) => /^fr[A-Z]/.test(name))) {
+      const enConstName = `en${frConstName.slice(2)}`;
+      if (!constNames.includes(enConstName)) {
+        report("Locale dictionary pair is incomplete", [`${relative(filePath)} should define ${enConstName} for ${frConstName}`]);
+        continue;
+      }
+
+      checkDictionaryPair(filePath, frConstName, enConstName, `${relative(filePath)}:${frConstName}/${enConstName}`);
+    }
+  }
 }
 
 function checkDictionaryShapes() {
   const contentSource = read(contentFile);
-  const frPaths = objectKeyPathsFromConst(contentSource, "fr");
-  const enPaths = objectKeyPathsFromConst(contentSource, "en");
-  const shapeDiffs = diffSets(frPaths, enPaths, "dictionary path");
-
-  if (shapeDiffs.length > 0) {
-    report("FR/EN site dictionaries have divergent object keys", shapeDiffs);
-  }
-
   for (const locale of ["fr", "en"]) {
     const dictionaryBlock = extractBlockAfter(contentSource, `const ${locale}`);
     const questionnaireBlock = dictionaryBlock ? extractBlockAfter(dictionaryBlock, "questionnaire:") : null;
@@ -497,6 +570,8 @@ function checkDictionaryShapes() {
       report(`${locale.toUpperCase()} questionnaire dictionary steps do not match ReponseQuestionnaire`, diffs);
     }
   }
+
+  checkI18nDictionaryPairs();
 }
 
 function getQuestionnaireFields() {
@@ -533,12 +608,84 @@ function reponseKeysFromPage(filePath) {
   return [...block.matchAll(/^\s{4}([A-Za-z_]\w*):/gm)].map((match) => match[1]);
 }
 
+function getProgrammeCriteriaFields() {
+  const typesSource = read(typesFile);
+  const criteriaBlock = extractBlockAfter(typesSource, "criteres:");
+  if (!criteriaBlock) {
+    report("Unable to read Programme criteria fields", [`Expected criteres object in ${relative(typesFile)}`]);
+    return [];
+  }
+
+  return [...criteriaBlock.matchAll(/^\s{4}([A-Za-z_]\w*)\??:/gm)].map((match) => match[1]);
+}
+
+function getCriteriaQuestionnaireField(criteriaField) {
+  const fieldMap = {
+    proprietaire: "statut_logement",
+    locataire: "statut_logement",
+    provinces: "province",
+    revenu_max: "revenu",
+    revenu_min: "revenu",
+    age_min: "age",
+    age_max: "age",
+  };
+
+  return fieldMap[criteriaField] ?? criteriaField;
+}
+
+function getProgrammeDataCriteriaFields() {
+  const financeDir = path.join(rootDir, "src", "data", "finance-2026");
+  const source = fs.readdirSync(financeDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".ts"))
+    .map((entry) => read(path.join(financeDir, entry.name)))
+    .join("\n");
+
+  const fields = new Set();
+  let current = 0;
+
+  while (current < source.length) {
+    const markerIndex = source.indexOf("criteres:", current);
+    if (markerIndex === -1) break;
+
+    const openIndex = source.indexOf("{", markerIndex);
+    if (openIndex === -1) break;
+
+    const closeIndex = findMatching(source, openIndex);
+    if (closeIndex === -1) break;
+
+    const block = source.slice(openIndex, closeIndex + 1);
+    for (const match of block.matchAll(/^\s{4,}([A-Za-z_]\w*)\s*:/gm)) {
+      fields.add(match[1]);
+    }
+
+    current = closeIndex + 1;
+  }
+
+  return sorted([...fields]);
+}
+
 function checkQuestionnairePropagation() {
   const fields = getQuestionnaireFields();
   const stepFields = fields.filter((field) => field !== "province");
   const questionnaireSource = read(questionnaireFile);
   const localizedQuestionnaireSource = read(localizedQuestionnaireFile);
   const matchingSource = read(matchingFile);
+  const programmeCriteriaFields = getProgrammeCriteriaFields();
+  const programmeDataCriteriaFields = getProgrammeDataCriteriaFields();
+  const questionnaireFieldsForCriteria = unique(programmeCriteriaFields.map(getCriteriaQuestionnaireField));
+  const unknownCriteriaFields = questionnaireFieldsForCriteria.filter((field) => !fields.includes(field));
+  const untypedProgrammeCriteria = programmeDataCriteriaFields.filter((field) => !programmeCriteriaFields.includes(field));
+
+  if (unknownCriteriaFields.length > 0) {
+    report(
+      "Programme criteria are not represented in ReponseQuestionnaire",
+      unknownCriteriaFields.map((field) => `${field} is needed by a programme criterion`)
+    );
+  }
+
+  if (untypedProgrammeCriteria.length > 0) {
+    report("Programme data uses criteria fields missing from Programme type", untypedProgrammeCriteria);
+  }
 
   const defaultDiffs = [
     ...diffSets(fields, objectKeysFromConst(questionnaireFile, "DEFAUTS"), "Questionnaire default field"),
@@ -564,17 +711,7 @@ function checkQuestionnairePropagation() {
     report("Results pages do not rebuild all ReponseQuestionnaire fields", resultDiffs);
   }
 
-  const matchingExpectations = [
-    ["province", "reponses.province"],
-    ["statut_logement", "reponses.statut_logement"],
-    ["enfants", "reponses.enfants"],
-    ["revenu", "reponses.revenu"],
-    ["vehicule_elec", "reponses.vehicule_elec"],
-    ["renovation", "reponses.renovation"],
-    ["retraite", "reponses.retraite"],
-    ["age", "reponses.age"],
-    ["etudiant", "reponses.etudiant"],
-  ];
+  const matchingExpectations = questionnaireFieldsForCriteria.map((field) => [field, `reponses.${field}`]);
   const missingMatchingFields = matchingExpectations
     .filter(([field, token]) => fields.includes(field) && !matchingSource.includes(token))
     .map(([field, token]) => `${field} is not referenced through ${token}`);
@@ -582,6 +719,7 @@ function checkQuestionnairePropagation() {
   if (missingMatchingFields.length > 0) {
     report("Matching logic does not consume questionnaire fields used by programme criteria", missingMatchingFields);
   }
+
 }
 
 function checkEncoding() {
@@ -589,7 +727,23 @@ function checkEncoding() {
   walkTextFiles(srcDir, files);
   walkTextFiles(scriptsDir, files);
 
-  const mojibakePattern = /(?:\u00c3[\u0080-\u00bf]|\u00c2[\u0080-\u00bf]|\u00e2\u20ac[\u0080-\u00bf]|\ufffd)/g;
+  const latinCapitalAWithTilde = String.fromCharCode(0x00c3);
+  const latinCapitalAWithCircumflex = String.fromCharCode(0x00c2);
+  const latinSmallAWithCircumflex = String.fromCharCode(0x00e2);
+  const replacementCharacter = String.fromCharCode(0xfffd);
+  const emojiLeadMojibake = `${String.fromCharCode(0x00f0)}${String.fromCharCode(0x0178)}`;
+  const variationSelectorMojibake = `${String.fromCharCode(0x00ef)}${String.fromCharCode(0xb8)}`;
+  const mojibakePattern = new RegExp(
+    [
+      `${latinCapitalAWithTilde}.`,
+      `${latinCapitalAWithCircumflex}[\\s·]`,
+      `\\b${latinSmallAWithCircumflex}(?:€|€“|€”|†)`,
+      `${emojiLeadMojibake}`,
+      `${variationSelectorMojibake}`,
+      `${replacementCharacter}`,
+    ].join("|"),
+    "g"
+  );
   const suspicious = [];
 
   for (const filePath of files) {
