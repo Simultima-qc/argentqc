@@ -94,7 +94,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       { question: "Pourquoi le Québec semble plus complexe ?", answer: "Parce que plusieurs crédits et obligations se lisent à la fois du côté fédéral et du côté provincial." },
       { question: "Faut-il produire avec un petit revenu ?", answer: "Souvent oui, surtout pour déclencher des crédits et prestations." },
     ],
-    ctaTitle: "Croiser impots et aides",
+    ctaTitle: "Croiser impôts et aides",
     ctaText: "Le questionnaire permet de repérer les programmes qui n'apparaissent pas toujours dans un simple raisonnement fiscal.",
     ctaLabel: "Trouver mes aides",
     example: {
@@ -179,10 +179,10 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ],
     faqs: [
       { question: "Faut-il magasiner chaque année ?", answer: "Très souvent oui. Le marché bouge et l'écart de prime peut être important." },
-      { question: "Un locataire a-t-il vraiment besoin d'assurance ?", answer: "Oui dans la pratique, surtout pour la responsabilite civile et la protection des biens." },
+      { question: "Un locataire a-t-il vraiment besoin d'assurance ?", answer: "Oui dans la pratique, surtout pour la responsabilité civile et la protection des biens." },
     ],
     ctaTitle: "Replacer l'assurance dans la vue d'ensemble",
-    ctaText: "Le questionnaire aide a remettre les decisions de couverture dans votre contexte financier global.",
+    ctaText: "Le questionnaire aide à remettre les décisions de couverture dans votre contexte financier global.",
     ctaLabel: "Voir mon profil",
     example: {
       label: "Marc, propriétaire avec 2 voitures — ce qu'il a économisé en magasinant",
@@ -216,7 +216,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ],
     cards: [
       { title: "Comparateur internet", description: "Comparer les offres principales.", href: "/fr/internet/comparateur" },
-      { title: "Questionnaire aides", description: "Voir aussi les autres leviers budgetaires.", href: "/fr/questionnaire" },
+      { title: "Questionnaire aides", description: "Voir aussi les autres leviers budgétaires.", href: "/fr/questionnaire" },
       { title: "Thème budget", description: "Remettre les télécoms dans le budget global.", href: "/fr/budget" },
     ],
     faqs: [
@@ -224,7 +224,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       { question: "Les promotions sont-elles un bon repère ?", answer: "Seulement si vous regardez le prix complet après promotion." },
     ],
     ctaTitle: "Voir l'impact dans le budget global",
-    ctaText: "Le bon forfait est aussi un arbitrage avec les autres depenses recurrentes du foyer.",
+    ctaText: "Le bon forfait est aussi un arbitrage avec les autres dépenses récurrentes du foyer.",
     ctaLabel: "Lancer le questionnaire",
     example: {
       label: "Julie, famille de 4 — économies télécom sans sacrifier la vitesse",
@@ -251,14 +251,14 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     title: "Déménager au Québec avec une vraie feuille de route",
     description: "Une base simple pour cadrer coûts, calendrier et changements administratifs.",
     keyPoints: [
-      "La date et le bail conditionnent une grande partie du stress et du cout.",
+      "La date et le bail conditionnent une grande partie du stress et du coût.",
       "Le vrai coût dépasse le simple camion ou déménageur.",
       "Les changements d'adresse doivent être traités comme une checklist unique.",
     ],
     cards: [
       { title: "Checklist déménagement", description: "Ne rien oublier avant et après l'arrivée.", href: "/fr/demenagement/checklist" },
       { title: "Coût du déménagement", description: "Estimer les frais réels.", href: "/fr/demenagement/cout" },
-      { title: "Montreal", description: "Le contexte spécifique de Montréal.", href: "/fr/demenagement/montreal" },
+      { title: "Montréal", description: "Le contexte spécifique de Montréal.", href: "/fr/demenagement/montreal" },
     ],
     faqs: [
       { question: "Quand faut-il commencer ?", answer: "Idéalement 6 à 8 semaines avant, surtout si plusieurs services doivent être coordonnés." },
