@@ -31,7 +31,7 @@ export interface QuestionnaireAbandonedParams {
   locale: string;
 }
 
-function gtag(event: string, params: Record<string, unknown>): void {
+function gtag(event: string, params: object): void {
   if (typeof window === "undefined" || !window.gtag) return;
   window.gtag("event", event, params);
 }
