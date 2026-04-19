@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { ReponseQuestionnaire } from "@/types";
@@ -8,6 +8,11 @@ import type { QuestionnaireDictionary } from "@/i18n/content";
 import { getRoutePath, type Locale } from "@/i18n/routing";
 import { getCommonUiLabels } from "@/i18n/ui";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import {
+  trackQuestionnaireStep,
+  trackQuestionnaireCompleted,
+  trackQuestionnaireAbandoned,
+} from "@/utils/analytics";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -40,6 +45,31 @@ export default function LocalizedQuestionnaire({
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<ReponseQuestionnaire>(DEFAULT_ANSWERS);
 
+  const completedRef = useRef(false);
+  const trackedStepRef = useRef(-1);
+
+  useEffect(() => {
+    if (trackedStepRef.current === stepIndex) return;
+    trackedStepRef.current = stepIndex;
+    trackQuestionnaireStep({
+      step_number: stepIndex + 1,
+      question_name: dictionary.steps[stepIndex].id,
+      locale,
+    });
+  }, [stepIndex, dictionary.steps, locale]);
+
+  useEffect(() => {
+    return () => {
+      if (!completedRef.current && trackedStepRef.current >= 0) {
+        trackQuestionnaireAbandoned({
+          last_step: trackedStepRef.current + 1,
+          locale,
+        });
+      }
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const step = dictionary.steps[stepIndex];
   const progress = Math.round(((stepIndex + 1) / dictionary.steps.length) * 100);
   const homePath = getRoutePath(locale, "home");
@@ -55,6 +85,12 @@ export default function LocalizedQuestionnaire({
       setStepIndex(stepIndex + 1);
       return;
     }
+
+    completedRef.current = true;
+    trackQuestionnaireCompleted({
+      total_questions: dictionary.steps.length,
+      locale,
+    });
 
     const params = new URLSearchParams(
       Object.entries(nextAnswers).map(([key, currentValue]) => [key, String(currentValue)])
