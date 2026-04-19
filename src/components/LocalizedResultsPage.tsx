@@ -6,6 +6,7 @@ import { getRoutePath, type Locale } from "@/i18n/routing";
 import { getCommonUiLabels } from "@/i18n/ui";
 import type { ReponseQuestionnaire } from "@/types";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -281,6 +282,14 @@ export default function LocalizedResultsPage({
                 </div>
               </div>
             )}
+
+            <LeadCaptureForm
+              locale={locale}
+              reponses={reponses}
+              matchedProgramCount={programmes.length}
+              estimatedTotalMin={total.min}
+              estimatedTotalMax={total.max}
+            />
 
             <div className="rounded-2xl px-6 py-6 text-center" style={{ background: DARK }}>
               <p className="mb-4 text-sm text-stone-300">{dictionary.recalculateText}</p>
