@@ -8,16 +8,17 @@ import { localeLabels, locales, type Locale, swapLocaleInPathname } from "@/i18n
 interface LanguageSwitcherProps {
   currentLocale: Locale;
   label: string;
+  availableLocales?: readonly Locale[];
 }
 
-function LanguageSwitcherInner({ currentLocale, label }: LanguageSwitcherProps) {
+function LanguageSwitcherInner({ currentLocale, label, availableLocales = locales }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const query = searchParams.toString();
 
   return (
     <nav aria-label={label} className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
-      {locales.map((locale) => {
+      {availableLocales.map((locale) => {
         const href = `${swapLocaleInPathname(pathname, locale)}${query ? `?${query}` : ""}`;
         const isActive = locale === currentLocale;
 
@@ -40,10 +41,10 @@ function LanguageSwitcherInner({ currentLocale, label }: LanguageSwitcherProps) 
   );
 }
 
-function LanguageSwitcherFallback({ currentLocale, label }: LanguageSwitcherProps) {
+function LanguageSwitcherFallback({ currentLocale, label, availableLocales = locales }: LanguageSwitcherProps) {
   return (
     <nav aria-label={label} className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1">
-      {locales.map((locale) => {
+      {availableLocales.map((locale) => {
         const isActive = locale === currentLocale;
 
         return (

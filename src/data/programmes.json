@@ -384,7 +384,7 @@
       "Satisfaire les critères de revenu (personnel, parental ou conjugal)",
       "Temps plein ou temps partiel selon conditions"
     ],
-    "lien_officiel": "https://argentqc.ca/prets-bourses-etudiants",
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/services-ligne",
     "criteres": {
       "provinces": ["QC"],
       "etudiant": true
@@ -405,7 +405,7 @@
       "Être inscrit à temps plein dans un programme admissible d'au moins 3 mois",
       "Rembourser sur 10 ans dans son REER"
     ],
-    "lien_officiel": "https://argentqc.ca/prets-bourses-etudiants",
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/reer-regimes-connexes/regime-encouragement-a-education-permanente.html",
     "criteres": {
       "etudiant": true
     }

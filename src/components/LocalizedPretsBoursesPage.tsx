@@ -40,7 +40,7 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
           <Link href={homePath} style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>
             ArgentQC.ca
           </Link>
-          <LanguageSwitcher currentLocale={locale} label="Language switcher" />
+          <LanguageSwitcher currentLocale={locale} label="Language switcher" availableLocales={["fr"]} />
         </div>
       </header>
 
@@ -141,7 +141,7 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
         <PretsBoursesClient dictionary={d} />
 
         {/* Programmes en détail */}
-        <h2 id="programmes" style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "0.75rem" }}>
+        <h2 id="programmes" style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "0.75rem", scrollMarginTop: "76px" }}>
           {d.programmesTitle}
         </h2>
         <p style={{ fontSize: "13px", color: "#78716C", lineHeight: 1.6, marginBottom: "1.25rem" }}>{d.programmesIntro}</p>

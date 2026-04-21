@@ -74,6 +74,12 @@ export interface PretsBoursesPageDictionary {
     perspectiveLabel: string;
     totalLabel: string;
     totalNote: string;
+    repayableAidLabel: string;
+    nonRepayableAidLabel: string;
+    taxReliefLabel: string;
+    reepOptionLabel: string;
+    noEstimateLabel: string;
+    validateLabel: string;
     officialCta: string;
     officialCtaHref: string;
     notApplicable: string;
@@ -355,6 +361,12 @@ const fr: PretsBoursesPageDictionary = {
     perspectiveLabel: "Bourse Perspective QC",
     totalLabel: "Total indicatif / année",
     totalNote: "Estimation non officielle. Des montants réels peuvent différer significativement.",
+    repayableAidLabel: "Aide remboursable",
+    nonRepayableAidLabel: "Aide non remboursable",
+    taxReliefLabel: "Crédits / allégements fiscaux",
+    reepOptionLabel: "Option REEP",
+    noEstimateLabel: "Aucune estimation dans cette catégorie",
+    validateLabel: "à valider",
     officialCta: "Faire ma demande officielle (AFE)",
     officialCtaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/demander-aide-financiere",
     notApplicable: "Non applicable",
@@ -548,6 +560,12 @@ const en: PretsBoursesPageDictionary = {
     perspectiveLabel: "Bourse Perspective QC",
     totalLabel: "Indicative total / year",
     totalNote: "Unofficial estimate. Actual amounts may differ significantly.",
+    repayableAidLabel: "Repayable aid",
+    nonRepayableAidLabel: "Non-repayable aid",
+    taxReliefLabel: "Tax credits / relief",
+    reepOptionLabel: "LLP option",
+    noEstimateLabel: "No estimate in this category",
+    validateLabel: "to validate",
     officialCta: "Submit my official application (AFE)",
     officialCtaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/demander-aide-financiere",
     notApplicable: "Not applicable",

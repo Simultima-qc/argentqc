@@ -5,6 +5,7 @@ import type { PretsBoursesPageDictionary } from "@/i18n/prets-bourses";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
+const FOCUS_CLASS = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
@@ -34,7 +35,6 @@ interface Resultats {
   estimationCreditsImpot: number | null;
   possibiliteREEP: string | null;
   perspectiveQC: PerspectiveStatus;
-  totalIndicatif: { min: number; max: number };
 }
 
 // ─── Heuristics (transparent, prudentes) ──────────────────────────────────────
@@ -142,14 +142,6 @@ function calculerResultats(form: FormState): Resultats {
 
   const perspectiveQC = evaluerPerspective(form.poursuiteProgrammePerspective);
 
-  const pretMin = estimationPretAFE?.min ?? 0;
-  const pretMax = estimationPretAFE?.max ?? 0;
-  const bourseMin = estimationBourseAFE?.min ?? 0;
-  const bourseMax = estimationBourseAFE?.max ?? 0;
-  const credits = estimationCreditsImpot ?? 0;
-  const reepMax = form.reerDisponible ? 10000 : 0;
-  const perspBonus = perspectiveQC === "admissible" ? 5000 : 0;
-
   return {
     admissibiliteAFE,
     estimationPretAFE,
@@ -157,10 +149,6 @@ function calculerResultats(form: FormState): Resultats {
     estimationCreditsImpot,
     possibiliteREEP,
     perspectiveQC,
-    totalIndicatif: {
-      min: pretMin + bourseMin + credits,
-      max: pretMax + bourseMax + credits + reepMax + perspBonus,
-    },
   };
 }
 
@@ -207,6 +195,10 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
     return `~${range.min.toLocaleString("fr-CA")} $ – ${range.max.toLocaleString("fr-CA")} $`;
   }
 
+  function formatAmount(amount: number) {
+    return `~${amount.toLocaleString("fr-CA")} $`;
+  }
+
   function admissibiliteBadge(val: AdmissibiliteAFE) {
     const colors: Record<AdmissibiliteAFE, { bg: string; border: string; text: string }> = {
       elevee: { bg: "#ECFDF5", border: "#34D399", text: "#065F46" },
@@ -218,7 +210,7 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
   }
 
   return (
-    <div id="calculateur" style={{ background: "white", border: `2px solid ${GOLD}`, borderRadius: "20px", padding: "1.5rem", marginBottom: "2rem" }}>
+    <div id="calculateur" style={{ background: "white", border: `2px solid ${GOLD}`, borderRadius: "20px", padding: "1.5rem", marginBottom: "2rem", scrollMarginTop: "76px" }}>
 
       {/* Titre */}
       <div style={{ marginBottom: "1.25rem" }}>
@@ -239,11 +231,14 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Statut études */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.statutEtudesLabel}</label>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
+          <div id="statut-etudes-label" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.statutEtudesLabel}</div>
+          <div role="group" aria-labelledby="statut-etudes-label" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "8px" }}>
             {f.statutEtudesOptions.map((opt) => (
               <button
                 key={opt.value}
+                type="button"
+                aria-pressed={form.statutEtudes === opt.value}
+                className={FOCUS_CLASS}
                 onClick={() => set("statutEtudes", opt.value as StatutEtudes)}
                 style={{
                   padding: "10px 6px",
@@ -266,11 +261,14 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Niveau */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.niveauLabel}</label>
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div id="niveau-etudes-label" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.niveauLabel}</div>
+          <div role="group" aria-labelledby="niveau-etudes-label" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {f.niveauOptions.map((opt) => (
               <button
                 key={opt.value}
+                type="button"
+                aria-pressed={form.niveauEtudes === opt.value}
+                className={FOCUS_CLASS}
                 onClick={() => set("niveauEtudes", opt.value as NiveauEtudes)}
                 style={{
                   padding: "10px 14px",
@@ -292,11 +290,14 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Résident Québec */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.residentLabel}</label>
-          <div style={{ display: "flex", gap: "8px" }}>
+          <div id="resident-quebec-label" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.residentLabel}</div>
+          <div role="group" aria-labelledby="resident-quebec-label" style={{ display: "flex", gap: "8px" }}>
             {[{ val: true, label: f.residentOui }, { val: false, label: f.residentNon }].map(({ val, label }) => (
               <button
                 key={String(val)}
+                type="button"
+                aria-pressed={form.residentQuebec === val}
+                className={FOCUS_CLASS}
                 onClick={() => set("residentQuebec", val)}
                 style={{
                   flex: 1,
@@ -318,11 +319,14 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Statut financier */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.statutFinancierLabel}</label>
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div id="statut-financier-label" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.statutFinancierLabel}</div>
+          <div role="group" aria-labelledby="statut-financier-label" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {f.statutFinancierOptions.map((opt) => (
               <button
                 key={opt.value}
+                type="button"
+                aria-pressed={form.statutFinancier === opt.value}
+                className={FOCUS_CLASS}
                 onClick={() => set("statutFinancier", opt.value as StatutFinancier)}
                 style={{
                   padding: "10px 14px",
@@ -344,9 +348,9 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Revenu personnel */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "6px" }}>{f.revenuPersonnelLabel}</label>
+          <label htmlFor="revenu-personnel" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "6px" }}>{f.revenuPersonnelLabel}</label>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <input type="range" min={0} max={60000} step={1000} value={form.revenuPersonnel}
+            <input id="revenu-personnel" name="revenu-personnel" className={FOCUS_CLASS} type="range" min={0} max={60000} step={1000} value={form.revenuPersonnel}
               onChange={(e) => set("revenuPersonnel", Number(e.target.value))}
               style={{ flex: 1, accentColor: GOLD }} />
             <span style={{ fontWeight: 800, fontSize: "13px", color: DARK, minWidth: "80px", textAlign: "right" }}>
@@ -358,9 +362,9 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
         {/* Revenu parents/conjoint */}
         {showRevenuParent && (
           <div>
-            <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "6px" }}>{f.revenuConjointParentLabel}</label>
+            <label htmlFor="revenu-parents-conjoint" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "6px" }}>{f.revenuConjointParentLabel}</label>
             <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <input type="range" min={0} max={150000} step={5000} value={form.revenuParentsOuConjoint}
+              <input id="revenu-parents-conjoint" name="revenu-parents-conjoint" className={FOCUS_CLASS} type="range" min={0} max={150000} step={5000} value={form.revenuParentsOuConjoint}
                 onChange={(e) => set("revenuParentsOuConjoint", Number(e.target.value))}
                 style={{ flex: 1, accentColor: GOLD }} />
               <span style={{ fontWeight: 800, fontSize: "13px", color: DARK, minWidth: "80px", textAlign: "right" }}>
@@ -372,6 +376,9 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Enfant à charge */}
         <button
+          type="button"
+          aria-pressed={form.enfantCharge}
+          className={FOCUS_CLASS}
           onClick={() => set("enfantCharge", !form.enfantCharge)}
           style={{
             display: "flex", alignItems: "center", gap: "10px",
@@ -389,16 +396,20 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Frais scolarité */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "6px" }}>{f.fraisScolariteLabel}</label>
+          <label htmlFor="frais-scolarite" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "6px" }}>{f.fraisScolariteLabel}</label>
           <div style={{ position: "relative" }}>
             <input
+              id="frais-scolarite"
+              name="frais-scolarite"
+              className={FOCUS_CLASS}
               type="number"
+              inputMode="numeric"
               value={form.fraisScolarite || ""}
               onChange={(e) => set("fraisScolarite", Number(e.target.value) || 0)}
               placeholder={f.fraisScolaritePlaceholder}
               style={{
                 width: "100%", padding: "10px 40px 10px 14px", fontSize: "15px", fontWeight: 600,
-                border: "2px solid #E5E7EB", borderRadius: "10px", outline: "none",
+                border: "2px solid #E5E7EB", borderRadius: "10px",
                 background: "#FAFAFA", color: "#1C1C1E", boxSizing: "border-box",
               }}
             />
@@ -408,6 +419,9 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* REER */}
         <button
+          type="button"
+          aria-pressed={form.reerDisponible}
+          className={FOCUS_CLASS}
           onClick={() => set("reerDisponible", !form.reerDisponible)}
           style={{
             display: "flex", alignItems: "center", gap: "10px",
@@ -425,11 +439,14 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
         {/* Perspective QC */}
         <div>
-          <label style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.perspectiveLabel}</label>
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div id="perspective-label" style={{ display: "block", fontSize: "13px", fontWeight: 700, color: "#1C1C1E", marginBottom: "8px" }}>{f.perspectiveLabel}</div>
+          <div role="group" aria-labelledby="perspective-label" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {f.perspectiveOptions.map((opt) => (
               <button
                 key={opt.value}
+                type="button"
+                aria-pressed={form.poursuiteProgrammePerspective === opt.value}
+                className={FOCUS_CLASS}
                 onClick={() => set("poursuiteProgrammePerspective", opt.value as "yes" | "no" | "unknown")}
                 style={{
                   padding: "10px 14px", borderRadius: "10px",
@@ -450,6 +467,8 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
       {/* CTA calculer */}
       <button
+        type="button"
+        className={FOCUS_CLASS}
         onClick={handleCalculer}
         style={{
           display: "block", width: "100%", background: GOLD, color: DARK,
@@ -475,37 +494,68 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
           </div>
 
           <div className="flex flex-col gap-2">
-            {resultats.estimationPretAFE && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "10px", padding: "10px 14px" }}>
-                <span style={{ fontSize: "12px", color: "#1E40AF" }}>📚 {r.pretAfeLabel}</span>
-                <span style={{ fontWeight: 800, color: "#1E40AF", fontSize: "13px" }}>{formatRange(resultats.estimationPretAFE)}</span>
-              </div>
-            )}
-            {resultats.estimationBourseAFE && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#ECFDF5", border: "1px solid #A7F3D0", borderRadius: "10px", padding: "10px 14px" }}>
-                <span style={{ fontSize: "12px", color: "#065F46" }}>🎁 {r.bourseAfeLabel}</span>
-                <span style={{ fontWeight: 800, color: "#065F46", fontSize: "13px" }}>{formatRange(resultats.estimationBourseAFE)}</span>
-              </div>
-            )}
-            {resultats.estimationCreditsImpot !== null && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: "10px", padding: "10px 14px" }}>
-                <span style={{ fontSize: "12px", color: "#14532D" }}>🧾 {r.creditsLabel}</span>
-                <span style={{ fontWeight: 800, color: "#14532D", fontSize: "13px" }}>~{resultats.estimationCreditsImpot.toLocaleString("fr-CA")} $</span>
-              </div>
-            )}
-            {resultats.possibiliteREEP && (
-              <div style={{ background: "#EFF6FF", border: "1px solid #93C5FD", borderRadius: "10px", padding: "10px 14px" }}>
-                <p style={{ fontSize: "12px", color: "#1E40AF", margin: 0 }}>
+            <div style={{ background: "#EFF6FF", border: "1px solid #BFDBFE", borderRadius: "10px", padding: "10px 14px" }}>
+              <p style={{ fontSize: "11px", fontWeight: 800, color: "#1E40AF", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {r.repayableAidLabel}
+              </p>
+              {resultats.estimationPretAFE ? (
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: "12px", color: "#1E40AF" }}>📚 {r.pretAfeLabel}</span>
+                  <span style={{ fontWeight: 800, color: "#1E40AF", fontSize: "13px" }}>{formatRange(resultats.estimationPretAFE)}</span>
+                </div>
+              ) : (
+                <p style={{ fontSize: "12px", color: "#64748B", margin: 0 }}>{r.noEstimateLabel}</p>
+              )}
+            </div>
+
+            <div style={{ background: "#ECFDF5", border: "1px solid #A7F3D0", borderRadius: "10px", padding: "10px 14px" }}>
+              <p style={{ fontSize: "11px", fontWeight: 800, color: "#065F46", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {r.nonRepayableAidLabel}
+              </p>
+              {resultats.estimationBourseAFE ? (
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: resultats.perspectiveQC === "admissible" ? "6px" : 0 }}>
+                  <span style={{ fontSize: "12px", color: "#065F46" }}>🎁 {r.bourseAfeLabel}</span>
+                  <span style={{ fontWeight: 800, color: "#065F46", fontSize: "13px" }}>{formatRange(resultats.estimationBourseAFE)}</span>
+                </div>
+              ) : null}
+              {resultats.perspectiveQC === "admissible" ? (
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: "12px", color: "#065F46" }}>🏆 {r.perspectiveLabel}</span>
+                  <span style={{ fontWeight: 800, color: "#065F46", fontSize: "13px" }}>5 000 $ — {r.validateLabel}</span>
+                </div>
+              ) : null}
+              {!resultats.estimationBourseAFE && resultats.perspectiveQC !== "admissible" && (
+                <p style={{ fontSize: "12px", color: "#64748B", margin: 0 }}>{r.noEstimateLabel}</p>
+              )}
+            </div>
+
+            <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: "10px", padding: "10px 14px" }}>
+              <p style={{ fontSize: "11px", fontWeight: 800, color: "#14532D", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {r.taxReliefLabel}
+              </p>
+              {resultats.estimationCreditsImpot !== null ? (
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: "12px", color: "#14532D" }}>🧾 {r.creditsLabel}</span>
+                  <span style={{ fontWeight: 800, color: "#14532D", fontSize: "13px" }}>{formatAmount(resultats.estimationCreditsImpot)}</span>
+                </div>
+              ) : (
+                <p style={{ fontSize: "12px", color: "#64748B", margin: 0 }}>{r.noEstimateLabel}</p>
+              )}
+            </div>
+
+            <div style={{ background: "#F8FAFC", border: "1px solid #CBD5E1", borderRadius: "10px", padding: "10px 14px" }}>
+              <p style={{ fontSize: "11px", fontWeight: 800, color: "#334155", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {r.reepOptionLabel}
+              </p>
+              {resultats.possibiliteREEP ? (
+                <p style={{ fontSize: "12px", color: "#334155", margin: 0 }}>
                   🏦 <strong>{r.reepLabel} :</strong>{" "}{resultats.possibiliteREEP}
                 </p>
-              </div>
-            )}
-            {resultats.perspectiveQC === "admissible" && (
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "#FEF3C7", border: "1px solid #FCD34D", borderRadius: "10px", padding: "10px 14px" }}>
-                <span style={{ fontSize: "12px", color: "#78350F" }}>🏆 {r.perspectiveLabel}</span>
-                <span style={{ fontWeight: 800, color: "#78350F", fontSize: "13px" }}>5 000 $ — à valider</span>
-              </div>
-            )}
+              ) : (
+                <p style={{ fontSize: "12px", color: "#64748B", margin: 0 }}>{r.noEstimateLabel}</p>
+              )}
+            </div>
+
             {resultats.perspectiveQC === "non" && (
               <div style={{ background: "#F9FAFB", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "10px 14px" }}>
                 <p style={{ fontSize: "12px", color: "#6B7280", margin: 0 }}>
@@ -515,24 +565,14 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
             )}
           </div>
 
-          {/* Total */}
-          {(resultats.estimationPretAFE || resultats.estimationBourseAFE) && (
-            <div style={{ background: DARK, borderRadius: "14px", padding: "1rem 1.25rem", marginTop: "1rem", textAlign: "center" }}>
-              <p style={{ color: "rgba(240,235,224,0.5)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>
-                {r.totalLabel}
-              </p>
-              <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1.5rem", fontWeight: 800, margin: "0 0 4px" }}>
-                ~{resultats.totalIndicatif.min.toLocaleString("fr-CA")} $ – {resultats.totalIndicatif.max.toLocaleString("fr-CA")} $
-              </p>
-              <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", margin: 0 }}>{r.totalNote}</p>
-            </div>
-          )}
+          <p style={{ fontSize: "11px", color: "#78716C", lineHeight: 1.6, margin: "12px 0 0" }}>{r.totalNote}</p>
 
           {/* CTA officiel */}
           <a
             href={r.officialCtaHref}
             target="_blank"
             rel="noopener noreferrer"
+            className={FOCUS_CLASS}
             style={{
               display: "block", width: "100%", background: "#1E40AF", color: "white",
               fontWeight: 700, fontSize: "14px", padding: "13px", borderRadius: "12px",
@@ -553,6 +593,8 @@ export default function PretsBoursesClient({ dictionary: d }: Props) {
 
           {/* Reset */}
           <button
+            type="button"
+            className={FOCUS_CLASS}
             onClick={() => { setResultats(null); }}
             style={{
               display: "block", width: "100%", background: "transparent", color: "#78716C",
