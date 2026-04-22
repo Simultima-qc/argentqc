@@ -30,7 +30,7 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/vehicule-electrique-quebec", title: "Vehicule electrique Quebec", description: "Subventions et credits pour vehicules electriques au Quebec.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/credit-solidarite-quebec", title: "Credit solidarite Quebec", description: "Guide du credit d'impot pour la solidarite.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/allocation-logement-quebec", title: "Allocation logement Quebec", description: "Guide de l'allocation logement et autres aides au logement.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/subventions-maison-quebec", title: "Subventions maison Quebec", description: "Theme editorial des subventions maison et renovation.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },
+  { path: "/subventions-maison-quebec", title: "Subventions maison Quebec : montants, aides et estimation", description: "Estimer les subventions maison disponibles au Quebec et maximiser les montants pour vos travaux.", changeFrequency: "monthly", priority: 0.95, includeInHomeHub: true },
   { path: "/aide-financiere-sport-enfant-quebec", title: "Aide sport enfant Quebec", description: "Aides financieres pour les activites sportives des enfants.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/cout-vie-quebec", title: "Cout de la vie Quebec", description: "Guides et reperes sur le cout de la vie au Quebec.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },
   { path: "/aide-lunettes-quebec", title: "Aide lunettes Quebec", description: "Aides et credits pour lunettes et soins visuels.", changeFrequency: "monthly", priority: 0.8 },
