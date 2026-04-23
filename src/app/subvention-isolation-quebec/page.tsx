@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const quickFacts = [
-  ["Montant indicatif", "Variable selon les travaux"],
+  ["Montant indicatif", "Très différent selon les zones"],
   ["Temps pour vérifier", "2 minutes"],
   ["Complexité", "Modérée"],
   ["Travaux liés", "Thermopompe, Rénoclimat, rénovation énergétique"],
@@ -34,13 +34,13 @@ const amountRanges = [
   },
   {
     title: "Murs ou travaux importants",
-    range: "potentiel plus variable",
-    text: "Le montant dépend davantage de l'ampleur des travaux, du bâtiment et de la façon dont le projet est structuré.",
+    range: "peut devenir très intéressant",
+    text: "Le potentiel monte lorsque l'ampleur des travaux, le bâtiment et la stratégie énergétique se répondent bien.",
   },
   {
     title: "Projet global énergétique",
     range: "potentiel global plus élevé",
-    text: "L'isolation peut devenir plus avantageuse lorsqu'elle s'insère dans une stratégie complète d'efficacité énergétique.",
+    text: "L'isolation devient souvent plus payante quand elle s'insère dans une stratégie complète d'efficacité énergétique.",
   },
 ];
 
@@ -210,10 +210,13 @@ export default function SubventionIsolationQuebecPage() {
               Subvention isolation Québec : combien pouvez-vous recevoir?
             </h1>
             <p className="mb-5 max-w-2xl text-base leading-7 text-slate-300">
-              Les montants varient selon les travaux, le type d&apos;habitation et les programmes applicables.
-              Voici l&apos;essentiel pour estimer ce que vous pourriez récupérer et éviter les erreurs fréquentes.
+              Tous les travaux d&apos;isolation n&apos;offrent pas le même potentiel. Entretoit, murs, sous-sol et étanchéité
+              peuvent mener à des montants très différents selon votre bâtiment et la façon de structurer le projet.
             </p>
             <CtaButton location="hero" className="w-full sm:w-auto" />
+            <p className="mt-3 rounded-2xl border border-yellow-300/25 bg-yellow-300/10 px-4 py-3 text-center text-sm font-extrabold text-yellow-200 sm:inline-flex sm:text-left">
+              💰 Le potentiel varie fortement selon les zones isolées
+            </p>
             <p className="mt-2 text-center text-xs text-slate-400 sm:max-w-sm">
               Estimation rapide selon votre situation
             </p>
@@ -369,7 +372,7 @@ export default function SubventionIsolationQuebecPage() {
             Vous voulez savoir combien vos travaux d&apos;isolation pourraient réellement vous rapporter?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            En quelques minutes, voyez quels programmes pourraient s&apos;appliquer à votre situation.
+            Quelques minutes peuvent suffire pour voir si vos travaux cachent plus d&apos;aide que prévu.
           </p>
           <CtaButton location="final" className="mt-6 w-full sm:w-auto" />
           <p className="mt-2 text-xs text-slate-400">

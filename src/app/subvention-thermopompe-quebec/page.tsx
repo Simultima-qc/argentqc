@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const quickFacts = [
-  ["Montant indicatif", "Variable selon le projet"],
+  ["Montant indicatif", "Plusieurs milliers $ possibles"],
   ["Temps pour vérifier", "2 minutes"],
   ["Complexité", "Modérée"],
   ["Travaux liés", "Isolation, rénovation, efficacité énergétique"],
@@ -30,12 +30,12 @@ const amountRanges = [
   {
     title: "Condo ou copropriété",
     range: "souvent plus limité",
-    text: "Le potentiel dépend beaucoup du type d'installation, des règles du bâtiment et des critères applicables.",
+    text: "Le potentiel reste plus serré, mais le type d'installation et les règles du bâtiment peuvent changer le résultat.",
   },
   {
     title: "Maison unifamiliale",
     range: "environ 1 000 $ à 6 700 $+",
-    text: "Le potentiel est généralement plus élevé quand l'équipement est admissible et bien dimensionné pour le bâtiment.",
+    text: "Le bon choix d'équipement peut changer fortement le montant, surtout si le modèle est admissible et bien dimensionné.",
   },
   {
     title: "Projet plus large",
@@ -194,11 +194,14 @@ export default function SubventionThermopompeQuebecPage() {
               Subvention thermopompe Québec : combien pouvez-vous recevoir?
             </h1>
             <p className="mb-5 max-w-2xl text-base leading-7 text-slate-300">
-              Les montants varient selon votre habitation, l&apos;équipement choisi et les programmes applicables.
-              Plusieurs propriétaires sous-estiment ce qu&apos;ils peuvent obtenir. Voici l&apos;essentiel pour estimer
-              rapidement le potentiel réel et éviter les erreurs fréquentes.
+              Le choix de la thermopompe peut changer fortement le montant que vous pouvez recevoir. Modèle,
+              habitation, moment d&apos;achat et programmes applicables peuvent transformer une simple dépense en projet
+              beaucoup plus avantageux.
             </p>
             <CtaButton location="hero" className="max-w-sm" />
+            <p className="mt-3 rounded-2xl border border-yellow-300/25 bg-yellow-300/10 px-4 py-3 text-center text-sm font-extrabold text-yellow-200 sm:max-w-sm">
+              💰 Jusqu&apos;à plusieurs milliers de dollars selon l&apos;équipement
+            </p>
             <p className="mt-2 text-center text-xs text-slate-400 sm:max-w-sm">
               Estimation rapide selon votre situation
             </p>
@@ -372,7 +375,7 @@ export default function SubventionThermopompeQuebecPage() {
             Vous voulez savoir combien vous pourriez réellement recevoir?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            En quelques minutes, voyez quels programmes pourraient s&apos;appliquer à votre situation.
+            Avant de choisir un modèle ou de signer, voyez si votre thermopompe peut vous rapporter plus que prévu.
           </p>
           <CtaButton location="final" className="mt-6" />
           <p className="mt-2 text-xs text-slate-400">

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const quickFacts = [
-  ["Potentiel", "Variable selon les travaux"],
+  ["Potentiel", "Peut grimper selon le projet"],
   ["Temps pour vérifier", "2 minutes"],
   ["Complexité", "Modérée"],
   ["Travaux liés", "Isolation, thermopompe, rénovation énergétique"],
@@ -30,7 +30,7 @@ const amountRanges = [
   {
     title: "Travaux ciblés",
     range: "potentiel plus limité",
-    text: "Une rénovation précise peut parfois donner une aide utile, mais le montant reste souvent plus mesuré.",
+    text: "Une rénovation précise peut donner une aide utile, surtout si elle s'inscrit dans les bons critères.",
   },
   {
     title: "Rénovation énergétique",
@@ -40,7 +40,7 @@ const amountRanges = [
   {
     title: "Projet plus large",
     range: "potentiel supérieur",
-    text: "Quand plusieurs leviers sont envisagés ensemble, le montant global peut devenir beaucoup plus intéressant.",
+    text: "Quand plusieurs leviers sont envisagés ensemble, le montant global peut grimper plus vite que prévu.",
   },
 ];
 
@@ -211,10 +211,13 @@ export default function SubventionRenovationQuebecPage() {
               Subvention rénovation Québec : combien pouvez-vous recevoir?
             </h1>
             <p className="mb-5 max-w-2xl text-base leading-7 text-slate-300">
-              Les travaux de rénovation n&apos;ouvrent pas tous le même potentiel. Voici l&apos;essentiel pour estimer ce
-              que vous pourriez récupérer selon votre projet et éviter les erreurs fréquentes.
+              Certains projets de rénovation débloquent beaucoup plus que prévu. Le potentiel dépend moins du mot
+              &quot;rénovation&quot; que du type de travaux, du bâtiment et de la façon de relier les aides possibles.
             </p>
             <CtaButton location="hero" className="w-full sm:w-auto" />
+            <p className="mt-3 rounded-2xl border border-yellow-300/25 bg-yellow-300/10 px-4 py-3 text-center text-sm font-extrabold text-yellow-200 sm:inline-flex sm:text-left">
+              💰 Certains projets dépassent largement les attentes
+            </p>
             <p className="mt-2 text-center text-xs text-slate-400 sm:max-w-sm">
               Estimation rapide selon votre situation
             </p>
@@ -381,7 +384,7 @@ export default function SubventionRenovationQuebecPage() {
             Vous voulez savoir si vos travaux pourraient débloquer plus d&apos;aide que vous le pensez?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            En quelques minutes, voyez quels programmes pourraient s&apos;appliquer à votre situation.
+            Avant de signer ou de commencer, voyez si votre rénovation pourrait ouvrir plus d&apos;aide que prévu.
           </p>
           <CtaButton location="final" className="mt-6 w-full sm:w-auto" />
           <p className="mt-2 text-xs text-slate-400">

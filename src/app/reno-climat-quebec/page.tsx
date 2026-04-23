@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const quickFacts = [
-  ["Potentiel", "Variable selon les travaux"],
+  ["Potentiel", "Fort si le projet est structuré"],
   ["Temps pour vérifier", "2 minutes"],
   ["Complexité", "Modérée à élevée"],
   ["Travaux liés", "Thermopompe, isolation, rénovation énergétique"],
@@ -35,12 +35,12 @@ const amountRanges = [
   {
     title: "Rénovation énergétique plus large",
     range: "potentiel plus élevé",
-    text: "Le projet devient plus intéressant lorsque les travaux améliorent réellement la performance du bâtiment.",
+    text: "Le potentiel se renforce lorsque les travaux améliorent clairement la performance du bâtiment.",
   },
   {
     title: "Projet global",
     range: "potentiel supérieur",
-    text: "Quand plusieurs leviers sont envisagés ensemble, Rénoclimat peut aider à mieux structurer le projet complet.",
+    text: "Quand plusieurs leviers sont coordonnés, Rénoclimat peut donner beaucoup plus de valeur au projet complet.",
   },
 ];
 
@@ -210,11 +210,13 @@ export default function RenoClimatQuebecPage() {
               Rénoclimat Québec : combien pouvez-vous recevoir?
             </h1>
             <p className="mb-5 max-w-2xl text-base leading-7 text-slate-300">
-              Rénoclimat peut jouer un rôle important dans un projet de rénovation énergétique, mais le montant
-              potentiel varie selon les travaux et la situation du bâtiment. Voici l&apos;essentiel pour comprendre ce que
-              ça peut valoir et éviter les erreurs fréquentes.
+              Rénoclimat prend tout son sens dans un projet bien structuré. Les travaux, l&apos;ordre des démarches et
+              la situation du bâtiment peuvent faire une vraie différence sur ce que vous pourriez recevoir.
             </p>
             <CtaButton location="hero" className="w-full sm:w-auto" />
+            <p className="mt-3 rounded-2xl border border-yellow-300/25 bg-yellow-300/10 px-4 py-3 text-center text-sm font-extrabold text-yellow-200 sm:inline-flex sm:text-left">
+              💰 Un projet bien planifié peut débloquer plus que prévu
+            </p>
             <p className="mt-2 text-center text-xs text-slate-400 sm:max-w-sm">
               Estimation rapide selon votre situation
             </p>
@@ -377,7 +379,7 @@ export default function RenoClimatQuebecPage() {
             Vous voulez savoir si votre projet pourrait débloquer plus d&apos;aide que vous le pensez?
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            En quelques minutes, voyez quels programmes pourraient s&apos;appliquer à votre situation.
+            Avant de lancer les démarches, voyez si votre projet énergétique est structuré pour récupérer le maximum possible.
           </p>
           <CtaButton location="final" className="mt-6 w-full sm:w-auto" />
           <p className="mt-2 text-xs text-slate-400">
