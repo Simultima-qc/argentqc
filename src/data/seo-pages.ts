@@ -37,7 +37,7 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/subvention-sport-enfant-quebec", title: "Subvention sport enfant Quebec", description: "Guide des subventions sportives pour enfants.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/credit-impot-frais-medicaux-quebec", title: "Credit frais medicaux Quebec", description: "Credit d'impot pour frais medicaux et soins admissibles.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/subvention-thermopompe-quebec", title: "Subvention thermopompe Quebec", description: "Subventions pour thermopompes et travaux energetiques.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/subvention-isolation-quebec", title: "Subvention isolation Quebec", description: "Aides pour l'isolation et la renovation energetique.", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/subvention-isolation-quebec", title: "Subvention isolation Quebec : montants, admissibilite et estimation", description: "Estimer les aides possibles pour l'isolation au Quebec et verifier comment maximiser le montant selon les travaux.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/reno-climat-quebec", title: "RenoClimat Quebec", description: "Guide du programme RenoClimat et aides connexes.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/chauffez-vert-quebec", title: "Chauffez vert Quebec", description: "Programme Chauffez vert et subventions de conversion.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/borne-recharge-quebec", title: "Borne recharge Quebec", description: "Aides pour bornes de recharge au Quebec.", changeFrequency: "monthly", priority: 0.8 },
