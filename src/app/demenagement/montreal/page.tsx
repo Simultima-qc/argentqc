@@ -833,6 +833,9 @@ export default function DemenagementMontrealPage() {
           >
             Contactez-nous
           </Link>
+          <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>
+            Politique de confidentialité
+          </Link>
         </div>
       </footer>
     </main>

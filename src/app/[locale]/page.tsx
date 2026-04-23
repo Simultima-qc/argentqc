@@ -441,6 +441,14 @@ export default async function LocalizedHomePage({
             ))}
           </div>
           <p className="text-sm leading-7 text-stone-400">{h.footerDisclaimer}</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-4">
+            <Link href="/contact" className="text-xs no-underline" style={{ color: "rgba(240,235,224,0.4)" }}>
+              Contactez-nous
+            </Link>
+            <Link href="/politique-confidentialite" className="text-xs no-underline" style={{ color: "rgba(240,235,224,0.4)" }}>
+              Politique de confidentialité
+            </Link>
+          </div>
         </div>
       </footer>
     </main>

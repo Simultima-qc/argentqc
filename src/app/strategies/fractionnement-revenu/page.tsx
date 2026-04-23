@@ -257,6 +257,8 @@ export default function FractionnementRevenuPage() {
             <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", lineHeight: 1.7 }}>
               Outil informatif non affilié au gouvernement. Consultez un planificateur financier agréé pour des conseils personnalisés.
             </p>
+            <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
+            <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</Link>
           </div>
         </footer>
       </main>

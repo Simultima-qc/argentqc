@@ -52,5 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...localizedEntries, ...localizedHubEntries, ...localizedSubguideEntries, ...staticEntries, ...articleEntries];
+  const legalEntries = ["/politique-confidentialite", "/contact"].map((path) => ({
+    url: `${siteUrl}${path}`,
+    lastModified: now,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
+
+  return [...localizedEntries, ...localizedHubEntries, ...localizedSubguideEntries, ...staticEntries, ...articleEntries, ...legalEntries];
 }

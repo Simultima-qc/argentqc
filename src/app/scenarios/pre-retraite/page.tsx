@@ -227,6 +227,8 @@ export default function ScenarioPreRetraitePage() {
             <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", lineHeight: 1.7 }}>
               Outil informatif non affilié au gouvernement. Les montants sont des estimations — consultez les sites officiels et un planificateur financier pour votre situation spécifique.
             </p>
+            <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
+            <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</Link>
           </div>
         </footer>
       </main>

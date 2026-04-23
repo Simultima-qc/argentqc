@@ -395,6 +395,9 @@ export default function SubventionIsolationQuebecPage() {
           <Link href="/contact" className="mt-2 block text-[11px] text-slate-400">
             Contactez-nous
           </Link>
+          <Link href="/politique-confidentialite" className="mt-1 block text-[11px] text-slate-400">
+            Politique de confidentialité
+          </Link>
         </div>
       </footer>
     </main>
