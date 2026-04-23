@@ -320,8 +320,8 @@ export default function SubventionsMaisonQuebecPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-extrabold text-slate-950">Les principales subventions pour votre maison</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Utilisez ces guides pour approfondir chaque type d'aide, puis revenez au questionnaire pour estimer
-            ce qui s'applique à votre situation.
+            Utilisez ces guides pour approfondir chaque type d&apos;aide, puis revenez au questionnaire pour estimer
+            ce qui s&apos;applique à votre situation.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {subsidyTypes.map((item) => (
@@ -358,7 +358,7 @@ export default function SubventionsMaisonQuebecPage() {
           <h2 className="text-2xl font-extrabold text-slate-950">En quelques minutes, voyez votre potentiel</h2>
           <p className="mt-2 text-sm leading-6 text-slate-600">
             Le questionnaire vous aide à relier vos travaux, votre bâtiment et votre situation aux programmes
-            qui pourraient s'appliquer.
+            qui pourraient s&apos;appliquer.
           </p>
           <CtaButton location="mid" className="mt-5 w-full sm:w-auto" />
         </section>
@@ -392,10 +392,10 @@ export default function SubventionsMaisonQuebecPage() {
 
         <section className="rounded-[28px] p-6 text-center text-white sm:p-8" style={{ background: DARK }}>
           <h2 className="text-3xl font-extrabold" style={{ fontFamily: "var(--font-playfair)" }}>
-            Vous pourriez laisser de l'argent sur la table
+            Vous pourriez laisser de l&apos;argent sur la table
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            En quelques minutes, voyez ce qui s'applique à votre situation.
+            En quelques minutes, voyez ce qui s&apos;applique à votre situation.
           </p>
           <CtaButton location="final" className="mt-6 w-full sm:w-auto" />
           <p className="mt-3 text-xs text-slate-400">Estimation en 2 minutes selon votre situation</p>
