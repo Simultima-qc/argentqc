@@ -25,25 +25,25 @@ const amountCards = [
     icon: "🔥",
     title: "Rénovation énergétique",
     amount: "1 000 $ à 10 000 $+",
-    text: "Isolation, efficacité énergétique, chauffage et travaux admissibles peuvent faire grimper le total.",
+    text: "Le potentiel augmente vite quand les bons travaux et les bons programmes sont regardés ensemble.",
   },
   {
     icon: "❄️",
     title: "Thermopompe",
     amount: "Jusqu'à plusieurs milliers de dollars",
-    text: "Le modèle, le bâtiment et les programmes applicables changent fortement le potentiel.",
+    text: "Le bon équipement, au bon moment, peut faire une grosse différence sur le montant récupéré.",
   },
   {
     icon: "🧱",
     title: "Isolation",
-    amount: "Montants variables selon travaux",
-    text: "Grenier, murs, sous-sol et étanchéité ne donnent pas tous le même résultat.",
+    amount: "De modeste à très intéressant",
+    text: "Le potentiel change fortement selon les zones isolées : grenier, murs, sous-sol ou étanchéité.",
   },
   {
     icon: "⚡",
     title: "Projets combinés",
     amount: "Potentiel encore plus élevé",
-    text: "Quand plusieurs travaux sont planifiés ensemble, le montant total peut devenir beaucoup plus intéressant.",
+    text: "Plusieurs travaux bien planifiés peuvent faire grimper le total beaucoup plus vite qu'on le pense.",
   },
 ];
 
@@ -66,10 +66,10 @@ const examples = [
 ];
 
 const variationReasons = [
-  "Ce n'est pas un seul programme : plusieurs aides peuvent s'appliquer selon votre situation.",
-  "Les travaux changent tout : thermopompe, isolation, fenêtres, chauffage ou borne ne se calculent pas pareil.",
+  "Ce n'est pas une seule subvention à cocher : plusieurs aides peuvent se cumuler autour du même projet.",
+  "Le mix de travaux change tout : thermopompe, isolation, fenêtres, chauffage ou borne ne se calculent pas pareil.",
   "Le timing compte : certaines validations ou démarches doivent être faites avant d'acheter ou de commencer.",
-  "La majorité des gens sous-optimisent parce qu'ils regardent un programme isolé au lieu du projet complet.",
+  "La majorité des gens sous-optimisent parce qu'ils regardent une dépense isolée au lieu de l'ensemble des travaux.",
 ];
 
 const subsidyTypes = [
@@ -249,10 +249,16 @@ export default function SubventionsMaisonQuebecPage() {
               Subventions maison au Québec : combien pouvez-vous récupérer?
             </h1>
             <p className="mb-6 max-w-2xl text-base leading-7 text-slate-300">
-              Plusieurs programmes existent, mais les montants varient énormément selon votre situation.
-              Voici comment estimer rapidement ce que vous pourriez obtenir.
+              La plupart des propriétaires sous-estiment ce qu&apos;ils peuvent réellement récupérer. Selon vos
+              travaux, plusieurs aides peuvent s&apos;additionner et changer fortement le budget final.
             </p>
             <CtaButton location="hero" className="w-full sm:w-auto" />
+            <p
+              className="mt-3 rounded-2xl border border-yellow-300/25 bg-yellow-300/10 px-4 py-3 text-center text-sm font-extrabold text-yellow-200 sm:inline-flex sm:text-left"
+              aria-label="Potentiel financier estimé"
+            >
+              💰 1 000 $ à 10 000 $+ selon votre projet
+            </p>
             <p className="mt-3 text-center text-xs text-slate-400 sm:text-left">
               Estimation en 2 minutes selon votre situation
             </p>
@@ -286,7 +292,8 @@ export default function SubventionsMaisonQuebecPage() {
             ))}
           </div>
           <p className="mt-3 text-xs leading-5 text-slate-500">
-            Les montants varient selon le bâtiment, les travaux et les programmes applicables.
+            Le vrai levier est souvent la combinaison : bâtiment, travaux, ordre des démarches et programmes
+            compatibles.
           </p>
         </section>
 
@@ -320,8 +327,8 @@ export default function SubventionsMaisonQuebecPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-extrabold text-slate-950">Les principales subventions pour votre maison</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Utilisez ces guides pour approfondir chaque type d&apos;aide, puis revenez au questionnaire pour estimer
-            ce qui s&apos;applique à votre situation.
+            Utilisez ces guides comme points d&apos;entrée, puis estimez le projet complet pour voir quelles aides
+            pourraient s&apos;additionner autour de vos travaux.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {subsidyTypes.map((item) => (
@@ -392,10 +399,10 @@ export default function SubventionsMaisonQuebecPage() {
 
         <section className="rounded-[28px] p-6 text-center text-white sm:p-8" style={{ background: DARK }}>
           <h2 className="text-3xl font-extrabold" style={{ fontFamily: "var(--font-playfair)" }}>
-            Vous pourriez laisser de l&apos;argent sur la table
+            Vous pourriez laisser plusieurs milliers de dollars sur la table
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            En quelques minutes, voyez ce qui s&apos;applique à votre situation.
+            Avant de lancer vos travaux, voyez ce que votre projet pourrait réellement vous faire récupérer.
           </p>
           <CtaButton location="final" className="mt-6 w-full sm:w-auto" />
           <p className="mt-3 text-xs text-slate-400">Estimation en 2 minutes selon votre situation</p>
