@@ -7,6 +7,7 @@ import { getCommonUiLabels } from "@/i18n/ui";
 import type { ReponseQuestionnaire } from "@/types";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import SiteFooter from "@/components/SiteFooter";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -312,14 +313,14 @@ export default function LocalizedResultsPage({
         <p className="mt-6 text-center text-xs leading-6 text-stone-400">{dictionary.estimateDisclaimer}</p>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px", marginTop: "16px" }}>
-        <div className="mx-auto max-w-2xl text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>
-            ArgentQC.ca
-          </p>
-          <p className="text-xs text-stone-400">{dictionary.footerDisclaimer}</p>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={dictionary.footerDisclaimer}
+        contactLabel={locale === "fr" ? "Contactez-nous" : "Contact us"}
+        policyLabel={locale === "fr" ? "Politique de confidentialité" : "Privacy policy"}
+        contentClassName="mx-auto max-w-2xl text-center"
+        style={{ background: DARK, marginTop: "16px" }}
+        legalStyle={{ color: "rgb(168 162 158)" }}
+      />
     </main>
   );
 }

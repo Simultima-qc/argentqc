@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import articles from "@/data/articles";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Blogue – Guides sur les aides gouvernementales au Québec | ArgentQC.ca",
@@ -82,14 +83,13 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px", marginTop: "32px" }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
-          <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={"Outil informatif non affilié au gouvernement."}
+        contentStyle={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}
+        style={{ background: DARK, padding: "24px 16px", marginTop: "32px" }}
+        brandStyle={{ color: GOLD }}
+        contactLinkStyle={{ marginTop: "6px" }}
+      />
     </main>
   );
 }

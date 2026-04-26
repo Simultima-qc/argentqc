@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import PretsBoursesClient from "@/components/PretsBoursesClient";
+import SiteFooter from "@/components/SiteFooter";
 import {
   pretsBoursesProgrammes2026,
   pretsBoursesFaqs2026,
@@ -389,13 +390,14 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
 
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div className="mx-auto max-w-3xl text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px", lineHeight: 1.6 }}>{d.footerText}</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>{d.footerContact}</Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={d.footerText}
+        contactLabel={d.footerContact}
+        locale={locale}
+        contentClassName="mx-auto max-w-3xl text-center"
+        style={{ background: DARK }}
+        legalStyle={{ color: "rgba(240,235,224,0.3)", lineHeight: 1.6 }}
+      />
 
     </main>
   );

@@ -7,6 +7,7 @@ import TransferRRSPHero from "./TransferRRSPHero";
 import TransferRRSPSteps from "./TransferRRSPSteps";
 import TransferRRSPWizard from "./TransferRRSPWizard";
 import { DARK, GOLD, PARCH, frequentErrors, relatedPages } from "./content";
+import SiteFooter from "@/components/SiteFooter";
 
 const pageTitle = "Transférer un REER sans erreur au Québec | Guide pratique";
 const pageDescription =
@@ -317,20 +318,13 @@ export default function TransferReerPage() {
         </div>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>
-            Information pratique générale seulement. Vérifie toujours les détails finaux avec ton institution.
-          </p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>
-            Contactez-nous
-          </Link>
-          <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>
-            Politique de confidentialité
-          </Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={"Information pratique générale seulement. Vérifie toujours les détails finaux avec ton institution."}
+        contentClassName="max-w-3xl mx-auto text-center"
+        style={{ background: DARK, padding: "24px 16px" }}
+        brandStyle={{ color: GOLD }}
+        contactLinkStyle={{ marginTop: "6px" }}
+      />
 
       <Script id="transfert-reer-breadcrumb-schema" type="application/ld+json">
         {JSON.stringify(breadcrumbSchema)}

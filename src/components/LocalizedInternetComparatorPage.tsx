@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LocalizedInternetComparatorClient from "@/components/LocalizedInternetComparatorClient";
+import SiteFooter from "@/components/SiteFooter";
 import { getInternetComparatorDictionary } from "@/i18n/subguides";
 import { getRoutePath, type Locale } from "@/i18n/routing";
 
@@ -70,13 +71,15 @@ export default function LocalizedInternetComparatorPage({ locale }: { locale: Lo
         </section>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div className="mx-auto max-w-3xl text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p className="text-xs" style={{ color: "rgba(240,235,224,0.45)" }}>{dictionary.footerText}</p>
-          <Link href="/contact" className="mt-2 inline-block text-xs" style={{ color: "rgba(240,235,224,0.55)" }}>{dictionary.footerContact}</Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={dictionary.footerText}
+        contactLabel={dictionary.footerContact}
+        locale={locale}
+        contentClassName="mx-auto max-w-3xl text-center"
+        style={{ background: DARK }}
+        legalStyle={{ color: "rgba(240,235,224,0.45)" }}
+        linkStyle={{ color: "rgba(240,235,224,0.55)", marginTop: "8px" }}
+      />
     </main>
   );
 }

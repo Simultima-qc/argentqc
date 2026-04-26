@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SiteFooter from "@/components/SiteFooter";
 import LocalizedRetirementFhsaCalculator from "@/components/LocalizedRetirementFhsaCalculator";
 import { getRoutePath, type Locale } from "@/i18n/routing";
 import { getRetirementFhsaDictionary } from "@/i18n/subguides";
@@ -166,15 +167,14 @@ export default function LocalizedRetirementFhsaPage({ locale }: { locale: Locale
         </section>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div className="mx-auto max-w-4xl text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px" }}>{dictionary.footerText}</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>
-            {dictionary.footerContact}
-          </Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={dictionary.footerText}
+        contactLabel={dictionary.footerContact}
+        locale={locale}
+        contentClassName="mx-auto max-w-4xl text-center"
+        style={{ background: DARK }}
+        legalStyle={{ color: "rgba(240,235,224,0.4)" }}
+      />
     </main>
   );
 }

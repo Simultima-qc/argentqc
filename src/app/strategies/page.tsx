@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Stratégies financières au Québec 2026 | REER, CELI, optimisation fiscale | ArgentQC.ca",
@@ -363,16 +364,14 @@ export default function StrategiesPage() {
         </section>
 
         {/* ── FOOTER ── */}
-        <footer style={{ background: DARK }} className="py-8 px-5">
-          <div className="max-w-lg mx-auto text-center">
-            <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1.1rem", fontWeight: 700, marginBottom: "8px" }}>ArgentQC.ca</p>
-            <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", lineHeight: 1.7 }}>
-              Outil informatif non affilié au gouvernement. Consultez les sites officiels pour confirmer votre admissibilité.
-            </p>
-            <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
-            <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</Link>
-          </div>
-        </footer>
+        <SiteFooter
+          legalText={"Outil informatif non affilié au gouvernement. Consultez les sites officiels pour confirmer votre admissibilité."}
+          contentClassName="max-w-lg mx-auto text-center"
+          style={{ background: DARK, padding: "32px 20px" }}
+          brandStyle={{ color: GOLD, fontSize: "1.1rem", marginBottom: "8px" }}
+          legalStyle={{ fontSize: "12px", lineHeight: 1.7 }}
+          contactLinkStyle={{ marginTop: "6px" }}
+        />
       </main>
     </>
   );

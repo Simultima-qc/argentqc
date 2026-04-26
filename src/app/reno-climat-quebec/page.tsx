@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TrackingLink from "@/components/TrackingLink";
+import SiteFooter from "@/components/SiteFooter";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -393,20 +394,15 @@ export default function RenoClimatQuebecPage() {
         </p>
       </div>
 
-      <footer className="px-4 py-6" style={{ background: DARK }}>
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-1 text-base font-bold" style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}>
-            ArgentQC.ca
-          </p>
-          <p className="text-[11px] text-slate-500">Outil informatif non affilié au gouvernement.</p>
-          <Link href="/contact" className="mt-2 block text-[11px] text-slate-400">
-            Contactez-nous
-          </Link>
-          <Link href="/politique-confidentialite" className="mt-1 block text-[11px] text-slate-400">
-            Politique de confidentialité
-          </Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={"Outil informatif non affilié au gouvernement."}
+        contentClassName="mx-auto max-w-3xl text-center"
+        style={{ background: DARK }}
+        brandStyle={{ color: GOLD, marginBottom: "4px" }}
+        legalStyle={{ color: "rgb(100 116 139)" }}
+        linkStyle={{ color: "rgb(148 163 184)" }}
+        contactLinkStyle={{ marginTop: "8px" }}
+      />
     </main>
   );
 }

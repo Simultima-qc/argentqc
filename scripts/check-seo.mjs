@@ -350,6 +350,14 @@ function walkTextFiles(currentDir, files) {
   }
 }
 
+function lineNumberForIndex(source, index) {
+  let line = 1;
+  for (let current = 0; current < index; current += 1) {
+    if (source[current] === "\n") line += 1;
+  }
+  return line;
+}
+
 function routePathForPageFile(filePath) {
   const relativeDir = path.relative(appDir, path.dirname(filePath)).replace(/\\/g, "/");
   return relativeDir === "" ? "/" : `/${relativeDir}`;
@@ -668,7 +676,6 @@ function checkQuestionnairePropagation() {
   const fields = getQuestionnaireFields();
   const stepFields = fields.filter((field) => field !== "province");
   const questionnaireSource = read(questionnaireFile);
-  const localizedQuestionnaireSource = read(localizedQuestionnaireFile);
   const matchingSource = read(matchingFile);
   const programmeCriteriaFields = getProgrammeCriteriaFields();
   const programmeDataCriteriaFields = getProgrammeDataCriteriaFields();
@@ -776,12 +783,61 @@ function checkEncoding() {
   }
 }
 
+function checkPublicFooterPrivacyLinks() {
+  const files = [];
+  walkTextFiles(srcDir, files);
+
+  const footerIssues = [];
+
+  for (const filePath of files.filter((file) => file.endsWith(".tsx"))) {
+    if (relative(filePath) === "src/components/SiteFooter.tsx") continue;
+
+    const source = read(filePath);
+    const footerBlocks = [...source.matchAll(/<footer\b[\s\S]*?<\/footer>/g)];
+
+    for (const footerBlock of footerBlocks) {
+      if (!footerBlock[0].includes("/politique-confidentialite")) {
+        footerIssues.push(`${relative(filePath)}:${lineNumberForIndex(source, footerBlock.index)}`);
+      }
+    }
+  }
+
+  if (footerIssues.length > 0) {
+    report("Public footers must link to /politique-confidentialite", footerIssues);
+  }
+}
+
+function checkInternalAnchorLinks() {
+  const files = [];
+  walkTextFiles(srcDir, files);
+
+  const anchorIssues = [];
+  const anchorHrefPattern = /<a\b[^>]*\bhref\s*=\s*(?:"([^"]+)"|'([^']+)'|{\s*["']([^"']+)["']\s*})/g;
+
+  for (const filePath of files.filter((file) => file.endsWith(".tsx"))) {
+    const source = read(filePath);
+
+    for (const match of source.matchAll(anchorHrefPattern)) {
+      const href = match[1] ?? match[2] ?? match[3];
+      if (href.startsWith("/") && !href.startsWith("//")) {
+        anchorIssues.push(`${relative(filePath)}:${lineNumberForIndex(source, match.index)} uses <a href="${href}">`);
+      }
+    }
+  }
+
+  if (anchorIssues.length > 0) {
+    report("Internal route links must use next/link instead of <a>", anchorIssues);
+  }
+}
+
 const { seoRoutes, articleSlugs } = checkBlogAndSeoRoutes();
 checkMetadataExports();
 checkLocalizedRoutes();
 checkDictionaryShapes();
 checkQuestionnairePropagation();
 checkEncoding();
+checkPublicFooterPrivacyLinks();
+checkInternalAnchorLinks();
 finish();
 
-console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, and text encoding.`);
+console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, footer links, and internal link usage.`);

@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
 import AssuranceVieCalculateurClient from "./AssuranceVieCalculateurClient";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Assurance Vie au Québec 2026 — Guide Complet et Comparatif | ArgentQC.ca",
@@ -310,14 +311,13 @@ export default function AssuranceViePage() {
         </div>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div className="max-w-2xl mx-auto text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié aux assureurs. Les estimations ne remplacent pas une soumission personnalisée.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
-          <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={"Outil informatif non affilié aux assureurs. Les estimations ne remplacent pas une soumission personnalisée."}
+        contentClassName="max-w-2xl mx-auto text-center"
+        style={{ background: DARK, padding: "24px 16px" }}
+        brandStyle={{ color: GOLD }}
+        contactLinkStyle={{ marginTop: "6px" }}
+      />
     </main>
   );
 }

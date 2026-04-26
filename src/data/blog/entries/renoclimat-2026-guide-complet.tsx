@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "renoclimat-2026-guide-complet";
@@ -220,13 +221,12 @@ function Content() {
         </p>
       </article>
 
-      <footer style={{ background: "#060D1A", padding: "24px 16px", marginTop: "16px" }}>
-        <div className="max-w-2xl mx-auto text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText="Outil informatif non affilié au gouvernement. Les montants sont des estimations."
+        contactLabel="Contactez-nous"
+        contentClassName="max-w-2xl mx-auto text-center"
+        style={{ marginTop: "16px" }}
+      />
     </main>
   );
 }

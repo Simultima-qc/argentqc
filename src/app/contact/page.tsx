@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Contact – ArgentQC.ca",
@@ -81,14 +82,12 @@ export default function Contact() {
         </div>
       </div>
 
-      <footer style={{ background: "#060D1A", padding: "24px 16px", marginTop: "16px" }}>
-        <div className="max-w-2xl mx-auto text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <a href="mailto:contact@argentqc.ca" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>contact@argentqc.ca</a>
-          <a href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</a>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText="Outil informatif non affilié au gouvernement. Les montants sont des estimations."
+        contactLabel="Contactez-nous"
+        contentClassName="max-w-2xl mx-auto text-center"
+        style={{ marginTop: "16px" }}
+      />
     </main>
   );
 }

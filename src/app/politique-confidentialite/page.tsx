@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -170,17 +171,15 @@ export default function PolitiqueConfidentialite() {
         </div>
       </div>
 
-      <footer className="px-4 py-6" style={{ background: DARK }}>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-1 text-base font-bold" style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}>
-            ArgentQC.ca
-          </p>
-          <p className="text-[11px] text-slate-500">Outil informatif non affilié au gouvernement.</p>
-          <Link href="/contact" className="mt-2 block text-[11px] text-slate-400">
-            Contactez-nous
-          </Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText="Outil informatif non affilié au gouvernement."
+        contactLabel="Contactez-nous"
+        contentClassName="mx-auto max-w-2xl text-center"
+        className="px-4 py-6"
+        style={{ background: DARK }}
+        legalStyle={{ color: "rgb(100 116 139)" }}
+        linkStyle={{ color: "rgb(148 163 184)" }}
+      />
     </main>
   );
 }

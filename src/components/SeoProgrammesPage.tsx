@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Programme } from "@/types";
+import SiteFooter from "@/components/SiteFooter";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -263,18 +264,13 @@ export default function SeoProgrammesPage({
         </p>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div style={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>
-            Contactez-nous
-          </Link>
-          <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>
-            Politique de confidentialité
-          </Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={"Outil informatif non affilié au gouvernement."}
+        contentStyle={{ maxWidth: "512px", margin: "0 auto", textAlign: "center" }}
+        style={{ background: DARK, padding: "24px 16px" }}
+        brandStyle={{ color: GOLD }}
+        contactLinkStyle={{ marginTop: "6px" }}
+      />
     </main>
   );
 }

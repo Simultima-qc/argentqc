@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Assurances au Québec — Guide complet 2026 | ArgentQC.ca",
@@ -349,14 +350,13 @@ export default function AssurancesPage() {
         </div>
       </div>
 
-      <footer style={{ background: DARK, padding: "24px 16px" }}>
-        <div className="max-w-2xl mx-auto text-center">
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
-          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié aux assureurs ou au gouvernement.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
-          <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "4px" }}>Politique de confidentialité</Link>
-        </div>
-      </footer>
+      <SiteFooter
+        legalText={"Outil informatif non affilié aux assureurs ou au gouvernement."}
+        contentClassName="max-w-2xl mx-auto text-center"
+        style={{ background: DARK, padding: "24px 16px" }}
+        brandStyle={{ color: GOLD }}
+        contactLinkStyle={{ marginTop: "6px" }}
+      />
     </main>
   );
 }
