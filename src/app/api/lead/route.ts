@@ -129,7 +129,8 @@ export async function POST(req: NextRequest) {
     }
 
     const resend = new Resend(apiKey);
-    const from = "ArgentQC.ca <noreply@argentqc.ca>";
+    // TODO: remplacer par noreply@argentqc.ca une fois le domaine vérifié dans Resend
+    const from = "ArgentQC.ca <onboarding@resend.dev>";
     const isFr = lead.locale !== "en";
 
     const subject = isFr
