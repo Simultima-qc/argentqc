@@ -323,7 +323,10 @@ function Content() {
         <div className="max-w-2xl mx-auto text-center">
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F5C842", fontSize: "1rem", fontWeight: 700, marginBottom: "6px" }}>ArgentQC.ca</p>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px" }}>Outil informatif non affilié au gouvernement. Les montants sont des estimations.</p>
-          <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px", display: "block", marginTop: "6px" }}>Contactez-nous</Link>
+          <div style={{ marginTop: "6px", display: "flex", justifyContent: "center", gap: "16px" }}>
+            <Link href="/contact" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px" }}>Contactez-nous</Link>
+            <Link href="/politique-confidentialite" style={{ color: "rgba(240,235,224,0.45)", fontSize: "11px" }}>Politique de confidentialité</Link>
+          </div>
         </div>
       </footer>
     </main>
