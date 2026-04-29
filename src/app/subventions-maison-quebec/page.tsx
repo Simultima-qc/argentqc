@@ -67,10 +67,10 @@ const examples = [
 ];
 
 const variationReasons = [
-  "Ce n'est pas une seule subvention à cocher : plusieurs aides peuvent se cumuler autour du même projet.",
-  "Le mix de travaux change tout : thermopompe, isolation, fenêtres, chauffage ou borne ne se calculent pas pareil.",
-  "Le timing compte : certaines validations ou démarches doivent être faites avant d'acheter ou de commencer.",
-  "La majorité des gens sous-optimisent parce qu'ils regardent une dépense isolée au lieu de l'ensemble des travaux.",
+  "Type de travaux — thermopompe, isolation, fenêtres, chauffage ou borne ne se calculent pas pareil.",
+  "Ordre des démarches — certaines validations doivent précéder l'achat ou le début des travaux.",
+  "Combinaison des programmes — plusieurs aides peuvent se cumuler autour du même projet.",
+  "Vision globale — regarder l'ensemble des travaux, pas un achat isolé, change souvent le résultat final.",
 ];
 
 const subsidyTypes = [
@@ -271,7 +271,7 @@ export default function SubventionsMaisonQuebecPage() {
             </p>
             <p className="mt-4 text-5xl font-black leading-none text-white">8 000 $+</p>
             <p className="mt-3 text-sm leading-6 text-slate-300">
-              Un projet combiné peut dépasser plusieurs milliers de dollars quand les travaux sont bien structurés.
+              Thermopompe + isolation + Rénoclimat : certains propriétaires atteignent ce montant en combinant les bons programmes dans le bon ordre.
             </p>
           </aside>
         </div>
@@ -318,8 +318,9 @@ export default function SubventionsMaisonQuebecPage() {
           <h2 className="text-2xl font-extrabold">Pourquoi les montants varient autant</h2>
           <div className="mt-6 grid gap-3">
             {variationReasons.map((reason) => (
-              <div key={reason} className="border-t border-white/10 pt-4 text-sm leading-6 text-slate-300">
-                {reason}
+              <div key={reason} className="flex gap-3 border-t border-white/10 pt-4">
+                <span className="mt-[6px] h-2 w-2 shrink-0 rounded-full bg-yellow-400" aria-hidden="true" />
+                <p className="text-sm leading-6 text-slate-300">{reason}</p>
               </div>
             ))}
           </div>
@@ -328,8 +329,7 @@ export default function SubventionsMaisonQuebecPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-extrabold text-slate-950">Les principales subventions pour votre maison</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-            Utilisez ces guides comme points d&apos;entrée, puis estimez le projet complet pour voir quelles aides
-            pourraient s&apos;additionner autour de vos travaux.
+            Commencez par le programme qui correspond à votre projet prioritaire — puis regardez les combinaisons possibles pour maximiser votre total.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {subsidyTypes.map((item) => (
@@ -368,7 +368,10 @@ export default function SubventionsMaisonQuebecPage() {
             Le questionnaire vous aide à relier vos travaux, votre bâtiment et votre situation aux programmes
             qui pourraient s&apos;appliquer.
           </p>
-          <CtaButton location="mid" className="mt-5 w-full sm:w-auto" />
+          <p className="mt-4 text-sm font-semibold text-slate-700">
+            En 2 minutes, voyez jusqu&apos;à combien votre projet pourrait vous faire récupérer.
+          </p>
+          <CtaButton location="mid" className="mt-4 w-full sm:w-auto" />
         </section>
 
         <section className="mb-12">
@@ -398,15 +401,24 @@ export default function SubventionsMaisonQuebecPage() {
           </div>
         </section>
 
-        <section className="rounded-[28px] p-6 text-center text-white sm:p-8" style={{ background: DARK }}>
-          <h2 className="text-3xl font-extrabold" style={{ fontFamily: "var(--font-playfair)" }}>
-            Vous pourriez laisser plusieurs milliers de dollars sur la table
+        <section className="mb-10 rounded-[28px] border border-slate-200 bg-slate-50 p-6 text-center sm:p-8">
+          <h2 className="text-xl font-extrabold text-slate-950">
+            Vous pourriez récupérer plus que vous pensez
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">
-            Avant de lancer vos travaux, voyez ce que votre projet pourrait réellement vous faire récupérer.
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600">
+            Avant de lancer vos travaux, prenez 2 minutes pour voir ce qui s&apos;applique réellement à votre situation.
           </p>
-          <CtaButton location="final" className="mt-6 w-full sm:w-auto" />
-          <p className="mt-3 text-xs text-slate-400">Estimation en 2 minutes selon votre situation</p>
+          <TrackingLink
+            href="/questionnaire"
+            tracking={{
+              cta_name: "Voir combien je peux récupérer",
+              cta_location: "final",
+              destination: "/questionnaire",
+            }}
+            className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-yellow-400 px-5 py-4 text-center text-sm font-extrabold text-slate-950 no-underline shadow-[0_18px_55px_rgba(245,200,66,0.28)] transition hover:bg-yellow-300"
+          >
+            Voir combien je peux récupérer
+          </TrackingLink>
         </section>
 
         <p className="mt-8 text-center text-xs leading-5 text-slate-500">
