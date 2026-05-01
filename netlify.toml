@@ -1,5 +1,8 @@
 [build]
-  command = "npm run build"
+  # 1. Check SEO + build Next.js
+  # 2. Install Playwright Chromium + system deps
+  # 3. Run smoke tests against the production build (next start)
+  command = "npm run build && npx playwright install chromium --with-deps && npx playwright test"
   publish = ".next"
 
 [build.environment]
