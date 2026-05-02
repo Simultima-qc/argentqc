@@ -1,12 +1,22 @@
 [build]
   # 1. Check SEO + build Next.js
-  # 2. Install Playwright Chromium + system deps
+  # 2. Install Playwright Chromium + system deps (binaires mis en cache dans .playwright-browsers)
   # 3. Run smoke tests against the production build (next start)
   command = "npm run build && npx playwright install chromium --with-deps && npx playwright test"
   publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
+  # Pointe Playwright vers un dossier mis en cache entre les builds Netlify.
+  # netlify-plugin-cache sauvegarde ce dossier apres chaque build et le restaure
+  # au debut du suivant -- evite de re-telecharger ~300 Mo de Chromium a chaque deploiement.
+  PLAYWRIGHT_BROWSERS_PATH = ".playwright-browsers"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Cache les binaires Playwright entre les builds pour eviter le re-telechargement.
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [".playwright-browsers"]
