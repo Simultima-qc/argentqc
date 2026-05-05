@@ -5,6 +5,37 @@ import { getAlternateLinks, getLocalizedUrl } from "@/i18n/routing";
 import { localizedHubRouteKeys } from "@/i18n/hubs";
 import { localizedSubguideRouteKeys } from "@/i18n/subguides";
 
+const redirectedStaticPaths = new Set([
+  "/",
+  "/questionnaire",
+  "/budget",
+  "/budget/calculateur",
+  "/allocation-logement-quebec",
+  "/credit-solidarite-quebec",
+  "/cout-vie-quebec",
+  "/impots",
+  "/impots/dates",
+  "/impots/logiciels",
+  "/impots/remboursement",
+  "/retraite",
+  "/retraite/celi",
+  "/retraite/celiapp",
+  "/retraite/reer",
+  "/transfert-reer",
+  "/retraite/rrq",
+  "/assurances",
+  "/assurances/auto",
+  "/assurances/comparateur",
+  "/assurances/habitation",
+  "/assurances/vie",
+  "/internet",
+  "/internet/comparateur",
+  "/demenagement",
+  "/demenagement/checklist",
+  "/demenagement/cout",
+  "/demenagement/montreal",
+]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -38,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
-  const staticEntries = [...seoPageDefinitions.filter((page) => !["/", "/questionnaire"].includes(page.path)), blogIndexDefinition].map((page) => ({
+  const staticEntries = [...seoPageDefinitions.filter((page) => !redirectedStaticPaths.has(page.path)), blogIndexDefinition].map((page) => ({
     url: `${siteUrl}${page.path}`,
     lastModified: now,
     changeFrequency: page.changeFrequency,
