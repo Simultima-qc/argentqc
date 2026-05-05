@@ -58,7 +58,8 @@ test.describe("Page subventions maison (/subventions-maison-quebec)", () => {
 
   test("le CTA final affiche le bon libellé", async ({ page }) => {
     await page.goto("/subventions-maison-quebec");
-    await expect(page.getByText(/Voir combien je peux récupérer/i)).toBeVisible();
+    const ctas = page.getByRole("link", { name: /Voir combien je peux récupérer/i });
+    await expect(ctas.last()).toBeVisible();
   });
 });
 
