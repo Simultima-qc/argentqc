@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { trouverProgrammes, calculerTotal, formaterArgent } from "@/lib/matching";
+import { parseQuestionnaireAnswers } from "@/lib/questionnaire-url";
 import type { ReponseQuestionnaire } from "@/types";
 import SiteFooter from "@/components/SiteFooter";
+import ShareResultsLink from "@/components/ShareResultsLink";
 
 export const metadata: Metadata = {
   title: "Vos résultats – ArgentQC.ca",
@@ -197,18 +199,7 @@ interface Props {
 export default async function ResultatsPage({ searchParams }: Props) {
   const params = await searchParams;
 
-  const reponses: ReponseQuestionnaire = {
-    province: "QC",
-    statut_logement: (params.statut_logement as ReponseQuestionnaire["statut_logement"]) ?? "proprietaire",
-    situation_familiale: (params.situation_familiale as ReponseQuestionnaire["situation_familiale"]) ?? "seul",
-    enfants: params.enfants === "true",
-    revenu: params.revenu ?? "50000-75000",
-    vehicule_elec: params.vehicule_elec ?? "non",
-    renovation: params.renovation === "true",
-    retraite: params.retraite === "true",
-    age: params.age ?? "31-45",
-    etudiant: params.etudiant === "true",
-  };
+  const reponses: ReponseQuestionnaire = parseQuestionnaireAnswers(params);
 
   const programmes = trouverProgrammes(reponses);
   const total = calculerTotal(programmes);
@@ -266,6 +257,9 @@ export default async function ResultatsPage({ searchParams }: Props) {
                 {tag}
               </span>
             ))}
+          </div>
+          <div style={{ marginTop: "14px" }}>
+            <ShareResultsLink answers={reponses} resultsPath="/resultats" />
           </div>
         </div>
 

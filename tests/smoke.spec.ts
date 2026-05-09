@@ -85,6 +85,15 @@ test.describe("Questionnaire (/fr/questionnaire)", () => {
     await firstOption.click();
     await expect(page.locator("body")).toBeVisible();
   });
+
+  test("une URL de résultats avec réponses est réouvrable et partageable", async ({ page }) => {
+    await page.goto(
+      "/fr/resultats?province=QC&statut_logement=locataire&situation_familiale=famille&enfants=true&revenu=30000-50000&vehicule_elec=non&renovation=false&retraite=false&age=31-45&etudiant=false"
+    );
+
+    await expect(page).toHaveURL(/\/fr\/resultats\?.*statut_logement=locataire/);
+    await expect(page.getByRole("button", { name: /Copier le lien partageable/i })).toBeVisible();
+  });
 });
 
 // ── Page résultats ───────────────────────────────────────────────────────────

@@ -17,6 +17,7 @@ const localizedQuestionnaireFile = path.join(rootDir, "src", "components", "Loca
 const resultatsPageFile = path.join(appDir, "resultats", "page.tsx");
 const localizedResultatsPageFile = path.join(appDir, "[locale]", "resultats", "page.tsx");
 const matchingFile = path.join(rootDir, "src", "lib", "matching.ts");
+const questionnaireUrlFile = path.join(rootDir, "src", "lib", "questionnaire-url.ts");
 const typesFile = path.join(rootDir, "src", "types", "index.ts");
 const dynamicBlogRouteFile = path.join(appDir, "blog", "[slug]", "page.tsx");
 
@@ -606,10 +607,25 @@ function objectKeysFromConst(filePath, constName) {
 
 function reponseKeysFromPage(filePath) {
   const source = read(filePath);
+  if (source.includes("parseQuestionnaireAnswers(")) {
+    return reponseKeysFromParser();
+  }
+
   const marker = "const reponses: ReponseQuestionnaire";
   const block = extractBlockAfter(source, marker);
   if (!block) {
     report("Unable to read ReponseQuestionnaire construction", [`Expected ${marker} in ${relative(filePath)}`]);
+    return [];
+  }
+
+  return [...block.matchAll(/^\s{4}([A-Za-z_]\w*):/gm)].map((match) => match[1]);
+}
+
+function reponseKeysFromParser() {
+  const source = read(questionnaireUrlFile);
+  const block = extractBlockAfter(source, "export function parseQuestionnaireAnswers");
+  if (!block) {
+    report("Unable to read parseQuestionnaireAnswers", [`Expected parser in ${relative(questionnaireUrlFile)}`]);
     return [];
   }
 

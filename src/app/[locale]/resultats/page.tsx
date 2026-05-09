@@ -2,6 +2,7 @@ import type { ReponseQuestionnaire } from "@/types";
 import LocalizedResultsPage from "@/components/LocalizedResultsPage";
 import { getDictionary } from "@/i18n/content";
 import { buildPageMetadata } from "@/lib/seo";
+import { parseQuestionnaireAnswers } from "@/lib/questionnaire-url";
 import { isLocale, type Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
@@ -34,18 +35,7 @@ export default async function ResultsPage({
   const { locale } = await params;
   const query = await searchParams;
 
-  const reponses: ReponseQuestionnaire = {
-    province: "QC",
-    statut_logement: (query.statut_logement as ReponseQuestionnaire["statut_logement"]) ?? "proprietaire",
-    situation_familiale: (query.situation_familiale as ReponseQuestionnaire["situation_familiale"]) ?? "seul",
-    enfants: query.enfants === "true",
-    revenu: query.revenu ?? "50000-75000",
-    vehicule_elec: query.vehicule_elec ?? "non",
-    renovation: query.renovation === "true",
-    retraite: query.retraite === "true",
-    age: query.age ?? "31-45",
-    etudiant: query.etudiant === "true",
-  };
+  const reponses: ReponseQuestionnaire = parseQuestionnaireAnswers(query);
 
   return <LocalizedResultsPage locale={locale} dictionary={getDictionary(locale).results} reponses={reponses} />;
 }

@@ -7,6 +7,7 @@ import { getCommonUiLabels } from "@/i18n/ui";
 import type { ReponseQuestionnaire } from "@/types";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
+import ShareResultsLink from "@/components/ShareResultsLink";
 import SiteFooter from "@/components/SiteFooter";
 
 const DARK = "#060D1A";
@@ -155,6 +156,10 @@ export default function LocalizedResultsPage({
               {chip}
             </span>
           ))}
+        </div>
+
+        <div className="mb-5">
+          <ShareResultsLink answers={reponses} resultsPath={getRoutePath(locale, "results")} locale={locale} />
         </div>
 
         <div className="mb-5 rounded-xl border bg-white p-2" style={{ borderColor: "#EDE9E0" }}>

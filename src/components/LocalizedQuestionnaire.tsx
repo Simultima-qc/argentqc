@@ -7,6 +7,7 @@ import type { ReponseQuestionnaire } from "@/types";
 import type { QuestionnaireDictionary } from "@/i18n/content";
 import { getRoutePath, type Locale } from "@/i18n/routing";
 import { getCommonUiLabels } from "@/i18n/ui";
+import { buildResultsUrl } from "@/lib/questionnaire-url";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
   trackQuestionnaireStep,
@@ -92,10 +93,7 @@ export default function LocalizedQuestionnaire({
       locale,
     });
 
-    const params = new URLSearchParams(
-      Object.entries(nextAnswers).map(([key, currentValue]) => [key, String(currentValue)])
-    );
-    router.push(`${resultsPath}?${params.toString()}`);
+    router.push(buildResultsUrl(resultsPath, nextAnswers));
   }
 
   return (

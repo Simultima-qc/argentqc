@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { ReponseQuestionnaire } from "@/types";
+import { buildResultsUrl } from "@/lib/questionnaire-url";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -115,10 +116,7 @@ export default function Questionnaire() {
     if (etape < ETAPES.length - 1) {
       setEtape(etape + 1);
     } else {
-      const params = new URLSearchParams(
-        Object.entries(nouvellesReponses).map(([k, v]) => [k, String(v)])
-      );
-      router.push(`/resultats?${params.toString()}`);
+      router.push(buildResultsUrl("/resultats", nouvellesReponses));
     }
   }
 
