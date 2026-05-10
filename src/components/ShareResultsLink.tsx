@@ -10,12 +10,14 @@ interface ShareResultsLinkProps {
   locale?: "fr" | "en";
 }
 
+type CopyState = "idle" | "copied" | "error";
+
 export default function ShareResultsLink({
   answers,
   resultsPath,
   locale = "fr",
 }: ShareResultsLinkProps) {
-  const [copied, setCopied] = useState(false);
+  const [state, setState] = useState<CopyState>("idle");
   const relativeUrl = useMemo(() => buildResultsUrl(resultsPath, answers), [resultsPath, answers]);
 
   const labels =
@@ -23,10 +25,12 @@ export default function ShareResultsLink({
       ? {
           copy: "Copy share link",
           copied: "Link copied",
+          error: "Copy failed – please copy the URL manually",
         }
       : {
           copy: "Copier le lien partageable",
           copied: "Lien copié",
+          error: "Échec de la copie – copiez l'URL manuellement",
         };
 
   async function copyOrShare() {
@@ -41,20 +45,11 @@ export default function ShareResultsLink({
       }
     }
 
-    await navigator.clipboard.writeText(shareUrl);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 2400);
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={copyOrShare}
-      aria-live="polite"
-      className="rounded-xl border px-4 py-2 text-sm font-bold transition hover:bg-stone-50"
-      style={{ borderColor: "#EDE9E0", color: "#060D1A", background: "white" }}
-    >
-      {copied ? labels.copied : labels.copy}
-    </button>
-  );
-}
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setState("copied");
+    } catch {
+      // Clipboard API unavailable (non-HTTPS, permissions denied, unsupported browser).
+      setState("error");
+    } finally {
+      window.setTimeout(() => setState("idle"),
