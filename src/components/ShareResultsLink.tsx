@@ -52,4 +52,19 @@ export default function ShareResultsLink({
       // Clipboard API unavailable (non-HTTPS, permissions denied, unsupported browser).
       setState("error");
     } finally {
-      window.setTimeout(() => setState("idle"),
+      window.setTimeout(() => setState("idle"), 2400);
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copyOrShare}
+      aria-live="polite"
+      className="rounded-xl border px-4 py-2 text-sm font-bold transition hover:bg-stone-50"
+      style={{ borderColor: "#EDE9E0", color: state === "error" ? "#b91c1c" : "#060D1A", background: "white" }}
+    >
+      {state === "copied" ? labels.copied : state === "error" ? labels.error : labels.copy}
+    </button>
+  );
+}
