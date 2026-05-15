@@ -334,6 +334,7 @@ export default function CeliPage() {
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-4">
           {[
+            { href: "/retraite/reer-vs-celi", emoji: "⚖️", titre: "REER ou CELI — Comparatif", desc: "Comparer les deux comptes selon revenu, projets et flexibilité" },
             { href: "/retraite/reer", emoji: "💰", titre: "REER — Guide complet", desc: "Comparer REER et CELI, plafond 2026, économies d'impôt" },
             { href: "/retraite/celiapp", emoji: "🏡", titre: "CELIAPP vs CELI →", desc: "Différences clés, règles d'admissibilité et stratégie combinée" },
             { href: "/retraite/rrq", emoji: "🏛️", titre: "RRQ — Votre rente de retraite", desc: "Montants et impact du choix de l'âge de retraite" },

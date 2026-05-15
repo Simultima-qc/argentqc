@@ -35,6 +35,12 @@ const tools = [
     text: "Les retraits ne sont pas imposables et peuvent compléter vos revenus sans alourdir la facture fiscale.",
   },
   {
+    title: "REER ou CELI",
+    href: "/retraite/reer-vs-celi",
+    tag: "Choisir le bon ordre",
+    text: "Comparer les deux comptes selon votre revenu, vos projets et votre besoin de flexibilité.",
+  },
+  {
     title: "CELIAPP",
     href: "/retraite/celiapp",
     tag: "Premier achat + avantage fiscal",
@@ -86,6 +92,7 @@ const startSteps = [
     title: "Comparer REER et CELI",
     text: "Le bon choix dépend surtout de votre revenu actuel, de votre revenu futur et de votre besoin de liquidité.",
     links: [
+      { href: "/retraite/reer-vs-celi", label: "Comparatif REER vs CELI" },
       { href: "/retraite/reer", label: "Guide REER" },
       { href: "/retraite/celi", label: "Guide CELI" },
     ],
@@ -99,6 +106,11 @@ const startSteps = [
 ];
 
 const guides = [
+  {
+    href: "/retraite/reer-vs-celi",
+    title: "REER ou CELI",
+    text: "Comparer les deux comptes et choisir un ordre de priorité.",
+  },
   {
     href: "/retraite/reer",
     title: "Guide REER",

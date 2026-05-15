@@ -56,6 +56,7 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/retraite", title: "Retraite Quebec", description: "Theme retraite, REER, CELI, RRQ et CELIAPP.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },
   { path: "/retraite/reer", title: "REER Quebec", description: "Guide REER et retraite au Quebec.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/retraite/celi", title: "CELI Quebec", description: "Guide CELI, plafond et strategie.", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/retraite/reer-vs-celi", title: "REER ou CELI Quebec", description: "Comparer REER et CELI selon le revenu, l'impot, la retraite et la flexibilite.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/retraite/rrq", title: "RRQ Quebec", description: "Guide RRQ, montants et admissibilite.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/retraite/celiapp", title: "CELIAPP Quebec", description: "Guide CELIAPP pour premier achat immobilier.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/transfert-reer", title: "Transfert REER Quebec", description: "Guide pratique pour transferer un REER sans retrait imposable.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },

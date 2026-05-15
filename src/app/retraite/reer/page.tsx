@@ -280,6 +280,7 @@ export default function ReerPage() {
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-4">
           {[
+            { href: "/retraite/reer-vs-celi", emoji: "⚖️", titre: "REER ou CELI — Comparatif", desc: "Choisir le bon ordre selon revenu, impôt, retraite et flexibilité" },
             { href: "/retraite/celi", emoji: "📈", titre: "CELI — Guide complet", desc: "Comparer REER et CELI, droits 2026, erreurs à éviter" },
             { href: "/retraite/celiapp", emoji: "🏡", titre: "Combinez avec le CELIAPP →", desc: "REER + CELIAPP = stratégie optimale pour le premier achat" },
             { href: "/retraite/rrq", emoji: "🏛️", titre: "RRQ — Votre rente de retraite", desc: "Montants 2026 et impact du choix de l'âge" },
