@@ -86,6 +86,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
       "Les crédits remboursables comptent même avec peu d'impôt dû.",
     ],
     cards: [
+      { title: "Calculateur impot 2026", description: "Estimer l'economie REER avec les paliers Quebec et federal.", href: "/impots/calculateur-economies-fiscales", note: "Nouveau" },
       { title: "Dates limites", description: "Échéances et pénalités.", href: "/fr/impots/dates" },
       { title: "Remboursement", description: "Délais et suivi des retours.", href: "/fr/impots/remboursement" },
       { title: "Logiciels", description: "Comparer les solutions utiles.", href: "/fr/impots/logiciels" },
@@ -340,6 +341,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
       "Refundable credits matter even when little tax is otherwise payable.",
     ],
     cards: [
+      { title: "Tax savings calculator", description: "Estimate RRSP savings with Quebec and federal brackets.", href: "/impots/calculateur-economies-fiscales", note: "New" },
       { title: "Deadlines", description: "Key dates and penalties.", href: "/en/taxes/deadlines" },
       { title: "Refund timing", description: "Understand refund timing and delays.", href: "/en/taxes/refund" },
       { title: "Tax software", description: "Useful filing software choices.", href: "/en/taxes/software" },
