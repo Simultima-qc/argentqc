@@ -3,9 +3,9 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Meilleurs logiciels impôts gratuits Québec 2026 — Comparatif | ArgentQC.ca",
+  title: "Logiciel impôt Québec 2026 : gratuit ? | ArgentQC.ca",
   description:
-    "Quel logiciel d'impôts choisir au Québec en 2026 ? Comparatif Wealthsimple Impôt, TurboImpôt, H&R Block — options gratuites pour T1 fédéral et TP-1 provincial (Revenu Québec).",
+    "Comparez Wealthsimple, TurboImpôt et H&R Block pour produire T1 + TP-1 au Québec. Voyez les options gratuites avant de déclarer.",
   keywords: [
     "logiciel impôt gratuit Québec 2026",
     "meilleur logiciel impôts Canada",

@@ -3,9 +3,9 @@ import SeoProgrammesPage from "@/components/SeoProgrammesPage";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Crédit de solidarité Québec 2026 – Montants et conditions",
+  title: "Crédit solidarité 2026 : jusqu'à 2 000 $ ? | ArgentQC.ca",
   description:
-    "Tout savoir sur le crédit d'impôt pour solidarité au Québec en 2026 : montants, conditions d'admissibilité, comment faire la demande. Jusqu'à 2 000 $ par année.",
+    "Avez-vous droit au crédit de solidarité ? Voyez les montants 2026, les conditions Revenu Québec et quoi faire pour recevoir le paiement.",
   keywords: ["crédit solidarité Québec", "crédit impôt solidarité Québec 2026", "crédit solidarité montant"],
 };
 

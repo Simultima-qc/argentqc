@@ -4,9 +4,9 @@ import ComparateurInternetClient from "./ComparateurInternetClient";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Comparateur Internet Québec 2026 — Meilleur Fournisseur | ArgentQC.ca",
+  title: "Internet Québec 2026 : forfaits dès 44 $/mois | ArgentQC.ca",
   description:
-    "Comparez les forfaits internet des fournisseurs au Québec : Vidéotron, Bell, Fizz, Oxio, TekSavvy. Trouvez le meilleur prix selon votre vitesse et budget.",
+    "Payez-vous trop cher ? Comparez Bell, Vidéotron, Fizz, Oxio et TekSavvy dès 44 $/mois selon votre vitesse, ville et budget.",
   keywords: [
     "comparateur internet Québec",
     "meilleur fournisseur internet Québec",

@@ -7,9 +7,9 @@ import {
 } from "@/data/finance-2026";
 
 export const metadata: Metadata = {
-  title: "Date limite impôts Québec 2026 — 30 avril et 15 juin | ArgentQC.ca",
+  title: "Impôts Québec 2026 : 30 avril ou 15 juin ? | ArgentQC.ca",
   description:
-    "Dates limites pour produire vos impôts au Québec en 2026 : 30 avril pour les salariés, 15 juin pour les travailleurs autonomes. Pénalités de retard et comment obtenir un délai.",
+    "Quelle date limite s'applique à vous ? 30 avril 2026 pour payer, 15 juin pour travailleurs autonomes : vérifiez les dates et pénalités.",
   keywords: [
     "date limite impôts Québec 2026",
     "date limite déclaration impôts Québec",

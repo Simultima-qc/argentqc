@@ -4,9 +4,9 @@ import CeliappCalculateurClient from "./CeliappCalculateurClient";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "CELIAPP 2026 — Tout Savoir sur le Compte Épargne Achat Propriété | ArgentQC.ca",
+  title: "CELIAPP 2026 : 8 000 $/an, admissible ? | ArgentQC.ca",
   description:
-    "CELIAPP : plafond 8 000$/an, 40 000$ à vie, retraits libres d'impôt pour votre première propriété. Guide complet + calculateur d'épargne pour Québécois.",
+    "Premier achat au Québec ? Vérifiez les règles CELIAPP 2026 : 8 000 $ par an, 40 000 $ à vie, retrait sans impôt et calculateur gratuit.",
   keywords: [
     "CELIAPP Québec",
     "CELIAPP 2026",
