@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "REER vs CELI",
     "RAP REER premier acheteur",
   ],
+  alternates: { canonical: "https://argentqc.ca/retraite/reer" },
 };
 
 const DARK = "#060D1A";

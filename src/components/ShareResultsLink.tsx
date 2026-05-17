@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReponseQuestionnaire } from "@/types";
 import { buildResultsUrl } from "@/lib/questionnaire-url";
 
@@ -18,6 +18,7 @@ export default function ShareResultsLink({
   locale = "fr",
 }: ShareResultsLinkProps) {
   const [state, setState] = useState<CopyState>("idle");
+  const resetTimerRef = useRef<number | null>(null);
   const relativeUrl = useMemo(() => buildResultsUrl(resultsPath, answers), [resultsPath, answers]);
 
   const labels =
@@ -33,6 +34,33 @@ export default function ShareResultsLink({
           error: "Échec de la copie – copiez l'URL manuellement",
         };
 
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        window.clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, []);
+
+  function resetStateLater(delay = 2400) {
+    if (resetTimerRef.current) {
+      window.clearTimeout(resetTimerRef.current);
+    }
+
+    resetTimerRef.current = window.setTimeout(() => {
+      setState("idle");
+      resetTimerRef.current = null;
+    }, delay);
+  }
+
+  async function copyToClipboard(shareUrl: string) {
+    if (!navigator.clipboard?.writeText) {
+      throw new Error("Clipboard API unavailable");
+    }
+
+    await navigator.clipboard.writeText(shareUrl);
+  }
+
   async function copyOrShare() {
     const shareUrl = `${window.location.origin}${relativeUrl}`;
 
@@ -46,13 +74,13 @@ export default function ShareResultsLink({
     }
 
     try {
-      await navigator.clipboard.writeText(shareUrl);
+      await copyToClipboard(shareUrl);
       setState("copied");
+      resetStateLater();
     } catch {
       // Clipboard API unavailable (non-HTTPS, permissions denied, unsupported browser).
       setState("error");
-    } finally {
-      window.setTimeout(() => setState("idle"), 2400);
+      resetStateLater(5000);
     }
   }
 
@@ -60,11 +88,12 @@ export default function ShareResultsLink({
     <button
       type="button"
       onClick={copyOrShare}
-      aria-live="polite"
       className="rounded-xl border px-4 py-2 text-sm font-bold transition hover:bg-stone-50"
       style={{ borderColor: "#EDE9E0", color: state === "error" ? "#b91c1c" : "#060D1A", background: "white" }}
     >
-      {state === "copied" ? labels.copied : state === "error" ? labels.error : labels.copy}
+      <span aria-live="polite">
+        {state === "copied" ? labels.copied : state === "error" ? labels.error : labels.copy}
+      </span>
     </button>
   );
 }

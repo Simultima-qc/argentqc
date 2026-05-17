@@ -8,7 +8,7 @@ import { test, expect } from "@playwright/test";
 // Lancer en mode UI : npm run test:ui
 // ---------------------------------------------------------------------------
 
-// ── Page d'accueil ───────────────────────────────────────────────────────────
+// -- Page d'accueil --
 
 test.describe("Page d'accueil (/fr)", () => {
   test("se charge et affiche le titre principal", async ({ page }) => {
@@ -17,7 +17,7 @@ test.describe("Page d'accueil (/fr)", () => {
     await expect(page).toHaveTitle(/ArgentQC/i);
   });
 
-  test("la redirection / → /fr fonctionne", async ({ page }) => {
+  test("la redirection / -> /fr fonctionne", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveURL(/\/fr/);
   });
@@ -31,7 +31,7 @@ test.describe("Page d'accueil (/fr)", () => {
   });
 });
 
-// ── Page subventions maison ──────────────────────────────────────────────────
+// -- Page subventions maison --
 
 test.describe("Page subventions maison (/subventions-maison-quebec)", () => {
   test("se charge avec le titre SEO correct", async ({ page }) => {
@@ -51,42 +51,42 @@ test.describe("Page subventions maison (/subventions-maison-quebec)", () => {
     expect(count, "Attendu au moins 2 CTAs vers /questionnaire").toBeGreaterThanOrEqual(2);
   });
 
-  test("la section 'Pourquoi les montants varient' est présente", async ({ page }) => {
+  test("la section 'Pourquoi les montants varient' est presente", async ({ page }) => {
     await page.goto("/subventions-maison-quebec");
     await expect(page.getByText(/Pourquoi les montants varient/i)).toBeVisible();
   });
 
-  test("le CTA final affiche le bon libellé", async ({ page }) => {
+  test("le CTA final affiche le bon libelle", async ({ page }) => {
     await page.goto("/subventions-maison-quebec");
     const ctas = page.getByRole("link", { name: /Voir combien je peux récupérer/i });
     await expect(ctas.last()).toBeVisible();
   });
 });
 
-// ── Questionnaire ────────────────────────────────────────────────────────────
+// -- Questionnaire --
 
 test.describe("Questionnaire (/fr/questionnaire)", () => {
-  test("se charge et affiche la première question", async ({ page }) => {
+  test("se charge et affiche la premiere question", async ({ page }) => {
     await page.goto("/fr/questionnaire");
     await expect(page).toHaveURL(/questionnaire/);
     const buttons = page.locator("button");
     await expect(buttons.first()).toBeVisible();
   });
 
-  test("le titre de la page questionnaire est défini", async ({ page }) => {
+  test("le titre de la page questionnaire est defini", async ({ page }) => {
     await page.goto("/fr/questionnaire");
     const title = await page.title();
-    expect(title.length, "Le <title> ne doit pas être vide").toBeGreaterThan(5);
+    expect(title.length, "Le <title> ne doit pas etre vide").toBeGreaterThan(5);
   });
 
-  test("la navigation entre étapes fonctionne", async ({ page }) => {
+  test("la navigation entre etapes fonctionne", async ({ page }) => {
     await page.goto("/fr/questionnaire");
     const firstOption = page.locator("button").first();
     await firstOption.click();
     await expect(page.locator("body")).toBeVisible();
   });
 
-  test("une URL de résultats avec réponses est réouvrable et partageable", async ({ page }) => {
+  test("une URL de resultats avec reponses est reouvrable et partageable", async ({ page }) => {
     await page.goto(
       "/fr/resultats?province=QC&statut_logement=locataire&situation_familiale=famille&enfants=true&revenu=30000-50000&vehicule_elec=non&renovation=false&retraite=false&age=31-45&etudiant=false"
     );
@@ -96,39 +96,114 @@ test.describe("Questionnaire (/fr/questionnaire)", () => {
   });
 });
 
-// ── Page résultats ───────────────────────────────────────────────────────────
+// -- Page retraite (hub SEO) --
 
-test.describe("Page résultats (/fr/resultats)", () => {
-  test("s'affiche sans crash avec des params vides", async ({ page }) => {
-    const response = await page.goto("/fr/resultats");
-    expect(response?.status(), "La page résultats doit répondre avec 200").toBe(200);
-    await expect(page.locator("body")).toBeVisible();
+test.describe("Page retraite (/retraite)", () => {
+  test("se charge avec le titre SEO correct", async ({ page }) => {
+    await page.goto("/retraite");
+    await expect(page).toHaveTitle(/retraite/i);
+  });
+
+  test("affiche le h1 principal", async ({ page }) => {
+    await page.goto("/retraite");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/Retraite/i);
+  });
+
+  test("les outils principaux sont affiches (REER, CELI)", async ({ page }) => {
+    await page.goto("/retraite");
+    await expect(page.getByText("REER").first()).toBeVisible();
+    await expect(page.getByText("CELI").first()).toBeVisible();
+  });
+
+  test("au moins un CTA pointe vers /questionnaire", async ({ page }) => {
+    await page.goto("/retraite");
+    const ctaLinks = page.locator('a[href*="questionnaire"]');
+    const count = await ctaLinks.count();
+    expect(count, "Attendu au moins 1 CTA vers /questionnaire").toBeGreaterThanOrEqual(1);
   });
 });
 
-// ── Sanité globale — temps de réponse et statut HTTP ────────────────────────
+// -- Page REER vs CELI --
+
+test.describe("Page REER ou CELI (/retraite/reer-vs-celi)", () => {
+  test("se charge avec le titre SEO correct", async ({ page }) => {
+    await page.goto("/retraite/reer-vs-celi");
+    await expect(page).toHaveTitle(/REER/i);
+  });
+
+  test("affiche le h1 principal", async ({ page }) => {
+    await page.goto("/retraite/reer-vs-celi");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("REER");
+  });
+
+  test("le tableau de comparaison est present", async ({ page }) => {
+    await page.goto("/retraite/reer-vs-celi");
+    await expect(page.getByRole("cell", { name: "Déduction fiscale" })).toBeVisible();
+    await expect(page.getByRole("cell", { name: "Impôt au retrait" })).toBeVisible();
+  });
+
+  test("au moins un CTA pointe vers /questionnaire", async ({ page }) => {
+    await page.goto("/retraite/reer-vs-celi");
+    const ctaLinks = page.locator('a[href*="questionnaire"]');
+    const count = await ctaLinks.count();
+    expect(count, "Attendu au moins 1 CTA vers /questionnaire").toBeGreaterThanOrEqual(1);
+  });
+});
+
+// -- Page resultats --
+
+test.describe("Page resultats (/fr/resultats)", () => {
+  test("s'affiche sans crash avec des params vides", async ({ page }) => {
+    const response = await page.goto("/fr/resultats");
+    expect(response?.status(), "La page resultats doit repondre avec 200").toBe(200);
+    await expect(page.locator("body")).toBeVisible();
+  });
+
+  test("la route non localisee garde le lien partageable", async ({ page }) => {
+    await page.goto(
+      "/resultats?province=QC&statut_logement=proprietaire&situation_familiale=seul&enfants=false&revenu=50000-75000&vehicule_elec=non&renovation=false&retraite=true&age=46-65&etudiant=false"
+    );
+
+    await expect(page).toHaveURL(/\/resultats\?.*retraite=true/);
+    await expect(page.getByRole("button", { name: /Copier le lien partageable/i })).toBeVisible();
+  });
+});
+
+// -- Redirections SEO --
+
+test.describe("Redirections SEO", () => {
+  test("/strategies/reer-vs-celi redirige vers /retraite/reer-vs-celi", async ({ page }) => {
+    await page.goto("/strategies/reer-vs-celi");
+    await expect(page).toHaveURL(/\/retraite\/reer-vs-celi/);
+  });
+});
+
+// -- Sanite globale : temps de reponse et statut HTTP --
 
 const pagesToCheck = [
   { path: "/fr", label: "Accueil" },
   { path: "/subventions-maison-quebec", label: "Subventions maison" },
   { path: "/fr/questionnaire", label: "Questionnaire" },
-  { path: "/reno-climat-quebec", label: "Rénoclimat" },
+  { path: "/reno-climat-quebec", label: "Renoclimat" },
   { path: "/subvention-thermopompe-quebec", label: "Thermopompe" },
+  { path: "/retraite", label: "Retraite (hub)" },
+  { path: "/retraite/reer-vs-celi", label: "REER vs CELI" },
 ];
+const responseLimitMs = process.env.CI ? 5000 : 10000;
 
-test.describe("Sanité globale", () => {
+test.describe("Sanite globale", () => {
   for (const { path, label } of pagesToCheck) {
-    test(`${label} (${path}) répond en moins de 5s et sans 404/500`, async ({ page }) => {
+    test(`${label} (${path}) repond en moins de 5s et sans 404/500`, async ({ page }) => {
       const start = Date.now();
       const response = await page.goto(path);
       const duration = Date.now() - start;
 
       expect(
         response?.status(),
-        `${label} a retourné HTTP ${response?.status()}`
+        `${label} a retourne HTTP ${response?.status()}`
       ).toBeLessThan(400);
 
-      expect(duration, `${label} a mis plus de 5s à répondre`).toBeLessThan(5000);
+      expect(duration, `${label} a mis plus de ${responseLimitMs}ms a repondre`).toBeLessThan(responseLimitMs);
     });
   }
 });

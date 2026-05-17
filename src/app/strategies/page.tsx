@@ -37,7 +37,7 @@ const strategies = [
       "Si revenu retraite < revenu actuel → REER prioritaire",
       "Utilise le CELI pour les projets à court et moyen terme",
     ],
-    lien: "/strategies/reer-vs-celi",
+    lien: "/retraite/reer-vs-celi",
   },
   {
     emoji: "📊",

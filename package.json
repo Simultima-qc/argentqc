@@ -9,8 +9,9 @@
     "lint": "eslint",
     "check:seo": "node scripts/check-seo.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui"
+    "test": "npm run test:unit && node node_modules/@playwright/test/cli.js test",
+    "test:unit": "node --test tests/questionnaire-url.test.mjs",
+    "test:ui": "node node_modules/@playwright/test/cli.js test --ui"
   },
   "dependencies": {
     "next": "16.2.1",

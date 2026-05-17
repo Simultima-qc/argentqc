@@ -1,6 +1,6 @@
 import type { ReponseQuestionnaire } from "@/types";
 
-const DEFAULT_RESULTS_ANSWERS: ReponseQuestionnaire = {
+const DEFAULT_RESULTS_ANSWERS = {
   province: "QC",
   statut_logement: "proprietaire",
   situation_familiale: "seul",
@@ -11,20 +11,9 @@ const DEFAULT_RESULTS_ANSWERS: ReponseQuestionnaire = {
   retraite: false,
   age: "31-45",
   etudiant: false,
-};
+} satisfies ReponseQuestionnaire;
 
-const ANSWER_KEYS: Array<keyof ReponseQuestionnaire> = [
-  "province",
-  "statut_logement",
-  "situation_familiale",
-  "enfants",
-  "revenu",
-  "vehicule_elec",
-  "renovation",
-  "retraite",
-  "age",
-  "etudiant",
-];
+const ANSWER_KEYS = Object.keys(DEFAULT_RESULTS_ANSWERS) as Array<keyof ReponseQuestionnaire>;
 
 const allowedValues = {
   province: ["QC"],

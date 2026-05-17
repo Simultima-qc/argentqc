@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "REER ou CELI",
     "RAP REER Québec",
   ],
+  alternates: { canonical: "https://argentqc.ca/retraite" },
 };
 
 const DARK = "#060D1A";

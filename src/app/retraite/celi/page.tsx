@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     "CELI placement",
     "CELI vs REER",
   ],
+  alternates: { canonical: "https://argentqc.ca/retraite/celi" },
 };
 
 const DARK = "#060D1A";
