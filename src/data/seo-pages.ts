@@ -63,6 +63,7 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/internet", title: "Internet Quebec", description: "Theme internet et comparateur de forfaits.", changeFrequency: "monthly", priority: 0.8, includeInHomeHub: true },
   { path: "/internet/comparateur", title: "Comparateur internet Quebec", description: "Comparer les fournisseurs internet au Quebec.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/impots", title: "Impots Quebec", description: "Theme impots, dates, remboursements et logiciels.", changeFrequency: "monthly", priority: 0.8, includeInHomeHub: true },
+  { path: "/impots/calculateur-economies-fiscales", title: "Calculateur impot Quebec 2026", description: "Calculer l'economie fiscale reelle d'une cotisation REER avec les paliers federal et Quebec 2026.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },
   { path: "/impots/dates", title: "Dates impots Quebec", description: "Dates importantes pour la declaration de revenus.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/impots/remboursement", title: "Remboursement impot Quebec", description: "Comprendre le remboursement d'impot et les delais.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/impots/logiciels", title: "Logiciels impot Quebec", description: "Comparer les logiciels d'impot utiles au Quebec.", changeFrequency: "monthly", priority: 0.8 },

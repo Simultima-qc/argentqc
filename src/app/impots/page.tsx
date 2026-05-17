@@ -110,6 +110,9 @@ export default function ImpotsPage() {
             ))}
           </ol>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "1.25rem" }}>
+            <Link href="/impots/calculateur-economies-fiscales" style={{ display: "inline-block", background: DARK, color: GOLD, fontWeight: 800, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
+              Calculateur impot 2026 →
+            </Link>
             <Link href="/impots/logiciels" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
               Logiciels gratuits →
             </Link>
