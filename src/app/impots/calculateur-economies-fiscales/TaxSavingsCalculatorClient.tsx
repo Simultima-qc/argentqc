@@ -1,31 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import {
+  calculateTotalTax,
+  getMarginalRate,
+} from "@/lib/tax-calculator";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
 const GREEN = "#10B981";
 const PARCH = "#F7F3EC";
-
-type TaxBracket = {
-  upTo: number | null;
-  rate: number;
-};
-
-const federalQuebecBrackets2026: TaxBracket[] = [
-  { upTo: 58523, rate: 0.14 * 0.835 },
-  { upTo: 117045, rate: 0.205 * 0.835 },
-  { upTo: 181440, rate: 0.26 * 0.835 },
-  { upTo: 258482, rate: 0.29 * 0.835 },
-  { upTo: null, rate: 0.33 * 0.835 },
-];
-
-const quebecBrackets2026: TaxBracket[] = [
-  { upTo: 54345, rate: 0.14 },
-  { upTo: 108680, rate: 0.19 },
-  { upTo: 132245, rate: 0.24 },
-  { upTo: null, rate: 0.2575 },
-];
 
 const scenarios = [
   { income: 45000, contribution: 3000, label: "Debut de carriere" },
