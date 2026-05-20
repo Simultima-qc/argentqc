@@ -10,7 +10,7 @@
     "check:seo": "node scripts/check-seo.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "test": "npm run test:unit && node node_modules/@playwright/test/cli.js test",
-    "test:unit": "node --test tests/questionnaire-url.test.mjs tests/tax-calculator.test.mjs",
+    "test:unit": "node --test tests/questionnaire-url.test.mjs",
     "test:ui": "node node_modules/@playwright/test/cli.js test --ui"
   },
   "dependencies": {

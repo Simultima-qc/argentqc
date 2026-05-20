@@ -25,35 +25,6 @@ function formatPercent(value: number): string {
   return (value * 100).toLocaleString("fr-CA", { maximumFractionDigits: 2 }) + " %";
 }
 
-function calculateProgressiveTax(taxableIncome: number, brackets: TaxBracket[]): number {
-  const income = Math.max(0, taxableIncome);
-  let previousLimit = 0;
-  let tax = 0;
-
-  for (const bracket of brackets) {
-    const upperLimit = bracket.upTo ?? Number.POSITIVE_INFINITY;
-    const taxableSlice = Math.max(0, Math.min(income, upperLimit) - previousLimit);
-    tax += taxableSlice * bracket.rate;
-
-    if (income <= upperLimit) {
-      break;
-    }
-
-    previousLimit = upperLimit;
-  }
-
-  return tax;
-}
-
-function calculateTotalTax(taxableIncome: number): number {
-  return calculateProgressiveTax(taxableIncome, federalQuebecBrackets2026) + calculateProgressiveTax(taxableIncome, quebecBrackets2026);
-}
-
-function getMarginalRate(taxableIncome: number): number {
-  const federalRate = federalQuebecBrackets2026.find((bracket) => bracket.upTo === null || taxableIncome <= bracket.upTo)?.rate ?? 0;
-  const quebecRate = quebecBrackets2026.find((bracket) => bracket.upTo === null || taxableIncome <= bracket.upTo)?.rate ?? 0;
-  return federalRate + quebecRate;
-}
 
 export default function TaxSavingsCalculatorClient() {
   const [income, setIncome] = useState(78000);
