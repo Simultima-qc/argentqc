@@ -34,7 +34,7 @@ function Content() {
         <div className="mb-8">
           <div className="flex gap-2 mb-4">
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">Famille</span>
-            <span className="text-xs text-slate-400 py-0.5">5 min de lecture · 25 avril 2026</span>
+            <span className="text-xs text-slate-400 py-0.5">8 min de lecture · 21 mai 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
             Allocation famille Québec 2026 : Calculez combien vous recevez
@@ -337,9 +337,9 @@ const article: BlogArticle = {
   slug,
   titre: "Allocation famille Québec 2026 : Calculez combien vous recevez",
   description: "Montants de l'allocation famille Québec 2026, comment calculer votre aide selon votre revenu et le nombre d'enfants, suppléments disponibles et versements mensuels.",
-  date: "2026-04-25",
+  date: "2026-05-21",
   categorie: "Famille",
-  tempsLecture: "5 min",
+  tempsLecture: "8 min",
   metadata,
   Content,
 };
