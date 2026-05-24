@@ -8,8 +8,8 @@ const GOLD = "#F5C842";
 
 const navItems = [
   { href: "/aides-financieres", label: "Aides financières" },
-  { href: "/impots", label: "Impôts" },
-  { href: "/retraite", label: "Retraite" },
+  { href: "/fr/impots", label: "Impôts" },
+  { href: "/fr/retraite", label: "Retraite" },
   { href: "/depenses", label: "Dépenses" },
   { href: "/strategies", label: "Stratégies" },
 ];
@@ -40,7 +40,7 @@ export default function Header() {
         >
           {/* Logo */}
           <Link
-            href="/"
+            href="/fr"
             style={{
               fontFamily: "var(--font-playfair)",
               fontWeight: 800,
@@ -89,7 +89,7 @@ export default function Header() {
 
           {/* CTA */}
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               background: GOLD,
               color: DARK,
@@ -151,7 +151,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               onClick={() => setMenuOpen(false)}
               style={{
                 display: "block",

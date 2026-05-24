@@ -70,8 +70,8 @@ export default function CoutDemenagementPage() {
     <main className="min-h-screen" style={{ background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -83,9 +83,9 @@ export default function CoutDemenagementPage() {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
-            <Link href="/demenagement" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Déménagement</Link>
+            <Link href="/fr/demenagement" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Déménagement</Link>
             {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Coûts</span>
           </nav>
@@ -258,7 +258,7 @@ export default function CoutDemenagementPage() {
 
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-8">
-          <Link href="/assurances/habitation" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
+          <Link href="/fr/assurances/habitation" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
             <span style={{ fontSize: "1.5rem" }}>🛡️</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Assurance habitation — à prévoir avant le déménagement</div>
@@ -266,7 +266,7 @@ export default function CoutDemenagementPage() {
             </div>
             <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
-          <Link href="/budget/calculateur" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
+          <Link href="/fr/budget/calculateur" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
             <span style={{ fontSize: "1.5rem" }}>📊</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Calculer votre nouveau budget mensuel</div>
@@ -274,7 +274,7 @@ export default function CoutDemenagementPage() {
             </div>
             <span style={{ color: "#3B82F6" }}>→</span>
           </Link>
-          <Link href="/demenagement/checklist" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
+          <Link href="/fr/demenagement/checklist" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
             <span style={{ fontSize: "1.5rem" }}>✅</span>
             <div className="flex-1">
               <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Checklist déménagement complète</div>

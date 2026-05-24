@@ -115,7 +115,7 @@ const relatedLinks = [
   { href: "/reno-climat-quebec", title: "Rénoclimat au Québec", text: "Comprendre les démarches et les travaux liés à l'efficacité énergétique." },
   { href: "/subvention-isolation-quebec", title: "Subvention isolation au Québec", text: "Voir comment l'isolation peut s'intégrer à un projet plus large." },
   { href: "/subvention-renovation-quebec", title: "Subvention rénovation au Québec", text: "Explorer les programmes de rénovation disponibles." },
-  { href: "/questionnaire", title: "Estimation personnalisée", text: "Vérifier rapidement quels programmes pourraient s'appliquer." },
+  { href: "/fr/questionnaire", title: "Estimation personnalisée", text: "Vérifier rapidement quels programmes pourraient s'appliquer." },
 ];
 
 const faqSchema = {
@@ -134,11 +134,11 @@ const faqSchema = {
 function CtaButton({ location, className = "" }: { location: string; className?: string }) {
   return (
     <TrackingLink
-      href="/questionnaire"
+      href="/fr/questionnaire"
       tracking={{
         cta_name: "Voir combien je peux recevoir",
         cta_location: location,
-        destination: "/questionnaire",
+        destination: "/fr/questionnaire",
       }}
       className={`block rounded-2xl bg-yellow-400 px-5 py-4 text-center text-sm font-extrabold text-slate-950 shadow-[0_18px_50px_rgba(245,200,66,0.22)] transition hover:bg-yellow-300 ${className}`}
     >
@@ -161,18 +161,18 @@ export default function SubventionThermopompeQuebecPage() {
       >
         <div className="mx-auto flex max-w-3xl items-center justify-between">
           <Link
-            href="/"
+            href="/fr"
             className="text-[15px] font-extrabold no-underline"
             style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}
           >
             ArgentQC.ca
           </Link>
           <TrackingLink
-            href="/questionnaire"
+            href="/fr/questionnaire"
             tracking={{
               cta_name: "Trouver mes aides",
               cta_location: "header",
-              destination: "/questionnaire",
+              destination: "/fr/questionnaire",
             }}
             className="text-xs font-semibold underline"
             style={{ color: GOLD }}

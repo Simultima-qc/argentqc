@@ -23,7 +23,7 @@ const categoriesAides = [
     aides: [
       { nom: "Allocation canadienne pour enfants (ACE)", montant: "jusqu'à 7 787 $/enfant/an", lien: "/allocation-enfant-quebec" },
       { nom: "Allocation famille Québec", montant: "jusqu'à 2 847 $/enfant/an", lien: "/aide-famille-quebec" },
-      { nom: "Crédit d'impôt frais de garde", montant: "75 % des frais couverts", lien: "/questionnaire" },
+      { nom: "Crédit d'impôt frais de garde", montant: "75 % des frais couverts", lien: "/fr/questionnaire" },
       { nom: "Subvention sport enfant", montant: "jusqu'à 300 $/an", lien: "/subvention-sport-enfant-quebec" },
     ],
   },
@@ -32,8 +32,8 @@ const categoriesAides = [
     titre: "Logement & rénovation",
     guideLien: "/aides-financieres/logement",
     aides: [
-      { nom: "Allocation-logement Québec", montant: "jusqu'à 170 $/mois", lien: "/allocation-logement-quebec" },
-      { nom: "Crédit de solidarité", montant: "jusqu'à 2 279 $/an", lien: "/credit-solidarite-quebec" },
+      { nom: "Allocation-logement Québec", montant: "jusqu'à 170 $/mois", lien: "/fr/budget/allocation-logement" },
+      { nom: "Crédit de solidarité", montant: "jusqu'à 2 279 $/an", lien: "/fr/budget/credit-solidarite" },
       { nom: "Rénoclimat + subventions chauffage", montant: "jusqu'à 10 000 $", lien: "/reno-climat-quebec" },
       { nom: "Subvention thermopompe", montant: "jusqu'à 5 000 $", lien: "/subvention-thermopompe-quebec" },
     ],
@@ -52,10 +52,10 @@ const categoriesAides = [
     emoji: "👴",
     titre: "Aînés & retraite",
     aides: [
-      { nom: "Sécurité de la vieillesse (SV)", montant: "jusqu'à 8 580 $/an", lien: "/retraite" },
-      { nom: "Supplément de revenu garanti (SRG)", montant: "jusqu'à 13 137 $/an", lien: "/retraite" },
-      { nom: "Crédit en raison de l'âge", montant: "jusqu'à 1 530 $ d'économie", lien: "/impots" },
-      { nom: "Maintien à domicile (Québec)", montant: "jusqu'à 6 000 $/an", lien: "/questionnaire" },
+      { nom: "Sécurité de la vieillesse (SV)", montant: "jusqu'à 8 580 $/an", lien: "/fr/retraite" },
+      { nom: "Supplément de revenu garanti (SRG)", montant: "jusqu'à 13 137 $/an", lien: "/fr/retraite" },
+      { nom: "Crédit en raison de l'âge", montant: "jusqu'à 1 530 $ d'économie", lien: "/fr/impots" },
+      { nom: "Maintien à domicile (Québec)", montant: "jusqu'à 6 000 $/an", lien: "/fr/questionnaire" },
     ],
   },
   {
@@ -64,8 +64,8 @@ const categoriesAides = [
     aides: [
       { nom: "Crédit TPS/TVH fédéral", montant: "jusqu'à 680 $/an", lien: "/credit-impot-quebec" },
       { nom: "Crédit d'impôt frais médicaux", montant: "variable", lien: "/credit-impot-frais-medicaux-quebec" },
-      { nom: "Déduction REER", montant: "18 % du revenu", lien: "/retraite/reer" },
-      { nom: "Cotisation syndicale et professionnelle", montant: "100 % déductible", lien: "/impots" },
+      { nom: "Déduction REER", montant: "18 % du revenu", lien: "/fr/retraite/reer" },
+      { nom: "Cotisation syndicale et professionnelle", montant: "100 % déductible", lien: "/fr/impots" },
     ],
   },
 ];
@@ -95,7 +95,7 @@ export default function AidesFinancieresPage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <span>Aides financières</span>
             </nav>
@@ -175,7 +175,7 @@ export default function AidesFinancieresPage() {
               ))}
             </ol>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "block",
                 background: GOLD,

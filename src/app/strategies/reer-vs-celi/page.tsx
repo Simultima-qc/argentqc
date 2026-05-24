@@ -25,7 +25,7 @@ export default function ReerVsCeliPage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/strategies" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Stratégies</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -108,7 +108,7 @@ export default function ReerVsCeliPage() {
               ))}
             </ol>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "block",
                 background: GOLD,
@@ -279,8 +279,8 @@ export default function ReerVsCeliPage() {
             </h2>
             <div className="flex flex-wrap gap-2">
               {[
-                { label: "Guide REER complet", href: "/retraite/reer" },
-                { label: "Guide CELI et plafonds", href: "/retraite/celi" },
+                { label: "Guide REER complet", href: "/fr/retraite/reer" },
+                { label: "Guide CELI et plafonds", href: "/fr/retraite/celi" },
                 { label: "Fractionnement du revenu", href: "/strategies/fractionnement-revenu" },
                 { label: "Décaissement à la retraite", href: "/strategies/decaissement-retraite" },
                 { label: "Toutes les stratégies", href: "/strategies" },
@@ -317,7 +317,7 @@ export default function ReerVsCeliPage() {
               Le diagnostic gratuit identifie la stratégie REER/CELI optimale selon ton revenu réel et tes objectifs.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

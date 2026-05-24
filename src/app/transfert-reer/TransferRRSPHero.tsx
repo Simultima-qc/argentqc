@@ -24,11 +24,11 @@ export default function TransferRRSPHero() {
       />
       <div className="max-w-3xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
         <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-          <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
+          <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
             Accueil
           </Link>
           {" › "}
-          <Link href="/retraite" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
+          <Link href="/fr/retraite" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
             Retraite
           </Link>
           {" › "}

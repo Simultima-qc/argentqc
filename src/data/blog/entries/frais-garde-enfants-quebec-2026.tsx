@@ -25,7 +25,7 @@ function Content() {
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
           <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>? Blogue</Link>
         </div>
       </header>
@@ -191,7 +191,7 @@ function Content() {
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontWeight: 800, fontSize: "1.1rem", marginBottom: "8px" }}>Découvrez toutes vos aides en 2 minutes</p>
           <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "16px" }}>Frais de garde, allocation famille, ACE — calculez tout ce à quoi vous avez droit.</p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{ display: "inline-block", background: "#F5C842", color: "#060D1A", fontWeight: 800, padding: "12px 24px", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}
           >
             Trouver mes aides ?

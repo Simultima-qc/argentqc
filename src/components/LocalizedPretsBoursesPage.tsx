@@ -31,6 +31,7 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
   const d = getPretsBoursesPageDictionary(locale);
   const homePath = getRoutePath(locale, "home");
   const questionnairePath = getRoutePath(locale, "questionnaire");
+  const rrspPath = getRoutePath(locale, "retirementRrsp");
 
   return (
     <main className="min-h-screen" style={{ background: PARCH }}>
@@ -222,7 +223,7 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
               <li key={i} style={{ fontSize: "13px", color: "#7F1D1D", lineHeight: 1.7, marginBottom: i < d.reepItems.length - 1 ? "4px" : 0 }}>{item}</li>
             ))}
           </ul>
-          <Link href="/retraite/reer" style={{ display: "inline-block", marginTop: "12px", fontSize: "12px", fontWeight: 700, color: "#991B1B", textDecoration: "none" }}>
+          <Link href={rrspPath} style={{ display: "inline-block", marginTop: "12px", fontSize: "12px", fontWeight: 700, color: "#991B1B", textDecoration: "none" }}>
             {locale === "en" ? "Read the RRSP / LLP guide →" : "Lire le guide REER / REEP →"}
           </Link>
         </div>

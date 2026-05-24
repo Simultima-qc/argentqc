@@ -132,7 +132,7 @@ const relatedLinks = [
   { href: "/subvention-isolation-quebec", title: "Subvention isolation au Québec", text: "Comprendre comment l'isolation peut augmenter le potentiel d'aide." },
   { href: "/reno-climat-quebec", title: "Rénoclimat au Québec", text: "Voir les démarches liées à la rénovation énergétique." },
   { href: "/chauffez-vert-quebec", title: "Chauffez vert au Québec", text: "Explorer les aides liées au remplacement d'un système de chauffage admissible." },
-  { href: "/questionnaire", title: "Estimation personnalisée", text: "Vérifier rapidement quels programmes pourraient s'appliquer à votre situation." },
+  { href: "/fr/questionnaire", title: "Estimation personnalisée", text: "Vérifier rapidement quels programmes pourraient s'appliquer à votre situation." },
 ];
 
 const faqSchema = {
@@ -151,11 +151,11 @@ const faqSchema = {
 function CtaButton({ location, className = "" }: { location: string; className?: string }) {
   return (
     <TrackingLink
-      href="/questionnaire"
+      href="/fr/questionnaire"
       tracking={{
         cta_name: "Voir combien je peux recevoir",
         cta_location: location,
-        destination: "/questionnaire",
+        destination: "/fr/questionnaire",
       }}
       className={`inline-flex min-h-12 items-center justify-center rounded-2xl bg-yellow-400 px-5 py-4 text-center text-sm font-extrabold text-slate-950 no-underline shadow-[0_18px_50px_rgba(245,200,66,0.24)] transition hover:bg-yellow-300 ${className}`}
     >
@@ -178,18 +178,18 @@ export default function SubventionRenovationQuebecPage() {
       >
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/fr"
             className="text-[15px] font-extrabold no-underline"
             style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}
           >
             ArgentQC.ca
           </Link>
           <TrackingLink
-            href="/questionnaire"
+            href="/fr/questionnaire"
             tracking={{
               cta_name: "Voir combien je peux recevoir",
               cta_location: "header",
-              destination: "/questionnaire",
+              destination: "/fr/questionnaire",
             }}
             className="text-xs font-semibold underline"
             style={{ color: GOLD }}

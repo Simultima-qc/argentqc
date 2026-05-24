@@ -6,6 +6,7 @@ import { getRoutePath, type Locale } from "@/i18n/routing";
 import { getCommonUiLabels } from "@/i18n/ui";
 import type { ReponseQuestionnaire } from "@/types";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import AnalyticsPageView from "@/components/AnalyticsPageView";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import ShareResultsLink from "@/components/ShareResultsLink";
 import SiteFooter from "@/components/SiteFooter";
@@ -66,6 +67,13 @@ export default function LocalizedResultsPage({
 
   return (
     <main style={{ minHeight: "100vh", background: PARCH }}>
+      <AnalyticsPageView
+        type="results"
+        locale={locale}
+        matchedProgramCount={programmes.length}
+        estimatedTotalMin={total.min}
+        estimatedTotalMax={total.max}
+      />
       <header
         style={{
           background: DARK,

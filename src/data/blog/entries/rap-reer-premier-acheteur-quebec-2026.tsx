@@ -31,7 +31,7 @@ function Content() {
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>
             ArgentQC.ca
           </Link>
           <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>
@@ -205,7 +205,7 @@ function Content() {
             RAP, CELIAPP, crédits d&apos;impôt — calculez tout ce à quoi vous avez droit en 2 minutes.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{ display: "inline-block", background: "#F5C842", color: "#060D1A", fontWeight: 800, padding: "12px 28px", borderRadius: "12px", textDecoration: "none", fontSize: "14px" }}
           >
             Trouver mes aides ?
@@ -219,7 +219,7 @@ function Content() {
             { href: "/credit-impot-quebec", titre: "Crédits d'impôt Québec — tous les remboursables" },
             { href: "/subventions-maison-quebec", titre: "Subventions maison Québec 2026 — guide complet" },
             { href: "/blog/renoclimat-2026-guide-complet", titre: "Rénoclimat 2026 — guide étape par étape" },
-            { href: "/cout-vie-quebec", titre: "Coût de la vie au Québec 2026" },
+            { href: "/fr/budget/cout-vie", titre: "Coût de la vie au Québec 2026" },
           ].map((lien) => (
             <Link
               key={lien.href}

@@ -25,7 +25,7 @@ export default function AidesFinancieresLogementPage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/aides-financieres" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Aides financières</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -107,7 +107,7 @@ export default function AidesFinancieresLogementPage() {
               ))}
             </ol>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "block",
                 background: GOLD,
@@ -149,7 +149,7 @@ export default function AidesFinancieresLogementPage() {
                     "Versement automatique après la déclaration provinciale",
                     "Aucune demande à remplir — calculé par Revenu Québec",
                   ],
-                  lien: "/credit-solidarite-quebec",
+                  lien: "/fr/budget/credit-solidarite",
                   libelleBtn: "Guide crédit solidarité",
                 },
                 {
@@ -167,7 +167,7 @@ export default function AidesFinancieresLogementPage() {
                     "Demande à faire auprès de la Société d'habitation du Québec (SHQ)",
                     "Liste d'attente dans certaines régions",
                   ],
-                  lien: "/allocation-logement-quebec",
+                  lien: "/fr/budget/allocation-logement",
                   libelleBtn: "Guide allocation-logement",
                 },
                 {
@@ -185,7 +185,7 @@ export default function AidesFinancieresLogementPage() {
                     "Retrait pour l'achat de la maison : entièrement non imposable",
                     "Se combine avec le RAP REER pour maximiser la mise de fonds",
                   ],
-                  lien: "/retraite/celiapp",
+                  lien: "/fr/retraite/celiapp",
                   libelleBtn: "Guide CELIAPP",
                 },
                 {
@@ -281,7 +281,7 @@ export default function AidesFinancieresLogementPage() {
               Locataire, propriétaire ou futur acheteur — le diagnostic identifie les programmes les plus pertinents pour ta situation.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

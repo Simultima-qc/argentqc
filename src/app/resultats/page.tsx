@@ -97,7 +97,7 @@ function getStrategies(r: ReponseQuestionnaire): Array<{
       emoji: "🏦",
       titre: "Maximise ton CELI et ton CELIAPP",
       desc: "En début de carrière, le CELI offre la plus grande flexibilité. Si tu prévois acheter une propriété, ouvrir un CELIAPP est prioritaire (8 000 $/an déductibles).",
-      lien: "/retraite/celi",
+      lien: "/fr/retraite/celi",
       libelleBtn: "Guide CELI",
     });
   }
@@ -224,10 +224,10 @@ export default async function ResultatsPage({ searchParams }: Props) {
       {/* Header */}
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>
             ArgentQC.ca
           </Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.8 }}>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.8 }}>
             Recommencer
           </Link>
         </div>
@@ -259,7 +259,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
             ))}
           </div>
           <div style={{ marginTop: "14px" }}>
-            <ShareResultsLink answers={reponses} resultsPath="/resultats" />
+            <ShareResultsLink answers={reponses} resultsPath="/fr/resultats" />
           </div>
         </div>
 
@@ -362,7 +362,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
               Selon vos réponses, nous n&apos;avons pas trouvé de programmes correspondants.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{ display: "block", background: DARK, color: GOLD, fontWeight: 700, padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none" }}
             >
               Refaire le questionnaire
@@ -509,7 +509,7 @@ export default async function ResultatsPage({ searchParams }: Props) {
             Votre situation a changé ? Recalculez vos aides.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               display: "block",
               background: GOLD,

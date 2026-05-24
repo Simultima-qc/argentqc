@@ -112,10 +112,10 @@ export default function AideFinanciereSportEnfantPage() {
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>
             ArgentQC.ca
           </Link>
-          <Link href="/questionnaire" style={{ color: "#F5C842", fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr/questionnaire" style={{ color: "#F5C842", fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -136,7 +136,7 @@ export default function AideFinanciereSportEnfantPage() {
             <strong style={{ color: "#F0EBE0" }}>plus de 10 000 $/an</strong> en aides utilisables pour les activités sportives de ses enfants.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{ display: "block", background: "#F5C842", color: "#060D1A", fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)" }}
           >
             Trouver mes aides →
@@ -261,7 +261,7 @@ export default function AideFinanciereSportEnfantPage() {
         <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 text-center mb-8">
           <p className="font-bold text-xl mb-2">Calculez toutes vos aides en 2 minutes</p>
           <p className="text-blue-200 text-sm mb-4">ACE, allocation famille, crédits d&apos;impôt — découvrez tout ce à quoi vous avez droit.</p>
-          <Link href="/questionnaire" className="block w-full bg-yellow-400 text-blue-900 font-bold py-4 rounded-2xl text-center">
+          <Link href="/fr/questionnaire" className="block w-full bg-yellow-400 text-blue-900 font-bold py-4 rounded-2xl text-center">
             Commencer le questionnaire →
           </Link>
           <p className="text-blue-300 text-xs text-center mt-2">Gratuit · 2 minutes · estimation personnalisée</p>

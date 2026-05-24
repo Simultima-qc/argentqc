@@ -116,7 +116,7 @@ export default function Questionnaire() {
     if (etape < ETAPES.length - 1) {
       setEtape(etape + 1);
     } else {
-      router.push(buildResultsUrl("/resultats", nouvellesReponses));
+      router.push(buildResultsUrl("/fr/resultats", nouvellesReponses));
     }
   }
 
@@ -130,7 +130,7 @@ export default function Questionnaire() {
       {/* Header */}
       <header style={{ background: DARK, padding: "14px 16px", position: "sticky", top: 0, zIndex: 10, boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>
             ArgentQC.ca
           </Link>
           <span style={{ color: "rgba(240,235,224,0.4)", fontSize: "13px" }}>

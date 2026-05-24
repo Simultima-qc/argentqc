@@ -10,6 +10,7 @@ import { getCommonUiLabels } from "@/i18n/ui";
 import { buildResultsUrl } from "@/lib/questionnaire-url";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import {
+  trackQuestionnaireView,
   trackQuestionnaireStep,
   trackQuestionnaireCompleted,
   trackQuestionnaireAbandoned,
@@ -48,6 +49,13 @@ export default function LocalizedQuestionnaire({
 
   const completedRef = useRef(false);
   const trackedStepRef = useRef(-1);
+  const trackedViewRef = useRef(false);
+
+  useEffect(() => {
+    if (trackedViewRef.current) return;
+    trackedViewRef.current = true;
+    trackQuestionnaireView({ locale });
+  }, [locale]);
 
   useEffect(() => {
     if (trackedStepRef.current === stepIndex) return;

@@ -97,10 +97,10 @@ const scenarios = [
 ];
 
 const guides = [
-  { href: "/retraite", title: "Guide retraite", text: "Revenir à la vue d'ensemble REER, CELI, RRQ et CELIAPP." },
-  { href: "/retraite/reer", title: "Guide REER", text: "Comprendre la déduction, les retraits et les erreurs fréquentes." },
-  { href: "/retraite/celi", title: "Guide CELI", text: "Voir la flexibilité, les retraits et les usages retraite." },
-  { href: "/retraite/celiapp", title: "Guide CELIAPP", text: "Comparer avec les objectifs de premier achat immobilier." },
+  { href: "/fr/retraite", title: "Guide retraite", text: "Revenir à la vue d'ensemble REER, CELI, RRQ et CELIAPP." },
+  { href: "/fr/retraite/reer", title: "Guide REER", text: "Comprendre la déduction, les retraits et les erreurs fréquentes." },
+  { href: "/fr/retraite/celi", title: "Guide CELI", text: "Voir la flexibilité, les retraits et les usages retraite." },
+  { href: "/fr/retraite/celiapp", title: "Guide CELIAPP", text: "Comparer avec les objectifs de premier achat immobilier." },
 ];
 
 const faqs = [
@@ -143,8 +143,8 @@ const faqSchema = {
 function CtaButton({ location, name, className = "" }: { location: string; name: string; className?: string }) {
   return (
     <TrackingLink
-      href="/questionnaire"
-      tracking={{ cta_name: name, cta_location: location, destination: "/questionnaire" }}
+      href="/fr/questionnaire"
+      tracking={{ cta_name: name, cta_location: location, destination: "/fr/questionnaire" }}
       className={`inline-flex min-h-12 items-center justify-center rounded-2xl bg-yellow-400 px-5 py-4 text-center text-sm font-extrabold text-slate-950 no-underline shadow-[0_18px_55px_rgba(245,200,66,0.28)] transition hover:bg-yellow-300 ${className}`}
     >
       Voir ma stratégie retraite
@@ -162,9 +162,9 @@ export default function ReerVsCeliPage() {
         <section className="px-5 py-12 text-white sm:py-16" style={{ background: DARK }}>
           <div className="mx-auto max-w-4xl">
             <nav className="mb-4 text-xs text-slate-400">
-              <Link href="/" className="text-slate-400 no-underline">Accueil</Link>
+              <Link href="/fr" className="text-slate-400 no-underline">Accueil</Link>
               <span aria-hidden="true"> &gt; </span>
-              <Link href="/retraite" className="text-slate-400 no-underline">Retraite</Link>
+              <Link href="/fr/retraite" className="text-slate-400 no-underline">Retraite</Link>
               <span aria-hidden="true"> &gt; </span>
               <span className="text-slate-300">REER ou CELI</span>
             </nav>
@@ -243,7 +243,7 @@ export default function ReerVsCeliPage() {
               <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
                 {reerCases.map((item) => <li key={item}>{item}</li>)}
               </ul>
-              <Link href="/retraite/reer" className="mt-5 inline-block text-sm font-bold text-blue-700 no-underline">
+              <Link href="/fr/retraite/reer" className="mt-5 inline-block text-sm font-bold text-blue-700 no-underline">
                 Lire le guide REER &gt;
               </Link>
             </article>
@@ -253,7 +253,7 @@ export default function ReerVsCeliPage() {
               <ul className="mt-5 space-y-3 text-sm leading-6 text-slate-600">
                 {celiCases.map((item) => <li key={item}>{item}</li>)}
               </ul>
-              <Link href="/retraite/celi" className="mt-5 inline-block text-sm font-bold text-blue-700 no-underline">
+              <Link href="/fr/retraite/celi" className="mt-5 inline-block text-sm font-bold text-blue-700 no-underline">
                 Lire le guide CELI &gt;
               </Link>
             </article>

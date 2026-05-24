@@ -13,15 +13,15 @@ function loadQuestionnaireUrlModule() {
     },
   });
 
-  const module = { exports: {} };
+  const compiledModule = { exports: {} };
   const context = {
-    exports: module.exports,
-    module,
+    exports: compiledModule.exports,
+    module: compiledModule,
     URLSearchParams,
   };
 
   vm.runInNewContext(outputText, context);
-  return module.exports;
+  return compiledModule.exports;
 }
 
 const {

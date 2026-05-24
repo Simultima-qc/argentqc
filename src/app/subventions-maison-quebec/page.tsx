@@ -185,11 +185,11 @@ const itemListSchema = {
 function CtaButton({ location, className = "" }: { location: string; className?: string }) {
   return (
     <TrackingLink
-      href="/questionnaire"
+      href="/fr/questionnaire"
       tracking={{
         cta_name: "Voir combien je peux récupérer",
         cta_location: location,
-        destination: "/questionnaire",
+        destination: "/fr/questionnaire",
       }}
       className={`inline-flex min-h-12 items-center justify-center rounded-2xl bg-yellow-400 px-5 py-4 text-center text-sm font-extrabold text-slate-950 no-underline shadow-[0_18px_55px_rgba(245,200,66,0.28)] transition hover:bg-yellow-300 ${className}`}
     >
@@ -216,18 +216,18 @@ export default function SubventionsMaisonQuebecPage() {
       >
         <div className="mx-auto flex max-w-4xl items-center justify-between gap-4">
           <Link
-            href="/"
+            href="/fr"
             className="text-[15px] font-extrabold no-underline"
             style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}
           >
             ArgentQC.ca
           </Link>
           <TrackingLink
-            href="/questionnaire"
+            href="/fr/questionnaire"
             tracking={{
               cta_name: "Trouver mes aides",
               cta_location: "header",
-              destination: "/questionnaire",
+              destination: "/fr/questionnaire",
             }}
             className="text-xs font-semibold underline"
             style={{ color: GOLD }}
@@ -409,11 +409,11 @@ export default function SubventionsMaisonQuebecPage() {
             Avant de lancer vos travaux, prenez 2 minutes pour voir ce qui s&apos;applique réellement à votre situation.
           </p>
           <TrackingLink
-            href="/questionnaire"
+            href="/fr/questionnaire"
             tracking={{
               cta_name: "Voir combien je peux récupérer",
               cta_location: "final",
-              destination: "/questionnaire",
+              destination: "/fr/questionnaire",
             }}
             className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl bg-yellow-400 px-5 py-4 text-center text-sm font-extrabold text-slate-950 no-underline shadow-[0_18px_55px_rgba(245,200,66,0.28)] transition hover:bg-yellow-300"
           >

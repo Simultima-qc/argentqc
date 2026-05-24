@@ -23,7 +23,7 @@ export default function ScenarioPreRetraitePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/scenarios" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Scénarios</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -74,14 +74,14 @@ export default function ScenarioPreRetraitePage() {
                   titre: "1. Continuer de cotiser au REER jusqu'à 71 ans",
                   impact: "Économie d'impôt immédiate de ~3 000 $/an",
                   detail: "À 80 000 $, le taux marginal est ~38 %. Chaque 8 000 $ cotisé génère ~3 040 $ de remboursement. Droits REER inutilisés peuvent être utilisés jusqu'à 71 ans.",
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   bon: true,
                 },
                 {
                   titre: "2. Différer la RRQ jusqu'à 70 ans (si bonne santé)",
                   impact: "+ 42 % sur chaque versement à vie",
                   detail: "Chaque année de report après 65 ans augmente la pension de 8,4 %. Reporter de 65 à 70 ans = +42 % sur tous les versements futurs. Stratégie gagnante si espérance de vie > 78 ans.",
-                  lien: "/retraite/rrq",
+                  lien: "/fr/retraite/rrq",
                   bon: true,
                 },
                 {
@@ -95,7 +95,7 @@ export default function ScenarioPreRetraitePage() {
                   titre: "4. Crédit en raison de l'âge (dès 65 ans)",
                   impact: "Jusqu'à 1 530 $ d'économie/an",
                   detail: "Crédit d'impôt fédéral pour les 65 ans et plus. Réductible selon le revenu — optimal si le revenu imposable est contrôlé par la stratégie de décaissement.",
-                  lien: "/impots",
+                  lien: "/fr/impots",
                   bon: true,
                 },
               ].map((item) => (
@@ -156,14 +156,14 @@ export default function ScenarioPreRetraitePage() {
                   step: "1",
                   titre: "Maximiser les cotisations REER maintenant (55-65 ans)",
                   detail: "C'est la fenêtre où le taux marginal est le plus élevé. Cotiser le maximum chaque année jusqu'à 71 ans, puis convertir en FERR.",
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   cta: "Guide REER complet",
                 },
                 {
                   step: "2",
                   titre: "Évaluer la stratégie RRQ avec un planificateur financier",
                   detail: "La décision de différer la RRQ à 70 ans peut valoir 100 000-200 000 $ de plus sur une vie selon l'espérance de vie. Cette décision mérite une analyse personnalisée.",
-                  lien: "/retraite/rrq",
+                  lien: "/fr/retraite/rrq",
                   cta: "Guide RRQ et décaissement",
                 },
                 {
@@ -197,7 +197,7 @@ export default function ScenarioPreRetraitePage() {
             <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "14px", marginBottom: "1.5rem" }}>
               Le diagnostic identifie les priorités selon ton âge, ton REER actuel et tes projets de retraite.
             </p>
-            <Link href="/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "1rem", padding: "0.95rem 2rem", borderRadius: "14px", textDecoration: "none" }}>
+            <Link href="/fr/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "1rem", padding: "0.95rem 2rem", borderRadius: "14px", textDecoration: "none" }}>
               🚀 Lancer le diagnostic →
             </Link>
           </div>

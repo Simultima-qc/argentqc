@@ -25,7 +25,7 @@ export default function AidesFinancieresFamillePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/aides-financieres" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Aides financières</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -108,7 +108,7 @@ export default function AidesFinancieresFamillePage() {
               ))}
             </ol>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "block",
                 background: GOLD,
@@ -183,7 +183,7 @@ export default function AidesFinancieresFamillePage() {
                     "S'applique à la garderie non subventionnée, gardienne et camps de jour",
                     "À réclamer dans la déclaration provinciale (annexe C)",
                   ],
-                  lien: "/questionnaire",
+                  lien: "/fr/questionnaire",
                   libelleBtn: "Calculer mon crédit",
                 },
                 {
@@ -275,7 +275,7 @@ export default function AidesFinancieresFamillePage() {
               Réponds à 8 questions et reçois une liste des aides disponibles selon ton revenu, ta situation familiale et ton logement.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

@@ -29,7 +29,7 @@ export default function LocalizedMovingChecklist({ locale }: { locale: Locale })
   const dictionary = getMovingChecklistDictionary(locale);
   const homePath = getRoutePath(locale, "home");
   const movingHubPath = getRoutePath(locale, "moving");
-  const movingCostPath = "/demenagement/cout";
+  const movingCostPath = getRoutePath(locale, "movingCost");
   const insuranceHomePath = getRoutePath(locale, "insuranceHome");
   const totalTasks = getAllIds(dictionary.sections).length;
 

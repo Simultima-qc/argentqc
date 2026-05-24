@@ -57,7 +57,7 @@ export default function ComparateurAssurancesPage() {
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link
-            href="/"
+            href="/fr"
             style={{
               fontFamily: "var(--font-playfair)",
               fontWeight: 800,
@@ -69,7 +69,7 @@ export default function ComparateurAssurancesPage() {
             ArgentQC.ca
           </Link>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               color: GOLD,
               fontSize: "13px",
@@ -119,14 +119,14 @@ export default function ComparateurAssurancesPage() {
             }}
           >
             <Link
-              href="/"
+              href="/fr"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Accueil
             </Link>
             {" › "}
             <Link
-              href="/assurances"
+              href="/fr/assurances"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Assurances
@@ -208,7 +208,7 @@ export default function ComparateurAssurancesPage() {
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           <Link
-            href="/assurances/auto"
+            href="/fr/assurances/auto"
             style={{
               display: "flex",
               alignItems: "center",
@@ -238,7 +238,7 @@ export default function ComparateurAssurancesPage() {
             <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
           </Link>
           <Link
-            href="/assurances/habitation"
+            href="/fr/assurances/habitation"
             style={{
               display: "flex",
               alignItems: "center",
@@ -268,7 +268,7 @@ export default function ComparateurAssurancesPage() {
             <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
           </Link>
           <Link
-            href="/assurances"
+            href="/fr/assurances"
             style={{
               display: "flex",
               alignItems: "center",
@@ -298,7 +298,7 @@ export default function ComparateurAssurancesPage() {
             <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
           </Link>
           <Link
-            href="/budget/calculateur"
+            href="/fr/budget/calculateur"
             style={{
               display: "flex",
               alignItems: "center",

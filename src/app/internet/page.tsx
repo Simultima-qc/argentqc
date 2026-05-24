@@ -98,7 +98,7 @@ export default function InternetPage() {
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link
-            href="/"
+            href="/fr"
             style={{
               fontFamily: "var(--font-playfair)",
               fontWeight: 800,
@@ -110,7 +110,7 @@ export default function InternetPage() {
             ArgentQC.ca
           </Link>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               color: GOLD,
               fontSize: "13px",
@@ -160,7 +160,7 @@ export default function InternetPage() {
             }}
           >
             <Link
-              href="/"
+              href="/fr"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Accueil
@@ -206,7 +206,7 @@ export default function InternetPage() {
             le meilleur forfait internet selon votre région et votre budget.
           </p>
           <Link
-            href="/internet/comparateur"
+            href="/fr/internet/comparateur"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -314,7 +314,7 @@ export default function InternetPage() {
 
         {/* CTA comparateur */}
         <Link
-          href="/internet/comparateur"
+          href="/fr/internet/comparateur"
           style={{
             display: "flex",
             alignItems: "center",
@@ -431,19 +431,19 @@ export default function InternetPage() {
         <div className="flex flex-col gap-3 mb-10">
           {[
             {
-              href: "/internet/comparateur",
+              href: "/fr/internet/comparateur",
               emoji: "🌐",
               titre: "Comparateur internet Québec 2026",
               desc: "Filtres par budget, vitesse, type et sans contrat",
             },
             {
-              href: "/demenagement",
+              href: "/fr/demenagement",
               emoji: "📦",
               titre: "Guide déménagement Québec",
               desc: "Tout prévoir : résiliation, transfert, nouvel abonnement",
             },
             {
-              href: "/budget/calculateur",
+              href: "/fr/budget/calculateur",
               emoji: "🧮",
               titre: "Calculateur de budget Québec",
               desc: "Intégrez le coût de votre internet dans votre budget mensuel",

@@ -70,25 +70,25 @@ const creditsOublies = [
   {
     credit: "Frais de déménagement",
     detail: "Si vous avez déménagé pour un emploi ou des études en 2025 et que la distance est d'au moins 40 km, plusieurs coûts sont déductibles : camion, hébergement temporaire, frais de résiliation de bail.",
-    href: "/demenagement/cout",
+    href: "/fr/demenagement/cout",
     montant: "Variable — déduction du revenu d'emploi",
   },
   {
     credit: "Crédit de solidarité (Revenu Québec)",
     detail: "Versé en plusieurs fois dans l'année, ce crédit remboursable est basé sur votre situation familiale, votre loyer et si vous habitez en région. Ne pas oublier d'inclure votre adresse et loyer exact.",
-    href: "/credit-solidarite-quebec",
+    href: "/fr/budget/credit-solidarite",
     montant: "Jusqu'à 1 194 $/an selon situation",
   },
   {
     credit: "Cotisation REER déductible",
     detail: "Vos cotisations REER faites en 2025 et dans les 60 premiers jours de 2026 réduisent votre revenu imposable. Assurez-vous d'avoir tous vos reçus de cotisation avant de produire.",
-    href: "/retraite/reer",
+    href: "/fr/retraite/reer",
     montant: "Économie ~27–53% du montant cotisé",
   },
   {
     credit: "Frais de garde d'enfants",
     detail: "Garderie, camp de jour, garde parascolaire — les frais de garde ouvrent droit à une déduction fédérale et un crédit provincial remboursable au Québec. Le parent au revenu le plus faible doit réclamer.",
-    href: "/questionnaire",
+    href: "/fr/questionnaire",
     montant: "Jusqu'à 8 000 $/enfant (fédéral)",
   },
 ];
@@ -121,8 +121,8 @@ export default function RemboursementImpotsPage() {
     <main className="min-h-screen" style={{ background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -134,9 +134,9 @@ export default function RemboursementImpotsPage() {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
-            <Link href="/impots" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Impôts</Link>
+            <Link href="/fr/impots" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Impôts</Link>
             {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Remboursement</span>
           </nav>
@@ -284,8 +284,8 @@ export default function RemboursementImpotsPage() {
         <div className="flex flex-col gap-3 mb-4">
           {[
             { href: "/credit-impot-quebec", emoji: "💳", titre: "Tous les crédits d'impôt Québec", desc: "Ne manquez aucun crédit remboursable auquel vous avez droit" },
-            { href: "/questionnaire", emoji: "🎯", titre: "Trouvez toutes vos aides", desc: "8 questions pour découvrir vos aides gouvernementales" },
-            { href: "/impots/dates", emoji: "📅", titre: "Dates limites impôts 2026", desc: "30 avril pour les salariés, 15 juin pour les autonomes" },
+            { href: "/fr/questionnaire", emoji: "🎯", titre: "Trouvez toutes vos aides", desc: "8 questions pour découvrir vos aides gouvernementales" },
+            { href: "/fr/impots/dates", emoji: "📅", titre: "Dates limites impôts 2026", desc: "30 avril pour les salariés, 15 juin pour les autonomes" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
               <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{l.emoji}</span>

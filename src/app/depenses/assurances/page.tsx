@@ -25,7 +25,7 @@ export default function DepensesAssurancesPage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/depenses" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Dépenses</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -104,7 +104,7 @@ export default function DepensesAssurancesPage() {
               ))}
             </ol>
             <Link
-              href="/assurances/comparateur"
+              href="/fr/assurances/comparateur"
               style={{
                 display: "block",
                 background: GOLD,
@@ -225,7 +225,7 @@ export default function DepensesAssurancesPage() {
               Au-delà des assurances, le diagnostic identifie aussi les crédits et aides financières auxquels tu as droit.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

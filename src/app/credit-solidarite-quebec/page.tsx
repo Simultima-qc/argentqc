@@ -83,7 +83,7 @@ export default function CreditSolidariteQuebecPage() {
       faqs={faqs}
       motCle="Crédit de solidarité Québec 2026"
       pagesRelies={[
-        { href: "/allocation-logement-quebec", titre: "Allocation logement Québec" },
+        { href: "/fr/budget/allocation-logement", titre: "Allocation logement Québec" },
         { href: "/credit-impot-quebec", titre: "Tous les crédits d'impôt Québec" },
         { href: "/aide-famille-quebec", titre: "Aide financière famille Québec" },
       ]}

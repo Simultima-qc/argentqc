@@ -81,7 +81,7 @@ const strategies = [
       "Cotiser le maximum annuel (8 000 $) avant le 31 décembre",
       "Combiner avec le RAP REER pour maximiser la mise de fonds",
     ],
-    lien: "/retraite/celiapp",
+    lien: "/fr/retraite/celiapp",
   },
   {
     emoji: "📅",
@@ -132,7 +132,7 @@ export default function StrategiesPage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <span>Stratégies financières</span>
             </nav>
@@ -212,7 +212,7 @@ export default function StrategiesPage() {
               ))}
             </ol>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "block",
                 background: GOLD,

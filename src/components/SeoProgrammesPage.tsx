@@ -53,10 +53,10 @@ export default function SeoProgrammesPage({
     <main style={{ minHeight: "100vh", background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link href="/" style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
+          <Link href="/fr" style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
             ArgentQC.ca
           </Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -99,7 +99,7 @@ export default function SeoProgrammesPage({
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>{sousTitre}</p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               display: "block",
               background: GOLD,
@@ -238,7 +238,7 @@ export default function SeoProgrammesPage({
             Répondez à 8 questions — résultats personnalisés en 2 minutes.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               display: "block",
               background: GOLD,

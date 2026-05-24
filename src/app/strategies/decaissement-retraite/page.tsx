@@ -25,7 +25,7 @@ export default function DecaissementRetraitePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/strategies" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Stratégies</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -241,7 +241,7 @@ export default function DecaissementRetraitePage() {
               Le diagnostic identifie les stratégies de retraite les plus adaptées à ta situation actuelle.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

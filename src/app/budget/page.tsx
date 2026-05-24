@@ -46,15 +46,15 @@ export default function BudgetPage() {
     <main className="min-h-screen" style={{ background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px" }}>
         <div className="max-w-3xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/budget/calculateur" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline" }}>Calculateur budget</Link>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/budget/calculateur" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline" }}>Calculateur budget</Link>
         </div>
       </header>
 
       <section style={{ background: DARK }} className="px-5 py-12">
         <div className="max-w-3xl mx-auto">
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.45)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.45)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.45)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
             <span>Budget</span>
           </nav>
@@ -118,7 +118,7 @@ export default function BudgetPage() {
         <section style={{ background: DARK, borderRadius: "20px", padding: "24px", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.25rem", fontWeight: 800, marginBottom: "8px" }}>Calculez votre budget personnalisé</p>
           <p style={{ color: "rgba(240,235,224,0.68)", fontSize: "14px", lineHeight: 1.7, marginBottom: "16px" }}>Utilisez le calculateur pour intégrer vos vrais revenus, votre logement et vos autres dépenses.</p>
-          <Link href="/budget/calculateur" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "14px", padding: "12px 22px", borderRadius: "12px", textDecoration: "none" }}>Ouvrir le calculateur →</Link>
+          <Link href="/fr/budget/calculateur" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "14px", padding: "12px 22px", borderRadius: "12px", textDecoration: "none" }}>Ouvrir le calculateur →</Link>
         </section>
 
         <section>

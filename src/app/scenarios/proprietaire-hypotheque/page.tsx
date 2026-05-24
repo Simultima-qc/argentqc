@@ -23,7 +23,7 @@ export default function ScenarioProprietairePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/scenarios" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Scénarios</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -125,7 +125,7 @@ export default function ScenarioProprietairePage() {
                   step: "3",
                   titre: "Maximiser le REER pour financer la partie non subventionnée",
                   detail: "À 110 000 $ de revenu combiné, chaque 1 000 $ cotisé au REER génère ~380-400 $ de remboursement. Ce remboursement peut servir à financer les rénovations non couvertes par les subventions.",
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   cta: "Guide REER",
                 },
               ].map((item) => (
@@ -148,7 +148,7 @@ export default function ScenarioProprietairePage() {
           <div className="max-w-lg mx-auto text-center">
             <h2 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.75rem" }}>Ta maison, ton profil spécifique</h2>
             <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "14px", marginBottom: "1.5rem" }}>Le diagnostic identifie les subventions disponibles selon ta situation géographique et ton type de chauffage.</p>
-            <Link href="/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "1rem", padding: "0.95rem 2rem", borderRadius: "14px", textDecoration: "none" }}>
+            <Link href="/fr/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "1rem", padding: "0.95rem 2rem", borderRadius: "14px", textDecoration: "none" }}>
               🚀 Lancer le diagnostic →
             </Link>
           </div>

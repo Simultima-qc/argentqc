@@ -46,7 +46,7 @@ export default function ImpotsPage() {
       <section style={{ background: DARK }} className="px-5 py-12">
         <div className="max-w-3xl mx-auto">
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.45)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.45)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.45)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
             <span>Impôts</span>
           </nav>
@@ -113,10 +113,10 @@ export default function ImpotsPage() {
             <Link href="/impots/calculateur-economies-fiscales" style={{ display: "inline-block", background: DARK, color: GOLD, fontWeight: 800, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
               Calculateur impot 2026 →
             </Link>
-            <Link href="/impots/logiciels" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
+            <Link href="/fr/impots/logiciels" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none" }}>
               Logiciels gratuits →
             </Link>
-            <Link href="/impots/dates" style={{ display: "inline-block", background: PARCH, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none", border: "1px solid #EDE9E0" }}>
+            <Link href="/fr/impots/dates" style={{ display: "inline-block", background: PARCH, color: DARK, fontWeight: 700, fontSize: "13px", padding: "8px 16px", borderRadius: "10px", textDecoration: "none", border: "1px solid #EDE9E0" }}>
               Toutes les dates →
             </Link>
           </div>
@@ -163,7 +163,7 @@ export default function ImpotsPage() {
         <section style={{ background: DARK, borderRadius: "20px", padding: "24px", textAlign: "center" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.25rem", fontWeight: 800, marginBottom: "8px" }}>Besoin d&apos;une vue plus large sur vos aides ?</p>
           <p style={{ color: "rgba(240,235,224,0.68)", fontSize: "14px", lineHeight: 1.7, marginBottom: "16px" }}>Le questionnaire regroupe crédits, allocations et programmes utiles selon votre profil.</p>
-          <Link href="/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "14px", padding: "12px 22px", borderRadius: "12px", textDecoration: "none" }}>Trouver mes aides →</Link>
+          <Link href="/fr/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "14px", padding: "12px 22px", borderRadius: "12px", textDecoration: "none" }}>Trouver mes aides →</Link>
         </section>
 
         <section>

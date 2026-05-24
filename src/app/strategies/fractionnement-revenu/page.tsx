@@ -25,7 +25,7 @@ export default function FractionnementRevenuPage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/strategies" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Stratégies</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -130,7 +130,7 @@ export default function FractionnementRevenuPage() {
                     "Idéal si l'écart de revenus dépasse 15 000–20 000 $/an",
                     "Règle des 3 ans à respecter pour les retraits",
                   ],
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   libelleBtn: "Guide REER complet",
                 },
                 {
@@ -146,7 +146,7 @@ export default function FractionnementRevenuPage() {
                     "Peut réduire l'OAS clawback (récupération SV)",
                     "Choix annuel — optimisé chaque année selon les revenus",
                   ],
-                  lien: "/retraite",
+                  lien: "/fr/retraite",
                   libelleBtn: "Guide retraite Québec",
                 },
                 {
@@ -234,7 +234,7 @@ export default function FractionnementRevenuPage() {
               Le diagnostic identifie les stratégies de fractionnement les plus avantageuses selon vos revenus respectifs.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

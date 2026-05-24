@@ -99,7 +99,7 @@ export default function AideFamilleQuebecPage() {
       pagesRelies={[
         { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – montants" },
         { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec" },
-        { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec" },
+        { href: "/fr/budget/credit-solidarite", titre: "Crédit de solidarité Québec" },
       ]}
     />
   );

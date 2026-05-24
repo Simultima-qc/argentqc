@@ -22,8 +22,8 @@ const postes = [
     coutFamille: "1 400 $ – 2 500 $",
     note: "Loyer moyen à Montréal. Québec et régions: 20-30% moins cher.",
     aides: [
-      { label: "Allocation-logement SHQ", href: "/allocation-logement-quebec" },
-      { label: "Crédit de solidarité", href: "/credit-solidarite-quebec" },
+      { label: "Allocation-logement SHQ", href: "/fr/budget/allocation-logement" },
+      { label: "Crédit de solidarité", href: "/fr/budget/credit-solidarite" },
     ],
   },
   {
@@ -34,7 +34,7 @@ const postes = [
     note: "Famille de 4 personnes. Les prix ont augmenté de ~20% depuis 2022.",
     aides: [
       { label: "Crédit TPS/TVH", href: "/credit-impot-quebec" },
-      { label: "Crédit de solidarité", href: "/credit-solidarite-quebec" },
+      { label: "Crédit de solidarité", href: "/fr/budget/credit-solidarite" },
     ],
   },
   {
@@ -118,7 +118,7 @@ const satellites = [
   { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "ACE, allocation famille, crédit solidarité", emoji: "👨‍👩‍👧" },
   { href: "/blog/frais-garde-enfants-quebec-2026", titre: "Coût garderie Québec – crédit jusqu'à 75%", desc: "Récupérez une grande partie de vos frais", emoji: "🏫" },
   { href: "/aide-financiere-sport-enfant-quebec", titre: "Coût sport enfant Québec", desc: "Aides disponibles pour les activités", emoji: "⚽" },
-  { href: "/allocation-logement-quebec", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu", emoji: "🏠" },
+  { href: "/fr/budget/allocation-logement", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu", emoji: "🏠" },
   { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Récupérez jusqu'à 20% de vos dépenses", emoji: "💊" },
   { href: "/subventions-maison-quebec", titre: "Subventions maison Québec", desc: "Réduire le coût de votre propriété", emoji: "🔨" },
 ];
@@ -147,8 +147,8 @@ export default function CoutVieQuebecPage() {
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: "#F5C842", fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/questionnaire" style={{ color: "#F5C842", fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -170,7 +170,7 @@ export default function CoutVieQuebecPage() {
             en 2026, et toutes les aides gouvernementales disponibles pour alléger votre budget.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{ display: "block", background: "#F5C842", color: "#060D1A", fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)" }}
           >
             Trouver mes aides →
@@ -284,7 +284,7 @@ export default function CoutVieQuebecPage() {
             Découvrez toutes les aides auxquelles vous avez droit en 2 minutes.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             className="block w-full bg-yellow-400 text-blue-900 font-bold py-4 rounded-2xl text-center"
           >
             Commencer le questionnaire →

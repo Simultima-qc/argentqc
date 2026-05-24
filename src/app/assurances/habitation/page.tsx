@@ -81,8 +81,8 @@ export default function AssuranceHabitationPage() {
     <main className="min-h-screen" style={{ background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -94,9 +94,9 @@ export default function AssuranceHabitationPage() {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
-            <Link href="/assurances" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Assurances</Link>
+            <Link href="/fr/assurances" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Assurances</Link>
             {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Habitation</span>
           </nav>
@@ -120,7 +120,7 @@ export default function AssuranceHabitationPage() {
           <span style={{ fontSize: "1.3rem" }}>📦</span>
           <p style={{ fontSize: "13px", color: "#92400E", lineHeight: 1.6, margin: 0 }}>
             <strong>Vous déménagez ?</strong>{" "}C&apos;est le moment idéal pour revoir votre couverture — ou en souscrire une nouvelle.{" "}
-            <Link href="/demenagement" style={{ color: "#92400E", fontWeight: 700 }}>Voir notre guide déménagement →</Link>
+            <Link href="/fr/demenagement" style={{ color: "#92400E", fontWeight: 700 }}>Voir notre guide déménagement →</Link>
           </p>
         </div>
 
@@ -244,10 +244,10 @@ export default function AssuranceHabitationPage() {
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-4">
           {[
-            { href: "/demenagement", emoji: "📦", titre: "Guide déménagement Québec", desc: "Souscrire une assurance habitation est une étape clé avant le déménagement" },
-            { href: "/assurances/auto", emoji: "🚗", titre: "Assurance auto Québec", desc: "Regroupez auto + habitation pour un rabais de 5 à 15%" },
-            { href: "/assurances/vie", emoji: "❤️", titre: "Protégez aussi votre famille — Assurance vie", desc: "Temporaire ou permanente : estimez votre couverture idéale" },
-            { href: "/budget/calculateur", emoji: "📊", titre: "Calculateur budget mensuel", desc: "Intégrez votre prime habitation à votre budget" },
+            { href: "/fr/demenagement", emoji: "📦", titre: "Guide déménagement Québec", desc: "Souscrire une assurance habitation est une étape clé avant le déménagement" },
+            { href: "/fr/assurances/auto", emoji: "🚗", titre: "Assurance auto Québec", desc: "Regroupez auto + habitation pour un rabais de 5 à 15%" },
+            { href: "/fr/assurances/vie", emoji: "❤️", titre: "Protégez aussi votre famille — Assurance vie", desc: "Temporaire ou permanente : estimez votre couverture idéale" },
+            { href: "/fr/budget/calculateur", emoji: "📊", titre: "Calculateur budget mensuel", desc: "Intégrez votre prime habitation à votre budget" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
               <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{l.emoji}</span>

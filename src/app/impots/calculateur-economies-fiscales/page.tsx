@@ -103,11 +103,11 @@ export default function TaxSavingsCalculatorPage() {
         <section className="px-5 py-12 text-white sm:py-16" style={{ background: DARK }}>
           <div className="mx-auto max-w-5xl">
             <nav className="mb-5 text-xs text-slate-400">
-              <Link href="/" className="text-slate-400 no-underline">
+              <Link href="/fr" className="text-slate-400 no-underline">
                 Accueil
               </Link>
               <span aria-hidden="true"> &gt; </span>
-              <Link href="/impots" className="text-slate-400 no-underline">
+              <Link href="/fr/impots" className="text-slate-400 no-underline">
                 Impots
               </Link>
               <span aria-hidden="true"> &gt; </span>

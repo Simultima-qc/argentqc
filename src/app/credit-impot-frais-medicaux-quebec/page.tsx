@@ -99,7 +99,7 @@ export default function CreditImpotFraisMedicauxPage() {
       pagesRelies={[
         { href: "/aide-lunettes-quebec", titre: "Aide pour lunettes Québec" },
         { href: "/credit-impot-quebec", titre: "Tous les crédits d'impôt Québec" },
-        { href: "/credit-solidarite-quebec", titre: "Crédit de solidarité Québec" },
+        { href: "/fr/budget/credit-solidarite", titre: "Crédit de solidarité Québec" },
       ]}
     />
   );

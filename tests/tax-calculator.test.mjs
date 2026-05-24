@@ -28,9 +28,9 @@ function loadTaxCalculatorModule() {
     },
   });
 
-  const module = { exports: {} };
-  vm.runInNewContext(outputText, { exports: module.exports, module });
-  return module.exports;
+  const compiledModule = { exports: {} };
+  vm.runInNewContext(outputText, { exports: compiledModule.exports, module: compiledModule });
+  return compiledModule.exports;
 }
 
 const {

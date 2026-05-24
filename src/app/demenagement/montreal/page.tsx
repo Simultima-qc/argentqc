@@ -216,7 +216,7 @@ export default function DemenagementMontrealPage() {
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link
-            href="/"
+            href="/fr"
             style={{
               fontFamily: "var(--font-playfair)",
               fontWeight: 800,
@@ -228,7 +228,7 @@ export default function DemenagementMontrealPage() {
             ArgentQC.ca
           </Link>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               color: GOLD,
               fontSize: "13px",
@@ -268,12 +268,12 @@ export default function DemenagementMontrealPage() {
         />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>
               Accueil
             </Link>
             {" › "}
             <Link
-              href="/demenagement"
+              href="/fr/demenagement"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Déménagement
@@ -319,7 +319,7 @@ export default function DemenagementMontrealPage() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/demenagement/cout"
+              href="/fr/demenagement/cout"
               style={{
                 display: "inline-block",
                 background: GOLD,
@@ -334,7 +334,7 @@ export default function DemenagementMontrealPage() {
               Coûts du déménagement →
             </Link>
             <Link
-              href="/demenagement/checklist"
+              href="/fr/demenagement/checklist"
               style={{
                 display: "inline-block",
                 background: "rgba(255,255,255,0.08)",
@@ -719,31 +719,31 @@ export default function DemenagementMontrealPage() {
         <div className="grid grid-cols-1 gap-3 mb-10">
           {[
             {
-              href: "/demenagement/cout",
+              href: "/fr/demenagement/cout",
               emoji: "💸",
               titre: "Combien coûte un déménagement à Montréal ?",
               desc: "Camion vs déménageurs, coûts cachés, conseils pour économiser",
             },
             {
-              href: "/demenagement/checklist",
+              href: "/fr/demenagement/checklist",
               emoji: "✅",
               titre: "Checklist déménagement complète",
               desc: "Ne rien oublier — 8 semaines avant au jour J",
             },
             {
-              href: "/assurances/habitation",
+              href: "/fr/assurances/habitation",
               emoji: "🛡️",
               titre: "Assurance habitation au Québec",
               desc: "À souscrire avant d'emménager dans votre nouveau logement",
             },
             {
-              href: "/budget/calculateur",
+              href: "/fr/budget/calculateur",
               emoji: "📊",
               titre: "Calculateur budget mensuel",
               desc: "Simulez votre budget avec le nouveau loyer montréalais",
             },
             {
-              href: "/demenagement",
+              href: "/fr/demenagement",
               emoji: "📋",
               titre: "Guide complet déménagement Québec",
               desc: "Toutes les étapes, droits des locataires, loyers par ville",

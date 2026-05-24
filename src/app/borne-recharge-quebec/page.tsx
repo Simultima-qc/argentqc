@@ -88,7 +88,7 @@ export default function BorneRechargeQuebecPage() {
       pagesRelies={[
         { href: "/vehicule-electrique-quebec", titre: "Toutes les subventions véhicule électrique Québec" },
         { href: "/subventions-maison-quebec", titre: "Toutes les subventions maison Québec 2026" },
-        { href: "/cout-vie-quebec", titre: "Coût de la vie au Québec 2026" },
+        { href: "/fr/budget/cout-vie", titre: "Coût de la vie au Québec 2026" },
       ]}
     />
   );

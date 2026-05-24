@@ -23,7 +23,7 @@ export default function ScenarioCouplePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/scenarios" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Scénarios</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -131,14 +131,14 @@ export default function ScenarioCouplePage() {
                   step: "2",
                   titre: "Ouvrir un REER de conjoint pour Amélie",
                   detail: "Patrick (70k) cotise dans le REER d'Amélie (50k). La déduction est faite à 70k (taux ~38 %) mais le retrait futur sera au taux d'Amélie (~30 %). Économie estimée : 1 500-2 000 $/an.",
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   cta: "Guide REER de conjoint",
                 },
                 {
                   step: "3",
                   titre: "Maximiser les CELI des deux conjoints",
                   detail: "Déplacer l'épargne dans le CELI protège les rendements de l'impôt chaque année. À 120 000 $ de revenu combiné, l'impact fiscal de ne pas utiliser le CELI peut être de 300-700 $/an en impôt évitable.",
-                  lien: "/retraite/celi",
+                  lien: "/fr/retraite/celi",
                   cta: "Guide CELI",
                 },
               ].map((item) => (
@@ -165,7 +165,7 @@ export default function ScenarioCouplePage() {
             <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "14px", marginBottom: "1.5rem" }}>
               Le diagnostic adapte les recommandations à ton revenu, ton statut et tes projets.
             </p>
-            <Link href="/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "1rem", padding: "0.95rem 2rem", borderRadius: "14px", textDecoration: "none" }}>
+            <Link href="/fr/questionnaire" style={{ display: "inline-block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "1rem", padding: "0.95rem 2rem", borderRadius: "14px", textDecoration: "none" }}>
               🚀 Lancer le diagnostic →
             </Link>
           </div>

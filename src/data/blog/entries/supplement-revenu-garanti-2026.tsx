@@ -33,7 +33,7 @@ function Content() {
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
           <Link href="/blog" style={{ color: "rgba(240,235,224,0.5)", fontSize: "13px", textDecoration: "none" }}>← Blogue</Link>
         </div>
       </header>
@@ -293,8 +293,8 @@ function Content() {
             {[
               { label: "Pension de la Sécurité de la vieillesse (SV)", montant: "jusqu&apos;à ~700 $/mois", href: "/blog/securite-vieillesse-quebec-2026", federal: true },
               { label: "Supplément de revenu garanti (SRG)", montant: "jusqu&apos;à ~1 086 $/mois", href: null, federal: true },
-              { label: "Crédit de solidarité Québec (composante TVQ + habitation)", montant: "jusqu&apos;à ~1 198 $/an", href: "/credit-solidarite-quebec", federal: false },
-              { label: "Allocation logement du Québec", montant: "jusqu&apos;à 170 $/mois", href: "/allocation-logement-quebec", federal: false },
+              { label: "Crédit de solidarité Québec (composante TVQ + habitation)", montant: "jusqu&apos;à ~1 198 $/an", href: "/fr/budget/credit-solidarite", federal: false },
+              { label: "Allocation logement du Québec", montant: "jusqu&apos;à 170 $/mois", href: "/fr/budget/allocation-logement", federal: false },
               { label: "Crédit d&apos;impôt pour frais médicaux", montant: "variable selon les dépenses", href: "/credit-impot-frais-medicaux-quebec", federal: false },
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between bg-white rounded-xl border border-slate-100 px-4 py-3 gap-2">
@@ -325,8 +325,8 @@ function Content() {
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
               { texte: "Sécurité de la vieillesse 2026", href: "/blog/securite-vieillesse-quebec-2026" },
-              { texte: "Allocation logement du Québec", href: "/allocation-logement-quebec" },
-              { texte: "Crédit de solidarité Québec", href: "/credit-solidarite-quebec" },
+              { texte: "Allocation logement du Québec", href: "/fr/budget/allocation-logement" },
+              { texte: "Crédit de solidarité Québec", href: "/fr/budget/credit-solidarite" },
               { texte: "Crédit d&apos;impôt pour frais médicaux", href: "/credit-impot-frais-medicaux-quebec" },
             ].map((item) => (
               <Link
@@ -346,7 +346,7 @@ function Content() {
             SRG, crédit de solidarité, allocation logement — notre questionnaire identifie tous les programmes auxquels vous avez droit.
           </p>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             className="inline-block font-bold px-6 py-3 rounded-xl"
             style={{ background: "#F5C842", color: "#060D1A" }}
           >

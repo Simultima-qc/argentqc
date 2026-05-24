@@ -21,14 +21,14 @@ export default function PolitiqueConfidentialite() {
       >
         <div className="mx-auto flex max-w-2xl items-center justify-between">
           <Link
-            href="/"
+            href="/fr"
             className="text-[15px] font-extrabold no-underline"
             style={{ color: GOLD, fontFamily: "var(--font-playfair)" }}
           >
             ArgentQC.ca
           </Link>
           <Link
-            href="/"
+            href="/fr"
             className="text-xs no-underline"
             style={{ color: "rgba(240,235,224,0.5)" }}
           >

@@ -25,7 +25,7 @@ export default function ScenarioFamillePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/scenarios" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Scénarios</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -217,21 +217,21 @@ export default function ScenarioFamillePage() {
                   step: "1",
                   titre: "Produire les deux déclarations d'impôt avant le 30 avril",
                   detail: "Déclaration fédérale (ARC) + déclaration provinciale (Revenu Québec). Déclenche automatiquement l'ACE, le crédit TPS et le crédit de solidarité.",
-                  lien: "/impots",
+                  lien: "/fr/impots",
                   cta: "Guide impôts Québec",
                 },
                 {
                   step: "2",
                   titre: "Vérifier les droits REER et commencer à cotiser",
                   detail: "À 90 000 $, cotiser au REER génère un remboursement d'environ 380 $ pour chaque 1 000 $ cotisé. Idéal d'utiliser ce remboursement pour cotiser encore.",
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   cta: "Guide REER complet",
                 },
                 {
                   step: "3",
                   titre: "Vérifier l'admissibilité aux crédits frais de garde",
                   detail: "Si les enfants sont dans une garderie non subventionnée, le crédit peut couvrir jusqu'à 75 % des frais payés. À déclarer dans la déclaration provinciale.",
-                  lien: "/questionnaire",
+                  lien: "/fr/questionnaire",
                   cta: "Diagnostic personnalisé",
                 },
               ].map((item) => (
@@ -279,7 +279,7 @@ export default function ScenarioFamillePage() {
               Réponds à 8 questions et reçois une liste personnalisée pour ton profil exact.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,

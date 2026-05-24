@@ -57,7 +57,7 @@ export default function ComparateurInternetPage() {
       >
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link
-            href="/"
+            href="/fr"
             style={{
               fontFamily: "var(--font-playfair)",
               fontWeight: 800,
@@ -69,7 +69,7 @@ export default function ComparateurInternetPage() {
             ArgentQC.ca
           </Link>
           <Link
-            href="/questionnaire"
+            href="/fr/questionnaire"
             style={{
               color: GOLD,
               fontSize: "13px",
@@ -119,14 +119,14 @@ export default function ComparateurInternetPage() {
             }}
           >
             <Link
-              href="/"
+              href="/fr"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Accueil
             </Link>
             {" › "}
             <Link
-              href="/internet"
+              href="/fr/internet"
               style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}
             >
               Internet
@@ -255,7 +255,7 @@ export default function ComparateurInternetPage() {
         </h2>
         <div className="flex flex-col gap-3 mb-10">
           <Link
-            href="/internet"
+            href="/fr/internet"
             style={{
               display: "flex",
               alignItems: "center",
@@ -279,7 +279,7 @@ export default function ComparateurInternetPage() {
             <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
           </Link>
           <Link
-            href="/demenagement"
+            href="/fr/demenagement"
             style={{
               display: "flex",
               alignItems: "center",
@@ -303,7 +303,7 @@ export default function ComparateurInternetPage() {
             <span style={{ color: "#3B82F6", fontSize: "14px" }}>→</span>
           </Link>
           <Link
-            href="/budget/calculateur"
+            href="/fr/budget/calculateur"
             style={{
               display: "flex",
               alignItems: "center",

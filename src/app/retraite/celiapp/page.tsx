@@ -68,8 +68,8 @@ export default function CeliappPage() {
     <main className="min-h-screen" style={{ background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -81,9 +81,9 @@ export default function CeliappPage() {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
-            <Link href="/retraite" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Retraite</Link>
+            <Link href="/fr/retraite" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Retraite</Link>
             {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>CELIAPP</span>
           </nav>
@@ -192,7 +192,7 @@ export default function CeliappPage() {
               <span style={{ fontWeight: 800, color: "#1D4ED8", fontSize: "15px" }}>150 000 $</span>
             </div>
           </div>
-          <Link href="/retraite/reer" style={{ display: "inline-block", marginTop: "10px", color: "#1D4ED8", fontWeight: 700, fontSize: "12px", textDecoration: "none" }}>
+          <Link href="/fr/retraite/reer" style={{ display: "inline-block", marginTop: "10px", color: "#1D4ED8", fontWeight: 700, fontSize: "12px", textDecoration: "none" }}>
             En savoir plus sur le RAP →
           </Link>
         </div>
@@ -273,9 +273,9 @@ export default function CeliappPage() {
         {/* CTAs */}
         <div className="flex flex-col gap-3 mb-4">
           {[
-            { href: "/retraite/reer", emoji: "💰", titre: "REER — Guide complet", desc: "Plafond 2026, RAP pour l'achat d'une maison, économie d'impôt" },
-            { href: "/retraite/celi", emoji: "📈", titre: "CELI — Tout comprendre", desc: "Droits de cotisation, placements admissibles, CELI vs CELIAPP" },
-            { href: "/retraite", emoji: "🏖️", titre: "Guide retraite Québec", desc: "Les 5 piliers — RRQ, SV, REER, CELI, régime d'employeur" },
+            { href: "/fr/retraite/reer", emoji: "💰", titre: "REER — Guide complet", desc: "Plafond 2026, RAP pour l'achat d'une maison, économie d'impôt" },
+            { href: "/fr/retraite/celi", emoji: "📈", titre: "CELI — Tout comprendre", desc: "Droits de cotisation, placements admissibles, CELI vs CELIAPP" },
+            { href: "/fr/retraite", emoji: "🏖️", titre: "Guide retraite Québec", desc: "Les 5 piliers — RRQ, SV, REER, CELI, régime d'employeur" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none" }}>
               <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>{l.emoji}</span>

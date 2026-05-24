@@ -24,7 +24,7 @@ const typesAssurance = [
     emoji: "🚗",
     obligatoire: true,
     desc: "Obligatoire pour tout véhicule immatriculé. Régime mixte unique au Québec : la SAAQ couvre les dommages corporels, un assureur privé couvre les dommages matériels.",
-    href: "/assurances/auto",
+    href: "/fr/assurances/auto",
     cta: "Guide assurance auto →",
   },
   {
@@ -32,7 +32,7 @@ const typesAssurance = [
     emoji: "🏠",
     obligatoire: false,
     desc: "Non obligatoire légalement, mais fortement recommandée (et souvent exigée par le propriétaire). Couvre les dommages à vos biens et votre responsabilité civile.",
-    href: "/assurances/habitation",
+    href: "/fr/assurances/habitation",
     cta: "Guide assurance habitation →",
   },
   {
@@ -40,7 +40,7 @@ const typesAssurance = [
     emoji: "❤️",
     obligatoire: false,
     desc: "Protège vos proches en cas de décès. Recommandée dès que vous avez des dépendants (enfants, conjoint) ou des dettes importantes (hypothèque).",
-    href: "/assurances/vie",
+    href: "/fr/assurances/vie",
     cta: "Guide assurance vie →",
   },
   {
@@ -105,8 +105,8 @@ export default function AssurancesPage() {
     <main className="min-h-screen" style={{ background: PARCH }}>
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
-          <Link href="/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none" }}>ArgentQC.ca</Link>
+          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
             Trouver mes aides
           </Link>
         </div>
@@ -118,7 +118,7 @@ export default function AssurancesPage() {
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
         <div className="max-w-2xl mx-auto" style={{ position: "relative", zIndex: 1 }}>
           <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-            <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+            <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
             {" › "}
             <span style={{ color: "rgba(240,235,224,0.7)" }}>Assurances</span>
           </nav>
@@ -261,7 +261,7 @@ export default function AssurancesPage() {
         </div>
 
         {/* Lien comparateur */}
-        <Link href="/assurances/comparateur" style={{ display: "flex", alignItems: "center", gap: "12px", background: DARK, border: "1px solid rgba(245,200,66,0.2)", borderRadius: "14px", padding: "14px 16px", textDecoration: "none", marginBottom: "2.5rem" }}>
+        <Link href="/fr/assurances/comparateur" style={{ display: "flex", alignItems: "center", gap: "12px", background: DARK, border: "1px solid rgba(245,200,66,0.2)", borderRadius: "14px", padding: "14px 16px", textDecoration: "none", marginBottom: "2.5rem" }}>
           <span style={{ fontSize: "1.5rem" }}>⚖️</span>
           <div className="flex-1">
             <div style={{ fontWeight: 700, fontSize: "14px", color: "#F0EBE0" }}>Comparer les assureurs au Québec</div>
@@ -275,7 +275,7 @@ export default function AssurancesPage() {
           Guides détaillés
         </h2>
         <div className="grid grid-cols-1 gap-4 mb-10" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
-          <Link href="/assurances/auto" style={{ display: "block", background: DARK, borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
+          <Link href="/fr/assurances/auto" style={{ display: "block", background: DARK, borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
             <div style={{ fontSize: "2rem", marginBottom: "10px" }}>🚗</div>
             <h3 style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.1rem", fontWeight: 800, marginBottom: "8px" }}>
               Assurance auto Québec
@@ -285,7 +285,7 @@ export default function AssurancesPage() {
             </p>
             <span style={{ color: GOLD, fontWeight: 700, fontSize: "13px" }}>Lire le guide →</span>
           </Link>
-          <Link href="/assurances/habitation" style={{ display: "block", background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
+          <Link href="/fr/assurances/habitation" style={{ display: "block", background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
             <div style={{ fontSize: "2rem", marginBottom: "10px" }}>🏠</div>
             <h3 style={{ fontFamily: "var(--font-playfair)", color: "#1C1C1E", fontSize: "1.1rem", fontWeight: 800, marginBottom: "8px" }}>
               Assurance habitation Québec
@@ -295,7 +295,7 @@ export default function AssurancesPage() {
             </p>
             <span style={{ color: "#3B82F6", fontWeight: 700, fontSize: "13px" }}>Lire le guide →</span>
           </Link>
-          <Link href="/assurances/vie" style={{ display: "block", background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
+          <Link href="/fr/assurances/vie" style={{ display: "block", background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem", textDecoration: "none" }}>
             <div style={{ fontSize: "2rem", marginBottom: "10px" }}>❤️</div>
             <h3 style={{ fontFamily: "var(--font-playfair)", color: "#1C1C1E", fontSize: "1.1rem", fontWeight: 800, marginBottom: "8px" }}>
               Assurance vie Québec
@@ -336,7 +336,7 @@ export default function AssurancesPage() {
         />
 
         {/* Lien demenagement */}
-        <Link href="/demenagement/cout" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none", marginBottom: "1rem" }}>
+        <Link href="/fr/demenagement/cout" style={{ display: "flex", alignItems: "center", gap: "12px", background: "white", border: "1px solid #EDE9E0", borderRadius: "14px", padding: "14px 16px", textDecoration: "none", marginBottom: "1rem" }}>
           <span style={{ fontSize: "1.4rem" }}>📦</span>
           <div className="flex-1">
             <div style={{ fontWeight: 700, fontSize: "14px", color: "#1C1C1E" }}>Vous déménagez ? Pensez à votre assurance habitation</div>

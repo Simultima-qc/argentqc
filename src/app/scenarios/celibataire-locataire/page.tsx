@@ -25,7 +25,7 @@ export default function ScenarioCelibatairePage() {
         <section style={{ background: DARK }} className="px-5 py-12">
           <div className="max-w-2xl mx-auto">
             <nav style={{ fontSize: "12px", color: "rgba(240,235,224,0.4)", marginBottom: "12px" }}>
-              <Link href="/" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
+              <Link href="/fr" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Accueil</Link>
               <span style={{ margin: "0 8px" }}>›</span>
               <Link href="/scenarios" style={{ color: "rgba(240,235,224,0.4)", textDecoration: "none" }}>Scénarios</Link>
               <span style={{ margin: "0 8px" }}>›</span>
@@ -213,21 +213,21 @@ export default function ScenarioCelibatairePage() {
                   step: "1",
                   titre: "Cotiser 9 000 $ au REER avant le 28 février",
                   detail: "Pour maximiser le remboursement d'impôt sur l'année fiscale courante. Utilise le remboursement reçu (~2 700 $) pour cotiser à nouveau l'année suivante (stratégie de mise de fonds accélérée).",
-                  lien: "/retraite/reer",
+                  lien: "/fr/retraite/reer",
                   cta: "Guide REER",
                 },
                 {
                   step: "2",
                   titre: "Produire les deux déclarations pour activer les crédits",
                   detail: "Le crédit de solidarité (1 185 $/an) et le crédit TPS (496 $/an) sont automatiquement déclenchés par la déclaration. Sans déclaration = aucun crédit.",
-                  lien: "/credit-solidarite-quebec",
+                  lien: "/fr/budget/credit-solidarite",
                   cta: "Guide crédit de solidarité",
                 },
                 {
                   step: "3",
                   titre: "Comparer internet + téléphonie (30 min, 300 $/an)",
                   detail: "Les opérateurs virtuels (Fizz, Public Mobile) offrent des forfaits 40-60 % moins chers pour une qualité équivalente. Une comparaison rapide peut économiser 25 $/mois sans sacrifice.",
-                  lien: "/internet",
+                  lien: "/fr/internet",
                   cta: "Comparateur internet",
                 },
               ].map((item) => (
@@ -275,7 +275,7 @@ export default function ScenarioCelibatairePage() {
               Le diagnostic personnalisé adapte les recommandations à ton profil exact.
             </p>
             <Link
-              href="/questionnaire"
+              href="/fr/questionnaire"
               style={{
                 display: "inline-block",
                 background: GOLD,
