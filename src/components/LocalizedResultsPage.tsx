@@ -11,7 +11,7 @@ import LeadCaptureForm from "@/components/LeadCaptureForm";
 import ShareResultsLink from "@/components/ShareResultsLink";
 import SiteFooter from "@/components/SiteFooter";
 import TrackingLink from "@/components/TrackingLink";
-import TrackedExternalLink from "@/components/TrackedExternalLink";
+import ProgrammeListClient, { type ProgrammeWithMeta } from "@/components/ProgrammeListClient";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -98,17 +98,19 @@ export default function LocalizedResultsPage({
   const ui = getCommonUiLabels(locale);
   const profileChips = buildProfileChips(reponses, dictionary);
 
-  // Top 5 by amount for "meilleures pistes"
-  const topProgrammes = [...programmes].sort((a, b) => b.montant_max - a.montant_max).slice(0, 5);
-
-  // Sort: principal first (by amount desc), then verifier (by amount desc)
-  const principaux = programmes
+  // Pre-compute tier + reason server-side so ProgrammeListClient receives plain data
+  const principaux: ProgrammeWithMeta[] = programmes
     .filter((p) => getConfidenceTier(p) === "principal")
-    .sort((a, b) => b.montant_max - a.montant_max);
-  const averifier = programmes
+    .sort((a, b) => b.montant_max - a.montant_max)
+    .map((p) => ({ ...p, tier: "principal" as const, reason: getProgrammeReason(p, reponses, locale) }));
+  const averifier: ProgrammeWithMeta[] = programmes
     .filter((p) => getConfidenceTier(p) === "verifier")
-    .sort((a, b) => b.montant_max - a.montant_max);
-  const sortedProgrammes = [...principaux, ...averifier];
+    .sort((a, b) => b.montant_max - a.montant_max)
+    .map((p) => ({ ...p, tier: "verifier" as const, reason: getProgrammeReason(p, reponses, locale) }));
+  const programmesWithMeta: ProgrammeWithMeta[] = [...principaux, ...averifier];
+
+  // Top 5 by amount for "meilleures pistes" (across both tiers)
+  const topProgrammes = [...programmesWithMeta].sort((a, b) => b.montant_max - a.montant_max).slice(0, 5);
 
   const hubLinks = buildHubLinks(reponses, locale);
 
@@ -269,32 +271,28 @@ export default function LocalizedResultsPage({
                     : "These programs stand out most based on your profile."}
                 </p>
                 <ol className="flex flex-col gap-4" style={{ listStyle: "none", padding: 0 }}>
-                  {topProgrammes.map((prog, i) => {
-                    const tier = getConfidenceTier(prog);
-                    const reason = getProgrammeReason(prog, reponses, locale);
-                    return (
-                      <li key={prog.id} className="flex gap-3 items-start">
-                        <span
-                          className="flex shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
-                          style={{ width: "26px", height: "26px", background: DARK, color: GOLD }}
-                        >
-                          {i + 1}
-                        </span>
-                        <div className="flex-1 pt-0.5">
-                          <div className="flex flex-wrap items-center gap-2 mb-0.5">
-                            <p className="text-sm font-bold text-stone-900">{prog.nom}</p>
-                            {tier === "verifier" && (
-                              <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
-                                {dictionary.programTierLabels.verifier}
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-xs font-semibold mb-1" style={{ color: GREEN }}>{prog.montant_affiche}</p>
-                          <p className="text-xs text-stone-500">{reason}</p>
+                  {topProgrammes.map((prog, i) => (
+                    <li key={prog.id} className="flex gap-3 items-start">
+                      <span
+                        className="flex shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
+                        style={{ width: "26px", height: "26px", background: DARK, color: GOLD }}
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="flex-1 pt-0.5">
+                        <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                          <p className="text-sm font-bold text-stone-900">{prog.nom}</p>
+                          {prog.tier === "verifier" && (
+                            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                              {dictionary.programTierLabels.verifier}
+                            </span>
+                          )}
                         </div>
-                      </li>
-                    );
-                  })}
+                        <p className="text-xs font-semibold mb-1" style={{ color: GREEN }}>{prog.montant_affiche}</p>
+                        <p className="text-xs text-stone-500">{prog.reason}</p>
+                      </div>
+                    </li>
+                  ))}
                 </ol>
               </div>
             )}
@@ -303,109 +301,11 @@ export default function LocalizedResultsPage({
               {dictionary.eligibleLabel}
             </h2>
 
-            {/* ── PROGRAMME CARDS — sorted by tier then amount ── */}
-            <div className="flex flex-col gap-3">
-              {sortedProgrammes.map((programme) => {
-                const level = dictionary.levelLabels[programme.niveau];
-                const tier = getConfidenceTier(programme);
-                const isVerifier = tier === "verifier";
-                const reason = getProgrammeReason(programme, reponses, locale);
-                return (
-                  <div
-                    key={programme.id}
-                    className="overflow-hidden rounded-2xl border bg-white"
-                    style={{ borderColor: "#EDE9E0", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}
-                  >
-                    {/* Card header */}
-                    <div
-                      className="flex items-center justify-between gap-3 border-b px-4 py-3"
-                      style={{
-                        background: isVerifier ? "#FFFBEB" : "#ECFDF5",
-                        borderColor: isVerifier ? "#FDE68A" : "#D1FAE5",
-                      }}
-                    >
-                      <div className="flex flex-wrap gap-2">
-                        <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${level.className}`}>
-                          {level.label}
-                        </span>
-                        <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">
-                          {dictionary.categoryLabels[programme.categorie] ?? programme.categorie}
-                        </span>
-                        <span
-                          className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                            isVerifier
-                              ? "bg-amber-100 text-amber-700"
-                              : "bg-emerald-100 text-emerald-700"
-                          }`}
-                        >
-                          {isVerifier
-                            ? dictionary.programTierLabels.verifier
-                            : dictionary.programTierLabels.principal}
-                        </span>
-                      </div>
-                      <span
-                        className="shrink-0 text-sm font-extrabold"
-                        style={{ color: isVerifier ? "#B45309" : "#047857" }}
-                      >
-                        {programme.montant_affiche}
-                      </span>
-                    </div>
-
-                    {/* Card body */}
-                    <div className="p-4">
-                      <h3 className="mb-1 text-base font-bold text-stone-900">{programme.nom}</h3>
-                      <p className="mb-2 text-xs text-stone-400">{programme.organisme}</p>
-
-                      {/* Why this programme */}
-                      <p className="mb-3 text-xs text-stone-500">
-                        <span className="font-semibold">{dictionary.whyThisProgramLabel}</span>{" "}
-                        {reason}
-                      </p>
-
-                      <p className="mb-4 text-sm leading-7 text-stone-600">{programme.description}</p>
-
-                      {/* Eligibility conditions */}
-                      <div className="mb-4">
-                        <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-stone-400">
-                          {dictionary.conditionsTitle}
-                        </p>
-                        <ul className="flex flex-col gap-2">
-                          {programme.conditions.map((condition, index) => (
-                            <li key={`${programme.id}-${index}`} className="flex gap-2 text-sm leading-6 text-stone-600">
-                              <span style={{ color: GREEN }}>✓</span>
-                              {condition}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Municipal notice */}
-                      {programme.niveau === "municipal" && (
-                        <p className="mb-4 rounded-lg px-3 py-2 text-xs leading-6 text-amber-700"
-                          style={{ background: "#FFFBEB", border: "1px solid #FDE68A" }}>
-                          ⚠ {dictionary.municipalNotice}
-                        </p>
-                      )}
-
-                      <TrackedExternalLink
-                        href={programme.lien_officiel}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block rounded-2xl px-4 py-3 text-center text-sm font-bold no-underline"
-                        style={{ background: DARK, color: GOLD, border: "1px solid rgba(245,200,66,0.15)" }}
-                        tracking={{
-                          cta_name: isVerifier ? "results_verify_programme" : "results_priority_programme",
-                          cta_location: "results_programme_card",
-                          destination: programme.lien_officiel,
-                        }}
-                      >
-                        {dictionary.applyCta} →
-                      </TrackedExternalLink>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            {/* ── PROGRAMME CARDS — paginated client component ── */}
+            <ProgrammeListClient
+              programmes={programmesWithMeta}
+              dictionary={dictionary}
+            />
 
             <div className="my-5 rounded-xl border bg-white p-2" style={{ borderColor: "#EDE9E0" }}>
               <div className="flex h-16 items-center justify-center rounded-lg text-xs text-stone-400" style={{ background: PARCH }}>

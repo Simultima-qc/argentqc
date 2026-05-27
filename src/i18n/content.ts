@@ -109,6 +109,8 @@ export interface ResultsDictionary {
     verifier: string;
   };
   municipalNotice: string;
+  showMoreProgrammes: string;
+  hideProgrammes: string;
   recalculateText: string;
   recalculateCta: string;
   estimateDisclaimer: string;
@@ -366,8 +368,10 @@ const fr: SiteDictionary = {
       verifier: "À vérifier",
     },
     municipalNotice: "Ce programme varie selon votre municipalité.",
+    showMoreProgrammes: "Voir les {count} autres programmes trouvés",
+    hideProgrammes: "Masquer les programmes supplémentaires",
     recalculateText: "Votre situation a changé ? Affinez vos réponses pour un résultat plus précis.",
-    recalculateCta: "Affiner mon profil",
+    recalculateCta: "Revoir mes réponses",
     estimateDisclaimer:
       "Les montants affichés sont des estimations à titre informatif. L'admissibilité finale dépend des critères officiels de chaque programme.",
     footerDisclaimer: "Outil informatif non affilié au gouvernement.",
@@ -636,8 +640,10 @@ const en: SiteDictionary = {
       verifier: "Check eligibility",
     },
     municipalNotice: "This program varies by municipality.",
+    showMoreProgrammes: "See {count} more programs found",
+    hideProgrammes: "Hide extra programs",
     recalculateText: "Has your situation changed? Refine your answers for a more precise result.",
-    recalculateCta: "Refine my profile",
+    recalculateCta: "Review my answers",
     estimateDisclaimer:
       "Displayed amounts are estimates only. Final eligibility depends on each program's official requirements.",
     footerDisclaimer: "Informational tool only and not affiliated with the government.",
