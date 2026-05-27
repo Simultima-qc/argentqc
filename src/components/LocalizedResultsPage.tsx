@@ -4,12 +4,14 @@ import { localizeProgramme } from "@/i18n/programmes";
 import type { ResultsDictionary } from "@/i18n/content";
 import { getRoutePath, type Locale } from "@/i18n/routing";
 import { getCommonUiLabels } from "@/i18n/ui";
-import type { ReponseQuestionnaire } from "@/types";
+import type { Programme, ReponseQuestionnaire } from "@/types";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import AnalyticsPageView from "@/components/AnalyticsPageView";
 import LeadCaptureForm from "@/components/LeadCaptureForm";
 import ShareResultsLink from "@/components/ShareResultsLink";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
+import TrackedExternalLink from "@/components/TrackedExternalLink";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -20,6 +22,39 @@ interface LocalizedResultsPageProps {
   locale: Locale;
   dictionary: ResultsDictionary;
   reponses: ReponseQuestionnaire;
+}
+
+function getConfidenceTier(programme: Programme): "principal" | "verifier" {
+  return programme.niveau === "municipal" ? "verifier" : "principal";
+}
+
+function getProgrammeReason(programme: Programme, reponses: ReponseQuestionnaire, locale: Locale): string {
+  const c = programme.criteres;
+  const fr = locale === "fr";
+
+  if (c.proprietaire && reponses.statut_logement === "proprietaire")
+    return fr ? "Vous avez indiqué être propriétaire." : "You indicated you are a homeowner.";
+  if (c.locataire && reponses.statut_logement === "locataire")
+    return fr ? "Vous avez indiqué être locataire." : "You indicated you are a renter.";
+  if (c.enfants && reponses.enfants)
+    return fr ? "Vous avez des enfants à charge." : "You have dependent children.";
+  if (c.vehicule_elec && reponses.vehicule_elec !== "non")
+    return fr ? "Vous avez ou prévoyez un véhicule électrique." : "You have or plan to get an electric vehicle.";
+  if (c.renovation && reponses.renovation)
+    return fr ? "Vous prévoyez des travaux de rénovation." : "You are planning renovation work.";
+  if (c.retraite && reponses.retraite)
+    return fr ? "Vous êtes à la retraite ou avez 65 ans et plus." : "You are retired or 65 and over.";
+  if (c.etudiant && reponses.etudiant)
+    return fr ? "Vous êtes aux études." : "You are a student.";
+  if (c.revenu_max !== undefined)
+    return fr ? "Votre revenu correspond aux critères de ce programme." : "Your income matches this program's criteria.";
+  if (c.age_min !== undefined || c.age_max !== undefined)
+    return fr ? "Votre tranche d'âge correspond aux critères." : "Your age range matches the eligibility criteria.";
+  if (programme.niveau === "municipal")
+    return fr ? "Ce programme dépend de votre municipalité." : "This program depends on your municipality.";
+  return fr
+    ? "Votre profil correspond aux critères généraux de ce programme."
+    : "Your profile matches the general criteria for this program.";
 }
 
 function buildProfileChips(reponses: ReponseQuestionnaire, dictionary: LocalizedResultsPageProps["dictionary"]): string[] {
@@ -62,7 +97,19 @@ export default function LocalizedResultsPage({
   const questionnairePath = getRoutePath(locale, "questionnaire");
   const ui = getCommonUiLabels(locale);
   const profileChips = buildProfileChips(reponses, dictionary);
-  const topProgrammes = [...programmes].sort((a, b) => b.montant_max - a.montant_max).slice(0, 3);
+
+  // Top 5 by amount for "meilleures pistes"
+  const topProgrammes = [...programmes].sort((a, b) => b.montant_max - a.montant_max).slice(0, 5);
+
+  // Sort: principal first (by amount desc), then verifier (by amount desc)
+  const principaux = programmes
+    .filter((p) => getConfidenceTier(p) === "principal")
+    .sort((a, b) => b.montant_max - a.montant_max);
+  const averifier = programmes
+    .filter((p) => getConfidenceTier(p) === "verifier")
+    .sort((a, b) => b.montant_max - a.montant_max);
+  const sortedProgrammes = [...principaux, ...averifier];
+
   const hubLinks = buildHubLinks(reponses, locale);
 
   return (
@@ -92,15 +139,24 @@ export default function LocalizedResultsPage({
             ArgentQC.ca
           </Link>
           <div className="flex items-center gap-3">
-            <Link href={questionnairePath} className="text-xs font-semibold text-amber-300 underline opacity-80">
+            <TrackingLink
+              href={questionnairePath}
+              className="text-xs font-semibold text-amber-300 underline opacity-80"
+              tracking={{
+                cta_name: "results_restart_header",
+                cta_location: "results_header",
+                destination: questionnairePath,
+              }}
+            >
               {dictionary.restart}
-            </Link>
+            </TrackingLink>
             <LanguageSwitcher currentLocale={locale} label={ui.languageSwitcher} />
           </div>
         </div>
       </header>
 
       <div className="mx-auto max-w-2xl px-4 py-6">
+        {/* ── HERO TOTAL ── */}
         <div
           style={{
             background: DARK,
@@ -128,13 +184,13 @@ export default function LocalizedResultsPage({
           >
             {formaterArgent(total.max, locale)}
           </p>
-          <p className="mb-2 text-center text-sm text-stone-400">
+          <p className="mb-3 text-center text-sm text-stone-400">
             {programmes.length} {programmes.length === 1 ? dictionary.programmesFound.singular : dictionary.programmesFound.plural}
           </p>
-          <p className="mb-5 text-center text-xs text-stone-500">
-            {locale === "fr"
-              ? "Estimation basée sur les programmes correspondant à votre profil."
-              : "Estimate based on programs matching your profile."}
+          {/* Explainer — what this number means */}
+          <p className="mb-5 rounded-lg px-3 py-2 text-center text-xs leading-6 text-stone-400"
+            style={{ background: "rgba(255,255,255,0.04)" }}>
+            {dictionary.estimateExplainerBody}
           </p>
 
           {programmes.length > 0 && (
@@ -186,37 +242,59 @@ export default function LocalizedResultsPage({
               {dictionary.emptyState.title}
             </h2>
             <p className="mb-6 text-sm leading-7 text-stone-500">{dictionary.emptyState.description}</p>
-            <Link
+            <TrackingLink
               href={questionnairePath}
               className="block rounded-2xl px-5 py-3 text-center font-bold no-underline"
               style={{ background: DARK, color: GOLD }}
+              tracking={{
+                cta_name: "results_restart_empty_state",
+                cta_location: "results_empty_state",
+                destination: questionnairePath,
+              }}
             >
               {dictionary.emptyState.cta}
-            </Link>
+            </TrackingLink>
           </div>
         ) : (
           <>
-            {/* ── PLAN D'ACTION ── */}
+            {/* ── VOS MEILLEURES PISTES ── */}
             {topProgrammes.length > 0 && (
               <div className="mb-5 rounded-2xl border bg-white p-5" style={{ borderColor: "#EDE9E0" }}>
-                <h2 className="mb-4 text-base font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
-                  🎯 {dictionary.actionPlanTitle}
+                <h2 className="mb-1 text-base font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
+                  🎯 {dictionary.topProgramsTitle}
                 </h2>
-                <ol className="flex flex-col gap-3" style={{ listStyle: "none", padding: 0 }}>
-                  {topProgrammes.map((prog, i) => (
-                    <li key={prog.id} className="flex gap-3 items-start">
-                      <span
-                        className="flex shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
-                        style={{ width: "26px", height: "26px", background: DARK, color: GOLD }}
-                      >
-                        {i + 1}
-                      </span>
-                      <div className="pt-0.5">
-                        <p className="text-sm font-bold text-stone-900">{prog.nom}</p>
-                        <p className="text-xs font-semibold" style={{ color: GREEN }}>{prog.montant_affiche}</p>
-                      </div>
-                    </li>
-                  ))}
+                <p className="mb-4 text-xs text-stone-400">
+                  {locale === "fr"
+                    ? "Ces programmes ressortent en priorité selon votre profil."
+                    : "These programs stand out most based on your profile."}
+                </p>
+                <ol className="flex flex-col gap-4" style={{ listStyle: "none", padding: 0 }}>
+                  {topProgrammes.map((prog, i) => {
+                    const tier = getConfidenceTier(prog);
+                    const reason = getProgrammeReason(prog, reponses, locale);
+                    return (
+                      <li key={prog.id} className="flex gap-3 items-start">
+                        <span
+                          className="flex shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
+                          style={{ width: "26px", height: "26px", background: DARK, color: GOLD }}
+                        >
+                          {i + 1}
+                        </span>
+                        <div className="flex-1 pt-0.5">
+                          <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                            <p className="text-sm font-bold text-stone-900">{prog.nom}</p>
+                            {tier === "verifier" && (
+                              <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                                {dictionary.programTierLabels.verifier}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs font-semibold mb-1" style={{ color: GREEN }}>{prog.montant_affiche}</p>
+                          <p className="text-xs text-stone-500">{reason}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ol>
               </div>
             )}
@@ -225,16 +303,27 @@ export default function LocalizedResultsPage({
               {dictionary.eligibleLabel}
             </h2>
 
+            {/* ── PROGRAMME CARDS — sorted by tier then amount ── */}
             <div className="flex flex-col gap-3">
-              {programmes.map((programme) => {
+              {sortedProgrammes.map((programme) => {
                 const level = dictionary.levelLabels[programme.niveau];
+                const tier = getConfidenceTier(programme);
+                const isVerifier = tier === "verifier";
+                const reason = getProgrammeReason(programme, reponses, locale);
                 return (
                   <div
                     key={programme.id}
                     className="overflow-hidden rounded-2xl border bg-white"
                     style={{ borderColor: "#EDE9E0", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}
                   >
-                    <div className="flex items-center justify-between gap-3 border-b bg-emerald-50 px-4 py-3" style={{ borderColor: "#D1FAE5" }}>
+                    {/* Card header */}
+                    <div
+                      className="flex items-center justify-between gap-3 border-b px-4 py-3"
+                      style={{
+                        background: isVerifier ? "#FFFBEB" : "#ECFDF5",
+                        borderColor: isVerifier ? "#FDE68A" : "#D1FAE5",
+                      }}
+                    >
                       <div className="flex flex-wrap gap-2">
                         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${level.className}`}>
                           {level.label}
@@ -242,13 +331,40 @@ export default function LocalizedResultsPage({
                         <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">
                           {dictionary.categoryLabels[programme.categorie] ?? programme.categorie}
                         </span>
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                            isVerifier
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-emerald-100 text-emerald-700"
+                          }`}
+                        >
+                          {isVerifier
+                            ? dictionary.programTierLabels.verifier
+                            : dictionary.programTierLabels.principal}
+                        </span>
                       </div>
-                      <span className="shrink-0 text-sm font-extrabold text-emerald-700">{programme.montant_affiche}</span>
+                      <span
+                        className="shrink-0 text-sm font-extrabold"
+                        style={{ color: isVerifier ? "#B45309" : "#047857" }}
+                      >
+                        {programme.montant_affiche}
+                      </span>
                     </div>
+
+                    {/* Card body */}
                     <div className="p-4">
                       <h3 className="mb-1 text-base font-bold text-stone-900">{programme.nom}</h3>
-                      <p className="mb-3 text-xs text-stone-400">{programme.organisme}</p>
+                      <p className="mb-2 text-xs text-stone-400">{programme.organisme}</p>
+
+                      {/* Why this programme */}
+                      <p className="mb-3 text-xs text-stone-500">
+                        <span className="font-semibold">{dictionary.whyThisProgramLabel}</span>{" "}
+                        {reason}
+                      </p>
+
                       <p className="mb-4 text-sm leading-7 text-stone-600">{programme.description}</p>
+
+                      {/* Eligibility conditions */}
                       <div className="mb-4">
                         <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-stone-400">
                           {dictionary.conditionsTitle}
@@ -262,15 +378,29 @@ export default function LocalizedResultsPage({
                           ))}
                         </ul>
                       </div>
-                      <a
+
+                      {/* Municipal notice */}
+                      {programme.niveau === "municipal" && (
+                        <p className="mb-4 rounded-lg px-3 py-2 text-xs leading-6 text-amber-700"
+                          style={{ background: "#FFFBEB", border: "1px solid #FDE68A" }}>
+                          ⚠ {dictionary.municipalNotice}
+                        </p>
+                      )}
+
+                      <TrackedExternalLink
                         href={programme.lien_officiel}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block rounded-2xl px-4 py-3 text-center text-sm font-bold no-underline"
                         style={{ background: DARK, color: GOLD, border: "1px solid rgba(245,200,66,0.15)" }}
+                        tracking={{
+                          cta_name: isVerifier ? "results_verify_programme" : "results_priority_programme",
+                          cta_location: "results_programme_card",
+                          destination: programme.lien_officiel,
+                        }}
                       >
                         {dictionary.applyCta} →
-                      </a>
+                      </TrackedExternalLink>
                     </div>
                   </div>
                 );
@@ -289,14 +419,19 @@ export default function LocalizedResultsPage({
                 <h2 className="mb-3 text-sm font-extrabold text-stone-900">{dictionary.guidesTitle}</h2>
                 <div className="flex flex-wrap gap-2">
                   {hubLinks.map((link) => (
-                    <Link
+                    <TrackingLink
                       key={link.href}
                       href={link.href}
                       className="rounded-xl border px-4 py-2 text-sm font-semibold no-underline"
                       style={{ background: PARCH, borderColor: "#EDE9E0", color: DARK }}
+                      tracking={{
+                        cta_name: "results_explore_guide",
+                        cta_location: "results_guides_section",
+                        destination: link.href,
+                      }}
                     >
                       {link.label}
-                    </Link>
+                    </TrackingLink>
                   ))}
                 </div>
               </div>
@@ -310,15 +445,34 @@ export default function LocalizedResultsPage({
               estimatedTotalMax={total.max}
             />
 
+            {/* ── BLOC DE PRUDENCE ── */}
+            <div
+              className="mb-5 rounded-xl border px-4 py-4"
+              style={{ background: "#FFFBEB", borderColor: "#FDE68A" }}
+            >
+              <p className="text-xs leading-6 text-amber-800">
+                <span className="font-semibold">
+                  {locale === "fr" ? "Important : " : "Important: "}
+                </span>
+                {dictionary.cautionNotice}
+              </p>
+            </div>
+
+            {/* ── CTA FINAL ── */}
             <div className="rounded-2xl px-6 py-6 text-center" style={{ background: DARK }}>
               <p className="mb-4 text-sm text-stone-300">{dictionary.recalculateText}</p>
-              <Link
+              <TrackingLink
                 href={questionnairePath}
                 className="block rounded-2xl px-4 py-3 text-center text-sm font-extrabold no-underline"
                 style={{ background: GOLD, color: DARK }}
+                tracking={{
+                  cta_name: "results_restart_bottom",
+                  cta_location: "results_bottom_cta",
+                  destination: questionnairePath,
+                }}
               >
                 {dictionary.recalculateCta}
-              </Link>
+              </TrackingLink>
             </div>
           </>
         )}

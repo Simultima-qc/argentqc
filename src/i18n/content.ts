@@ -100,6 +100,15 @@ export interface ResultsDictionary {
   adsLabel: string;
   conditionsTitle: string;
   applyCta: string;
+  estimateExplainerBody: string;
+  cautionNotice: string;
+  topProgramsTitle: string;
+  whyThisProgramLabel: string;
+  programTierLabels: {
+    principal: string;
+    verifier: string;
+  };
+  municipalNotice: string;
   recalculateText: string;
   recalculateCta: string;
   estimateDisclaimer: string;
@@ -346,8 +355,19 @@ const fr: SiteDictionary = {
     adsLabel: "Publicite",
     conditionsTitle: "Conditions",
     applyCta: "Voir la page officielle",
-    recalculateText: "Votre situation a changé ? Recalculez vos aides.",
-    recalculateCta: "Refaire le questionnaire",
+    estimateExplainerBody:
+      "Ce montant est une estimation basée sur vos réponses. Il ne garantit pas votre admissibilité, mais indique les programmes qui valent la peine d'être explorés selon votre profil.",
+    cautionNotice:
+      "ArgentQC ne remplace pas une demande officielle. Les montants sont indicatifs et servent à identifier les programmes qui méritent votre attention.",
+    topProgramsTitle: "Vos meilleures pistes",
+    whyThisProgramLabel: "Pourquoi ce programme ?",
+    programTierLabels: {
+      principal: "Prioritaire",
+      verifier: "À vérifier",
+    },
+    municipalNotice: "Ce programme varie selon votre municipalité.",
+    recalculateText: "Votre situation a changé ? Affinez vos réponses pour un résultat plus précis.",
+    recalculateCta: "Affiner mon profil",
     estimateDisclaimer:
       "Les montants affichés sont des estimations à titre informatif. L'admissibilité finale dépend des critères officiels de chaque programme.",
     footerDisclaimer: "Outil informatif non affilié au gouvernement.",
@@ -605,8 +625,19 @@ const en: SiteDictionary = {
     adsLabel: "Advertisement",
     conditionsTitle: "Eligibility notes",
     applyCta: "Open official page",
-    recalculateText: "Has your situation changed? Run the estimate again.",
-    recalculateCta: "Retake the questionnaire",
+    estimateExplainerBody:
+      "This amount is an estimate based on your answers. It does not guarantee eligibility, but highlights the programs worth exploring based on your profile.",
+    cautionNotice:
+      "ArgentQC does not replace an official application. Amounts are indicative and help identify programs that deserve your attention.",
+    topProgramsTitle: "Your best leads",
+    whyThisProgramLabel: "Why this program?",
+    programTierLabels: {
+      principal: "Priority",
+      verifier: "Check eligibility",
+    },
+    municipalNotice: "This program varies by municipality.",
+    recalculateText: "Has your situation changed? Refine your answers for a more precise result.",
+    recalculateCta: "Refine my profile",
     estimateDisclaimer:
       "Displayed amounts are estimates only. Final eligibility depends on each program's official requirements.",
     footerDisclaimer: "Informational tool only and not affiliated with the government.",
