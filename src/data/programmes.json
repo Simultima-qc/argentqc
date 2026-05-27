@@ -46,21 +46,23 @@
   },
   {
     "id": "reer-subvention-fed",
-    "nom": "Régime d'accession à la propriété (RAP)",
+    "nom": "Régime d'accession à la propriété (RAP) — retrait REER remboursable",
     "organisme": "Gouvernement du Canada",
     "niveau": "federal",
     "categorie": "logement",
     "montant_min": 0,
     "montant_max": 35000,
-    "montant_affiche": "Jusqu'à 35 000 $ par personne",
-    "description": "Retirez jusqu'à 35 000 $ de votre REER sans impôt pour acheter votre première maison. Un couple peut retirer 70 000 $ au total.",
+    "montant_affiche": "Retrait REER jusqu'à 35 000 $ (à rembourser en 15 ans)",
+    "description": "Le RAP permet de retirer jusqu'à 35 000 $ de votre REER sans impôt immédiat pour l'achat d'une première propriété. Ce n'est pas une aide gratuite : la somme doit être remboursée dans votre REER sur au plus 15 ans. Les tranches non remboursées sont ajoutées à votre revenu imposable chaque année. Pertinent si vous avez déjà des économies dans un REER et envisagez l'achat d'une première maison.",
     "conditions": [
-      "Acheteur d'une première propriété",
-      "REER doit avoir été ouvert depuis au moins 90 jours",
-      "Rembourser les fonds en 15 ans sans intérêt"
+      "Être acheteur d'une première propriété (ou ne pas avoir été propriétaire depuis au moins 4 ans)",
+      "Le REER doit être ouvert depuis au moins 90 jours avant le retrait",
+      "Rembourser les sommes retirées dans votre REER sur une période maximale de 15 ans",
+      "Les tranches non remboursées annuellement sont incluses dans votre revenu imposable"
     ],
     "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/reer-feer-regimes-epargne-retraite/regime-accession-propriete.html",
     "criteres": {
+      "locataire": true,
       "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
     }
   },
@@ -408,6 +410,1413 @@
     "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/reer-regimes-connexes/regime-encouragement-a-education-permanente.html",
     "criteres": {
       "etudiant": true
+    }
+  },
+  {
+    "id": "credit-frais-garde-qc",
+    "nom": "Crédit d'impôt remboursable pour frais de garde (Québec)",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "famille",
+    "montant_min": 500,
+    "montant_max": 4500,
+    "montant_affiche": "500 $ – 4 500 $",
+    "description": "Crédit d'impôt remboursable couvrant 67 % à 75 % des frais de garde admissibles selon le revenu familial. Peut s'appliquer aux CPE, garderies, services de garde en milieu scolaire et gardiennes reconnues.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir un enfant de moins de 16 ans (ou handicapé quel que soit l'âge)",
+      "Frais payés à un service de garde reconnu par le gouvernement du Québec"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-de-garde-denfants/",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "rqap-assurance-parentale-qc",
+    "nom": "Régime québécois d'assurance parentale (RQAP)",
+    "organisme": "Conseil de gestion de l'assurance parentale",
+    "niveau": "provincial",
+    "categorie": "famille",
+    "montant_min": 4000,
+    "montant_max": 22000,
+    "montant_affiche": "4 000 $ – 22 000 $ (selon revenu et durée)",
+    "description": "Prestations de remplacement de revenu lors d'un congé de maternité, de paternité, parental ou d'adoption. Montant indicatif selon le revenu de travail et la durée du congé choisi.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir travaillé et cotisé au RQAP",
+      "Être le parent d'un enfant né ou adopté récemment"
+    ],
+    "lien_officiel": "https://www.rqap.gouv.qc.ca/fr/accueil",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"],
+      "age_max": 50
+    }
+  },
+  {
+    "id": "aide-garderies-subventionnees-qc",
+    "nom": "Places en CPE et garderies subventionnées (0-10 $/jour)",
+    "organisme": "Gouvernement du Québec",
+    "niveau": "provincial",
+    "categorie": "famille",
+    "montant_min": 2000,
+    "montant_max": 8000,
+    "montant_affiche": "2 000 $ – 8 000 $/année (économie estimée)",
+    "description": "Les places subventionnées dans les CPE et garderies à contribution réduite permettent de payer seulement 10 $/jour ou moins, comparativement à 40 $–55 $/jour en garderie non subventionnée. L'économie annuelle estimée varie selon le nombre d'enfants.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir un enfant de moins de 5 ans",
+      "Obtenir une place dans une installation subventionnée (liste d'attente possible)"
+    ],
+    "lien_officiel": "https://www.quebec.ca/famille-et-soutien-aux-personnes/enfants/services-educatifs-garde",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "supplement-enfant-handicape-qc",
+    "nom": "Supplément pour enfant handicapé (Québec)",
+    "organisme": "Retraite Québec",
+    "niveau": "provincial",
+    "categorie": "famille",
+    "montant_min": 1000,
+    "montant_max": 3000,
+    "montant_affiche": "Jusqu'à 250 $/mois par enfant",
+    "description": "Versement mensuel pour les familles ayant un enfant de moins de 18 ans avec une limitation fonctionnelle importante reconnue. Peut s'appliquer si votre enfant a un handicap ou une limitation sévère. Montant indicatif 2026.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir un enfant de moins de 18 ans avec une limitation fonctionnelle sévère",
+      "Limitation reconnue par Retraite Québec"
+    ],
+    "lien_officiel": "https://www.retraitequebec.gouv.qc.ca/fr/enfants/supplement-enfant-handicape/Pages/supplement-enfant-handicape.aspx",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "aide-activites-enfants-munic",
+    "nom": "Aide municipale aux activités sportives et culturelles pour enfants",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "famille",
+    "montant_min": 50,
+    "montant_max": 300,
+    "montant_affiche": "50 $ – 300 $ (selon municipalité)",
+    "description": "De nombreuses municipalités québécoises offrent des programmes d'aide pour réduire les frais d'inscription aux activités sportives, culturelles ou de loisirs pour les enfants de familles à faible ou moyen revenu. L'admissibilité et le montant varient selon votre ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Avoir un enfant participant à des activités admissibles",
+      "Critères de revenus selon la municipalité"
+    ],
+    "lien_officiel": "https://www.loisirquebec.com",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "couches-lavables-munic",
+    "nom": "Subvention municipale — couches lavables",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "famille",
+    "montant_min": 50,
+    "montant_max": 150,
+    "montant_affiche": "50 $ – 150 $ (selon municipalité)",
+    "description": "Certaines municipalités québécoises offrent une subvention à l'achat de couches lavables pour réduire les déchets et les dépenses familiales. L'admissibilité et le montant varient selon votre ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Avoir un jeune enfant en bas âge"
+    ],
+    "lien_officiel": "https://www.recyc-quebec.gouv.qc.ca",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "celiapp-fed",
+    "nom": "CELIAPP — Compte d'épargne libre d'impôt pour l'achat d'une première propriété",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "logement",
+    "montant_min": 1000,
+    "montant_max": 5000,
+    "montant_affiche": "1 000 $ – 5 000 $ (avantage fiscal annuel estimé)",
+    "description": "Compte permettant aux futurs acheteurs de cotiser jusqu'à 8 000 $/an (40 000 $ à vie), déductible d'impôt. Les retraits pour l'achat d'une première maison sont non imposables. Avantage fiscal indicatif selon le taux marginal.",
+    "conditions": [
+      "Être locataire ou futur acheteur d'une première propriété",
+      "Avoir 18 à 71 ans",
+      "Ne pas avoir vécu dans une propriété dont vous êtes propriétaire dans les 4 dernières années"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/compte-epargne-libre-impot-achat-premiere-propriete.html",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "credit-premier-achat-hab-fed",
+    "nom": "Crédit d'impôt pour l'achat d'une première habitation (Canada)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "logement",
+    "montant_min": 1500,
+    "montant_max": 1500,
+    "montant_affiche": "1 500 $",
+    "description": "Crédit d'impôt non remboursable de 1 500 $ (15 % de 10 000 $) pour les acheteurs d'une première propriété au Canada. Peut se partager entre deux acheteurs admissibles.",
+    "conditions": [
+      "Avoir acheté une propriété admissible au cours de l'année",
+      "Ne pas avoir habité une propriété dont vous ou votre conjoint étiez propriétaire dans les 4 années précédentes",
+      "Demande dans la déclaration de revenus de l'année d'achat"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-31270-achat-habitation.html",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "supplement-loyer-shq",
+    "nom": "Supplément au loyer (SHQ)",
+    "organisme": "Société d'habitation du Québec (SHQ)",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 1200,
+    "montant_max": 4800,
+    "montant_affiche": "100 $ – 400 $/mois (selon situation)",
+    "description": "Aide permettant à des ménages à faible revenu de louer un logement dans le parc privé à un loyer équivalent à 25 % de leur revenu. La différence est payée directement au propriétaire. Montant indicatif selon le marché locatif.",
+    "conditions": [
+      "Être locataire au Québec",
+      "Avoir un faible revenu (seuils établis par la SHQ)",
+      "Être sélectionné par une liste d'attente administrée par les organismes locaux"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/supplement-au-loyer",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 30000
+    }
+  },
+  {
+    "id": "rembours-tps-hab-neuve-fed",
+    "nom": "Remboursement de TPS pour habitations neuves",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "logement",
+    "montant_min": 500,
+    "montant_max": 6300,
+    "montant_affiche": "Jusqu'à 6 300 $",
+    "description": "Remboursement partiel de la TPS (36 %) payée lors de l'achat ou de la construction d'une habitation neuve admissible dont le prix est inférieur à 450 000 $. Peut s'appliquer si vous avez acquis une propriété neuve récemment.",
+    "conditions": [
+      "Avoir acheté ou fait construire une habitation neuve",
+      "Prix d'achat inférieur à 450 000 $ pour le remboursement complet",
+      "Utiliser la propriété comme résidence principale"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/sujets/tps-tvh-entreprises/remboursements-tps-tvh/remboursement-tps-tvh-habitations-neuves.html",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "aide-urgence-logement-qc",
+    "nom": "Aide d'urgence pour maintien en logement (Québec)",
+    "organisme": "Gouvernement du Québec / organismes communautaires",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 300,
+    "montant_max": 2000,
+    "montant_affiche": "300 $ – 2 000 $ (selon la situation)",
+    "description": "Des programmes d'aide ponctuelle peuvent être disponibles pour les locataires à très faible revenu en situation de risque d'expulsion ou incapables de payer leur loyer. L'admissibilité et les montants varient selon la situation et la région.",
+    "conditions": [
+      "Être locataire au Québec",
+      "Être en situation de précarité locative",
+      "Critères selon le programme et l'organisme responsable"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 25000
+    }
+  },
+  {
+    "id": "hlm-logement-social-qc",
+    "nom": "Habitation à loyer modique (HLM) — logement social",
+    "organisme": "Société d'habitation du Québec (SHQ) / Offices municipaux",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 2000,
+    "montant_max": 9000,
+    "montant_affiche": "Économie estimée de 2 000 $ – 9 000 $/année",
+    "description": "Les HLM permettent aux ménages à très faible revenu de payer seulement 25 % de leur revenu en loyer dans des logements gérés par des offices municipaux. L'économie estimée représente la différence avec un loyer du marché privé.",
+    "conditions": [
+      "Être locataire au Québec",
+      "Avoir un très faible revenu (seuils établis par la SHQ)",
+      "S'inscrire sur la liste d'attente de l'office municipal d'habitation local"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/habitation-loyer-modique",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 22000
+    }
+  },
+  {
+    "id": "renoregion-shq",
+    "nom": "RénoRégion (SHQ)",
+    "organisme": "Société d'habitation du Québec (SHQ)",
+    "niveau": "provincial",
+    "categorie": "renovation",
+    "montant_min": 1000,
+    "montant_max": 20000,
+    "montant_affiche": "Jusqu'à 20 000 $",
+    "description": "Aide financière pour les propriétaires-occupants à faible ou moyen revenu habitant en milieu rural, afin de corriger des déficiences majeures affectant la sécurité, la salubrité ou la structure du logement.",
+    "conditions": [
+      "Être propriétaire-occupant au Québec (milieu rural, hors grandes villes)",
+      "Revenu du ménage sous les seuils établis par la SHQ",
+      "Logement présentant des déficiences majeures"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/renoregion",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true,
+      "revenu_max": 45000
+    }
+  },
+  {
+    "id": "prafr-shq",
+    "nom": "Programme d'aide aux propriétaires à faible revenu (PRAFR)",
+    "organisme": "Société d'habitation du Québec (SHQ)",
+    "niveau": "provincial",
+    "categorie": "renovation",
+    "montant_min": 2000,
+    "montant_max": 15000,
+    "montant_affiche": "2 000 $ – 15 000 $",
+    "description": "Aide pour les propriétaires à très faible revenu afin d'effectuer des travaux de réparation urgents sur leur résidence principale. Peut s'appliquer si votre revenu est très limité et que votre logement nécessite des réparations importantes.",
+    "conditions": [
+      "Être propriétaire-occupant au Québec",
+      "Avoir un revenu très faible (seuils SHQ)",
+      "Résidence principale nécessitant des réparations urgentes"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true,
+      "revenu_max": 25000
+    }
+  },
+  {
+    "id": "canada-greener-homes-fed",
+    "nom": "Rénovations écoénergétiques Canada — Maisons plus vertes",
+    "organisme": "Gouvernement du Canada / RNCan",
+    "niveau": "federal",
+    "categorie": "renovation",
+    "montant_min": 500,
+    "montant_max": 10000,
+    "montant_affiche": "500 $ – 10 000 $",
+    "description": "Subventions et prêts pour aider les propriétaires à revenu faible ou modeste à améliorer l'efficacité énergétique de leur résidence : isolation, fenêtres, systèmes de chauffage, panneaux solaires. Admissibilité et montants selon le programme actif.",
+    "conditions": [
+      "Être propriétaire-occupant au Canada",
+      "Revenu du ménage sous les seuils établis",
+      "Réaliser des améliorations écoénergétiques admissibles"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/ressources-naturelles/nouvelles/2021/05/programme-canadien-pour-des-maisons-plus-vertes.html",
+    "criteres": {
+      "proprietaire": true,
+      "renovation": true,
+      "revenu_max": 70000,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "adaptation-domicile-shq",
+    "nom": "Programme d'adaptation de domicile (PAD — SHQ)",
+    "organisme": "Société d'habitation du Québec (SHQ)",
+    "niveau": "provincial",
+    "categorie": "renovation",
+    "montant_min": 1000,
+    "montant_max": 16000,
+    "montant_affiche": "Jusqu'à 16 000 $",
+    "description": "Aide financière pour adapter une résidence aux besoins d'une personne en perte d'autonomie ou ayant une limitation fonctionnelle sévère, afin de lui permettre de rester à domicile en toute sécurité.",
+    "conditions": [
+      "Être propriétaire-occupant ou locataire au Québec",
+      "Avoir une limitation fonctionnelle sévère reconnue",
+      "Travaux visant à adapter le domicile aux besoins de la personne"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/programme-adaptation-domicile",
+    "criteres": {
+      "provinces": ["QC"],
+      "renovation": true,
+      "age_min": 55
+    }
+  },
+  {
+    "id": "aide-reno-facade-munic",
+    "nom": "Programme municipal de rénovation de façade",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "renovation",
+    "montant_min": 500,
+    "montant_max": 5000,
+    "montant_affiche": "500 $ – 5 000 $ (selon municipalité)",
+    "description": "Certaines municipalités québécoises offrent une aide financière pour la rénovation des façades résidentielles ou commerciales afin d'améliorer l'apparence des quartiers. L'admissibilité et les montants varient selon la ville et le programme.",
+    "conditions": [
+      "Être propriétaire dans une municipalité offrant ce programme",
+      "Travaux de rénovation de façade admissibles",
+      "Conditions spécifiques selon la municipalité"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "subv-isolation-munic",
+    "nom": "Subvention municipale pour isolation thermique",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "energie",
+    "montant_min": 200,
+    "montant_max": 2000,
+    "montant_affiche": "200 $ – 2 000 $ (selon municipalité)",
+    "description": "Plusieurs municipalités du Québec offrent des programmes complémentaires à Rénoclimat pour financer des travaux d'isolation thermique. Les montants et conditions varient selon la municipalité.",
+    "conditions": [
+      "Être propriétaire dans une municipalité offrant ce programme",
+      "Réaliser des travaux d'isolation admissibles",
+      "Conditions et seuils de revenu variables selon la ville"
+    ],
+    "lien_officiel": "https://www.transitionenergetique.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "chauffe-eau-efficace-hq",
+    "nom": "Chauffe-eau efficace — Hydro-Québec",
+    "organisme": "Hydro-Québec",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 100,
+    "montant_max": 400,
+    "montant_affiche": "100 $ – 400 $",
+    "description": "Aide financière pour le remplacement d'un chauffe-eau conventionnel par un modèle à haute efficacité (pompe à chaleur ou autre technologie reconnue). Montant selon l'appareil installé.",
+    "conditions": [
+      "Être client Hydro-Québec",
+      "Remplacer un chauffe-eau existant par un modèle efficace reconnu",
+      "Installation par un professionnel certifié"
+    ],
+    "lien_officiel": "https://www.hydroquebec.com/residentiel/mieux-consommer",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "subv-baril-pluie-munic",
+    "nom": "Subvention municipale — Baril de pluie et récupération d'eau",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "energie",
+    "montant_min": 50,
+    "montant_max": 150,
+    "montant_affiche": "50 $ – 150 $ (selon municipalité)",
+    "description": "Plusieurs municipalités québécoises offrent une subvention à l'achat d'un baril de pluie ou d'un système de récupération d'eau de pluie pour réduire la consommation d'eau potable. L'admissibilité varie selon votre ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Acquérir un baril de pluie ou système de récupération admissible"
+    ],
+    "lien_officiel": "https://www.recyc-quebec.gouv.qc.ca",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "subv-arbre-munic",
+    "nom": "Subvention municipale — Plantation d'arbres",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "energie",
+    "montant_min": 50,
+    "montant_max": 200,
+    "montant_affiche": "50 $ – 200 $ (selon municipalité)",
+    "description": "De nombreuses municipalités québécoises offrent des arbres gratuits ou des subventions pour la plantation d'arbres sur les terrains résidentiels dans le cadre de leurs plans de verdissement. L'admissibilité et les modalités varient selon la ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Planter un ou plusieurs arbres selon les espèces et critères admissibles"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "bourses-perspective-qc",
+    "nom": "Bourses Perspective Québec",
+    "organisme": "Gouvernement du Québec",
+    "niveau": "provincial",
+    "categorie": "education",
+    "montant_min": 1500,
+    "montant_max": 20000,
+    "montant_affiche": "1 500 $ – 20 000 $",
+    "description": "Bourses pour encourager les étudiants à s'inscrire ou à poursuivre des études dans des domaines d'avenir en pénurie de main-d'œuvre (soins infirmiers, génie, informatique, enseignement, etc.) dans certaines régions du Québec.",
+    "conditions": [
+      "Être inscrit dans un programme admissible reconnu par le gouvernement du Québec",
+      "Étudier dans une région ou un domaine désigné",
+      "Respecter les conditions d'admissibilité du programme spécifique"
+    ],
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/bourses-perspective-quebec",
+    "criteres": {
+      "etudiant": true,
+      "provinces": ["QC"],
+      "age_max": 35
+    }
+  },
+  {
+    "id": "subvention-canadienne-etudes-fed",
+    "nom": "Subvention canadienne pour études (SCÉ)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "education",
+    "montant_min": 500,
+    "montant_max": 3000,
+    "montant_affiche": "500 $ – 3 000 $/année",
+    "description": "Bourses fédérales non remboursables destinées aux étudiants ayant des contraintes financières (faible revenu, études à temps partiel, étudiants avec personne à charge, etc.). Montant indicatif selon la situation.",
+    "conditions": [
+      "Être inscrit dans un programme postsecondaire admissible",
+      "Avoir un besoin financier établi",
+      "Produire une demande via l'aide financière aux études de sa province"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/emploi-developpement-social/services/aide-etudiants/subvention-etudiants.html",
+    "criteres": {
+      "etudiant": true,
+      "revenu_max": 50000
+    }
+  },
+  {
+    "id": "credit-frais-scolarite-qc",
+    "nom": "Crédit d'impôt pour frais de scolarité (Québec)",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "education",
+    "montant_min": 200,
+    "montant_max": 1200,
+    "montant_affiche": "200 $ – 1 200 $ (selon frais payés)",
+    "description": "Crédit d'impôt non remboursable de 8 % sur les frais de scolarité admissibles payés à un établissement québécois. Peut être transféré à un parent ou un conjoint si l'étudiant ne peut pas l'utiliser entièrement.",
+    "conditions": [
+      "Être inscrit dans un établissement d'enseignement reconnu au Québec",
+      "Avoir payé des frais de scolarité admissibles",
+      "Produire une déclaration de revenus au Québec"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-de-scolarite/",
+    "criteres": {
+      "etudiant": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "aide-formation-adultes-qc",
+    "nom": "Aide financière pour adultes en formation (Québec)",
+    "organisme": "Gouvernement du Québec — Ministère de l'Éducation",
+    "niveau": "provincial",
+    "categorie": "education",
+    "montant_min": 500,
+    "montant_max": 8000,
+    "montant_affiche": "500 $ – 8 000 $/année",
+    "description": "Aide financière pour les adultes qui retournent aux études dans le cadre d'un retour à l'éducation ou d'une réorientation professionnelle (formation professionnelle, CÉGEP, université). Montant indicatif selon le revenu et la charge familiale.",
+    "conditions": [
+      "Être considéré comme étudiant adulte selon les critères de l'AFE",
+      "Être inscrit dans un programme admissible au Québec",
+      "Avoir 24 ans ou plus, ou être reconnu financièrement autonome"
+    ],
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes",
+    "criteres": {
+      "etudiant": true,
+      "provinces": ["QC"],
+      "age_min": 24
+    }
+  },
+  {
+    "id": "aide-retour-region-bourse-qc",
+    "nom": "Bourses d'attraction et de rétention en région (Québec)",
+    "organisme": "MRC, CLD et organismes régionaux (variable)",
+    "niveau": "municipal",
+    "categorie": "education",
+    "montant_min": 1000,
+    "montant_max": 8000,
+    "montant_affiche": "1 000 $ – 8 000 $ (selon la région)",
+    "description": "Plusieurs régions du Québec offrent des bourses pour attirer des étudiants ou des jeunes professionnels. Ces programmes régionaux varient en montant et en critères selon la MRC ou l'organisme responsable.",
+    "conditions": [
+      "S'installer ou étudier dans une région éligible",
+      "Respecter les critères du programme régional spécifique",
+      "Montant et conditions variables selon la région"
+    ],
+    "lien_officiel": "https://www.quebecregions.com",
+    "criteres": {
+      "etudiant": true,
+      "provinces": ["QC"],
+      "age_max": 40
+    }
+  },
+  {
+    "id": "rrq-rentes-qc",
+    "nom": "Régime de rentes du Québec (RRQ)",
+    "organisme": "Retraite Québec",
+    "niveau": "provincial",
+    "categorie": "sante",
+    "montant_min": 500,
+    "montant_max": 14500,
+    "montant_affiche": "500 $ – 14 500 $/année",
+    "description": "Rente de retraite mensuelle versée aux travailleurs québécois ayant cotisé au RRQ. Le montant dépend des années de cotisation et du salaire moyen. Peut être demandé dès 60 ans (avec réduction) ou jusqu'à 70 ans (avec bonification).",
+    "conditions": [
+      "Avoir cotisé au RRQ pendant votre vie active au Québec",
+      "Avoir 60 ans ou plus",
+      "Faire une demande auprès de Retraite Québec"
+    ],
+    "lien_officiel": "https://www.retraitequebec.gouv.qc.ca/fr/retraite/rente-retraite/Pages/rente-retraite.aspx",
+    "criteres": {
+      "retraite": true,
+      "provinces": ["QC"],
+      "age_min": 60
+    }
+  },
+  {
+    "id": "montant-personnes-agees-fed",
+    "nom": "Montant pour personnes âgées (crédit fédéral)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "credits_impot",
+    "montant_min": 200,
+    "montant_max": 1260,
+    "montant_affiche": "200 $ – 1 260 $ (selon situation)",
+    "description": "Crédit d'impôt fédéral non remboursable pour les personnes de 65 ans et plus. Montant de base d'environ 8 396 $ en 2026 (15 % = jusqu'à 1 260 $). Peut être réduit selon le revenu.",
+    "conditions": [
+      "Avoir 65 ans ou plus",
+      "Résider au Canada",
+      "Produire une déclaration de revenus fédérale"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-30100-montant-personnes-agees.html",
+    "criteres": {
+      "age_min": 65,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "credit-revenus-pension-fed",
+    "nom": "Crédit pour revenus de retraite (fédéral)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "credits_impot",
+    "montant_min": 100,
+    "montant_max": 300,
+    "montant_affiche": "Jusqu'à 300 $",
+    "description": "Crédit d'impôt fédéral non remboursable de 15 % sur les premiers 2 000 $ de revenus de pension ou de fonds de revenu de retraite admissibles. Peut se qualifier dès 65 ans ou si vous recevez certaines rentes.",
+    "conditions": [
+      "Avoir 65 ans ou plus (ou recevoir une rente d'un défunt conjoint)",
+      "Avoir des revenus de pension ou de FERR admissibles",
+      "Produire une déclaration de revenus fédérale"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-31400-montant-revenu-retraite.html",
+    "criteres": {
+      "retraite": true,
+      "age_min": 65,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "allocation-travailleurs-fed",
+    "nom": "Allocation canadienne pour les travailleurs (ACT)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "credits_impot",
+    "montant_min": 200,
+    "montant_max": 2616,
+    "montant_affiche": "200 $ – 2 616 $ (selon situation)",
+    "description": "Crédit d'impôt remboursable pour les personnes et les familles à faible revenu qui travaillent. Le montant varie selon le revenu gagné, la situation de famille et la province. Peut être versé en avance trimestrielle.",
+    "conditions": [
+      "Avoir 19 ans ou plus (ou avoir un conjoint ou un enfant à charge)",
+      "Résider au Canada",
+      "Avoir un revenu de travail dans les seuils établis"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-travailleurs.html",
+    "criteres": {
+      "revenu_max": 33000,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "credit-aidant-naturel-qc",
+    "nom": "Crédit d'impôt pour aidant naturel (Québec)",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "sante",
+    "montant_min": 500,
+    "montant_max": 800,
+    "montant_affiche": "500 $ – 800 $",
+    "description": "Crédit d'impôt remboursable pour les personnes qui soutiennent activement un proche en perte d'autonomie (conjoint, parent, enfant adulte). Uniquement si vous aidez un proche ayant une limitation fonctionnelle reconnue par Revenu Québec. Ne s'applique pas automatiquement.",
+    "conditions": [
+      "Résider au Québec",
+      "Vivre avec un proche en perte d'autonomie ou lui apporter un soutien continu",
+      "Le proche doit avoir une limitation fonctionnelle reconnue par Revenu Québec"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-aidant-naturel/",
+    "criteres": {
+      "provinces": ["QC"],
+      "age_min": 35,
+      "revenu_max": 65000
+    }
+  },
+  {
+    "id": "credit-aidant-naturel-fed",
+    "nom": "Crédit canadien pour aidant naturel",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "sante",
+    "montant_min": 500,
+    "montant_max": 1000,
+    "montant_affiche": "500 $ – 1 000 $",
+    "description": "Crédit d'impôt non remboursable pour les Canadiens qui s'occupent activement d'un proche à charge ayant une déficience physique ou mentale reconnue. Ne s'applique que si vous avez un proche dépendant avec déficience diagnostiquée. Montant indicatif selon le revenu du proche aidé.",
+    "conditions": [
+      "Résider au Canada",
+      "Prendre soin d'un proche dépendant (enfant, conjoint, parent, etc.) ayant une déficience reconnue",
+      "Le proche doit dépendre de vous pour les activités de la vie quotidienne"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-30300-montant-canadien-aidants-naturels.html",
+    "criteres": {
+      "age_min": 35,
+      "revenu_max": 70000,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "tarif-reduit-transport-munic",
+    "nom": "Tarif réduit — Transport en commun pour faibles revenus",
+    "organisme": "Autorités de transport (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "transport",
+    "montant_min": 150,
+    "montant_max": 600,
+    "montant_affiche": "150 $ – 600 $/année (selon réseau)",
+    "description": "Plusieurs réseaux de transport en commun au Québec (STM, RTL, RTC, STO, etc.) offrent des tarifs réduits pour les personnes à faible revenu. L'admissibilité, les modalités et l'économie estimée varient selon votre ville.",
+    "conditions": [
+      "Résider dans une zone desservie par un réseau offrant ce tarif",
+      "Avoir un revenu sous le seuil établi par le réseau de transport",
+      "Faire une demande auprès de l'autorité de transport locale"
+    ],
+    "lien_officiel": "https://www.stm.info/fr/infos/titres-et-tarifs/tarifs-reduits",
+    "criteres": {
+      "provinces": ["QC"],
+      "revenu_max": 30000
+    }
+  },
+  {
+    "id": "borne-recharge-munic",
+    "nom": "Subvention municipale — Borne de recharge VE",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "transport",
+    "montant_min": 100,
+    "montant_max": 500,
+    "montant_affiche": "100 $ – 500 $ (selon municipalité)",
+    "description": "Certaines municipalités du Québec offrent une subvention complémentaire à celles de TEQ pour l'installation d'une borne de recharge résidentielle. L'admissibilité et les montants varient selon votre ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Posséder ou acheter un véhicule électrique rechargeable",
+      "Installer une borne de recharge de niveau 2 admissible"
+    ],
+    "lien_officiel": "https://roulezelectrique.gouv.qc.ca",
+    "criteres": {
+      "provinces": ["QC"],
+      "vehicule_elec": true
+    }
+  },
+  {
+    "id": "aide-velo-elec-munic",
+    "nom": "Subvention municipale — Vélo électrique",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "transport",
+    "montant_min": 100,
+    "montant_max": 500,
+    "montant_affiche": "100 $ – 500 $ (selon municipalité)",
+    "description": "Quelques municipalités et MRC du Québec offrent une aide à l'achat d'un vélo électrique ou d'un cargo-vélo dans le cadre de leurs plans de mobilité durable. L'admissibilité varie selon la municipalité.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Acheter un vélo électrique ou cargo-vélo admissible",
+      "Conditions et montants variables"
+    ],
+    "lien_officiel": "https://www.velo.qc.ca",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "transport-rabais-aines-munic",
+    "nom": "Tarif réduit transport en commun — Aînés",
+    "organisme": "Autorités de transport (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "transport",
+    "montant_min": 200,
+    "montant_max": 500,
+    "montant_affiche": "200 $ – 500 $/année",
+    "description": "La plupart des réseaux de transport collectif au Québec offrent des tarifs réduits significatifs aux personnes de 65 ans et plus. L'économie estimée compare le tarif plein au tarif aîné selon les principaux réseaux.",
+    "conditions": [
+      "Avoir 65 ans ou plus",
+      "Résider dans une zone desservie par un réseau de transport offrant ce tarif",
+      "Présenter une preuve d'âge pour obtenir la carte ou le titre réduit"
+    ],
+    "lien_officiel": "https://www.stm.info/fr/infos/titres-et-tarifs/tarifs-reduits",
+    "criteres": {
+      "provinces": ["QC"],
+      "age_min": 65
+    }
+  },
+  {
+    "id": "soutien-domicile-clsc-qc",
+    "nom": "Services de soutien à domicile (CLSC — Québec)",
+    "organisme": "CIUSSS / CLSC (Gouvernement du Québec)",
+    "niveau": "provincial",
+    "categorie": "sante",
+    "montant_min": 500,
+    "montant_max": 4000,
+    "montant_affiche": "Valeur estimée : 500 $ – 4 000 $/année",
+    "description": "Les CLSC offrent des services à domicile aux aînés et aux personnes en perte d'autonomie (aide ménagère, soins infirmiers, ergothérapie, etc.). Ces services sont financés par le gouvernement et réduisent les dépenses privées. Valeur estimée selon les services reçus.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir 65 ans ou plus ou être en perte d'autonomie",
+      "Faire une demande auprès du CLSC de votre secteur"
+    ],
+    "lien_officiel": "https://www.quebec.ca/sante/services-sociaux/soins-domicile",
+    "criteres": {
+      "provinces": ["QC"],
+      "retraite": true,
+      "age_min": 65
+    }
+  },
+  {
+    "id": "aide-eau-potable-munic",
+    "nom": "Programme municipal d'économie d'eau potable",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "energie",
+    "montant_min": 50,
+    "montant_max": 200,
+    "montant_affiche": "50 $ – 200 $ (selon municipalité)",
+    "description": "Plusieurs municipalités québécoises offrent des subventions pour l'installation de toilettes à faible débit, de pommes de douche économiques ou d'autres équipements permettant de réduire la consommation d'eau. L'admissibilité varie selon la ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Acheter et installer un équipement admissible (toilette efficace, aérateur, etc.)"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "prog-regional-hab-qc",
+    "nom": "Programme régional d'aide à l'habitation abordable",
+    "organisme": "MRC et organismes régionaux (variable)",
+    "niveau": "municipal",
+    "categorie": "logement",
+    "montant_min": 500,
+    "montant_max": 5000,
+    "montant_affiche": "500 $ – 5 000 $ (selon la région)",
+    "description": "Certaines MRC et organismes régionaux du Québec offrent une aide à l'habitation abordable (allocation, subvention à l'accession, prêt sans intérêt). L'admissibilité, les montants et les modalités varient selon la région.",
+    "conditions": [
+      "Résider dans une région ou MRC offrant ce programme",
+      "Avoir un revenu sous les seuils établis par la région",
+      "Conditions spécifiques selon l'organisme responsable"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 50000
+    }
+  },
+  {
+    "id": "aide-renovation-patrimoniale-munic",
+    "nom": "Aide municipale à la rénovation patrimoniale",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "renovation",
+    "montant_min": 500,
+    "montant_max": 5000,
+    "montant_affiche": "500 $ – 5 000 $ (selon municipalité)",
+    "description": "Certaines villes et MRC du Québec offrent une aide financière pour la restauration et la mise en valeur de bâtiments résidentiels patrimoniaux ou situés dans des secteurs protégés. L'admissibilité varie selon la désignation du bâtiment et la municipalité.",
+    "conditions": [
+      "Être propriétaire d'un bâtiment dans un secteur patrimonial admissible",
+      "Réaliser des travaux de restauration conformes aux normes patrimoniales",
+      "Conditions variables selon la ville ou la MRC"
+    ],
+    "lien_officiel": "https://www.mcc.gouv.qc.ca/index.php?id=2194",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "aide-premier-achat-municipal-qc",
+    "nom": "Aide municipale à l'accession à la propriété",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "logement",
+    "montant_min": 500,
+    "montant_max": 5000,
+    "montant_affiche": "500 $ – 5 000 $ (selon municipalité)",
+    "description": "Certaines municipalités québécoises offrent une aide directe (subvention ou prêt sans intérêt) aux familles ou individus qui achètent leur première propriété dans leur territoire, pour favoriser l'établissement de résidents. L'admissibilité et les montants varient.",
+    "conditions": [
+      "Être acheteur d'une première propriété dans une municipalité offrant ce programme",
+      "Revenu du ménage sous les seuils établis",
+      "S'engager à habiter la propriété comme résidence principale"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 80000
+    }
+  },
+  {
+    "id": "credit-travailleurs-experience-qc",
+    "nom": "Crédit d'impôt pour travailleur d'expérience (Québec)",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "credits_impot",
+    "montant_min": 300,
+    "montant_max": 1800,
+    "montant_affiche": "300 $ – 1 800 $",
+    "description": "Crédit d'impôt non remboursable pour les travailleurs de 60 ans et plus qui continuent d'exercer un emploi au Québec. Permet de réduire les cotisations au Fonds des services de santé en proportion des revenus d'emploi admissibles. Montant indicatif selon le revenu.",
+    "conditions": [
+      "Avoir 60 ans ou plus",
+      "Avoir des revenus d'emploi ou de travail autonome admissibles au Québec",
+      "Produire une déclaration de revenus au Québec"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-travailleur-dexperience/",
+    "criteres": {
+      "provinces": ["QC"],
+      "age_min": 55
+    }
+  },
+  {
+    "id": "fractionnement-revenus-pension-fed",
+    "nom": "Fractionnement du revenu de pension (fédéral)",
+    "organisme": "Gouvernement du Canada",
+    "niveau": "federal",
+    "categorie": "credits_impot",
+    "montant_min": 300,
+    "montant_max": 3000,
+    "montant_affiche": "300 $ – 3 000 $ (selon écart de revenus)",
+    "description": "Permet de répartir jusqu'à 50 % des revenus de pension admissibles avec votre conjoint pour réduire l'impôt combiné du ménage. Particulièrement avantageux lorsque les revenus de retraite sont inégaux entre conjoints. Montant indicatif.",
+    "conditions": [
+      "Avoir 65 ans ou plus",
+      "Avoir des revenus de pension admissibles (FERR, rente viagère, etc.)",
+      "Avoir un conjoint ou conjoint de fait"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-21000-fractionnement-revenus-pension.html",
+    "criteres": {
+      "retraite": true,
+      "age_min": 65,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "credit-frais-medicaux-qc",
+    "nom": "Crédit d'impôt pour frais médicaux (Québec)",
+    "organisme": "Revenu Québec",
+    "niveau": "provincial",
+    "categorie": "credits_impot",
+    "montant_min": 50,
+    "montant_max": 400,
+    "montant_affiche": "50 $ – 400 $ (selon dépenses médicales)",
+    "description": "Crédit d'impôt non remboursable de 20 % sur les frais médicaux admissibles dépassant 3 % de votre revenu net (lunettes, médicaments, soins dentaires, prothèses, etc.). Ne s'applique que si vos frais médicaux réels dépassent le seuil minimal. Montant indicatif — varie entièrement selon les dépenses engagées.",
+    "conditions": [
+      "Résider au Québec",
+      "Avoir des frais médicaux admissibles dépassant 3 % du revenu net (ou 2 397 $, selon le moindre)",
+      "Produire une déclaration de revenus au Québec"
+    ],
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-medicaux/",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "allocation-sv-conjoint-survivant-fed",
+    "nom": "Allocation pour conjoint ou survivant — Sécurité de la vieillesse",
+    "organisme": "Service Canada",
+    "niveau": "federal",
+    "categorie": "sante",
+    "montant_min": 1000,
+    "montant_max": 9000,
+    "montant_affiche": "1 000 $ – 9 000 $/année",
+    "description": "Prestation mensuelle pour les personnes de 60 à 64 ans dont le conjoint reçoit la SV et le SRG, ou qui sont veuves ou veufs à faible revenu. Peut s'appliquer si vous ou votre conjoint approchez la retraite avec un faible revenu familial. Montant indicatif selon la situation.",
+    "conditions": [
+      "Avoir entre 60 et 64 ans",
+      "Avoir un faible revenu annuel (seuils selon situation conjugale)",
+      "Être résident canadien depuis au moins 10 ans"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/emploi-developpement-social/programmes/securite-vieillesse/allocation.html",
+    "criteres": {
+      "retraite": true,
+      "age_min": 55,
+      "revenu_max": 28000,
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
+    "id": "transport-adapte-qc",
+    "nom": "Transport adapté — Service régional subventionné",
+    "organisme": "Ministère des Transports du Québec / Organismes de transport",
+    "niveau": "provincial",
+    "categorie": "transport",
+    "montant_min": 100,
+    "montant_max": 150,
+    "montant_affiche": "100 $ – 150 $/année (si admissible)",
+    "description": "Service de transport à la demande pour les personnes ayant une limitation fonctionnelle importante qui les empêche d'utiliser le transport régulier. Uniquement sur évaluation et certification par l'organisme de transport local — non accessible à la population générale. Valeur minimale estimée de l'aide si admissible.",
+    "conditions": [
+      "Résider au Québec dans une zone desservie",
+      "Avoir une limitation fonctionnelle sévère empêchant l'usage du transport régulier",
+      "Obtenir une certification d'admissibilité auprès de l'organisme de transport local"
+    ],
+    "lien_officiel": "https://www.quebec.ca/transports/transport-collectif/transport-adapte",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "accessibilite-domicile-munic",
+    "nom": "Programme municipal d'aide à l'accessibilité résidentielle",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "renovation",
+    "montant_min": 200,
+    "montant_max": 2000,
+    "montant_affiche": "200 $ – 2 000 $ (selon municipalité)",
+    "description": "Certaines municipalités québécoises offrent une aide financière pour l'installation de rampes d'accès, barres d'appui, élargissement de portes ou autres aménagements permettant à une personne aînée ou à mobilité réduite de rester à domicile. L'admissibilité et les montants varient selon la ville.",
+    "conditions": [
+      "Être propriétaire dans une municipalité offrant ce programme",
+      "Travaux visant à améliorer l'accessibilité ou la sécurité du domicile",
+      "Conditions selon la municipalité"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "recuperateur-chaleur-hq",
+    "nom": "Récupérateur de chaleur des eaux de drainage — Hydro-Québec",
+    "organisme": "Hydro-Québec",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 200,
+    "montant_max": 1500,
+    "montant_affiche": "200 $ – 1 500 $",
+    "description": "Aide financière pour l'achat et l'installation d'un récupérateur de chaleur sur la conduite d'eaux de drainage de la douche, permettant de réduire la consommation d'eau chaude. Programme disponible pour les clients Hydro-Québec propriétaires.",
+    "conditions": [
+      "Être client Hydro-Québec",
+      "Être propriétaire d'une résidence principale",
+      "Récupérateur sur la liste des appareils reconnus par Hydro-Québec"
+    ],
+    "lien_officiel": "https://www.hydroquebec.com/residentiel/mieux-consommer",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "composteur-munic",
+    "nom": "Subvention municipale — Composteur domestique",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "energie",
+    "montant_min": 25,
+    "montant_max": 100,
+    "montant_affiche": "25 $ – 100 $ (selon municipalité)",
+    "description": "De nombreuses municipalités québécoises offrent des composteurs domestiques à prix réduit ou gratuitement dans le cadre de leurs programmes de réduction des matières résiduelles. L'admissibilité et les modalités varient selon votre ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "S'inscrire auprès de la municipalité ou de l'organisme responsable"
+    ],
+    "lien_officiel": "https://www.recyc-quebec.gouv.qc.ca",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "gouttiere-eaux-pluviales-munic",
+    "nom": "Programme municipal — Gestion des eaux pluviales (débranchement gouttières)",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "energie",
+    "montant_min": 100,
+    "montant_max": 500,
+    "montant_affiche": "100 $ – 500 $ (selon municipalité)",
+    "description": "Certaines municipalités offrent une aide financière pour débrancher les gouttières du réseau d'égout municipal et les rediriger vers le terrain ou un puits d'infiltration, réduisant ainsi les surverses lors de fortes pluies. L'admissibilité varie selon la ville.",
+    "conditions": [
+      "Être propriétaire dans une municipalité offrant ce programme",
+      "Réaliser les travaux de débranchement selon les normes municipales"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "aide-energie-faible-revenu-hq",
+    "nom": "Programme d'aide à l'efficacité énergétique pour ménages à faible revenu — Hydro-Québec",
+    "organisme": "Hydro-Québec",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 100,
+    "montant_max": 500,
+    "montant_affiche": "100 $ – 500 $",
+    "description": "Hydro-Québec offre des programmes ciblant les ménages à faible revenu pour améliorer l'efficacité énergétique de leur logement : remplacement d'ampoules, installations de thermostats programmables, etc. Montant indicatif selon les mesures réalisées.",
+    "conditions": [
+      "Être client Hydro-Québec",
+      "Avoir un revenu sous les seuils établis par Hydro-Québec",
+      "Résider dans une résidence admissible"
+    ],
+    "lien_officiel": "https://www.hydroquebec.com/residentiel/mieux-consommer",
+    "criteres": {
+      "provinces": ["QC"],
+      "revenu_max": 35000
+    }
+  },
+  {
+    "id": "acces-loisirs-qc",
+    "nom": "Programme Accès-Loisirs",
+    "organisme": "Loto-Québec / Municipalités participantes",
+    "niveau": "municipal",
+    "categorie": "famille",
+    "montant_min": 200,
+    "montant_max": 500,
+    "montant_affiche": "200 $ – 500 $/famille",
+    "description": "Programme offrant une aide financière aux familles à faible ou moyen revenu pour couvrir les frais d'inscription à des activités sportives ou de loisirs organisées dans les municipalités participantes. L'admissibilité et les modalités varient selon la municipalité.",
+    "conditions": [
+      "Résider dans une municipalité participante au programme",
+      "Avoir un revenu familial sous les seuils établis",
+      "Avoir des enfants participant à des activités de loisirs admissibles"
+    ],
+    "lien_officiel": "https://www.loisirquebec.com",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"],
+      "revenu_max": 35000
+    }
+  },
+  {
+    "id": "aide-alimentaire-scolaire-qc",
+    "nom": "Programme d'aide à l'alimentation scolaire (Québec)",
+    "organisme": "Gouvernement du Québec — Ministère de l'Éducation",
+    "niveau": "provincial",
+    "categorie": "famille",
+    "montant_min": 150,
+    "montant_max": 500,
+    "montant_affiche": "150 $ – 500 $/année (par enfant)",
+    "description": "Des programmes financés par le gouvernement du Québec permettent aux écoles d'offrir des repas chauds ou des collations nutritives aux élèves issus de familles à faible revenu. La valeur de l'aide varie selon l'école et la région. Peut s'appliquer si vos enfants fréquentent une école participante.",
+    "conditions": [
+      "Avoir des enfants d'âge scolaire fréquentant une école participante au Québec",
+      "Revenu familial sous les critères établis par l'école ou l'organisme",
+      "S'inscrire auprès de l'école ou de l'organisme responsable du programme"
+    ],
+    "lien_officiel": "https://www.quebec.ca/education/prescolaire-primaire-et-secondaire/programmes-et-services",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"],
+      "revenu_max": 40000
+    }
+  },
+  {
+    "id": "camp-jour-munic",
+    "nom": "Aide municipale aux camps de jour",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "famille",
+    "montant_min": 100,
+    "montant_max": 400,
+    "montant_affiche": "100 $ – 400 $/été (selon municipalité)",
+    "description": "Plusieurs municipalités du Québec offrent des tarifs réduits ou des bons de participation pour les camps de jour estivaux aux familles à faible ou moyen revenu. L'admissibilité, les montants et les activités admissibles varient selon votre ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant cette aide",
+      "Avoir un enfant en âge d'aller au camp de jour",
+      "Critères de revenus selon la municipalité"
+    ],
+    "lien_officiel": "https://www.loisirquebec.com",
+    "criteres": {
+      "enfants": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "remise-dettes-afe-qc",
+    "nom": "Remise de dettes — AFE Québec (travail en région ou secteur ciblé)",
+    "organisme": "Gouvernement du Québec — Aide financière aux études",
+    "niveau": "provincial",
+    "categorie": "education",
+    "montant_min": 1000,
+    "montant_max": 8000,
+    "montant_affiche": "1 000 $ – 8 000 $",
+    "description": "Des mesures de remise (annulation partielle ou totale) de la dette d'études sont disponibles pour les diplômés qui s'établissent et travaillent dans certaines régions du Québec ou dans des secteurs d'emploi en pénurie de main-d'œuvre. Montant indicatif selon le programme et la durée de travail en région.",
+    "conditions": [
+      "Avoir une dette de prêts étudiants auprès de l'AFE Québec",
+      "Travailler dans une région ou un secteur ciblé par le programme",
+      "Respecter les durées minimales d'emploi exigées"
+    ],
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/remboursement",
+    "criteres": {
+      "etudiant": true,
+      "provinces": ["QC"],
+      "age_max": 35
+    }
+  },
+  {
+    "id": "aide-qualification-emploi-qc",
+    "nom": "Services Québec — Aide à la formation et à la qualification professionnelle",
+    "organisme": "Services Québec / Ministère du Travail",
+    "niveau": "provincial",
+    "categorie": "education",
+    "montant_min": 500,
+    "montant_max": 3000,
+    "montant_affiche": "500 $ – 3 000 $",
+    "description": "Services Québec offre des programmes d'aide à la formation, à la requalification et à l'intégration en emploi pour les travailleurs souhaitant développer ou mettre à jour leurs compétences. L'aide peut couvrir des frais de formation, de matériel ou de déplacement selon le programme.",
+    "conditions": [
+      "Résider au Québec",
+      "Être admissible à un programme de formation ou de requalification",
+      "S'inscrire auprès d'un centre Services Québec de votre région"
+    ],
+    "lien_officiel": "https://www.quebec.ca/emploi/trouver-emploi/aide-recherche-emploi",
+    "criteres": {
+      "provinces": ["QC"],
+      "age_min": 25,
+      "age_max": 60
+    }
+  },
+  {
+    "id": "bourse-recherche-grad-fed",
+    "nom": "Bourses fédérales aux cycles supérieurs (CRSNG / CRSH / IRSC)",
+    "organisme": "Gouvernement du Canada — Conseils de recherche",
+    "niveau": "federal",
+    "categorie": "education",
+    "montant_min": 2000,
+    "montant_max": 15000,
+    "montant_affiche": "2 000 $ – 15 000 $ (compétitif)",
+    "description": "Les conseils fédéraux (CRSNG, CRSH, IRSC) offrent des bourses aux étudiants à la maîtrise et au doctorat inscrits dans des programmes de recherche. Ces bourses sont attribuées sur concours selon les résultats académiques et le projet de recherche. Montant indicatif pour les bourses de base.",
+    "conditions": [
+      "Être inscrit à la maîtrise ou au doctorat dans un établissement canadien",
+      "Avoir d'excellents résultats académiques",
+      "Soumettre une demande au bon conseil (CRSNG pour sciences, CRSH pour sciences humaines, IRSC pour santé)"
+    ],
+    "lien_officiel": "https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/index_fra.asp",
+    "criteres": {
+      "etudiant": true,
+      "revenu_max": 60000
+    }
+  },
+  {
+    "id": "aide-logement-etudiant-qc",
+    "nom": "Aide au logement étudiant — résidences et coopératives",
+    "organisme": "Établissements d'enseignement et organismes étudiants (variable)",
+    "niveau": "municipal",
+    "categorie": "logement",
+    "montant_min": 300,
+    "montant_max": 1500,
+    "montant_affiche": "300 $ – 1 500 $/année (économie estimée)",
+    "description": "Des résidences universitaires subventionnées, des coopératives de logement étudiantes et des organismes locaux offrent des logements à coûts réduits aux étudiants à faible revenu. L'économie estimée compare le loyer du marché au loyer réduit disponible selon l'établissement.",
+    "conditions": [
+      "Être étudiant inscrit dans un établissement d'enseignement au Québec",
+      "Avoir un faible revenu",
+      "S'inscrire sur la liste d'attente de l'organisme ou de la résidence"
+    ],
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes",
+    "criteres": {
+      "etudiant": true,
+      "locataire": true,
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "cooperative-habitation-qc",
+    "nom": "Logement en coopérative d'habitation (Québec)",
+    "organisme": "Confédération québécoise des coopératives d'habitation (CQCH)",
+    "niveau": "provincial",
+    "categorie": "logement",
+    "montant_min": 1000,
+    "montant_max": 4000,
+    "montant_affiche": "1 000 $ – 4 000 $/année (économie estimée)",
+    "description": "Les coopératives d'habitation offrent des logements à des membres à des loyers inférieurs au marché, avec gouvernance participative. L'économie estimée représente la différence annuelle entre un loyer coopératif et un loyer comparable sur le marché privé. Peut nécessiter une mise de fonds en parts sociales.",
+    "conditions": [
+      "Être accepté comme membre d'une coopérative d'habitation au Québec",
+      "Payer une mise de fonds en parts sociales (variable selon la coop)",
+      "Participer à la vie coopérative selon les statuts"
+    ],
+    "lien_officiel": "https://www.cqch.qc.ca",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 60000
+    }
+  },
+  {
+    "id": "aide-locataire-munic",
+    "nom": "Aide municipale au maintien en logement",
+    "organisme": "Office municipal d'habitation ou municipalité (variable)",
+    "niveau": "municipal",
+    "categorie": "logement",
+    "montant_min": 300,
+    "montant_max": 2000,
+    "montant_affiche": "300 $ – 2 000 $/année (selon programme)",
+    "description": "Certains offices municipaux d'habitation et organismes locaux offrent une aide directe ou des services aux locataires à faible revenu : accompagnement, aide ponctuelle au loyer, référence vers logements abordables. L'admissibilité et les montants varient selon la ville.",
+    "conditions": [
+      "Être locataire au Québec dans une municipalité offrant ce programme",
+      "Avoir un revenu sous les seuils locaux établis",
+      "Faire une demande auprès de l'OMH ou de l'organisme local"
+    ],
+    "lien_officiel": "https://www.habitation.gouv.qc.ca",
+    "criteres": {
+      "locataire": true,
+      "provinces": ["QC"],
+      "revenu_max": 35000
+    }
+  },
+  {
+    "id": "service-navette-aines-munic",
+    "nom": "Service de navette et transport à la demande pour aînés",
+    "organisme": "Municipalité / OBNL local (variable)",
+    "niveau": "municipal",
+    "categorie": "transport",
+    "montant_min": 100,
+    "montant_max": 400,
+    "montant_affiche": "100 $ – 400 $/année (valeur estimée)",
+    "description": "De nombreuses municipalités et organismes communautaires québécois offrent des services de transport à la demande ou des navettes bénévoles pour les aînés qui ne peuvent plus conduire. La valeur estimée représente l'économie par rapport au taxi ou au covoiturage payant.",
+    "conditions": [
+      "Avoir 65 ans ou plus",
+      "Résider dans une municipalité ou région offrant ce service",
+      "S'inscrire auprès de l'organisme ou de la municipalité responsable"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "provinces": ["QC"],
+      "age_min": 65
+    }
+  },
+  {
+    "id": "aide-mobilite-douce-munic",
+    "nom": "Programme municipal de mobilité durable et active",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "transport",
+    "montant_min": 50,
+    "montant_max": 150,
+    "montant_affiche": "50 $ – 150 $ (selon municipalité)",
+    "description": "Certaines municipalités du Québec offrent des subventions ou des incitatifs pour l'utilisation de modes de transport actifs ou durables : aide à l'achat d'équipement de sécurité vélo, accès subventionné au vélopartage, ou subvention pour équipements de mobilité douce. L'admissibilité varie selon la ville.",
+    "conditions": [
+      "Résider dans une municipalité offrant ce programme",
+      "Acquérir ou utiliser un équipement de mobilité douce admissible"
+    ],
+    "lien_officiel": "https://www.velo.qc.ca",
+    "criteres": {
+      "provinces": ["QC"]
+    }
+  },
+  {
+    "id": "aide-securite-domicile-munic",
+    "nom": "Programme municipal — Sécurisation et mise aux normes du domicile",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "renovation",
+    "montant_min": 200,
+    "montant_max": 2000,
+    "montant_affiche": "200 $ – 2 000 $ (selon municipalité)",
+    "description": "Certaines municipalités offrent une aide financière pour la mise aux normes ou la sécurisation du domicile : remplacement de système électrique défectueux, installation de détecteurs, mise aux normes de la plomberie ou autres travaux de sécurité urgents. L'admissibilité et les montants varient.",
+    "conditions": [
+      "Être propriétaire dans une municipalité offrant ce programme",
+      "Réaliser des travaux de mise aux normes ou de sécurisation admissibles",
+      "Conditions spécifiques selon la municipalité"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "reno-access-munic",
+    "nom": "Programme municipal de rénovation pour accessibilité universelle",
+    "organisme": "Municipalité (variable selon la ville)",
+    "niveau": "municipal",
+    "categorie": "renovation",
+    "montant_min": 300,
+    "montant_max": 2500,
+    "montant_affiche": "300 $ – 2 500 $ (selon municipalité)",
+    "description": "Certaines villes et MRC du Québec offrent une aide financière pour des travaux visant à rendre un domicile plus accessible : entrée de plain-pied, rampe d'accès extérieure, élargissement de portes, monte-escalier. Peut s'appliquer si un membre du ménage est aîné ou a une limitation fonctionnelle. L'admissibilité varie.",
+    "conditions": [
+      "Être propriétaire dans une municipalité offrant ce programme",
+      "Réaliser des travaux d'accessibilité universelle admissibles",
+      "Présence d'un aîné ou d'une personne à mobilité réduite dans le ménage (conditions variables)"
+    ],
+    "lien_officiel": "https://www.mamh.gouv.qc.ca",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
+    "id": "programme-objectif-emploi-qc",
+    "nom": "Programme Objectif emploi (Québec)",
+    "organisme": "Gouvernement du Québec — Ministère de l'Emploi",
+    "niveau": "provincial",
+    "categorie": "credits_impot",
+    "montant_min": 500,
+    "montant_max": 2700,
+    "montant_affiche": "500 $ – 2 700 $",
+    "description": "Programme d'aide et de supplément financier destiné aux personnes faisant une première demande d'aide sociale, pour les encourager à intégrer rapidement le marché du travail ou à participer à des activités de qualification. Montant indicatif selon la durée de participation.",
+    "conditions": [
+      "Résider au Québec",
+      "Faire une première demande d'aide sociale",
+      "Participer aux activités d'emploi ou de formation définies avec un intervenant"
+    ],
+    "lien_officiel": "https://www.quebec.ca/emploi/trouver-emploi/aide-recherche-emploi/programme-objectif-emploi",
+    "criteres": {
+      "provinces": ["QC"],
+      "revenu_max": 15000
+    }
+  },
+  {
+    "id": "bourse-collegiale-munic",
+    "nom": "Bourses d'études collégiales — Fondations et municipalités",
+    "organisme": "Fondations locales, cégeps et municipalités (variable)",
+    "niveau": "municipal",
+    "categorie": "education",
+    "montant_min": 500,
+    "montant_max": 2500,
+    "montant_affiche": "500 $ – 2 500 $ (selon la source)",
+    "description": "De nombreuses fondations de cégeps, organismes communautaires et municipalités offrent des bourses aux étudiants du collégial basées sur les résultats académiques, le besoin financier ou l'implication communautaire. Ces bourses locales s'ajoutent à l'aide financière aux études. L'admissibilité varie selon l'établissement et la région.",
+    "conditions": [
+      "Être étudiant au niveau collégial dans un cégep au Québec",
+      "Répondre aux critères de la bourse visée (académiques, financiers ou communautaires)",
+      "Soumettre une demande à la fondation ou à l'organisme responsable"
+    ],
+    "lien_officiel": "https://www.fedecegeps.ca",
+    "criteres": {
+      "etudiant": true,
+      "provinces": ["QC"],
+      "age_max": 25
     }
   }
 ]
