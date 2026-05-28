@@ -101,6 +101,7 @@ const guides = [
   { href: "/fr/retraite/reer", title: "Guide REER", text: "Comprendre la déduction, les retraits et les erreurs fréquentes." },
   { href: "/fr/retraite/celi", title: "Guide CELI", text: "Voir la flexibilité, les retraits et les usages retraite." },
   { href: "/fr/retraite/celiapp", title: "Guide CELIAPP", text: "Comparer avec les objectifs de premier achat immobilier." },
+  { href: "/retraite/combien-cotiser-reer", title: "Combien cotiser au REER?", text: "Estimer la bonne cotisation selon revenu, impôt et budget." },
 ];
 
 const faqs = [

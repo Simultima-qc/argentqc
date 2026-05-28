@@ -113,6 +113,11 @@ const guides = [
     text: "Comparer les deux comptes et choisir un ordre de priorité.",
   },
   {
+    href: "/retraite/combien-cotiser-reer",
+    title: "Combien cotiser au REER?",
+    text: "Estimer la bonne cotisation selon revenu, impôt et budget.",
+  },
+  {
     href: "/fr/retraite/reer",
     title: "Guide REER",
     text: "Cotisations, déductions, remboursement d'impôt et erreurs fréquentes.",
