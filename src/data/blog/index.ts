@@ -1,4 +1,5 @@
-﻿import celiappPremierAcheteurQuebec2026 from "@/data/blog/entries/celiapp-premier-acheteur-quebec-2026";
+﻿import assuranceEmploiGuideComplet2026 from "@/data/blog/entries/assurance-emploi-guide-complet-2026";
+import celiappPremierAcheteurQuebec2026 from "@/data/blog/entries/celiapp-premier-acheteur-quebec-2026";
 import allocationFamilleQuebecCalcul2026 from "@/data/blog/entries/allocation-famille-quebec-calcul-2026";
 import supplementRevenuGaranti2026 from "@/data/blog/entries/supplement-revenu-garanti-2026";
 import creditSolidariteGuideComplet2026 from "@/data/blog/entries/credit-solidarite-guide-complet-2026";
@@ -12,6 +13,7 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  assuranceEmploiGuideComplet2026,
   celiappPremierAcheteurQuebec2026,
   allocationFamilleQuebecCalcul2026,
   supplementRevenuGaranti2026,
