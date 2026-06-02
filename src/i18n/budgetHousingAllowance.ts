@@ -30,15 +30,15 @@ export interface BudgetHousingAllowanceDictionary {
 const fr: BudgetHousingAllowanceDictionary = {
   routeKey: "budgetHousingAllowance",
   metadata: {
-    title: "Allocation logement Quebec 2026 | ArgentQC.ca",
+    title: "Allocation logement Quebec 2026 : montant, admissibilite et demande",
     description:
-      "Guide simple sur l'allocation-logement du Quebec: montants 2026, conditions d'admissibilite, demande SHQ et programmes complementaires.",
+      "Decouvrez l'allocation logement au Quebec en 2026 : qui peut y avoir droit, montants possibles, criteres d'admissibilite et etapes pour faire une demande.",
   },
   keyword: "Allocation logement Quebec 2026",
   title: "Allocation logement Quebec 2026",
-  subtitle: "Aide mensuelle pour les locataires a faible revenu, avec jusqu'a 170 $ par mois selon la situation.",
+  subtitle: "Montants possibles, criteres d'admissibilite, demande et documents a preparer pour verifier votre droit.",
   intro:
-    "L'allocation-logement de la Societe d'habitation du Quebec reste peu connue alors qu'elle peut soulager concretement le budget des locataires a faible revenu. Elle peut aussi se combiner avec d'autres aides, notamment le credit de solidarite.",
+    "Reponse rapide : l'allocation logement Quebec 2026 vise les menages a faible revenu pour qui le cout du logement pese lourd dans le budget. L'admissibilite depend du revenu, du loyer, de la composition du menage et de certaines conditions liees a l'age ou aux enfants a charge. Verifiez le montant exact sur le site officiel avant de deposer votre demande.",
   totalLabel: "Potentiel total estime",
   availableProgramsLabel: "programmes disponibles",
   programsTitle: "Programmes disponibles",
@@ -59,30 +59,36 @@ const fr: BudgetHousingAllowanceDictionary = {
   },
   officialLabel: "Faire une demande",
   relatedLinks: [
-    { href: "/credit-solidarite-quebec", title: "Credit de solidarite Quebec" },
+    { href: "/fr/budget/credit-solidarite", title: "Credit de solidarite Quebec" },
+    { href: "/aide-sociale-quebec", title: "Aide sociale Quebec 2026" },
     { href: "/fr/budget", title: "Thème budget" },
     { href: "/fr/questionnaire", title: "Questionnaire aides" },
   ],
   faqs: [
     {
-      question: "Qui peut recevoir l'allocation-logement du Quebec ?",
+      question: "Qui a droit a l'allocation logement en 2026?",
       answer:
-        "Le programme vise surtout des locataires a faible revenu qui consacrent une part importante de leurs revenus au loyer. Il faut generalement avoir 50 ans ou plus, ou avoir au moins un enfant a charge, et respecter les seuils de revenu applicables.",
+        "Le programme vise des menages quebecois a faible revenu qui consacrent une part importante de leurs revenus au logement. L'admissibilite depend notamment de l'age, de la situation familiale, du revenu, du loyer et du type de logement.",
     },
     {
-      question: "Quel est le montant en 2026 ?",
+      question: "Quel est le montant de l'allocation logement?",
       answer:
-        "Le montant maximal affiche ici est de 170 $ par mois, soit jusqu'a 2 040 $ par annee. Le montant reel depend du revenu du menage et du loyer.",
+        "Le montant peut varier selon le revenu, le loyer et la composition du menage. Verifiez toujours le montant exact et les seuils en vigueur sur le site officiel de la Societe d'habitation du Quebec.",
     },
     {
-      question: "Ou faire la demande ?",
+      question: "Comment faire une demande?",
       answer:
-        "La demande se fait aupres de la Societe d'habitation du Quebec. Il faut en pratique fournir des informations sur le loyer et sur les revenus du menage.",
+        "La demande se fait aupres de la Societe d'habitation du Quebec ou selon les consignes du programme. Preparez vos preuves de revenu, votre bail ou preuve de loyer et tout document demande.",
     },
     {
-      question: "Peut-on cumuler avec le credit de solidarite ?",
+      question: "L'allocation logement est-elle imposable?",
       answer:
-        "Oui. L'allocation-logement et le credit d'impot pour solidarite sont distincts et peuvent se cumuler selon la situation du menage.",
+        "Son traitement peut dependre de votre situation. Conservez vos avis et consultez les instructions officielles ou un professionnel au besoin.",
+    },
+    {
+      question: "Peut-on cumuler avec le credit de solidarite?",
+      answer:
+        "Oui. L'allocation logement et le credit d'impot pour solidarite sont deux programmes distincts qui peuvent etre pertinents pour un menage locataire a revenu faible ou modeste.",
     },
   ],
   programmes: [

@@ -6,7 +6,7 @@ import type { BlogArticle } from "@/data/blog/types";
 const slug = "supplement-revenu-garanti-2026";
 
 const baseMetadata: Metadata = {
-  title: "Supplément de revenu garanti 2026 : Jusqu'à 11 000 $ pour les aînés à faible revenu",
+  title: "Supplément de revenu garanti 2026 : montants, tableau et admissibilité",
   description:
     "Tout savoir sur le SRG 2026 : montants mensuels selon votre situation conjugale, seuils de revenu, comment faire la demande et cumul avec la pension de Sécurité de la vieillesse.",
   keywords: [
@@ -24,13 +24,45 @@ const metadata: Metadata = {
   ...baseMetadata,
   alternates: {
     ...baseMetadata.alternates,
-    canonical: "https://argentqc.ca/blog/supplement-revenu-garanti-2026",
+    canonical: "https://argentqc.ca/supplement-revenu-garanti-2026",
   },
+};
+
+const faqs = [
+  {
+    q: "Qui est admissible au Supplément de revenu garanti en 2026?",
+    r: "Vous devez généralement recevoir la pension de la Sécurité de la vieillesse, résider au Canada et avoir un revenu annuel sous les seuils applicables à votre situation.",
+  },
+  {
+    q: "Où trouver le tableau des montants du SRG 2026?",
+    r: "Le tableau officiel des montants et seuils doit être vérifié sur Canada.ca ou auprès de Service Canada, car les montants peuvent changer selon la période de paiement.",
+  },
+  {
+    q: "Le SRG est-il imposable?",
+    r: "Le SRG est généralement non imposable, mais il reste important de produire votre déclaration de revenus chaque année pour maintenir ou renouveler votre admissibilité.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.r,
+    },
+  })),
 };
 
 function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
@@ -46,14 +78,13 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">7 min de lecture · 21 avril 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            Supplément de revenu garanti 2026 : Jusqu&apos;à 11 000 $ pour les aînés à faible revenu
+            Supplément de revenu garanti 2026 : montants, tableau et admissibilité
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Le Supplément de revenu garanti (SRG) est une prestation fédérale mensuelle non imposable
-            versée aux aînés de 65 ans et plus qui ont un faible revenu. En 2026, une personne seule
-            peut recevoir jusqu&apos;à{" "}
-            <strong>1 086 $ par mois</strong>, soit plus de{" "}
-            <strong>13 000 $ par année</strong>{" "} — entièrement libre d&apos;impôt.
+            versée aux aînés de 65 ans et plus qui ont un faible revenu. En 2026, le montant
+            dépend de votre revenu, de votre situation conjugale et de votre admissibilité à la
+            pension de la Sécurité de la vieillesse.
             Pourtant, des milliers d&apos;aînés québécois n&apos;en font jamais la demande.
           </p>
         </div>
@@ -63,7 +94,7 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Prestation <strong>non imposable</strong>{" "} versée en plus de la pension de Sécurité de la vieillesse (SV)</li>
-            <li>✓ Jusqu&apos;à <strong>1 086 $/mois</strong>{" "} pour une personne seule à faible revenu en 2026</li>
+            <li>✓ Montant variable selon votre revenu, votre état civil et les seuils officiels en vigueur</li>
             <li>✓ Admissible dès <strong>65 ans</strong>{" "} si votre revenu net annuel est sous les seuils établis</li>
             <li>✓ Cumulable avec la pension SV, le crédit de solidarité et l&apos;allocation logement du Québec</li>
           </ul>
@@ -136,29 +167,30 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants du SRG en 2026 selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             Les montants sont indexés trimestriellement en fonction de l&apos;indice des prix à la
-            consommation. Voici les montants <strong>maximaux mensuels estimés pour 2026</strong>{" "} :
+            consommation. Le tableau ci-dessous sert de structure de vérification : utilisez les
+            montants officiels de Service Canada pour confirmer votre situation.
           </p>
 
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Montants mensuels maximaux du SRG — 2026</p>
+            <p className="font-bold text-blue-800 mb-3">Tableau des montants du SRG — 2026</p>
             <div className="space-y-3">
               {[
                 {
                   situation: "Personne seule, veuve ou divorcée",
-                  srg: "1 086 $",
-                  sv: "700 $",
-                  total: "1 786 $/mois",
+                  srg: "À vérifier",
+                  sv: "À vérifier",
+                  total: "Selon revenu",
                 },
                 {
                   situation: "Couple : les deux reçoivent la SV",
-                  srg: "654 $ chacun",
-                  sv: "700 $ chacun",
-                  total: "2 708 $/mois (couple)",
+                  srg: "À vérifier",
+                  sv: "À vérifier",
+                  total: "Selon revenu du couple",
                 },
                 {
                   situation: "Couple : un seul reçoit la SV complète",
-                  srg: "1 086 $",
-                  sv: "700 $",
+                  srg: "À vérifier",
+                  sv: "À vérifier",
                   total: "Variable selon la situation",
                 },
               ].map((row) => (
@@ -182,14 +214,14 @@ function Content() {
               ))}
             </div>
             <p className="text-blue-600 text-xs mt-3">
-              * Montants estimés pour 2026, indexés trimestriellement. Consultez Service Canada pour les montants exacts en vigueur.
+              * Les montants exacts changent avec les périodes de paiement. Consultez Service Canada pour les montants officiels en vigueur.
             </p>
           </div>
 
           <p className="text-slate-600 leading-relaxed text-sm">
-            Le SRG diminue progressivement à mesure que votre revenu augmente, au taux de{" "}
-            <strong>50 cents par dollar de revenu</strong>{" "} au-dessus du seuil d&apos;exemption de base.
-            Certains revenus sont exclus du calcul, comme les premiers 5 000 $ de revenus d&apos;emploi.
+            Le SRG diminue généralement à mesure que votre revenu augmente. Certains revenus peuvent
+            être exclus ou traités différemment; vérifiez les règles officielles avant de planifier un
+            retrait REER, une rente ou un revenu d&apos;emploi.
           </p>
         </section>
 
@@ -198,16 +230,16 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Seuils de revenu pour avoir droit au SRG en 2026</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             Votre <strong>revenu annuel net</strong>{" "} (excluant la SV et le SRG eux-mêmes) doit être
-            inférieur aux seuils suivants pour recevoir au moins un montant partiel de SRG :
+            inférieur aux seuils applicables à votre situation pour recevoir au moins un montant partiel de SRG :
           </p>
 
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-amber-800 mb-3">Seuils de revenu maximum 2026 (estimés)</p>
+            <p className="font-bold text-amber-800 mb-3">Seuils de revenu 2026 à vérifier</p>
             <div className="space-y-2 text-sm">
               {[
-                { situation: "Personne seule ou veuve/veuf", seuil: "~ 22 500 $" },
-                { situation: "Couple : les deux reçoivent la SV", seuil: "~ 29 800 $ (combiné)" },
-                { situation: "Couple : un seul reçoit la pension SV complète", seuil: "~ 53 000 $ (combiné)" },
+                { situation: "Personne seule ou veuve/veuf", seuil: "Seuil officiel Service Canada" },
+                { situation: "Couple : les deux reçoivent la SV", seuil: "Seuil combiné officiel" },
+                { situation: "Couple : un seul reçoit la pension SV complète", seuil: "Seuil combiné officiel" },
               ].map((row) => (
                 <div key={row.situation} className="flex justify-between items-center py-1.5 border-b border-amber-200 last:border-0">
                   <span className="text-amber-900">{row.situation}</span>
@@ -221,10 +253,10 @@ function Content() {
           </div>
 
           <p className="text-slate-600 leading-relaxed text-sm">
-            <strong>Exemple concret :</strong>{" "} Une personne seule de 68 ans avec 14 000 $ de revenus
-            de retraite (RRSP + régime de pension) recevrait un SRG partiel, car son revenu est sous
-            le seuil de 22 500 $. Elle recevrait approximativement :{" "}
-            <strong>1 086 $ – (14 000 $ ÷ 2 × 50 %) = environ 536 $/mois</strong>.
+            <strong>Exemple de lecture :</strong>{" "} Une personne seule de 68 ans doit comparer ses revenus
+            imposables, excluant les revenus que Service Canada ne retient pas dans le calcul, avec le
+            seuil officiel applicable. Le montant final doit être confirmé dans Mon dossier Service Canada
+            ou auprès de Service Canada.
           </p>
         </section>
 
@@ -292,7 +324,7 @@ function Content() {
           <div className="space-y-3 mb-4">
             {[
               { label: "Pension de la Sécurité de la vieillesse (SV)", montant: "jusqu&apos;à ~700 $/mois", href: "/blog/securite-vieillesse-quebec-2026", federal: true },
-              { label: "Supplément de revenu garanti (SRG)", montant: "jusqu&apos;à ~1 086 $/mois", href: null, federal: true },
+              { label: "Supplément de revenu garanti (SRG)", montant: "montant selon revenu", href: null, federal: true },
               { label: "Crédit de solidarité Québec (composante TVQ + habitation)", montant: "jusqu&apos;à ~1 198 $/an", href: "/fr/budget/credit-solidarite", federal: false },
               { label: "Allocation logement du Québec", montant: "jusqu&apos;à 170 $/mois", href: "/fr/budget/allocation-logement", federal: false },
               { label: "Crédit d&apos;impôt pour frais médicaux", montant: "variable selon les dépenses", href: "/credit-impot-frais-medicaux-quebec", federal: false },
@@ -314,8 +346,9 @@ function Content() {
           </div>
           <p className="text-slate-600 leading-relaxed text-sm">
             En cumulant tous ces programmes, un aîné québécois seul et locataire avec un faible revenu
-            peut recevoir un soutien financier annuel dépassant{" "}
-            <strong>22 000 $ à 25 000 $</strong>{" "} — sans compter les régimes de retraite privés.
+            peut devoir coordonner plusieurs programmes. L&apos;important est de vérifier chaque aide avec
+            sa source officielle, car les revenus qui réduisent le SRG peuvent aussi influencer d&apos;autres
+            crédits basés sur le revenu.
           </p>
         </section>
 
@@ -335,6 +368,18 @@ function Content() {
                 className="bg-white rounded-xl border border-slate-100 px-4 py-3 text-sm font-medium text-blue-700 hover:bg-blue-50 transition-colors"
                 dangerouslySetInnerHTML={{ __html: "→ " + item.texte }}
               />
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Questions fréquentes sur le SRG 2026</h2>
+          <div className="grid gap-3">
+            {faqs.map((faq) => (
+              <article key={faq.q} className="bg-white rounded-xl border border-slate-100 p-4">
+                <h3 className="font-semibold text-slate-800 text-sm mb-1">{faq.q}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{faq.r}</p>
+              </article>
             ))}
           </div>
         </section>
@@ -380,7 +425,7 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "Supplément de revenu garanti 2026 : Jusqu'à 11 000 $ pour les aînés à faible revenu",
+  titre: "Supplément de revenu garanti 2026 : montants, tableau et admissibilité",
   description:
     "Tout savoir sur le SRG 2026 : montants mensuels selon votre situation conjugale, seuils de revenu, comment faire la demande et cumul avec la pension SV.",
   date: "2026-04-21",

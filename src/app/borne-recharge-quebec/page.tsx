@@ -3,9 +3,9 @@ import SeoProgrammesPage from "@/components/SeoProgrammesPage";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Subvention borne de recharge Québec 2026 – 600 $ disponibles",
+  title: "Subvention borne de recharge Québec 2026 : montant, formulaire et conditions",
   description:
-    "Obtenez 600 $ de subvention pour installer une borne de recharge niveau 2 à domicile au Québec via le programme Roulez vert. Guide complet 2026.",
+    "Voyez les subventions disponibles pour une borne de recharge au Québec en 2026, les conditions d'admissibilité et le formulaire de demande.",
   keywords: [
     "subvention borne de recharge Québec",
     "aide borne recharge Québec 2026",
@@ -59,6 +59,10 @@ const programmes: Programme[] = [
 
 const faqs = [
   {
+    question: "Où trouver le formulaire pour la subvention borne électrique au Québec?",
+    reponse: "La demande se fait sur le portail officiel du programme Roulez vert. Avant de remplir le formulaire, préparez vos factures, les preuves d'achat ou de location du véhicule admissible, les renseignements sur la borne et les documents liés à l'installation.",
+  },
+  {
     question: "Quelle borne de recharge choisir pour avoir droit à la subvention ?",
     reponse: "Vous devez choisir une borne de niveau 2 (240V) sur la liste des appareils reconnus par Roulez vert. Les bornes de niveau 1 (120V, prise standard) ne sont pas subventionnées. Les marques populaires admissibles incluent ChargePoint, Bosch, FLO, Schneider Electric et plusieurs autres. Consultez la liste officielle sur vehiculeselectriques.gouv.qc.ca avant d'acheter.",
   },
@@ -80,14 +84,25 @@ export default function BorneRechargeQuebecPage() {
   return (
     <SeoProgrammesPage
       titre="Subvention borne de recharge Québec 2026"
-      sousTitre="600 $ pour installer une borne de niveau 2 à domicile via le programme Roulez vert — cumulable avec la subvention véhicule électrique."
-      intro="Vous avez un véhicule électrique ou prévoyez en acheter un ? Le programme Roulez vert de Transition énergétique Québec offre 600 $ pour l'installation d'une borne de recharge de niveau 2 à votre domicile. Cette aide est cumulable avec la subvention à l'achat du véhicule (jusqu'à 7 000 $), pour un total potentiel de 7 600 $. La borne de niveau 2 recharge votre véhicule en 4 à 8 heures (contre 20+ heures avec une prise 120V), rendant la recharge à domicile pratique et économique."
+      sousTitre="Montant, conditions, documents à préparer et formulaire officiel pour demander la subvention."
+      intro="Réponse rapide : pour demander la subvention borne de recharge au Québec, utilisez le formulaire officiel du programme Roulez vert et préparez vos preuves d'achat, factures d'installation, renseignements sur la borne et preuve liée au véhicule admissible. Les conditions et les montants peuvent changer; vérifiez toujours la page officielle avant d'acheter ou d'installer l'équipement."
       programmes={programmes}
       faqs={faqs}
       motCle="Subvention borne de recharge Québec 2026"
+      sections={[
+        {
+          titre: "Formulaire pour demander la subvention borne électrique au Québec",
+          contenu: [
+            "La demande doit être faite à partir du formulaire ou du portail officiel indiqué par le programme Roulez vert. Utilisez toujours le lien officiel avant d'acheter la borne, car les conditions peuvent changer.",
+            "Préparez les factures d'achat, la preuve d'installation, les renseignements sur la borne, la preuve liée au véhicule admissible et vos coordonnées. Si vous êtes locataire ou en copropriété, gardez aussi l'autorisation écrite requise.",
+            "Le questionnaire ArgentQC peut vous aider à repérer d'autres aides liées au véhicule électrique, au logement ou aux rénovations, mais la demande finale doit être déposée sur le site gouvernemental.",
+          ],
+        },
+      ]}
       pagesRelies={[
         { href: "/vehicule-electrique-quebec", titre: "Toutes les subventions véhicule électrique Québec" },
         { href: "/subventions-maison-quebec", titre: "Toutes les subventions maison Québec 2026" },
+        { href: "/fr/questionnaire", titre: "Questionnaire aides financières" },
         { href: "/fr/budget/cout-vie", titre: "Coût de la vie au Québec 2026" },
       ]}
     />

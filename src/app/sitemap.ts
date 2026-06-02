@@ -63,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: getLocalizedUrl("fr", routeKey, siteUrl),
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: 0.8,
+    priority: routeKey === "budgetHousingAllowance" ? 0.85 : 0.8,
     alternates: {
       languages: getAlternateLinks(routeKey, siteUrl),
     },

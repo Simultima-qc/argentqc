@@ -76,6 +76,18 @@ export default async function LocalizedHomePage({
     href: getRoutePath(locale, key),
     label: h.topicsLabels[i],
   }));
+  const priorityGuides =
+    locale === "fr"
+      ? [
+          { href: "/supplement-revenu-garanti-2026", label: "Supplément de revenu garanti 2026" },
+          { href: "/fr/budget/allocation-logement", label: "Allocation logement Québec 2026" },
+          { href: "/aide-sociale-quebec", label: "Aide sociale Québec 2026" },
+          { href: "/fr/budget/credit-solidarite", label: "Crédit de solidarité Québec" },
+        ]
+      : [
+          { href: "/en/budget/housing-allowance", label: "Quebec housing allowance" },
+          { href: "/en/budget/solidarity-tax-credit", label: "Quebec solidarity tax credit" },
+        ];
   logCriticalRender("home", timer);
 
   return (
@@ -407,6 +419,20 @@ export default async function LocalizedHomePage({
                 <div className="text-base font-bold text-stone-900">{topic.label}</div>
               </Link>
             ))}
+          </div>
+          <div className="mt-6 rounded-2xl border bg-white p-5" style={{ borderColor: "#EDE9E0" }}>
+            <h3 className="mb-3 text-base font-extrabold text-stone-900">Guides populaires</h3>
+            <div className="flex flex-wrap gap-2">
+              {priorityGuides.map((guide) => (
+                <Link
+                  key={guide.href}
+                  href={guide.href}
+                  className="rounded-full bg-stone-100 px-3 py-2 text-xs font-bold text-stone-800 no-underline"
+                >
+                  {guide.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

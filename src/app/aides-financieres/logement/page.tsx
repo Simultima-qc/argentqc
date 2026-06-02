@@ -140,7 +140,7 @@ export default function AidesFinancieresLogementPage() {
                   badgeColor: "#D1FAE5",
                   badgeText: "#065F46",
                   titre: "Crédit de solidarité",
-                  montant: "Jusqu'à 2 279 $/an",
+                  montant: "Selon revenu",
                   qui: "Locataires et propriétaires à revenu faible ou moyen",
                   desc: "Le crédit de solidarité combine trois volets : logement (pour locataires ou propriétaires admissibles), TVQ (pour tous) et village nordique. Il est versé trimestriellement de façon automatique.",
                   details: [

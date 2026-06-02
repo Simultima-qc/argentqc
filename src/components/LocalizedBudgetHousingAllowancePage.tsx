@@ -27,9 +27,25 @@ export default function LocalizedBudgetHousingAllowancePage({ locale }: { locale
     currency: "CAD",
     maximumFractionDigits: 0,
   }).format(totalMax);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: dictionary.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <main style={{ minHeight: "100vh", background: PARCH }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
           <Link href={homePath} style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>

@@ -22,13 +22,45 @@ const metadata: Metadata = {
   ...baseMetadata,
   alternates: {
     ...baseMetadata.alternates,
-    canonical: "https://argentqc.ca/blog/aide-sociale-quebec-2026",
+    canonical: "https://argentqc.ca/aide-sociale-quebec",
   },
+};
+
+const faqs = [
+  {
+    q: "Comment faire une demande d'aide sociale au Québec?",
+    r: "La demande se fait auprès du gouvernement du Québec, en ligne ou selon les options indiquées sur Québec.ca. Préparez vos preuves d'identité, de résidence, de revenus, d'avoirs et de logement.",
+  },
+  {
+    q: "Quels sont les montants d'aide sociale en 2026?",
+    r: "Les montants varient selon la situation familiale, les contraintes à l'emploi, les revenus et les avoirs. Vérifiez le barème officiel de Québec.ca pour le montant exact.",
+  },
+  {
+    q: "Quand les dépôts d'aide sociale sont-ils versés?",
+    r: "Les dates de dépôt doivent être confirmées sur les calendriers officiels du gouvernement du Québec ou dans votre dossier, car elles peuvent varier selon le mois et le mode de paiement.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.r,
+    },
+  })),
 };
 
 function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
@@ -59,9 +91,9 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>? Deux programmes : aide sociale (général) et solidarité sociale (contraintes sévères)</li>
-            <li>? Montants allant de <strong>780 $ à plus de 1 800 $/mois</strong>{" "} selon votre situation</li>
+            <li>? Montants variables selon votre situation et les barèmes officiels</li>
             <li>? Inclut la couverture médicaments (RAMQ) et des aides pour le logement</li>
-            <li>? Demande en ligne, par téléphone ou en personne — réponse dans 30 jours</li>
+            <li>? Demande en ligne, par téléphone ou en personne selon les options indiquées sur Québec.ca</li>
           </ul>
         </div>
 
@@ -95,18 +127,19 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants 2026 selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Les montants sont indexés chaque année le 1er janvier. Voici les prestations de base estimées pour 2026.
-            Des suppléments peuvent s&apos;ajouter selon votre situation (enfants, logement, besoins spéciaux).
+            Les montants peuvent changer selon les barèmes officiels. Utilisez les tableaux ci-dessous
+            comme structure de vérification, puis confirmez le montant exact sur Québec.ca. Des suppléments
+            peuvent s&apos;ajouter selon votre situation (enfants, logement, besoins spéciaux).
           </p>
 
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Programme d&apos;aide sociale — montants mensuels estimés 2026</p>
+            <p className="font-bold text-blue-800 mb-3">Programme d&apos;aide sociale — situations à vérifier</p>
             <div className="space-y-2">
               {[
-                { situation: "Personne seule", montant: "~780 $" },
-                { situation: "Couple sans enfant", montant: "~1 100 $" },
-                { situation: "Famille monoparentale, 1 enfant", montant: "~1 200 $*" },
-                { situation: "Couple avec 1 enfant", montant: "~1 450 $*" },
+                { situation: "Personne seule", montant: "Barème officiel" },
+                { situation: "Couple sans enfant", montant: "Barème officiel" },
+                { situation: "Famille monoparentale, 1 enfant", montant: "Barème officiel" },
+                { situation: "Couple avec 1 enfant", montant: "Barème officiel" },
               ].map((ex) => (
                 <div key={ex.situation} className="flex justify-between text-sm">
                   <span className="text-blue-900">{ex.situation}</span>
@@ -114,16 +147,16 @@ function Content() {
                 </div>
               ))}
             </div>
-            <p className="text-blue-700 text-xs mt-3">* Avant l&apos;allocation famille de Retraite Québec, qui peut ajouter plusieurs centaines de dollars.</p>
+            <p className="text-blue-700 text-xs mt-3">Les prestations familiales et certains suppléments peuvent modifier le portrait financier global.</p>
           </div>
 
           <div className="bg-purple-50 border border-purple-100 rounded-2xl p-5">
-            <p className="font-bold text-purple-800 mb-3">Programme de solidarité sociale — montants mensuels estimés 2026</p>
+            <p className="font-bold text-purple-800 mb-3">Programme de solidarité sociale — situations à vérifier</p>
             <div className="space-y-2">
               {[
-                { situation: "Personne seule", montant: "~1 220 $" },
-                { situation: "Couple (1 personne avec contraintes sévères)", montant: "~1 600 $" },
-                { situation: "Couple (2 personnes avec contraintes sévères)", montant: "~1 870 $" },
+                { situation: "Personne seule", montant: "Barème officiel" },
+                { situation: "Couple (1 personne avec contraintes sévères)", montant: "Barème officiel" },
+                { situation: "Couple (2 personnes avec contraintes sévères)", montant: "Barème officiel" },
               ].map((ex) => (
                 <div key={ex.situation} className="flex justify-between text-sm">
                   <span className="text-purple-900">{ex.situation}</span>
@@ -156,7 +189,7 @@ function Content() {
               {
                 icone: "??",
                 titre: "Avoir des ressources insuffisantes",
-                texte: "Vos revenus et avoirs doivent être sous les seuils permis. Pour une personne seule, les avoirs liquides ne peuvent généralement pas dépasser 1 500 $.",
+                texte: "Vos revenus et avoirs doivent être sous les seuils permis. Les limites exactes dépendent de votre situation et doivent être vérifiées sur Québec.ca.",
               },
               {
                 icone: "??",
@@ -198,7 +231,7 @@ function Content() {
               {
                 num: "4",
                 titre: "Recevez la décision",
-                texte: "La décision est rendue dans un délai de 30 jours. Si vous êtes admissible, les prestations sont versées par dépôt direct chaque dernier jour ouvrable du mois.",
+                texte: "La décision et les dates de dépôt doivent être confirmées dans votre dossier ou auprès du ministère. Si vous êtes admissible, le dépôt direct est généralement l'option la plus simple.",
               },
               {
                 num: "5",
@@ -254,19 +287,19 @@ function Content() {
             ceux qui travaillent tout en étant à l&apos;aide sociale. Voici comment ça fonctionne :
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
-            <p className="font-bold text-blue-800 mb-3">Exemptions de revenus de travail (estimées 2026)</p>
+            <p className="font-bold text-blue-800 mb-3">Revenus de travail et exemptions à vérifier</p>
             <div className="space-y-2 text-sm mb-3">
               <div className="flex justify-between">
                 <span className="text-blue-900">Personne seule</span>
-                <span className="font-bold text-blue-800">jusqu&apos;à 200 $/mois exempt</span>
+                <span className="font-bold text-blue-800">Selon barème officiel</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-blue-900">Couple</span>
-                <span className="font-bold text-blue-800">jusqu&apos;à 300 $/mois exempt</span>
+                <span className="font-bold text-blue-800">Selon barème officiel</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-blue-900">Famille monoparentale</span>
-                <span className="font-bold text-blue-800">jusqu&apos;à 300 $/mois exempt</span>
+                <span className="font-bold text-blue-800">Selon barème officiel</span>
               </div>
             </div>
             <p className="text-blue-700 text-xs">
@@ -283,6 +316,18 @@ function Content() {
         </section>
 
         {/* CTA */}
+        <section className="mb-8">
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Questions fréquentes sur l&apos;aide sociale 2026</h2>
+          <div className="grid gap-3">
+            {faqs.map((faq) => (
+              <article key={faq.q} className="bg-white rounded-xl border border-slate-100 p-4">
+                <h3 className="font-semibold text-slate-800 text-sm mb-1">{faq.q}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{faq.r}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <div style={{ background: "#060D1A" }} className="text-white rounded-2xl p-6 text-center mb-8">
           <p className="font-bold text-lg mb-2">Découvrez toutes les aides auxquelles vous avez droit</p>
           <p className="text-sm mb-4" style={{ color: "rgba(240,235,224,0.6)" }}>
@@ -325,7 +370,7 @@ function Content() {
 const article: BlogArticle = {
   slug,
   titre: "Aide sociale Québec 2026 : Montants, conditions et comment faire une demande",
-  description: "Aide sociale et solidarité sociale 2026 : montants de 780 $ à 1 870 $/mois selon votre situation, conditions d'admissibilité, démarches de demande et avantages connexes.",
+  description: "Aide sociale et solidarité sociale 2026 : montants selon votre situation, conditions d'admissibilité, démarches de demande, dates de dépôt et avantages connexes.",
   date: "2026-04-11",
   categorie: "Aide sociale",
   tempsLecture: "6 min",
@@ -334,4 +379,3 @@ const article: BlogArticle = {
 };
 
 export default article;
-

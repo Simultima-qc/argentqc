@@ -33,9 +33,9 @@ const categoriesAides = [
     guideLien: "/aides-financieres/logement",
     aides: [
       { nom: "Allocation-logement Québec", montant: "jusqu'à 170 $/mois", lien: "/fr/budget/allocation-logement" },
-      { nom: "Crédit de solidarité", montant: "jusqu'à 2 279 $/an", lien: "/fr/budget/credit-solidarite" },
+      { nom: "Crédit de solidarité", montant: "selon revenu", lien: "/fr/budget/credit-solidarite" },
+      { nom: "Aide sociale Québec", montant: "selon barème", lien: "/aide-sociale-quebec" },
       { nom: "Rénoclimat + subventions chauffage", montant: "jusqu'à 10 000 $", lien: "/reno-climat-quebec" },
-      { nom: "Subvention thermopompe", montant: "jusqu'à 5 000 $", lien: "/subvention-thermopompe-quebec" },
     ],
   },
   {
@@ -53,7 +53,7 @@ const categoriesAides = [
     titre: "Aînés & retraite",
     aides: [
       { nom: "Sécurité de la vieillesse (SV)", montant: "jusqu'à 8 580 $/an", lien: "/fr/retraite" },
-      { nom: "Supplément de revenu garanti (SRG)", montant: "jusqu'à 13 137 $/an", lien: "/fr/retraite" },
+      { nom: "Supplément de revenu garanti (SRG)", montant: "selon revenu", lien: "/supplement-revenu-garanti-2026" },
       { nom: "Crédit en raison de l'âge", montant: "jusqu'à 1 530 $ d'économie", lien: "/fr/impots" },
       { nom: "Maintien à domicile (Québec)", montant: "jusqu'à 6 000 $/an", lien: "/fr/questionnaire" },
     ],

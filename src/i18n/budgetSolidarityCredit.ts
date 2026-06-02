@@ -30,15 +30,15 @@ export interface BudgetSolidarityCreditDictionary {
 const fr: BudgetSolidarityCreditDictionary = {
   routeKey: "budgetSolidarityCredit",
   metadata: {
-    title: "Credit de solidarite Quebec 2026 | ArgentQC.ca",
+    title: "Credit d'impot solidarite Quebec 2026 : montant, seuils et paiement",
     description:
-      "Guide simple sur le credit d'impot pour solidarite au Quebec: montants 2026, conditions, demande via la declaration TP-1 et aides connexes.",
+      "Voyez comment fonctionne le credit d'impot solidarite au Quebec en 2026 : admissibilite, seuils, montants possibles et paiements.",
   },
   keyword: "Credit de solidarite Quebec 2026",
   title: "Credit de solidarite Quebec 2026",
-  subtitle: "Montants, conditions et demarche pour reclamer ce credit remboursable de Revenu Quebec.",
+  subtitle: "Admissibilite, seuils de revenu, montants possibles, paiements et etapes pour le recevoir.",
   intro:
-    "Le credit d'impot pour solidarite est l'une des aides les plus larges au Quebec pour les menages a revenus faibles ou modestes. Il se combine souvent avec d'autres aides budgetaires, notamment le credit TPS federal et l'allocation-logement.",
+    "Reponse rapide : le credit d'impot pour solidarite Quebec 2026 est calcule par Revenu Quebec a partir de votre declaration provinciale. Le montant depend de votre revenu familial, de votre situation de logement, de votre situation familiale et des composantes applicables. Verifiez les seuils officiels avant de conclure que vous n'y avez pas droit.",
   totalLabel: "Potentiel total estime",
   availableProgramsLabel: "programmes disponibles",
   programsTitle: "Programmes lies",
@@ -60,27 +60,34 @@ const fr: BudgetSolidarityCreditDictionary = {
   officialLabel: "Faire une demande",
   relatedLinks: [
     { href: "/fr/budget/allocation-logement", title: "Allocation logement" },
+    { href: "/aide-sociale-quebec", title: "Aide sociale Quebec 2026" },
+    { href: "/supplement-revenu-garanti-2026", title: "Supplement de revenu garanti 2026" },
     { href: "/fr/budget", title: "Thème budget" },
     { href: "/fr/questionnaire", title: "Questionnaire aides" },
   ],
   faqs: [
     {
-      question: "Qu'est-ce que le credit de solidarite ?",
+      question: "C'est quoi le credit d'impot pour solidarite?",
       answer:
-        "C'est un credit d'impot remboursable verse par Revenu Quebec. Il tient compte notamment de la composante habitation et du niveau de revenu du menage.",
+        "C'est un credit d'impot remboursable de Revenu Quebec destine aux menages a revenu faible ou modeste. Il peut inclure une composante TVQ, une composante logement et, dans certains cas, une composante village nordique.",
     },
     {
-      question: "Combien peut-on recevoir en 2026 ?",
+      question: "Quels sont les seuils du credit solidarite?",
       answer:
-        "Le montant varie selon le revenu familial, la composition du menage et la situation de logement. Une personne seule peut toucher quelques centaines de dollars, alors qu'un menage avec enfants peut aller beaucoup plus haut.",
+        "Les seuils varient selon le revenu familial, la situation conjugale, le nombre d'enfants et les composantes applicables. Consultez Revenu Quebec pour les seuils exacts de l'annee visee.",
     },
     {
-      question: "Faut-il faire une demande ?",
+      question: "Comment recevoir le credit de solidarite?",
       answer:
-        "La premiere etape consiste a produire la declaration de revenus du Quebec et a remplir les informations requises, notamment l'annexe pertinente dans la TP-1.",
+        "Vous devez produire votre declaration de revenus du Quebec et remplir les renseignements demandes, notamment ceux lies a votre logement lorsque requis. Revenu Quebec calcule ensuite le credit selon votre situation.",
     },
     {
-      question: "Peut-on le cumuler avec le credit TPS federal ?",
+      question: "Quand les paiements sont-ils verses?",
+      answer:
+        "La frequence des paiements depend du montant accorde et des regles de Revenu Quebec. Verifiez votre avis de determination ou votre dossier Revenu Quebec pour les dates applicables.",
+    },
+    {
+      question: "Peut-on le cumuler avec le credit TPS federal?",
       answer:
         "Oui. Le credit de solidarite et le credit TPS/TVH sont distincts et peuvent tous les deux s'appliquer au meme menage.",
     },

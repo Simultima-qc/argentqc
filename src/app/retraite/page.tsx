@@ -128,6 +128,11 @@ const guides = [
     text: "Droits de cotisation, retraits non imposables et stratégie retraite.",
   },
   {
+    href: "/supplement-revenu-garanti-2026",
+    title: "Supplément de revenu garanti 2026",
+    text: "Comprendre l'admissibilité au SRG, les seuils et le lien avec la Sécurité de la vieillesse.",
+  },
+  {
     href: "/fr/retraite/celiapp",
     title: "Guide CELIAPP",
     text: "Premier achat, plafonds, fiscalité et lien avec le REER.",

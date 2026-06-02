@@ -23,6 +23,11 @@ interface PageReliee {
   titre: string;
 }
 
+interface SectionEditoriale {
+  titre: string;
+  contenu: string[];
+}
+
 interface Props {
   titre: string;
   sousTitre: string;
@@ -30,6 +35,7 @@ interface Props {
   programmes: Programme[];
   faqs: FaqItem[];
   motCle: string;
+  sections?: SectionEditoriale[];
   pagesRelies?: PageReliee[];
 }
 
@@ -40,8 +46,22 @@ export default function SeoProgrammesPage({
   programmes,
   faqs,
   motCle,
+  sections,
   pagesRelies,
 }: Props) {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.reponse,
+      },
+    })),
+  };
+
   const totalMax = programmes.reduce((acc, p) => acc + p.montant_max, 0);
   const totalFormate = new Intl.NumberFormat("fr-CA", {
     style: "currency",
@@ -51,6 +71,10 @@ export default function SeoProgrammesPage({
 
   return (
     <main style={{ minHeight: "100vh", background: PARCH }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <header style={{ background: DARK, position: "sticky", top: 0, zIndex: 10, padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: "512px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/fr" style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
@@ -188,6 +212,25 @@ export default function SeoProgrammesPage({
             );
           })}
         </div>
+
+        {sections && sections.length > 0 && (
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "32px" }}>
+            {sections.map((section) => (
+              <section key={section.titre} style={{ background: "white", borderRadius: "16px", border: "1px solid #EDE9E0", padding: "20px", boxShadow: "0 1px 8px rgba(0,0,0,0.04)" }}>
+                <h2 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "10px", lineHeight: 1.35 }}>
+                  {section.titre}
+                </h2>
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                  {section.contenu.map((paragraphe) => (
+                    <p key={paragraphe} style={{ fontSize: "13px", color: "#57534E", lineHeight: 1.7 }}>
+                      {paragraphe}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        )}
 
         <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
           Questions fréquentes
