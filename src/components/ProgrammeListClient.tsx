@@ -29,7 +29,7 @@ export default function ProgrammeListClient({
   const [showAll, setShowAll] = useState(false);
 
   const visibleProgrammes = showAll ? programmes : programmes.slice(0, initialCount);
-  const hiddenCount = programmes.length - initialCount;
+  const hiddenCount = Math.max(0, programmes.length - initialCount);
   const hasMore = !showAll && hiddenCount > 0;
   const canHide = showAll && hiddenCount > 0;
 

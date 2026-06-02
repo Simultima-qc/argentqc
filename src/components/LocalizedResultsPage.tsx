@@ -24,8 +24,20 @@ interface LocalizedResultsPageProps {
   reponses: ReponseQuestionnaire;
 }
 
-function getConfidenceTier(programme: Programme): "principal" | "verifier" {
+export function getConfidenceTier(programme: Programme): "principal" | "verifier" {
   return programme.niveau === "municipal" ? "verifier" : "principal";
+}
+
+function getTierRank(programme: ProgrammeWithMeta): number {
+  return programme.tier === "principal" ? 0 : 1;
+}
+
+export function sortProgrammesForTopPistes(programmes: ProgrammeWithMeta[]): ProgrammeWithMeta[] {
+  return [...programmes].sort((a, b) => {
+    const amountOrder = b.montant_max - a.montant_max;
+    if (amountOrder !== 0) return amountOrder;
+    return getTierRank(a) - getTierRank(b);
+  });
 }
 
 function getProgrammeReason(programme: Programme, reponses: ReponseQuestionnaire, locale: Locale): string {
@@ -109,8 +121,8 @@ export default function LocalizedResultsPage({
     .map((p) => ({ ...p, tier: "verifier" as const, reason: getProgrammeReason(p, reponses, locale) }));
   const programmesWithMeta: ProgrammeWithMeta[] = [...principaux, ...averifier];
 
-  // Top 5 by amount for "meilleures pistes" (across both tiers)
-  const topProgrammes = [...programmesWithMeta].sort((a, b) => b.montant_max - a.montant_max).slice(0, 5);
+  // Top 5 by amount for "meilleures pistes"; principal tier wins equivalent amounts.
+  const topProgrammes = sortProgrammesForTopPistes(programmesWithMeta).slice(0, 5);
 
   const hubLinks = buildHubLinks(reponses, locale);
 
