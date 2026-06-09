@@ -1,4 +1,5 @@
-﻿import rqapCongeParentalQuebec2026 from "@/data/blog/entries/rqap-conge-parental-quebec-2026";
+﻿import creditTpsTvhCanada2026 from "@/data/blog/entries/credit-tps-tvh-canada-2026";
+import rqapCongeParentalQuebec2026 from "@/data/blog/entries/rqap-conge-parental-quebec-2026";
 import assuranceEmploiGuideComplet2026 from "@/data/blog/entries/assurance-emploi-guide-complet-2026";
 import celiappPremierAcheteurQuebec2026 from "@/data/blog/entries/celiapp-premier-acheteur-quebec-2026";
 import allocationFamilleQuebecCalcul2026 from "@/data/blog/entries/allocation-famille-quebec-calcul-2026";
@@ -14,6 +15,7 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  creditTpsTvhCanada2026,
   rqapCongeParentalQuebec2026,
   assuranceEmploiGuideComplet2026,
   celiappPremierAcheteurQuebec2026,
