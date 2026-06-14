@@ -1,132 +1,189 @@
 # Progression des competences ArgentQC
 
-Ce document transforme les constats des revues recentes en pratiques concretes a renforcer. Il sert de checklist avant de lancer Codex sur les zones sensibles du projet.
+Mise a jour: 14 juin 2026.
 
-## 1. Tests Playwright pour pages financieres interactives
+Cette carte s'appuie sur les commits `4f744d8`, `5895c4b` et `4c97f60`, les revues du 8 au 14 juin, et l'etat courant du depot.
 
-### Evidence recente
+La priorite du 7 juin, les contrats Playwright pour les nouvelles routes SEO, est maintenant implementee localement dans `tests/smoke.spec.ts`. Les trois contrats passent, tout comme les 34 tests unitaires et le controle SEO. Ils ne sont toutefois pas encore dans l'historique Git ni actifs dans la CI.
 
-- Le calculateur `/impots/calculateur-economies-fiscales` a ajoute une logique fiscale visible par l'utilisateur.
-- Les revues du 19, 20, 21 et 23 mai ont note que les tests unitaires couvrent `src/lib/tax-calculator.ts`, mais pas le rendu ni l'interaction du composant client.
-- Le refactor fiscal a deja cause une erreur TypeScript quand des fonctions locales sont restees dans le composant apres extraction de la lib.
-
-### Standard a appliquer
-
-Pour chaque calculateur, ajouter au moins un test Playwright qui couvre:
-
-1. la route repond en HTTP 200;
-2. le H1 ou titre principal confirme la bonne page;
-3. un controle utilisateur change un etat visible;
-4. le resultat principal reste visible apres interaction;
-5. un lien de sortie vers le tunnel de decision existe.
-
-### Heuristique de cout
-
-- Cible minimale: 2 a 4 tests dans `tests/smoke.spec.ts`.
-- Ne pas tester tous les chiffres au pixel pres dans Playwright; les calculs exacts restent en tests unitaires.
-- Preferer des selecteurs accessibles (`getByRole`, labels, ids stables) aux chemins DOM.
-
-### Prompt Codex recommande
-
-```text
-Ajoute un smoke test Playwright cible pour [route du calculateur].
-Ne modifie pas la logique applicative. Verifie HTTP 200, H1, interaction d'un controle, resultat visible, et lien de sortie vers questionnaire/comparateur. Lance le test cible si l'arbre de travail est propre; sinon explique le blocage.
-```
-
-## 2. Validation source-backed des donnees financieres
+## 1. Clore une tranche jusqu'a son activation en CI
 
 ### Evidence recente
 
-- Les paliers 2026 dans `src/lib/tax-calculator.ts` sont documentes, mais les revues du 21 et du 23 mai demandent encore une validation manuelle contre ARC et Revenu Quebec.
-- Le site manipule des montants et seuils qui influencent les recommandations REER/CELI, les guides fiscaux et les pages SEO.
-- Les docs `docs/data-reliability-2026.md` et `docs/data-update-guide-2026.md` existent deja, mais le calculateur fiscal doit etre relie explicitement a cette discipline.
+- Aucun commit n'a ete pousse depuis `4c97f60`, le 2 juin.
+- Les revues des 12, 13 et 14 juin signalent les memes tests Playwright termines mais non commites.
+- `tests/smoke.spec.ts` couvre maintenant `/aide-sociale-quebec`, `/supplement-revenu-garanti-2026` et `/retraite/combien-cotiser-reer`.
+- Le 14 juin, les trois tests cibles passent en 54,7 secondes; `npm run test:unit` passe 34/34 et `npm run check:seo` valide 66 routes statiques et 10 articles.
+- Netlify execute le build et Playwright, mais seulement sur les fichiers commites et pousses.
+- Un fichier vide `.lock`, non trace et sans usage, a ete retire avant le commit.
 
-### Standard a appliquer
+### Competence a approfondir
 
-Pour chaque valeur financiere sensible:
+Transformer la definition de "termine" en boucle de livraison:
 
-1. declarer la valeur dans un module central ou une lib dediee;
-2. conserver une URL source officielle proche de la constante;
-3. noter `year`, `lastUpdated`, `status` quand la donnee vient d'un dataset;
-4. ajouter un test qui protege au moins une valeur frontiere;
-5. relire la copie UI pour distinguer valeur officielle, estimation et exemple editorial.
+1. verifier le scope avec `git status` et `git diff`;
+2. separer les changements utiles des artefacts temporaires;
+3. lancer les controles proportionnes au changement;
+4. creer un commit atomique qui nomme le comportement protege;
+5. pousser le commit et verifier que la CI execute bien les nouveaux tests;
+6. ne pas commencer une nouvelle tranche tant que la precedente reste uniquement locale.
 
-### Donnees a verifier en premier
+### Exercice concret
 
-- Paliers federaux 2026: `58_523`, `117_045`, `181_440`, `258_482`.
-- Abattement Quebec: `FEDERAL_QUEBEC_ABATEMENT = 0.835`.
-- Paliers Quebec 2026: `54_345`, `108_680`, `132_245`.
-- Taux Quebec du dernier palier: `0.2575`.
+Finaliser la tranche actuelle:
 
-### Prompt Codex recommande
+- conserver `tests/smoke.spec.ts` et la carte de progression;
+- retirer `.lock` apres confirmation qu'il est vide et sans proprietaire;
+- corriger les regex accentuees trop permissives si cela reste dans le meme petit scope;
+- relancer les trois contrats Playwright, les tests unitaires, le controle SEO et `git diff --check`;
+- commiter puis pousser la tranche afin d'activer les tests Netlify.
 
-```text
-Verifie les donnees fiscales 2026 utilisees par `src/lib/tax-calculator.ts`.
-Ancre chaque constante a une source officielle existante dans les commentaires ou docs, ajoute ou ajuste des tests unitaires pour les frontieres de paliers, et ne change pas les valeurs sans preuve explicite dans le rapport final.
-```
+### Critere de maitrise
 
-## 3. Refactors larges en lots atomiques
+Un controle termine ne reste pas plus d'une journee dans le working tree sans commit, blocage documente ou decision explicite d'abandon.
 
-### Evidence recente
-
-- La revue du 24 mai a signale 77 fichiers locaux modifies dans un refactor i18n `/fr`.
-- Les changements touchent routes, liens, analytics, composants localises et tests, ce qui multiplie les risques de melange entre migration, nettoyage et correction.
-- Le repo est actuellement en retard d'un commit sur `origin/main`, donc tout refactor large doit commencer par une decision explicite: conserver, finir, stasher ou restaurer.
-
-### Standard a appliquer
-
-Avant un refactor de plus de 10 fichiers:
-
-1. capturer `git status --short --branch`;
-2. decrire le but en une phrase testable;
-3. etablir une matrice des fichiers/routes touches;
-4. faire une tranche verticale complete plutot qu'une substitution globale;
-5. lancer `npm run test:unit` et le smoke cible apres chaque tranche;
-6. committer ou documenter le checkpoint avant de commencer une deuxieme tranche.
-
-### Anti-patterns a eviter
-
-- Rewriting global de liens, analytics et routes dans la meme passe.
-- Modifier les tests avant que la route cible compile.
-- Ajouter des redirects permanents sans verifier sitemap, canonical et smoke.
-- Laisser une branche locale en retard pendant une migration de routes.
-
-### Prompt Codex recommande
-
-```text
-Prepare une migration atomique pour [objectif].
-Commence par status + diff stat. Propose une tranche de moins de 10 fichiers, liste les routes touchees, puis implemente uniquement cette tranche. Lance les tests cibles et arrete avant toute deuxieme tranche.
-```
-
-## 4. Discipline SEO/i18n pour migrations de routes
+## 2. Validation editoriale source-backed des contenus financiers
 
 ### Evidence recente
 
-- Les commits recents ont ajoute des canoniques retraite, une redirection `/strategies/reer-vs-celi` vers `/retraite/reer-vs-celi`, puis une migration locale vers des liens `/fr/*`.
-- `tests/smoke.spec.ts` couvre deja plusieurs routes SEO, mais les migrations i18n exigent une matrice plus explicite.
-- Les liens internes, `src/data/seo-pages.ts`, `src/app/sitemap.ts`, les pages `[locale]` et le middleware peuvent diverger si la migration est faite par remplacement texte.
+- `4f744d8`, genere par ArgentQC Agent, publie 286 lignes sur l'assurance-emploi 2026.
+- L'article affirme notamment `695 $/semaine`, `65 700 $/an`, `1,66 %` et `420 a 700 heures`.
+- Les revues du 8, 13 et 14 juin repetent qu'aucune verification contre Service Canada n'est documentee.
+- Le point est ouvert depuis la revue du 2 juin alors que la page est indexee.
+- Les pages de `4c97f60` ciblent des recherches de montants 2026, ce qui augmente le cout d'une information obsolete ou non sourcee.
 
-### Matrice obligatoire par route
+### Competence a approfondir
 
-| Champ | Question |
+Construire une discipline de publication pour les affirmations a impact financier:
+
+1. inventorier chaque montant, taux, plafond, delai et regle d'admissibilite;
+2. associer une source officielle, une date de verification et une periode de validite;
+3. distinguer valeur officielle, approximation, exemple et placeholder;
+4. bloquer la publication lorsqu'une affirmation sensible n'est pas verifiable;
+5. definir une date de revalidation pour les valeurs annuelles ou indexees.
+
+### Exercice concret
+
+Auditer d'abord:
+
+- `src/data/blog/entries/assurance-emploi-guide-complet-2026.tsx`;
+- `src/data/blog/entries/aide-sociale-quebec-2026.tsx`;
+- `src/data/blog/entries/supplement-revenu-garanti-2026.tsx`.
+
+Produire une table `affirmation -> source officielle -> date -> statut -> action`, puis corriger uniquement les affirmations confirmees.
+
+### Critere de maitrise
+
+Chaque article financier genere par agent possede une trace de verification exploitable avant publication, ou un statut editorial qui empeche sa mise en ligne.
+
+## 3. Hygiene des avertissements React et Next.js
+
+### Evidence recente
+
+- Les contrats Playwright passent, mais le serveur emet `Received false for a non-boolean attribute locale`.
+- La source est visible dans `src/components/LanguageSwitcher.tsx`, ou le `Link` de Next recoit `locale={false}`.
+- Le meme run signale que la convention `middleware.ts` est depreciee au profit de `proxy`.
+- Ces avertissements ne cassent pas encore les tests, donc ils peuvent rester invisibles jusqu'a une mise a niveau plus couteuse.
+
+### Competence a approfondir
+
+Traiter les avertissements d'execution comme une dette testable:
+
+1. reproduire et localiser chaque avertissement;
+2. verifier si la prop ou l'API appartient encore a la version courante du framework;
+3. corriger par un petit changement isole;
+4. ajouter une verification de console lorsque le risque de recurrence est eleve;
+5. migrer les conventions de framework avant qu'elles deviennent des erreurs bloquantes.
+
+### Critere de maitrise
+
+Les smoke tests cibles passent sans avertissement React attribuable a l'application, et les deprecations Next connues ont un ticket ou une tranche de migration verifiee.
+
+## 4. Utilitaire commun et testable pour le JSON-LD
+
+### Evidence recente
+
+- `4c97f60` a ajoute `FAQPage` dans trois composants avec une logique tres proche.
+- La revue du 9 juin recommande d'extraire ce pattern duplique.
+- Le depot contient de nombreux appels directs a `JSON.stringify` dans `dangerouslySetInnerHTML`.
+- Les nouveaux tests prouvent que le JSON-LD est parseable et contient `FAQPage`, mais pas que la serialisation neutralise une fermeture de balise `</script>`.
+- `SeoProgrammesPage` utilise toujours `key={paragraphe}`, egalement signale dans les revues.
+
+### Competence a approfondir
+
+Centraliser la generation de donnees structurees:
+
+1. creer un helper `serializeJsonLd` qui echappe au minimum `<`;
+2. tester une valeur contenant `</script>` et des caracteres atypiques;
+3. migrer d'abord les trois composants modifies par `4c97f60`;
+4. conserver les tests de rendu qui analysent le schema;
+5. remplacer les cles React qui supposent le texte unique.
+
+### Critere de maitrise
+
+Les nouveaux composants n'implementent plus leur propre serialisation JSON-LD et la sortie du helper est protegee par un test unitaire hostile.
+
+## 5. Gouvernance des routes localisees et canoniques
+
+### Evidence recente
+
+- `4c97f60` melange des guides francais sans prefixe et des routes sous `/fr`.
+- Les revues du 9 juin signalent ce melange dans `priorityGuides`.
+- Les canoniques, le sitemap, les liens internes et le middleware doivent rester coherents pour chaque route.
+- Le warning actuel sur `LanguageSwitcher` confirme que la couche de navigation localisee merite une convention explicite.
+
+### Competence a approfondir
+
+Pour chaque nouvelle route, documenter avant implementation:
+
+| Champ | Decision requise |
 | --- | --- |
-| Route source | Quelle ancienne URL reste accessible? |
-| Route cible | Quelle URL canonique doit etre indexee? |
-| Redirect | 307 temporaire ou 308 permanent? Pourquoi? |
-| Canonical | Quelle URL apparait dans `metadata.alternates.canonical`? |
-| Sitemap | La route indexable est-elle presente une seule fois? |
-| Liens internes | Les hubs et CTAs pointent-ils vers la cible choisie? |
-| Test | Quel smoke test prouve le comportement? |
+| Audience | FR seulement ou bilingue |
+| URL indexable | route canonique unique |
+| Variante locale | page, redirection ou absence assumee |
+| Canonical | concorde avec l'URL indexable |
+| Sitemap | contient seulement la route choisie |
+| Liens internes | respectent la convention |
+| Test | prouve route, redirection et canonical |
 
-### Prompt Codex recommande
+### Critere de maitrise
 
-```text
-Pour la migration SEO/i18n de [route ou cluster], construis d'abord une matrice old URL -> new URL -> canonical -> sitemap -> smoke test. Ne change les fichiers qu'apres la matrice. Evite les redirects permanents tant que la route cible n'est pas stabilisee et testee.
-```
+Une PR qui ajoute ou deplace une route SEO inclut cette matrice et son test de contrat.
 
 ## Priorite actuelle
 
-Priorite no1: renforcer Playwright sur les calculateurs financiers.
+Priorite no 1: clore la tranche de tests SEO jusqu'a son activation en CI.
 
-Raison: le cout est bas, le changement est local, et le benefice est immediat pour eviter les regressions visibles sur les pages qui manipulent des resultats financiers. Cette competence protege aussi les trois autres: les donnees source-backed, les refactors atomiques et les migrations SEO/i18n finissent tous par avoir besoin d'un test utilisateur qui confirme que la page fonctionne.
+Ratio cout/benefice:
 
+- cout tres faible: le code et les tests sont deja ecrits et verts;
+- benefice immediat: trois routes de production deviennent protegees dans Netlify;
+- signal recurrent: trois revues consecutives ont remonte exactement le meme blocage;
+- risque faible: aucun changement de logique metier ou de contenu financier n'est requis;
+- effet de levier: une meilleure boucle de livraison evite que les prochaines competences restent elles aussi uniquement documentees.
+
+## Prompt Codex recommande
+
+```text
+Dans le depot ArgentQC, finalise et publie la tranche locale de contrats SEO sans elargir le scope.
+
+Commence par lire `git status`, le diff de `tests/smoke.spec.ts`, le diff de `docs/skill-progression-map.md`, `netlify.toml` et `.gitignore`. Preserve tous les changements utilisateur existants.
+
+Objectif:
+1. confirmer que `.lock` est vide et sans usage; le supprimer seulement si cette confirmation est positive;
+2. conserver les contrats Playwright pour:
+   - `/aide-sociale-quebec`
+   - `/supplement-revenu-garanti-2026`
+   - `/retraite/combien-cotiser-reer`
+3. remplacer seulement les regex accentuees trop permissives (`.`) par des variantes explicites comme `[e\u00e9]`, sans refactor adjacent;
+4. lancer:
+   - le grep Playwright des contrats editoriaux;
+   - `npm run test:unit`;
+   - `npm run check:seo`;
+   - `git diff --check`;
+5. verifier que le commit ne contient que les tests, la documentation et la suppression confirmee de l'artefact;
+6. creer un commit atomique avec un message qui indique que les contrats SEO sont maintenant actifs;
+7. pousser la branche courante et verifier le resultat de la CI/du deploiement Netlify si l'acces est disponible.
+
+N'ajoute pas de nouvelle fonctionnalite, ne modifie pas le contenu financier et ne melange pas la correction des avertissements Next/React dans ce commit. Dans le rapport final, donne le hash du commit, les controles executes, le statut du push/CI et tout blocage restant.
+```

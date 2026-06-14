@@ -209,6 +209,78 @@ test.describe("Redirections SEO", () => {
   });
 });
 
+// -- Contrats des pages editoriales prioritaires --
+
+const editorialPageContracts = [
+  {
+    path: "/aide-sociale-quebec",
+    label: "Aide sociale Quebec",
+    title: /Aide sociale.*Qu[eé]bec/i,
+    h1: /Aide sociale.*Qu[eé]bec/i,
+    canonical: "https://argentqc.ca/aide-sociale-quebec",
+  },
+  {
+    path: "/supplement-revenu-garanti-2026",
+    label: "Supplement de revenu garanti 2026",
+    title: /Suppl[eé]ment de revenu garanti.*2026/i,
+    h1: /Suppl[eé]ment de revenu garanti.*2026/i,
+    canonical: "https://argentqc.ca/supplement-revenu-garanti-2026",
+  },
+  {
+    path: "/retraite/combien-cotiser-reer",
+    label: "Combien cotiser au REER",
+    title: /Combien cotiser.*REER/i,
+    h1: /Combien cotiser.*REER/i,
+    canonical: "https://argentqc.ca/retraite/combien-cotiser-reer",
+  },
+];
+
+function containsSchemaType(value: unknown, expectedType: string): boolean {
+  if (Array.isArray(value)) {
+    return value.some((item) => containsSchemaType(item, expectedType));
+  }
+
+  if (value && typeof value === "object") {
+    const record = value as Record<string, unknown>;
+    const schemaType = record["@type"];
+
+    if (schemaType === expectedType || (Array.isArray(schemaType) && schemaType.includes(expectedType))) {
+      return true;
+    }
+
+    return Object.values(record).some((item) => containsSchemaType(item, expectedType));
+  }
+
+  return false;
+}
+
+test.describe("Contrats des pages editoriales prioritaires", () => {
+  for (const contract of editorialPageContracts) {
+    test(`${contract.label} respecte son contrat HTTP, SEO et conversion`, async ({ page }) => {
+      const response = await page.goto(contract.path);
+      expect(response?.status(), `${contract.path} doit repondre sans erreur HTTP`).toBeLessThan(400);
+
+      await expect(page).toHaveTitle(contract.title);
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(contract.h1);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", contract.canonical);
+
+      const jsonLdContents = await page.locator('script[type="application/ld+json"]').allTextContents();
+      expect(jsonLdContents.length, `${contract.path} doit publier un JSON-LD FAQ`).toBeGreaterThan(0);
+
+      const jsonLdDocuments = jsonLdContents.map((content) => JSON.parse(content));
+      expect(
+        jsonLdDocuments.some((document) => containsSchemaType(document, "FAQPage")),
+        `${contract.path} doit publier un schema FAQPage`
+      ).toBe(true);
+
+      const questionnaireLinks = await page.getByRole("link").evaluateAll((links) =>
+        links.filter((link) => link.getAttribute("href")?.includes("questionnaire")).length
+      );
+      expect(questionnaireLinks, `${contract.path} doit proposer un lien vers le questionnaire`).toBeGreaterThan(0);
+    });
+  }
+});
+
 // -- Sanite globale : temps de reponse et statut HTTP --
 
 const pagesToCheck = [
@@ -219,6 +291,9 @@ const pagesToCheck = [
   { path: "/subvention-thermopompe-quebec", label: "Thermopompe" },
   { path: "/retraite", label: "Retraite (hub)" },
   { path: "/retraite/reer-vs-celi", label: "REER vs CELI" },
+  { path: "/aide-sociale-quebec", label: "Aide sociale Quebec" },
+  { path: "/supplement-revenu-garanti-2026", label: "Supplement de revenu garanti 2026" },
+  { path: "/retraite/combien-cotiser-reer", label: "Combien cotiser au REER" },
   { path: "/impots/calculateur-economies-fiscales", label: "Calculateur impot Quebec" },
 ];
 const responseLimitMs = process.env.CI ? 5000 : 10000;
