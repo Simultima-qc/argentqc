@@ -2,20 +2,20 @@
 
 Mise a jour: 14 juin 2026.
 
-Cette carte s'appuie sur les commits `4f744d8`, `5895c4b` et `4c97f60`, les revues du 8 au 14 juin, et l'etat courant du depot.
+Cette carte s'appuie sur les commits `4f744d8`, `5895c4b`, `4c97f60` et `621c39f`, les revues du 8 au 14 juin, et l'etat courant du depot.
 
-La priorite du 7 juin, les contrats Playwright pour les nouvelles routes SEO, est maintenant implementee localement dans `tests/smoke.spec.ts`. Les trois contrats passent, tout comme les 34 tests unitaires et le controle SEO. Ils ne sont toutefois pas encore dans l'historique Git ni actifs dans la CI.
+La priorite du 7 juin, les contrats Playwright pour les nouvelles routes SEO, est livree sur `origin/main` par `621c39f`. Les trois contrats passent, tout comme les 34 tests unitaires et le controle SEO sur 66 routes statiques et 13 articles.
 
-## 1. Clore une tranche jusqu'a son activation en CI
+## 1. Competence validee: clore une tranche jusqu'a son activation en CI
 
 ### Evidence recente
 
-- Aucun commit n'a ete pousse depuis `4c97f60`, le 2 juin.
 - Les revues des 12, 13 et 14 juin signalent les memes tests Playwright termines mais non commites.
-- `tests/smoke.spec.ts` couvre maintenant `/aide-sociale-quebec`, `/supplement-revenu-garanti-2026` et `/retraite/combien-cotiser-reer`.
-- Le 14 juin, les trois tests cibles passent en 54,7 secondes; `npm run test:unit` passe 34/34 et `npm run check:seo` valide 66 routes statiques et 10 articles.
-- Netlify execute le build et Playwright, mais seulement sur les fichiers commites et pousses.
-- Un fichier vide `.lock`, non trace et sans usage, a ete retire avant le commit.
+- `621c39f` ajoute les contrats pour `/aide-sociale-quebec`, `/supplement-revenu-garanti-2026` et `/retraite/combien-cotiser-reer`.
+- Les regex accentuees utilisent maintenant `[e\u00e9]` plutot qu'un point generique.
+- Le fichier vide `.lock`, non trace et sans usage, a ete retire avant le commit.
+- Le commit a ete rebase sans conflit sur trois nouveaux articles, puis pousse sans force sur `origin/main`.
+- GitHub ne publie aucun status, check-run ou deployment pour ce commit; le declenchement Netlify n'est donc pas observable par l'API publique.
 
 ### Competence a approfondir
 
@@ -28,15 +28,13 @@ Transformer la definition de "termine" en boucle de livraison:
 5. pousser le commit et verifier que la CI execute bien les nouveaux tests;
 6. ne pas commencer une nouvelle tranche tant que la precedente reste uniquement locale.
 
-### Exercice concret
+### Resultat concret
 
-Finaliser la tranche actuelle:
-
-- conserver `tests/smoke.spec.ts` et la carte de progression;
-- retirer `.lock` apres confirmation qu'il est vide et sans proprietaire;
-- corriger les regex accentuees trop permissives si cela reste dans le meme petit scope;
-- relancer les trois contrats Playwright, les tests unitaires, le controle SEO et `git diff --check`;
-- commiter puis pousser la tranche afin d'activer les tests Netlify.
+- contrats Playwright: 3/3;
+- tests unitaires: 34/34;
+- controle SEO: 66 routes statiques et 13 articles;
+- commit distant: `621c39f`;
+- changement utilisateur dans `AGENTS.md`: preserve et exclu du commit.
 
 ### Critere de maitrise
 
@@ -51,6 +49,7 @@ Un controle termine ne reste pas plus d'une journee dans le working tree sans co
 - Les revues du 8, 13 et 14 juin repetent qu'aucune verification contre Service Canada n'est documentee.
 - Le point est ouvert depuis la revue du 2 juin alors que la page est indexee.
 - Les pages de `4c97f60` ciblent des recherches de montants 2026, ce qui augmente le cout d'une information obsolete ou non sourcee.
+- `54f94f5`, `2b405ea` et `182820a` ajoutent trois autres articles financiers generes sur le RQAP, le credit TPS/TVH et la RRQ.
 
 ### Competence a approfondir
 
@@ -152,38 +151,36 @@ Une PR qui ajoute ou deplace une route SEO inclut cette matrice et son test de c
 
 ## Priorite actuelle
 
-Priorite no 1: clore la tranche de tests SEO jusqu'a son activation en CI.
+Priorite no 1: validation editoriale source-backed des articles financiers generes.
 
 Ratio cout/benefice:
 
-- cout tres faible: le code et les tests sont deja ecrits et verts;
-- benefice immediat: trois routes de production deviennent protegees dans Netlify;
-- signal recurrent: trois revues consecutives ont remonte exactement le meme blocage;
-- risque faible: aucun changement de logique metier ou de contenu financier n'est requis;
-- effet de levier: une meilleure boucle de livraison evite que les prochaines competences restent elles aussi uniquement documentees.
+- cout modere: commencer par un seul article et une table de verification;
+- benefice eleve: reduit le risque de publier des montants, taux ou regles obsoletes;
+- signal recurrent: l'article AE reste non verifie depuis le 2 juin;
+- risque croissant: trois nouveaux articles financiers ont ete ajoutes le 14 juin;
+- effet de levier: le format de preuve peut devenir la convention de tous les futurs articles agent.
 
 ## Prompt Codex recommande
 
 ```text
-Dans le depot ArgentQC, finalise et publie la tranche locale de contrats SEO sans elargir le scope.
+Dans le depot ArgentQC, audite les affirmations financieres de
+`src/data/blog/entries/assurance-emploi-guide-complet-2026.tsx`
+contre des sources officielles du gouvernement du Canada.
 
-Commence par lire `git status`, le diff de `tests/smoke.spec.ts`, le diff de `docs/skill-progression-map.md`, `netlify.toml` et `.gitignore`. Preserve tous les changements utilisateur existants.
+Commence par inventorier chaque montant, taux, plafond, nombre d'heures,
+delai et regle d'admissibilite. Produis dans `docs/` une table:
+`affirmation -> source officielle -> date de verification -> statut -> action`.
 
-Objectif:
-1. confirmer que `.lock` est vide et sans usage; le supprimer seulement si cette confirmation est positive;
-2. conserver les contrats Playwright pour:
-   - `/aide-sociale-quebec`
-   - `/supplement-revenu-garanti-2026`
-   - `/retraite/combien-cotiser-reer`
-3. remplacer seulement les regex accentuees trop permissives (`.`) par des variantes explicites comme `[e\u00e9]`, sans refactor adjacent;
-4. lancer:
-   - le grep Playwright des contrats editoriaux;
-   - `npm run test:unit`;
-   - `npm run check:seo`;
-   - `git diff --check`;
-5. verifier que le commit ne contient que les tests, la documentation et la suppression confirmee de l'artefact;
-6. creer un commit atomique avec un message qui indique que les contrats SEO sont maintenant actifs;
-7. pousser la branche courante et verifier le resultat de la CI/du deploiement Netlify si l'acces est disponible.
+Regles:
+1. utilise uniquement des sources officielles Canada.ca ou Service Canada;
+2. distingue clairement valeur confirmee, approximation, exemple et affirmation non verifiable;
+3. corrige le contenu seulement lorsqu'une source officielle contredit ou precise l'affirmation;
+4. n'invente aucun remplacement pour une valeur non verifiable;
+5. ajoute une date de prochaine verification pour les valeurs annuelles;
+6. conserve les changements utilisateur existants et limite le commit a cet audit;
+7. lance `npm run check:seo`, les tests pertinents et `git diff --check`.
 
-N'ajoute pas de nouvelle fonctionnalite, ne modifie pas le contenu financier et ne melange pas la correction des avertissements Next/React dans ce commit. Dans le rapport final, donne le hash du commit, les controles executes, le statut du push/CI et tout blocage restant.
+Dans le rapport final, liste les affirmations corrigees, celles bloquees,
+les URLs officielles consultees et les risques editoriaux restants.
 ```

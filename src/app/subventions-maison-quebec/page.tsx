@@ -75,6 +75,11 @@ const variationReasons = [
 
 const subsidyTypes = [
   {
+    href: "/subvention-fenetres-quebec",
+    title: "Subvention fenêtres Québec",
+    desc: "Voir quoi vérifier avant de remplacer des fenêtres, portes ou portes-fenêtres.",
+  },
+  {
     href: "/subvention-thermopompe-quebec",
     title: "Subvention thermopompe Québec",
     desc: "Voir le potentiel pour une thermopompe et les erreurs qui peuvent réduire le montant.",
