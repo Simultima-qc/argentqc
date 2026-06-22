@@ -129,6 +129,7 @@ const faqItems = [
 const relatedLinks = [
   { href: "/subventions-maison-quebec", title: "Subventions maison au Québec", text: "Vue d'ensemble des aides pour la maison, l'énergie et la rénovation." },
   { href: "/subvention-fenetres-quebec", title: "Subvention fenêtres au Québec", text: "Vérifier les démarches avant de remplacer des fenêtres, portes ou portes-fenêtres." },
+  { href: "/subvention-toiture-quebec", title: "Subvention toiture au Québec", text: "Voir quoi vérifier avant de refaire une toiture ou de combiner toit et isolation." },
   { href: "/subvention-thermopompe-quebec", title: "Subvention thermopompe au Québec", text: "Voir le potentiel d'une thermopompe dans un projet énergétique." },
   { href: "/subvention-isolation-quebec", title: "Subvention isolation au Québec", text: "Comprendre comment l'isolation peut augmenter le potentiel d'aide." },
   { href: "/reno-climat-quebec", title: "Rénoclimat au Québec", text: "Voir les démarches liées à la rénovation énergétique." },

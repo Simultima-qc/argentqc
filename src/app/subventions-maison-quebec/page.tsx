@@ -80,6 +80,11 @@ const subsidyTypes = [
     desc: "Voir quoi vérifier avant de remplacer des fenêtres, portes ou portes-fenêtres.",
   },
   {
+    href: "/subvention-toiture-quebec",
+    title: "Subvention toiture Québec",
+    desc: "Vérifier quoi regarder avant de refaire un toit, surtout si le projet touche l'isolation ou l'entretoit.",
+  },
+  {
     href: "/subvention-thermopompe-quebec",
     title: "Subvention thermopompe Québec",
     desc: "Voir le potentiel pour une thermopompe et les erreurs qui peuvent réduire le montant.",
