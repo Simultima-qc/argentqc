@@ -1,4 +1,5 @@
-﻿import bouclierFiscalQuebec2026 from "@/data/blog/entries/bouclier-fiscal-quebec-2026";
+﻿import fractionnementRevenuRetraite2026 from "@/data/blog/entries/fractionnement-revenu-retraite-2026";
+import bouclierFiscalQuebec2026 from "@/data/blog/entries/bouclier-fiscal-quebec-2026";
 import reeeSubventionEpargneEtudes2026 from "@/data/blog/entries/reee-subvention-epargne-etudes-2026";
 import rrqRenteRetraite2026 from "@/data/blog/entries/rrq-rente-retraite-2026";
 import creditTpsTvhCanada2026 from "@/data/blog/entries/credit-tps-tvh-canada-2026";
@@ -18,6 +19,7 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  fractionnementRevenuRetraite2026,
   bouclierFiscalQuebec2026,
   reeeSubventionEpargneEtudes2026,
   rrqRenteRetraite2026,
