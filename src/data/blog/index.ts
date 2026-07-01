@@ -1,4 +1,5 @@
-﻿import allocationLogementQuebec2026 from "@/data/blog/entries/allocation-logement-quebec-2026";
+﻿import creditImpotMaintienDomicile2026 from "@/data/blog/entries/credit-impot-maintien-domicile-2026";
+import allocationLogementQuebec2026 from "@/data/blog/entries/allocation-logement-quebec-2026";
 import fractionnementRevenuRetraite2026 from "@/data/blog/entries/fractionnement-revenu-retraite-2026";
 import bouclierFiscalQuebec2026 from "@/data/blog/entries/bouclier-fiscal-quebec-2026";
 import reeeSubventionEpargneEtudes2026 from "@/data/blog/entries/reee-subvention-epargne-etudes-2026";
@@ -20,6 +21,7 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  creditImpotMaintienDomicile2026,
   allocationLogementQuebec2026,
   fractionnementRevenuRetraite2026,
   bouclierFiscalQuebec2026,
