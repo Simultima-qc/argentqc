@@ -1,4 +1,7 @@
-﻿import aideFinanciereEtudesQuebec2026 from "@/data/blog/entries/aide-financiere-etudes-quebec-2026";
+﻿import renoAdaptationProgramme2026 from "@/data/blog/entries/reno-adaptation-programme-2026";
+import creditImpotAidantsNaturels2026 from "@/data/blog/entries/credit-impot-aidants-naturels-2026";
+import creditImpotProlongationCarriere2026 from "@/data/blog/entries/credit-impot-prolongation-carriere-2026";
+import aideFinanciereEtudesQuebec2026 from "@/data/blog/entries/aide-financiere-etudes-quebec-2026";
 import prestationCanadienneTravailleurs2026 from "@/data/blog/entries/prestation-canadienne-travailleurs-2026";
 import creditCanadienFormation2026 from "@/data/blog/entries/credit-canadien-formation-2026";
 import prestationDentaireCanadienne2026 from "@/data/blog/entries/prestation-dentaire-canadienne-2026";
@@ -26,6 +29,9 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  renoAdaptationProgramme2026,
+  creditImpotAidantsNaturels2026,
+  creditImpotProlongationCarriere2026,
   aideFinanciereEtudesQuebec2026,
   prestationCanadienneTravailleurs2026,
   creditCanadienFormation2026,
