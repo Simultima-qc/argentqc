@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "aide-sociale-quebec-2026";
@@ -95,6 +96,21 @@ function Content() {
             <li>? Inclut la couverture médicaments (RAMQ) et des aides pour le logement</li>
             <li>? Demande en ligne, par téléphone ou en personne selon les options indiquées sur Québec.ca</li>
           </ul>
+        </div>
+
+        <div style={{ background: "#060D1A" }} className="rounded-2xl p-5 text-center mb-8">
+          <p className="font-bold text-white mb-2">Voyez les autres aides possibles selon votre situation</p>
+          <p className="text-sm mb-4" style={{ color: "rgba(240,235,224,0.6)" }}>
+            Le questionnaire tient compte du revenu, du logement, de la famille et des crédits connexes.
+          </p>
+          <TrackingLink
+            href="/fr/questionnaire"
+            className="inline-block font-bold px-5 py-3 rounded-xl"
+            style={{ background: "#F5C842", color: "#060D1A" }}
+            tracking={{ cta_name: "voir_les_aides_possibles", cta_location: "aide_sociale_intro", destination: "/fr/questionnaire" }}
+          >
+            Voir les aides possibles →
+          </TrackingLink>
         </div>
 
         {/* Section 1 */}
@@ -277,6 +293,12 @@ function Content() {
               ))}
             </div>
           </div>
+          <p className="text-slate-600 leading-relaxed mt-4 text-sm">
+            Pour comparer ces mesures avec d&apos;autres programmes, consultez aussi le hub des{" "}
+            <Link href="/aides-financieres" className="text-blue-600 underline">aides financières au Québec</Link>{" "}
+            et le guide des{" "}
+            <Link href="/aides-financieres/logement" className="text-blue-600 underline">aides au logement</Link>.
+          </p>
         </section>
 
         {/* Section 6 — Cumul */}
@@ -334,13 +356,14 @@ function Content() {
             Au-delà de l&apos;aide sociale, il existe des dizaines de programmes provinciaux et fédéraux.
             Répondez à quelques questions pour voir ce qui s&apos;applique à votre situation.
           </p>
-          <Link
+          <TrackingLink
             href="/fr/questionnaire"
             className="inline-block font-bold px-6 py-3 rounded-xl"
             style={{ background: "#F5C842", color: "#060D1A" }}
+            tracking={{ cta_name: "trouver_mes_aides", cta_location: "aide_sociale_final", destination: "/fr/questionnaire" }}
           >
             Trouver mes aides ?
-          </Link>
+          </TrackingLink>
         </div>
 
         {/* Lien officiel */}

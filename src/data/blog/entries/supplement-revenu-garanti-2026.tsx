@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "supplement-revenu-garanti-2026";
@@ -98,6 +99,21 @@ function Content() {
             <li>✓ Admissible dès <strong>65 ans</strong>{" "} si votre revenu net annuel est sous les seuils établis</li>
             <li>✓ Cumulable avec la pension SV, le crédit de solidarité et l&apos;allocation logement du Québec</li>
           </ul>
+        </div>
+
+        <div style={{ background: "#060D1A" }} className="rounded-2xl p-5 text-center mb-8">
+          <p className="font-bold text-white mb-2">Vérifiez les aides qui peuvent s&apos;ajouter au SRG</p>
+          <p className="text-sm mb-4" style={{ color: "rgba(240,235,224,0.6)" }}>
+            Le questionnaire croise retraite, revenu, logement et situation familiale.
+          </p>
+          <TrackingLink
+            href="/fr/questionnaire"
+            className="inline-block font-bold px-5 py-3 rounded-xl"
+            style={{ background: "#F5C842", color: "#060D1A" }}
+            tracking={{ cta_name: "verifier_mes_aides", cta_location: "srg_intro", destination: "/fr/questionnaire" }}
+          >
+            Vérifier mes aides →
+          </TrackingLink>
         </div>
 
         {/* Section 1 */}
@@ -390,13 +406,14 @@ function Content() {
           <p className="text-sm mb-4" style={{ color: "rgba(240,235,224,0.6)" }}>
             SRG, crédit de solidarité, allocation logement — notre questionnaire identifie tous les programmes auxquels vous avez droit.
           </p>
-          <Link
+          <TrackingLink
             href="/fr/questionnaire"
             className="inline-block font-bold px-6 py-3 rounded-xl"
             style={{ background: "#F5C842", color: "#060D1A" }}
+            tracking={{ cta_name: "trouver_mes_aides", cta_location: "srg_final", destination: "/fr/questionnaire" }}
           >
             Trouver mes aides →
-          </Link>
+          </TrackingLink>
         </div>
 
         {/* Source officielle */}

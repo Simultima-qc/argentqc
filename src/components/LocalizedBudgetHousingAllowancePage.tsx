@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import TrackingLink from "@/components/TrackingLink";
 import SiteFooter from "@/components/SiteFooter";
 import { getBudgetHousingAllowanceDictionary } from "@/i18n/budgetHousingAllowance";
 import { getRoutePath, type Locale } from "@/i18n/routing";
@@ -66,9 +67,10 @@ export default function LocalizedBudgetHousingAllowancePage({ locale }: { locale
             {dictionary.title}
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>{dictionary.subtitle}</p>
-          <Link href={questionnairePath} style={{ display: "block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)" }}>
-            {dictionary.ctaLabel}
-          </Link>
+          <TrackingLink href={questionnairePath} style={{ display: "block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none", boxShadow: "0 0 28px rgba(245,200,66,0.2)" }}
+            tracking={{ cta_name: "voir_les_aides_au_logement", cta_location: "allocation_logement_hero", destination: questionnairePath }}
+          >{dictionary.ctaLabel}
+          </TrackingLink>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>{dictionary.ctaHint}</p>
         </div>
       </section>
@@ -153,9 +155,10 @@ export default function LocalizedBudgetHousingAllowancePage({ locale }: { locale
         <div style={{ background: DARK, borderRadius: "20px", padding: "28px 24px", textAlign: "center", marginBottom: "32px" }}>
           <p style={{ fontFamily: "var(--font-playfair)", color: "#F0EBE0", fontSize: "1.2rem", fontWeight: 800, marginBottom: "8px" }}>{dictionary.ctaTitle}</p>
           <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "20px" }}>{dictionary.ctaText}</p>
-          <Link href={questionnairePath} style={{ display: "block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none" }}>
-            {dictionary.ctaLabel}
-          </Link>
+          <TrackingLink href={questionnairePath} style={{ display: "block", background: GOLD, color: DARK, fontWeight: 800, fontSize: "15px", padding: "14px", borderRadius: "14px", textAlign: "center", textDecoration: "none" }}
+            tracking={{ cta_name: "commencer_le_questionnaire", cta_location: "allocation_logement_final", destination: questionnairePath }}
+          >{dictionary.ctaLabel}
+          </TrackingLink>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", marginTop: "8px" }}>{dictionary.ctaHint}</p>
         </div>
 

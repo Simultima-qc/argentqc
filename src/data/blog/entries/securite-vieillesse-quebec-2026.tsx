@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "securite-vieillesse-quebec-2026";
@@ -63,6 +64,21 @@ function Content() {
             <li>? Différer à 70 ans augmente votre pension de <strong>36 %</strong>{' '} à vie</li>
             <li>? Cumulable avec le SRG : jusqu&apos;à <strong>1 073 $ de plus</strong>{' '} par mois si votre revenu est faible</li>
           </ul>
+        </div>
+
+        <div style={{ background: "#060D1A" }} className="rounded-2xl p-5 text-center mb-8">
+          <p className="font-bold text-white mb-2">Vérifiez les prestations qui peuvent s&apos;ajouter à la SV</p>
+          <p className="text-sm mb-4" style={{ color: "rgba(240,235,224,0.6)" }}>
+            Le questionnaire aide à repérer les programmes liés à la retraite, au revenu et au logement.
+          </p>
+          <TrackingLink
+            href="/fr/questionnaire"
+            className="inline-block font-bold px-5 py-3 rounded-xl"
+            style={{ background: "#F5C842", color: "#060D1A" }}
+            tracking={{ cta_name: "verifier_mes_prestations", cta_location: "securite_vieillesse_intro", destination: "/fr/questionnaire" }}
+          >
+            Vérifier mes prestations →
+          </TrackingLink>
         </div>
 
         {/* Section 1 */}
@@ -205,7 +221,7 @@ function Content() {
             SV + SRG combinés : une personne seule à faible revenu peut recevoir jusqu&apos;à <strong>1 801 $/mois</strong>{' '} du
             gouvernement fédéral, soit plus de <strong>21 600 $ par an</strong>{' '} — entièrement libre d&apos;impôt pour la
             portion SRG. Pour en savoir plus sur l&apos;admissibilité, consultez notre guide sur le{" "}
-            <Link href="/blog/renoclimat-2026-guide-complet" className="text-blue-700 underline">SRG 2026</Link>.
+            <Link href="/supplement-revenu-garanti-2026" className="text-blue-700 underline">SRG 2026</Link>.
           </p>
         </section>
 
@@ -258,13 +274,14 @@ function Content() {
           <p className="text-sm mb-4" style={{ color: "rgba(240,235,224,0.6)" }}>
             SV, SRG, crédit de solidarité, allocation logement — notre questionnaire gratuit identifie chaque programme en 2 minutes.
           </p>
-          <Link
+          <TrackingLink
             href="/fr/questionnaire"
             className="inline-block font-bold px-6 py-3 rounded-xl"
             style={{ background: "#F5C842", color: "#060D1A" }}
+            tracking={{ cta_name: "trouver_mes_aides", cta_location: "securite_vieillesse_final", destination: "/fr/questionnaire" }}
           >
             Trouver mes aides ?
-          </Link>
+          </TrackingLink>
         </div>
 
         {/* Source officielle */}

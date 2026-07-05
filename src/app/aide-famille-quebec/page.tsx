@@ -100,7 +100,10 @@ export default function AideFamilleQuebecPage() {
         { href: "/allocation-enfant-quebec", titre: "Allocation enfant Québec – montants" },
         { href: "/subvention-sport-enfant-quebec", titre: "Aides sport enfant Québec" },
         { href: "/fr/budget/credit-solidarite", titre: "Crédit de solidarité Québec" },
+        { href: "/aides-financieres/famille", titre: "Hub aides financières famille" },
       ]}
+      questionnaireCtaLabel="Vérifier les aides pour ma famille →"
+      questionnaireCtaName="verifier_les_aides_pour_ma_famille"
     />
   );
 }

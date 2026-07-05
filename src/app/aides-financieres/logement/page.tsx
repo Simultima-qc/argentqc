@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
 
 export const metadata: Metadata = {
   title: "Aides au logement Québec 2026 | Allocation-logement, crédit solidarité | ArgentQC.ca",
@@ -106,7 +107,7 @@ export default function AidesFinancieresLogementPage() {
                 </li>
               ))}
             </ol>
-            <Link
+            <TrackingLink
               href="/fr/questionnaire"
               style={{
                 display: "block",
@@ -120,9 +121,10 @@ export default function AidesFinancieresLogementPage() {
                 textDecoration: "none",
                 marginTop: "1.5rem",
               }}
+              tracking={{ cta_name: "voir_les_aides_au_logement", cta_location: "logement_actions", destination: "/fr/questionnaire" }}
             >
               🚀 Voir mes aides logement →
-            </Link>
+            </TrackingLink>
           </div>
         </section>
 
@@ -280,7 +282,7 @@ export default function AidesFinancieresLogementPage() {
             <p style={{ color: "rgba(240,235,224,0.55)", fontSize: "14px", marginBottom: "1.5rem", lineHeight: 1.7 }}>
               Locataire, propriétaire ou futur acheteur — le diagnostic identifie les programmes les plus pertinents pour ta situation.
             </p>
-            <Link
+            <TrackingLink
               href="/fr/questionnaire"
               style={{
                 display: "inline-block",
@@ -292,9 +294,10 @@ export default function AidesFinancieresLogementPage() {
                 borderRadius: "14px",
                 textDecoration: "none",
               }}
+              tracking={{ cta_name: "lancer_le_diagnostic", cta_location: "logement_final", destination: "/fr/questionnaire" }}
             >
               🚀 Lancer le diagnostic →
-            </Link>
+            </TrackingLink>
           </div>
         </section>
 

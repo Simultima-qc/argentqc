@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Programme } from "@/types";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
 
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
@@ -37,6 +38,8 @@ interface Props {
   motCle: string;
   sections?: SectionEditoriale[];
   pagesRelies?: PageReliee[];
+  questionnaireCtaLabel?: string;
+  questionnaireCtaName?: string;
 }
 
 export default function SeoProgrammesPage({
@@ -48,6 +51,8 @@ export default function SeoProgrammesPage({
   motCle,
   sections,
   pagesRelies,
+  questionnaireCtaLabel = "Trouver mes aides →",
+  questionnaireCtaName = "trouver_mes_aides",
 }: Props) {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -62,6 +67,7 @@ export default function SeoProgrammesPage({
     })),
   };
 
+  const questionnairePath = "/fr/questionnaire";
   const totalMax = programmes.reduce((acc, p) => acc + p.montant_max, 0);
   const totalFormate = new Intl.NumberFormat("fr-CA", {
     style: "currency",
@@ -80,9 +86,9 @@ export default function SeoProgrammesPage({
           <Link href="/fr" style={{ fontWeight: 800, fontSize: "15px", color: GOLD, textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
             ArgentQC.ca
           </Link>
-          <Link href="/fr/questionnaire" style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }}>
+          <TrackingLink href={questionnairePath} style={{ color: GOLD, fontSize: "13px", fontWeight: 600, textDecoration: "underline", opacity: 0.85 }} tracking={{ cta_name: "trouver_mes_aides", cta_location: "seo_programmes_header", destination: questionnairePath }}>
             Trouver mes aides
-          </Link>
+          </TrackingLink>
         </div>
       </header>
 
@@ -122,8 +128,8 @@ export default function SeoProgrammesPage({
             {titre}
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>{sousTitre}</p>
-          <Link
-            href="/fr/questionnaire"
+          <TrackingLink
+            href={questionnairePath}
             style={{
               display: "block",
               background: GOLD,
@@ -136,9 +142,10 @@ export default function SeoProgrammesPage({
               textDecoration: "none",
               boxShadow: "0 0 28px rgba(245,200,66,0.2)",
             }}
+            tracking={{ cta_name: questionnaireCtaName, cta_location: "seo_programmes_hero", destination: questionnairePath }}
           >
-            Trouver mes aides →
-          </Link>
+            {questionnaireCtaLabel}
+          </TrackingLink>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>
             Gratuit · 2 minutes · estimation personnalisée
           </p>
@@ -280,8 +287,8 @@ export default function SeoProgrammesPage({
           <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "20px" }}>
             Répondez à 8 questions — résultats personnalisés en 2 minutes.
           </p>
-          <Link
-            href="/fr/questionnaire"
+          <TrackingLink
+            href={questionnairePath}
             style={{
               display: "block",
               background: GOLD,
@@ -293,9 +300,10 @@ export default function SeoProgrammesPage({
               textAlign: "center",
               textDecoration: "none",
             }}
+            tracking={{ cta_name: questionnaireCtaName, cta_location: "seo_programmes_final", destination: questionnairePath }}
           >
-            Commencer le questionnaire →
-          </Link>
+            {questionnaireCtaLabel}
+          </TrackingLink>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", marginTop: "8px" }}>
             Gratuit · 2 minutes · estimation personnalisée
           </p>
