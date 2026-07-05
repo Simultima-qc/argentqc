@@ -1,4 +1,5 @@
-﻿import creditCanadienFormation2026 from "@/data/blog/entries/credit-canadien-formation-2026";
+﻿import prestationCanadienneTravailleurs2026 from "@/data/blog/entries/prestation-canadienne-travailleurs-2026";
+import creditCanadienFormation2026 from "@/data/blog/entries/credit-canadien-formation-2026";
 import prestationDentaireCanadienne2026 from "@/data/blog/entries/prestation-dentaire-canadienne-2026";
 import allocationCanadienneEnfants2026 from "@/data/blog/entries/allocation-canadienne-enfants-2026";
 import creditImpotMaintienDomicile2026 from "@/data/blog/entries/credit-impot-maintien-domicile-2026";
@@ -24,6 +25,7 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  prestationCanadienneTravailleurs2026,
   creditCanadienFormation2026,
   prestationDentaireCanadienne2026,
   allocationCanadienneEnfants2026,
