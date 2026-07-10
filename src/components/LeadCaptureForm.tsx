@@ -3,6 +3,11 @@
 import { useState } from "react";
 import type { Locale } from "@/i18n/routing";
 import type { ReponseQuestionnaire } from "@/types";
+import {
+  trackLeadCaptureError,
+  trackLeadCaptureSubmitted,
+  trackLeadCaptureSuccess,
+} from "@/utils/analytics";
 
 interface LeadCaptureFormProps {
   locale: Locale;
@@ -15,10 +20,6 @@ interface LeadCaptureFormProps {
 const DARK = "#060D1A";
 const GOLD = "#F5C842";
 
-function gtag(event: string, params: Record<string, unknown>): void {
-  if (typeof window === "undefined" || !window.gtag) return;
-  window.gtag("event", event, params);
-}
 
 export default function LeadCaptureForm({
   locale,
@@ -44,7 +45,7 @@ export default function LeadCaptureForm({
     setStatus("loading");
     setErrorMsg("");
 
-    gtag("lead_capture_submitted", { locale, matched_program_count: matchedProgramCount });
+    trackLeadCaptureSubmitted({ locale, matched_program_count: matchedProgramCount });
 
     try {
       const res = await fetch("/api/lead", {
@@ -64,10 +65,10 @@ export default function LeadCaptureForm({
       if (!res.ok) throw new Error("non-ok");
 
       setStatus("success");
-      gtag("lead_capture_success", { locale, matched_program_count: matchedProgramCount });
+      trackLeadCaptureSuccess({ locale, matched_program_count: matchedProgramCount });
     } catch {
       setStatus("error");
-      gtag("lead_capture_error", { locale });
+      trackLeadCaptureError({ locale });
       setErrorMsg(
         isFr
           ? "Une erreur s'est produite. Veuillez réessayer."
