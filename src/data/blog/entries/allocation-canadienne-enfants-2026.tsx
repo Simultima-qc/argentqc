@@ -6,7 +6,7 @@ import type { BlogArticle } from "@/data/blog/types";
 const slug = "allocation-canadienne-enfants-2026";
 
 const baseMetadata: Metadata = {
-  title: "Allocation canadienne pour enfants 2026 : Jusqu'à 7 997 $/an par enfant",
+  title: "Allocation canadienne pour enfants 2026 : Jusqu'à 8 157 $/an par enfant",
   description:
     "Guide complet sur l'Allocation canadienne pour enfants en 2026 : montants selon l'âge, calcul selon votre revenu familial, versements mensuels et cumul avec l'Allocation famille du Québec.",
   keywords: [
@@ -43,11 +43,11 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">6 min de lecture · 5 juillet 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            Allocation canadienne pour enfants 2026 : Jusqu&apos;à 7 997 $/an par enfant
+            Allocation canadienne pour enfants 2026 : Jusqu&apos;à 8 157 $/an par enfant
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             L&apos;Allocation canadienne pour enfants (ACE) est l&apos;une des aides les plus généreuses du gouvernement fédéral.
-            En 2026, une famille avec un jeune enfant peut recevoir jusqu&apos;à <strong>666 $ par mois</strong>,{" "}
+            En 2026, une famille avec un jeune enfant peut recevoir jusqu&apos;à <strong>679,75 $ par mois</strong>,{" "}
             complètement libre d&apos;impôt. Et la majorité des familles québécoises y ont droit.
           </p>
         </div>
@@ -55,8 +55,8 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Jusqu&apos;à <strong>7 997 $/an</strong>{" "}par enfant de moins de 6 ans (666 $/mois)</li>
-            <li>✓ Jusqu&apos;à <strong>6 748 $/an</strong>{" "}par enfant de 6 à 17 ans (562 $/mois)</li>
+            <li>✓ Jusqu&apos;à <strong>8 157 $/an</strong>{" "}par enfant de moins de 6 ans (679,75 $/mois)</li>
+            <li>✓ Jusqu&apos;à <strong>6 883 $/an</strong>{" "}par enfant de 6 à 17 ans (573,58 $/mois)</li>
             <li>✓ Prestation <strong>non imposable</strong>,{" "}versée automatiquement chaque mois</li>
             <li>✓ Cumulable avec l&apos;Allocation famille du Québec — deux chèques distincts</li>
           </ul>
@@ -86,9 +86,9 @@ function Content() {
             <p className="font-bold text-blue-800 mb-3">Montants maximaux par enfant</p>
             <div className="space-y-3">
               {[
-                { groupe: "Enfant de moins de 6 ans", annuel: "7 997 $", mensuel: "666 $/mois" },
-                { groupe: "Enfant de 6 à 17 ans", annuel: "6 748 $", mensuel: "562 $/mois" },
-                { groupe: "Supplément pour enfant handicapé", annuel: "+ 3 432 $", mensuel: "+ 286 $/mois" },
+                { groupe: "Enfant de moins de 6 ans", annuel: "8 157 $", mensuel: "679,75 $/mois" },
+                { groupe: "Enfant de 6 à 17 ans", annuel: "6 883 $", mensuel: "573,58 $/mois" },
+                { groupe: "Supplément pour enfant handicapé", annuel: "+ 3 480 $", mensuel: "+ 290 $/mois" },
               ].map((item) => (
                 <div key={item.groupe} className="flex justify-between items-center text-sm border-b border-blue-100 pb-3 last:border-0 last:pb-0">
                   <span className="text-blue-900 font-medium">{item.groupe}</span>
@@ -114,10 +114,10 @@ function Content() {
           </p>
           <div className="flex flex-col gap-3">
             {[
-              { revenu: "Moins de 36 502 $", resultat: "Montant maximal", couleur: "bg-green-50 border-green-200 text-green-800" },
-              { revenu: "36 502 $ – 79 087 $", resultat: "Réduction de 13,5 % à 23 % sur la tranche excédentaire", couleur: "bg-yellow-50 border-yellow-200 text-yellow-800" },
-              { revenu: "79 087 $ – 171 015 $", resultat: "Réduction supplémentaire selon le nombre d&apos;enfants", couleur: "bg-orange-50 border-orange-200 text-orange-800" },
-              { revenu: "Plus de 171 015 $", resultat: "Prestation minimale possible (mais toujours versée)", couleur: "bg-red-50 border-red-200 text-red-800" },
+              { revenu: "Moins de 38 237 $", resultat: "Montant maximal", couleur: "bg-green-50 border-green-200 text-green-800" },
+              { revenu: "38 237 $ – 82 847 $", resultat: "Réduction de 13,5 % à 23 % sur la tranche excédentaire selon le nombre d&apos;enfants", couleur: "bg-yellow-50 border-yellow-200 text-yellow-800" },
+              { revenu: "Plus de 82 847 $", resultat: "Réduction fixe plus un pourcentage additionnel selon le nombre d&apos;enfants", couleur: "bg-orange-50 border-orange-200 text-orange-800" },
+              { revenu: "Très hauts revenus", resultat: "La prestation peut diminuer jusqu&apos;à 0 $ selon le revenu et la composition familiale", couleur: "bg-red-50 border-red-200 text-red-800" },
             ].map((item) => (
               <div key={item.revenu} className={`border rounded-xl p-4 ${item.couleur}`}>
                 <p className="font-semibold text-sm">{item.revenu}</p>
@@ -129,7 +129,7 @@ function Content() {
             <p className="text-slate-700 text-sm font-semibold mb-2">Exemple concret</p>
             <p className="text-slate-600 text-sm leading-relaxed">
               Une famille avec un revenu net de <strong>65 000 $</strong>{" "} et deux enfants (3 ans et 8 ans)
-              reçoit environ <strong>890 $ par mois</strong>{" "} en ACE — soit 10 680 $ par année,
+              reçoit environ <strong>952 $ par mois</strong>{" "} en ACE — soit 11 427 $ par année,
               complètement libre d&apos;impôt.
             </p>
           </div>
@@ -148,7 +148,7 @@ function Content() {
                 programme: "Allocation canadienne pour enfants",
                 organisme: "Gouvernement fédéral — ARC",
                 base: "Revenu familial net rajusté",
-                max: "Jusqu&apos;à 7 997 $/an/enfant",
+                max: "Jusqu&apos;à 8 157 $/an/enfant",
               },
               {
                 programme: "Allocation famille Québec",
@@ -225,7 +225,7 @@ function Content() {
               },
               {
                 titre: "Enfant handicapé",
-                desc: "Si votre enfant est admissible au Crédit d&apos;impôt pour personnes handicapées, vous recevez automatiquement le Supplément pour enfant handicapé — 3 432 $ de plus par année.",
+                desc: "Si votre enfant est admissible au Crédit d&apos;impôt pour personnes handicapées, vous recevez automatiquement le Supplément pour enfant handicapé — jusqu&apos;à 3 480 $ de plus par année.",
               },
               {
                 titre: "Paiements rétroactifs",
@@ -278,7 +278,7 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "Allocation canadienne pour enfants 2026 : Jusqu'à 7 997 $/an par enfant",
+  titre: "Allocation canadienne pour enfants 2026 : Jusqu'à 8 157 $/an par enfant",
   description:
     "Tout sur l'Allocation canadienne pour enfants en 2026 : montants par enfant, calcul selon votre revenu familial, cumul avec l'Allocation famille du Québec et comment faire votre demande.",
   date: "2026-07-05",

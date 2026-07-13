@@ -6,6 +6,7 @@ const appDir = path.join(rootDir, "src", "app");
 const srcDir = path.join(rootDir, "src");
 const scriptsDir = path.join(rootDir, "scripts");
 const articleEntriesDir = path.join(rootDir, "src", "data", "blog", "entries");
+const claimsDir = path.join(rootDir, "docs", "claims");
 const seoPagesFile = path.join(rootDir, "src", "data", "seo-pages.ts");
 const routingFile = path.join(rootDir, "src", "i18n", "routing.ts");
 const i18nDir = path.join(rootDir, "src", "i18n");
@@ -745,6 +746,41 @@ function checkQuestionnairePropagation() {
 
 }
 
+function checkSourceBackedClaimLedgers() {
+  const sourceBackedFinancialArticleSlugs = [
+    "allocation-canadienne-enfants-2026",
+    "credit-canadien-formation-2026",
+    "aide-financiere-etudes-quebec-2026",
+  ];
+  const sensitiveAmountPattern = /(?:\d[\d\s]*(?:,\d+)?\s*(?:\$|%)|(?:\$)\s*\d)/;
+  const expectedLedgerColumns = "claim | source officielle | date de vérification | statut | prochaine vérification | action";
+
+  for (const slug of sourceBackedFinancialArticleSlugs) {
+    const articleFile = path.join(articleEntriesDir, `${slug}.tsx`);
+    if (!fs.existsSync(articleFile)) {
+      report("Source-backed financial article is missing", [`${relative(articleFile)} should exist`]);
+      continue;
+    }
+
+    const source = read(articleFile);
+    if (!sensitiveAmountPattern.test(source)) continue;
+
+    const ledgerFile = path.join(claimsDir, `${slug}.md`);
+    if (!fs.existsSync(ledgerFile)) {
+      report("Sensitive financial article is missing a claim ledger", [
+        `${relative(articleFile)} contains amounts or percentages but ${relative(ledgerFile)} does not exist`,
+      ]);
+      continue;
+    }
+
+    const ledgerSource = read(ledgerFile);
+    if (!ledgerSource.includes(expectedLedgerColumns)) {
+      report("Claim ledger is missing required columns", [
+        `${relative(ledgerFile)} should include: ${expectedLedgerColumns}`,
+      ]);
+    }
+  }
+}
 function checkEncoding() {
   const files = [];
   walkTextFiles(srcDir, files);
@@ -851,9 +887,10 @@ checkMetadataExports();
 checkLocalizedRoutes();
 checkDictionaryShapes();
 checkQuestionnairePropagation();
+checkSourceBackedClaimLedgers();
 checkEncoding();
 checkPublicFooterPrivacyLinks();
 checkInternalAnchorLinks();
 finish();
 
-console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, footer links, and internal link usage.`);
+console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, source-backed claim ledgers, footer links, and internal link usage.`);

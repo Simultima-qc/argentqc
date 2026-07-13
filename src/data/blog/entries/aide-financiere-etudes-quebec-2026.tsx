@@ -58,7 +58,7 @@ function Content() {
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Les <strong>bourses</strong>{" "}ne sont jamais remboursées — les prêts, oui</li>
             <li>✓ L&apos;AFE calcule automatiquement la proportion bourse/prêt selon votre revenu familial</li>
-            <li>✓ <strong>Bourse Perspective Québec</strong>{" "} : 1 000 $/session en plus pour certains programmes</li>
+            <li>✓ <strong>Bourse Perspective Québec</strong>{" "} : 1 500 $ au collégial ou 2 500 $ à l&apos;université par session admissible</li>
             <li>✓ Demande à faire chaque année scolaire sur le site de l&apos;AFE</li>
           </ul>
         </div>
@@ -132,11 +132,11 @@ function Content() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">La Bourse Perspective Québec : 1 000 $/session</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">La Bourse Perspective Québec : 1 500 $ ou 2 500 $/session</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            En plus de l&apos;AFE régulière, la <strong>Bourse Perspective Québec</strong>{" "}offre 1 000 $ supplémentaires
-            par session (automne et hiver) aux étudiants inscrits dans des programmes priorisés.
-            C&apos;est automatiquement ajouté à votre aide si vous êtes admissible.
+            En plus de l&apos;AFE régulière, la <strong>Bourse Perspective Québec</strong>{" "}offre 1 500 $ au collégial ou 2 500 $ à l&apos;université
+            par session admissible aux étudiants déjà inscrits dans des programmes ciblés.
+            La demande doit être faite après chaque session réussie; elle n&apos;est pas renouvelée automatiquement.
           </p>
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
             <p className="font-semibold text-indigo-800 mb-2 text-sm">Programmes admissibles à la Bourse Perspective</p>
@@ -146,7 +146,7 @@ function Content() {
                 "Sciences infirmières et soins de santé",
                 "Éducation et enseignement",
                 "Informatique et intelligence artificielle",
-                "Construction et métiers techniques (DEP)",
+                "Programmes techniques ciblés au collégial",
               ].map((prog) => (
                 <li key={prog}>• {prog}</li>
               ))}
