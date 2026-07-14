@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import TrackingLink from "@/components/TrackingLink";
 import {
   rrqCotisations2026,
   rrqMontantsAge2026,
@@ -47,10 +48,10 @@ const enMontantsAge = rrqMontantsAge2026.map((item) => ({
         : "~$1,087/month",
   montantMax:
     item.age === "60 ans"
-      ? "~$574/month"
+      ? "$964.90/month"
       : item.age === "65 ans"
-        ? "~$897/month"
-        : "~$1,273/month",
+        ? "$1,507.65/month"
+        : "Higher than at age 65 when deferred",
   reduction:
     item.age === "60 ans"
       ? "-36% vs age 65"
@@ -102,7 +103,7 @@ const enCotisations = rrqCotisations2026.map((row) => ({
       ? "~$550/month at age 65"
       : row.salaire === "50 000 $"
         ? "~$700/month at age 65"
-        : "~$897/month at age 65 (max)",
+        : "Variable by record at age 65",
 }));
 
 export default function LocalizedRetirementRrqPage({ locale }: { locale: Locale }) {
@@ -133,6 +134,9 @@ export default function LocalizedRetirementRrqPage({ locale }: { locale: Locale 
   const homePath = getRoutePath(locale, "home");
   const retirementHubPath = getRoutePath(locale, "retirement");
   const questionnairePath = getRoutePath(locale, "questionnaire");
+  const rrqMax60 = ageCards.find((card) => card.age.includes("60"))?.montantMax;
+  const rrqMax65 = ageCards.find((card) => card.age.includes("65"))?.montantMax;
+  const rrqMax70 = ageCards.find((card) => card.age.includes("70"))?.montantMax;
 
   return (
     <main className="min-h-screen" style={{ background: PARCH }}>
@@ -155,6 +159,34 @@ export default function LocalizedRetirementRrqPage({ locale }: { locale: Locale 
       </section>
 
       <div className="mx-auto max-w-3xl px-5 py-10">
+        <section className="mb-10 rounded-3xl border bg-white p-5 shadow-sm" style={{ borderColor: "#EDE9E0" }}>
+          <h2 className="mb-3 text-2xl font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>
+            {locale === "fr" ? "Montant maximum de la RRQ en 2026 : réponse rapide" : "Maximum QPP amount in 2026: quick answer"}
+          </h2>
+          <p className="mb-4 text-sm leading-7 text-stone-700">
+            {locale === "fr"
+              ? "Le maximum varie selon l'âge de demande. Les montants à 60 et 65 ans ci-dessous correspondent aux maximums 2026 publiés par Retraite Québec; pour 70 ans, le montant est plus élevé qu'à 65 ans selon le report, sans chiffre précis ici."
+              : "The maximum varies by claiming age. The age 60 and 65 figures below reflect 2026 maximums published by Retraite Québec; for age 70, the amount is higher than at age 65 when deferred, without a precise figure here."}
+          </p>
+          <div className="mb-4 grid gap-3 sm:grid-cols-3">
+            {[
+              { age: locale === "fr" ? "60 ans" : "age 60", amount: rrqMax60 },
+              { age: locale === "fr" ? "65 ans" : "age 65", amount: rrqMax65 },
+              { age: locale === "fr" ? "70 ans" : "age 70", amount: rrqMax70 },
+            ].map((item) => (
+              <div key={item.age} className="rounded-2xl border p-4 text-center" style={{ borderColor: "#EDE9E0", background: "#FAF8F3" }}>
+                <div className="mb-1 text-xs font-bold uppercase text-stone-500">{item.age}</div>
+                <div className="text-xl font-extrabold text-stone-900">{item.amount}</div>
+              </div>
+            ))}
+          </div>
+          <p className="m-0 text-sm leading-7 text-stone-600">
+            {locale === "fr"
+              ? "Ces montants sont des maximums. La rente réelle dépend de votre historique de cotisation et de l'âge de demande."
+              : "These amounts are maximums. Your actual pension depends on your contribution history and claiming age."}
+          </p>
+        </section>
+
         <section className="mb-10">
           <h2 className="mb-4 text-2xl font-extrabold text-stone-900" style={{ fontFamily: "var(--font-playfair)" }}>{dictionary.ageCardsTitle}</h2>
           <div className="flex flex-col gap-4">
@@ -248,9 +280,9 @@ export default function LocalizedRetirementRrqPage({ locale }: { locale: Locale 
               : "A public pension is only one pillar. The questionnaire helps surface other credits, benefits, and planning levers that may apply to you."}
           </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href={questionnairePath} className="inline-block rounded-2xl px-5 py-3 text-sm font-extrabold no-underline" style={{ background: GOLD, color: DARK }}>
+            <TrackingLink href={questionnairePath} tracking={{ cta_name: "rrq_hero", cta_location: "final", destination: questionnairePath }} className="inline-block rounded-2xl px-5 py-3 text-sm font-extrabold no-underline" style={{ background: GOLD, color: DARK }}>
               {locale === "fr" ? "Trouver mes aides" : "Find my programs"}
-            </Link>
+            </TrackingLink>
             <Link href={retirementHubPath} className="inline-block rounded-2xl border px-5 py-3 text-sm font-semibold no-underline" style={{ borderColor: "rgba(240,235,224,0.16)", color: "#F0EBE0" }}>
               {locale === "fr" ? "Retour au thème retraite" : "Back to retirement topic"}
             </Link>

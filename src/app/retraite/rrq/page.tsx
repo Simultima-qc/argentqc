@@ -7,7 +7,7 @@ import {
 } from "@/data/finance-2026";
 
 export const metadata: Metadata = {
-  title: "RRQ — Comprendre votre rente de retraite au Québec 2026 | ArgentQC.ca",
+  title: "RRQ 2026 : montant maximum et rente de retraite au Québec | ArgentQC.ca",
   description:
     "Guide complet RRQ 2026 : fonctionnement, montants selon l'âge (60, 65, 70 ans), différence RRQ vs RPC, travailler après 65 ans et comment estimer votre rente.",
   keywords: [

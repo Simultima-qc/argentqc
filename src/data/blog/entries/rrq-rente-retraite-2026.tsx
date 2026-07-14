@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TrackingLink from "@/components/TrackingLink";
 import SiteFooter from "@/components/SiteFooter";
+import { rrqMontantsAge2026 } from "@/data/finance-2026";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "rrq-rente-retraite-2026";
 
 const baseMetadata: Metadata = {
-  title: "RRQ 2026 : Comment fonctionne votre rente de retraite et quel âge choisir",
+  title: "RRQ 2026 : montant maximum, rente de retraite et âge de demande",
   description:
     "Tout sur la rente de retraite du RRQ en 2026 : calcul selon vos gains cotisés, impact de prendre la rente à 60, 65 ou 70 ans, bonification et réduction.",
   keywords: ["RRQ 2026", "rente retraite Québec", "Régime de rentes du Québec", "âge retraite RRQ", "rente maximale RRQ"],
@@ -21,6 +23,10 @@ const metadata: Metadata = {
 };
 
 function Content() {
+  const rrqGuidePath = "/fr/retraite/rrq";
+  const questionnairePath = "/fr/questionnaire";
+  const rrqMax65 = rrqMontantsAge2026.find((item) => item.age === "65 ans")?.montantMax ?? "le maximum à 65 ans";
+
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
@@ -38,13 +44,13 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">7 min de lecture · 13 juin 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            RRQ 2026 : Comment fonctionne votre rente de retraite et quel âge choisir
+            RRQ 2026 : montant maximum, rente de retraite et âge de demande
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Le Régime de rentes du Québec verse chaque mois une rente à vie à tous les Québécois
-            qui ont cotisé en cours d&apos;emploi. En 2026, la rente maximale à 65 ans dépasse
-            <strong> 1 400 $ par mois</strong>{" "} — mais l&apos;âge auquel vous la demandez peut faire varier
-            ce montant de plus de 75 %. Voici comment fonctionne le RRQ et comment prendre la meilleure décision.
+            Le Régime de rentes du Québec verse chaque mois une rente à vie aux Québécois
+            qui ont cotisé en cours d&apos;emploi. En 2026, le maximum à 65 ans est autour de 1 500 $/mois selon Retraite Québec
+            (<strong>{rrqMax65}</strong>), mais la rente réelle peut être plus basse selon votre historique de cotisation
+            et votre âge de demande. Voici comment fonctionne le RRQ et comment réfléchir au bon moment pour demander la rente.
           </p>
         </div>
 
@@ -57,6 +63,12 @@ function Content() {
             <li>✓ Attendre jusqu&apos;à 70 ans augmente le montant de <strong>42 %</strong>{" "} par rapport à 65 ans</li>
             <li>✓ Depuis 2019, vous pouvez travailler ET recevoir votre rente en même temps</li>
           </ul>
+          <p className="mt-4 text-sm text-green-900">
+            Pour les maximums officiels disponibles à 60 et 65 ans, et la formulation prudente pour 70 ans, consultez la page principale :{" "}
+            <Link href={rrqGuidePath} className="font-bold underline">
+              montant maximum de la RRQ en 2026
+            </Link>.
+          </p>
         </div>
 
         {/* Section 1 */}
@@ -234,12 +246,13 @@ function Content() {
             RRQ, SRG, Sécurité de vieillesse, crédits d&apos;impôt — répondez à quelques questions
             et obtenez un portrait complet de votre situation.
           </p>
-          <Link
-            href="/fr/questionnaire"
+          <TrackingLink
+            href={questionnairePath}
+            tracking={{ cta_name: "rrq_blog", cta_location: "final", destination: questionnairePath }}
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
           >
             Calculer mes prestations →
-          </Link>
+          </TrackingLink>
         </div>
 
         {/* Lien officiel */}
@@ -257,7 +270,7 @@ function Content() {
       </article>
 
       <SiteFooter
-        legalText="Outil informatif non affilié au gouvernement. Les montants sont des estimations basées sur les paramètres 2026 de Retraite Québec."
+        legalText="Outil informatif non affilié au gouvernement. Les maximums RRQ 2026 cités proviennent des montants clés de Retraite Québec; votre rente réelle dépend de votre dossier."
         contactLabel="Contactez-nous"
         contentClassName="max-w-2xl mx-auto text-center"
         style={{ marginTop: "16px" }}
@@ -268,7 +281,7 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "RRQ 2026 : Comment fonctionne votre rente de retraite et quel âge choisir",
+  titre: "RRQ 2026 : montant maximum, rente de retraite et âge de demande",
   description: "Tout sur la rente de retraite du RRQ en 2026 : calcul selon vos gains cotisés, impact de prendre la rente à 60, 65 ou 70 ans, bonification et réduction.",
   date: "2026-06-13",
   categorie: "Retraite",
