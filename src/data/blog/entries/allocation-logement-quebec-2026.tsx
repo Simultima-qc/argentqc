@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
+import TrackingLink from "@/components/TrackingLink";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "allocation-logement-quebec-2026";
 
 const baseMetadata: Metadata = {
-  title: "Allocation-logement Québec 2026 : Jusqu'à 170 $/mois pour votre loyer",
+  title: "Guide allocation-logement Québec 2026 : exemples et démarches",
   description:
-    "Tout sur l'allocation-logement Québec 2026 : critères d'admissibilité, montants selon votre situation et comment faire votre demande en ligne via Retraite Québec.",
+    "Guide explicatif sur l’allocation-logement au Québec : exemples, points à vérifier et démarches, avec un lien vers la fiche principale du programme.",
   keywords: ["allocation-logement Québec 2026", "aide loyer Québec", "subvention logement Québec", "allocation logement faible revenu"],
 };
 
@@ -37,13 +38,30 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">5 min de lecture · 29 juin 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            Allocation-logement Québec 2026 : Jusqu&apos;à 170 $/mois pour alléger votre loyer
+            Guide explicatif de l&apos;allocation-logement au Québec en 2026
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             L&apos;allocation-logement est une aide mensuelle versée par Retraite Québec aux locataires et propriétaires
             à faible revenu qui consacrent une trop grande part de leurs revenus à se loger. En 2026, ce programme peut
             vous rapporter jusqu&apos;à <strong>170 $ par mois</strong>{" "} — soit <strong>2 040 $ par année</strong>{" "} — directement dans votre compte bancaire.
           </p>
+        </div>
+
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 mb-8">
+          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+            Ce guide explique le programme avec des exemples. Pour la fiche de référence sur le montant,
+            l&apos;admissibilité et la demande, consultez la{" "}
+            <Link href="/fr/budget/allocation-logement" className="font-semibold text-blue-700 underline">
+              page principale sur l&apos;allocation logement
+            </Link>.
+          </p>
+          <TrackingLink
+            href="/fr/questionnaire"
+            className="inline-block bg-yellow-400 text-blue-900 font-bold px-5 py-3 rounded-xl"
+            tracking={{ cta_name: "verifier_mes_aides_logement", cta_location: "allocation_logement_blog_intro", destination: "/fr/questionnaire" }}
+          >
+            Vérifier mes aides logement →
+          </TrackingLink>
         </div>
 
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
@@ -220,12 +238,13 @@ function Content() {
           <p className="text-blue-200 text-sm mb-4">
             Allocation-logement, Supplément de revenu garanti, crédit de solidarité — faites le tour complet en 2 minutes.
           </p>
-          <Link
+          <TrackingLink
             href="/fr/questionnaire"
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
+            tracking={{ cta_name: "trouver_mes_aides", cta_location: "allocation_logement_blog_final", destination: "/fr/questionnaire" }}
           >
             Trouver mes aides →
-          </Link>
+          </TrackingLink>
         </div>
 
         <p className="text-center text-slate-400 text-xs mt-6">
@@ -253,8 +272,8 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "Allocation-logement Québec 2026 : Jusqu'à 170 $/mois pour alléger votre loyer",
-  description: "Tout sur l'allocation-logement Québec 2026 : critères d'admissibilité, montants selon votre situation et comment faire votre demande en ligne via Retraite Québec.",
+  titre: "Guide allocation-logement Québec 2026 : exemples et démarches",
+  description: "Guide explicatif sur l’allocation-logement au Québec : exemples, points à vérifier et démarches, avec un lien vers la fiche principale du programme.",
   date: "2026-06-29",
   categorie: "Logement",
   tempsLecture: "5 min",
