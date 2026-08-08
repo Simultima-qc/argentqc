@@ -9,7 +9,7 @@ const slug = "aide-sociale-quebec-2026";
 const baseMetadata: Metadata = {
   title: "Aide sociale Québec 2026 : Montants, conditions et comment faire une demande",
   description:
-    "Aide sociale et solidarité sociale 2026 : montants selon votre situation, conditions d&apos;admissibilité, démarches de demande et autres avantages inclus.",
+    "Aide sociale et solidarité sociale 2026 : montants selon votre situation, conditions d'admissibilité, démarches de demande et prestations spéciales.",
   keywords: [
     "aide sociale Québec 2026",
     "montant aide sociale 2026",
@@ -30,15 +30,15 @@ const metadata: Metadata = {
 const faqs = [
   {
     q: "Comment faire une demande d'aide sociale au Québec?",
-    r: "La demande se fait auprès du gouvernement du Québec, en ligne ou selon les options indiquées sur Québec.ca. Préparez vos preuves d'identité, de résidence, de revenus, d'avoirs et de logement.",
+    r: "Remplissez les formulaires officiels, puis transmettez-les en ligne, par la poste ou à un bureau de Services Québec. Après leur réception, une vérification d'identité en personne est requise.",
   },
   {
     q: "Quels sont les montants d'aide sociale en 2026?",
-    r: "Les montants varient selon la situation familiale, les contraintes à l'emploi, les revenus et les avoirs. Vérifiez le barème officiel de Québec.ca pour le montant exact.",
+    r: "En 2026, un adulte seul reçoit 845 $ par mois à l'aide sociale sans contraintes de santé, 1 014 $ avec contraintes de santé, ou 1 318 $ à la solidarité sociale. La situation familiale, les revenus, les biens et les ajustements peuvent modifier le montant.",
   },
   {
     q: "Quand les dépôts d'aide sociale sont-ils versés?",
-    r: "Les dates de dépôt doivent être confirmées sur les calendriers officiels du gouvernement du Québec ou dans votre dossier, car elles peuvent varier selon le mois et le mode de paiement.",
+    r: "Les prestations sont versées chaque mois. En 2026, le calendrier officiel prévoit notamment des versements le 30 janvier, le 27 février, le 1er avril et le 31 juillet. Consultez Québec.ca ou votre dossier pour toutes les dates et votre prochain versement.",
   },
 ];
 
@@ -74,16 +74,16 @@ function Content() {
         <div className="mb-8">
           <div className="flex gap-2 mb-4">
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700">Aide sociale</span>
-            <span className="text-xs text-slate-400 py-0.5">6 min de lecture · 11 avril 2026</span>
+            <span className="text-xs text-slate-400 py-0.5">6 min de lecture · Publié le 11 avril 2026 · Vérifié le 8 août 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
             Aide sociale Québec 2026 : Montants, conditions et comment faire une demande
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            L&apos;aide sociale — officiellement appelée aide de dernier recours — est un filet de sécurité
-            financier géré par le ministère de l&apos;Emploi et de la Solidarité sociale. En 2026, deux
-            programmes distincts existent selon votre situation : le <strong>Programme d&apos;aide sociale</strong>{" "}
-            et le <strong>Programme de solidarité sociale</strong>. Voici tout ce que vous devez savoir.
+            L&apos;aide financière de dernier recours est un filet de sécurité géré par le ministère de
+            l&apos;Emploi et de la Solidarité sociale. Le Ministère administre quatre programmes d&apos;assistance
+            sociale; ce guide se concentre sur le <strong>Programme d&apos;aide sociale</strong>{" "}et le{" "}
+            <strong>Programme de solidarité sociale</strong>.
           </p>
         </div>
 
@@ -91,10 +91,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>? Deux programmes : aide sociale (général) et solidarité sociale (contraintes sévères)</li>
-            <li>? Montants variables selon votre situation et les barèmes officiels</li>
-            <li>? Inclut la couverture médicaments (RAMQ) et des aides pour le logement</li>
-            <li>? Demande en ligne, par téléphone ou en personne selon les options indiquées sur Québec.ca</li>
+            <li>• Aide sociale : 845 $ par mois pour un adulte seul sans contraintes de santé</li>
+            <li>• Solidarité sociale : 1 318 $ par mois pour un adulte seul</li>
+            <li>• Revenus, avoirs, biens et composition familiale peuvent modifier la prestation</li>
+            <li>• Formulaires transmissibles en ligne, par la poste ou à Services Québec; vérification d&apos;identité en personne</li>
           </ul>
         </div>
 
@@ -124,11 +124,11 @@ function Content() {
             {[
               {
                 titre: "Programme d'aide sociale",
-                desc: "Pour les personnes sans contraintes à l'emploi ou avec des contraintes temporaires (maladie, blessure, garde d'enfants). On s'attend à ce que vous cherchiez activement du travail ou participiez à des mesures d'emploi.",
+                desc: "Pour un adulte seul ou une famille sans contraintes sévères de santé. Le montant dépend notamment de la composition familiale, des contraintes de santé, du type d'hébergement et des revenus.",
               },
               {
                 titre: "Programme de solidarité sociale",
-                desc: "Pour les personnes ayant des contraintes sévères à l'emploi à long terme (invalidité, maladie chronique, handicap). Les montants sont plus élevés et les exigences de participation au marché du travail ne s'appliquent pas.",
+                desc: "Pour un adulte seul ou une famille dont au moins un adulte présente des contraintes sévères de santé. Le montant dépend notamment de la composition familiale, du type d'hébergement, des revenus et des biens.",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
@@ -143,19 +143,20 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants 2026 selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Les montants peuvent changer selon les barèmes officiels. Utilisez les tableaux ci-dessous
-            comme structure de vérification, puis confirmez le montant exact sur Québec.ca. Des suppléments
-            peuvent s&apos;ajouter selon votre situation (enfants, logement, besoins spéciaux).
+            Les montants mensuels ci-dessous sont ceux publiés pour 2026. Les revenus, les biens, le type
+            d&apos;hébergement, les contraintes de santé, la composition familiale et les ajustements applicables
+            peuvent changer le montant réellement versé.
           </p>
 
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Programme d&apos;aide sociale — situations à vérifier</p>
+            <p className="font-bold text-blue-800 mb-3">Programme d&apos;aide sociale — montants mensuels</p>
             <div className="space-y-2">
               {[
-                { situation: "Personne seule", montant: "Barème officiel" },
-                { situation: "Couple sans enfant", montant: "Barème officiel" },
-                { situation: "Famille monoparentale, 1 enfant", montant: "Barème officiel" },
-                { situation: "Couple avec 1 enfant", montant: "Barème officiel" },
+                { situation: "Adulte seul, sans contraintes de santé", montant: "845 $" },
+                { situation: "Adulte seul, avec contraintes de santé", montant: "1 014 $" },
+                { situation: "Deux adultes, sans contraintes de santé", montant: "1 283 $" },
+                { situation: "Deux adultes, situations différentes", montant: "1 452 $" },
+                { situation: "Deux adultes, avec contraintes de santé", montant: "1 574 $" },
               ].map((ex) => (
                 <div key={ex.situation} className="flex justify-between text-sm">
                   <span className="text-blue-900">{ex.situation}</span>
@@ -163,16 +164,20 @@ function Content() {
                 </div>
               ))}
             </div>
-            <p className="text-blue-700 text-xs mt-3">Les prestations familiales et certains suppléments peuvent modifier le portrait financier global.</p>
+            <p className="text-blue-700 text-xs mt-3">
+              Source :{" "}
+              <a href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/information-aide-financiere/montants-prestations-aide-sociale" target="_blank" rel="noopener noreferrer" className="underline">
+                barème mensuel officiel de l&apos;aide sociale
+              </a>.
+            </p>
           </div>
 
           <div className="bg-purple-50 border border-purple-100 rounded-2xl p-5">
-            <p className="font-bold text-purple-800 mb-3">Programme de solidarité sociale — situations à vérifier</p>
+            <p className="font-bold text-purple-800 mb-3">Programme de solidarité sociale — montants mensuels</p>
             <div className="space-y-2">
               {[
-                { situation: "Personne seule", montant: "Barème officiel" },
-                { situation: "Couple (1 personne avec contraintes sévères)", montant: "Barème officiel" },
-                { situation: "Couple (2 personnes avec contraintes sévères)", montant: "Barème officiel" },
+                { situation: "Adulte seul", montant: "1 318 $" },
+                { situation: "Deux adultes", montant: "1 934 $" },
               ].map((ex) => (
                 <div key={ex.situation} className="flex justify-between text-sm">
                   <span className="text-purple-900">{ex.situation}</span>
@@ -180,7 +185,12 @@ function Content() {
                 </div>
               ))}
             </div>
-            <p className="text-purple-700 text-xs mt-3">Les montants de solidarité sociale sont significativement plus élevés pour tenir compte des limitations à l&apos;emploi.</p>
+            <p className="text-purple-700 text-xs mt-3">
+              Source :{" "}
+              <a href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/information-aide-financiere/montants-prestations-solidarite-sociale" target="_blank" rel="noopener noreferrer" className="underline">
+                barème mensuel officiel de la solidarité sociale
+              </a>.
+            </p>
           </div>
         </section>
 
@@ -188,29 +198,29 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Qui peut faire une demande ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Pour être admissible à l&apos;aide sociale au Québec, vous devez remplir toutes ces conditions :
+            Les critères de base publiés par Québec.ca sont les suivants :
           </p>
           <div className="flex flex-col gap-3">
             {[
               {
                 icone: "??",
                 titre: "Résider au Québec",
-                texte: "Vous devez résider au Québec et être citoyen canadien, résident permanent, réfugié reconnu ou titulaire de certains statuts d'immigration.",
+                texte: "Vous devez résider au Québec. Des formulaires ou documents supplémentaires peuvent être requis selon votre situation, notamment pour un demandeur d'asile.",
               },
               {
                 icone: "??",
                 titre: "Avoir 18 ans ou plus",
-                texte: "Les jeunes de 16-17 ans peuvent exceptionnellement faire une demande dans certaines situations (émancipation, danger dans le milieu familial).",
+                texte: "Si vous avez moins de 18 ans, vous devez aussi être marié ou l'avoir déjà été, ou être parent d'un enfant à charge.",
               },
               {
                 icone: "??",
                 titre: "Avoir des ressources insuffisantes",
-                texte: "Vos revenus et avoirs doivent être sous les seuils permis. Les limites exactes dépendent de votre situation et doivent être vérifiées sur Québec.ca.",
+                texte: "Votre argent, vos biens, vos gains, vos avantages et vos revenus doivent être égaux ou inférieurs aux barèmes réglementaires.",
               },
               {
                 icone: "??",
-                titre: "Avoir besoin d'aide financière",
-                texte: "Vous ne devez pas être en mesure de subvenir à vos besoins essentiels par vos propres moyens ou par d'autres sources de revenus disponibles.",
+                titre: "Faire évaluer l'ensemble de vos ressources",
+                texte: "L'aide accordée varie selon votre situation. Le simulateur officiel donne une première indication, mais la décision appartient au Ministère.",
               },
             ].map((point) => (
               <div key={point.titre} className="flex gap-4 items-start bg-white rounded-xl border border-slate-100 px-4 py-3">
@@ -232,27 +242,27 @@ function Content() {
               {
                 num: "1",
                 titre: "Rassemblez vos documents",
-                texte: "Pièce d'identité, preuve de résidence au Québec, preuve de statut d'immigration si applicable, relevés bancaires des 3 derniers mois, preuves de tous vos revenus.",
+                texte: "Remplissez les formulaires officiels et réunissez une pièce d'identité avec photo délivrée par un organisme public. Des formulaires ou documents supplémentaires peuvent être exigés selon votre situation.",
               },
               {
                 num: "2",
-                titre: "Faites votre demande en ligne, par téléphone ou en personne",
-                texte: "En ligne sur le portail Services Québec, par téléphone au 1 877 767-8773, ou en vous rendant dans un centre local d'emploi (CLE) de votre région.",
+                titre: "Transmettez les formulaires",
+                texte: "Vous pouvez transmettre les formulaires en ligne, par la poste ou les déposer à un bureau de Services Québec. Une vérification d'identité en personne reste requise après leur réception.",
               },
               {
                 num: "3",
-                titre: "Participez à l'entrevue",
-                texte: "Un agent du ministère vous contactera pour une entrevue afin de valider votre admissibilité. Ayez tous vos documents à portée de main.",
+                titre: "Répondez aux demandes de précision",
+                texte: "Un agent peut communiquer avec vous et demander des documents pour clarifier certains renseignements. L'analyse commence lorsque tous les documents essentiels ont été fournis.",
               },
               {
                 num: "4",
                 titre: "Recevez la décision",
-                texte: "La décision et les dates de dépôt doivent être confirmées dans votre dossier ou auprès du ministère. Si vous êtes admissible, le dépôt direct est généralement l'option la plus simple.",
+                texte: "Le Ministère annonce un avis de décision dans les 5 jours ouvrables suivant la réception de tous les documents essentiels. Si la demande est acceptée, l'avis indique le montant accordé.",
               },
               {
                 num: "5",
-                titre: "Renouvelez chaque mois",
-                texte: "Vous devez signaler mensuellement vos revenus et tout changement de situation (emploi, revenus, logement, composition du ménage) pour continuer à recevoir vos prestations.",
+                titre: "Déclarez tout changement sans délai",
+                texte: "Signalez dès qu'il survient tout changement de situation, par exemple un emploi, une variation de revenu, une nouvelle adresse ou un changement dans la composition familiale.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -270,18 +280,17 @@ function Content() {
 
         {/* Section 5 — Avantages connexes */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">Les avantages qui viennent avec l&apos;aide sociale</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Prestations spéciales et mesures connexes</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Recevoir l&apos;aide sociale vous donne automatiquement accès à plusieurs autres avantages importants.
+            Certaines protections sont liées au carnet de réclamation; d&apos;autres aides exigent une autorisation, des justificatifs ou une demande séparée.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
             <div className="space-y-3 text-sm">
               {[
-                { avantage: "Couverture médicaments (RAMQ)", detail: "Assurance médicaments gratuite pour vous et votre famille — cotisations suspendues" },
-                { avantage: "Crédit de solidarité", detail: "Vous avez automatiquement droit au crédit de solidarité provincial (composante habitation et TVQ)" },
-                { avantage: "Allocation logement", detail: "Aide supplémentaire si vos frais de logement dépassent un certain pourcentage de vos revenus" },
-                { avantage: "Aide au transport", detail: "Remboursement des frais de transport pour vos rendez-vous médicaux ou de recherche d'emploi" },
-                { avantage: "Services d'emploi gratuits", detail: "Accès aux centres locaux d'emploi pour formation, aide à la recherche d'emploi et bilan de compétences" },
+                { avantage: "Carnet de réclamation", detail: "Permet au prestataire et à sa famille d'obtenir certains médicaments et services de santé sans frais; il est transmis chaque mois." },
+                { avantage: "Prestations spéciales", detail: "Peuvent couvrir certains médicaments, services optométriques ou dentaires, transports médicaux et besoins particuliers, selon les conditions." },
+                { avantage: "Soutien à l'emploi", detail: "Des services d'aide à l'emploi et certains remboursements peuvent être offerts selon la démarche et le programme." },
+                { avantage: "Crédits et aide au logement", detail: "Le crédit d'impôt pour solidarité et l'Allocation-logement ont leurs propres critères; ils ne sont pas accordés automatiquement avec l'aide sociale." },
               ].map((item) => (
                 <div key={item.avantage} className="flex gap-3">
                   <span className="text-green-600 font-bold shrink-0">?</span>
@@ -305,29 +314,27 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Peut-on travailler tout en recevant l&apos;aide sociale ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Oui — et c&apos;est encouragé. Le Québec prévoit des exemptions de revenus pour ne pas pénaliser
-            ceux qui travaillent tout en étant à l&apos;aide sociale. Voici comment ça fonctionne :
+            Oui. Une partie du revenu de travail est exclue du calcul, puis un supplément peut réduire
+            l&apos;effet du revenu excédentaire sur la prestation. Voici les règles publiées pour 2026 :
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
-            <p className="font-bold text-blue-800 mb-3">Revenus de travail et exemptions à vérifier</p>
+            <p className="font-bold text-blue-800 mb-3">Revenus de travail permis sans réduction</p>
             <div className="space-y-2 text-sm mb-3">
               <div className="flex justify-between">
-                <span className="text-blue-900">Personne seule</span>
-                <span className="font-bold text-blue-800">Selon barème officiel</span>
+                <span className="text-blue-900">Un adulte</span>
+                <span className="font-bold text-blue-800">200 $ par mois</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-blue-900">Couple</span>
-                <span className="font-bold text-blue-800">Selon barème officiel</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-blue-900">Famille monoparentale</span>
-                <span className="font-bold text-blue-800">Selon barème officiel</span>
+                <span className="text-blue-900">Deux adultes</span>
+                <span className="font-bold text-blue-800">300 $ par mois</span>
               </div>
             </div>
             <p className="text-blue-700 text-xs">
-              Au-delà de ces seuils, chaque dollar de revenu de travail réduit la prestation d&apos;un dollar.
-              Signalez toujours vos revenus — ne pas le faire est considéré comme de la fraude.
+              La part du revenu qui dépasse le montant permis est d&apos;abord soustraite de la prestation.
+              Si au moins 1 $ de prestation demeure, un supplément égal à 25 % de cet excédent est ensuite
+              ajouté. Le revenu et tout changement de situation doivent être déclarés sans délai.
             </p>
+            <p className="text-blue-700 text-xs mt-3">Source : barèmes mensuels officiels de l&apos;aide sociale et de la solidarité sociale.</p>
           </div>
           <p className="text-slate-600 leading-relaxed mt-4">
             Des programmes de supplément au salaire comme <strong>Prime au travail</strong>{" "} peuvent aussi
@@ -367,21 +374,21 @@ function Content() {
         </div>
 
         {/* Lien officiel */}
-        <p className="text-center text-slate-400 text-xs mt-6">
-          Source officielle :{" "}
-          <a
-            href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale/aide-sociale-et-solidarite-sociale"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            quebec.ca – Aide sociale et solidarité sociale
-          </a>
+        <p className="text-center text-slate-400 text-xs mt-6 leading-relaxed">
+          Sources officielles :{" "}
+          <a href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale" target="_blank" rel="noopener noreferrer" className="underline">description des programmes</a>
+          {" · "}
+          <a href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/etapes-a-suivrepour-presenter-une-demande" target="_blank" rel="noopener noreferrer" className="underline">faire une demande</a>
+          {" · "}
+          <a href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/information-aide-financiere" target="_blank" rel="noopener noreferrer" className="underline">montants et dates</a>
+          {" · "}
+          <a href="https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/prestations-de-base" target="_blank" rel="noopener noreferrer" className="underline">prestations spéciales</a>
+          .
         </p>
       </article>
 
       <SiteFooter
-        legalText="Outil informatif non affilié au gouvernement. Les montants sont des estimations."
+        legalText="Outil informatif non affilié au gouvernement. Le montant réel dépend de l'évaluation officielle de votre dossier."
         contactLabel="Contactez-nous"
         contentClassName="max-w-2xl mx-auto text-center"
         style={{ marginTop: "16px" }}
