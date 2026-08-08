@@ -751,6 +751,7 @@ function checkSourceBackedClaimLedgers() {
     "allocation-canadienne-enfants-2026",
     "credit-canadien-formation-2026",
     "aide-financiere-etudes-quebec-2026",
+    "assurance-emploi-guide-complet-2026",
   ];
   const sensitiveAmountPattern = /(?:\d[\d\s]*(?:,\d+)?\s*(?:\$|%)|(?:\$)\s*\d)/;
   const expectedLedgerColumns = "claim | source officielle | date de vérification | statut | prochaine vérification | action";

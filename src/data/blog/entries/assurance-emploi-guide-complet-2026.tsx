@@ -34,14 +34,14 @@ function Content() {
         <div className="mb-8">
           <div className="flex gap-2 mb-4">
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">Emploi</span>
-            <span className="text-xs text-slate-400 py-0.5">7 min de lecture · 1 juin 2026</span>
+            <span className="text-xs text-slate-400 py-0.5">7 min de lecture · Publié le 1 juin 2026 · Vérifié le 8 août 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
             Assurance-emploi 2026 : Conditions, montants et comment faire votre demande
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Vous venez de perdre votre emploi ou vous anticipez une mise à pied ? L&apos;assurance-emploi (AE) peut vous verser
-            jusqu&apos;à <strong>695 $/semaine</strong>{" "}pour vous soutenir pendant votre transition. Mais les conditions sont
+            jusqu&apos;à <strong>729 $/semaine</strong>{" "}pour vous soutenir pendant votre transition. Mais les conditions sont
             strictes — voici tout ce que vous devez savoir en 2026.
           </p>
         </div>
@@ -50,9 +50,9 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Taux de prestations : <strong>55 % de votre salaire assurable</strong></li>
-            <li>✓ Maximum : <strong>695 $/semaine</strong>{" "} (plafond de rémunération assurable : 65 700 $/an)</li>
+            <li>✓ Maximum : <strong>729 $/semaine</strong>{" "} (plafond de rémunération assurable : 68 900 $/an)</li>
             <li>✓ Heures requises : de <strong>420 à 700 heures</strong>{" "} selon votre région</li>
-            <li>✓ Délai de carence d&apos;une semaine, puis versements aux deux semaines</li>
+            <li>✓ Délai de carence habituel temporairement annulé pour les demandes commençant au plus tard le 10 octobre 2026</li>
           </ul>
         </div>
 
@@ -64,9 +64,9 @@ function Content() {
             Il couvre également certaines absences pour maladie ou pour prendre soin d&apos;un proche.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            En 2026, le plafond de la rémunération assurable est fixé à <strong>65 700 $ par année.</strong>{" "}Vos cotisations et
-            vos prestations maximales sont toutes deux calculées sur ce montant. Le taux de cotisation des employés est
-            de <strong>1,66 %</strong>{" "}de chaque dollar gagné jusqu&apos;à ce plafond.
+            En 2026, le plafond de la rémunération assurable est fixé à <strong>68 900 $ par année.</strong>{" "}Vos cotisations et
+            vos prestations maximales sont toutes deux calculées sur ce montant. Au Québec, le taux de cotisation des employés est
+            de <strong>1,30 %</strong>{" "}de la rémunération assurable, jusqu&apos;à une cotisation annuelle maximale de 895,70 $.
           </p>
         </section>
 
@@ -100,8 +100,8 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-500 text-sm">
-            Note : Les nouveaux arrivants sur le marché du travail et ceux qui reviennent après une longue absence
-            ont généralement besoin de <strong>910 heures</strong>{" "}pour une première demande.
+            Note : un avis de violation lié à une ancienne demande peut augmenter le nombre d&apos;heures requis.
+            Service Canada doit confirmer l&apos;admissibilité selon le dossier et la région au début de la demande.
           </p>
         </section>
 
@@ -117,7 +117,7 @@ function Content() {
               { salaire: "Salaire annuel de 30 000 $", prestation: "~317 $/semaine" },
               { salaire: "Salaire annuel de 45 000 $", prestation: "~476 $/semaine" },
               { salaire: "Salaire annuel de 60 000 $", prestation: "~635 $/semaine" },
-              { salaire: "Salaire de 65 700 $ et plus", prestation: "695 $/semaine (maximum)" },
+              { salaire: "Salaire de 68 900 $ et plus", prestation: "729 $/semaine (maximum)" },
             ].map((ex) => (
               <div key={ex.salaire} className="bg-white rounded-xl border border-slate-100 px-4 py-3 flex justify-between items-center">
                 <p className="text-slate-700 text-sm font-medium">{ex.salaire}</p>
@@ -126,8 +126,9 @@ function Content() {
             ))}
           </div>
           <p className="text-slate-500 text-sm">
-            Si votre revenu familial net dépasse <strong>76 875 $</strong>{" "}et que vous avez reçu plus de 1 $ de prestations AE
-            régulières par le passé, une partie de vos prestations sera récupérée lors de votre déclaration de revenus.
+            En 2026, si votre revenu net dépasse <strong>86 125 $</strong>, vous pourriez devoir rembourser 30 % du moins élevé entre
+            l&apos;excédent sur ce seuil et vos prestations régulières. Des exemptions s&apos;appliquent, notamment si vous n&apos;avez
+            reçu aucune prestation régulière au cours des 10 années d&apos;imposition précédentes.
           </p>
         </section>
 
@@ -137,13 +138,17 @@ function Content() {
             La durée varie entre <strong>14 et 45 semaines</strong>{" "}pour les prestations régulières, en fonction
             du taux de chômage régional et du nombre d&apos;heures assurables accumulées.
           </p>
+          <p className="text-slate-600 leading-relaxed mb-4">
+            Une mesure temporaire peut ajouter 20 semaines, jusqu&apos;à un maximum de 65 semaines, à certains travailleurs de longue date
+            dont la demande commence au plus tard le 10 octobre 2026.
+          </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
             <p className="font-bold text-blue-800 mb-3">Exemples de durée de prestations</p>
             <div className="space-y-2 text-sm">
               {[
-                { heures: "700 h · chômage régional 5 %", duree: "17 semaines" },
-                { heures: "1 000 h · chômage régional 5 %", duree: "26 semaines" },
-                { heures: "700 h · chômage régional 12 %", duree: "33 semaines" },
+                { heures: "700 h · chômage régional 5 %", duree: "14 semaines" },
+                { heures: "1 000 h · chômage régional 5 %", duree: "18 semaines" },
+                { heures: "700 h · chômage régional 12 %", duree: "26 semaines" },
                 { heures: "1 820 h · chômage régional 13 %+", duree: "45 semaines (maximum)" },
               ].map((ex) => (
                 <div key={ex.heures} className="flex justify-between">
@@ -154,9 +159,10 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-600 leading-relaxed">
-            Un <strong>délai de carence d&apos;une semaine</strong>{" "}s&apos;applique dès votre première demande —
-            vous ne recevez aucune prestation pendant cette semaine d&apos;attente. Ensuite, les versements se font
-            toutes les deux semaines, conditionnels à la remise de votre déclaration bimensuelle en ligne.
+            Le délai de carence habituel est d&apos;une semaine. Il est toutefois <strong>annulé pour les nouvelles demandes qui commencent
+            entre le 30 mars 2025 et le 10 octobre 2026</strong>. Les versements sont ensuite conditionnels à la remise de déclarations
+            toutes les deux semaines. Dans certains cas, conserver le délai peut être avantageux avec un régime de prestations
+            supplémentaires de chômage; Service Canada précise cette exception dans la mesure temporaire.
           </p>
         </section>
 
@@ -207,7 +213,7 @@ function Content() {
               {
                 num: "1",
                 titre: "Obtenez votre relevé d'emploi",
-                texte: "Votre employeur doit vous remettre un relevé d'emploi (RE) dans les 5 jours ouvrables suivant la fin de votre emploi. Il peut aussi le transmettre directement à Service Canada en format électronique.",
+                texte: "Votre employeur doit émettre votre relevé d'emploi (RE) dans les 5 jours civils suivant la dernière période de paie. Vous pouvez vérifier les RE électroniques dans Mon dossier Service Canada.",
               },
               {
                 num: "2",
@@ -217,7 +223,7 @@ function Content() {
               {
                 num: "3",
                 titre: "Attendez la décision de Service Canada",
-                texte: "Le traitement prend généralement entre 2 et 4 semaines. Vous recevrez une notification par courrier ou dans votre espace Mon dossier Service Canada.",
+                texte: "La norme de service vise une décision dans les 28 jours suivant la demande, dans 80 % des cas. Vous pouvez suivre le dossier et les messages dans Mon dossier Service Canada.",
               },
               {
                 num: "4",
