@@ -86,7 +86,6 @@ function Content() {
             versée aux aînés de 65 ans et plus qui ont un faible revenu. En 2026, le montant
             dépend de votre revenu, de votre situation conjugale et de votre admissibilité à la
             pension de la Sécurité de la vieillesse.
-            Pourtant, des milliers d&apos;aînés québécois n&apos;en font jamais la demande.
           </p>
         </div>
 
@@ -126,14 +125,14 @@ function Content() {
             et dont le revenu annuel est insuffisant pour subvenir à leurs besoins essentiels.
           </p>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Contrairement à la pension SV qui est partiellement imposable, le SRG est entièrement{" "}
-            <strong>exonéré d&apos;impôt</strong>. Il est versé chaque mois directement dans votre compte
-            bancaire, en même temps que votre pension SV.
+            Contrairement à la pension SV, qui est imposable, le SRG est entièrement{" "}
+            <strong>exonéré d&apos;impôt</strong>. Il est ajouté à votre pension SV sous forme d&apos;un seul
+            paiement mensuel, par dépôt direct ou par chèque.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Le montant est recalculé chaque année en juillet à partir de votre déclaration de revenus
-            de l&apos;année précédente — ou tous les six mois si votre revenu a changé de façon
-            importante (retraite, veuvage, perte d&apos;emploi du conjoint).
+            de l&apos;année précédente. Si votre revenu annuel diminue à cause d&apos;une retraite ou de la
+            réduction d&apos;une autre pension, Service Canada peut plutôt estimer votre revenu de l&apos;année en cours.
           </p>
         </section>
 
@@ -155,7 +154,7 @@ function Content() {
               },
               {
                 titre: "Résider au Canada",
-                texte: "Vous devez être citoyen canadien ou résident légal et vivre au Canada."
+                texte: "Vous devez être citoyen canadien ou résident autorisé, vivre au Canada et ne pas avoir d&apos;entente de parrainage en cours, sauf exception officielle."
               },
               {
                 titre: "Avoir un revenu en dessous du seuil",
@@ -182,55 +181,63 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants du SRG en 2026 selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Les montants sont indexés trimestriellement en fonction de l&apos;indice des prix à la
-            consommation. Le tableau ci-dessous sert de structure de vérification : utilisez les
-            montants officiels de Service Canada pour confirmer votre situation.
+            Les montants sont révisés en janvier, avril, juillet et octobre selon l&apos;indice des prix à la
+            consommation. Voici les maximums officiels en vigueur de juillet à septembre 2026.
           </p>
 
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Tableau des montants du SRG — 2026</p>
+            <p className="font-bold text-blue-800 mb-3">Maximums du SRG — juillet à septembre 2026</p>
             <div className="space-y-3">
               {[
                 {
                   situation: "Personne seule, veuve ou divorcée",
-                  srg: "À vérifier",
-                  sv: "À vérifier",
-                  total: "Selon revenu",
+                  srg: "1 123,17 $/mois",
+                  seuil: "Revenu inférieur à 22 800 $",
                 },
                 {
                   situation: "Couple : les deux reçoivent la SV",
-                  srg: "À vérifier",
-                  sv: "À vérifier",
-                  total: "Selon revenu du couple",
+                  srg: "676,09 $/mois par personne",
+                  seuil: "Revenu combiné inférieur à 30 096 $",
                 },
                 {
-                  situation: "Couple : un seul reçoit la SV complète",
-                  srg: "À vérifier",
-                  sv: "À vérifier",
-                  total: "Variable selon la situation",
+                  situation: "Couple : le conjoint reçoit l’Allocation",
+                  srg: "676,09 $/mois",
+                  seuil: "Revenu combiné inférieur à 42 144 $",
+                },
+                {
+                  situation: "Couple : le conjoint ne reçoit ni la SV ni l’Allocation",
+                  srg: "1 123,17 $/mois",
+                  seuil: "Revenu combiné inférieur à 54 624 $",
                 },
               ].map((row) => (
                 <div key={row.situation} className="bg-white rounded-xl p-4 border border-blue-100">
                   <p className="font-semibold text-blue-900 text-sm mb-2">{row.situation}</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="grid grid-cols-1 gap-2 text-xs sm:grid-cols-2">
                     <div>
-                      <p className="text-blue-600">SRG max</p>
+                      <p className="text-blue-600">SRG maximal</p>
                       <p className="font-bold text-blue-800">{row.srg}</p>
                     </div>
                     <div>
-                      <p className="text-blue-600">Pension SV</p>
-                      <p className="font-bold text-blue-800">{row.sv}</p>
+                      <p className="text-blue-600">Seuil applicable</p>
+                      <p className="font-bold text-blue-800">{row.seuil}</p>
                     </div>
-                  </div>
-                  <div className="mt-2 pt-2 border-t border-blue-100">
-                    <p className="text-xs text-blue-600">Total combiné</p>
-                    <p className="font-extrabold text-blue-900">{row.total}</p>
                   </div>
                 </div>
               ))}
             </div>
             <p className="text-blue-600 text-xs mt-3">
-              * Les montants exacts changent avec les périodes de paiement. Consultez Service Canada pour les montants officiels en vigueur.
+              * Maximums non garantis : le paiement réel varie selon le revenu. Ces valeurs ne conviennent pas aux personnes qui reçoivent une pension partielle de la SV.
+            </p>
+            <p className="text-blue-700 text-xs mt-2">
+              Source :{" "}
+              <a
+                href="https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti/montant-prestation.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                montants officiels du SRG
+              </a>.
             </p>
           </div>
 
@@ -250,12 +257,13 @@ function Content() {
           </p>
 
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-amber-800 mb-3">Seuils de revenu 2026 à vérifier</p>
+            <p className="font-bold text-amber-800 mb-3">Seuils de revenu — juillet à septembre 2026</p>
             <div className="space-y-2 text-sm">
               {[
-                { situation: "Personne seule ou veuve/veuf", seuil: "Seuil officiel Service Canada" },
-                { situation: "Couple : les deux reçoivent la SV", seuil: "Seuil combiné officiel" },
-                { situation: "Couple : un seul reçoit la pension SV complète", seuil: "Seuil combiné officiel" },
+                { situation: "Personne seule, veuve ou divorcée", seuil: "Moins de 22 800 $" },
+                { situation: "Couple : les deux reçoivent la SV", seuil: "Moins de 30 096 $ combinés" },
+                { situation: "Couple : le conjoint reçoit l’Allocation", seuil: "Moins de 42 144 $ combinés" },
+                { situation: "Couple : le conjoint ne reçoit ni la SV ni l’Allocation", seuil: "Moins de 54 624 $ combinés" },
               ].map((row) => (
                 <div key={row.situation} className="flex justify-between items-center py-1.5 border-b border-amber-200 last:border-0">
                   <span className="text-amber-900">{row.situation}</span>
@@ -264,7 +272,18 @@ function Content() {
               ))}
             </div>
             <p className="text-amber-700 text-xs mt-3">
-              * Ces seuils sont mis à jour chaque année. Vérifiez les montants exacts sur le site de Service Canada.
+              * Les seuils n&apos;incluent pas la pension SV, les premiers 5 000 $ de revenu d&apos;emploi ou de travail autonome, ni 50 % de la tranche comprise entre 5 000 $ et 15 000 $.
+            </p>
+            <p className="text-amber-800 text-xs mt-2">
+              Source :{" "}
+              <a
+                href="https://www.canada.ca/fr/emploi-developpement-social/programmes/pensions/pension/statistiques/rapport-trimestriel/2026-trimestriel-juillet-septembre.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                rapport trimestriel officiel de juillet à septembre 2026
+              </a>.
             </p>
           </div>
 
@@ -282,15 +301,15 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-4">
             Dans la plupart des cas, si vous avez déjà reçu le SRG et que vous produisez votre
             déclaration de revenus chaque année, le renouvellement est <strong>automatique</strong>.
-            Mais pour une première demande, voici les étapes :
+            Pour une première inscription, voici les étapes :
           </p>
 
           <div className="space-y-4">
             {[
               {
                 num: "1",
-                titre: "Faites votre demande de pension SV en même temps",
-                texte: "La demande de SRG se fait généralement en même temps que la demande de pension SV, soit idéalement 6 mois avant vos 65 ans.",
+                titre: "Vérifiez votre lettre d’inscription",
+                texte: "Peu après votre 64e anniversaire, Service Canada peut confirmer votre inscription automatique à la SV et tenter de vous inscrire automatiquement au SRG.",
               },
               {
                 num: "2",
@@ -300,12 +319,12 @@ function Content() {
               {
                 num: "3",
                 titre: "Signalez tout changement de revenu en cours d&apos;année",
-                texte: "Si votre revenu baisse significativement (retraite, perte d&apos;emploi du conjoint, veuvage), vous pouvez demander un recalcul en cours d&apos;année avec une estimation de vos revenus actuels.",
+                texte: "Si votre revenu annuel baisse en raison d&apos;une retraite ou de la réduction d&apos;une pension, appelez Service Canada : le calcul peut alors utiliser une estimation du revenu de l&apos;année en cours.",
               },
               {
                 num: "4",
-                titre: "Contactez Service Canada",
-                texte: "Par téléphone au 1-800-277-9914, en personne dans un centre Service Canada, ou en ligne via Mon dossier Service Canada.",
+                titre: "Présentez une demande au besoin",
+                texte: "Si Service Canada vous le demande, utilisez Mon dossier Service Canada ou envoyez le formulaire papier correspondant à votre situation.",
               },
             ].map((step) => (
               <div key={step.num} className="flex gap-4 items-start bg-white rounded-2xl border border-slate-100 p-4">
@@ -322,10 +341,9 @@ function Content() {
 
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 mt-4">
             <p className="text-sm text-slate-700">
-              <strong>Astuce :</strong>{" "} Si vous n&apos;avez pas reçu d&apos;avis de renouvellement
-              automatique en mai ou juin, contactez Service Canada. Il arrive que des aînés perdent
-              leur SRG simplement parce qu&apos;ils ont oublié de produire leur déclaration de revenus —
-              même s&apos;ils n&apos;avaient aucun impôt à payer.
+              <strong>Astuce :</strong>{" "} Service Canada envoie en juillet une lettre indiquant si la
+              prestation est renouvelée, modifiée ou arrêtée. Si votre paiement de juillet manque,
+              contactez rapidement Service Canada avec vos renseignements de revenu.
             </p>
           </div>
         </section>
@@ -339,9 +357,9 @@ function Content() {
           </p>
           <div className="space-y-3 mb-4">
             {[
-              { label: "Pension de la Sécurité de la vieillesse (SV)", montant: "jusqu&apos;à ~700 $/mois", href: "/blog/securite-vieillesse-quebec-2026", federal: true },
+              { label: "Pension de la Sécurité de la vieillesse (SV)", montant: "selon l&apos;âge et le dossier", href: "/blog/securite-vieillesse-quebec-2026", federal: true },
               { label: "Supplément de revenu garanti (SRG)", montant: "montant selon revenu", href: null, federal: true },
-              { label: "Crédit de solidarité Québec (composante TVQ + habitation)", montant: "jusqu&apos;à ~1 198 $/an", href: "/fr/budget/credit-solidarite", federal: false },
+              { label: "Crédit de solidarité Québec (composante TVQ + habitation)", montant: "selon la situation", href: "/fr/budget/credit-solidarite", federal: false },
               { label: "Allocation logement du Québec", montant: "jusqu&apos;à 170 $/mois", href: "/fr/budget/allocation-logement", federal: false },
               { label: "Crédit d&apos;impôt pour frais médicaux", montant: "variable selon les dépenses", href: "/credit-impot-frais-medicaux-quebec", federal: false },
             ].map((item) => (
@@ -420,7 +438,7 @@ function Content() {
         <p className="text-center text-slate-400 text-xs mt-4">
           Source officielle :{" "}
           <a
-            href="https://www.canada.ca/fr/emploi-developpement-social/programmes/pensions/pension/supplement-revenu-garanti.html"
+            href="https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/supplement-revenu-garanti.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
