@@ -35,15 +35,16 @@ function Content() {
         <div className="mb-8">
           <div className="flex gap-2 mb-4">
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-pink-100 text-pink-700">Famille</span>
-            <span className="text-xs text-slate-400 py-0.5">7 min de lecture · 5 juin 2026</span>
+            <span className="text-xs text-slate-400 py-0.5">7 min de lecture · Publié le 5 juin 2026 · Vérifié le 14 août 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
             RQAP 2026 : Congé parental au Québec – montants, durée et procédure
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Le Régime québécois d&apos;assurance parentale (RQAP) est l&apos;un des programmes les plus généreux en Amérique du Nord pour les nouveaux parents.
-            En 2026, il verse des prestations allant jusqu&apos;à <strong>1 421 $ par semaine</strong>{" "}à la naissance ou à l&apos;adoption d&apos;un enfant.
-            Voici tout ce qu&apos;il faut savoir pour en profiter pleinement.
+            Le Régime québécois d&apos;assurance parentale (RQAP) remplace une partie du revenu lors d&apos;une grossesse,
+            d&apos;une naissance ou d&apos;une adoption. Selon le type de prestation et le régime choisi, le taux est de
+            <strong> 55 %, 70 % ou 75 %</strong>, jusqu&apos;au revenu maximal assurable de <strong>103 000 $ en 2026</strong>.
+            Voici les règles à vérifier avant de faire une demande.
           </p>
         </div>
 
@@ -51,10 +52,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Admissible dès <strong>2 000 $ de revenus</strong>{" "}dans l&apos;année — salariés ET travailleurs autonomes</li>
+            <li>✓ Revenu assurable minimal : <strong>2 000 $ pendant la période de référence</strong>, sans minimum d&apos;heures</li>
             <li>✓ Deux régimes au choix : base (plus de semaines) ou particulier (taux plus élevés)</li>
-            <li>✓ Semaines de <strong>paternité exclusives</strong>{" "}et non transférables pour encourager le partage</li>
-            <li>✓ Demande en ligne simple — versements aux 2 semaines en 3 à 5 jours ouvrables</li>
+            <li>✓ Prestations exclusives à chaque parent et prestations partageables, selon la situation</li>
+            <li>✓ Décision généralement rendue dans les <strong>5 jours ouvrables</strong>{" "}suivant la réception de tous les renseignements requis</li>
           </ul>
         </div>
 
@@ -63,18 +64,17 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">C&apos;est quoi le RQAP et qui y a droit ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
             Le RQAP est un programme provincial qui remplace une partie du revenu des parents québécois lors d&apos;une naissance ou d&apos;une adoption.
-            Contrairement au régime fédéral d&apos;assurance-emploi, le RQAP offre des taux de remplacement plus élevés, s&apos;applique
-            dès le <strong>premier dollar de revenus de travail</strong>{" "}et couvre aussi les <strong>travailleurs autonomes</strong>.
+            Il couvre notamment les travailleurs salariés et autonomes qui satisfont aux conditions d&apos;admissibilité.
           </p>
           <p className="text-slate-600 leading-relaxed mb-4">
             Pour y avoir droit en 2026, vous devez remplir quatre conditions :
           </p>
           <div className="grid grid-cols-1 gap-3">
             {[
-              { titre: "Résider au Québec", desc: "À la date de naissance ou d'adoption de l'enfant" },
-              { titre: "Revenus minimaux de 2 000 $", desc: "Revenus de travail (emploi ou autonome) dans les 52 dernières semaines ou l'année civile précédente" },
-              { titre: "Réduction de revenus ou d'heures", desc: "Au moins 40 % de réduction de vos revenus hebdomadaires normaux" },
-              { titre: "Lien parental", desc: "Être le père, la mère, le conjoint ou la conjointe de la mère, ou le parent adoptif" },
+              { titre: "Résider au Québec", desc: "À la date de début de la période de prestations; une règle additionnelle s'applique aux travailleurs autonomes" },
+              { titre: "Revenu assurable d'au moins 2 000 $", desc: "Pendant la période de référence, peu importe le nombre d'heures travaillées" },
+              { titre: "Avoir cotisé", desc: "Avoir payé ou devoir payer des cotisations au RQAP ou à l'assurance-emploi pendant la période de référence" },
+              { titre: "Cesser ou réduire le travail", desc: "Pour un salarié : revenu hebdomadaire réduit d'au moins 40 %; pour un autonome : temps d'activité réduit d'au moins 40 %" },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
                 <p className="font-semibold text-slate-800 text-sm">{item.titre}</p>
@@ -98,10 +98,12 @@ function Content() {
               <div className="px-4 py-3 text-center">Régime particulier</div>
             </div>
             {[
-              { type: "Maternité (mère)", base: "18 sem. à 70 %", part: "15 sem. à 75 %" },
-              { type: "Paternité (père)", base: "5 sem. à 70 %", part: "3 sem. à 75 %" },
+              { type: "Grossesse ou accouchement", base: "18 sem. à 70 %", part: "15 sem. à 75 %" },
+              { type: "Parent qui n'a pas donné naissance", base: "5 sem. à 70 %", part: "3 sem. à 75 %" },
               { type: "Parentales", base: "7 sem. 70 % + 25 sem. 55 %", part: "25 sem. à 75 %" },
-              { type: "Adoption", base: "12 sem. 70 % + 25 sem. 55 %", part: "28 sem. à 75 %" },
+              { type: "Adoption — exclusives", base: "5 sem. par parent à 70 %", part: "3 sem. par parent à 75 %" },
+              { type: "Adoption — accueil et soutien", base: "13 sem. à 70 %", part: "12 sem. à 75 %" },
+              { type: "Adoption — partageables", base: "7 sem. 70 % + 25 sem. 55 %", part: "25 sem. à 75 %" },
             ].map((row, i) => (
               <div key={row.type} className={`grid grid-cols-3 text-sm border-t border-slate-100 ${i % 2 === 0 ? "bg-slate-50" : "bg-white"}`}>
                 <div className="px-4 py-3 font-medium text-slate-700">{row.type}</div>
@@ -120,16 +122,18 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants des prestations RQAP en 2026</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Vos prestations sont calculées en fonction de votre <strong>revenu hebdomadaire moyen</strong>{" "}des 26 dernières semaines (ou de l&apos;année précédente pour les travailleurs autonomes),
-            jusqu&apos;à concurrence du revenu maximum assurable, fixé à <strong>98 000 $ par année</strong>{" "}en 2026.
+            Vos prestations sont calculées en fonction de votre <strong>revenu hebdomadaire moyen</strong>. Pour un salarié,
+            le calcul repose habituellement sur la moyenne des 26 dernières semaines de revenu assurable de la période de référence.
+            Pour un travailleur autonome, il repose généralement sur 1/52 des revenus assurables de l&apos;année civile de référence.
+            Le revenu maximal assurable est fixé à <strong>103 000 $ en 2026</strong>.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Prestations hebdomadaires maximales 2026</p>
+            <p className="font-bold text-blue-800 mb-3">Exemples de calcul sur un revenu hebdomadaire moyen de 1 000 $</p>
             <div className="space-y-2">
               {[
-                { taux: "Taux de 75 % (régime particulier)", montant: "1 421 $/semaine" },
-                { taux: "Taux de 70 % (régime de base)", montant: "1 327 $/semaine" },
-                { taux: "Taux de 55 % (semaines partagées, régime de base)", montant: "1 042 $/semaine" },
+                { taux: "Taux de 75 % (régime particulier)", montant: "750 $/semaine" },
+                { taux: "Taux de 70 % (régime de base)", montant: "700 $/semaine" },
+                { taux: "Taux de 55 % (semaines partagées, régime de base)", montant: "550 $/semaine" },
               ].map((ligne) => (
                 <div key={ligne.taux} className="flex justify-between text-sm">
                   <span className="text-blue-900">{ligne.taux}</span>
@@ -139,7 +143,7 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-500 text-sm">
-            * Basé sur le revenu maximum assurable annuel de 98 000 $ (1 884,62 $/semaine). Les montants réels varient selon votre revenu personnel.
+            * Exemples arithmétiques, non estimations personnalisées. Le simulateur officiel et la décision du RQAP déterminent le montant réel.
           </p>
         </section>
 
@@ -150,19 +154,19 @@ function Content() {
             {[
               {
                 titre: "Prestations de maternité",
-                texte: "Réservées exclusivement à la mère biologique. Elles peuvent être prises avant et après l'accouchement. Dans le régime de base, c'est 18 semaines à 70 % ; dans le régime particulier, 15 semaines à 75 %.",
+                texte: "Réservées à la personne qui a vécu la grossesse ou l'accouchement. Elles peuvent être prises avant et après l'accouchement. Le régime de base offre 18 semaines à 70 %; le régime particulier, 15 semaines à 75 %.",
               },
               {
-                titre: "Prestations de paternité",
-                texte: "Exclusives au père ou au conjoint de la mère. Ces semaines ne peuvent pas être transférées à l'autre parent — si elles ne sont pas utilisées, elles sont perdues. C'est 5 semaines à 70 % (base) ou 3 semaines à 75 % (particulier).",
+                titre: "Prestations au parent qui n'a pas donné naissance",
+                texte: "Exclusives au parent qui n'a pas donné naissance et qui assure une présence régulière auprès de l'enfant. Le régime de base offre 5 semaines à 70 %; le régime particulier, 3 semaines à 75 %.",
               },
               {
                 titre: "Prestations parentales",
-                texte: "Ces semaines peuvent être partagées entre les deux parents comme ils le souhaitent. Dans le régime de base : 7 semaines à 70 % + 25 semaines à 55 %. Dans le régime particulier : 25 semaines à 75 %. Les deux parents peuvent prendre leur congé simultanément.",
+                texte: "Ces semaines peuvent être partagées entre les parents. Dans le régime de base : 7 semaines à 70 % + 25 semaines à 55 %. Dans le régime particulier : 25 semaines à 75 %. Des semaines additionnelles s'ajoutent lorsque chaque parent reçoit au moins 8 semaines partageables au régime de base, ou 6 au régime particulier.",
               },
               {
                 titre: "Prestations d'adoption",
-                texte: "Pour les parents adoptifs légaux d'un enfant. Le parent principal reçoit des semaines exclusives semblables aux semaines de maternité. Le tout représente 37 semaines (base) ou 28 semaines (particulier) selon le régime choisi.",
+                texte: "Chaque parent adoptant peut recevoir 5 semaines exclusives à 70 % au régime de base, ou 3 à 75 % au régime particulier. S'ajoutent des prestations partageables d'accueil et de soutien ainsi que des prestations d'adoption partageables.",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-5 py-4">
@@ -181,12 +185,12 @@ function Content() {
               {
                 num: "1",
                 titre: "Préparez vos documents",
-                texte: "Numéro d'assurance sociale, preuve de naissance ou d'adoption, renseignements sur vos revenus des 52 dernières semaines (talons de paie ou avis de cotisation), et coordonnées bancaires pour le dépôt direct.",
+                texte: "Préparez les renseignements demandés selon votre statut. Un salarié doit notamment déclarer son revenu d'emploi brut et le nombre de relevés d'emploi attendus; un travailleur autonome doit déclarer le revenu net d'entreprise pertinent.",
               },
               {
                 num: "2",
-                titre: "Faites la demande en ligne",
-                texte: "Rendez-vous sur rqap.gouv.qc.ca. La demande peut être faite jusqu'à 4 semaines avant la naissance prévue ou jusqu'à 4 semaines après la date réelle. Pour l'adoption, jusqu'à 4 semaines après l'arrivée de l'enfant.",
+                titre: "Transmettez votre demande",
+                texte: "Faites votre demande en ligne ou par téléphone. Elle peut être transmise au plus tôt le dimanche de la semaine où vous voulez commencer les prestations. Jusqu'à 6 semaines passées peuvent être accordées sans justification; au-delà, certaines semaines pourraient être perdues.",
               },
               {
                 num: "3",
@@ -196,12 +200,12 @@ function Content() {
               {
                 num: "4",
                 titre: "Recevez votre décision",
-                texte: "Le RQAP rend généralement sa décision en 3 à 5 jours ouvrables. En cas de problème ou de refus, vous pouvez demander une révision dans les 90 jours suivant la décision.",
+                texte: "Le RQAP rend généralement sa décision dans les 5 jours ouvrables suivant la réception de tous les renseignements requis. Vous pouvez demander une révision dans les 90 jours suivant la réception d'un avis de décision.",
               },
               {
                 num: "5",
                 titre: "Recevez vos versements",
-                texte: "Les prestations sont versées toutes les deux semaines par dépôt direct dans votre compte bancaire. Les prestations sont imposables — pensez à demander des retenues à la source pour éviter une surprise au moment de l'impôt.",
+                texte: "Un versement effectué le dimanche couvre deux semaines civiles. Par dépôt direct, les fonds arrivent généralement 3 à 4 jours après le traitement. Des retenues d'impôt sont appliquées et peuvent être ajustées sur demande.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -231,15 +235,15 @@ function Content() {
               },
               {
                 titre: "Grossesse multiple",
-                desc: "En cas de jumeaux, triplés ou plus, vous recevez des semaines supplémentaires de prestations parentales partagées.",
+                desc: "Chaque parent peut recevoir 5 semaines exclusives supplémentaires à 70 % au régime de base ou 3 semaines à 75 % au régime particulier.",
               },
               {
-                titre: "Naissance ou adoption d'un enfant handicapé",
-                desc: "Des semaines supplémentaires peuvent s'appliquer pour les parents d'un enfant ayant une condition médicale particulière.",
+                titre: "Parent seul",
+                desc: "Le seul parent mentionné à l'acte de naissance peut recevoir 5 semaines exclusives à 70 % au régime de base ou 3 semaines à 75 % au régime particulier.",
               },
               {
                 titre: "Travailleurs autonomes",
-                desc: "Vous devez avoir cotisé au RQAP sur vos revenus de travail autonome. La cotisation apparaît sur votre déclaration de revenus provinciale.",
+                desc: "Vous devez avoir payé ou devoir payer des cotisations et réduire d'au moins 40 % le temps consacré à vos activités d'entreprise.",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
@@ -266,18 +270,18 @@ function Content() {
         <p className="text-center text-slate-400 text-xs mt-6">
           Source officielle :{" "}
           <a
-            href="https://www.rqap.gouv.qc.ca"
+            href="https://www.quebec.ca/famille-et-soutien-aux-personnes/grossesse-parentalite/aide-financiere-prestations/regime-quebecois-assurance-parentale"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
           >
-            rqap.gouv.qc.ca – Régime québécois d&apos;assurance parentale
+            Québec.ca – Régime québécois d&apos;assurance parentale
           </a>
         </p>
       </article>
 
       <SiteFooter
-        legalText="Outil informatif non affilié au gouvernement. Les montants sont des estimations."
+        legalText="Outil informatif non affilié au gouvernement. Les exemples ne remplacent pas le calcul officiel du RQAP."
         contactLabel="Contactez-nous"
         contentClassName="max-w-2xl mx-auto text-center"
         style={{ marginTop: "16px" }}
