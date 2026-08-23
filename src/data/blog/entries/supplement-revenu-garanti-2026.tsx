@@ -295,6 +295,30 @@ function Content() {
           </p>
         </section>
 
+        <aside className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 p-5" aria-labelledby="srg-next-step-title">
+          <p id="srg-next-step-title" className="font-bold text-amber-950 mb-2">
+            Votre revenu semble sous le seuil du SRG?
+          </p>
+          <p className="text-sm leading-relaxed text-amber-900 mb-4">
+            Le SRG n&apos;est qu&apos;une des aides possibles. Vérifiez aussi les programmes liés au logement,
+            aux crédits d&apos;impôt et au revenu selon votre situation complète.
+          </p>
+          <TrackingLink
+            href="/fr/questionnaire"
+            className="inline-block rounded-xl bg-amber-400 px-5 py-3 text-sm font-bold text-slate-950"
+            tracking={{
+              cta_name: "voir_mes_autres_aides",
+              cta_location: "srg_after_thresholds",
+              destination: "/fr/questionnaire",
+            }}
+          >
+            Voir mes autres aides possibles →
+          </TrackingLink>
+          <p className="mt-3 text-xs text-amber-800">
+            Outil indicatif de 2 minutes. L&apos;admissibilité finale doit être confirmée auprès des organismes officiels.
+          </p>
+        </aside>
+
         {/* Section 5 — Comment faire la demande */}
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Comment faire votre demande de SRG ?</h2>

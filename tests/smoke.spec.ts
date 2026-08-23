@@ -225,6 +225,7 @@ const editorialPageContracts = [
     title: /Suppl[eé]ment de revenu garanti.*2026/i,
     h1: /Suppl[eé]ment de revenu garanti.*2026/i,
     canonical: "https://argentqc.ca/supplement-revenu-garanti-2026",
+    minimumQuestionnaireLinks: 3,
   },
   {
     path: "/retraite/combien-cotiser-reer",
@@ -276,7 +277,9 @@ test.describe("Contrats des pages editoriales prioritaires", () => {
       const questionnaireLinks = await page.getByRole("link").evaluateAll((links) =>
         links.filter((link) => link.getAttribute("href")?.includes("questionnaire")).length
       );
-      expect(questionnaireLinks, `${contract.path} doit proposer un lien vers le questionnaire`).toBeGreaterThan(0);
+      expect(questionnaireLinks, `${contract.path} doit proposer ses liens vers le questionnaire`).toBeGreaterThanOrEqual(
+        "minimumQuestionnaireLinks" in contract ? contract.minimumQuestionnaireLinks : 1
+      );
     });
   }
 });
