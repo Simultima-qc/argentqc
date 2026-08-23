@@ -228,6 +228,13 @@ const editorialPageContracts = [
     minimumQuestionnaireLinks: 3,
   },
   {
+    path: "/blog/securite-vieillesse-quebec-2026",
+    label: "Securite de la vieillesse 2026",
+    title: /S[eé]curit[eé] de la vieillesse.*2026/i,
+    h1: /S[eé]curit[eé] de la vieillesse.*2026/i,
+    canonical: "https://argentqc.ca/blog/securite-vieillesse-quebec-2026",
+  },
+  {
     path: "/retraite/combien-cotiser-reer",
     label: "Combien cotiser au REER",
     title: /Combien cotiser.*REER/i,
