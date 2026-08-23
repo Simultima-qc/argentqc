@@ -15,6 +15,8 @@ test.describe("Page d'accueil (/fr)", () => {
     await page.goto("/fr");
     await expect(page).toHaveURL(/\/fr/);
     await expect(page).toHaveTitle(/ArgentQC/i);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/aides financières.*situation/i);
+    await expect(page.getByText(/liens vers les sources officielles/i)).toBeVisible();
   });
 
   test("la redirection / -> /fr fonctionne", async ({ page }) => {
@@ -28,6 +30,7 @@ test.describe("Page d'accueil (/fr)", () => {
     await expect(cta).toBeVisible();
     const href = await cta.getAttribute("href");
     expect(href).toMatch(/questionnaire/);
+    await expect(cta).toContainText(/Vérifier les aides possibles/i);
   });
 });
 

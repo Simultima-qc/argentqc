@@ -157,7 +157,7 @@ export default async function LocalizedHomePage({
         </div>
       </section>
 
-      {/* ── CE QUE VOUS PERDEZ ── */}
+      {/* ── REPÈRES DE CONFIANCE ── */}
       <section className="px-5 py-10" style={{ background: "#0F1B2D", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-6 text-center text-2xl font-extrabold"
@@ -165,10 +165,16 @@ export default async function LocalizedHomePage({
             {h.lossTitle}
           </h2>
           <div className="flex flex-col gap-3 mb-5">
-            {h.lossItems.map((item) => (
+            {h.lossItems.map((item, index) => (
               <div key={item} className="flex items-center gap-3 rounded-xl px-4 py-4"
                 style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                <span style={{ fontSize: "1.1rem", flexShrink: 0 }}>❌</span>
+                <span
+                  aria-hidden="true"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold"
+                  style={{ background: "rgba(16,185,129,0.14)", color: "#6EE7B7", border: "1px solid rgba(110,231,183,0.2)" }}
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <span className="text-sm font-medium" style={{ color: "rgba(240,235,224,0.75)" }}>{item}</span>
               </div>
             ))}
