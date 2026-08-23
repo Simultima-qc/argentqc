@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import TrackingLink from "@/components/TrackingLink";
 import type { BlogArticle } from "@/data/blog/types";
+import { serializeJsonLd } from "@/utils/jsonLd";
 
 const slug = "securite-vieillesse-quebec-2026";
 
@@ -58,7 +59,7 @@ const faqSchema = {
 function Content() {
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
       <header style={{ background: "#060D1A", padding: "14px 16px", boxShadow: "0 1px 0 rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto flex items-center justify-between">
           <Link href="/fr" style={{ fontFamily: "var(--font-playfair)", fontWeight: 800, fontSize: "15px", color: "#F5C842", textDecoration: "none" }}>ArgentQC.ca</Link>
