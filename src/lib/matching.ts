@@ -75,7 +75,7 @@ export function trouverProgrammes(reponses: ReponseQuestionnaire): Programme[] {
 }
 
 export function calculerTotal(programmes: Programme[]): { min: number; max: number } {
-  return programmes.reduce(
+  return programmes.filter((programme) => programme.montant_sommable !== false).reduce(
     (acc, p) => ({
       min: acc.min + p.montant_min,
       max: acc.max + p.montant_max,

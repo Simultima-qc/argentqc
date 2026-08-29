@@ -18,6 +18,8 @@ export interface Programme {
   montant_min: number;
   montant_max: number;
   montant_affiche: string; // ex: "Jusqu'à 10 000 $" ou "500 $ – 10 000 $"
+  montant_sommable?: boolean;
+  preselection_only?: boolean;
   description: string;
   conditions: string[];
   lien_officiel: string;

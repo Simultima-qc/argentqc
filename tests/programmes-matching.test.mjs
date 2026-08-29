@@ -231,6 +231,7 @@ test("municipal programmes are tiered as verifier and non-municipal programmes a
   assert.equal(getConfidenceTier({ niveau: "municipal" }), "verifier");
   assert.equal(getConfidenceTier({ niveau: "provincial" }), "principal");
   assert.equal(getConfidenceTier({ niveau: "federal" }), "principal");
+  assert.equal(getConfidenceTier({ niveau: "provincial", preselection_only: true }), "verifier");
 });
 
 test("top pistes do not rank a verifier programme before an equivalent principal programme", () => {

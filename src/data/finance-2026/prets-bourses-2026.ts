@@ -60,11 +60,11 @@ export const pretsBourses2026 = defineVersionedDataset(
   "prets-bourses-etudiants-2026",
   {
     year: 2026,
-    lastUpdated: "2026-04-18",
-    status: "estimate",
+    lastUpdated: "2026-08-28",
+    status: "official",
     sourceNote:
-      "Montants estimés d'après les barèmes AFE publiés pour 2025-2026 et le régime fiscal QC/CA. " +
-      "Les seuils exacts varient selon le dossier individuel — vérifier auprès de l'AFE et de l'ARC.",
+      "Règles vérifiées dans les sources officielles AFE 2026-2027, Revenu Québec et ARC. " +
+      "Aucun montant AFE personnalisé n'est estimé par ArgentQC.",
     reviewCadence: "quarterly",
   },
   {
@@ -77,28 +77,28 @@ export const pretsBourses2026 = defineVersionedDataset(
         category: "pret" as AideType,
         summary:
           "Prêts remboursables accordés aux étudiants inscrits dans un établissement reconnu au Québec. " +
-          "Le montant est calculé selon vos frais réels, votre revenu et votre situation financière (contribution parentale, autonomie ou conjoint). " +
-          "Le remboursement commence 6 mois après la fin des études.",
+          "L'aide est calculée selon les dépenses admises, les contributions applicables et la situation complète. " +
+          "Après les études, aucun remboursement de capital n'est exigé pendant six mois, mais les intérêts sont à la charge de l'emprunteur dès le mois suivant.",
         summaryEn:
           "Repayable loans granted to students enrolled at a recognized Quebec institution. " +
-          "The amount is calculated based on actual costs, income, and financial situation. " +
-          "Repayment starts 6 months after the end of studies.",
+          "Aid is calculated from recognized expenses, applicable contributions and the complete situation. " +
+          "After studies, no principal is due for six months, but interest is the borrower's responsibility starting the following month.",
         eligibilityHighlights: [
           "Être inscrit dans un établissement reconnu par l'AFE",
-          "Résider au Québec depuis au moins 12 mois consécutifs",
-          "Satisfaire les critères de situation financière (revenu personnel et/ou parental)",
-          "Être à temps plein, ou à temps partiel selon certaines conditions",
+          "Être considéré résident du Québec selon l'un des critères officiels",
+          "Satisfaire les critères de citoyenneté ou de statut, de période d'admissibilité et d'endettement",
+          "Être à temps plein ou réputé temps plein; le prêt pour études à temps partiel est un programme distinct",
           "Pas de limite d'âge — les adultes en retour aux études sont admissibles",
         ],
         eligibilityHighlightsEn: [
           "Enrolled in an AFE-recognized institution",
-          "Quebec resident for at least 12 consecutive months",
-          "Meet financial status criteria (personal and/or parental income)",
-          "Full-time, or part-time under specific conditions",
+          "Be considered a Quebec resident under one of the official criteria",
+          "Meet citizenship or status, eligibility-period and debt-limit requirements",
+          "Study full-time or be deemed full-time; the part-time loan is a separate program",
           "No age limit — adult learners are eligible",
         ],
-        amountLabel: "Environ 2 000 $ – 17 500 $/année (temps plein) selon la situation",
-        amountLabelEn: "Approx. $2,000–$17,500/year (full-time) based on situation",
+        amountLabel: "Montant calculé selon le dossier complet",
+        amountLabelEn: "Amount calculated from the complete file",
         ctaLabel: "Faire une demande sur monPortail AFE",
         ctaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/demander-aide-financiere",
         tags: ["AFE", "prêts", "remboursable", "Québec", "temps plein", "temps partiel"],
@@ -111,25 +111,25 @@ export const pretsBourses2026 = defineVersionedDataset(
         organism: "Aide financière aux études — Gouvernement du Québec",
         category: "bourse" as AideType,
         summary:
-          "Portion non remboursable de l'aide AFE accordée aux étudiants dont le revenu familial est sous les seuils. " +
+          "Portion non remboursable accordée lorsque les besoins reconnus dépassent la portion de prêt établie. " +
           "La bourse est calculée automatiquement lors de l'analyse de votre dossier AFE — aucune demande distincte n'est requise.",
         summaryEn:
-          "Non-repayable portion of AFE aid for students whose family income is below set thresholds. " +
+          "Non-repayable portion awarded when recognized needs exceed the established loan portion. " +
           "The grant is calculated automatically during your AFE application — no separate request is needed.",
         eligibilityHighlights: [
           "Admissible à l'aide AFE (prêts)",
-          "Revenu familial brut sous le seuil AFE (variable selon la situation : ~35 000 – 65 000 $)",
+          "Besoins reconnus supérieurs à la portion de prêt calculée",
           "Déterminée automatiquement lors du traitement du dossier",
           "Peut transformer une partie des prêts en bourses non remboursables",
         ],
         eligibilityHighlightsEn: [
           "Must be eligible for AFE loans",
-          "Family income below AFE threshold (varies: ~$35,000–$65,000)",
+          "Recognized needs exceed the calculated loan portion",
           "Automatically assessed when your application is reviewed",
           "Can convert part of the loan amount into a non-repayable grant",
         ],
-        amountLabel: "Variable — jusqu'à environ 8 000 $/année pour les dossiers à faible revenu",
-        amountLabelEn: "Variable — up to approx. $8,000/year for low-income cases",
+        amountLabel: "Variable — aucun plafond universel",
+        amountLabelEn: "Variable — no universal cap",
         ctaLabel: "Inclus dans la demande AFE",
         ctaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/demander-aide-financiere",
         tags: ["AFE", "bourses", "non remboursable", "faible revenu", "Québec"],
@@ -174,11 +174,11 @@ export const pretsBourses2026 = defineVersionedDataset(
         organism: "Agence du revenu du Canada",
         category: "credit_impot" as AideType,
         summary:
-          "Crédit d'impôt non remboursable de 15 % sur les frais de scolarité admissibles payés à un " +
+          "Crédit d'impôt non remboursable de 14 % en 2026 sur les frais de scolarité admissibles payés à un " +
           "établissement d'enseignement postsecondaire. Peut être reporté indéfiniment ou transféré en partie " +
           "à un parent ou conjoint (jusqu'à 5 000 $).",
         summaryEn:
-          "Non-refundable 15% credit on eligible tuition paid to a post-secondary institution. " +
+          "Non-refundable 14% credit in 2026 on eligible tuition paid to a post-secondary institution. " +
           "Can be carried forward indefinitely or partially transferred to a parent or spouse (up to $5,000).",
         eligibilityHighlights: [
           "Frais de scolarité admissibles supérieurs à 100 $ par établissement",
@@ -192,8 +192,8 @@ export const pretsBourses2026 = defineVersionedDataset(
           "Unused credit carries forward indefinitely",
           "Can transfer up to $5,000 to a parent or spouse",
         ],
-        amountLabel: "15 % des frais admissibles (crédit non remboursable fédéral)",
-        amountLabelEn: "15% of eligible tuition (federal non-refundable credit)",
+        amountLabel: "14 % des frais admissibles en 2026",
+        amountLabelEn: "14% of eligible tuition in 2026",
         ctaLabel: "Ligne 32300 — Déclaration fédérale",
         ctaHref: "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-32300-frais-admissibles.html",
         tags: ["crédit d'impôt", "fédéral", "frais scolarité", "T2202", "non remboursable"],
@@ -201,34 +201,32 @@ export const pretsBourses2026 = defineVersionedDataset(
       },
       {
         id: "credit-qc-formation",
-        titleFr: "Crédit québécois pour frais de formation",
-        titleEn: "Quebec Training Expense Credit",
+        titleFr: "Crédit québécois pour frais de scolarité ou d'examen",
+        titleEn: "Quebec Tuition or Examination Credit",
         organism: "Revenu Québec",
         category: "credit_impot" as AideType,
         summary:
-          "Le Québec a aboli le crédit d'impôt général pour frais de scolarité universitaires. " +
-          "Il subsiste un crédit pour certains frais de formation professionnelle ou d'examen admissibles, " +
-          "calculé à 20 % du montant payé. Vérifiez votre RL-8 et le guide Revenu Québec pour confirmer vos dépenses.",
+          "Le Québec accorde un crédit non remboursable de 8 % pour les frais de scolarité ou d'examen admissibles. " +
+          "Les frais reconnus et les règles de transfert sont détaillés à l'annexe T et par Revenu Québec.",
         summaryEn:
-          "Quebec eliminated the general university tuition tax credit. A credit for eligible vocational training " +
-          "or examination fees remains, calculated at 20% of the amount paid. " +
-          "Check your RL-8 and the Revenu Québec guide to confirm eligible expenses.",
+          "Quebec provides an 8% non-refundable credit for eligible tuition or examination fees. " +
+          "Recognized fees and transfer rules are detailed on Schedule T and by Revenu Québec.",
         eligibilityHighlights: [
-          "Frais de formation professionnelle ou d'examens reconnus (RL-8)",
-          "Taux : 20 % des dépenses admissibles",
-          "Attention : pas de crédit pour les frais de scolarité universitaires standard",
+          "Frais de scolarité ou d'examen reconnus",
+          "Taux : 8 % des dépenses admissibles",
+          "Les frais universitaires admissibles ne sont pas abolis",
           "Confirmer les dépenses admissibles sur le site de Revenu Québec",
         ],
         eligibilityHighlightsEn: [
-          "Eligible vocational training or recognized exam fees (RL-8)",
-          "Rate: 20% of eligible expenses",
-          "Note: no credit for standard university tuition in Quebec",
+          "Eligible tuition or recognized examination fees",
+          "Rate: 8% of eligible expenses",
+          "Eligible university tuition has not been abolished",
           "Confirm eligible expenses on the Revenu Québec website",
         ],
-        amountLabel: "20 % des frais de formation ou d'examen admissibles",
-        amountLabelEn: "20% of eligible training or exam fees",
-        ctaLabel: "Revenu Québec — Crédit pour formation",
-        ctaHref: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-les-frais-de-formation/",
+        amountLabel: "8 % des frais de scolarité ou d'examen admissibles",
+        amountLabelEn: "8% of eligible tuition or examination fees",
+        ctaLabel: "Revenu Québec — Ligne 398",
+        ctaHref: "https://www.revenuquebec.ca/fr/citoyens/declaration-de-revenus/produire-votre-declaration-de-revenus/comment-remplir-votre-declaration-de-revenus/aide-par-ligne/350-a-398-1-credits-dimpot-non-remboursables/ligne-398/",
         tags: ["crédit d'impôt", "provincial", "Québec", "RL-8", "formation professionnelle"],
         seoKeywords: ["crédit impôt formation Québec 2026", "RL-8 Québec", "frais formation Revenu Québec"],
       },
@@ -239,42 +237,42 @@ export const pretsBourses2026 = defineVersionedDataset(
         organism: "Gouvernement du Québec",
         category: "bourse" as AideType,
         summary:
-          "Bourse annuelle de 5 000 $ pour les étudiants inscrits dans des programmes prioritaires. " +
+          "Bourse de 1 500 $ par session admissible au collégial ou de 2 500 $ à l'université. " +
           "Attention : le programme est en phase de continuité uniquement. " +
           "La dernière session d'inscription à un nouveau programme admissible était l'hiver 2025. " +
           "Seuls les étudiants qui poursuivent un programme déjà admissible peuvent encore en bénéficier.",
         summaryEn:
-          "Annual $5,000 grant for students in priority programs. " +
+          "$1,500 per eligible college term or $2,500 per eligible university term. " +
           "Important: the program is in continuity phase only. " +
           "The last eligible enrollment session was Winter 2025. " +
           "Only students continuing an already-eligible program may still benefit.",
         eligibilityHighlights: [
           "⚠️ Continuité seulement — dernière inscription : hiver 2025",
-          "Être déjà inscrit dans un programme admissible avant l'hiver 2025",
+          "Avoir commencé un programme admissible au plus tard à l'hiver 2025 et poursuivre ce même programme",
           "Programme prioritaire : sciences, génie, santé, enseignement, travail social",
           "Inscription à temps plein",
-          "Revenus sous le seuil de la Bourse Perspective",
+          "Respecter les conditions de charge, de réussite, de résidence et de session",
         ],
         eligibilityHighlightsEn: [
           "⚠️ Continuity only — last eligible enrollment: Winter 2025",
-          "Must already be enrolled in an eligible program before Winter 2025",
+          "Started an eligible program no later than Winter 2025 and continue in that same program",
           "Priority fields: sciences, engineering, healthcare, education, social work",
           "Full-time enrollment required",
-          "Income below the Bourse Perspective threshold",
+          "Meet course-load, successful-completion, residency and term requirements",
         ],
-        amountLabel: "5 000 $/année pendant la durée du programme (continuité seulement)",
-        amountLabelEn: "$5,000/year for the duration of the program (continuity only)",
+        amountLabel: "1 500 $ collégial ou 2 500 $ université / session admissible",
+        amountLabelEn: "$1,500 college or $2,500 university / eligible term",
         ctaLabel: "Vérifier avec votre établissement",
-        ctaHref: "https://www.bourseperspective.gouv.qc.ca",
+        ctaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/bourses-perspective/conditions-admissibilite",
         tags: ["Perspective QC", "bourse", "programmes prioritaires", "continuité"],
         seoKeywords: ["Bourse Perspective Québec 2026", "bourse sciences santé Québec", "aide études STEM Québec"],
         warningFr:
           "Ce programme n'accepte plus de nouveaux étudiants depuis l'hiver 2025. " +
-          "Si vous n'étiez pas déjà inscrit dans un programme admissible avant cette date, " +
+          "Si vous n'avez pas commencé un programme admissible au plus tard à cette session, " +
           "vous n'y êtes pas admissible pour 2026.",
         warningEn:
           "This program no longer accepts new students as of Winter 2025. " +
-          "If you were not already enrolled in an eligible program before that date, " +
+          "If you did not start an eligible program no later than that term, " +
           "you are not eligible for 2026.",
       },
       {
@@ -317,102 +315,32 @@ export const pretsBourses2026 = defineVersionedDataset(
         organism: "Aide financière aux études — Gouvernement du Québec",
         category: "remise" as AideType,
         summary:
-          "Allègement de 15 % du solde de prêt AFE restant pour les diplômés qui travaillent dans " +
-          "leur domaine de formation au Québec et respectent certaines conditions. " +
+          "Allègement de 15 % de la dette d'études pour les personnes qui terminent un programme admissible " +
+          "dans les délais prévus et ont reçu une bourse chaque année d'attribution. " +
           "Il ne s'agit pas d'une remise automatique — une demande est requise après l'obtention du diplôme.",
         summaryEn:
-          "A 15% reduction of the remaining AFE loan balance for graduates who work in their field " +
-          "in Quebec and meet specific conditions. Not automatic — an application is required after graduation.",
+          "A 15% student-debt reduction for people who complete an eligible program within the prescribed time " +
+          "and received a grant in every award year. Not automatic — an application is required after graduation.",
         eligibilityHighlights: [
-          "Avoir terminé un programme d'études admissible",
-          "Travailler dans son domaine de formation au Québec",
-          "Satisfaire les conditions de durée et de revenu prévues par le programme",
-          "Faire une demande dans les délais prescrits",
+          "Avoir terminé un programme admissible dans les délais prévus",
+          "Avoir reçu une bourse AFE pour chaque année d'attribution du programme",
+          "Faire une demande dans les 3 ans suivant la fin des études",
         ],
         eligibilityHighlightsEn: [
-          "Completed an eligible study program",
-          "Working in the field of study in Quebec",
-          "Meet the program's duration and income conditions",
-          "Apply within the prescribed deadline",
+          "Completed an eligible program within the prescribed time",
+          "Received an AFE grant for every award year in the program",
+          "Apply within 3 years after completing studies",
         ],
         amountLabel: "15 % du solde de prêt restant, sous conditions",
         amountLabelEn: "15% of remaining loan balance, subject to conditions",
         ctaLabel: "Vérifier les conditions (AFE)",
-        ctaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/remboursement",
-        tags: ["remise de dette", "AFE", "diplômés", "emploi en formation"],
+        ctaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/remboursement/remise-dette",
+        tags: ["remise de dette", "AFE", "diplômés", "bourse"],
         seoKeywords: ["remise dette études Québec", "allègement prêts AFE Québec"],
       },
     ] as ProgrammeAideEtudes[],
 
-    profilsIllustratifs: [
-      {
-        id: "jeune-bac",
-        prenomFr: "Sofia",
-        prenomEn: "Sofia",
-        ageSituation: "21 ans — Bac sciences de la santé, contribution parentale",
-        ageSituationEn: "Age 21 — Health sciences bachelor's, parental contribution",
-        detail: [
-          { labelFr: "Prêts AFE (indicatif)", labelEn: "AFE loans (indicative)", montant: "~7 500 $", type: "pret" as AideType },
-          { labelFr: "Bourses AFE (indicatif)", labelEn: "AFE grants (indicative)", montant: "~2 500 $", type: "bourse" as AideType },
-          { labelFr: "Crédit fédéral frais scolarité", labelEn: "Federal tuition credit", montant: "~600 $", type: "credit_impot" as AideType },
-        ],
-        totalIndicatif: "~10 600 $",
-        noteFr:
-          "Ce profil illustratif suppose un revenu parental d'environ 65 000 $. " +
-          "Les montants réels dépendent du dossier AFE. La Bourse Perspective QC n'est disponible que si Sofia " +
-          "est déjà inscrite dans un programme admissible depuis avant l'hiver 2025.",
-        noteEn:
-          "This illustrative profile assumes parental income of ~$65,000. " +
-          "Actual amounts depend on the AFE file. Bourse Perspective QC only applies if Sofia was already " +
-          "enrolled in an eligible program before Winter 2025.",
-        emoji: "👩‍⚕️",
-      },
-      {
-        id: "adulte-autonome-maitrise",
-        prenomFr: "Marc",
-        prenomEn: "Marc",
-        ageSituation: "29 ans — Maîtrise informatique, autonome financièrement",
-        ageSituationEn: "Age 29 — Computer science master's, financially independent",
-        detail: [
-          { labelFr: "Prêts AFE (indicatif)", labelEn: "AFE loans (indicative)", montant: "~12 000 $", type: "pret" as AideType },
-          { labelFr: "Bourses AFE (indicatif)", labelEn: "AFE grants (indicative)", montant: "~3 000 $", type: "bourse" as AideType },
-          { labelFr: "Crédit fédéral frais scolarité", labelEn: "Federal tuition credit", montant: "~750 $", type: "credit_impot" as AideType },
-        ],
-        totalIndicatif: "~15 750 $",
-        noteFr:
-          "Marc est autonome avec un revenu personnel d'environ 15 000 $ (contrats ponctuels). " +
-          "S'il dispose d'un REER, le REEP pourrait lui permettre de réduire ses prêts en retirant jusqu'à " +
-          "10 000 $ de son REER sans impôt immédiat.",
-        noteEn:
-          "Marc is financially independent with ~$15,000 personal income (contract work). " +
-          "If he has an RRSP, the LLP could allow him to reduce loans by withdrawing up to " +
-          "$10,000 from his RRSP tax-free.",
-        emoji: "👨‍💻",
-      },
-      {
-        id: "retour-etudes-reep",
-        prenomFr: "Léa",
-        prenomEn: "Léa",
-        ageSituation: "36 ans — Retour aux études (DEP technique), REER disponible",
-        ageSituationEn: "Age 36 — Back to school (vocational diploma), RRSP available",
-        detail: [
-          { labelFr: "Prêts AFE (selon dossier)", labelEn: "AFE loans (case-dependent)", montant: "À vérifier", type: "pret" as AideType },
-          { labelFr: "Retrait REEP (si REER ≥ 10 000 $)", labelEn: "LLP withdrawal (if RRSP ≥ $10k)", montant: "Jusqu'à 10 000 $", type: "retrait_reer" as AideType },
-          { labelFr: "Crédit fédéral frais formation", labelEn: "Federal training credit", montant: "~300 $", type: "credit_impot" as AideType },
-          { labelFr: "Crédit QC frais formation", labelEn: "Quebec training credit", montant: "~200 $", type: "credit_impot" as AideType },
-        ],
-        totalIndicatif: "Variable",
-        noteFr:
-          "L'admissibilité de Léa à l'AFE dépend de son revenu de ménage et de son programme. " +
-          "Le REEP est le levier principal si elle a un REER constitué. " +
-          "Les crédits d'impôt viendront après production de la déclaration.",
-        noteEn:
-          "Léa's AFE eligibility depends on household income and program. " +
-          "The LLP is the main lever if she has an RRSP. " +
-          "Tax credits come after filing the return.",
-        emoji: "👩‍🔬",
-      },
-    ] as ProfilIllustratif[],
+    profilsIllustratifs: [] as ProfilIllustratif[],
 
     etapesDemandeAFE: [
       {
@@ -420,11 +348,11 @@ export const pretsBourses2026 = defineVersionedDataset(
         titreFr: "Vérifier votre admissibilité",
         titreEn: "Check your eligibility",
         descFr:
-          "Avant de commencer, assurez-vous : être inscrit dans un programme reconnu AFE, " +
-          "avoir résidé au Québec au moins 12 mois consécutifs, et satisfaire les critères de situation financière.",
+          "Avant de commencer, vérifiez votre statut, un des critères officiels de résidence au Québec, " +
+          "la reconnaissance de l'établissement et du programme, ainsi que le statut temps plein ou réputé temps plein.",
         descEn:
-          "Before starting: confirm enrollment in an AFE-recognized program, " +
-          "12 consecutive months of Quebec residency, and meeting the financial situation criteria.",
+          "Before starting, verify your status, one of Quebec's official residency criteria, " +
+          "the recognized institution and program, and full-time or deemed-full-time status.",
         emoji: "✅",
       },
       {
@@ -480,11 +408,11 @@ export const pretsBourses2026 = defineVersionedDataset(
         titreFr: "Démarrer le remboursement après les études",
         titreEn: "Begin repayment after studies",
         descFr:
-          "Le remboursement commence 6 mois après la fin ou l'abandon des études. " +
-          "Des plans adaptés au revenu sont disponibles si les mensualités standard sont trop élevées.",
+          "Aucun remboursement de capital n'est exigé pendant les 6 mois suivant la fin ou l'abandon des études, " +
+          "mais les intérêts sont à votre charge dès le mois suivant et peuvent être payés ou capitalisés.",
         descEn:
-          "Repayment starts 6 months after the end or abandonment of studies. " +
-          "Income-based repayment plans are available if standard payments are too high.",
+          "No principal payment is required for 6 months after studies end or are abandoned, " +
+          "but interest becomes your responsibility the following month and may be paid or capitalized.",
         emoji: "📅",
       },
     ] as EtapeDemandeAFE[],
@@ -494,42 +422,42 @@ export const pretsBourses2026 = defineVersionedDataset(
         questionFr: "Comment est calculé le montant de mon aide AFE ?",
         questionEn: "How is my AFE aid amount calculated?",
         reponseFr:
-          "L'AFE calcule votre aide selon vos frais réels d'études (droits de scolarité, logement, transport, matériel scolaire) " +
-          "moins votre capacité contributive. Cette capacité dépend de votre statut financier : " +
+          "L'AFE calcule votre aide selon les dépenses admises par règlement " +
+          "moins les contributions applicables. Ces contributions dépendent notamment de votre statut financier : " +
           "si vous êtes considéré à charge de vos parents, le revenu parental est intégré. " +
           "Si vous êtes autonome ou avez un conjoint, c'est le revenu de ménage qui compte. " +
-          "Le résultat est une combinaison de prêts (toujours remboursables) et, si votre revenu est suffisamment bas, de bourses.",
+          "L'aide est d'abord versée sous forme de prêt; une portion bourse peut s'ajouter si les besoins reconnus dépassent la portion de prêt.",
         reponseEn:
-          "AFE calculates your aid based on actual study costs (tuition, housing, transport, materials) " +
-          "minus your contribution capacity. This capacity depends on your financial status: " +
+          "AFE calculates aid using expenses recognized by regulation " +
+          "minus applicable contributions. These contributions depend in part on financial status: " +
           "if you are considered dependent on your parents, parental income is factored in. " +
           "If you are autonomous or have a spouse, household income applies. " +
-          "The result is a mix of loans (always repayable) and, if income is low enough, grants.",
+          "Aid is provided first as a loan; a grant portion may be added when recognized needs exceed the loan portion.",
       },
       {
         questionFr: "Quelle est la différence entre un prêt et une bourse AFE ?",
         questionEn: "What is the difference between an AFE loan and grant?",
         reponseFr:
           "Un prêt AFE doit être remboursé après les études, avec intérêts. " +
-          "Une bourse est une aide non remboursable accordée selon le revenu familial — elle remplace ou s'ajoute aux prêts. " +
+          "Une bourse est une aide non remboursable qui s'ajoute lorsque les besoins reconnus dépassent la portion de prêt. " +
           "L'AFE ne sépare pas les deux dans la demande : c'est lors de l'analyse de votre dossier que la portion " +
-          "bourse est déterminée, selon votre revenu.",
+          "bourse est déterminée à partir du dossier complet.",
         reponseEn:
           "An AFE loan must be repaid with interest after studies. " +
-          "A grant is non-repayable aid awarded based on family income — it replaces or supplements loans. " +
-          "AFE doesn't separate the two in the application: the grant portion is determined during your file review, based on income.",
+          "A grant is non-repayable aid added when recognized needs exceed the loan portion. " +
+          "AFE determines that portion from the complete file during its review.",
       },
       {
         questionFr: "La Bourse Perspective Québec est-elle encore disponible en 2026 ?",
         questionEn: "Is the Bourse Perspective Québec still available in 2026?",
         reponseFr:
           "La Bourse Perspective Québec n'accepte plus de nouveaux étudiants depuis l'hiver 2025. " +
-          "En 2026, seuls les étudiants déjà inscrits dans un programme admissible avant cette date peuvent encore la recevoir, " +
+          "En 2026, seuls les étudiants ayant commencé un programme admissible au plus tard à l'hiver 2025 peuvent encore la recevoir, " +
           "dans la mesure où ils poursuivent leur parcours dans ce programme. " +
           "Si vous entrez dans un nouveau programme en 2026, vous n'y avez pas accès.",
         reponseEn:
           "Bourse Perspective Québec no longer accepts new students as of Winter 2025. " +
-          "In 2026, only students already enrolled in an eligible program before that date may still receive it, " +
+          "In 2026, only students who started an eligible program no later than Winter 2025 may still receive it, " +
           "as long as they continue in that program. " +
           "If you're entering a new program in 2026, you are not eligible.",
       },
@@ -566,15 +494,15 @@ export const pretsBourses2026 = defineVersionedDataset(
         questionFr: "Quels crédits d'impôt les étudiants peuvent-ils réclamer ?",
         questionEn: "What tax credits can students claim?",
         reponseFr:
-          "Fédéralement, vous pouvez réclamer un crédit non remboursable de 15 % sur vos frais de scolarité admissibles (T2202). " +
+          "Fédéralement, le taux 2026 du crédit non remboursable sur les frais de scolarité admissibles est de 14 % (T2202). " +
           "Si votre impôt fédéral est nul, ce crédit peut être reporté ou transféré (jusqu'à 5 000 $) à un parent ou conjoint. " +
-          "Au Québec, le crédit général pour frais de scolarité universitaires a été aboli. " +
-          "Il subsiste un crédit pour certains frais de formation professionnelle ou d'examens (RL-8), à vérifier avec Revenu Québec.",
+          "Au Québec, le crédit pour frais de scolarité ou d'examen existe toujours au taux de 8 %. " +
+          "Des crédits fédéral et québécois existent aussi pour certains intérêts sur prêts étudiants admissibles.",
         reponseEn:
-          "Federally, you can claim a 15% non-refundable credit on eligible tuition (T2202). " +
+          "Federally, the 2026 non-refundable credit rate on eligible tuition is 14% (T2202). " +
           "If your federal tax is zero, the credit can be carried forward or transferred (up to $5,000) to a parent or spouse. " +
-          "In Quebec, the general university tuition credit was eliminated. " +
-          "A credit for some vocational training or exam fees (RL-8) remains — check with Revenu Québec.",
+          "In Quebec, the tuition or examination credit still exists at an 8% rate. " +
+          "Federal and Quebec credits also exist for certain eligible student-loan interest.",
       },
       {
         questionFr: "Que se passe-t-il si j'abandonne mes études ?",
@@ -595,13 +523,13 @@ export const pretsBourses2026 = defineVersionedDataset(
         questionEn: "Can international students access AFE?",
         reponseFr:
           "En règle générale, les étudiants internationaux (détenteurs d'un permis d'études) ne sont pas admissibles à l'AFE. " +
-          "Cependant, les résidents permanents établis au Québec depuis au moins 12 mois consécutifs sont admissibles. " +
-          "Certains autres statuts d'immigration peuvent aussi ouvrir droit à l'aide — vérifiez sur le site de l'AFE. " +
+          "La résidence permanente peut satisfaire le critère de statut, mais il faut aussi être considéré résident du Québec " +
+          "selon l'un des critères officiels de l'AFE. " +
           "Par ailleurs, des exemptions sur les droits de scolarité différenciés peuvent réduire considérablement les frais.",
         reponseEn:
           "In general, international students (study permit holders) are not eligible for AFE. " +
-          "However, permanent residents established in Quebec for at least 12 consecutive months are eligible. " +
-          "Certain other immigration statuses may also qualify — check the AFE website. " +
+          "Permanent residence may satisfy the status requirement, but the person must also be considered a Quebec resident " +
+          "under one of AFE's official criteria. " +
           "Additionally, exemptions from differentiated tuition fees can significantly reduce costs.",
       },
       {
@@ -609,28 +537,24 @@ export const pretsBourses2026 = defineVersionedDataset(
         questionEn: "When should I apply for AFE?",
         reponseFr:
           "Le plus tôt possible, idéalement dès l'été précédant la session d'automne. " +
-          "L'AFE ouvre les demandes plusieurs mois à l'avance. " +
-          "Prévoyez un délai de traitement de 4 à 8 semaines. " +
-          "Faire la demande en retard peut entraîner un manque de liquidités en début de session.",
+          "Consultez monPortail AFE pour les dates et le suivi propres à votre année d'attribution. " +
+          "Une demande incomplète ou tardive peut retarder l'analyse du dossier.",
         reponseEn:
           "As early as possible — ideally the summer before the fall session. " +
-          "AFE opens applications months in advance. " +
-          "Allow 4–8 weeks for processing. " +
-          "Late applications can lead to cash shortfalls at the start of the semester.",
+          "Consult monPortail AFE for dates and tracking specific to your award year. " +
+          "An incomplete or late application may delay file review.",
       },
       {
         questionFr: "En quoi consiste la remise de dette d'études du Québec ?",
         questionEn: "What is Quebec's student debt relief?",
         reponseFr:
-          "L'aide à la remise de dette d'études permet aux diplômés qui travaillent dans leur domaine de formation " +
-          "au Québec et respectent certaines conditions de revenus et de durée d'emploi d'obtenir un allègement " +
-          "de 15 % de leur solde de prêt AFE restant. Ce n'est pas automatique : une demande est requise " +
-          "après l'obtention du diplôme, dans les délais prescrits.",
+          "La remise de dette peut réduire de 15 % la dette d'études d'une personne qui termine un programme admissible " +
+          "dans les délais prévus et reçoit une bourse pour chaque année d'attribution. Ce n'est pas automatique : " +
+          "la demande doit être présentée dans les 3 ans suivant la fin des études.",
         reponseEn:
-          "Student debt relief allows graduates who work in their field of study in Quebec " +
-          "and meet certain income and employment duration conditions to receive a 15% reduction " +
-          "on their remaining AFE loan balance. It is not automatic: an application is required " +
-          "after graduation, within the prescribed deadlines.",
+          "Debt remission may reduce student debt by 15% for a person who completes an eligible program " +
+          "within the prescribed time and receives a grant for every award year. It is not automatic: " +
+          "the application must be filed within 3 years after studies end.",
       },
     ] as FaqItem[],
   }

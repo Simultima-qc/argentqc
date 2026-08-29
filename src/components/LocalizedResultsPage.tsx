@@ -25,7 +25,7 @@ interface LocalizedResultsPageProps {
 }
 
 export function getConfidenceTier(programme: Programme): "principal" | "verifier" {
-  return programme.niveau === "municipal" ? "verifier" : "principal";
+  return programme.niveau === "municipal" || programme.preselection_only ? "verifier" : "principal";
 }
 
 function getTierRank(programme: ProgrammeWithMeta): number {
@@ -43,6 +43,11 @@ export function sortProgrammesForTopPistes(programmes: ProgrammeWithMeta[]): Pro
 function getProgrammeReason(programme: Programme, reponses: ReponseQuestionnaire, locale: Locale): string {
   const c = programme.criteres;
   const fr = locale === "fr";
+
+  if (programme.preselection_only)
+    return fr
+      ? "Préfiltre seulement : le questionnaire ne vérifie pas les conditions complètes de ce programme."
+      : "Pre-filter only: the questionnaire does not verify this program's complete requirements.";
 
   if (c.proprietaire && reponses.statut_logement === "proprietaire")
     return fr ? "Vous avez indiqué être propriétaire." : "You indicated you are a homeowner.";
@@ -279,8 +284,8 @@ export default function LocalizedResultsPage({
                 </h2>
                 <p className="mb-4 text-xs text-stone-400">
                   {locale === "fr"
-                    ? "Ces programmes ressortent en priorité selon votre profil."
-                    : "These programs stand out most based on your profile."}
+                    ? "Ces programmes sont des pistes initiales à vérifier selon votre profil."
+                    : "These programs are initial leads to verify based on your profile."}
                 </p>
                 <ol className="flex flex-col gap-4" style={{ listStyle: "none", padding: 0 }}>
                   {topProgrammes.map((prog, i) => (

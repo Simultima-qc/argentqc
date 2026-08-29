@@ -99,6 +99,45 @@ test.describe("Questionnaire (/fr/questionnaire)", () => {
   });
 });
 
+// -- Cluster prêts et bourses --
+
+test.describe("Prêts et bourses étudiants 2026", () => {
+  test("le guide rend un outil d'orientation sans montant ni verdict AFE", async ({ page }) => {
+    const response = await page.goto("/prets-bourses-etudiants");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/Financer ses études au Québec en 2026/i);
+
+    await page.getByRole("button", { name: /Voir les démarches à vérifier/i }).click();
+    const results = page.locator("#pb-resultats");
+    await expect(results).toBeVisible();
+    await expect(results).toContainText(/ne calcule aucun droit ni montant/i);
+    await expect(results.getByRole("link", { name: /simulateur AFE officiel/i })).toHaveAttribute(
+      "href",
+      /quebec\.ca\/education\/aide-financiere-aux-etudes\/prets-bourses-temps-plein\/calcul\/simulateur-calcul/,
+    );
+    await expect(results).not.toContainText(/admissibilité (élevée|moyenne|faible)/i);
+  });
+
+  test("l'article ne publie plus les montants et durées contredits", async ({ page }) => {
+    const response = await page.goto("/blog/aide-financiere-etudes-quebec-2026");
+    expect(response?.status()).toBe(200);
+    const article = page.locator("article");
+    await expect(article).toContainText(/il n'existe pas de montant « typique » universel/i);
+    await expect(article).not.toContainText(/17\s*000\s*\$/i);
+    await expect(article).not.toContainText(/17 ans si prêt élevé/i);
+    await expect(article).toContainText(/intérêts sont à la charge/i);
+  });
+
+  test("les résultats étudiants présentent des pistes à vérifier", async ({ page }) => {
+    await page.goto(
+      "/fr/resultats?province=QC&statut_logement=locataire&situation_familiale=seul&enfants=false&revenu=0-30000&vehicule_elec=non&renovation=false&retraite=false&age=18-30&etudiant=true",
+    );
+    await expect(page.getByRole("heading", { name: /Programmes potentiels à vérifier/i })).toBeVisible();
+    await expect(page.getByText(/Préfiltre seulement/i).first()).toBeVisible();
+    await expect(page.getByText(/Total indicatif des programmes chiffrables/i)).toBeVisible();
+  });
+});
+
 // -- Page retraite (hub SEO) --
 
 test.describe("Page retraite (/retraite)", () => {

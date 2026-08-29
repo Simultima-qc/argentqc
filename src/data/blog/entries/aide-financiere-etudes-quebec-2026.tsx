@@ -47,9 +47,8 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             L&apos;Aide financière aux études (AFE) du Québec permet à des dizaines de milliers d&apos;étudiants
-            de financer leurs études chaque année. En 2026, un étudiant à temps plein peut recevoir
-            jusqu&apos;à <strong>17 000 $ en bourses et prêts combinés</strong>{" "}selon sa situation — dont une
-            partie n&apos;est jamais à rembourser.
+            de financer leurs études chaque année. Le montant n&apos;est pas un plafond universel : il est
+            calculé à partir des dépenses admises, des contributions applicables et de la situation complète.
           </p>
         </div>
 
@@ -57,7 +56,7 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Les <strong>bourses</strong>{" "}ne sont jamais remboursées — les prêts, oui</li>
-            <li>✓ L&apos;AFE calcule automatiquement la proportion bourse/prêt selon votre revenu familial</li>
+            <li>✓ L&apos;AFE verse d&apos;abord une portion prêt, puis une bourse si les besoins reconnus dépassent cette portion</li>
             <li>✓ <strong>Bourse Perspective Québec</strong>{" "} : 1 500 $ au collégial ou 2 500 $ à l&apos;université par session admissible</li>
             <li>✓ Demande à faire chaque année scolaire sur le site de l&apos;AFE</li>
           </ul>
@@ -68,7 +67,7 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-3">
             L&apos;Aide financière aux études est un programme du gouvernement du Québec administré par
             le ministère de l&apos;Enseignement supérieur. Il évalue votre situation financière et celle
-            de vos parents (si vous êtes dépendant) pour calculer le montant auquel vous avez droit.
+            de vos parents ou de votre conjoint lorsqu&apos;une contribution s&apos;applique pour calculer l&apos;aide selon le dossier complet.
           </p>
           <p className="text-slate-600 leading-relaxed mb-3">
             L&apos;aide est divisée en deux parties distinctes :
@@ -78,14 +77,14 @@ function Content() {
               {
                 type: "Bourse",
                 couleur: "bg-green-50 border-green-200",
-                texte: "Montant non remboursable versé directement à l&apos;étudiant. Plus votre revenu familial est faible, plus la proportion de bourses est élevée.",
+                texte: "Montant non remboursable ajouté lorsque les besoins reconnus dépassent la portion de prêt établie par l&apos;AFE.",
                 badge: "Non remboursable",
                 badgeCouleur: "bg-green-700 text-white",
               },
               {
                 type: "Prêt",
                 couleur: "bg-blue-50 border-blue-200",
-                texte: "Montant à rembourser après les études, avec un délai de grâce de 6 mois après la fin du programme. Taux d&apos;intérêt préférentiel.",
+                texte: "Montant à rembourser après les études. Aucun capital n&apos;est exigé pendant 6 mois, mais les intérêts sont à la charge de l&apos;emprunteur dès le mois suivant et peuvent être payés ou capitalisés.",
                 badge: "À rembourser",
                 badgeCouleur: "bg-blue-700 text-white",
               },
@@ -102,32 +101,22 @@ function Content() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">Montants typiques en 2026</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Pourquoi il n&apos;existe pas de montant « typique » universel</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le montant varie selon votre niveau d&apos;études, votre situation financière et si vous vivez
-            chez vos parents ou de façon autonome.
+            L&apos;AFE utilise des dépenses admises et des contributions prévues par ses règles 2026-2027.
+            Le niveau d&apos;études, la situation familiale, les périodes reconnues et les contributions applicables
+            peuvent tous changer le résultat.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
-            <p className="font-bold text-blue-800 mb-3">Aide maximale annuelle (à temps plein)</p>
-            <div className="space-y-3">
-              {[
-                { niveau: "Cégep (collégial)", bourse: "Jusqu&apos;à 4 500 $", pret: "Jusqu&apos;à 2 800 $" },
-                { niveau: "Université — 1er cycle", bourse: "Jusqu&apos;à 7 200 $", pret: "Jusqu&apos;à 5 000 $" },
-                { niveau: "Université — cycles supérieurs", bourse: "Jusqu&apos;à 8 400 $", pret: "Jusqu&apos;à 5 000 $" },
-              ].map((item) => (
-                <div key={item.niveau} className="border-b border-blue-100 pb-3 last:border-0 last:pb-0">
-                  <p className="font-semibold text-blue-900 text-sm mb-1" dangerouslySetInnerHTML={{ __html: item.niveau }} />
-                  <div className="flex gap-4 text-xs">
-                    <span className="text-green-700 font-medium" dangerouslySetInnerHTML={{ __html: `Bourse : ${item.bourse}` }} />
-                    <span className="text-blue-700 font-medium" dangerouslySetInnerHTML={{ __html: `Prêt : ${item.pret}` }} />
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="font-bold text-blue-800 mb-2">Calcul officiel seulement</p>
+            <p className="text-sm text-blue-900 leading-relaxed">
+              ArgentQC ne fabrique pas de fourchette à partir de quelques revenus ou de frais par défaut.
+              Utilisez le simulateur officiel AFE 2026-2027, puis déposez une demande pour obtenir une décision.
+            </p>
           </div>
           <p className="text-slate-500 text-sm mt-3">
-            Ces montants représentent le maximum. Votre aide réelle dépend de votre revenu familial,
-            de vos dépenses admissibles et de votre charge de cours.
+            Le Programme de prêts et bourses vise les études à temps plein ou le statut réputé temps plein.
+            Le Programme de prêts pour les études à temps partiel est distinct et possède ses propres conditions.
           </p>
         </section>
 
@@ -135,7 +124,8 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">La Bourse Perspective Québec : 1 500 $ ou 2 500 $/session</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
             En plus de l&apos;AFE régulière, la <strong>Bourse Perspective Québec</strong>{" "}offre 1 500 $ au collégial ou 2 500 $ à l&apos;université
-            par session admissible aux étudiants déjà inscrits dans des programmes ciblés.
+            par session admissible aux étudiants qui ont commencé un programme visé au plus tard à l&apos;hiver 2025
+            et poursuivent ce même programme, sous réserve de toutes les autres conditions.
             La demande doit être faite après chaque session réussie; elle n&apos;est pas renouvelée automatiquement.
           </p>
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
@@ -167,17 +157,17 @@ function Content() {
               {
                 num: "2",
                 titre: "Fournissez vos informations financières",
-                texte: "Vous devrez indiquer vos revenus (et ceux de vos parents si vous êtes dépendant), vos dépenses admissibles (loyer, frais de scolarité, transport) et votre situation de garde.",
+                texte: "Vous devrez fournir les renseignements demandés sur vos revenus, les contributions applicables et votre situation. L&apos;AFE applique ensuite ses dépenses admises réglementaires.",
               },
               {
                 num: "3",
                 titre: "Recevez votre attestation d&apos;admissibilité",
-                texte: "L&apos;AFE calcule votre aide et vous remet une attestation. Votre établissement scolaire confirme votre inscription à temps plein ou partiel.",
+                texte: "L&apos;AFE calcule votre aide et vous remet une attestation. Votre établissement confirme les renseignements scolaires; le temps partiel relève d&apos;un programme distinct.",
               },
               {
                 num: "4",
                 titre: "Versements en cours de session",
-                texte: "L&apos;aide est versée en tranches au début et en cours de session — généralement deux versements par session pour les études à temps plein.",
+                texte: "Consultez monPortail AFE et votre établissement pour le calendrier applicable à votre dossier; ne présumez pas un nombre fixe de versements.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -201,8 +191,8 @@ function Content() {
           </p>
           <div className="grid grid-cols-1 gap-2">
             {[
-              { label: "Délai de grâce", valeur: "6 mois après la fin des études" },
-              { label: "Durée maximale de remboursement", valeur: "10 ans (17 ans si prêt élevé)" },
+              { label: "Capital", valeur: "Aucun paiement exigé pendant les 6 premiers mois" },
+              { label: "Intérêts", valeur: "À votre charge dès le mois suivant; payés ou capitalisés" },
               { label: "Aide au remboursement", valeur: "Programme de remboursement différé si revenus faibles après les études" },
               { label: "Aide à l&apos;exemption d&apos;intérêts", valeur: "Disponible pendant une période de faible revenu" },
             ].map((item) => (
@@ -215,15 +205,15 @@ function Content() {
         </section>
 
         <div style={{ background: "#0F1F3D" }} className="text-white rounded-2xl p-6 text-center">
-          <p className="font-bold text-lg mb-2">Trouvez toutes vos aides en 2 minutes</p>
+          <p className="font-bold text-lg mb-2">Repérez des programmes potentiels à vérifier</p>
           <p className="text-blue-200 text-sm mb-4">
-            AFE, Bourse Perspective, Crédit canadien pour la formation — voyez ce à quoi vous avez droit selon votre situation.
+            Le questionnaire est un préfiltre : il ne confirme ni admissibilité ni montant.
           </p>
           <Link
             href="/fr/questionnaire"
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
           >
-            Trouver mes aides →
+            Voir les programmes à vérifier →
           </Link>
         </div>
 
@@ -241,7 +231,7 @@ function Content() {
       </article>
 
       <SiteFooter
-        legalText="Outil informatif non affilié au gouvernement. Les montants sont des estimations."
+        legalText="Outil informatif non affilié au gouvernement. Vérifiez les conditions et montants auprès des sources officielles."
         contactLabel="Contactez-nous"
         contentClassName="max-w-2xl mx-auto text-center"
         style={{ marginTop: "16px" }}

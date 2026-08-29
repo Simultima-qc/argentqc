@@ -5,7 +5,6 @@ import SiteFooter from "@/components/SiteFooter";
 import {
   pretsBoursesProgrammes2026,
   pretsBoursesFaqs2026,
-  pretsBoursesProfils2026,
   pretsBourseEtapes2026,
 } from "@/data/finance-2026/prets-bourses-2026";
 import {
@@ -266,8 +265,8 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
             </h3>
             <p style={{ fontSize: "12px", color: "#047857", margin: 0, lineHeight: 1.6 }}>
               {locale === "en"
-                ? "Permanent residents established in Quebec for at least 12 consecutive months are eligible for AFE, just like any other Quebec resident."
-                : "Les résidents permanents établis au Québec depuis au moins 12 mois consécutifs sont admissibles à l'AFE, comme tout autre résident québécois."}
+                ? "Permanent residence alone is not enough: the person must also be considered a Quebec resident under one of AFE's official criteria."
+                : "La résidence permanente ne suffit pas à elle seule : il faut aussi être considéré résident du Québec selon l'un des critères officiels de l'AFE."}
             </p>
           </div>
         </div>
@@ -275,51 +274,6 @@ export default function LocalizedPretsBoursesPage({ locale }: { locale: Locale }
         {/* Pub */}
         <div style={{ background: "#EDE9E0", borderRadius: "12px", height: "60px", display: "flex", alignItems: "center", justifyContent: "center", color: "#A8A29E", fontSize: "11px", marginBottom: "2.5rem" }}>
           Publicité
-        </div>
-
-        {/* Profils illustratifs */}
-        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", fontWeight: 800, color: "#1C1C1E", marginBottom: "0.5rem" }}>
-          {d.profilsTitle}
-        </h2>
-        <p style={{ fontSize: "12px", color: "#A8A29E", lineHeight: 1.6, marginBottom: "1.25rem", fontStyle: "italic" }}>{d.profilsDisclaimer}</p>
-        <div className="flex flex-col gap-4 mb-10">
-          {pretsBoursesProfils2026.map((profil) => {
-            const prenom = locale === "en" ? profil.prenomEn : profil.prenomFr;
-            const situation = locale === "en" ? profil.ageSituationEn : profil.ageSituation;
-            const note = locale === "en" ? profil.noteEn : profil.noteFr;
-            return (
-              <div key={profil.id} style={{ background: "white", border: "1px solid #EDE9E0", borderRadius: "16px", padding: "1.25rem" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-                  <span style={{ fontSize: "1.8rem" }}>{profil.emoji}</span>
-                  <div>
-                    <h3 style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E", margin: 0 }}>{prenom}</h3>
-                    <p style={{ fontSize: "12px", color: "#78716C", margin: 0 }}>{situation}</p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-2 mb-3">
-                  {profil.detail.map((item) => {
-                    const colors = TYPE_COLORS[item.type] ?? TYPE_COLORS.pret;
-                    const label = locale === "en" ? item.labelEn : item.labelFr;
-                    return (
-                      <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "12px", color: "#44403C" }}>{label}</span>
-                        <span style={{ fontWeight: 700, fontSize: "13px", color: colors.text }}>{item.montant}</span>
-                      </div>
-                    );
-                  })}
-                  <div style={{ borderTop: "1px solid #F0EBE0", paddingTop: "8px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ fontSize: "13px", fontWeight: 800, color: "#1C1C1E" }}>{d.profilsTotalLabel}</span>
-                    <span style={{ fontWeight: 800, fontSize: "15px", color: DARK }}>{profil.totalIndicatif}</span>
-                  </div>
-                </div>
-                <div style={{ background: "#F7F3EC", borderRadius: "8px", padding: "8px 12px" }}>
-                  <p style={{ fontSize: "11px", color: "#78716C", margin: 0, lineHeight: 1.6, fontStyle: "italic" }}>
-                    📝 {d.profilsNoteLabel} : {note}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
         </div>
 
         {/* FAQ */}
