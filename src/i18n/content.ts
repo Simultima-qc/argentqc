@@ -342,7 +342,7 @@ const fr: SiteDictionary = {
         "Consultez votre liste initiale de programmes gouvernementaux potentiellement admissibles selon vos réponses.",
     },
     restart: "Recommencer",
-    summaryLabel: "Vous pourriez récupérer jusqu'à",
+    summaryLabel: "Total indicatif des programmes chiffrables",
     programmesFound: {
       singular: "programme trouvé",
       plural: "programmes trouvés",
@@ -353,12 +353,12 @@ const fr: SiteDictionary = {
         "Selon vos réponses actuelles, nous n'avons pas trouvé de programme correspondant dans ce périmètre.",
       cta: "Refaire le questionnaire",
     },
-    eligibleLabel: "Vos programmes admissibles",
+    eligibleLabel: "Programmes potentiels à vérifier",
     adsLabel: "Publicite",
     conditionsTitle: "Conditions",
     applyCta: "Voir la page officielle",
     estimateExplainerBody:
-      "Ce montant est une estimation basée sur vos réponses. Il ne garantit pas votre admissibilité, mais indique les programmes qui valent la peine d'être explorés selon votre profil.",
+      "Ce total exclut les programmes dont le montant dépend d'une analyse complète. Le questionnaire est un préfiltre et ne confirme aucune admissibilité.",
     cautionNotice:
       "ArgentQC ne remplace pas une demande officielle. Les montants sont indicatifs et servent à identifier les programmes qui méritent votre attention.",
     topProgramsTitle: "Vos meilleures pistes",
@@ -614,7 +614,7 @@ const en: SiteDictionary = {
         "Review your initial shortlist of government programs that may match your answers.",
     },
     restart: "Start over",
-    summaryLabel: "You may be able to claim up to",
+    summaryLabel: "Indicative total for quantifiable programs",
     programmesFound: {
       singular: "program found",
       plural: "programs found",
@@ -625,12 +625,12 @@ const en: SiteDictionary = {
         "Based on your current answers, this first-pass matching did not find a program within the current scope.",
       cta: "Retake the questionnaire",
     },
-    eligibleLabel: "Programs you may qualify for",
+    eligibleLabel: "Potential programs to verify",
     adsLabel: "Advertisement",
     conditionsTitle: "Eligibility notes",
     applyCta: "Open official page",
     estimateExplainerBody:
-      "This amount is an estimate based on your answers. It does not guarantee eligibility, but highlights the programs worth exploring based on your profile.",
+      "This total excludes programs whose amount requires a complete review. The questionnaire is a pre-filter and confirms no eligibility.",
     cautionNotice:
       "ArgentQC does not replace an official application. Amounts are indicative and help identify programs that deserve your attention.",
     topProgramsTitle: "Your best leads",

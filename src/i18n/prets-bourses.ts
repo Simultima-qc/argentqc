@@ -106,20 +106,20 @@ export const tableauComparatif: TableauRow[] = [
     programmeEn: "AFE Loans",
     type: "Prêt (remboursable)",
     typeEn: "Loan (repayable)",
-    montant: "~2 000 – 17 500 $/an",
-    montantEn: "~$2,000–$17,500/yr",
-    condition: "Résidence QC · établissement reconnu",
-    conditionEn: "QC residency · recognized institution",
+    montant: "Calculé selon le dossier",
+    montantEn: "Calculated from the complete file",
+    condition: "Critère officiel de résidence · temps plein ou réputé temps plein",
+    conditionEn: "Official residency criterion · full-time or deemed full-time",
   },
   {
     programme: "Bourses AFE",
     programmeEn: "AFE Grants",
     type: "Bourse (non remboursable)",
     typeEn: "Grant (non-repayable)",
-    montant: "Jusqu'à ~8 000 $/an",
-    montantEn: "Up to ~$8,000/yr",
-    condition: "Revenu familial sous les seuils AFE",
-    conditionEn: "Family income below AFE thresholds",
+    montant: "Besoins reconnus moins la portion prêt",
+    montantEn: "Recognized needs minus the loan portion",
+    condition: "Dossier AFE complet",
+    conditionEn: "Complete AFE file",
     highlight: true,
   },
   {
@@ -137,30 +137,30 @@ export const tableauComparatif: TableauRow[] = [
     programmeEn: "Federal Tuition Credit",
     type: "Crédit d'impôt non remboursable",
     typeEn: "Non-refundable tax credit",
-    montant: "15 % des frais admissibles",
-    montantEn: "15% of eligible fees",
+    montant: "14 % des frais admissibles en 2026",
+    montantEn: "14% of eligible fees in 2026",
     condition: "T2202 · reportable / transférable",
     conditionEn: "T2202 · can be carried forward or transferred",
   },
   {
-    programme: "Crédit QC formation",
-    programmeEn: "QC Training Credit",
+    programme: "Crédit QC frais de scolarité ou d'examen",
+    programmeEn: "QC Tuition or Examination Credit",
     type: "Crédit d'impôt non remboursable",
     typeEn: "Non-refundable tax credit",
-    montant: "20 % des frais de formation admissibles",
-    montantEn: "20% of eligible training fees",
-    condition: "RL-8 · formation pro / examens",
-    conditionEn: "RL-8 · vocational training / exams",
+    montant: "8 % des frais admissibles",
+    montantEn: "8% of eligible fees",
+    condition: "Annexe T · frais reconnus",
+    conditionEn: "Schedule T · recognized fees",
   },
   {
     programme: "Bourse Perspective QC",
     programmeEn: "Bourse Perspective QC",
     type: "Bourse (continuité seulement)",
     typeEn: "Grant (continuity only)",
-    montant: "5 000 $/an",
-    montantEn: "$5,000/yr",
-    condition: "⚠️ Inscrit avant hiver 2025 · programme prioritaire",
-    conditionEn: "⚠️ Enrolled before Winter 2025 · priority program",
+    montant: "1 500 $ collégial ou 2 500 $ université / session admissible",
+    montantEn: "$1,500 college or $2,500 university / eligible term",
+    condition: "⚠️ Programme commencé au plus tard à l'hiver 2025 · continuité",
+    conditionEn: "⚠️ Program started no later than Winter 2025 · continuity",
   },
   {
     programme: "Remise de dette d'études",
@@ -169,8 +169,8 @@ export const tableauComparatif: TableauRow[] = [
     typeEn: "Loan reduction",
     montant: "15 % du solde restant",
     montantEn: "15% of remaining balance",
-    condition: "Diplômé · emploi dans le domaine · QC",
-    conditionEn: "Graduate · working in field · QC",
+    condition: "Programme terminé à temps · bourse chaque année · demande dans les 3 ans",
+    conditionEn: "Program completed on time · grant every year · apply within 3 years",
   },
 ];
 
@@ -186,13 +186,12 @@ const fr: PretsBoursesPageDictionary = {
   title: "Financer ses études au Québec en 2026",
   subtitle:
     "Prêts et bourses AFE, REEP, crédits d'impôt — ce qui existe vraiment, pour qui, et comment y accéder.",
-  heroCta: "Estimer mon aide",
+  heroCta: "Vérifier mes prochaines étapes",
   heroCtaSecondary: "Voir les programmes",
   disclaimerTitle: "Outil indicatif, non officiel",
   disclaimerText:
-    "Les montants présentés sur cette page sont des estimations à titre informatif. " +
-    "Votre aide réelle dépend de votre dossier individuel. " +
-    "Pour un calcul officiel, utilisez monPortail AFE ou contactez l'Agence du revenu du Canada.",
+    "Cet outil oriente vers les démarches pertinentes sans calculer votre admissibilité ni un montant AFE. " +
+    "Seul le simulateur officiel ou l'analyse de votre demande peut établir l'aide applicable.",
   aidesCategoriesTitle: "Quelles aides existent vraiment ?",
   aidesCategoriesIntro:
     "Il existe quatre grandes sources d'aide financière pour les étudiants québécois. " +
@@ -202,8 +201,8 @@ const fr: PretsBoursesPageDictionary = {
       emoji: "📚",
       labelFr: "Prêts et bourses (AFE)",
       description:
-        "Le programme principal du Québec. Les prêts sont remboursables après les études; " +
-        "les bourses ne le sont pas. L'accès dépend du revenu familial.",
+        "Le programme principal du Québec. Le calcul tient compte des dépenses admises, des contributions " +
+        "et de la situation complète; le prêt précède toute portion bourse.",
     },
     {
       emoji: "🏦",
@@ -216,8 +215,8 @@ const fr: PretsBoursesPageDictionary = {
       emoji: "🧾",
       labelFr: "Crédits d'impôt",
       description:
-        "Fédéralement, un crédit de 15 % sur les frais de scolarité. Au Québec, le crédit général " +
-        "sur les frais universitaires a été aboli — reste un crédit pour certaines formations.",
+        "En 2026, le crédit fédéral correspond à 14 % des frais admissibles et le crédit québécois " +
+        "pour frais de scolarité ou d'examen à 8 %.",
     },
     {
       emoji: "🎁",
@@ -235,12 +234,12 @@ const fr: PretsBoursesPageDictionary = {
     "Cliquez sur « Site officiel » pour les détails exacts.",
   warningLabel: "⚠️ À noter",
   officialLinkLabel: "Site officiel →",
-  calculatorTitle: "Estimateur indicatif — Quelle aide pourriez-vous recevoir ?",
+  calculatorTitle: "Outil d'orientation — Quelles démarches vérifier ?",
   calculatorSubtitle:
-    "Répondez aux questions ci-dessous pour obtenir une fourchette indicative. " +
-    "Ce calcul ne reproduit pas la formule officielle de l'AFE.",
+    "Répondez à quelques questions pour être dirigé vers les bons programmes officiels. " +
+    "Aucun montant ni verdict d'admissibilité n'est calculé.",
   calculatorDisclaimer:
-    "Estimation indicative uniquement. Pour un résultat officiel, faites votre demande sur monPortail AFE.",
+    "Préfiltre éducatif seulement. Vérifiez chaque condition et utilisez le simulateur AFE officiel.",
   guideTitle: "Comment faire une demande AFE — 6 étapes",
   reepSectionTitle: "REEP : utiliser votre REER pour financer des études",
   reepSectionIntro:
@@ -260,24 +259,23 @@ const fr: PretsBoursesPageDictionary = {
     "Voici ce qui existe réellement en 2026.",
   creditsItems: [
     {
-      label: "Fédéral — Crédit frais de scolarité (15 %)",
+      label: "Fédéral — Crédit frais de scolarité (14 % en 2026)",
       detail:
         "S'applique aux frais de scolarité admissibles déclarés sur votre T2202. " +
         "Si votre impôt fédéral est nul, le crédit est reporté aux années suivantes " +
         "ou transféré à un parent ou conjoint (max. 5 000 $ de frais).",
     },
     {
-      label: "Québec — Crédit frais de formation (20 %)",
+      label: "Québec — Crédit frais de scolarité ou d'examen (8 %)",
       detail:
-        "Le crédit général sur les frais de scolarité universitaires a été aboli au Québec. " +
-        "Il subsiste un crédit de 20 % pour certains frais de formation professionnelle ou d'examens admissibles (RL-8). " +
-        "Vérifiez sur le site de Revenu Québec ce qui est admissible dans votre cas.",
+        "Le crédit non remboursable québécois existe toujours et correspond à 8 % des frais admissibles. " +
+        "Consultez l'annexe T et les règles de Revenu Québec pour les frais reconnus et les transferts.",
     },
     {
       label: "Intérêts sur prêts étudiants",
       detail:
-        "Les intérêts payés sur vos prêts AFE peuvent donner droit à un crédit d'impôt fédéral (ligne 31900). " +
-        "Note : le Québec a aboli son crédit sur les intérêts de prêts étudiants.",
+        "Les intérêts admissibles peuvent donner droit à des crédits non remboursables fédéral et québécois. " +
+        "Au Québec, le montant se calcule à l'annexe M selon les règles de Revenu Québec.",
     },
   ],
   intlSectionTitle: "Étudiants internationaux au Québec",
@@ -319,9 +317,9 @@ const fr: PretsBoursesPageDictionary = {
       { value: "maitrise", label: "Maîtrise" },
       { value: "doctorat", label: "Doctorat" },
     ],
-    residentLabel: "Résident québécois depuis ≥ 12 mois ?",
-    residentOui: "Oui",
-    residentNon: "Non",
+    residentLabel: "Répondez-vous à l'un des critères officiels de résidence au Québec ?",
+    residentOui: "Oui — selon un critère officiel",
+    residentNon: "Non ou je dois vérifier",
     statutFinancierLabel: "Situation financière",
     statutFinancierOptions: [
       { value: "parents", label: "Contribution parentale", detail: "Mes parents contribuent — leurs revenus sont pris en compte par l'AFE" },
@@ -336,39 +334,43 @@ const fr: PretsBoursesPageDictionary = {
     fraisScolaritePlaceholder: "ex. 4 000",
     reerLabel: "Avez-vous un REER avec des fonds disponibles ?",
     reerDetail: "Utile pour évaluer le potentiel du REEP",
-    perspectiveLabel: "Poursuivez-vous un programme Bourse Perspective QC déjà admissible (inscrit avant hiver 2025) ?",
+    perspectiveLabel: "Avez-vous commencé un programme admissible au plus tard à l'hiver 2025 et poursuivez-vous ce même programme ?",
     perspectiveOptions: [
-      { value: "yes", label: "Oui — je suis en continuité de programme admissible" },
+      { value: "yes", label: "Oui — programme admissible commencé au plus tard à l'hiver 2025" },
       { value: "no", label: "Non — je commence un nouveau programme en 2026" },
       { value: "unknown", label: "Je ne sais pas" },
     ],
-    ctaLabel: "Voir mon estimation indicative →",
+    ctaLabel: "Voir les démarches à vérifier →",
     resetLabel: "Recommencer",
   },
   calculatorResults: {
-    title: "Estimation indicative 2026",
-    admissibiliteLabel: "Admissibilité AFE estimée",
+    title: "Démarches officielles à vérifier",
+    admissibiliteLabel: "Orientation AFE",
     admissibiliteValues: {
-      faible: "Faible — votre revenu dépasse probablement les seuils",
-      moyenne: "Moyenne — une aide partielle est possible selon le dossier",
-      elevee: "Élevée — vous correspondez généralement aux critères AFE",
-      "non-resident": "Non admissible — résidence québécoise requise",
+      "temps-plein": "Consultez les prêts et bourses pour études à temps plein. Le statut réputé temps plein répond à des conditions distinctes.",
+      "temps-partiel": "Le Programme de prêts pour les études à temps partiel est distinct du Programme de prêts et bourses à temps plein.",
+      "formation-continue": "Vérifiez d'abord si l'établissement, le programme et la charge d'études sont reconnus par l'AFE.",
+      residence: "La règle des 12 mois n'est qu'une voie possible parmi les critères officiels de résidence.",
+      "perspective-verify-continuity": "Continuité potentielle seulement : confirmez le programme, la session de début, la charge d'études et la réussite auprès de la source officielle.",
+      "perspective-new-cohort-closed": "Les nouvelles cohortes après l'hiver 2025 ne sont pas admises; aucun montant n'est ajouté par cet outil.",
+      "perspective-verify": "Vérifiez la cohorte, le programme, les sessions et les autres conditions officielles.",
+      reep: "Le REEP peut être une piste si toutes les conditions de l'ARC sont respectées; il s'agit d'un retrait de votre REER à rembourser.",
     },
-    pretAfeLabel: "Prêts AFE (indicatif)",
+    pretAfeLabel: "Programme AFE pertinent",
     bourseAfeLabel: "Bourses AFE (indicatif)",
     creditsLabel: "Crédits d'impôt estimés",
     reepLabel: "REEP (si REER disponible)",
     perspectiveLabel: "Bourse Perspective QC",
     totalLabel: "Total indicatif / année",
-    totalNote: "Estimation non officielle. Des montants réels peuvent différer significativement.",
+    totalNote: "Cet outil ne calcule aucun droit ni montant. La décision appartient aux organismes officiels.",
     repayableAidLabel: "Aide remboursable",
     nonRepayableAidLabel: "Aide non remboursable",
     taxReliefLabel: "Crédits / allégements fiscaux",
     reepOptionLabel: "Option REEP",
     noEstimateLabel: "Aucune estimation dans cette catégorie",
     validateLabel: "à valider",
-    officialCta: "Faire ma demande officielle (AFE)",
-    officialCtaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/demander-aide-financiere",
+    officialCta: "Ouvrir le simulateur AFE officiel",
+    officialCtaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/prets-bourses-temps-plein/calcul/simulateur-calcul",
     notApplicable: "Non applicable",
   },
 };
@@ -385,13 +387,12 @@ const en: PretsBoursesPageDictionary = {
   title: "Financing your studies in Quebec in 2026",
   subtitle:
     "AFE loans and grants, LLP, tax credits — what really exists, for whom, and how to access it.",
-  heroCta: "Estimate my aid",
+  heroCta: "Check my next steps",
   heroCtaSecondary: "View programs",
   disclaimerTitle: "Indicative tool — not official",
   disclaimerText:
-    "The amounts on this page are informational estimates only. " +
-    "Your actual aid depends on your individual file. " +
-    "For an official calculation, use monPortail AFE or contact the Canada Revenue Agency.",
+    "This tool routes you to relevant official steps without calculating AFE eligibility or an amount. " +
+    "Only the official simulator or application review can determine your aid.",
   aidesCategoriesTitle: "What aid actually exists?",
   aidesCategoriesIntro:
     "There are four main sources of financial aid for Quebec students. " +
@@ -401,8 +402,8 @@ const en: PretsBoursesPageDictionary = {
       emoji: "📚",
       labelFr: "Loans and grants (AFE)",
       description:
-        "Quebec's main program. Loans are repayable after studies; grants are not. " +
-        "Access depends on family income.",
+        "Quebec's main program. The calculation uses recognized expenses, contributions and the complete situation; " +
+        "the loan portion comes before any grant portion.",
     },
     {
       emoji: "🏦",
@@ -415,8 +416,8 @@ const en: PretsBoursesPageDictionary = {
       emoji: "🧾",
       labelFr: "Tax credits",
       description:
-        "Federally, a 15% credit on tuition fees. Quebec abolished its general university " +
-        "tuition credit — a credit for some vocational training remains.",
+        "In 2026, the federal credit is 14% of eligible fees and Quebec's tuition or examination " +
+        "credit is 8%.",
     },
     {
       emoji: "🎁",
@@ -434,12 +435,12 @@ const en: PretsBoursesPageDictionary = {
     "Click 'Official site' for exact details.",
   warningLabel: "⚠️ Note",
   officialLinkLabel: "Official site →",
-  calculatorTitle: "Indicative estimator — What aid might you receive?",
+  calculatorTitle: "Orientation tool — Which steps should you check?",
   calculatorSubtitle:
-    "Answer the questions below for an indicative range. " +
-    "This calculator does not reproduce the official AFE formula.",
+    "Answer a few questions to find the relevant official routes. " +
+    "No amount or eligibility verdict is calculated.",
   calculatorDisclaimer:
-    "Indicative estimate only. For an official result, apply on monPortail AFE.",
+    "Educational pre-filter only. Verify every condition and use the official AFE simulator.",
   guideTitle: "How to apply for AFE — 6 steps",
   reepSectionTitle: "LLP: using your RRSP to fund studies",
   reepSectionIntro:
@@ -459,24 +460,23 @@ const en: PretsBoursesPageDictionary = {
     "Here is what actually exists in 2026.",
   creditsItems: [
     {
-      label: "Federal — Tuition tax credit (15%)",
+      label: "Federal — Tuition tax credit (14% in 2026)",
       detail:
         "Applies to eligible tuition reported on your T2202. " +
         "If your federal tax is zero, the credit is carried forward to future years " +
         "or transferred to a parent or spouse (max. $5,000 in fees).",
     },
     {
-      label: "Quebec — Training credit (20%)",
+      label: "Quebec — Tuition or examination credit (8%)",
       detail:
-        "Quebec eliminated the general university tuition tax credit. " +
-        "A 20% credit for eligible vocational training or examination fees (RL-8) remains. " +
-        "Check the Revenu Québec website to confirm what is eligible in your case.",
+        "Quebec's non-refundable credit still exists and equals 8% of eligible fees. " +
+        "Consult Schedule T and Revenu Québec rules for recognized fees and transfers.",
     },
     {
       label: "Student loan interest",
       detail:
-        "Interest paid on your AFE loans may qualify for a federal tax credit (line 31900). " +
-        "Note: Quebec has eliminated its credit for student loan interest.",
+        "Eligible interest may qualify for federal and Quebec non-refundable credits. " +
+        "In Quebec, the amount is calculated on Schedule M under Revenu Québec rules.",
     },
   ],
   intlSectionTitle: "International students in Quebec",
@@ -518,9 +518,9 @@ const en: PretsBoursesPageDictionary = {
       { value: "maitrise", label: "Master's degree" },
       { value: "doctorat", label: "Doctorate" },
     ],
-    residentLabel: "Quebec resident for ≥ 12 months?",
-    residentOui: "Yes",
-    residentNon: "No",
+    residentLabel: "Do you meet one of Quebec's official residency criteria?",
+    residentOui: "Yes — under an official criterion",
+    residentNon: "No or I need to verify",
     statutFinancierLabel: "Financial situation",
     statutFinancierOptions: [
       { value: "parents", label: "Parental contribution", detail: "My parents contribute — their income is factored in by AFE" },
@@ -535,39 +535,43 @@ const en: PretsBoursesPageDictionary = {
     fraisScolaritePlaceholder: "e.g. 4,000",
     reerLabel: "Do you have an RRSP with available funds?",
     reerDetail: "Useful for assessing LLP potential",
-    perspectiveLabel: "Are you continuing a Bourse Perspective QC eligible program (enrolled before Winter 2025)?",
+    perspectiveLabel: "Did you start an eligible program no later than Winter 2025 and remain in that same program?",
     perspectiveOptions: [
-      { value: "yes", label: "Yes — I am continuing an eligible program" },
+      { value: "yes", label: "Yes — eligible program started no later than Winter 2025" },
       { value: "no", label: "No — I am starting a new program in 2026" },
       { value: "unknown", label: "I am not sure" },
     ],
-    ctaLabel: "View my indicative estimate →",
+    ctaLabel: "See the steps to verify →",
     resetLabel: "Start over",
   },
   calculatorResults: {
-    title: "Indicative estimate 2026",
-    admissibiliteLabel: "Estimated AFE eligibility",
+    title: "Official steps to verify",
+    admissibiliteLabel: "AFE orientation",
     admissibiliteValues: {
-      faible: "Low — your income likely exceeds AFE thresholds",
-      moyenne: "Medium — partial aid may be possible depending on the file",
-      elevee: "High — you generally meet AFE criteria",
-      "non-resident": "Not eligible — Quebec residency required",
+      "temps-plein": "Review the full-time loans and grants program. Deemed-full-time status has separate conditions.",
+      "temps-partiel": "The part-time studies loan program is separate from the full-time loans and grants program.",
+      "formation-continue": "First verify that the institution, program and course load are recognized by AFE.",
+      residence: "The 12-month rule is only one possible route among the official residency criteria.",
+      "perspective-verify-continuity": "Potential continuity only: confirm the program, starting term, course load and successful completion with the official source.",
+      "perspective-new-cohort-closed": "New cohorts after Winter 2025 are not accepted; this tool adds no amount.",
+      "perspective-verify": "Verify the cohort, program, terms and all other official conditions.",
+      reep: "The LLP may be worth checking if every CRA condition is met; it is a withdrawal from your RRSP that must be repaid.",
     },
-    pretAfeLabel: "AFE loans (indicative)",
+    pretAfeLabel: "Relevant AFE program",
     bourseAfeLabel: "AFE grants (indicative)",
     creditsLabel: "Estimated tax credits",
     reepLabel: "LLP (if RRSP available)",
     perspectiveLabel: "Bourse Perspective QC",
     totalLabel: "Indicative total / year",
-    totalNote: "Unofficial estimate. Actual amounts may differ significantly.",
+    totalNote: "This tool calculates neither entitlement nor an amount. Official agencies make the decision.",
     repayableAidLabel: "Repayable aid",
     nonRepayableAidLabel: "Non-repayable aid",
     taxReliefLabel: "Tax credits / relief",
     reepOptionLabel: "LLP option",
     noEstimateLabel: "No estimate in this category",
     validateLabel: "to validate",
-    officialCta: "Submit my official application (AFE)",
-    officialCtaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/demander-aide-financiere",
+    officialCta: "Open the official AFE simulator",
+    officialCtaHref: "https://www.quebec.ca/education/aide-financiere-aux-etudes/prets-bourses-temps-plein/calcul/simulateur-calcul",
     notApplicable: "Not applicable",
   },
 };

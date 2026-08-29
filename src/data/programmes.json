@@ -376,15 +376,17 @@
     "organisme": "Gouvernement du Québec",
     "niveau": "provincial",
     "categorie": "education",
-    "montant_min": 500,
-    "montant_max": 17500,
-    "montant_affiche": "500 $ – 17 500 $/année",
-    "description": "Prêts remboursables et bourses non remboursables pour les étudiants inscrits dans un établissement reconnu au Québec. Le montant dépend des frais réels et du revenu familial.",
+    "montant_min": 1,
+    "montant_max": 1,
+    "montant_affiche": "Variable — calcul officiel selon le dossier",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Prêts remboursables et, si les besoins reconnus dépassent la portion de prêt, bourses non remboursables. L'AFE calcule le montant selon les dépenses admises, les contributions applicables et le dossier complet.",
     "conditions": [
       "Être inscrit dans un programme reconnu par l'AFE",
-      "Résider au Québec depuis au moins 12 mois consécutifs",
-      "Satisfaire les critères de revenu (personnel, parental ou conjugal)",
-      "Temps plein ou temps partiel selon conditions"
+      "Être considéré résident du Québec selon l'un des critères officiels",
+      "Satisfaire les critères officiels de statut, de période d'admissibilité et d'endettement",
+      "Être à temps plein ou réputé temps plein; le prêt pour études à temps partiel est distinct"
     ],
     "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/services-ligne",
     "criteres": {
@@ -401,6 +403,8 @@
     "montant_min": 0,
     "montant_max": 10000,
     "montant_affiche": "Jusqu'à 10 000 $/année (20 000 $ cumulatif)",
+    "montant_sommable": false,
+    "preselection_only": true,
     "description": "Retrait du REER sans impôt immédiat pour financer ses propres études ou celles de son conjoint. Remboursement sur 10 ans.",
     "conditions": [
       "Avoir un REER avec des fonds disponibles",
@@ -867,19 +871,20 @@
     "niveau": "provincial",
     "categorie": "education",
     "montant_min": 1500,
-    "montant_max": 20000,
-    "montant_affiche": "1 500 $ – 20 000 $",
-    "description": "Bourses pour encourager les étudiants à s'inscrire ou à poursuivre des études dans des domaines d'avenir en pénurie de main-d'œuvre (soins infirmiers, génie, informatique, enseignement, etc.) dans certaines régions du Québec.",
+    "montant_max": 2500,
+    "montant_affiche": "Par session admissible : 1 500 $ collégial ou 2 500 $ université",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Bourse en continuité pour les personnes qui ont commencé un programme admissible au plus tard à l'hiver 2025 et poursuivent ce même programme. Le questionnaire ne vérifie pas les conditions complètes.",
     "conditions": [
-      "Être inscrit dans un programme admissible reconnu par le gouvernement du Québec",
-      "Étudier dans une région ou un domaine désigné",
-      "Respecter les conditions d'admissibilité du programme spécifique"
+      "Avoir commencé un programme admissible au plus tard à l'hiver 2025 et poursuivre ce même programme",
+      "Réussir la session admissible et respecter la charge d'études requise",
+      "Respecter les conditions officielles de résidence, de session et de programme"
     ],
-    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/bourses-perspective-quebec",
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/bourses-perspective/conditions-admissibilite",
     "criteres": {
       "etudiant": true,
-      "provinces": ["QC"],
-      "age_max": 35
+      "provinces": ["QC"]
     }
   },
   {
@@ -909,16 +914,18 @@
     "organisme": "Revenu Québec",
     "niveau": "provincial",
     "categorie": "education",
-    "montant_min": 200,
-    "montant_max": 1200,
-    "montant_affiche": "200 $ – 1 200 $ (selon frais payés)",
+    "montant_min": 8,
+    "montant_max": 8,
+    "montant_affiche": "8 % des frais admissibles",
+    "montant_sommable": false,
+    "preselection_only": true,
     "description": "Crédit d'impôt non remboursable de 8 % sur les frais de scolarité admissibles payés à un établissement québécois. Peut être transféré à un parent ou un conjoint si l'étudiant ne peut pas l'utiliser entièrement.",
     "conditions": [
       "Être inscrit dans un établissement d'enseignement reconnu au Québec",
       "Avoir payé des frais de scolarité admissibles",
       "Produire une déclaration de revenus au Québec"
     ],
-    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-de-scolarite/",
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/declaration-de-revenus/produire-votre-declaration-de-revenus/comment-remplir-votre-declaration-de-revenus/aide-par-ligne/350-a-398-1-credits-dimpot-non-remboursables/ligne-398/",
     "criteres": {
       "etudiant": true,
       "provinces": ["QC"]
@@ -1563,24 +1570,25 @@
   },
   {
     "id": "remise-dettes-afe-qc",
-    "nom": "Remise de dettes — AFE Québec (travail en région ou secteur ciblé)",
+    "nom": "Remise de dette — AFE Québec",
     "organisme": "Gouvernement du Québec — Aide financière aux études",
     "niveau": "provincial",
     "categorie": "education",
-    "montant_min": 1000,
-    "montant_max": 8000,
-    "montant_affiche": "1 000 $ – 8 000 $",
-    "description": "Des mesures de remise (annulation partielle ou totale) de la dette d'études sont disponibles pour les diplômés qui s'établissent et travaillent dans certaines régions du Québec ou dans des secteurs d'emploi en pénurie de main-d'œuvre. Montant indicatif selon le programme et la durée de travail en région.",
+    "montant_min": 15,
+    "montant_max": 15,
+    "montant_affiche": "15 % de la dette d'études admissible",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Remise de 15 % pour les personnes qui terminent un programme admissible dans les délais prévus et ont reçu une bourse AFE chaque année d'attribution. Une demande est requise dans les 3 ans suivant la fin des études.",
     "conditions": [
-      "Avoir une dette de prêts étudiants auprès de l'AFE Québec",
-      "Travailler dans une région ou un secteur ciblé par le programme",
-      "Respecter les durées minimales d'emploi exigées"
+      "Avoir terminé un programme admissible dans les délais prévus",
+      "Avoir reçu une bourse AFE pour chaque année d'attribution",
+      "Présenter la demande dans les 3 ans suivant la fin des études"
     ],
-    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/remboursement",
+    "lien_officiel": "https://www.quebec.ca/education/aide-financiere-aux-etudes/remboursement/remise-dette",
     "criteres": {
       "etudiant": true,
-      "provinces": ["QC"],
-      "age_max": 35
+      "provinces": ["QC"]
     }
   },
   {
