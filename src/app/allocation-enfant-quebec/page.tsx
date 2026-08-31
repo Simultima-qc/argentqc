@@ -5,8 +5,9 @@ import type { Programme } from "@/types";
 export const metadata: Metadata = {
   title: "Allocation enfant Québec 2026 – Combien puis-je recevoir ?",
   description:
-    "Calculez le montant de l'allocation enfant au Québec en 2026. Allocation famille Retraite Québec + ACE fédérale. Estimez votre montant en 2 minutes.",
+    "Vérifiez les montants 2026 de l'Allocation famille et de l'ACE, leurs fréquences et les démarches officielles.",
   keywords: ["allocation enfant Québec", "combien allocation enfant Québec", "allocation famille Québec 2026", "montant allocation enfant"],
+  alternates: { canonical: "https://argentqc.ca/allocation-enfant-quebec" },
 };
 
 const programmes: Programme[] = [
@@ -16,10 +17,12 @@ const programmes: Programme[] = [
     organisme: "Retraite Québec",
     niveau: "provincial",
     categorie: "famille",
-    montant_min: 100,
-    montant_max: 2782,
-    montant_affiche: "Jusqu'à 2 782 $ par enfant/année",
-    description: "Versements mensuels pour les familles québécoises. Le montant varie selon le revenu familial et le nombre d'enfants. Le montant maximal a été bonifié en 2026.",
+    montant_min: 0,
+    montant_max: 3068,
+    montant_affiche: "Jusqu'à 3 068 $ par enfant en 2026 — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Allocation québécoise calculée selon la situation familiale et le revenu. Elle est versée trimestriellement par défaut, ou mensuellement sur demande.",
     conditions: ["Résider au Québec", "Avoir au moins un enfant de moins de 18 ans", "Être le principal responsable de l'enfant"],
     lien_officiel: "https://www.retraitequebec.gouv.qc.ca/fr/enfants/allocation-famille/Pages/allocation-famille.aspx",
     criteres: { enfants: true, provinces: ["QC"] },
@@ -30,10 +33,12 @@ const programmes: Programme[] = [
     organisme: "Gouvernement du Canada",
     niveau: "federal",
     categorie: "famille",
-    montant_min: 1000,
-    montant_max: 7787,
-    montant_affiche: "Jusqu'à 7 787 $ par enfant/année",
-    description: "La plus importante prestation pour enfants au Canada. Versée mensuellement, non imposable, calculée selon le revenu familial net de l'année précédente.",
+    montant_min: 0,
+    montant_max: 8157,
+    montant_affiche: "Jusqu'à 8 157 $ par enfant de moins de 6 ans — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Prestation mensuelle non imposable calculée selon le RFNR 2025. Une demande à l'ARC est requise; la déclaration de revenus maintient le calcul à jour.",
     conditions: ["Avoir au moins un enfant de moins de 18 ans", "Résider au Canada", "Être le principal responsable des soins de l'enfant"],
     lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants-apercu.html",
     criteres: { enfants: true },
@@ -43,7 +48,7 @@ const programmes: Programme[] = [
 const faqs = [
   {
     question: "Combien reçoit-on par enfant au Québec en 2026 ?",
-    reponse: "En combinant l'ACE fédérale et l'Allocation famille du Québec, une famille à revenu moyen peut recevoir entre 5 000 $ et 10 000 $ par enfant de moins de 6 ans, et entre 4 000 $ et 8 000 $ pour un enfant de 6 à 17 ans. Les montants exacts dépendent de votre revenu familial net.",
+    reponse: "Pour juillet 2026 à juin 2027, l'ACE maximale est de 8 157 $ pour un enfant de moins de 6 ans et de 6 883 $ de 6 à 17 ans. L'Allocation famille 2026 peut atteindre 3 068 $ par enfant, plus un supplément monoparental maximal de 1 077 $ par famille. Le montant réel doit être vérifié séparément auprès de chaque administration.",
   },
   {
     question: "L'allocation augmente-t-elle avec le nombre d'enfants ?",
@@ -51,7 +56,7 @@ const faqs = [
   },
   {
     question: "Quand les versements sont-ils effectués ?",
-    reponse: "L'ACE fédérale est versée le 20 de chaque mois. L'Allocation famille du Québec est versée le 1er de chaque mois ou trimestriellement selon votre choix.",
+    reponse: "L'ACE est mensuelle. L'Allocation famille est trimestrielle par défaut; vous pouvez demander des versements mensuels à Retraite Québec. Consultez les calendriers officiels pour les dates exactes.",
   },
   {
     question: "Que se passe-t-il si mon revenu augmente ?",
@@ -63,8 +68,8 @@ export default function AllocationEnfantQuebecPage() {
   return (
     <SeoProgrammesPage
       titre="Allocation enfant Québec 2026 – Combien puis-je recevoir ?"
-      sousTitre="Estimez le montant de vos allocations pour enfants — provinciale et fédérale combinées."
-      intro="Au Québec, les parents reçoivent deux allocations distinctes pour leurs enfants : l'Allocation famille versée par Retraite Québec (provincial) et l'Allocation canadienne pour enfants (ACE) versée par Ottawa (fédéral). Ces deux prestations sont cumulables, non imposables, et peuvent représenter plusieurs milliers de dollars par année selon votre situation. Les montants ont été bonifiés en 2026."
+      sousTitre="Comparez les deux allocations et vérifiez séparément votre situation auprès de l'ARC et de Retraite Québec."
+      intro="Au Québec, l'Allocation famille et l'Allocation canadienne pour enfants (ACE) sont deux prestations distinctes. Les maximums ne constituent pas une estimation personnalisée et ne doivent pas être additionnés automatiquement : l'âge des enfants, le revenu familial net rajusté et la situation de garde modifient le résultat."
       programmes={programmes}
       faqs={faqs}
       motCle="Allocation enfant Québec"

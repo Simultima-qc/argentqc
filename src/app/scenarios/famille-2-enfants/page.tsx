@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Scénario : Famille avec 2 enfants, 90 000 $ — 3 200 $ récupérés | ArgentQC.ca",
+  title: "Scénario : famille avec 2 enfants à 90 000 $ — aides à vérifier | ArgentQC.ca",
   description:
     "Famille québécoise, 2 enfants (5 et 8 ans), revenu 90 000 $. Calcul détaillé des aides disponibles : allocations, crédits d'impôt, frais de garde. Plan d'action concret.",
   alternates: { canonical: "https://argentqc.ca/scenarios/famille-2-enfants" },
@@ -53,10 +53,10 @@ export default function ScenarioFamillePage() {
               lineHeight: 1.2,
               marginBottom: "1rem",
             }}>
-              Famille avec 2 enfants — 3 200 $ récupérés
+              Famille avec 2 enfants — aides à vérifier
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75 }}>
-              Marie et Jean, 2 enfants de 5 et 8 ans, revenu familial de 90 000 $. Voici les aides auxquelles ils ont droit et comment les obtenir.
+              Marie et Jean, 2 enfants de 5 et 8 ans, revenu familial de 90 000 $. Voici des pistes à vérifier, sans décision d&apos;admissibilité ni total garanti.
             </p>
           </div>
         </section>
@@ -95,8 +95,8 @@ export default function ScenarioFamillePage() {
               {[
                 {
                   label: "Allocation canadienne pour enfants (ACE)",
-                  montant: "+ 2 280 $",
-                  detail: "~1 140 $/enfant/an à 90 000 $ de revenu familial",
+                  montant: "À vérifier avec l'ARC",
+                  detail: "Calcul selon le RFNR 2025, l'âge des enfants et la situation de garde",
                   badge: "Fédéral",
                   badgeColor: "#DBEAFE",
                   badgeText: "#1D4ED8",
@@ -160,8 +160,8 @@ export default function ScenarioFamillePage() {
               {/* Total */}
               <div style={{ padding: "16px 20px", background: "#F0FDF4", borderTop: "2px solid #10B981" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E" }}>Total estimé (aides récurrentes)</span>
-                  <span style={{ fontWeight: 900, fontSize: "1.4rem", color: "#059669" }}>~ 3 200 $/an</span>
+                  <span style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E" }}>Total</span>
+                  <span style={{ fontWeight: 900, fontSize: "1.4rem", color: "#059669" }}>Non additionné</span>
                 </div>
               </div>
             </div>

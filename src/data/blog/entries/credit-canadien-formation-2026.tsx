@@ -6,7 +6,7 @@ import type { BlogArticle } from "@/data/blog/types";
 const slug = "credit-canadien-formation-2026";
 
 const baseMetadata: Metadata = {
-  title: "Crédit canadien pour la formation 2026 : 250 $/an pour vous recycler",
+  title: "Crédit canadien pour la formation 2026 : calcul et admissibilité",
   description:
     "Guide complet sur le Crédit canadien pour la formation en 2026 : accumulation de droits, cours admissibles, comment réclamer à l'impôt et combinaison avec les aides provinciales.",
   keywords: [
@@ -43,13 +43,13 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">5 min de lecture · 5 juillet 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            Crédit canadien pour la formation 2026 : 250 $/an pour vous recycler
+            Crédit canadien pour la formation 2026 : calcul et admissibilité
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Vous souhaitez suivre une formation, obtenir une certification ou changer de carrière ?
-            Le gouvernement fédéral vous rembourse <strong>jusqu&apos;à 250 $ par an</strong>{" "}en frais de scolarité
-            grâce au Crédit canadien pour la formation — une aide méconnue qui peut s&apos;accumuler jusqu&apos;à
-            5 000 $ sur 20 ans.
+            Le Crédit canadien pour la formation (CCF) est un crédit remboursable calculé à partir de
+            votre plafond disponible et de vos frais admissibles. Le montant de 250 $ correspond à
+            l&apos;augmentation annuelle possible du plafond pour une année admissible, pas à un remboursement annuel garanti.
           </p>
         </div>
 
@@ -57,8 +57,8 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ <strong>250 $ de droits de formation</strong>{" "}s&apos;accumulent chaque année admissible</li>
-            <li>✓ Plafond à vie : <strong>5 000 $</strong>{" "}(20 ans d&apos;accumulation)</li>
-            <li>✓ Remboursable à 50 % des frais de scolarité admissibles</li>
+            <li>✓ Plafond viager : <strong>5 000 $</strong>, sous réserve des années admissibles</li>
+            <li>✓ Réclamation : le moindre du plafond disponible et de 50 % des frais admissibles</li>
             <li>✓ Consultez votre solde dans Mon dossier ARC — pas de formulaire à remplir à l&apos;avance</li>
           </ul>
         </div>
@@ -67,8 +67,9 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Comment fonctionnent les droits de formation ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
             Le Crédit canadien pour la formation (CCF) fonctionne comme un compte de formation personnel.
-            Chaque année où vous êtes admissible, <strong>250 $ de droits</strong>{" "}s&apos;ajoutent automatiquement
-            à votre solde. Ces droits s&apos;accumulent d&apos;une année à l&apos;autre jusqu&apos;à un maximum de vie de 5 000 $.
+            Pour chaque année où toutes les conditions sont remplies, l&apos;ARC peut augmenter de <strong>250 $</strong>{" "}
+            votre plafond du CCF, jusqu&apos;au plafond viager de 5 000 $. Consultez votre avis de cotisation pour connaître
+            le plafond réellement disponible avant d&apos;engager une dépense.
           </p>
           <p className="text-slate-600 leading-relaxed mb-3">
             Lorsque vous payez des frais de scolarité admissibles, vous pouvez réclamer le moins élevé entre :
@@ -94,8 +95,8 @@ function Content() {
             {[
               { critere: "Avoir entre 26 et 65 ans", detail: "Les moins de 26 ans et les plus de 65 ans n&apos;accumulent pas de droits" },
               { critere: "Être résident canadien toute l&apos;année", detail: "Résidence fiscale au Canada pour toute l&apos;année d&apos;imposition" },
-              { critere: "Avoir un revenu de travail d&apos;au moins 10 994 $", detail: "Revenus d&apos;emploi ou d&apos;entreprise (indexés annuellement)" },
-              { critere: "Revenu net inférieur à 173 205 $", detail: "Le plafond de revenu pour être admissible à l&apos;accumulation" },
+              { critere: "Avoir eu au moins 12 058 $ de revenu de travail en 2025", detail: "Seuil utilisé pour établir le plafond du CCF 2026" },
+              { critere: "Avoir eu un revenu net de 177 882 $ ou moins en 2025", detail: "Plafond de revenu utilisé pour le CCF 2026" },
               { critere: "Avoir produit une déclaration de revenus", detail: "L&apos;ARC calcule automatiquement vos droits lors de la production" },
             ].map((item) => (
               <div key={item.critere} className="bg-white border border-slate-100 rounded-xl px-4 py-3">
@@ -118,7 +119,7 @@ function Content() {
               "Établissements offrant des cours de formation professionnelle",
               "Cours en ligne d&apos;établissements certifiés",
               "Programmes de certification et de perfectionnement professionnel",
-              "Cours occupant au moins 3 heures par semaine pendant au moins 3 semaines consécutives",
+              "Cours dont les frais satisfont aux règles fiscales officielles applicables",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 bg-purple-50 border border-purple-100 rounded-xl px-4 py-2.5">
                 <span className="text-purple-500 font-bold text-sm mt-0.5">✓</span>
@@ -178,10 +179,10 @@ function Content() {
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
             <div className="space-y-3">
               {[
-                { programme: "Crédit canadien pour la formation (fédéral)", montant: "Jusqu&apos;à 250 $/an" },
-                { programme: "Crédit d&apos;impôt pour frais de scolarité (Québec)", montant: "20 % des frais admissibles" },
-                { programme: "Aide financière aux études — volet formation continue", montant: "Variable selon situation" },
-                { programme: "Programme Emploi-Québec — formation de la main-d&apos;œuvre", montant: "Subvention jusqu&apos;à 100 %" },
+                { programme: "Crédit canadien pour la formation (fédéral)", montant: "Selon le plafond disponible" },
+                { programme: "Crédit d&apos;impôt pour frais de scolarité (Québec)", montant: "8 % des frais admissibles" },
+                { programme: "Aide financière aux études", montant: "Selon le programme et la situation" },
+                { programme: "Mesures de formation de Services Québec", montant: "Conditionnel — à confirmer" },
               ].map((item) => (
                 <div key={item.programme} className="flex justify-between items-center text-sm border-b border-slate-200 pb-3 last:border-0 last:pb-0">
                   <span className="text-slate-700" dangerouslySetInnerHTML={{ __html: item.programme }} />
@@ -195,7 +196,7 @@ function Content() {
         <div style={{ background: "#0F1F3D" }} className="text-white rounded-2xl p-6 text-center">
           <p className="font-bold text-lg mb-2">Trouvez toutes vos aides en 2 minutes</p>
           <p className="text-blue-200 text-sm mb-4">
-            Formation, famille, logement — découvrez les programmes auxquels vous avez droit selon votre situation.
+            Formation, famille, logement — obtenez des pistes à vérifier selon votre situation.
           </p>
           <Link
             href="/fr/questionnaire"
@@ -208,7 +209,7 @@ function Content() {
         <p className="text-center text-slate-400 text-xs mt-6">
           Source officielle :{" "}
           <a
-            href="https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/lignes-32300-46900-montants-frais-scolarite/credit-canadien-formation.html"
+            href="https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-45350-credit-canadien-pour-la-formation.html"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
@@ -230,7 +231,7 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "Crédit canadien pour la formation 2026 : 250 $/an pour vous recycler",
+  titre: "Crédit canadien pour la formation 2026 : calcul et admissibilité",
   description:
     "Guide complet sur le Crédit canadien pour la formation en 2026 : accumulation de droits, cours admissibles, comment réclamer à l'impôt et combinaison avec les aides québécoises.",
   date: "2026-07-05",

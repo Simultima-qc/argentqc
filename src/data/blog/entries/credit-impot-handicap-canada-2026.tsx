@@ -146,7 +146,7 @@ function Content() {
               },
               {
                 programme: "Supplément pour enfant handicapé (ACE)",
-                valeur: "3 432 $/an supplémentaires",
+                valeur: "3 480 $/an supplémentaires",
                 desc: "Ajouté automatiquement à l&apos;Allocation canadienne pour enfants.",
               },
               {

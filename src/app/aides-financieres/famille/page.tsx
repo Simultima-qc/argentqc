@@ -42,7 +42,7 @@ export default function AidesFinancieresFamillePage() {
               Aides financières famille Québec
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "560px" }}>
-              Allocations fédérales et provinciales, crédits d&apos;impôt pour la garde, subventions sport — une famille de 2 enfants peut récupérer 3 000 $ à 10 000 $/an selon sa situation.
+              Allocations fédérales et provinciales, crédits d&apos;impôt pour la garde et aides sport : vérifiez chaque programme selon votre revenu et votre situation.
             </p>
           </div>
         </section>
@@ -141,12 +141,12 @@ export default function AidesFinancieresFamillePage() {
                   badgeColor: "#DBEAFE",
                   badgeText: "#1D4ED8",
                   titre: "Allocation canadienne pour enfants (ACE)",
-                  montant: "Jusqu'à 7 787 $/enfant/an",
-                  desc: "Versement mensuel non imposable de l'ARC pour les familles avec enfants de moins de 18 ans. Le montant diminue progressivement à partir d'un revenu familial de 36 502 $.",
+                  montant: "Jusqu'à 8 157 $ avant 6 ans — à vérifier",
+                  desc: "Versement mensuel non imposable de l'ARC. Pour 2026-2027, le calcul repose sur le RFNR 2025 et commence à diminuer au-delà de 38 237 $.",
                   details: [
-                    "Jusqu'à 7 787 $/an pour les enfants de moins de 6 ans",
-                    "Jusqu'à 6 570 $/an pour les enfants de 6 à 17 ans",
-                    "Versement mensuel automatique après la déclaration de revenus",
+                    "Jusqu'à 8 157 $/an pour les enfants de moins de 6 ans",
+                    "Jusqu'à 6 883 $/an pour les enfants de 6 à 17 ans",
+                    "Demande requise auprès de l'ARC; versement mensuel si admissible",
                     "Non imposable — ne s'ajoute pas au revenu",
                   ],
                   lien: "/allocation-enfant-quebec",
@@ -158,13 +158,13 @@ export default function AidesFinancieresFamillePage() {
                   badgeColor: "#D1FAE5",
                   badgeText: "#065F46",
                   titre: "Allocation famille Québec",
-                  montant: "Jusqu'à 2 847 $/enfant/an",
+                  montant: "Jusqu'à 3 068 $/enfant/an — à vérifier",
                   desc: "Programme provincial versé par Retraite Québec aux familles avec enfants à charge. Le montant est majoré pour les familles à faible revenu et les familles monoparentales.",
                   details: [
-                    "Montant de base : 1 167 $ à 2 847 $/enfant selon le revenu",
-                    "Supplément famille monoparentale disponible",
-                    "Versement trimestriel automatique",
-                    "Déclenché par la déclaration de revenus provinciale",
+                    "Maximum 2026 : 3 068 $/enfant selon le revenu",
+                    "Supplément monoparental maximal : 1 077 $ par famille",
+                    "Versement trimestriel par défaut, mensuel sur demande",
+                    "Admissibilité et montant à confirmer auprès de Retraite Québec",
                   ],
                   lien: "/aide-famille-quebec",
                   libelleBtn: "Guide Allocation famille",

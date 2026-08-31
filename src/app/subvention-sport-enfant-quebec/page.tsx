@@ -17,8 +17,10 @@ const programmes: Programme[] = [
     niveau: "provincial",
     categorie: "famille",
     montant_min: 100,
-    montant_max: 2782,
-    montant_affiche: "Jusqu'à 2 782 $ par enfant/année",
+    montant_max: 3068,
+    montant_affiche: "Jusqu'à 3 068 $ par enfant en 2026 — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
     description: "Versements mensuels non imposables pour les familles québécoises ayant des enfants de moins de 18 ans. Ce revenu supplémentaire peut couvrir les frais d'inscription aux activités sportives.",
     conditions: [
       "Résider au Québec",
@@ -35,8 +37,10 @@ const programmes: Programme[] = [
     niveau: "federal",
     categorie: "famille",
     montant_min: 1000,
-    montant_max: 7787,
-    montant_affiche: "Jusqu'à 7 787 $ par enfant/année",
+    montant_max: 8157,
+    montant_affiche: "Jusqu'à 8 157 $ avant 6 ans — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
     description: "Paiement mensuel non imposable pour les familles avec enfants de moins de 18 ans. Une des principales sources d'aide pour couvrir les activités sportives et de loisirs des enfants.",
     conditions: [
       "Avoir au moins un enfant de moins de 18 ans",
@@ -82,7 +86,7 @@ const faqs = [
   },
   {
     question: "Puis-je combiner l'ACE et le crédit pour frais de garde ?",
-    reponse: "Oui, absolument. L'ACE est un paiement mensuel et le crédit pour frais de garde est un crédit d'impôt annuel — ils sont entièrement cumulables. Une famille avec deux enfants peut recevoir l'ACE (jusqu'à 15 574 $/an) et utiliser le crédit pour frais de garde pour les camps sportifs en été.",
+    reponse: "Ces programmes peuvent s'appliquer à une même famille, mais chacun a ses propres critères. Vérifiez l'ACE auprès de l'ARC et l'admissibilité des frais de garde auprès de Revenu Québec; n'additionnez pas leurs maximums comme une estimation.",
   },
 ];
 

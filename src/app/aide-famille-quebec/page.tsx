@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Découvrez toutes les aides financières disponibles pour les familles au Québec en 2026 : allocation famille, ACE, crédit solidarité et plus. Calculez votre montant en 2 minutes.",
   keywords: ["aide financière famille Québec", "aide famille Québec 2026", "programme famille Québec"],
+  alternates: { canonical: "https://argentqc.ca/aide-famille-quebec" },
 };
 
 const programmes: Programme[] = [
@@ -16,10 +17,12 @@ const programmes: Programme[] = [
     organisme: "Retraite Québec",
     niveau: "provincial",
     categorie: "famille",
-    montant_min: 100,
-    montant_max: 2782,
-    montant_affiche: "Jusqu'à 2 782 $ par enfant/année",
-    description: "Versements mensuels pour les familles québécoises ayant des enfants de moins de 18 ans. S'ajoute à l'Allocation canadienne pour enfants.",
+    montant_min: 0,
+    montant_max: 3068,
+    montant_affiche: "Jusqu'à 3 068 $ par enfant en 2026 — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Allocation québécoise versée trimestriellement par défaut, ou mensuellement sur demande. Le montant dépend de la situation familiale et du revenu.",
     conditions: ["Résider au Québec", "Avoir au moins un enfant de moins de 18 ans", "Être le principal responsable de l'enfant"],
     lien_officiel: "https://www.retraitequebec.gouv.qc.ca/fr/enfants/allocation-famille/Pages/allocation-famille.aspx",
     criteres: { enfants: true, provinces: ["QC"] },
@@ -30,10 +33,12 @@ const programmes: Programme[] = [
     organisme: "Gouvernement du Canada",
     niveau: "federal",
     categorie: "famille",
-    montant_min: 1000,
-    montant_max: 7787,
-    montant_affiche: "Jusqu'à 7 787 $ par enfant/année",
-    description: "Paiement mensuel non imposable pour les familles qui élèvent des enfants de moins de 18 ans. Montant basé sur le revenu familial net.",
+    montant_min: 0,
+    montant_max: 8157,
+    montant_affiche: "Jusqu'à 8 157 $ par enfant de moins de 6 ans — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Paiement mensuel non imposable basé sur le RFNR 2025. Une demande à l'ARC est requise; produire les déclarations maintient le calcul à jour.",
     conditions: ["Avoir au moins un enfant de moins de 18 ans", "Résider au Canada", "Être le principal responsable des soins de l'enfant"],
     lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants-apercu.html",
     criteres: { enfants: true },
@@ -75,11 +80,11 @@ const faqs = [
   },
   {
     question: "Dois-je faire une demande pour recevoir ces aides ?",
-    reponse: "L'ACE est calculée automatiquement lors de votre déclaration de revenus fédérale. L'Allocation famille du Québec nécessite une inscription auprès de Retraite Québec à la naissance de l'enfant ou à votre arrivée au Québec.",
+    reponse: "L'ACE exige une demande à l'ARC. À la naissance, l'enregistrement provincial peut transmettre les renseignements à l'ARC si vous consentez au service automatisé. Pour l'Allocation famille, vérifiez la démarche applicable auprès de Retraite Québec.",
   },
   {
     question: "À combien ai-je droit si j'ai deux enfants et un revenu de 50 000 $ ?",
-    reponse: "Avec deux enfants et un revenu familial de 50 000 $, vous pouvez recevoir environ 8 000 $ à 15 000 $ par année en combinant l'ACE, l'Allocation famille du Québec et le crédit de solidarité. Utilisez notre questionnaire pour une estimation personnalisée.",
+    reponse: "Le montant dépend notamment de l'âge des enfants, du RFNR 2025 et de la situation de garde. Le questionnaire fournit seulement des pistes; utilisez ensuite les calculateurs de l'ARC et de Retraite Québec pour vérifier chaque montant.",
   },
   {
     question: "Ces prestations sont-elles imposables ?",
@@ -92,7 +97,7 @@ export default function AideFamilleQuebecPage() {
     <SeoProgrammesPage
       titre="Aide financière famille Québec 2026"
       sousTitre="Toutes les allocations et aides auxquelles votre famille a droit — provinciales et fédérales."
-      intro="Les familles québécoises peuvent cumuler plusieurs sources d'aide financière gouvernementale. Entre l'Allocation famille de Retraite Québec, l'Allocation canadienne pour enfants (ACE) et le crédit de solidarité, une famille avec deux enfants peut recevoir plus de 15 000 $ par année en prestations non imposables. Pourtant, plusieurs familles ne réclament pas tout ce à quoi elles ont droit par manque d'information."
+      intro="Les familles québécoises peuvent être admissibles à plusieurs aides distinctes. Le questionnaire sert de préfiltre : il ne confirme pas l'admissibilité et n'additionne pas les maximums de l'ACE et de l'Allocation famille, puisque chaque administration applique son propre calcul."
       programmes={programmes}
       faqs={faqs}
       motCle="Aide financière famille Québec"
