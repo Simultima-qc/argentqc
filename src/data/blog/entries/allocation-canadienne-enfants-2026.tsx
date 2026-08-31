@@ -138,9 +138,9 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">ACE et Allocation famille : deux aides distinctes</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Beaucoup de parents ne réalisent pas qu&apos;ils reçoivent <strong>deux prestations séparées</strong>{" "}chaque mois :
-            l&apos;ACE fédérale (ARC) et l&apos;Allocation famille provinciale (Retraite Québec). Ces deux programmes
-            sont cumulables et indépendants.
+            Beaucoup de parents ne réalisent pas qu&apos;il s&apos;agit de <strong>deux prestations séparées</strong> :
+            l&apos;ACE fédérale est mensuelle, tandis que l&apos;Allocation famille provinciale est trimestrielle par défaut
+            et peut être versée mensuellement sur demande. Ces deux programmes sont cumulables et indépendants.
           </p>
           <div className="grid grid-cols-1 gap-3">
             {[
