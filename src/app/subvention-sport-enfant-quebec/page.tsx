@@ -21,7 +21,7 @@ const programmes: Programme[] = [
     montant_affiche: "Jusqu'à 3 068 $ par enfant en 2026 — à vérifier",
     montant_sommable: false,
     preselection_only: true,
-    description: "Versements mensuels non imposables pour les familles québécoises ayant des enfants de moins de 18 ans. Ce revenu supplémentaire peut couvrir les frais d'inscription aux activités sportives.",
+    description: "Versements trimestriels par défaut pour les familles québécoises admissibles ayant des enfants de moins de 18 ans; des versements mensuels peuvent être demandés.",
     conditions: [
       "Résider au Québec",
       "Avoir au moins un enfant de moins de 18 ans",

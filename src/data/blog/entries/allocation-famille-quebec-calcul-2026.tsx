@@ -7,7 +7,7 @@ const slug = "allocation-famille-quebec-calcul-2026";
 const baseMetadata: Metadata = {
   title: "Allocation famille Québec 2026 : Calculez combien vous recevez",
   description:
-    "Allocation famille Québec 2026 : montants selon le nombre d'enfants et le revenu familial, comment calculer votre aide, versements mensuels de Retraite Québec.",
+    "Allocation famille Québec 2026 : montants, calcul, paiements trimestriels par défaut et option de versements mensuels sur demande.",
   keywords: ["allocation famille québec 2026", "allocation famille montant", "allocation famille calcul", "retraite québec enfants", "aide famille québec"],
 };
 
@@ -163,7 +163,7 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Suppléments additionnels disponibles</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             En plus du montant de base, certaines familles ont droit à des suppléments qui s&apos;ajoutent
-            automatiquement à l&apos;allocation mensuelle.
+            à l&apos;Allocation famille selon les règles propres à chaque supplément.
           </p>
           <div className="grid grid-cols-1 gap-3">
             {[
@@ -323,7 +323,7 @@ function Content() {
 const article: BlogArticle = {
   slug,
   titre: "Allocation famille Québec 2026 : Calculez combien vous recevez",
-  description: "Montants de l'allocation famille Québec 2026, comment calculer votre aide selon votre revenu et le nombre d'enfants, suppléments disponibles et versements mensuels.",
+  description: "Montants de l'Allocation famille Québec 2026, calcul, suppléments, paiements trimestriels par défaut et option mensuelle sur demande.",
   date: "2026-05-21",
   categorie: "Famille",
   tempsLecture: "8 min",

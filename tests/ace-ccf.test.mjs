@@ -23,6 +23,36 @@ test("ACE and Allocation famille questionnaire entries remain preselection-only"
   }
 });
 
+test("Allocation famille frequency stays quarterly by default in French and English", () => {
+  const english = read("src/i18n/programmes.ts");
+  const frenchSurfaces = [
+    "src/data/programmes.json",
+    "src/app/allocation-enfant-quebec/page.tsx",
+    "src/app/aide-famille-quebec/page.tsx",
+    "src/app/aide-financiere-sport-enfant-quebec/page.tsx",
+    "src/app/subvention-sport-enfant-quebec/page.tsx",
+    "src/data/blog/entries/allocation-canadienne-enfants-2026.tsx",
+    "src/data/blog/entries/allocation-famille-quebec-calcul-2026.tsx",
+  ].map(read).join("\n");
+
+  assert.match(
+    english,
+    /Quarterly payments by default for eligible Quebec families with children under 18; monthly payments can be requested\./
+  );
+  assert.doesNotMatch(english, /Monthly payments for Quebec families with children under 18/i);
+
+  for (const staleClaim of [
+    /Versements mensuels non imposables pour (?:les )?familles québécoises/i,
+    /versements mensuels de Retraite Québec/i,
+    /deux prestations séparées[^.]*chaque mois/i,
+    /allocation mensuelle/i,
+  ]) {
+    assert.doesNotMatch(frenchSurfaces, staleClaim);
+  }
+
+  assert.match(frenchSurfaces, /trimestriels? par défaut[^.]*mensuels? (?:peuvent être demandés|sur demande)/i);
+});
+
 test("central 2026 rules contain the audited ACE, Quebec and CCF parameters", () => {
   const source = read("src/data/finance-2026/family-training-rules-2026.ts");
   for (const token of [

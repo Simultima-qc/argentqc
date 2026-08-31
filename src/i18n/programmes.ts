@@ -73,7 +73,7 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
     organisme: "Retraite Quebec",
     montant_affiche: "Up to $3,068 per child in 2026 — verify",
     description:
-      "Monthly payments for Quebec families with children under 18. This is paid in addition to the Canada Child Benefit.",
+      "Quarterly payments by default for eligible Quebec families with children under 18; monthly payments can be requested.",
     conditions: [
       "You must live in Quebec",
       "You must have at least one child under 18",

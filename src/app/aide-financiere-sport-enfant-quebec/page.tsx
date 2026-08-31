@@ -28,7 +28,7 @@ const programmes = [
     nom: "Allocation famille (Québec)",
     organisme: "Retraite Québec",
     montant: "Jusqu'à 3 068 $/enfant/an — à vérifier",
-    description: "Versements mensuels non imposables pour familles québécoises avec enfants de moins de 18 ans.",
+    description: "Versements trimestriels par défaut pour les familles québécoises admissibles avec enfants de moins de 18 ans; des versements mensuels peuvent être demandés.",
     href: "/aide-famille-quebec",
     badge: "Provincial",
     badgeColor: "bg-blue-100 text-blue-700",
