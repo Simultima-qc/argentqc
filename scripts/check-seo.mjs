@@ -756,6 +756,7 @@ function checkSourceBackedClaimLedgers() {
     "supplement-revenu-garanti-2026",
     "securite-vieillesse-quebec-2026",
     "rqap-conge-parental-quebec-2026",
+    "reee-subvention-epargne-etudes-2026",
   ];
   const sensitiveAmountPattern = /(?:\d[\d\s]*(?:,\d+)?\s*(?:\$|%)|(?:\$)\s*\d)/;
   const expectedLedgerColumns = "claim | source officielle | date de vérification | statut | prochaine vérification | action";
