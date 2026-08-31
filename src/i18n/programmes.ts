@@ -59,9 +59,9 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
   "ace-fed": {
     nom: "Canada Child Benefit (CCB)",
     organisme: "Government of Canada",
-    montant_affiche: "Up to $7,787 per child per year",
+    montant_affiche: "Up to $8,157 per child under age 6 — verify",
     description:
-      "A monthly tax-free payment for families raising children under 18, based on adjusted family income.",
+      "A pre-filter for the monthly CCB. The actual amount depends on the children's ages and 2025 adjusted family net income; an application to the CRA is required.",
     conditions: [
       "You must have at least one child under 18",
       "You must live in Canada",
@@ -71,7 +71,7 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
   "irapvf-qc": {
     nom: "Quebec family allowance",
     organisme: "Retraite Quebec",
-    montant_affiche: "Up to $2,782 per child per year",
+    montant_affiche: "Up to $3,068 per child in 2026 — verify",
     description:
       "Monthly payments for Quebec families with children under 18. This is paid in addition to the Canada Child Benefit.",
     conditions: [

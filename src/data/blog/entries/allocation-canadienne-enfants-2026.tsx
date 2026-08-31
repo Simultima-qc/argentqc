@@ -57,7 +57,7 @@ function Content() {
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Jusqu&apos;à <strong>8 157 $/an</strong>{" "}par enfant de moins de 6 ans (679,75 $/mois)</li>
             <li>✓ Jusqu&apos;à <strong>6 883 $/an</strong>{" "}par enfant de 6 à 17 ans (573,58 $/mois)</li>
-            <li>✓ Prestation <strong>non imposable</strong>,{" "}versée automatiquement chaque mois</li>
+            <li>✓ Prestation <strong>non imposable</strong>, versée mensuellement après une demande admissible</li>
             <li>✓ Cumulable avec l&apos;Allocation famille du Québec — deux chèques distincts</li>
           </ul>
         </div>
@@ -154,7 +154,7 @@ function Content() {
                 programme: "Allocation famille Québec",
                 organisme: "Gouvernement du Québec — Retraite Québec",
                 base: "Revenu familial et situation de garde",
-                max: "Jusqu&apos;à 2 986 $/an/enfant",
+                max: "Jusqu&apos;à 3 068 $/an/enfant en 2026",
               },
             ].map((item) => (
               <div key={item.programme} className="bg-white border border-slate-100 rounded-xl p-4">
@@ -168,8 +168,8 @@ function Content() {
             ))}
           </div>
           <p className="text-slate-500 text-sm mt-3">
-            En combinant les deux programmes, une famille québécoise à revenu modeste peut recevoir
-            plus de <strong>10 000 $ par année par enfant</strong>.
+            Ces maximums ne doivent pas être additionnés comme une estimation personnelle. Vérifiez séparément
+            le calcul de l&apos;ARC et celui de Retraite Québec selon votre revenu, l&apos;âge des enfants et la garde.
           </p>
         </section>
 
@@ -179,8 +179,8 @@ function Content() {
             {[
               {
                 num: "1",
-                titre: "À la naissance : via Service Canada",
-                texte: "Lors de l&apos;enregistrement de la naissance de votre enfant, vous pouvez cocher la case pour demander l&apos;ACE automatiquement. C&apos;est la façon la plus simple — pas de formulaire séparé.",
+                titre: "À la naissance : service provincial d'enregistrement",
+                texte: "Lors de l&apos;enregistrement provincial de la naissance, vous pouvez consentir à la transmission des renseignements à l&apos;ARC. Sinon, faites une demande dans Mon dossier ARC ou avec le formulaire RC66.",
               },
               {
                 num: "2",
@@ -217,7 +217,7 @@ function Content() {
             {[
               {
                 titre: "Garde partagée",
-                desc: "Si vous avez la garde partagée à 50/50, chaque parent reçoit 50 % de la prestation mensuelle. Vous devez tous les deux faire la demande.",
+                desc: "La garde partagée vise généralement une prise en charge de 40 % à 60 % du temps. Chaque parent admissible reçoit 50 % de ce qu&apos;il aurait reçu en garde complète, selon son propre RFNR.",
               },
               {
                 titre: "Nouvel arrivant au Canada",
@@ -229,7 +229,7 @@ function Content() {
               },
               {
                 titre: "Paiements rétroactifs",
-                desc: "Si vous avez négligé de faire votre demande, l&apos;ARC peut verser des paiements rétroactifs. Ça vaut la peine de régulariser votre situation même des années plus tard.",
+                desc: "Une demande visant plus de 11 mois antérieurs exige des documents supplémentaires. Selon les circonstances, l&apos;ARC peut examiner une période pouvant aller jusqu&apos;à 10 ans; ce n&apos;est pas une promesse de paiement.",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">

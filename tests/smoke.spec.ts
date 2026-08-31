@@ -333,6 +333,30 @@ test.describe("Contrats des pages editoriales prioritaires", () => {
   }
 });
 
+test.describe("Corrections ACE et CCF 2026", () => {
+  test("la page allocations affiche les maximums vérifiés sans total trompeur", async ({ page }) => {
+    const response = await page.goto("/allocation-enfant-quebec");
+    expect(response?.status()).toBeLessThan(400);
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Allocation enfant Québec 2026");
+    await expect(page.getByText(/8 157 \$ par enfant de moins de 6 ans/)).toBeVisible();
+    await expect(page.getByText(/3 068 \$ par enfant en 2026/)).toBeVisible();
+    await expect(page.getByText("À vérifier", { exact: true })).toBeVisible();
+    await expect(page.getByText("Potentiel total estimé", { exact: true })).toHaveCount(0);
+  });
+
+  test("l'article CCF distingue l'accumulation du montant réclamable", async ({ page }) => {
+    const response = await page.goto("/blog/credit-canadien-formation-2026");
+    expect(response?.status()).toBeLessThan(400);
+
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("calcul et admissibilité");
+    await expect(page.getByText(/12 058 \$ de revenu de travail en 2025/)).toBeVisible();
+    await expect(page.getByText(/177 882 \$ ou moins en 2025/)).toBeVisible();
+    await expect(page.getByText("8 % des frais admissibles", { exact: true })).toBeVisible();
+    await expect(page.getByText(/250 \$ par an pour vous recycler/)).toHaveCount(0);
+  });
+});
+
 // -- Sanite globale : temps de reponse et statut HTTP --
 
 const pagesToCheck = [

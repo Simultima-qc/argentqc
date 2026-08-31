@@ -68,7 +68,8 @@ export default function SeoProgrammesPage({
   };
 
   const questionnairePath = "/fr/questionnaire";
-  const totalMax = programmes.reduce((acc, p) => acc + p.montant_max, 0);
+  const programmesSommes = programmes.filter((programme) => programme.montant_sommable !== false);
+  const totalMax = programmesSommes.reduce((acc, programme) => acc + programme.montant_max, 0);
   const totalFormate = new Intl.NumberFormat("fr-CA", {
     style: "currency",
     currency: "CAD",
@@ -147,7 +148,7 @@ export default function SeoProgrammesPage({
             {questionnaireCtaLabel}
           </TrackingLink>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", textAlign: "center", marginTop: "8px" }}>
-            Gratuit · 2 minutes · estimation personnalisée
+            Gratuit · 2 minutes · préfiltrage indicatif
           </p>
         </div>
       </section>
@@ -159,12 +160,16 @@ export default function SeoProgrammesPage({
 
         <div style={{ background: DARK, borderRadius: "16px", padding: "20px", marginBottom: "20px", textAlign: "center" }}>
           <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>
-            Potentiel total estimé
+            {programmesSommes.length > 0 ? "Maximums indicatifs additionnables" : "Orientation personnalisée"}
           </p>
           <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2.5rem", fontWeight: 800, lineHeight: 1, marginBottom: "4px" }}>
-            {totalFormate}
+            {programmesSommes.length > 0 ? totalFormate : "À vérifier"}
           </p>
-          <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px" }}>{programmes.length} programmes disponibles</p>
+          <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px" }}>
+            {programmesSommes.length > 0
+              ? `${programmesSommes.length} maximum${programmesSommes.length > 1 ? "s" : ""} additionnable${programmesSommes.length > 1 ? "s" : ""}; les autres sont à vérifier`
+              : `${programmes.length} programmes à vérifier auprès des sources officielles`}
+          </p>
         </div>
 
         <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
@@ -285,7 +290,7 @@ export default function SeoProgrammesPage({
             Trouvez tout ce à quoi vous avez droit
           </p>
           <p style={{ color: "rgba(240,235,224,0.45)", fontSize: "13px", marginBottom: "20px" }}>
-            Répondez à 8 questions — résultats personnalisés en 2 minutes.
+            Répondez à 8 questions — pistes personnalisées à confirmer sur les sites officiels.
           </p>
           <TrackingLink
             href={questionnairePath}
@@ -305,7 +310,7 @@ export default function SeoProgrammesPage({
             {questionnaireCtaLabel}
           </TrackingLink>
           <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "12px", marginTop: "8px" }}>
-            Gratuit · 2 minutes · estimation personnalisée
+            Gratuit · 2 minutes · préfiltrage indicatif
           </p>
         </div>
 

@@ -40,9 +40,9 @@ function Content() {
             Allocation famille Québec 2026 : Calculez combien vous recevez
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            L&apos;allocation famille est un versement mensuel de <strong>Retraite Québec</strong>{" "} destiné aux familles
-            avec enfants de moins de 18 ans. En 2026, certaines familles reçoivent jusqu&apos;à{" "}
-            <strong>990 $ par mois</strong>{" "} selon leur situation. Voici comment calculer votre montant.
+            L&apos;Allocation famille est une prestation de <strong>Retraite Québec</strong> destinée aux familles
+            avec enfants de moins de 18 ans. En 2026, le montant de base maximal est de
+            <strong> 3 068 $ par enfant</strong>. Le calcul exact doit être vérifié auprès de Retraite Québec.
           </p>
         </div>
 
@@ -50,9 +50,9 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Versements mensuels automatiques de Retraite Québec pour chaque enfant de moins de 18 ans</li>
+            <li>✓ Versements trimestriels par défaut; versements mensuels sur demande</li>
             <li>✓ Montant calculé en fonction du nombre d&apos;enfants et du revenu familial net</li>
-            <li>✓ Jusqu&apos;à <strong>2 973 $ par année</strong>{" "} pour un premier enfant (maximum 2026)</li>
+            <li>✓ Jusqu&apos;à <strong>3 068 $ par enfant en 2026</strong> pour le montant de base</li>
             <li>✓ Supplément pour enfant handicapé et supplément pour famille monoparentale disponibles</li>
           </ul>
         </div>
@@ -61,14 +61,14 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Qu&apos;est-ce que l&apos;allocation famille ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            L&apos;allocation famille est un programme provincial administré par <strong>Retraite Québec</strong>{" "} qui verse
-            chaque mois une aide financière aux familles ayant des enfants à charge de moins de 18 ans. Contrairement
+            L&apos;Allocation famille est un programme provincial administré par <strong>Retraite Québec</strong> pour
+            les familles ayant des enfants à charge de moins de 18 ans. Contrairement
             à l&apos;Allocation canadienne pour enfants (fédérale), celle-ci est spécifique au Québec et s&apos;y ajoute.
           </p>
           <p className="text-slate-600 leading-relaxed mb-3">
-            L&apos;allocation est <strong>automatiquement versée</strong>{" "} dès que votre enfant est inscrit à l&apos;état civil
-            québécois — il n&apos;est généralement pas nécessaire de faire une demande si vous avez déclaré la naissance
-            au Directeur de l&apos;état civil. Les versements arrivent le 1er de chaque mois directement dans votre compte bancaire.
+            Après une naissance au Québec, les renseignements transmis au Directeur de l&apos;état civil peuvent permettre
+            l&apos;inscription. Une demande demeure nécessaire dans certaines situations. Les paiements sont trimestriels par
+            défaut; vous pouvez demander à Retraite Québec de les recevoir mensuellement.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Le montant est révisé chaque année en juillet selon un taux d&apos;indexation basé sur l&apos;indice des prix
@@ -89,10 +89,10 @@ function Content() {
             <p className="font-bold text-blue-800 mb-3">Montants maximums 2026 (revenu faible)</p>
             <div className="space-y-2">
               {[
-                { situation: "1 enfant", annuel: "2 973 $", mensuel: "248 $" },
-                { situation: "2 enfants", annuel: "5 948 $", mensuel: "496 $" },
-                { situation: "3 enfants", annuel: "8 680 $", mensuel: "723 $" },
-                { situation: "4 enfants", annuel: "11 875 $", mensuel: "990 $" },
+                { situation: "1 enfant", annuel: "3 068 $", mensuel: "À vérifier" },
+                { situation: "2 enfants", annuel: "6 136 $", mensuel: "À vérifier" },
+                { situation: "3 enfants", annuel: "9 204 $", mensuel: "À vérifier" },
+                { situation: "4 enfants", annuel: "12 272 $", mensuel: "À vérifier" },
               ].map((ligne) => (
                 <div key={ligne.situation} className="flex justify-between items-center text-sm border-b border-blue-100 pb-2 last:border-0 last:pb-0">
                   <span className="text-blue-900 font-medium">{ligne.situation}</span>
@@ -106,27 +106,15 @@ function Content() {
           </div>
 
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-slate-700 mb-3">Montants minimums 2026 (revenu élevé)</p>
-            <div className="space-y-2">
-              {[
-                { situation: "1 enfant", annuel: "900 $", mensuel: "75 $" },
-                { situation: "2 enfants", annuel: "1 801 $", mensuel: "150 $" },
-                { situation: "3 enfants", annuel: "2 632 $", mensuel: "219 $" },
-                { situation: "4 enfants", annuel: "3 601 $", mensuel: "300 $" },
-              ].map((ligne) => (
-                <div key={ligne.situation} className="flex justify-between items-center text-sm border-b border-slate-200 pb-2 last:border-0 last:pb-0">
-                  <span className="text-slate-700 font-medium">{ligne.situation}</span>
-                  <div className="text-right">
-                    <span className="font-bold text-slate-800 block">{ligne.annuel}/an</span>
-                    <span className="text-slate-500 text-xs">{ligne.mensuel}/mois</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="font-bold text-slate-700 mb-2">Montant réel</p>
+            <p className="text-slate-600 text-sm">
+              Retraite Québec applique sa formule selon le revenu familial, la situation conjugale, le nombre
+              d&apos;enfants et la garde. Consultez votre dossier ou le calculateur officiel plutôt qu&apos;un tableau générique.
+            </p>
           </div>
           <p className="text-slate-500 text-xs">
-            * Les montants ci-dessus sont indexés au 1er janvier 2026. La transition entre maximum et minimum
-            se fait progressivement selon le revenu familial net.
+            * Les maximums de base ci-dessus ne tiennent pas compte de tous les suppléments ni des réductions selon le revenu.
+            Ils ne constituent pas une estimation personnalisée.
           </p>
         </section>
 
@@ -134,28 +122,27 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Comment est calculé votre montant ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le calcul de l&apos;allocation famille suit une formule progressive. Vous recevez le montant maximum
-            si votre revenu familial net est inférieur à environ <strong>52 000 $</strong>. Au-delà de ce seuil,
-            le montant diminue graduellement — mais ne descend jamais en dessous du minimum.
+            Le calcul de l&apos;Allocation famille suit une formule progressive et dépend de plusieurs renseignements
+            propres au dossier. Les seuils et le résultat doivent être lus dans l&apos;outil officiel de Retraite Québec.
           </p>
           <div className="flex flex-col gap-3">
             {[
               {
-                revenu: "Moins de 52 000 $",
+                revenu: "Revenu familial",
                 couleur: "bg-green-100 border-green-200",
-                texte: "Montant maximum — vous recevez la totalité de l&apos;aide pour votre nombre d&apos;enfants.",
+                texte: "Le revenu familial déclaré influence le montant versé.",
                 textColor: "text-green-900",
               },
               {
-                revenu: "52 000 $ – 110 000 $",
+                revenu: "Nombre d&apos;enfants et situation conjugale",
                 couleur: "bg-yellow-50 border-yellow-200",
-                texte: "Montant réduit progressivement — chaque dollar de revenu supplémentaire réduit légèrement l&apos;allocation.",
+                texte: "Le nombre d&apos;enfants et un éventuel statut monoparental modifient le calcul.",
                 textColor: "text-yellow-900",
               },
               {
-                revenu: "Plus de 110 000 $",
+                revenu: "Situation de garde",
                 couleur: "bg-slate-100 border-slate-200",
-                texte: "Montant minimum garanti — même les ménages à revenus élevés reçoivent une aide de base.",
+                texte: "La garde partagée ou un changement de garde doit être déclaré à Retraite Québec.",
                 textColor: "text-slate-700",
               },
             ].map((tranche) => (
@@ -186,11 +173,11 @@ function Content() {
               },
               {
                 titre: "Supplément pour famille monoparentale",
-                desc: "Environ 988 $/an (82 $/mois) pour les parents seuls qui ont la garde principale de leurs enfants.",
+                desc: "Jusqu&apos;à 1 077 $ par famille en 2026, selon les conditions de Retraite Québec.",
               },
               {
                 titre: "Allocation canadienne pour enfants (fédérale)",
-                desc: "Programme distinct d&apos;Ottawa, cumulable avec l&apos;allocation provinciale. Jusqu&apos;à 7 787 $/an pour un enfant de moins de 6 ans.",
+                desc: "Programme distinct de l&apos;ARC. Pour juillet 2026 à juin 2027, le maximum est de 8 157 $ avant 6 ans; le montant réel dépend notamment du RFNR 2025.",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
@@ -205,8 +192,8 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Comment vérifier ou mettre à jour votre dossier</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Dans la grande majorité des cas, l&apos;allocation famille démarre <strong>automatiquement</strong>{" "} après
-            la naissance ou l&apos;adoption. Cependant, certaines situations nécessitent une démarche active.
+            Après une naissance au Québec, l&apos;inscription peut découler des renseignements transmis à l&apos;état civil.
+            Une adoption, une arrivée au Québec ou un changement de garde peut nécessiter une démarche active.
           </p>
           <div className="flex flex-col gap-4">
             {[
@@ -252,15 +239,15 @@ function Content() {
             <div className="space-y-2 text-sm mb-4">
               <div className="flex justify-between">
                 <span className="text-green-900">Allocation famille Québec (2 enfants, revenu réduit)</span>
-                <span className="font-bold text-green-800">~4 100 $/an</span>
+                <span className="font-bold text-green-800">À vérifier</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-green-900">Allocation canadienne pour enfants (fédérale)</span>
-                <span className="font-bold text-green-800">~10 000 $/an</span>
+                <span className="font-bold text-green-800">À vérifier séparément</span>
               </div>
               <div className="border-t border-green-200 pt-2 flex justify-between">
-                <span className="font-bold text-green-900">Total combiné</span>
-                <span className="font-extrabold text-green-800 text-base">~14 100 $/an</span>
+                <span className="font-bold text-green-900">Résultat combiné</span>
+                <span className="font-extrabold text-green-800 text-base">Non additionné</span>
               </div>
             </div>
             <p className="text-green-700 text-xs">

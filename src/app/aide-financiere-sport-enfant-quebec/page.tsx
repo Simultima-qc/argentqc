@@ -18,7 +18,7 @@ const programmes = [
   {
     nom: "Allocation canadienne pour enfants (ACE)",
     organisme: "Gouvernement du Canada",
-    montant: "Jusqu'à 7 787 $/enfant/an",
+    montant: "Jusqu'à 8 157 $ avant 6 ans — à vérifier",
     description: "Paiement mensuel non imposable pour familles avec enfants de moins de 18 ans. Couvre les activités sportives.",
     href: "/aide-famille-quebec",
     badge: "Fédéral",
@@ -27,7 +27,7 @@ const programmes = [
   {
     nom: "Allocation famille (Québec)",
     organisme: "Retraite Québec",
-    montant: "Jusqu'à 2 782 $/enfant/an",
+    montant: "Jusqu'à 3 068 $/enfant/an — à vérifier",
     description: "Versements mensuels non imposables pour familles québécoises avec enfants de moins de 18 ans.",
     href: "/aide-famille-quebec",
     badge: "Provincial",
@@ -132,8 +132,7 @@ export default function AideFinanciereSportEnfantPage() {
             Financer le sport de vos enfants au Québec — toutes les aides disponibles
           </h1>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>
-            ACE, allocation famille, crédits pour frais de garde, programmes municipaux et Jumpstart — une famille québécoise peut recevoir{" "}
-            <strong style={{ color: "#F0EBE0" }}>plus de 10 000 $/an</strong> en aides utilisables pour les activités sportives de ses enfants.
+            ACE, Allocation famille, crédits pour frais de garde et programmes sportifs ont des critères distincts. Le questionnaire fournit des pistes à confirmer auprès de chaque organisme.
           </p>
           <Link
             href="/fr/questionnaire"
@@ -147,9 +146,9 @@ export default function AideFinanciereSportEnfantPage() {
 
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-8 text-center">
-          <p className="text-xs text-blue-600 uppercase font-semibold tracking-wide mb-1">Potentiel annuel estimé</p>
-          <p className="text-4xl font-extrabold text-blue-800">10 000 $+</p>
-          <p className="text-xs text-blue-500 mt-1">Pour une famille avec 2 enfants</p>
+          <p className="text-xs text-blue-600 uppercase font-semibold tracking-wide mb-1">Orientation indicative</p>
+          <p className="text-4xl font-extrabold text-blue-800">À vérifier</p>
+          <p className="text-xs text-blue-500 mt-1">Les maximums ne sont pas automatiquement cumulables</p>
         </div>
 
         <h2 className="text-lg font-bold text-slate-800 mb-4">Les programmes disponibles</h2>
