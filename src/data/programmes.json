@@ -68,22 +68,24 @@
   },
   {
     "id": "credit-tps-fed",
-    "nom": "Crédit pour la TPS/TVH",
+    "nom": "Allocation canadienne pour l’épicerie et les besoins essentiels (ACEBE)",
     "organisme": "Gouvernement du Canada",
     "niveau": "federal",
     "categorie": "credits_impot",
-    "montant_min": 100,
-    "montant_max": 700,
-    "montant_affiche": "Jusqu'à 700 $ par année",
-    "description": "Paiements trimestriels non imposables pour aider les personnes et familles à revenus faibles ou modestes à récupérer une partie de la TPS/TVH payée.",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant calculé par l’ARC — à vérifier",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Prestation fédérale trimestrielle non imposable qui remplace le crédit pour la TPS/TVH depuis juillet 2026. Le montant dépend notamment du revenu familial net rajusté de 2025 et de la composition familiale.",
     "conditions": [
       "Résider au Canada",
       "Produire une déclaration de revenus",
-      "Avoir 19 ans ou plus (ou avoir un conjoint/enfant)"
+      "Avoir 19 ans ou plus, ou avoir un conjoint ou un enfant",
+      "Faire vérifier le montant à partir du revenu familial net rajusté de 2025"
     ],
-    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-taxe-produits-services-taxe-vente-harmonisee-tps-tvh.html",
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
     "criteres": {
-      "revenu_max": 50000,
       "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
     }
   },

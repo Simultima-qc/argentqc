@@ -87,9 +87,9 @@ const fr: BudgetSolidarityCreditDictionary = {
         "La frequence des paiements depend du montant accorde et des regles de Revenu Quebec. Verifiez votre avis de determination ou votre dossier Revenu Quebec pour les dates applicables.",
     },
     {
-      question: "Peut-on le cumuler avec le credit TPS federal?",
+      question: "Peut-on le cumuler avec l'ACEBE federale?",
       answer:
-        "Oui. Le credit de solidarite et le credit TPS/TVH sont distincts et peuvent tous les deux s'appliquer au meme menage.",
+        "Oui. Le credit de solidarite et l'ACEBE sont distincts et peuvent tous les deux s'appliquer au meme menage. L'ARC doit confirmer le montant de l'ACEBE.",
     },
   ],
   programmes: [
@@ -114,22 +114,25 @@ const fr: BudgetSolidarityCreditDictionary = {
     },
     {
       id: "credit-tps-fed",
-      nom: "Credit pour la TPS/TVH",
+      nom: "Allocation canadienne pour l'epicerie et les besoins essentiels (ACEBE)",
       organisme: "Gouvernement du Canada",
       niveau: "federal",
       categorie: "credits_impot",
-      montant_min: 100,
-      montant_max: 700,
-      montant_affiche: "Jusqu'a 700 $ par annee",
+      montant_min: 0,
+      montant_max: 0,
+      montant_affiche: "Montant calcule par l'ARC - a verifier",
+      montant_sommable: false,
+      preselection_only: true,
       description:
-        "Paiements trimestriels non imposables pour aider les personnes et familles a revenus faibles ou modestes a compenser une partie de la TPS/TVH.",
+        "Prestation trimestrielle non imposable qui remplace le credit pour la TPS/TVH depuis juillet 2026. Le montant depend du revenu familial net rajuste de 2025 et de la composition familiale.",
       conditions: [
         "Resider au Canada",
         "Produire une declaration de revenus",
         "Avoir 19 ans ou plus, ou avoir un conjoint ou un enfant",
+        "Faire verifier le montant par l'ARC",
       ],
-      lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-taxe-produits-services-taxe-vente-harmonisee-tps-tvh.html",
-      criteres: { revenu_max: 50000 },
+      lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
+      criteres: {},
     },
     {
       id: "allocation-logement-qc",
@@ -164,7 +167,7 @@ const en: BudgetSolidarityCreditDictionary = {
   title: "Quebec solidarity tax credit in 2026",
   subtitle: "Amounts, eligibility, and how to claim this refundable Revenu Quebec credit.",
   intro:
-    "The solidarity tax credit is one of the broadest Quebec supports for lower- and modest-income households. It often works alongside other budget supports, including the federal GST/HST credit and the housing allowance.",
+    "The solidarity tax credit is one of the broadest Quebec supports for lower- and modest-income households. It often works alongside other budget supports, including the Canada Groceries and Essentials Benefit and the housing allowance.",
   totalLabel: "Estimated total potential",
   availableProgramsLabel: "available programs",
   programsTitle: "Related programs",
@@ -206,9 +209,9 @@ const en: BudgetSolidarityCreditDictionary = {
         "The key step is filing the Quebec tax return and completing the relevant information, including the required schedule within the TP-1 filing process.",
     },
     {
-      question: "Can it be combined with the federal GST credit?",
+      question: "Can it be combined with the federal CGEB?",
       answer:
-        "Yes. The solidarity tax credit and the GST/HST credit are separate supports and can both apply to the same household.",
+        "Yes. The solidarity tax credit and the CGEB are separate supports and can both apply to the same household. The CRA must confirm the CGEB amount.",
     },
   ],
   programmes: [
@@ -233,22 +236,25 @@ const en: BudgetSolidarityCreditDictionary = {
     },
     {
       id: "credit-tps-fed",
-      nom: "GST/HST credit",
+      nom: "Canada Groceries and Essentials Benefit (CGEB)",
       organisme: "Government of Canada",
       niveau: "federal",
       categorie: "credits_impot",
-      montant_min: 100,
-      montant_max: 700,
-      montant_affiche: "Up to 700 CAD per year",
+      montant_min: 0,
+      montant_max: 0,
+      montant_affiche: "Amount calculated by the CRA - verify",
+      montant_sommable: false,
+      preselection_only: true,
       description:
-        "Quarterly tax-free payments designed to offset part of the GST/HST burden for lower- and modest-income households.",
+        "Quarterly tax-free benefit that replaced the GST/HST credit in July 2026. The amount depends on 2025 adjusted family net income and family composition.",
       conditions: [
         "Live in Canada",
         "File a tax return",
         "Be at least 19, or have a spouse or child",
+        "Have the CRA verify the amount",
       ],
-      lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-taxe-produits-services-taxe-vente-harmonisee-tps-tvh.html",
-      criteres: { revenu_max: 50000 },
+      lien_officiel: "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-groceries-essentials-benefit.html",
+      criteres: {},
     },
     {
       id: "allocation-logement-qc",

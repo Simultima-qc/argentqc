@@ -278,11 +278,23 @@ test.describe("Redirections SEO", () => {
     await page.goto("/strategies/reer-vs-celi");
     await expect(page).toHaveURL(/\/retraite\/reer-vs-celi/);
   });
+
+  test("l'ancien article TPS/TVH redirige vers le guide ACEBE", async ({ page }) => {
+    await page.goto("/blog/credit-tps-tvh-canada-2026");
+    await expect(page).toHaveURL(/\/blog\/allocation-canadienne-epicerie-besoins-essentiels-2026/);
+  });
 });
 
 // -- Contrats des pages editoriales prioritaires --
 
 const editorialPageContracts = [
+  {
+    path: "/blog/allocation-canadienne-epicerie-besoins-essentiels-2026",
+    label: "ACEBE 2026",
+    title: /ACEBE 2026.*admissibilité.*montants.*versements/i,
+    h1: /Allocation canadienne.*épicerie.*besoins essentiels.*2026/i,
+    canonical: "https://argentqc.ca/blog/allocation-canadienne-epicerie-besoins-essentiels-2026",
+  },
   {
     path: "/aide-sociale-quebec",
     label: "Aide sociale Quebec",
@@ -389,6 +401,7 @@ test.describe("Corrections ACE et CCF 2026", () => {
 // -- Sanite globale : temps de reponse et statut HTTP --
 
 const pagesToCheck = [
+  { path: "/blog/allocation-canadienne-epicerie-besoins-essentiels-2026", label: "ACEBE 2026" },
   { path: "/fr", label: "Accueil" },
   { path: "/subventions-maison-quebec", label: "Subventions maison" },
   { path: "/fr/questionnaire", label: "Questionnaire" },

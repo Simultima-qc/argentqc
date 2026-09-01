@@ -45,15 +45,16 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
     ],
   },
   "credit-tps-fed": {
-    nom: "GST/HST credit",
+    nom: "Canada Groceries and Essentials Benefit (CGEB)",
     organisme: "Government of Canada",
-    montant_affiche: "Up to $700 per year",
+    montant_affiche: "Amount calculated by the CRA — verify",
     description:
-      "Quarterly tax-free payments that help individuals and modest-income families recover part of the GST/HST they pay.",
+      "Quarterly tax-free benefit that replaced the GST/HST credit in July 2026. The amount depends on 2025 adjusted family net income and family composition.",
     conditions: [
       "You must live in Canada",
       "You must file an income tax return",
       "You must be 19 or older, or have a spouse/common-law partner or child",
+      "Verify the amount using your 2025 adjusted family net income",
     ],
   },
   "ace-fed": {

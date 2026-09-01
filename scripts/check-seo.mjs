@@ -758,9 +758,11 @@ function checkSourceBackedClaimLedgers() {
     "rqap-conge-parental-quebec-2026",
     "reee-subvention-epargne-etudes-2026",
     "rrq-rente-retraite-2026",
+    "allocation-canadienne-epicerie-besoins-essentiels-2026",
   ];
   const sensitiveAmountPattern = /(?:\d[\d\s]*(?:,\d+)?\s*(?:\$|%)|(?:\$)\s*\d)/;
   const expectedLedgerColumns = "claim | source officielle | date de vérification | statut | prochaine vérification | action";
+  const decisionLedgerColumns = "programme/incitatif | surface/fichier | affirmation | valeur ou formulation actuelle | source officielle précise | date de la source ou date de récupération | statut | risque | action ultérieure recommandée";
 
   for (const slug of sourceBackedFinancialArticleSlugs) {
     const articleFile = path.join(articleEntriesDir, `${slug}.tsx`);
@@ -781,9 +783,12 @@ function checkSourceBackedClaimLedgers() {
     }
 
     const ledgerSource = read(ledgerFile);
-    if (!ledgerSource.includes(expectedLedgerColumns)) {
+    const requiredColumns = slug === "allocation-canadienne-epicerie-besoins-essentiels-2026"
+      ? decisionLedgerColumns
+      : expectedLedgerColumns;
+    if (!ledgerSource.includes(requiredColumns)) {
       report("Claim ledger is missing required columns", [
-        `${relative(ledgerFile)} should include: ${expectedLedgerColumns}`,
+        `${relative(ledgerFile)} should include: ${requiredColumns}`,
       ]);
     }
   }

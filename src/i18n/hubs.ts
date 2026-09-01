@@ -101,13 +101,13 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     example: {
       label: "Marie, salariée à 55 000 $ — ce qu'elle récupère en produisant ses deux déclarations",
       items: [
-        { label: "Crédit TPS/TVH fédéral", amount: "+ 496 $" },
+        { label: "ACEBE fédérale", amount: "À vérifier" },
         { label: "Crédit de solidarité Québec (locataire)", amount: "+ 1 185 $" },
         { label: "Remboursement REER cotisé (8 000 $)", amount: "+ 2 560 $" },
         { label: "Crédit d'impôt frais médicaux", amount: "+ 320 $" },
       ],
-      totalLabel: "Total estimé",
-      totalAmount: "4 561 $",
+      totalLabel: "Sous-total illustratif (hors ACEBE)",
+      totalAmount: "4 065 $",
     },
     actionSteps: [
       { text: "Rassemble tes feuillets T4/Relevé 1 et tout autre document de revenu avant de commencer" },
@@ -356,13 +356,13 @@ const en: Record<HubRouteKey, HubDictionary> = {
     example: {
       label: "Marie, salaried employee at $55,000 — what she recovers by filing both returns",
       items: [
-        { label: "GST/HST federal credit", amount: "+ $496" },
+        { label: "Federal CGEB", amount: "Verify" },
         { label: "Quebec solidarity credit (renter)", amount: "+ $1,185" },
         { label: "RRSP refund on $8,000 contribution", amount: "+ $2,560" },
         { label: "Medical expense tax credit", amount: "+ $320" },
       ],
-      totalLabel: "Estimated total",
-      totalAmount: "$4,561",
+      totalLabel: "Illustrative subtotal (excluding CGEB)",
+      totalAmount: "$4,065",
     },
     actionSteps: [
       { text: "Gather your T4/Relevé 1 slips and all other income documents before starting" },
