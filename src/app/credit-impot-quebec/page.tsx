@@ -5,7 +5,7 @@ import type { Programme } from "@/types";
 export const metadata: Metadata = {
   title: "Crédits d'impôt Québec 2026 – Combien puis-je récupérer ?",
   description:
-    "Tous les crédits d'impôt disponibles au Québec en 2026 : crédit solidarité, maintien à domicile, TPS/TVH et plus. Calculez votre remboursement en 2 minutes.",
+    "Crédits d'impôt et prestations disponibles au Québec en 2026 : crédit solidarité, maintien à domicile, ACEBE et plus. Repérez les programmes à vérifier.",
   keywords: ["crédit impôt Québec", "crédit impôt Québec combien", "crédits impôt remboursables Québec 2026", "récupérer impôt Québec"],
 };
 
@@ -26,17 +26,19 @@ const programmes: Programme[] = [
   },
   {
     id: "credit-tps-fed",
-    nom: "Crédit pour la TPS/TVH",
+    nom: "Allocation canadienne pour l’épicerie et les besoins essentiels (ACEBE)",
     organisme: "Gouvernement du Canada",
     niveau: "federal",
     categorie: "credits_impot",
-    montant_min: 100,
-    montant_max: 700,
-    montant_affiche: "Jusqu'à 700 $ par année",
-    description: "Paiements trimestriels non imposables pour récupérer une partie de la TPS payée. Attribué automatiquement lors de votre déclaration de revenus fédérale.",
-    conditions: ["Résider au Canada", "Produire une déclaration de revenus fédérale", "Avoir 19 ans ou plus (ou avoir un conjoint/enfant)"],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-taxe-produits-services-taxe-vente-harmonisee-tps-tvh.html",
-    criteres: { revenu_max: 50000 },
+    montant_min: 0,
+    montant_max: 0,
+    montant_affiche: "Montant calculé par l’ARC — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Prestation fédérale trimestrielle non imposable qui remplace le crédit pour la TPS/TVH depuis juillet 2026.",
+    conditions: ["Résider au Canada", "Produire une déclaration de revenus fédérale", "Faire vérifier le montant selon le RFNR 2025 et la composition familiale"],
+    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
+    criteres: {},
   },
   {
     id: "credit-maintien-qc",
@@ -75,11 +77,11 @@ const faqs = [
   },
   {
     question: "Est-ce que je dois faire une demande ou c'est automatique ?",
-    reponse: "Le crédit TPS/TVH et le crédit de solidarité sont accordés automatiquement lors de votre déclaration de revenus. Le crédit pour maintien à domicile nécessite de remplir l'annexe J de votre déclaration provinciale.",
+    reponse: "L’ARC détermine généralement l’ACEBE à partir de votre déclaration de revenus; une nouvelle personne résidente peut devoir transmettre le formulaire RC151. Le crédit de solidarité dépend de la déclaration québécoise. Le crédit pour maintien à domicile nécessite de remplir l'annexe J.",
   },
   {
     question: "Puis-je recevoir plusieurs crédits en même temps ?",
-    reponse: "Oui, les crédits sont cumulables. Un aîné à faible revenu au Québec peut recevoir simultanément le crédit de solidarité, le crédit TPS/TVH, le crédit pour maintien à domicile, le SRG et la Sécurité de la vieillesse.",
+    reponse: "Oui, plusieurs prestations peuvent s'appliquer au même ménage. Il faut toutefois vérifier séparément l’admissibilité et le montant de l’ACEBE, du crédit de solidarité, du maintien à domicile, du SRG et de la Sécurité de la vieillesse.",
   },
   {
     question: "Je n'ai pas produit ma déclaration depuis quelques années. Puis-je récupérer des crédits passés ?",
@@ -92,7 +94,7 @@ export default function CreditImpotQuebecPage() {
     <SeoProgrammesPage
       titre="Crédits d'impôt Québec 2026 – Combien puis-je récupérer ?"
       sousTitre="Tous les crédits d'impôt remboursables disponibles au Québec — provincial et fédéral."
-      intro="Les Québécois ont accès à plusieurs crédits d'impôt remboursables qui permettent de récupérer de l'argent même sans impôt à payer. Le crédit de solidarité (Revenu Québec), le crédit TPS/TVH (fédéral) et le crédit pour maintien à domicile des aînés sont parmi les plus méconnus. Beaucoup de personnes admissibles ne les réclament tout simplement pas."
+      intro="Les Québécois ont accès à plusieurs crédits et prestations. Le crédit de solidarité, l’Allocation canadienne pour l’épicerie et les besoins essentiels et le crédit pour maintien à domicile ont des règles distinctes. Cette page aide à les repérer; les montants sensibles doivent être confirmés auprès de l’administration responsable."
       programmes={programmes}
       faqs={faqs}
       motCle="Crédits d'impôt Québec 2026"

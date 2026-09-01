@@ -62,7 +62,7 @@ const categoriesAides = [
     emoji: "🧾",
     titre: "Crédits d'impôt généraux",
     aides: [
-      { nom: "Crédit TPS/TVH fédéral", montant: "jusqu'à 680 $/an", lien: "/credit-impot-quebec" },
+      { nom: "Allocation canadienne pour l’épicerie et les besoins essentiels", montant: "selon le RFNR 2025 et la famille", lien: "/blog/allocation-canadienne-epicerie-besoins-essentiels-2026" },
       { nom: "Crédit d'impôt frais médicaux", montant: "variable", lien: "/credit-impot-frais-medicaux-quebec" },
       { nom: "Déduction REER", montant: "18 % du revenu", lien: "/fr/retraite/reer" },
       { nom: "Cotisation syndicale et professionnelle", montant: "100 % déductible", lien: "/fr/impots" },

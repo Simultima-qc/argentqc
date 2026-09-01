@@ -206,7 +206,7 @@ function Content() {
         <div style={{ background: "#0F1F3D" }} className="text-white rounded-2xl p-6 text-center">
           <p className="font-bold text-lg mb-2">Calculez toutes vos aides en 2 minutes</p>
           <p className="text-blue-200 text-sm mb-4">
-            PCT, Crédit TPS, Allocation famille — découvrez ce à quoi vous avez droit selon votre revenu et votre situation.
+            PCT, ACEBE, Allocation famille — découvrez les aides à vérifier selon votre revenu et votre situation.
           </p>
           <Link
             href="/fr/questionnaire"

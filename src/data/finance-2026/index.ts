@@ -6,3 +6,4 @@ export * from "@/data/finance-2026/retirement-2026";
 export * from "@/data/finance-2026/programmes-2026";
 export * from "@/data/finance-2026/prets-bourses-2026";
 export * from "@/data/finance-2026/family-training-rules-2026";
+export * from "@/data/finance-2026/groceries-essentials-benefit-2026";

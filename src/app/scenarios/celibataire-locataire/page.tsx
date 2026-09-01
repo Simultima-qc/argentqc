@@ -100,9 +100,9 @@ export default function ScenarioCelibatairePage() {
                   type: "Économie",
                 },
                 {
-                  label: "Crédit TPS/TVH fédéral",
-                  montant: "+ 496 $",
-                  detail: "Versement trimestriel — automatique après déclaration fédérale",
+                  label: "Allocation canadienne pour l’épicerie et les besoins essentiels",
+                  montant: "À vérifier",
+                  detail: "L’ARC calcule le montant selon le RFNR 2025 et la situation familiale",
                   type: "Aide",
                 },
                 {
@@ -149,8 +149,8 @@ export default function ScenarioCelibatairePage() {
               ))}
               <div style={{ padding: "16px 20px", background: "#F0FDF4", borderTop: "2px solid #10B981" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E" }}>Impact financier total estimé</span>
-                  <span style={{ fontWeight: 900, fontSize: "1.4rem", color: "#059669" }}>~ 4 681 $/an</span>
+                  <span style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E" }}>Sous-total illustratif (hors ACEBE)</span>
+                  <span style={{ fontWeight: 900, fontSize: "1.4rem", color: "#059669" }}>~ 4 185 $/an</span>
                 </div>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function ScenarioCelibatairePage() {
                 {
                   step: "2",
                   titre: "Produire les deux déclarations pour activer les crédits",
-                  detail: "Le crédit de solidarité (1 185 $/an) et le crédit TPS (496 $/an) sont automatiquement déclenchés par la déclaration. Sans déclaration = aucun crédit.",
+                  detail: "La déclaration permet à Revenu Québec et à l’ARC d’établir les prestations applicables. Vérifie séparément le crédit de solidarité et l’ACEBE; le montant de l’ACEBE n’est pas inclus dans le sous-total.",
                   lien: "/fr/budget/credit-solidarite",
                   cta: "Guide crédit de solidarité",
                 },

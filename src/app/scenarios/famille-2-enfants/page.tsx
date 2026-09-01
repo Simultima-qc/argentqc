@@ -110,9 +110,9 @@ export default function ScenarioFamillePage() {
                   badgeText: "#065F46",
                 },
                 {
-                  label: "Crédit d'impôt TPS/TVH",
-                  montant: "+ 320 $",
-                  detail: "Famille de 4 à 90 000 $ de revenu",
+                  label: "Allocation canadienne pour l’épicerie et les besoins essentiels",
+                  montant: "À vérifier",
+                  detail: "Le revenu brut du scénario ne permet pas d’établir le RFNR 2025 utilisé par l’ARC",
                   badge: "Fédéral",
                   badgeColor: "#DBEAFE",
                   badgeText: "#1D4ED8",
@@ -216,7 +216,7 @@ export default function ScenarioFamillePage() {
                 {
                   step: "1",
                   titre: "Produire les deux déclarations d'impôt avant le 30 avril",
-                  detail: "Déclaration fédérale (ARC) + déclaration provinciale (Revenu Québec). Déclenche automatiquement l'ACE, le crédit TPS et le crédit de solidarité.",
+                  detail: "Déclaration fédérale (ARC) + déclaration provinciale (Revenu Québec). Elles permettent d’établir l’ACE, l’ACEBE et le crédit de solidarité selon leurs règles respectives.",
                   lien: "/fr/impots",
                   cta: "Guide impôts Québec",
                 },

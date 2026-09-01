@@ -16,7 +16,7 @@ import fractionnementRevenuRetraite2026 from "@/data/blog/entries/fractionnement
 import bouclierFiscalQuebec2026 from "@/data/blog/entries/bouclier-fiscal-quebec-2026";
 import reeeSubventionEpargneEtudes2026 from "@/data/blog/entries/reee-subvention-epargne-etudes-2026";
 import rrqRenteRetraite2026 from "@/data/blog/entries/rrq-rente-retraite-2026";
-import creditTpsTvhCanada2026 from "@/data/blog/entries/credit-tps-tvh-canada-2026";
+import allocationCanadienneEpicerieBesoinsEssentiels2026 from "@/data/blog/entries/allocation-canadienne-epicerie-besoins-essentiels-2026";
 import rqapCongeParentalQuebec2026 from "@/data/blog/entries/rqap-conge-parental-quebec-2026";
 import assuranceEmploiGuideComplet2026 from "@/data/blog/entries/assurance-emploi-guide-complet-2026";
 import celiappPremierAcheteurQuebec2026 from "@/data/blog/entries/celiapp-premier-acheteur-quebec-2026";
@@ -51,7 +51,7 @@ export const blogArticles: BlogArticle[] = [
   bouclierFiscalQuebec2026,
   reeeSubventionEpargneEtudes2026,
   rrqRenteRetraite2026,
-  creditTpsTvhCanada2026,
+  allocationCanadienneEpicerieBesoinsEssentiels2026,
   rqapCongeParentalQuebec2026,
   assuranceEmploiGuideComplet2026,
   celiappPremierAcheteurQuebec2026,
@@ -66,4 +66,3 @@ export const blogArticles: BlogArticle[] = [
 ];
 
 export const blogArticlesBySlug = new Map(blogArticles.map((article) => [article.slug, article]));
-

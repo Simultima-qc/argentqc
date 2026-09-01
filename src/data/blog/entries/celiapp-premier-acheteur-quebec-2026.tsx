@@ -261,7 +261,7 @@ function Content() {
         {/* CTA */}
         <div className="bg-blue-700 text-white rounded-2xl p-6 text-center">
           <p className="font-bold text-lg mb-2">Découvrez toutes les aides auxquelles vous avez droit</p>
-          <p className="text-blue-200 text-sm mb-4">CELIAPP, RAP, crédit TPS/TVH, allocations — trouvez en 2 minutes toutes les aides disponibles pour votre situation.</p>
+          <p className="text-blue-200 text-sm mb-4">CELIAPP, RAP, ACEBE, allocations — trouvez en 2 minutes les aides à vérifier pour votre situation.</p>
           <Link
             href="/fr/questionnaire"
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
