@@ -80,7 +80,7 @@ function getStrategies(r: ReponseQuestionnaire): Array<{
     strats.push({
       emoji: "📅",
       titre: "Ordre de décaissement à la retraite",
-      desc: "L'ordre dans lequel tu retires REER, CELI et RRQ a un impact majeur sur ta facture fiscale. La bonne séquence peut économiser 3 000 – 6 000 $/an.",
+      desc: "L'ordre des retraits REER/CELI et le moment de la RRQ peuvent modifier le revenu imposable. Compare plusieurs scénarios avec tes montants réels.",
       lien: "/strategies/decaissement-retraite",
       libelleBtn: "Guide décaissement retraite",
     });
@@ -127,7 +127,7 @@ function getScenario(r: ReponseQuestionnaire): { titre: string; desc: string; li
   if (r.retraite || r.age === "65+") {
     return {
       titre: "Scénario pré-retraite",
-      desc: "Décaissement, RRQ différée et planification fiscale pour maximiser ses revenus de retraite.",
+      desc: "Décaissement, âges possibles de la RRQ et facteurs de planification fiscale à comparer.",
       lien: "/scenarios/pre-retraite",
     };
   }

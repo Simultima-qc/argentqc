@@ -78,9 +78,9 @@ export default function ScenarioPreRetraitePage() {
                   bon: true,
                 },
                 {
-                  titre: "2. Différer la RRQ jusqu'à 70 ans (si bonne santé)",
-                  impact: "+ 42 % sur chaque versement à vie",
-                  detail: "Chaque année de report après 65 ans augmente la pension de 8,4 %. Reporter de 65 à 70 ans = +42 % sur tous les versements futurs. Stratégie gagnante si espérance de vie > 78 ans.",
+                  titre: "2. Comparer les âges de demande RRQ jusqu'à 72 ans",
+                  impact: "+ 0,7 % par mois après 65 ans",
+                  detail: "La rente augmente de 8,4 % par année de report après 65 ans, jusqu'à +58,8 % à 72 ans. Le meilleur âge dépend du dossier, des besoins de revenu et de la situation personnelle.",
                   lien: "/fr/retraite/rrq",
                   bon: true,
                 },
@@ -129,9 +129,10 @@ export default function ScenarioPreRetraitePage() {
                 <span style={{ fontSize: "12px", color: "rgba(240,235,224,0.6)", fontWeight: 700, textAlign: "right" }}>Pension mensuelle*</span>
               </div>
               {[
-                { age: "60 ans", adj: "- 36 %", pension: "640 $", note: true },
+                { age: "60 ans", adj: "− 30 % à − 36 %", pension: "640 $ à 700 $", note: true },
                 { age: "65 ans", adj: "Référence", pension: "1 000 $", note: false },
                 { age: "70 ans", adj: "+ 42 %", pension: "1 420 $", note: false },
+                { age: "72 ans", adj: "+ 58,8 %", pension: "1 588 $", note: false },
               ].map((row) => (
                 <div key={row.age} style={{ padding: "14px 20px", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px", borderBottom: "1px solid #F5F0EA", alignItems: "center" }}>
                   <span style={{ fontSize: "14px", fontWeight: 600, color: "#1C1C1E" }}>{row.age}</span>
@@ -140,7 +141,7 @@ export default function ScenarioPreRetraitePage() {
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: "12px", color: "#A8A29E", marginTop: "8px" }}>* Exemples basés sur une pension de référence de 1 000 $/mois à 65 ans. Ta pension réelle dépend de tes cotisations.</p>
+            <p style={{ fontSize: "12px", color: "#A8A29E", marginTop: "8px" }}>* Illustration arithmétique basée sur 1 000 $/mois à 65 ans. La réduction à 60 ans varie selon le dossier; la rente réelle doit être vérifiée sur le relevé de participation.</p>
           </div>
         </section>
 
@@ -161,8 +162,8 @@ export default function ScenarioPreRetraitePage() {
                 },
                 {
                   step: "2",
-                  titre: "Évaluer la stratégie RRQ avec un planificateur financier",
-                  detail: "La décision de différer la RRQ à 70 ans peut valoir 100 000-200 000 $ de plus sur une vie selon l'espérance de vie. Cette décision mérite une analyse personnalisée.",
+                  titre: "Comparer les âges RRQ à partir du relevé officiel",
+                  detail: "Compare les montants à 60, 65, 70 et 72 ans dans ton relevé de participation. Le choix dépend de tes besoins, de tes autres revenus et de ta situation personnelle.",
                   lien: "/fr/retraite/rrq",
                   cta: "Guide RRQ et décaissement",
                 },

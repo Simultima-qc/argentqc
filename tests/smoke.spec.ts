@@ -99,6 +99,35 @@ test.describe("Questionnaire (/fr/questionnaire)", () => {
   });
 });
 
+// -- Cluster RRQ 2026 --
+
+test.describe("Cluster RRQ 2026", () => {
+  test("le guide FR publie les repères 2026 sans estimer une rente", async ({ page }) => {
+    const response = await page.goto("/fr/retraite/rrq");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/RRQ/i);
+    await expect(page.getByText(/60 à 72 ans/).first()).toBeVisible();
+    await expect(page.getByText(/0,5 % à 0,6 % par mois/).first()).toBeVisible();
+    await expect(page.getByText(/ne calcule pas votre rente RRQ/i)).toBeVisible();
+    await expect(page.locator('a[href*="retraitequebec.gouv.qc.ca"]').first()).toBeVisible();
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://argentqc.ca/fr/retraite/rrq");
+  });
+
+  test("le guide EN consomme les mêmes repères et garde sa canonical", async ({ page }) => {
+    const response = await page.goto("/en/retirement/qpp");
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(/QPP/i);
+    await expect(page.getByText(/age 60 to 72/i).first()).toBeVisible();
+    await expect(page.getByText(/does not calculate your QPP pension/i)).toBeVisible();
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://argentqc.ca/en/retirement/qpp");
+  });
+
+  test("l'ancienne route redirige vers le guide FR", async ({ page }) => {
+    await page.goto("/retraite/rrq");
+    await expect(page).toHaveURL(/\/fr\/retraite\/rrq$/);
+  });
+});
+
 // -- Cluster prêts et bourses --
 
 test.describe("Prêts et bourses étudiants 2026", () => {
@@ -366,6 +395,8 @@ const pagesToCheck = [
   { path: "/reno-climat-quebec", label: "Renoclimat" },
   { path: "/subvention-thermopompe-quebec", label: "Thermopompe" },
   { path: "/retraite", label: "Retraite (hub)" },
+  { path: "/fr/retraite/rrq", label: "Guide RRQ 2026" },
+  { path: "/en/retirement/qpp", label: "QPP guide 2026" },
   { path: "/retraite/reer-vs-celi", label: "REER vs CELI" },
   { path: "/aide-sociale-quebec", label: "Aide sociale Quebec" },
   { path: "/supplement-revenu-garanti-2026", label: "Supplement de revenu garanti 2026" },

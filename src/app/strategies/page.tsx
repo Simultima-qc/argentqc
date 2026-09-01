@@ -95,13 +95,13 @@ const strategies = [
       lignes: [
         ["Retrait REER en premier", "impôt élevé sur tout"],
         ["Stratégie mixte REER + CELI", "facture réduite ~3 000-6 000 $/an"],
-        ["Différer RRQ à 70 ans", "+ 42 % sur chaque versement à vie"],
+        ["Comparer le report RRQ jusqu'à 72 ans", "+ 0,7 % par mois après 65 ans"],
       ],
     },
     actions: [
       "Convertir le REER en FERR entre 65 et 71 ans selon ton taux marginal",
       "Utiliser le CELI pour combler les revenus variables",
-      "Évaluer si différer la RRQ (jusqu'à 70 ans) est avantageux",
+      "Comparer les montants RRQ de 60 à 72 ans sur le relevé de participation",
     ],
     lien: "/strategies/decaissement-retraite",
   },

@@ -65,8 +65,8 @@ export default function DecaissementRetraitePage() {
               <div className="flex flex-col gap-2">
                 {[
                   ["Stratégie naïve : tout tirer du FERR (REER)", "impôt ~18 200 $/an"],
-                  ["Stratégie optimale : FERR + CELI + RRQ différée", "impôt ~12 400 $/an"],
-                  ["Différer RRQ à 70 ans (+ 42 % à vie)", "+ 5 880 $/an garantis"],
+                  ["Scénario illustratif : FERR + CELI + RRQ reportée", "à modéliser selon le dossier"],
+                  ["Reporter la RRQ après 65 ans", "+ 0,7 % par mois, jusqu'à 72 ans"],
                   ["CELI pour combler les revenus variables", "0 $ d'impôt supplémentaire"],
                 ].map(([label, montant]) => (
                   <div key={label} style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", gap: "8px" }}>
@@ -140,9 +140,9 @@ export default function DecaissementRetraitePage() {
                 },
                 {
                   step: "4",
-                  titre: "Décider du moment optimal pour la RRQ",
-                  desc: "Chaque mois de report après 65 ans augmente la RRQ de 0,7 % (8,4 %/an). Reporter à 70 ans = +42 % à vie. Si tu as d'autres revenus ou des épargnes, différer est souvent avantageux.",
-                  conseil: "Règle pratique : si tu es en bonne santé et as d'autres revenus de 65 à 70 ans, reporter la RRQ est presque toujours gagnant sur le long terme.",
+                  titre: "Comparer les âges de demande de la RRQ",
+                  desc: "Chaque mois de report après 65 ans augmente la RRQ de 0,7 % (8,4 %/an), jusqu'à 72 ans. Le report modifie le versement, mais son intérêt dépend de la situation complète.",
+                  conseil: "Utilise les montants de ton relevé de participation et compare tes besoins de revenu, tes autres sources et le risque de longévité; il n'existe pas d'âge universellement optimal.",
                   badge: "Décision clé",
                 },
               ].map((item) => (
@@ -215,7 +215,7 @@ export default function DecaissementRetraitePage() {
                 },
                 {
                   q: "Quand vaut-il mieux prendre la RRQ à 60 ans plutôt que de reporter ?",
-                  r: "Si tu as des problèmes de santé sérieux, si tu as besoin des revenus immédiatement, ou si tu n'as pas d'autres épargnes. Dans tous les autres cas, reporter à au moins 65 ans est généralement optimal.",
+                  r: "Le besoin de revenu immédiat, la santé, les autres revenus et le risque de longévité influencent le choix. Le relevé de participation permet de comparer les montants réels; aucune règle générale ne rend un âge optimal pour tout le monde.",
                 },
                 {
                   q: "La SV est-elle récupérée si mon revenu est trop élevé ?",
