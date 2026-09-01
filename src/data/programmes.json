@@ -985,16 +985,18 @@
     "organisme": "Retraite Québec",
     "niveau": "provincial",
     "categorie": "sante",
-    "montant_min": 500,
-    "montant_max": 14500,
-    "montant_affiche": "500 $ – 14 500 $/année",
-    "description": "Rente de retraite mensuelle versée aux travailleurs québécois ayant cotisé au RRQ. Le montant dépend des années de cotisation et du salaire moyen. Peut être demandé dès 60 ans (avec réduction) ou jusqu'à 70 ans (avec bonification).",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant personnalisé — à vérifier auprès de Retraite Québec",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Piste vers la rente de retraite du RRQ pour les personnes ayant cotisé au Québec. La rente peut commencer de 60 à 72 ans; son montant dépend du dossier de participation et ne peut pas être calculé par ce questionnaire.",
     "conditions": [
       "Avoir cotisé au RRQ pendant votre vie active au Québec",
       "Avoir 60 ans ou plus",
       "Faire une demande auprès de Retraite Québec"
     ],
-    "lien_officiel": "https://www.retraitequebec.gouv.qc.ca/fr/retraite/rente-retraite/Pages/rente-retraite.aspx",
+    "lien_officiel": "https://www.retraitequebec.gouv.qc.ca/fr/citoyens/retraite-et-planification/demandez-rente-retraite/rente-retraite-regime-rentes-quebec/calcul-rente-retraite",
     "criteres": {
       "retraite": true,
       "provinces": ["QC"],

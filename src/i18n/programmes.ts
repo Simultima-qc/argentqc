@@ -177,6 +177,18 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
       "You must incur eligible expenses for approved support services",
     ],
   },
+  "rrq-rentes-qc": {
+    nom: "Quebec Pension Plan (QPP) retirement pension",
+    organisme: "Retraite Quebec",
+    montant_affiche: "Personal amount — verify with Retraite Quebec",
+    description:
+      "A lead for people who contributed to the QPP in Quebec. The pension may start from age 60 to 72; the amount depends on the participation record and cannot be calculated by this questionnaire.",
+    conditions: [
+      "You must have contributed to the QPP through work in Quebec",
+      "You must be at least 60 years old",
+      "You must apply to Retraite Quebec",
+    ],
+  },
   "subv-bornes-recharge-qc": {
     nom: "Home charging station rebate - Roulez vert",
     organisme: "Transition energetique Quebec",

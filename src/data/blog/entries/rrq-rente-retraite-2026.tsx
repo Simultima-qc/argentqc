@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TrackedExternalLink from "@/components/TrackedExternalLink";
 import TrackingLink from "@/components/TrackingLink";
 import SiteFooter from "@/components/SiteFooter";
-import { rrqMontantsAge2026 } from "@/data/finance-2026";
+import {
+  rrqContributions2026,
+  rrqMontantsAge2026,
+  rrqOfficialUrls,
+} from "@/data/finance-2026";
 import type { BlogArticle } from "@/data/blog/types";
 
 const slug = "rrq-rente-retraite-2026";
@@ -10,7 +15,7 @@ const slug = "rrq-rente-retraite-2026";
 const baseMetadata: Metadata = {
   title: "RRQ 2026 : montant maximum, rente de retraite et âge de demande",
   description:
-    "Tout sur la rente de retraite du RRQ en 2026 : calcul selon vos gains cotisés, impact de prendre la rente à 60, 65 ou 70 ans, bonification et réduction.",
+    "RRQ 2026 : cotisations officielles, montants de référence de 60 à 72 ans, réduction variable et bonification selon l'âge.",
   keywords: ["RRQ 2026", "rente retraite Québec", "Régime de rentes du Québec", "âge retraite RRQ", "rente maximale RRQ"],
 };
 
@@ -25,7 +30,18 @@ const metadata: Metadata = {
 function Content() {
   const rrqGuidePath = "/fr/retraite/rrq";
   const questionnairePath = "/fr/questionnaire";
-  const rrqMax65 = rrqMontantsAge2026.find((item) => item.age === "65 ans")?.montantMax ?? "le maximum à 65 ans";
+  const formatCurrency = (value: number) => new Intl.NumberFormat("fr-CA", {
+    style: "currency",
+    currency: "CAD",
+    minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+  const formatPercent = (value: number, digits = 0) => new Intl.NumberFormat("fr-CA", {
+    style: "percent",
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  }).format(value);
+  const rrqMax65 = rrqMontantsAge2026.find((item) => item.age === 65)?.maximumMonthly ?? 1_507.65;
 
   return (
     <main className="min-h-screen" style={{ background: "#F7F3EC" }}>
@@ -49,7 +65,7 @@ function Content() {
           <p className="text-lg text-slate-600 leading-relaxed">
             Le Régime de rentes du Québec verse chaque mois une rente à vie aux Québécois
             qui ont cotisé en cours d&apos;emploi. En 2026, le maximum à 65 ans est autour de 1 500 $/mois selon Retraite Québec
-            (<strong>{rrqMax65}</strong>), mais la rente réelle peut être plus basse selon votre historique de cotisation
+            (<strong>{formatCurrency(rrqMax65)}/mois</strong>), mais la rente réelle peut être plus basse selon votre historique de cotisation
             et votre âge de demande. Voici comment fonctionne le RRQ et comment réfléchir au bon moment pour demander la rente.
           </p>
         </div>
@@ -58,13 +74,13 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Rente disponible dès <strong>60 ans</strong>{" "} (avec réduction) ou jusqu&apos;à 70 ans (avec bonification)</li>
-            <li>✓ Prendre la rente à 60 ans réduit le montant de <strong>36 %</strong>{" "} par rapport à 65 ans</li>
-            <li>✓ Attendre jusqu&apos;à 70 ans augmente le montant de <strong>42 %</strong>{" "} par rapport à 65 ans</li>
+            <li>✓ Rente disponible dès <strong>60 ans</strong>{" "} (avec réduction) ou jusqu&apos;à <strong>72 ans</strong> (avec bonification)</li>
+            <li>✓ À 60 ans, la réduction varie de <strong>30 % à 36 %</strong>{" "} selon le dossier</li>
+            <li>✓ Après 65 ans, la rente augmente de <strong>0,7 % par mois</strong>, jusqu&apos;à 58,8 % à 72 ans</li>
             <li>✓ Depuis 2019, vous pouvez travailler ET recevoir votre rente en même temps</li>
           </ul>
           <p className="mt-4 text-sm text-green-900">
-            Pour les maximums officiels disponibles à 60 et 65 ans, et la formulation prudente pour 70 ans, consultez la page principale :{" "}
+            Pour les moyennes et maximums officiels 2026 de 60 à 72 ans, consultez la page principale :{" "}
             <Link href={rrqGuidePath} className="font-bold underline">
               montant maximum de la RRQ en 2026
             </Link>.
@@ -80,14 +96,16 @@ function Content() {
             de 3 500 $ par année y cotisent automatiquement, ainsi que leurs employeurs.
           </p>
           <p className="text-slate-600 leading-relaxed mb-3">
-            En 2026, le taux de cotisation de base est de <strong>6,40 %</strong>{" "} sur les gains compris entre
-            l&apos;exemption de base (3 500 $) et le maximum des gains admissibles (MGA), établi à environ
-            <strong> 73 200 $</strong>. L&apos;employeur verse un montant équivalent — pour un total de 12,80 %
-            par dollar de salaire cotisé.
+            En 2026, le taux combinant la cotisation de base et la première cotisation supplémentaire est de
+            <strong> {formatPercent(rrqContributions2026.employeeEmployerRate, 2)}</strong> pour le salarié et autant pour l&apos;employeur, sur les gains entre l&apos;exemption
+            de <strong>{formatCurrency(rrqContributions2026.generalExemption)}</strong> et le MGA de <strong>{formatCurrency(rrqContributions2026.maximumPensionableEarnings)}</strong>. La cotisation maximale de chacun sous
+            le MGA est de <strong>{formatCurrency(rrqContributions2026.employeeEmployerMaximum)}</strong>.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            Les travailleurs autonomes paient les deux parts (employeur + employé), soit environ 12,80 % de leurs
-            gains nets admissibles.
+            Une deuxième cotisation de <strong>{formatPercent(rrqContributions2026.secondAdditionalRate)}</strong> par côté s&apos;applique entre {formatCurrency(rrqContributions2026.maximumPensionableEarnings)} et le MSGA de
+            <strong> {formatCurrency(rrqContributions2026.additionalMaximumPensionableEarnings)}</strong>, jusqu&apos;à {formatCurrency(rrqContributions2026.secondAdditionalMaximum)} chacun. Le maximum total salarié ou employeur est donc de
+            <strong> {formatCurrency(rrqContributions2026.employeeEmployerTotalMaximum)}</strong>. Le travailleur autonome paie les deux parts : {formatPercent(rrqContributions2026.selfEmployedRate, 2)} sous le MGA et {formatPercent(rrqContributions2026.selfEmployedSecondAdditionalRate)}
+            sur la deuxième tranche.
           </p>
         </section>
 
@@ -103,10 +121,10 @@ function Content() {
             <p className="font-bold text-slate-800 mb-3">Les facteurs qui influencent votre rente</p>
             <div className="space-y-3">
               {[
-                { facteur: "Durée de cotisation", explication: "La période entre vos 18 ans et l'âge auquel vous demandez la rente (max 47 ans), en excluant les 15 % des années les plus faibles" },
+                { facteur: "Période de cotisation", explication: "Les revenus inscrits entre le mois de votre 18e anniversaire et le premier des événements prévus par le régime, au plus tard le mois de vos 72 ans" },
                 { facteur: "Revenus cotisés", explication: "Vos gains annuels ajustés en fonction de l'évolution des salaires au Québec" },
-                { facteur: "Âge à la demande", explication: "La rente est calculée au moment où vous la demandez — entre 60 et 70 ans" },
-                { facteur: "Périodes d'exclusion", explication: "Les années à faible revenu liées à la garde d'enfants (avant 7 ans) ou à une invalidité peuvent être exclues du calcul" },
+                { facteur: "Âge à la demande", explication: "La rente peut commencer entre 60 et 72 ans; elle cesse d'augmenter à 72 ans" },
+                { facteur: "Périodes d'exclusion", explication: "Certains mois d'invalidité, d'indemnité CNESST ou de prestations familiales peuvent être exclus; jusqu'à 15 % des mois aux revenus les plus faibles peuvent aussi être écartés si cela vous avantage" },
               ].map((item) => (
                 <div key={item.facteur} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
                   <p className="font-semibold text-slate-800 text-sm">{item.facteur}</p>
@@ -123,20 +141,19 @@ function Content() {
 
         {/* Section 3 */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">À quel âge prendre votre rente : 60, 65 ou 70 ans ?</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">À quel âge demander votre rente : de 60 à 72 ans?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             C&apos;est la question centrale de la planification de retraite au Québec. Le RRQ permet de demander
-            la rente entre 60 et 70 ans, avec un mécanisme de réduction ou de bonification selon l&apos;âge choisi.
+            la rente entre 60 et 72 ans, avec un mécanisme de réduction ou de bonification selon l&apos;âge choisi.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Exemple avec une rente de base de 1 200 $/mois à 65 ans</p>
+            <p className="font-bold text-blue-800 mb-3">Repères officiels pour les personnes ayant demandé leur rente en 2026</p>
             <div className="space-y-2">
               {[
-                { age: "60 ans", ajustement: "− 36 %", montant: "768 $/mois", note: "Réduction de 0,6 % par mois avant 65 ans" },
-                { age: "62 ans", ajustement: "− 21,6 %", montant: "941 $/mois", note: "Réduction de 0,6 % × 36 mois" },
-                { age: "65 ans", ajustement: "0 %", montant: "1 200 $/mois", note: "Montant de référence" },
-                { age: "68 ans", ajustement: "+ 25,2 %", montant: "1 502 $/mois", note: "Bonification de 0,7 % par mois après 65 ans" },
-                { age: "70 ans", ajustement: "+ 42 %", montant: "1 704 $/mois", note: "Bonification maximale de 0,7 % × 60 mois" },
+                { age: "60 ans", ajustement: "−30 % à −36 %", montant: "moy. 490 $ · max. 964,90 $", note: "Réduction de 0,5 % à 0,6 % par mois selon le dossier" },
+                { age: "65 ans", ajustement: "0 %", montant: "moy. 731 $ · max. 1 507,65 $", note: "Âge de référence" },
+                { age: "70 ans", ajustement: "+42 %", montant: "moy. 1 038 $ · max. 2 141 $", note: "Bonification de 0,7 % par mois après 65 ans" },
+                { age: "72 ans", ajustement: "+58,8 %", montant: "moy. 1 161 $ · max. 2 394,15 $", note: "La rente cesse d'augmenter à 72 ans" },
               ].map((ligne) => (
                 <div key={ligne.age} className="flex flex-col sm:flex-row sm:justify-between text-sm border-b border-blue-100 pb-2 last:border-0 last:pb-0">
                   <div>
@@ -150,14 +167,12 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-600 leading-relaxed mb-3">
-            <strong>Quand a-t-il intérêt à prendre la rente tôt ?</strong>{" "}Si votre espérance de vie est
-            réduite, si vous avez besoin du revenu immédiatement, ou si vous comptez investir la différence
-            à un rendement supérieur au taux de bonification du RRQ.
+            Il n&apos;existe pas d&apos;âge universellement optimal. Le besoin de revenu immédiat, la santé, les autres
+            sources de revenu et la protection recherchée contre le risque de longévité doivent être analysés ensemble.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            <strong>Quand a-t-il intérêt à attendre ?</strong>{" "}Si vous êtes en bonne santé, si vous avez
-            d&apos;autres sources de revenu jusqu&apos;à 70 ans, et si vous voulez maximiser votre protection
-            contre la longévité — la rente est versée à vie, peu importe combien de temps vous vivez.
+            Consultez votre relevé de participation dans Mon dossier pour comparer les montants liés à votre
+            historique réel; les exemples ci-dessus ne constituent pas une recommandation personnalisée.
           </p>
         </section>
 
@@ -167,7 +182,8 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-3">
             Depuis 2019, le RRQ a été amélioré par l&apos;ajout du <strong>RRQ bonifié</strong>, parfois appelé
             RRQ+. En plus des cotisations de base, les travailleurs versent des cotisations supplémentaires
-            sur leurs gains entre le premier MGA (73 200 $) et un deuxième seuil d&apos;environ <strong>82 700 $</strong>.
+            sur leurs gains. En 2026, la deuxième tranche se situe entre le MGA de
+            <strong> {formatCurrency(rrqContributions2026.maximumPensionableEarnings)}</strong> et le MSGA de <strong>{formatCurrency(rrqContributions2026.additionalMaximumPensionableEarnings)}</strong>, à un taux de {formatPercent(rrqContributions2026.secondAdditionalRate)} par côté.
           </p>
           <p className="text-slate-600 leading-relaxed mb-3">
             Ce programme augmentera graduellement les rentes futures. Les travailleurs qui ont cotisé depuis 2019
@@ -197,17 +213,17 @@ function Content() {
               {
                 num: "2",
                 titre: "Choisissez votre âge de début",
-                texte: "Décidez si vous voulez commencer à 60, 65, 70 ans ou n'importe quel mois entre les deux. La décision est permanente — une fois la rente commencée, vous ne pouvez pas changer l'âge de début (sauf annulation dans les 6 mois).",
+                texte: "Décidez si vous voulez commencer entre 60 et 72 ans. Une annulation est possible dans les 6 mois suivant le premier paiement, à condition de rembourser les sommes reçues.",
               },
               {
                 num: "3",
                 titre: "Faites votre demande en ligne ou par courrier",
-                texte: "Soumettez votre demande via MonDossier sur retraitequebec.ca, ou demandez le formulaire par courrier. Prévoyez de soumettre votre demande au moins 3 mois avant la date souhaitée de début.",
+                texte: "Soumettez votre demande en ligne ou au moyen du formulaire officiel. Retraite Québec suggère de la présenter environ 3 mois avant la date souhaitée; elle peut être faite jusqu'à 12 mois à l'avance.",
               },
               {
                 num: "4",
                 titre: "Recevez vos versements mensuels",
-                texte: "La rente est versée le dernier jour ouvrable de chaque mois, par dépôt direct dans votre compte bancaire. Elle est imposable — pensez à demander une retenue à la source si vous ne voulez pas payer un montant important au moment des impôts.",
+                texte: "La rente est versée mensuellement, le dernier jour ouvrable. Le dépôt direct est offert, sans être présenté ici comme l'unique mode. La rente est imposable et la retenue d'impôt n'est pas automatique; vous pouvez la demander.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -229,43 +245,44 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-3">
             Depuis 2019, vous pouvez <strong>travailler tout en recevant votre rente RRQ</strong>{" "} — et
             continuer à cotiser pour augmenter votre rente future. Cette cotisation après retraite (appelée
-            cotisation de travailleur retraité) est optionnelle si vous avez 65 ans et plus, mais obligatoire
-            si vous avez entre 60 et 64 ans et que vous continuez à travailler.
+            cotisation de travailleur retraité) est obligatoire de 60 à 64 ans. Entre 65 et 72 ans, une personne
+            qui travaille et reçoit déjà une rente RRQ ou RPC peut choisir de cesser de cotiser. Les cotisations
+            cessent automatiquement le 1er janvier suivant le 72e anniversaire.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Chaque année de cotisation supplémentaire génère un <strong>supplément de rente</strong>{" "} versé
-            dès janvier de l&apos;année suivante. C&apos;est une façon efficace de bonifier sa retraite tout
-            en continuant à travailler à temps partiel.
+            à la rente. Le choix de continuer ou de cesser de cotiser après 65 ans dépend de la situation de la personne.
           </p>
         </section>
 
         {/* CTA */}
         <div style={{ background: "#1a1f3c" }} className="text-white rounded-2xl p-6 text-center">
-          <p className="font-bold text-lg mb-2">Découvrez toutes les aides auxquelles vous avez droit</p>
+          <p className="font-bold text-lg mb-2">Explorez des programmes à vérifier selon votre profil</p>
           <p className="text-slate-300 text-sm mb-4">
-            RRQ, SRG, Sécurité de vieillesse, crédits d&apos;impôt — répondez à quelques questions
-            et obtenez un portrait complet de votre situation.
+            Le questionnaire fournit des pistes d&apos;orientation. Il ne calcule pas votre rente RRQ et ne confirme
+            pas votre admissibilité aux programmes.
           </p>
           <TrackingLink
             href={questionnairePath}
             tracking={{ cta_name: "rrq_blog", cta_location: "final", destination: questionnairePath }}
             className="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-xl"
           >
-            Calculer mes prestations →
+            Voir mes pistes de programmes →
           </TrackingLink>
         </div>
 
         {/* Lien officiel */}
         <p className="text-center text-slate-400 text-xs mt-6">
           Source officielle :{" "}
-          <a
-            href="https://www.retraitequebec.ca/fr/rrq/rente-de-retraite/Pages/rente-de-retraite.aspx"
+          <TrackedExternalLink
+            href={rrqOfficialUrls.pensionCalculation}
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
+            tracking={{ cta_name: "rrq_blog_official_source", cta_location: "article_source", destination: rrqOfficialUrls.pensionCalculation }}
           >
             Retraite Québec – Rente de retraite
-          </a>
+          </TrackedExternalLink>
         </p>
       </article>
 
@@ -282,7 +299,7 @@ function Content() {
 const article: BlogArticle = {
   slug,
   titre: "RRQ 2026 : montant maximum, rente de retraite et âge de demande",
-  description: "Tout sur la rente de retraite du RRQ en 2026 : calcul selon vos gains cotisés, impact de prendre la rente à 60, 65 ou 70 ans, bonification et réduction.",
+  description: "RRQ 2026 : cotisations officielles, montants de référence de 60 à 72 ans, réduction variable et bonification selon l'âge.",
   date: "2026-06-13",
   categorie: "Retraite",
   tempsLecture: "7 min",

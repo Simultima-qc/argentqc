@@ -128,7 +128,7 @@ function programmeIds(programmes) {
   return new Set(programmes.map((programme) => programme.id));
 }
 
-const { trouverProgrammes } = loadSourceModule(join(rootDir, "src", "lib", "matching.ts"));
+const { calculerTotal, trouverProgrammes } = loadSourceModule(join(rootDir, "src", "lib", "matching.ts"));
 
 const resultsPageModule = loadSourceModule(join(rootDir, "src", "components", "LocalizedResultsPage.tsx"), {
   "next/link": ({ href, children, ...props }) => React.createElement("a", { href, ...props }, children),
@@ -160,7 +160,11 @@ test("programmes.json catalogue structure is valid", () => {
     assert.ok(!ids.has(programme.id), `duplicate programme id: ${programme.id}`);
     ids.add(programme.id);
 
-    assert.ok(programme.montant_max > 0, `${programme.id}: montant_max must be greater than 0`);
+    if (programme.montant_sommable === false) {
+      assert.ok(programme.montant_max >= 0, `${programme.id}: non-summable montant_max must not be negative`);
+    } else {
+      assert.ok(programme.montant_max > 0, `${programme.id}: montant_max must be greater than 0`);
+    }
     if (programme.montant_min !== undefined) {
       assert.ok(
         programme.montant_min <= programme.montant_max,
@@ -212,6 +216,22 @@ test("trouverProgrammes matches a retiree", () => {
   assert.ok(ids.has("psv-fed"));
   assert.ok(ids.has("rrq-rentes-qc"));
   assert.ok(ids.has("credit-maintien-qc"));
+});
+
+test("RRQ remains an orientation-only, non-summable lead", () => {
+  const programmes = loadProgrammesJson();
+  const rrq = programmes.find((programme) => programme.id === "rrq-rentes-qc");
+
+  assert.ok(rrq);
+  assert.equal(rrq.preselection_only, true);
+  assert.equal(rrq.montant_sommable, false);
+  assert.equal(rrq.montant_min, 0);
+  assert.equal(rrq.montant_max, 0);
+  assert.match(rrq.montant_affiche, /personnalisé/i);
+  assert.equal(
+    JSON.stringify(calculerTotal([rrq, { ...rrq, id: "summable", montant_sommable: true, montant_min: 100, montant_max: 200 }])),
+    JSON.stringify({ min: 100, max: 200 }),
+  );
 });
 
 test("trouverProgrammes matches a student", () => {

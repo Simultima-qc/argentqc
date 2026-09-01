@@ -1766,18 +1766,18 @@ const frRetirementRrq: RetirementRrqDictionary = {
   metadata: {
     title: "RRQ Québec 2026 | ArgentQC.ca",
     description:
-      "Comprendre la RRQ en 2026: montants selon l'âge, différence avec le RPC, cotisations et grands repères pour estimer votre rente.",
+      "RRQ 2026: cotisations officielles, montants de référence de 60 à 72 ans et différences avec le RPC, sans estimation personnalisée.",
   },
   eyebrow: "Guide retraite Québec 2026",
   title: "RRQ : comprendre votre rente de retraite au Québec",
-  intro: "Une vue simple sur les montants, l'âge de prise, les cotisations et la logique Québec par rapport au reste du Canada.",
+  intro: "Une vue sourcée des cotisations, des montants de référence et des règles d'âge. Votre rente réelle dépend de votre dossier de participation.",
   ageCardsTitle: "Montants de la RRQ selon l'âge choisi",
   ageStartLabel: "Début à",
   averageLabel: "Montant moyen",
   maximumLabel: "Maximum",
   comparisonTitle: "RRQ vs RPC",
   comparisonHeaders: ["Aspect", "RRQ (Québec)", "RPC (Canada)"],
-  contributionTitle: "Cotisations et ordre de grandeur",
+  contributionTitle: "Exemples de cotisations RRQ 2026",
   salaryLabel: "Salaire",
   employeeContributionLabel: "Cotisation employé",
   totalContributionLabel: "Total avec employeur",
@@ -1789,18 +1789,18 @@ const enRetirementRrq: RetirementRrqDictionary = {
   metadata: {
     title: "QPP guide for Quebec 2026 | ArgentQC.ca",
     description:
-      "Understand the Quebec Pension Plan in 2026: benefit levels by age, QPP vs CPP, contribution logic, and the main planning tradeoffs.",
+      "QPP 2026 official contribution rates, reference pension amounts from age 60 to 72, and a careful QPP vs CPP comparison.",
   },
   eyebrow: "Quebec retirement guide 2026",
   title: "QPP: understanding your Quebec retirement pension",
-  intro: "A practical overview of benefit levels, claiming age, contributions, and how the Quebec system compares with the rest of Canada.",
+  intro: "A source-backed overview of contributions, reference amounts and claiming-age rules. Your actual pension depends on your participation record.",
   ageCardsTitle: "QPP benefit levels by claiming age",
   ageStartLabel: "Start at",
   averageLabel: "Average amount",
   maximumLabel: "Maximum",
   comparisonTitle: "QPP vs CPP",
   comparisonHeaders: ["Aspect", "QPP (Quebec)", "CPP (Canada)"],
-  contributionTitle: "Contributions and rough benefit levels",
+  contributionTitle: "2026 QPP contribution examples",
   salaryLabel: "Salary",
   employeeContributionLabel: "Employee contribution",
   totalContributionLabel: "Total with employer",
@@ -2788,4 +2788,3 @@ export function getMovingCostDictionary(locale: Locale) {
 export function getMovingMontrealDictionary(locale: Locale) {
   return locale === "fr" ? frMovingMontreal : enMovingMontreal;
 }
-

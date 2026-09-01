@@ -141,12 +141,12 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     ],
     ctaTitle: "Voir les programmes lies a votre situation",
     ctaText: "Certaines aides et certains credits croisent les enjeux retraite, surtout pour les aines.",
-    ctaLabel: "Estimer mes programmes",
+    ctaLabel: "Voir des pistes de programmes",
     example: {
       label: "Gilles, 58 ans, salarié à 75 000 $ — impact des bonnes décisions maintenant",
       items: [
         { label: "Économie d'impôt REER (13 500 $ cotisés)", amount: "+ 5 130 $" },
-        { label: "RRQ différée à 70 ans (vs 65 ans)", amount: "+ 42 % à vie" },
+        { label: "RRQ reportée à 72 ans (vs 65 ans)", amount: "+ 58,8 % par versement" },
         { label: "Décaissement REER + CELI optimal", amount: "3 000-6 000 $/an" },
         { label: "Crédit en raison de l'âge (dès 65 ans)", amount: "+ 1 530 $" },
       ],
@@ -155,7 +155,7 @@ const fr: Record<HubRouteKey, HubDictionary> = {
     },
     actionSteps: [
       { text: "Vérifie tes droits REER inutilisés sur Mon dossier ARC — chaque dollar cotisé maintenant réduit l'impôt au taux marginal le plus élevé" },
-      { text: "Évalue le report de la RRQ : chaque année de report après 65 ans augmente la pension de 8,4 % à vie" },
+      { text: "Compare les montants de ton relevé RRQ : après 65 ans, la rente augmente de 0,7 % par mois jusqu'à 72 ans, sans que le report soit toujours le meilleur choix" },
       { text: "Planifie l'ordre de décaissement REER + CELI pour minimiser l'impôt en retraite" },
     ],
   },
@@ -393,12 +393,12 @@ const en: Record<HubRouteKey, HubDictionary> = {
     ],
     ctaTitle: "See related programs too",
     ctaText: "Some benefits and credits intersect directly with retirement planning, especially for seniors.",
-    ctaLabel: "Estimate my programs",
+    ctaLabel: "See program leads",
     example: {
       label: "Gilles, 58, salaried at $75,000 — impact of the right decisions today",
       items: [
         { label: "Tax saving from RRSP ($13,500 contributed)", amount: "+ $5,130" },
-        { label: "QPP deferred to 70 vs 65", amount: "+ 42% for life" },
+        { label: "QPP deferred to 72 vs 65", amount: "+ 58.8% per payment" },
         { label: "Optimized RRSP + TFSA withdrawal", amount: "$3,000-6,000/yr" },
         { label: "Age amount credit (from age 65)", amount: "+ $1,530" },
       ],
@@ -407,7 +407,7 @@ const en: Record<HubRouteKey, HubDictionary> = {
     },
     actionSteps: [
       { text: "Check your unused RRSP room on My CRA Account — every dollar contributed now reduces tax at your highest marginal rate" },
-      { text: "Model QPP deferral: each year past 65 increases the pension by 8.4% for life" },
+      { text: "Compare the amounts on your QPP statement: after 65, the pension rises by 0.7% per month until 72, without making deferral universally optimal" },
       { text: "Plan your RRSP + TFSA withdrawal order to minimize tax in retirement" },
     ],
   },
