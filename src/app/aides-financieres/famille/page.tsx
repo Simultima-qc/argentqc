@@ -175,16 +175,17 @@ export default function AidesFinancieresFamillePage() {
                   badgeColor: "#D1FAE5",
                   badgeText: "#065F46",
                   titre: "Crédit d'impôt pour frais de garde",
-                  montant: "Jusqu'à 75 % des frais remboursés",
-                  desc: "Si tes enfants fréquentent une garderie non subventionnée, une gardienne ou un service de garde hors-réseau, le crédit d'impôt provincial peut rembourser entre 67 % et 75 % des frais payés.",
+                  montant: "De 67 % à 78 % des frais remboursés",
+                  desc: "Selon les frais de garde admissibles payés (garderie, CPE, gardienne ou camp de jour), le crédit d'impôt provincial rembourse entre 67 % et 78 % selon un barème à paliers et ton revenu familial net. La contribution réduite d'une place subventionnée n'est jamais admissible.",
                   details: [
-                    "75 % des frais pour les revenus familiaux sous 33 655 $/an",
-                    "Dégressif — 26 % pour les revenus de 157 179 $ et plus",
-                    "S'applique à la garderie non subventionnée, gardienne et camps de jour",
+                    "78 % des frais pour un revenu familial net de 25 305 $ ou moins",
+                    "Dégressif jusqu'à un plancher de 67 % pour les revenus de plus de 122 290 $",
+                    "La contribution réduite (place subventionnée en CPE, garderie ou milieu familial) est exclue; certains frais additionnels attestés au relevé 24 peuvent rester admissibles",
+                    "Enfant admissible de moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée)",
                     "À réclamer dans la déclaration provinciale (annexe C)",
                   ],
                   lien: "/fr/questionnaire",
-                  libelleBtn: "Calculer mon crédit",
+                  libelleBtn: "Vérifier mon admissibilité",
                 },
                 {
                   emoji: "⚽",
@@ -249,7 +250,7 @@ export default function AidesFinancieresFamillePage() {
                 },
                 {
                   q: "Mon enfant est en garderie à 7 $/jour — ai-je droit au crédit frais de garde ?",
-                  r: "Non. Le crédit s'applique aux garderies non subventionnées seulement. Si tu paies la contribution parentale réduite (CPE, garderie subventionnée), tu ne peux pas réclamer le crédit pour ces frais.",
+                  r: "La contribution parentale réduite elle-même (CPE, garderie subventionnée) n'est jamais admissible au crédit. Certains frais additionnels facturés en plus de cette contribution peuvent toutefois rester admissibles s'ils sont attestés au relevé 24 par le prestataire — à confirmer auprès de Revenu Québec pour ta situation exacte.",
                 },
                 {
                   q: "Dois-je faire une demande pour recevoir l'ACE ?",

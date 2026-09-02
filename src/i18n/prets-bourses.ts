@@ -494,7 +494,7 @@ const en: PretsBoursesPageDictionary = {
   relatedLinks: [
     { href: "/retraite/reer", emoji: "💰", title: "RRSP Guide", desc: "Understanding the LLP and how to use your RRSP for studies" },
     { href: "/impots/remboursement", emoji: "🧾", title: "Tax refund", desc: "Maximize your return with tuition tax credits" },
-    { href: "/blog/frais-garde-enfants-quebec-2026", emoji: "👶", title: "Childcare credits", desc: "If you have children while pursuing studies" },
+    { href: "/blog/frais-garde-enfants-quebec-2026", emoji: "👶", title: "Childcare credits (French article)", desc: "If you have children while pursuing studies — this guide is currently available in French only" },
     { href: "/questionnaire", emoji: "🔍", title: "Find all my benefits", desc: "Complete questionnaire — QC/CA programs by profile" },
     { href: "/budget/calculateur", emoji: "📊", title: "Budget calculator", desc: "Balance your budget while studying" },
   ],

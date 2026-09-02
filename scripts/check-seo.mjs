@@ -26,6 +26,9 @@ const blogIndexFile = path.join(rootDir, "src", "data", "blog", "index.ts");
 const solidarityCreditLegacyArticleFile = path.join(rootDir, "src", "data", "blog", "entries", "credit-solidarite-guide-complet-2026.tsx");
 const solidarityCreditLegacyRedirectFile = path.join(appDir, "blog", "credit-solidarite-guide-complet-2026", "page.tsx");
 const solidarityCreditLedgerFile = path.join(claimsDir, "credit-impot-solidarite-2026.md");
+const childcareCreditLedgerFile = path.join(claimsDir, "credit-frais-garde-enfants-2026.md");
+const childcareCreditDatasetFile = path.join(rootDir, "src", "data", "finance-2026", "childcare-credit-2026.ts");
+const sportLegacyRedirectFile = path.join(appDir, "subvention-sport-enfant-quebec", "page.tsx");
 
 const errors = [];
 
@@ -912,6 +915,136 @@ function checkSolidarityCreditGuardrails() {
   }
 }
 
+function checkChildcareCreditGuardrails() {
+  if (!fs.existsSync(programmesJsonFile)) {
+    report("Programmes catalogue is missing", [relative(programmesJsonFile)]);
+    return;
+  }
+
+  const programmes = JSON.parse(read(programmesJsonFile));
+  const childcareCredit = programmes.find((programme) => programme.id === "credit-frais-garde-qc");
+
+  if (!childcareCredit) {
+    report("Childcare tax credit programme is missing from the catalogue", [
+      `${relative(programmesJsonFile)} should contain a "credit-frais-garde-qc" entry`,
+    ]);
+  } else {
+    if (childcareCredit.montant_sommable !== false) {
+      report("Childcare tax credit must stay non-summable", [
+        `${relative(programmesJsonFile)}: credit-frais-garde-qc.montant_sommable must be false`,
+      ]);
+    }
+    if (childcareCredit.preselection_only !== true) {
+      report("Childcare tax credit must stay preselection-only", [
+        `${relative(programmesJsonFile)}: credit-frais-garde-qc.preselection_only must be true`,
+      ]);
+    }
+    if (childcareCredit.montant_min !== 0 || childcareCredit.montant_max !== 0) {
+      report("Childcare tax credit must not display a fixed amount range", [
+        `${relative(programmesJsonFile)}: credit-frais-garde-qc.montant_min/montant_max must be 0`,
+      ]);
+    }
+    if (/16 ans/.test(childcareCredit.description ?? "")) {
+      report("Childcare tax credit must reflect the 2026 age rule (under 14, not under 16)", [
+        `${relative(programmesJsonFile)}: credit-frais-garde-qc.description`,
+      ]);
+    }
+  }
+
+  if (!fs.existsSync(childcareCreditDatasetFile)) {
+    report("Childcare tax credit versioned dataset is missing", [relative(childcareCreditDatasetFile)]);
+  } else {
+    const dataset = read(childcareCreditDatasetFile);
+    const requiredFacts = [
+      /rateMin: 0\.67/,
+      /rateMax: 0\.78/,
+      /severeAndProlongedImpairment: 17_145/,
+      /under7NoImpairment: 12_525/,
+      /otherEligibleChild: 6_305/,
+      /generalMaxAgeExclusive: 14/,
+      /subsidizedCareExcluded: true/,
+      /subsidizedCareNote/,
+      /montantSommable: false/,
+    ];
+    for (const pattern of requiredFacts) {
+      if (!pattern.test(dataset)) {
+        report("Childcare tax credit dataset is missing a required 2026 parameter", [
+          `${relative(childcareCreditDatasetFile)} should match ${pattern}`,
+        ]);
+      }
+    }
+  }
+
+  if (!fs.existsSync(childcareCreditLedgerFile)) {
+    report("Childcare tax credit claim ledger is missing", [relative(childcareCreditLedgerFile)]);
+  } else {
+    const ledgerSource = read(childcareCreditLedgerFile);
+    const requiredColumns = "programme/incitatif | surface/fichier | affirmation | valeur ou formulation actuelle | source officielle précise | date de la source ou date de récupération | statut | risque | action ultérieure recommandée";
+    if (!ledgerSource.includes(requiredColumns)) {
+      report("Childcare tax credit claim ledger is missing required columns", [
+        `${relative(childcareCreditLedgerFile)} should include: ${requiredColumns}`,
+      ]);
+    }
+  }
+
+  if (!fs.existsSync(sportLegacyRedirectFile)) {
+    report("Legacy sport subsidy route must permanently redirect to the consolidated page", [
+      relative(sportLegacyRedirectFile),
+    ]);
+  } else {
+    const redirectSource = read(sportLegacyRedirectFile);
+    if (!/permanentRedirect\("\/aide-financiere-sport-enfant-quebec"\)/.test(redirectSource)) {
+      report("Legacy sport subsidy route must redirect to the canonical consolidated page", [
+        relative(sportLegacyRedirectFile),
+      ]);
+    }
+  }
+
+  const seoPagesSource = read(seoPagesFile);
+  if (/"\/subvention-sport-enfant-quebec"/.test(seoPagesSource)) {
+    report("Retired sport subsidy route must not be republished in the SEO registry", [relative(seoPagesFile)]);
+  }
+
+  const forbiddenValuePatterns = [
+    { pattern: /26 ?[–-] ?75 ?%/, label: "obsolete rate range (26-75%)" },
+    { pattern: /67 ?[–-] ?75 ?%/, label: "obsolete rate range (67-75%)" },
+    { pattern: /26 ?[–-] ?78 ?%/, label: "obsolete rate range (26-78%)" },
+    { pattern: /33 ?655 ?\$/, label: "fabricated income threshold (33 655 $)" },
+    { pattern: /157 ?179 ?\$/, label: "fabricated income threshold (157 179 $)" },
+    { pattern: /(?<!auparavant )moins de 16 ans/, label: "obsolete age rule (under 16) for the 2026 childcare credit" },
+    { pattern: /~55%/, label: "impossible example rate (~55%) at 60 000 $ income" },
+    { pattern: /~4 ?400 ?\$/, label: "obsolete example amount (~4 400 $)" },
+    { pattern: /CPE\s+non subventionn/i, label: "misleading pairing of CPE with a non-subsidized category (most CPE spaces are subsidized and excluded)" },
+    { pattern: /seulement à la garde non subventionnée/i, label: "overstated eligibility rule: only the reduced contribution itself is excluded, not every fee tied to a subsidized spot" },
+    { pattern: /garderies? non subventionnées? seulement/i, label: "overstated eligibility rule (subsidized-spot fees can still be eligible per RL-24)" },
+    { pattern: /ne (?:donnent?|donne) (?:jamais |pas )?droit à ce crédit, quel que soit le revenu/i, label: "overstated blanket exclusion of subsidized care" },
+  ];
+
+  const activeSurfaceFiles = [
+    "src/data/programmes.json",
+    "src/data/finance-2026/childcare-credit-2026.ts",
+    "src/data/blog/entries/frais-garde-enfants-quebec-2026.tsx",
+    "src/data/blog/entries/bouclier-fiscal-quebec-2026.tsx",
+    "src/app/aides-financieres/page.tsx",
+    "src/app/aides-financieres/famille/page.tsx",
+    "src/app/cout-vie-quebec/page.tsx",
+    "src/app/scenarios/famille-2-enfants/page.tsx",
+    "src/app/aide-financiere-sport-enfant-quebec/page.tsx",
+  ].map((relativePath) => path.join(rootDir, relativePath));
+
+  for (const filePath of activeSurfaceFiles) {
+    if (!fs.existsSync(filePath)) continue;
+    const source = read(filePath);
+    for (const { pattern, label } of forbiddenValuePatterns) {
+      if (pattern.test(source)) {
+        report("Active surface still carries an outdated childcare tax credit claim", [
+          `${relative(filePath)}: ${label}`,
+        ]);
+      }
+    }
+  }
+}
+
 function checkEncoding() {
   const files = [];
   walkTextFiles(srcDir, files);
@@ -1020,6 +1153,7 @@ checkDictionaryShapes();
 checkQuestionnairePropagation();
 checkSourceBackedClaimLedgers();
 checkSolidarityCreditGuardrails();
+checkChildcareCreditGuardrails();
 checkEncoding();
 checkPublicFooterPrivacyLinks();
 checkInternalAnchorLinks();

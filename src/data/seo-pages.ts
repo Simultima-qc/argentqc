@@ -36,7 +36,6 @@ export const seoPageDefinitions: SeoPageDefinition[] = [
   { path: "/aide-financiere-sport-enfant-quebec", title: "Aide sport enfant Quebec", description: "Aides financieres pour les activites sportives des enfants.", changeFrequency: "monthly", priority: 0.9 },
   { path: "/cout-vie-quebec", title: "Cout de la vie Quebec", description: "Guides et reperes sur le cout de la vie au Quebec.", changeFrequency: "monthly", priority: 0.9, includeInHomeHub: true },
   { path: "/aide-lunettes-quebec", title: "Aide lunettes Quebec", description: "Aides et credits pour lunettes et soins visuels.", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/subvention-sport-enfant-quebec", title: "Subvention sport enfant Quebec", description: "Guide des subventions sportives pour enfants.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/credit-impot-frais-medicaux-quebec", title: "Credit frais medicaux Quebec", description: "Credit d'impot pour frais medicaux et soins admissibles.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/subvention-thermopompe-quebec", title: "Subvention thermopompe Quebec", description: "Subventions pour thermopompes et travaux energetiques.", changeFrequency: "monthly", priority: 0.8 },
   { path: "/subvention-fenetres-quebec", title: "Subvention fenetres Quebec 2026 : aide pour remplacer vos fenetres", description: "Voir quelles aides peuvent s'appliquer au remplacement de fenetres au Quebec et quoi verifier avant les travaux.", changeFrequency: "monthly", priority: 0.85 },

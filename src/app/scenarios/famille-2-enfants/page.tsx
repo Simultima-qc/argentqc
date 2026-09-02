@@ -128,7 +128,7 @@ export default function ScenarioFamillePage() {
                 {
                   label: "Crédit d'impôt frais de garde",
                   montant: "Variable",
-                  detail: "Si garde non subventionnée : jusqu'à 75 % des frais remboursés",
+                  detail: "Si garde non subventionnée : de 67 % à 78 % des frais remboursés, selon le revenu",
                   badge: "Provincial",
                   badgeColor: "#D1FAE5",
                   badgeText: "#065F46",
@@ -230,7 +230,7 @@ export default function ScenarioFamillePage() {
                 {
                   step: "3",
                   titre: "Vérifier l'admissibilité aux crédits frais de garde",
-                  detail: "Si les enfants sont dans une garderie non subventionnée, le crédit peut couvrir jusqu'à 75 % des frais payés. À déclarer dans la déclaration provinciale.",
+                  detail: "Si les enfants sont dans une garderie non subventionnée, le crédit peut couvrir de 67 % à 78 % des frais payés selon le revenu familial. À déclarer dans la déclaration provinciale (annexe C).",
                   lien: "/fr/questionnaire",
                   cta: "Diagnostic personnalisé",
                 },

@@ -8,3 +8,4 @@ export * from "@/data/finance-2026/prets-bourses-2026";
 export * from "@/data/finance-2026/family-training-rules-2026";
 export * from "@/data/finance-2026/groceries-essentials-benefit-2026";
 export * from "@/data/finance-2026/solidarity-credit-2026";
+export * from "@/data/finance-2026/childcare-credit-2026";

@@ -34,10 +34,10 @@ const programmes = [
     badgeColor: "bg-blue-100 text-blue-700",
   },
   {
-    nom: "Crédit pour frais de garde (camps sportifs)",
+    nom: "Crédit pour frais de garde (camps sportifs non subventionnés)",
     organisme: "Revenu Québec",
-    montant: "26% à 75% des frais",
-    description: "Les camps de jour sportifs d'été sont admissibles au crédit pour frais de garde — jusqu'à 75% remboursés.",
+    montant: "67% à 78% des frais — à vérifier",
+    description: "Les camps de jour sportifs d'été non subventionnés sont admissibles au crédit pour frais de garde, remboursé entre 67% et 78% selon le revenu familial. Les camps subventionnés n'y donnent pas droit.",
     href: "/blog/frais-garde-enfants-quebec-2026",
     badge: "Provincial",
     badgeColor: "bg-blue-100 text-blue-700",
@@ -56,12 +56,6 @@ const programmes = [
 
 const satellites = [
   {
-    href: "/subvention-sport-enfant-quebec",
-    titre: "Subvention sport enfant Québec",
-    desc: "ACE, allocation famille, frais de garde",
-    emoji: "⚽",
-  },
-  {
     href: "/aide-famille-quebec",
     titre: "Aide financière famille Québec",
     desc: "Tous les programmes pour les familles",
@@ -75,8 +69,8 @@ const satellites = [
   },
   {
     href: "/blog/frais-garde-enfants-quebec-2026",
-    titre: "Crédit frais de garde – jusqu'à 75%",
-    desc: "Camps sportifs inclus",
+    titre: "Crédit frais de garde – de 67% à 78%",
+    desc: "Camps sportifs non subventionnés inclus",
     emoji: "🏕️",
   },
 ];
@@ -91,11 +85,11 @@ const municipaux = [
 const faqs = [
   {
     q: "Y a-t-il une subvention directe pour inscrire mon enfant au soccer au Québec ?",
-    r: "Il n'existe pas de subvention provinciale ou fédérale directe pour les inscriptions sportives en 2026. Cependant, plusieurs programmes indirects couvrent ces coûts : l'ACE et l'allocation famille vous versent de l'argent utilisable pour le sport, et les camps sportifs d'été peuvent être réclamés dans le crédit pour frais de garde (jusqu'à 75%). De plus, la plupart des municipalités québécoises ont des programmes d'accès aux loisirs pour les familles à faible revenu.",
+    r: "Il n'existe pas de subvention provinciale ou fédérale directe pour les inscriptions sportives en 2026. Cependant, plusieurs programmes indirects couvrent ces coûts : l'ACE et l'allocation famille vous versent de l'argent utilisable pour le sport, et les camps sportifs d'été non subventionnés peuvent être réclamés dans le crédit pour frais de garde (67% à 78%, selon le revenu). De plus, la plupart des municipalités québécoises ont des programmes d'accès aux loisirs pour les familles à faible revenu.",
   },
   {
     q: "Les inscriptions sportives sont-elles des frais de garde admissibles ?",
-    r: "Les camps sportifs de jour sont admissibles au crédit pour frais de garde d'enfants, si l'enfant a moins de 16 ans et que le camp est offert pendant que vous travaillez ou étudiez. Les inscriptions à une ligue sportive le samedi matin ne sont généralement pas admissibles — le critère est que la garde permette au parent de travailler.",
+    r: "Les camps sportifs de jour non subventionnés sont admissibles au crédit pour frais de garde d'enfants, si l'enfant a moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée) et que le camp est offert pendant que vous travaillez, étudiez ou cherchez un emploi. Un camp subventionné n'y donne pas droit. Les inscriptions à une ligue sportive le samedi matin ne sont généralement pas admissibles — le critère est que la garde permette au parent de travailler.",
   },
   {
     q: "Comment accéder au programme Jumpstart ?",
