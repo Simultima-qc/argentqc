@@ -22,7 +22,9 @@ export default function LocalizedBudgetHousingAllowancePage({ locale }: { locale
   const ui = getCommonUiLabels(locale);
   const homePath = getRoutePath(locale, "home");
   const questionnairePath = getRoutePath(locale, "questionnaire");
-  const totalMax = dictionary.programmes.reduce((acc, program) => acc + program.montant_max, 0);
+  const totalMax = dictionary.programmes
+    .filter((program) => program.montant_sommable !== false)
+    .reduce((acc, program) => acc + program.montant_max, 0);
   const totalFormatted = new Intl.NumberFormat(locale === "fr" ? "fr-CA" : "en-CA", {
     style: "currency",
     currency: "CAD",

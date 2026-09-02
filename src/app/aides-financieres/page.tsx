@@ -134,7 +134,7 @@ export default function AidesFinancieresPage() {
                 {[
                   ["Allocation canadienne pour enfants", "+ 4 200 $"],
                   ["Allocation famille Québec", "+ 2 100 $"],
-                  ["Crédit de solidarité", "+ 680 $"],
+                  ["Crédit de solidarité", "À vérifier"],
                   ["Crédit frais médicaux", "+ 320 $"],
                 ].map(([label, montant]) => (
                   <div key={label} style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
@@ -143,8 +143,8 @@ export default function AidesFinancieresPage() {
                   </div>
                 ))}
                 <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "8px", display: "flex", justifyContent: "space-between" }}>
-                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Total estimé</span>
-                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>7 300 $/an</span>
+                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Sous-total illustratif (hors crédit de solidarité)</span>
+                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>6 620 $/an</span>
                 </div>
               </div>
             </div>

@@ -119,8 +119,8 @@ export default function ScenarioFamillePage() {
                 },
                 {
                   label: "Crédit de solidarité",
-                  montant: "+ 520 $",
-                  detail: "Volet logement (locataires) + volet TVQ",
+                  montant: "À vérifier",
+                  detail: "À 90 000 $ de revenu familial, l'excédent au-delà du seuil de réduction peut réduire fortement ou annuler le crédit",
                   badge: "Provincial",
                   badgeColor: "#D1FAE5",
                   badgeText: "#065F46",
@@ -185,9 +185,9 @@ export default function ScenarioFamillePage() {
                   conseil: "Les familles à faible ou moyen revenu DOIVENT produire leur déclaration, même si elles n'ont pas d'impôt à payer.",
                 },
                 {
-                  titre: "Ignorer le crédit de solidarité",
-                  impact: "Jusqu'à 520 $/an non réclamés",
-                  conseil: "Ce crédit est versé automatiquement après la déclaration provinciale — s'assurer que les deux déclarations sont produites.",
+                  titre: "Ne pas vérifier le crédit de solidarité",
+                  impact: "Montant potentiellement non réclamé, à vérifier",
+                  conseil: "Ce crédit dépend de la déclaration provinciale et, pour le volet logement, de l'annexe D — vérifie ton admissibilité auprès de Revenu Québec même si le montant est réduit à un revenu familial de 90 000 $.",
                 },
                 {
                   titre: "Sous-cotiser au REER",

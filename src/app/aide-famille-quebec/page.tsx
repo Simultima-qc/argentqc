@@ -5,7 +5,7 @@ import type { Programme } from "@/types";
 export const metadata: Metadata = {
   title: "Aide financière famille Québec 2026 – Tous les programmes",
   description:
-    "Découvrez toutes les aides financières disponibles pour les familles au Québec en 2026 : allocation famille, ACE, crédit solidarité et plus. Calculez votre montant en 2 minutes.",
+    "Découvrez les aides financières disponibles pour les familles au Québec en 2026 : allocation famille, ACE, crédit solidarité et plus. Repérez les programmes à vérifier en 2 minutes.",
   keywords: ["aide financière famille Québec", "aide famille Québec 2026", "programme famille Québec"],
   alternates: { canonical: "https://argentqc.ca/aide-famille-quebec" },
 };
@@ -49,13 +49,15 @@ const programmes: Programme[] = [
     organisme: "Revenu Québec",
     niveau: "provincial",
     categorie: "credits_impot",
-    montant_min: 150,
-    montant_max: 2000,
-    montant_affiche: "150 $ – 2 000 $",
-    description: "Crédit d'impôt remboursable pour les ménages à revenus faibles ou modestes. Versé mensuellement ou annuellement.",
-    conditions: ["Résider au Québec", "Revenu familial sous les seuils établis", "Produire une déclaration de revenus au Québec"],
+    montant_min: 0,
+    montant_max: 0,
+    montant_affiche: "Montant déterminé par Revenu Québec — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Crédit d'impôt remboursable pour les ménages à revenus faibles ou modestes, combinant jusqu'à trois composantes selon le dossier. Montant et fréquence de versement déterminés par Revenu Québec.",
+    conditions: ["Résider au Québec au 31 décembre 2025", "Produire la déclaration de revenus 2025 et l'annexe D si le logement s'applique", "Faire vérifier le montant par Revenu Québec"],
     lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-    criteres: { provinces: ["QC"], revenu_max: 60000 },
+    criteres: { provinces: ["QC"] },
   },
   {
     id: "credit-tps-fed",
@@ -90,7 +92,7 @@ const faqs = [
   },
   {
     question: "Ces prestations sont-elles imposables ?",
-    reponse: "Non. L'ACE, l'Allocation famille du Québec et le crédit de solidarité sont tous non imposables. Vous n'avez pas à les déclarer comme revenus.",
+    reponse: "L'ACE et l'Allocation famille du Québec sont non imposables. Le crédit de solidarité est un crédit remboursable de Revenu Québec; consultez Revenu Québec pour son traitement fiscal exact selon votre situation.",
   },
 ];
 

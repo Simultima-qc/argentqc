@@ -1,5 +1,6 @@
 import type { Programme } from "@/types";
 import type { Locale } from "@/i18n/routing";
+import { solidarityCredit2026 } from "@/data/finance-2026/solidarity-credit-2026";
 
 export interface BudgetSolidarityCreditDictionary {
   routeKey: "budgetSolidarityCredit";
@@ -9,6 +10,7 @@ export interface BudgetSolidarityCreditDictionary {
   subtitle: string;
   intro: string;
   totalLabel: string;
+  totalNote: string;
   availableProgramsLabel: string;
   programsTitle: string;
   faqsTitle: string;
@@ -27,29 +29,34 @@ export interface BudgetSolidarityCreditDictionary {
   programmes: Programme[];
 }
 
+const { tvq, housing, northernVillage } = solidarityCredit2026.components;
+const { threshold, rateTwoOrMoreComponents, rateOneComponent } = solidarityCredit2026.reduction;
+
 const fr: BudgetSolidarityCreditDictionary = {
   routeKey: "budgetSolidarityCredit",
   metadata: {
-    title: "Credit d'impot solidarite Quebec 2026 : montant, seuils et paiement",
+    title: "Credit d'impot solidarite Quebec 2026-2027 : composantes, seuils et versement",
     description:
-      "Voyez comment fonctionne le credit d'impot solidarite au Quebec en 2026 : admissibilite, seuils, montants possibles et paiements.",
+      "Comprendre le credit d'impot pour solidarite au Quebec pour juillet 2026 a juin 2027 : composantes, seuil de reduction et frequence de versement determinee par Revenu Quebec.",
   },
   keyword: "Credit de solidarite Quebec 2026",
-  title: "Credit de solidarite Quebec 2026",
-  subtitle: "Admissibilite, seuils de revenu, montants possibles, paiements et etapes pour le recevoir.",
+  title: "Credit de solidarite Quebec 2026-2027",
+  subtitle: "Composantes, seuil de reduction, demande et frequence de versement de ce credit remboursable de Revenu Quebec.",
   intro:
-    "Reponse rapide : le credit d'impot pour solidarite Quebec 2026 est calcule par Revenu Quebec a partir de votre declaration provinciale. Le montant depend de votre revenu familial, de votre situation de logement, de votre situation familiale et des composantes applicables. Verifiez les seuils officiels avant de conclure que vous n'y avez pas droit.",
-  totalLabel: "Potentiel total estime",
+    "Reponse rapide : le credit d'impot pour solidarite est calcule par Revenu Quebec a partir de votre declaration de revenus 2025 et de votre situation au 31 decembre 2025. Il combine jusqu'a trois composantes (TVQ, logement, village nordique) selon votre situation reelle. ArgentQC.ca ne calcule pas de montant exact : le questionnaire presente ce credit comme une piste a verifier aupres de Revenu Quebec.",
+  totalLabel: "Potentiel affiche",
+  totalNote:
+    "Ce montant ne comprend pas le credit de solidarite : Revenu Quebec determine le montant, les composantes applicables et la frequence de versement selon votre dossier complet.",
   availableProgramsLabel: "programmes disponibles",
   programsTitle: "Programmes lies",
   faqsTitle: "Questions frequentes",
   relatedTitle: "Pages reliees",
   ctaTitle: "Verifier tout le potentiel budgetaire",
-  ctaText: "Le questionnaire croise logement, credits, famille et revenu pour sortir une estimation plus complete que le seul raisonnement fiscal.",
+  ctaText: "Le questionnaire croise logement, credits, famille et revenu pour reperer les pistes pertinentes; les montants sensibles restent a confirmer aupres des organismes officiels.",
   ctaLabel: "Commencer le questionnaire",
-  ctaHint: "Gratuit · 2 minutes · estimation personnalisee",
+  ctaHint: "Gratuit · 2 minutes · pistes a verifier",
   disclaimer:
-    "ArgentQC.ca est un outil informatif non affilie au gouvernement. Les montants affiches sont des estimations et l'admissibilite finale doit etre confirmee sur les sources officielles.",
+    "ArgentQC.ca est un outil informatif non affilie au gouvernement. Les montants affiches sont des maximums de composantes, pas un droit garanti, et l'admissibilite finale doit etre confirmee sur les sources officielles.",
   footerText: "Outil informatif non affilie au gouvernement.",
   footerContact: "Contactez-nous",
   levelLabels: {
@@ -69,22 +76,27 @@ const fr: BudgetSolidarityCreditDictionary = {
     {
       question: "C'est quoi le credit d'impot pour solidarite?",
       answer:
-        "C'est un credit d'impot remboursable de Revenu Quebec destine aux menages a revenu faible ou modeste. Il peut inclure une composante TVQ, une composante logement et, dans certains cas, une composante village nordique.",
+        "C'est un credit d'impot remboursable de Revenu Quebec destine aux menages a revenu faible ou modeste. Il combine jusqu'a trois composantes selon votre situation : TVQ, logement et, pour les residents des 14 villages nordiques du Nunavik, village nordique.",
     },
     {
-      question: "Quels sont les seuils du credit solidarite?",
+      question: "Quels sont les composantes et les seuils du credit de solidarite?",
       answer:
-        "Les seuils varient selon le revenu familial, la situation conjugale, le nombre d'enfants et les composantes applicables. Consultez Revenu Quebec pour les seuils exacts de l'annee visee.",
+        `Pour juillet 2026 a juin 2027 : composante TVQ ${tvq.base} $ par adulte (${tvq.spouse} $ de plus pour le conjoint, ${tvq.additionalLivingAlone} $ de plus si vous vivez seul); composante logement ${housing.couple} $ pour un couple, ${housing.singleOrSingleParent} $ pour une personne vivant seule ou une famille monoparentale, ${housing.perChild} $ par enfant; composante village nordique ${northernVillage.perAdult} $ par adulte et ${northernVillage.perChild} $ par enfant. Le credit diminue de ${Math.round(rateTwoOrMoreComponents * 100)} % de l'exces de revenu familial net au-dela de ${threshold.toLocaleString("fr-CA")} $ lorsque deux composantes ou plus s'appliquent, ou de ${Math.round(rateOneComponent * 100)} % lorsqu'une seule s'applique. Il n'existe aucun montant maximal universel : le total depend de votre menage.`,
     },
     {
       question: "Comment recevoir le credit de solidarite?",
       answer:
-        "Vous devez produire votre declaration de revenus du Quebec et remplir les renseignements demandes, notamment ceux lies a votre logement lorsque requis. Revenu Quebec calcule ensuite le credit selon votre situation.",
+        "Vous devez produire votre declaration de revenus du Quebec 2025 et, pour les composantes logement et village nordique, remplir l'annexe D (releve 31 pour les locataires, compte de taxes municipales pour les proprietaires). Sans annexe D, seule la composante TVQ de base (et celle du conjoint, le cas echeant) peut etre versee. L'inscription au depot direct est generalement requise.",
     },
     {
       question: "Quand les paiements sont-ils verses?",
       answer:
-        "La frequence des paiements depend du montant accorde et des regles de Revenu Quebec. Verifiez votre avis de determination ou votre dossier Revenu Quebec pour les dates applicables.",
+        "La frequence n'est pas un choix : Revenu Quebec la determine selon le montant annuel accorde. 240 $ ou moins donne un seul versement en juillet 2026; de 241 $ a 799 $ donne des versements trimestriels en juillet et octobre 2026 puis en janvier et avril 2027; 800 $ ou plus donne des versements mensuels de juillet 2026 a juin 2027.",
+    },
+    {
+      question: "ArgentQC peut-il calculer mon montant exact?",
+      answer:
+        "Non. Le questionnaire presente ce credit comme une piste a verifier : il ne collecte pas le revenu exact du conjoint, la situation de logement partage, le statut de l'annexe D ni l'admissibilite au volet village nordique. Utilisez l'outil officiel de Revenu Quebec ou votre avis de determination pour le montant exact.",
     },
     {
       question: "Peut-on le cumuler avec l'ACEBE federale?",
@@ -99,18 +111,20 @@ const fr: BudgetSolidarityCreditDictionary = {
       organisme: "Revenu Quebec",
       niveau: "provincial",
       categorie: "credits_impot",
-      montant_min: 150,
-      montant_max: 2000,
-      montant_affiche: "150 $ a 2 000 $",
+      montant_min: 0,
+      montant_max: 0,
+      montant_affiche: "Montant determine par Revenu Quebec — a verifier",
+      montant_sommable: false,
+      preselection_only: true,
       description:
-        "Credit remboursable qui regroupe plusieurs composantes, dont une composante habitation, et qui peut etre verse mensuellement ou annuellement selon le montant.",
+        "Credit remboursable qui combine jusqu'a trois composantes (TVQ, logement, village nordique) selon la declaration 2025 et l'annexe D. Le montant et la frequence de versement sont determines par Revenu Quebec, pas choisis par le menage.",
       conditions: [
-        "Resider au Quebec au 31 decembre",
-        "Produire une declaration de revenus du Quebec",
-        "Respecter les seuils de revenu applicables",
+        "Resider au Quebec au 31 decembre 2025",
+        "Produire la declaration de revenus 2025 et l'annexe D si le logement ou le village nordique s'appliquent",
+        "Faire verifier le montant et la frequence par Revenu Quebec",
       ],
       lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-      criteres: { provinces: ["QC"], revenu_max: 60000 },
+      criteres: { provinces: ["QC"] },
     },
     {
       id: "credit-tps-fed",
@@ -159,26 +173,28 @@ const fr: BudgetSolidarityCreditDictionary = {
 const en: BudgetSolidarityCreditDictionary = {
   routeKey: "budgetSolidarityCredit",
   metadata: {
-    title: "Quebec Solidarity Tax Credit 2026 | ArgentQC.ca",
+    title: "Quebec Solidarity Tax Credit 2026-2027 | ArgentQC.ca",
     description:
-      "Practical guide to Quebec's solidarity tax credit: 2026 amounts, eligibility, TP-1 filing steps, and related support programs.",
+      "Practical guide to Quebec's solidarity tax credit for July 2026 to June 2027: components, reduction threshold, and the payment frequency set by Revenu Quebec.",
   },
   keyword: "Quebec solidarity tax credit 2026",
-  title: "Quebec solidarity tax credit in 2026",
-  subtitle: "Amounts, eligibility, and how to claim this refundable Revenu Quebec credit.",
+  title: "Quebec solidarity tax credit, 2026-2027",
+  subtitle: "Components, reduction threshold, how to apply, and the payment frequency for this refundable Revenu Quebec credit.",
   intro:
-    "The solidarity tax credit is one of the broadest Quebec supports for lower- and modest-income households. It often works alongside other budget supports, including the Canada Groceries and Essentials Benefit and the housing allowance.",
-  totalLabel: "Estimated total potential",
+    "The solidarity tax credit is calculated by Revenu Quebec from your 2025 tax return and your situation as of December 31, 2025. It combines up to three components (sales tax, housing, northern village) depending on your actual household. ArgentQC.ca does not calculate an exact amount: the questionnaire treats this credit as a lead to verify with Revenu Quebec.",
+  totalLabel: "Displayed potential",
+  totalNote:
+    "This amount does not include the solidarity tax credit: Revenu Quebec determines the amount, the applicable components, and the payment frequency from your full file.",
   availableProgramsLabel: "available programs",
   programsTitle: "Related programs",
   faqsTitle: "Frequently asked questions",
   relatedTitle: "Related pages",
   ctaTitle: "Check the full budget-support picture",
-  ctaText: "The questionnaire connects housing, tax credits, family profile, and income to produce a more complete estimate.",
+  ctaText: "The questionnaire connects housing, tax credits, family profile, and income to surface relevant leads; sensitive amounts still need to be confirmed with the official agencies.",
   ctaLabel: "Start the questionnaire",
-  ctaHint: "Free · 2 minutes · personalized estimate",
+  ctaHint: "Free · 2 minutes · leads to verify",
   disclaimer:
-    "ArgentQC.ca is an informational tool and is not affiliated with the government. Amounts shown are estimates only and final eligibility must be confirmed on official sources.",
+    "ArgentQC.ca is an informational tool and is not affiliated with the government. Amounts shown are component maximums, not a guaranteed entitlement, and final eligibility must be confirmed on official sources.",
   footerText: "Informational tool not affiliated with the government.",
   footerContact: "Contact us",
   levelLabels: {
@@ -196,17 +212,27 @@ const en: BudgetSolidarityCreditDictionary = {
     {
       question: "What is the solidarity tax credit?",
       answer:
-        "It is a refundable tax credit paid by Revenu Quebec. It takes into account factors such as housing status and household income.",
+        "It is a refundable tax credit paid by Revenu Quebec. It combines up to three components depending on your situation: sales tax, housing, and, for residents of the 14 northern villages of Nunavik, a northern village component.",
     },
     {
-      question: "How much can I receive in 2026?",
+      question: "What are the components and thresholds for 2026-2027?",
       answer:
-        "The amount depends on family income, household composition, and housing situation. A single adult may receive a few hundred dollars, while a family with children can receive much more.",
+        `For July 2026 to June 2027: sales tax component $${tvq.base} per adult ($${tvq.spouse} more for a spouse, $${tvq.additionalLivingAlone} more if you live alone); housing component $${housing.couple} for a couple, $${housing.singleOrSingleParent} for someone living alone or a single-parent family, $${housing.perChild} per child; northern village component $${northernVillage.perAdult} per adult and $${northernVillage.perChild} per child. The credit is reduced by ${Math.round(rateTwoOrMoreComponents * 100)}% of net family income above $${threshold.toLocaleString("en-CA")} when two or more components apply, or ${Math.round(rateOneComponent * 100)}% when only one applies. There is no universal maximum amount: the total depends on your household.`,
     },
     {
       question: "Do I need to apply?",
       answer:
-        "The key step is filing the Quebec tax return and completing the relevant information, including the required schedule within the TP-1 filing process.",
+        "You must file your 2025 Quebec tax return, and for the housing and northern village components, complete Schedule D (a Relevé 31 for renters, a municipal tax bill for owners). Without Schedule D, only the base sales tax component (and the spouse's, if applicable) can be paid. Direct deposit enrollment is generally required.",
+    },
+    {
+      question: "When are the payments made?",
+      answer:
+        "The frequency is not a choice: Revenu Quebec sets it based on the annual amount granted. $240 or less means a single payment in July 2026; $241 to $799 means quarterly payments in July and October 2026, then January and April 2027; $800 or more means monthly payments from July 2026 to June 2027.",
+    },
+    {
+      question: "Can ArgentQC calculate my exact amount?",
+      answer:
+        "No. The questionnaire treats this credit as a lead to verify: it does not collect a spouse's exact income, shared housing status, Schedule D status, or eligibility for the northern village component. Use Revenu Quebec's official tool or your notice of determination for the exact amount.",
     },
     {
       question: "Can it be combined with the federal CGEB?",
@@ -221,18 +247,20 @@ const en: BudgetSolidarityCreditDictionary = {
       organisme: "Revenu Quebec",
       niveau: "provincial",
       categorie: "credits_impot",
-      montant_min: 150,
-      montant_max: 2000,
-      montant_affiche: "150 CAD to 2,000 CAD",
+      montant_min: 0,
+      montant_max: 0,
+      montant_affiche: "Amount determined by Revenu Quebec — verify",
+      montant_sommable: false,
+      preselection_only: true,
       description:
-        "Refundable credit that includes multiple components, including a housing-related component, and may be paid monthly or annually depending on the amount.",
+        "Refundable credit that combines up to three components (sales tax, housing, northern village) based on the 2025 tax return and Schedule D. The amount and payment frequency are set by Revenu Quebec, not chosen by the household.",
       conditions: [
-        "Live in Quebec on December 31",
-        "File a Quebec tax return",
-        "Meet the applicable income thresholds",
+        "Live in Quebec on December 31, 2025",
+        "File your 2025 tax return, plus Schedule D if the housing or northern village component applies",
+        "Have Revenu Quebec verify the amount and payment frequency",
       ],
       lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-      criteres: { provinces: ["QC"], revenu_max: 60000 },
+      criteres: { provinces: ["QC"] },
     },
     {
       id: "credit-tps-fed",

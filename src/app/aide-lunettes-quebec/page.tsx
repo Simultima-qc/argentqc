@@ -54,17 +54,19 @@ const programmes: Programme[] = [
     organisme: "Revenu Québec",
     niveau: "provincial",
     categorie: "credits_impot",
-    montant_min: 150,
-    montant_max: 2000,
-    montant_affiche: "150 $ – 2 000 $",
-    description: "Crédit remboursable pour les ménages à revenus modestes. Bien qu'il ne couvre pas directement les lunettes, il augmente le revenu disponible pour couvrir ces dépenses.",
+    montant_min: 0,
+    montant_max: 0,
+    montant_affiche: "Montant déterminé par Revenu Québec — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Crédit remboursable pour les ménages à revenus modestes. Bien qu'il ne couvre pas directement les lunettes, il peut augmenter le revenu disponible pour ces dépenses.",
     conditions: [
-      "Résider au Québec",
-      "Revenu familial sous les seuils établis",
-      "Produire une déclaration de revenus au Québec"
+      "Résider au Québec au 31 décembre 2025",
+      "Produire la déclaration de revenus 2025",
+      "Faire vérifier le montant par Revenu Québec"
     ],
     lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-    criteres: { provinces: ["QC"], revenu_max: 60000 },
+    criteres: { provinces: ["QC"] },
   },
 ];
 

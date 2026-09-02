@@ -53,7 +53,7 @@ export default function ScenarioCelibatairePage() {
               lineHeight: 1.2,
               marginBottom: "1rem",
             }}>
-              Célibataire locataire — 4 680 $ optimisés
+              Célibataire locataire — pistes d&apos;optimisation à vérifier
             </h1>
             <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "1rem", lineHeight: 1.75 }}>
               Simon, 32 ans, locataire à Montréal, revenu de 50 000 $. REER et CELI sous-utilisés. Voici comment maximiser sa situation financière.
@@ -107,8 +107,8 @@ export default function ScenarioCelibatairePage() {
                 },
                 {
                   label: "Crédit de solidarité (volet logement + TVQ)",
-                  montant: "+ 1 185 $",
-                  detail: "Locataire à Montréal à 50 000 $ de revenu — versement mensuel",
+                  montant: "À vérifier",
+                  detail: "Revenu Québec détermine le montant et la fréquence selon la déclaration 2025 et l'annexe D",
                   type: "Aide",
                 },
                 {
@@ -149,8 +149,8 @@ export default function ScenarioCelibatairePage() {
               ))}
               <div style={{ padding: "16px 20px", background: "#F0FDF4", borderTop: "2px solid #10B981" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E" }}>Sous-total illustratif (hors ACEBE)</span>
-                  <span style={{ fontWeight: 900, fontSize: "1.4rem", color: "#059669" }}>~ 4 185 $/an</span>
+                  <span style={{ fontWeight: 800, fontSize: "15px", color: "#1C1C1E" }}>Sous-total illustratif (hors ACEBE et crédit de solidarité)</span>
+                  <span style={{ fontWeight: 900, fontSize: "1.4rem", color: "#059669" }}>~ 2 400 $/an</span>
                 </div>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function ScenarioCelibatairePage() {
                 {
                   step: "2",
                   titre: "Produire les deux déclarations pour activer les crédits",
-                  detail: "La déclaration permet à Revenu Québec et à l’ARC d’établir les prestations applicables. Vérifie séparément le crédit de solidarité et l’ACEBE; le montant de l’ACEBE n’est pas inclus dans le sous-total.",
+                  detail: "La déclaration permet à Revenu Québec et à l’ARC d’établir les prestations applicables. Vérifie séparément le crédit de solidarité (annexe D si requis) et l’ACEBE; leurs montants ne sont pas inclus dans le sous-total.",
                   lien: "/fr/budget/credit-solidarite",
                   cta: "Guide crédit de solidarité",
                 },

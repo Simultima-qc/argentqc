@@ -65,8 +65,7 @@ export default function AidesFinancieresLogementPage() {
               </p>
               <div className="flex flex-col gap-2">
                 {[
-                  ["Crédit de solidarité — volet logement", "+ 668 $/an"],
-                  ["Crédit de solidarité — volet TVQ", "+ 343 $/an"],
+                  ["Crédit de solidarité (volets TVQ + logement)", "À vérifier"],
                   ["Allocation-logement (si loyer > 30 % du revenu)", "admissible, vérifier"],
                   ["CELIAPP — épargne pour premier achat", "8 000 $ déduits/an"],
                 ].map(([label, montant]) => (
@@ -76,8 +75,8 @@ export default function AidesFinancieresLogementPage() {
                   </div>
                 ))}
                 <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "8px", display: "flex", justifyContent: "space-between" }}>
-                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Aides reçues automatiquement</span>
-                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>1 011 $/an</span>
+                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Total</span>
+                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>Non additionné</span>
                 </div>
               </div>
             </div>
@@ -92,7 +91,7 @@ export default function AidesFinancieresLogementPage() {
             </h2>
             <ol style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "12px" }}>
               {[
-                { step: "1", text: "Produis tes deux déclarations d'impôt — le crédit de solidarité est automatique après la déclaration provinciale" },
+                { step: "1", text: "Produis ta déclaration provinciale et, pour le volet logement, l'annexe D avec ton relevé 31 ou compte de taxes — Revenu Québec détermine ensuite le crédit de solidarité applicable" },
                 { step: "2", text: "Vérifie ton admissibilité à l'allocation-logement si ton loyer dépasse 30 % de ton revenu brut" },
                 { step: "3", text: "Si tu prévois acheter dans les 5 ans, ouvre un CELIAPP dès maintenant — les droits ne sont pas rétroactifs" },
               ].map((item) => (
@@ -142,14 +141,14 @@ export default function AidesFinancieresLogementPage() {
                   badgeColor: "#D1FAE5",
                   badgeText: "#065F46",
                   titre: "Crédit de solidarité",
-                  montant: "Selon revenu",
+                  montant: "Déterminé par Revenu Québec — à vérifier",
                   qui: "Locataires et propriétaires à revenu faible ou moyen",
-                  desc: "Le crédit de solidarité combine trois volets : logement (pour locataires ou propriétaires admissibles), TVQ (pour tous) et village nordique. Il est versé trimestriellement de façon automatique.",
+                  desc: "Le crédit de solidarité combine jusqu'à trois composantes selon le dossier : logement (locataires et propriétaires admissibles), TVQ (pour tous) et village nordique (Nunavik). Le montant et la fréquence de versement — annuelle, trimestrielle ou mensuelle — sont déterminés par Revenu Québec selon le montant accordé, ce n'est pas un choix.",
                   details: [
-                    "Volet logement : jusqu'à 668 $/an pour les locataires",
-                    "Volet TVQ : jusqu'à 343 $/an pour tous les adultes admissibles",
-                    "Versement automatique après la déclaration provinciale",
-                    "Aucune demande à remplir — calculé par Revenu Québec",
+                    "Composante logement : jusqu'à 906 $ pour un couple, 746 $ pour une personne seule, selon l'annexe D",
+                    "Composante TVQ : jusqu'à 363 $ par adulte admissible, plus 172 $ si vous vivez seul",
+                    "Annexe D requise (relevé 31 ou compte de taxes) pour la composante logement",
+                    "Aucun montant maximal universel — le total dépend du ménage",
                   ],
                   lien: "/fr/budget/credit-solidarite",
                   libelleBtn: "Guide crédit solidarité",
@@ -253,7 +252,7 @@ export default function AidesFinancieresLogementPage() {
               {[
                 {
                   q: "Le crédit de solidarité s'applique-t-il aussi aux propriétaires ?",
-                  r: "Oui, le volet TVQ du crédit de solidarité s'applique à tous les résidents admissibles, propriétaires ou locataires. Le volet logement est réservé aux locataires et aux propriétaires de résidences dans un village nordique.",
+                  r: "Oui. La composante TVQ s'applique à tous les résidents admissibles, propriétaires ou locataires. La composante logement s'applique aussi aux propriétaires (avec le compte de taxes municipales) et pas seulement aux locataires (relevé 31); le volet village nordique est une composante distincte réservée aux résidents des 14 villages nordiques du Nunavik.",
                 },
                 {
                   q: "Comment savoir si mon loyer est trop élevé par rapport à mon revenu ?",

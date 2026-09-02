@@ -21,7 +21,9 @@ export default function LocalizedBudgetSolidarityCreditPage({ locale }: { locale
   const ui = getCommonUiLabels(locale);
   const homePath = getRoutePath(locale, "home");
   const questionnairePath = getRoutePath(locale, "questionnaire");
-  const totalMax = dictionary.programmes.reduce((acc, program) => acc + program.montant_max, 0);
+  const totalMax = dictionary.programmes
+    .filter((program) => program.montant_sommable !== false)
+    .reduce((acc, program) => acc + program.montant_max, 0);
   const totalFormatted = new Intl.NumberFormat(locale === "fr" ? "fr-CA" : "en-CA", {
     style: "currency",
     currency: "CAD",
@@ -86,6 +88,7 @@ export default function LocalizedBudgetSolidarityCreditPage({ locale }: { locale
           <p style={{ color: "rgba(240,235,224,0.35)", fontSize: "12px" }}>
             {dictionary.programmes.length} {dictionary.availableProgramsLabel}
           </p>
+          <p style={{ color: "rgba(240,235,224,0.3)", fontSize: "11px", marginTop: "8px", lineHeight: 1.5 }}>{dictionary.totalNote}</p>
         </div>
 
         <h2 style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#A8A29E", marginBottom: "12px" }}>
