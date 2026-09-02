@@ -963,6 +963,7 @@ function checkChildcareCreditGuardrails() {
       /otherEligibleChild: 6_305/,
       /generalMaxAgeExclusive: 14/,
       /subsidizedCareExcluded: true/,
+      /subsidizedCareNote/,
       /montantSommable: false/,
     ];
     for (const pattern of requiredFacts) {
@@ -1014,6 +1015,9 @@ function checkChildcareCreditGuardrails() {
     { pattern: /~55%/, label: "impossible example rate (~55%) at 60 000 $ income" },
     { pattern: /~4 ?400 ?\$/, label: "obsolete example amount (~4 400 $)" },
     { pattern: /CPE\s+non subventionn/i, label: "misleading pairing of CPE with a non-subsidized category (most CPE spaces are subsidized and excluded)" },
+    { pattern: /seulement à la garde non subventionnée/i, label: "overstated eligibility rule: only the reduced contribution itself is excluded, not every fee tied to a subsidized spot" },
+    { pattern: /garderies? non subventionnées? seulement/i, label: "overstated eligibility rule (subsidized-spot fees can still be eligible per RL-24)" },
+    { pattern: /ne (?:donnent?|donne) (?:jamais |pas )?droit à ce crédit, quel que soit le revenu/i, label: "overstated blanket exclusion of subsidized care" },
   ];
 
   const activeSurfaceFiles = [

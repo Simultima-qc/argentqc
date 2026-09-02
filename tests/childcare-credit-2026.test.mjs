@@ -52,6 +52,7 @@ test("versioned dataset exposes the source-backed 2026 rate schedule, ceilings a
 
   assert.match(dataset, /generalMaxAgeExclusive: 14/);
   assert.match(dataset, /subsidizedCareExcluded: true/);
+  assert.match(dataset, /subsidizedCareNote/);
   assert.match(dataset, /montantSommable: false/);
 });
 
@@ -64,6 +65,9 @@ test("no active cluster surface still carries an obsolete 2026 rate range or age
     /157 ?179 ?\$/,
     /(?<!auparavant )moins de 16 ans/,
     /CPE\s+non subventionn/i,
+    /seulement à la garde non subventionnée/i,
+    /garderies? non subventionnées? seulement/i,
+    /ne (?:donnent?|donne) (?:jamais |pas )?droit à ce crédit, quel que soit le revenu/i,
   ];
 
   const activeSurfaces = [
@@ -90,6 +94,27 @@ test("childcare credit care types describe subsidization status, not CPE as a no
 
   const article = read("src/data/blog/entries/frais-garde-enfants-quebec-2026.tsx");
   assert.doesNotMatch(article, /CPE\s+non subventionn/i);
+});
+
+test("subsidized care exclusion is nuanced (reduced contribution only), not an absolute blanket exclusion", () => {
+  const dataset = read("src/data/finance-2026/childcare-credit-2026.ts");
+  assert.match(dataset, /subsidizedCareNote/);
+  assert.match(dataset, /releve 24/);
+  assert.doesNotMatch(dataset, /seulement à la garde non subventionnée/i);
+
+  const surfaces = [
+    "src/data/blog/entries/frais-garde-enfants-quebec-2026.tsx",
+    "src/data/blog/entries/bouclier-fiscal-quebec-2026.tsx",
+    "src/data/programmes.json",
+    "src/app/aides-financieres/famille/page.tsx",
+  ].map(read).join("\n");
+
+  assert.match(surfaces, /relevé 24/);
+  assert.doesNotMatch(surfaces, /seulement à la garde non subventionnée/i);
+  assert.doesNotMatch(surfaces, /ne (?:donnent?|donne) (?:jamais |pas )?droit à ce crédit, quel que soit le revenu/i);
+
+  const ledger = read("docs/claims/credit-frais-garde-enfants-2026.md");
+  assert.match(ledger, /relevé 24/);
 });
 
 test("rate schedule boundary semantics are documented before a future calculation consumes the table", () => {

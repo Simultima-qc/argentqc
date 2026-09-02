@@ -434,11 +434,11 @@
     "montant_affiche": "Montant déterminé par Revenu Québec — à vérifier",
     "montant_sommable": false,
     "preselection_only": true,
-    "description": "Crédit remboursable couvrant 67 % à 78 % des frais de garde admissibles (barème 2026 à paliers selon le revenu familial), pour un enfant de moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée). S'applique seulement à la garde non subventionnée (CPE/milieu familial à tarif réduit exclus). Le montant exact dépend du plafond de dépenses selon la situation de l'enfant et doit être vérifié auprès de Revenu Québec.",
+    "description": "Crédit remboursable couvrant 67 % à 78 % des frais de garde admissibles (barème 2026 à paliers selon le revenu familial), pour un enfant de moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée). La contribution réduite d'une place subventionnée (CPE, garderie ou milieu familial) n'est jamais admissible; certains frais additionnels attestés au relevé 24 peuvent l'être. Le montant exact dépend du plafond de dépenses selon la situation de l'enfant et doit être vérifié auprès de Revenu Québec.",
     "conditions": [
       "Résider au Québec",
       "Avoir un enfant admissible de moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée)",
-      "Frais payés à un service de garde non subventionné reconnu par le gouvernement du Québec",
+      "Frais payés à un service de garde reconnu, hors contribution réduite d'une place subventionnée",
       "Faire vérifier le montant exact par Revenu Québec"
     ],
     "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-de-garde-denfants/",

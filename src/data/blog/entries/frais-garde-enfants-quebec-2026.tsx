@@ -67,9 +67,11 @@ function Content() {
           <p className="text-slate-600 leading-relaxed">
             Le taux du crédit varie entre <strong>67% et 78%</strong>{" "}de vos frais admissibles, selon votre revenu
             familial net et un barème à paliers. Plus votre revenu est faible, plus le pourcentage remboursé est
-            élevé, mais le taux ne descend jamais sous 67%, même pour les revenus les plus élevés. Seuls les frais de
-            garde <strong>non subventionnée</strong> sont admissibles : la garde à contribution réduite (CPE ou
-            milieu familial subventionné) n&apos;y donne pas droit.
+            élevé, mais le taux ne descend jamais sous 67%, même pour les revenus les plus élevés. La{" "}
+            <strong>contribution réduite</strong>{" "}elle-même (place subventionnée en CPE, garderie ou milieu
+            familial) n&apos;y donne jamais droit — mais certains frais additionnels facturés en plus de cette
+            contribution peuvent rester admissibles s&apos;ils sont attestés au relevé 24 par le prestataire; vérifiez
+            toujours le détail exact auprès de Revenu Québec.
           </p>
         </section>
 
@@ -151,13 +153,15 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Quels frais sont admissibles ?</h2>
           <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-4">
             <p className="text-sm text-red-800">
-              <strong>Garde subventionnée exclue :</strong> les places à contribution réduite (CPE ou milieu familial
-              subventionné) <strong>ne donnent pas droit</strong> à ce crédit, quel que soit le revenu familial.
+              <strong>Contribution réduite exclue :</strong> la contribution réduite elle-même, payée pour une place
+              subventionnée (CPE, garderie ou milieu familial), <strong>ne donne jamais droit</strong> à ce crédit.
+              Certains frais additionnels facturés en plus de cette contribution peuvent toutefois rester admissibles
+              s&apos;ils sont attestés au relevé 24 — à confirmer auprès de Revenu Québec au cas par cas.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-3">
             {[
-              { titre: "Garderie ou CPE — place non subventionnée seulement", desc: "Une place à contribution réduite (CPE, garderie ou milieu familial) est exclue, peu importe l'établissement" },
+              { titre: "Garderie ou CPE", desc: "La contribution réduite (place subventionnée, peu importe l'établissement) est exclue; certains frais additionnels attestés au relevé 24 peuvent rester admissibles" },
               { titre: "Garde en milieu familial reconnu", desc: "Reconnaissance par un bureau coordonnateur requise, hors places subventionnées" },
               { titre: "Camps de jour", desc: "Sports, arts, nature — si l'enfant a moins de 14 ans et que vous travaillez, étudiez ou cherchez un emploi" },
               { titre: "Garde à domicile", desc: "Gardienne ou aide familiale — reçus officiels obligatoires avec NAS" },

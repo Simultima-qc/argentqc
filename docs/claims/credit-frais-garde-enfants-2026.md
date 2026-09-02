@@ -15,6 +15,15 @@ Ce qui a été fait pour compenser, avant de figer une valeur dans le module/led
 - **Barème complet à 8 paliers (seuils exacts 25 305 $ / 44 620 $ / 46 270 $ / 47 935 $ / 49 565 $ / 51 225 $ / 122 290 $)** : provient de la lecture directe de la page primaire rapportée par la revue indépendante (issue #24, deux tours, verdict GO). Cette implémentation n'a pas pu recouper ces seuils caractère près par une deuxième lecture primaire indépendante (blocage réseau identique). Le plancher (67 %) et le plafond (78 %) sont corroborés par plusieurs sources secondaires convergentes; les seuils intermédiaires reposent sur la chaîne de revue de l'issue #24 uniquement.
 - **Décision** : ces valeurs sont adoptées comme source de vérité pour ce cluster (baseline officielle établie dans l'issue #25, elle-même issue de la revue indépendante GO de l'issue #24), en écartant définitivement les anciennes valeurs 2025 (16 800 $/12 275 $/6 180 $) et les fourchettes déjà publiées et fausses (`26–75 %`, `67–75 %`, `26–78 %`). **Prochaine revue recommandée** : dès qu'un accès direct à `revenuquebec.ca` est disponible dans une future session, confirmer caractère près le barème à 8 paliers avant la prochaine échéance de versements anticipés.
 
+## Nuance sur la garde subventionnée (ajoutée après revue indépendante de la PR #26)
+
+Une première version de cette implémentation affirmait de façon absolue que « seuls les frais de garde non subventionnée sont admissibles » et que la garde subventionnée « ne donne pas droit au crédit, quel que soit le revenu familial ». Une revue indépendante de la PR #26 a signalé, sources Revenu Québec à l'appui (« Frais de garde donnant droit au crédit d'impôt » et « Frais de garde ne donnant pas droit au crédit d'impôt »), que cette formulation est trop absolue :
+
+- la **contribution réduite** fixée par le gouvernement (place subventionnée en CPE, garderie ou milieu familial) n'est elle-même **jamais** admissible;
+- mais certains **frais additionnels** facturés en plus de cette contribution (par exemple pour des jours où aucun service n'est offert en milieu familial subventionné) **peuvent** rester admissibles s'ils sont attestés au relevé 24 par le prestataire.
+
+Toutes les surfaces du cluster (`childcare-credit-2026.ts`, l'article pilier, `bouclier-fiscal-quebec-2026.tsx`, `programmes.json`, `aides-financieres/famille`) ont été reformulées pour distinguer « contribution réduite exclue » de « toute garde subventionnée exclue », sans prétendre lister exhaustivement quels frais additionnels précis sont admissibles (cette liste exacte doit être confirmée au cas par cas auprès de Revenu Québec).
+
 ## Registre
 
 | programme/incitatif | surface/fichier | affirmation | valeur ou formulation actuelle | source officielle précise | date de la source ou date de récupération | statut | risque | action ultérieure recommandée |
@@ -38,5 +47,6 @@ Ce qui a été fait pour compenser, avant de figer une valeur dans le module/led
 - L'identifiant interne `credit-frais-garde-qc` est conservé pour la continuité du catalogue, du matching et des tests.
 - Le programme reste **présélection seulement** (`preselection_only: true`) et **non sommable** (`montant_sommable: false`, `montant_min`/`montant_max` à 0) tant que le questionnaire ArgentQC ne collecte pas l'âge précis de l'enfant, le type de garde (subventionnée/non subventionnée) et les frais réels payés.
 - Aucune fourchette universelle de montant ne remplace `500 $ – 4 500 $` : les maxima dépendent de la situation de l'enfant (plafond de dépenses) et du taux applicable (revenu familial), tous deux non collectés par le funnel actuel.
+- La contribution réduite d'une place subventionnée n'est jamais admissible, mais aucune surface n'affirme que « toute » garde subventionnée exclut « tout » frais : les frais additionnels attestés au relevé 24 sont mentionnés comme une exception possible, à confirmer au cas par cas auprès de Revenu Québec (voir section « Nuance sur la garde subventionnée » ci-dessus).
 - Le barème complet à 8 paliers et les plafonds 2026 vivent dans `src/data/finance-2026/childcare-credit-2026.ts`; toute surface qui affiche un taux ou un plafond doit le faire concorder avec ce module plutôt que dupliquer manuellement les valeurs.
 - La garde subventionnée reste explicitement exclue de ce crédit sur toutes les surfaces qui traitent la distinction.

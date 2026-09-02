@@ -69,8 +69,10 @@ export const childcareCreditGuide2026 = defineVersionedDataset(
       effectiveTaxYear: 2026,
     },
     subsidizedCareExcluded: true,
+    subsidizedCareNote:
+      "La contribution reduite fixee par le gouvernement (place subventionnee en CPE, garderie ou milieu familial) n'est elle-meme jamais admissible. Cela ne veut toutefois pas dire qu'aucun frais associe a une place subventionnee ne peut jamais etre admissible: certains frais additionnels ou expressement admissibles peuvent, selon les regles de Revenu Quebec, donner droit au credit s'ils sont attestes au releve 24 par le prestataire -- l'admissibilite exacte d'un frais donne doit toujours etre confirmee aupres de Revenu Quebec, pas deduite d'une regle universelle simplifiee.",
     eligibleCareTypes: [
-      "Garde en installation (CPE ou garderie) ou en milieu familial reconnu par un bureau coordonnateur, uniquement si la place n'est pas a contribution reduite: une place subventionnee est exclue quel que soit le type d'etablissement, y compris en CPE",
+      "Garde en installation (CPE ou garderie) ou en milieu familial reconnu par un bureau coordonnateur, dont la contribution reduite elle-meme est exclue quel que soit le type d'etablissement, y compris en CPE -- certains frais additionnels attestes au releve 24 peuvent rester admissibles meme pour une place subventionnee",
       "Camp de jour (si le parent travaille, etudie ou cherche un emploi)",
       "Garde a domicile (avec NAS du prestataire)",
       "Pensionnat ou colonie de vacances (frais de garde seulement, part distincte des frais de scolarite/hebergement)",
