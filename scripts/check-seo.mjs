@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { claimsRegistry } from "../src/data/finance-2026/claims-registry.mjs";
 import {
+  computeCriticalityDrift,
   computeRegistryDrift,
   evaluateCalendarStatus,
   evaluateYearDrift,
@@ -1126,6 +1127,8 @@ function checkClaimsFreshnessAndCoverage() {
     .filter((entry) => entry.isFile() && entry.name.endsWith(".ts") && entry.name !== "schema.ts" && entry.name !== "index.ts")
     .map((entry) => path.join(financeDir, entry.name));
 
+  const datasetCriticalityByModule = {};
+
   for (const filePath of datasetFiles) {
     const metas = extractVersionedDatasetMetas(read(filePath));
     if (metas.length === 0) {
@@ -1143,6 +1146,7 @@ function checkClaimsFreshnessAndCoverage() {
         continue;
       }
       evaluateAndCollect(label, meta);
+      datasetCriticalityByModule[relative(filePath)] = meta.criticality;
     }
   }
 
@@ -1159,6 +1163,16 @@ function checkClaimsFreshnessAndCoverage() {
       historicalStatus: entry.historicalStatus,
     };
     evaluateAndCollect(entry.slug, meta);
+  }
+
+  // Structural drift, not calendar-dependent: a governed entry's declared
+  // criticality must match the criticality actually declared by the
+  // dataset module it points to, so an accidental downgrade inside the
+  // dataset can never silently turn a "critical" blocking claim into a
+  // non-blocking warning while the registry still claims "critical".
+  const criticalityDriftErrors = computeCriticalityDrift({ registry: claimsRegistry, datasetCriticalityByModule });
+  if (criticalityDriftErrors.length > 0) {
+    report("Claims registry criticality has drifted from its linked dataset module", criticalityDriftErrors);
   }
 
   if (warnings.length > 0) {

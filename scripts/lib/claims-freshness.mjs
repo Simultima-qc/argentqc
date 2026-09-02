@@ -24,7 +24,22 @@ export const CADENCE_TOLERANCE_DAYS = {
 };
 
 export function isIsoDate(value) {
-  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
+  if (typeof value !== "string") return false;
+
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12) return false;
+
+  // Date.parse/new Date silently roll over an impossible day-of-month (e.g.
+  // "2026-02-31" becomes 2026-03-03) instead of failing, so a naive regex +
+  // Date.parse check would let a calendar-invalid date through. Round-trip
+  // the parsed components against a UTC date to reject that case.
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
 }
 
 // Whole days from `fromIso` to `toIso` (positive when `toIso` is later).
@@ -248,6 +263,40 @@ export function computeRegistryDrift({ registry, ledgerFilesOnDisk, articleFiles
     if (!registeredArticleFiles.has(articleFile)) {
       errors.push(
         `blog article exists on disk but has no registry entry (governed or explicitly-out-of-scope): ${articleFile}`
+      );
+    }
+  }
+
+  return errors;
+}
+
+/**
+ * Detects a silent divergence between a governed registry entry's declared
+ * `criticality` and the `criticality` actually declared by the
+ * finance-2026 dataset module it points to. Without this check, an
+ * accidental `critical` -> `medium` edit inside a dataset module would
+ * silently downgrade an overdue claim from blocking to a non-blocking
+ * warning while the registry still claims "critical" — a structural drift
+ * the registry is supposed to catch, not a calendar-dependent one, so it is
+ * always-blocking regardless of `now`.
+ *
+ * `datasetCriticalityByModule` maps a repo-relative datasetModule path to
+ * the criticality actually parsed from that module (pass only entries for
+ * modules that exist and parsed successfully; missing/malformed modules are
+ * already reported by computeRegistryDrift / validateDatasetMetaShape).
+ */
+export function computeCriticalityDrift({ registry, datasetCriticalityByModule }) {
+  const errors = [];
+
+  for (const entry of registry) {
+    if (entry.status !== "governed" || !entry.datasetModule) continue;
+
+    const datasetCriticality = datasetCriticalityByModule[entry.datasetModule];
+    if (datasetCriticality === undefined) continue;
+
+    if (datasetCriticality !== entry.criticality) {
+      errors.push(
+        `registry entry "${entry.slug}" declares criticality "${entry.criticality}" but its datasetModule (${entry.datasetModule}) declares "${datasetCriticality}" — they must match.`
       );
     }
   }

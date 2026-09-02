@@ -7,10 +7,12 @@ import test from "node:test";
 
 import { claimsRegistry } from "../src/data/finance-2026/claims-registry.mjs";
 import {
+  computeCriticalityDrift,
   computeRegistryDrift,
   evaluateCalendarStatus,
   evaluateYearDrift,
   extractVersionedDatasetMetas,
+  isIsoDate,
   validateDatasetMetaShape,
   validateRegistryEntryShape,
 } from "../scripts/lib/claims-freshness.mjs";
@@ -254,6 +256,92 @@ test("extractVersionedDatasetMetas reads the meta of every real finance-2026 dat
       assert.deepEqual(errors, [], `${file.name} meta should be structurally valid: ${errors.join("; ")}`);
     }
   }
+});
+
+// Independent review of PR #29 (P1): a naive regex + Date.parse check lets
+// JavaScript silently roll over an impossible calendar date (e.g.
+// "2026-02-31" becomes 2026-03-03) instead of rejecting it.
+test("isIsoDate rejects calendar-impossible dates that Date.parse would silently roll over", () => {
+  assert.equal(isIsoDate("2026-02-31"), false); // February has at most 29 days
+  assert.equal(isIsoDate("2026-04-31"), false); // April has 30 days
+  assert.equal(isIsoDate("2026-13-01"), false); // no 13th month
+  assert.equal(isIsoDate("2026-00-10"), false); // no 0th month
+  assert.equal(isIsoDate("2026-01-00"), false); // no 0th day
+  assert.equal(isIsoDate("2026-02-29"), false); // 2026 is not a leap year
+  assert.equal(isIsoDate("2024-02-29"), true); // 2024 is a leap year: legitimate
+  assert.equal(isIsoDate("2026-11-30"), true);
+});
+
+test("a calendar-impossible nextReviewAt fails dataset meta shape validation, not just an obviously non-date string", () => {
+  const errors = validateDatasetMetaShape("x", {
+    lastUpdated: "2026-08-31",
+    nextReviewAt: "2026-11-31", // November has 30 days
+    reviewCadence: "quarterly",
+    criticality: "critical",
+  });
+  assert.ok(errors.some((message) => message.includes("nextReviewAt")));
+});
+
+test("ARGENTQC_FRESHNESS_NOW override validation rejects calendar-impossible dates the same way", () => {
+  // resolveFreshnessNow (scripts/check-seo.mjs) delegates to this same
+  // isIsoDate, so this confirms the override is rejected consistently
+  // rather than silently accepted as "2026-03-03".
+  assert.equal(isIsoDate("2026-02-31"), false);
+});
+
+// Independent review of PR #29 (P1): the registry's declared criticality for
+// a governed entry must match the criticality actually declared by the
+// dataset module it points to, or an accidental downgrade inside the
+// dataset would silently turn a "critical" blocking claim into a
+// non-blocking warning while the registry still claims "critical".
+test("a mismatch between a registry entry's criticality and its linked dataset module's criticality fails", () => {
+  const registry = [
+    {
+      slug: "rrq-rente-retraite-2026",
+      kind: "blog-article",
+      datasetModule: "src/data/finance-2026/retirement-2026.ts",
+      criticality: "critical",
+      status: "governed",
+      scopeNote: "test",
+    },
+  ];
+  const errors = computeCriticalityDrift({
+    registry,
+    datasetCriticalityByModule: { "src/data/finance-2026/retirement-2026.ts": "medium" },
+  });
+  assert.ok(errors.some((message) => message.includes('declares criticality "critical"') && message.includes('declares "medium"')));
+});
+
+test("matching criticality between registry entry and dataset module produces no drift error", () => {
+  const registry = [
+    {
+      slug: "rrq-rente-retraite-2026",
+      kind: "blog-article",
+      datasetModule: "src/data/finance-2026/retirement-2026.ts",
+      criticality: "critical",
+      status: "governed",
+      scopeNote: "test",
+    },
+  ];
+  const errors = computeCriticalityDrift({
+    registry,
+    datasetCriticalityByModule: { "src/data/finance-2026/retirement-2026.ts": "critical" },
+  });
+  assert.deepEqual(errors, []);
+});
+
+test("the real registry has zero criticality drift against its linked finance-2026 dataset modules", () => {
+  const datasetCriticalityByModule = {};
+
+  for (const entry of claimsRegistry) {
+    if (!entry.datasetModule) continue;
+    const source = fs.readFileSync(path.join(rootDir, entry.datasetModule), "utf8");
+    const [first] = extractVersionedDatasetMetas(source);
+    datasetCriticalityByModule[entry.datasetModule] = first.meta.criticality;
+  }
+
+  const errors = computeCriticalityDrift({ registry: claimsRegistry, datasetCriticalityByModule });
+  assert.deepEqual(errors, []);
 });
 
 test("check-seo.mjs's ARGENTQC_FRESHNESS_NOW override makes the freshness gate deterministic in CI", () => {

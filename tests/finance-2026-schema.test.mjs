@@ -49,6 +49,17 @@ test("defineVersionedDataset throws on malformed lastUpdated", () => {
   assert.throws(() => defineVersionedDataset("x", baseMeta({ lastUpdated: "31-08-2026" }), {}), /lastUpdated/);
 });
 
+// Independent review of PR #29 (P1): Date.parse silently rolls "2026-02-31"
+// over to 2026-03-03 instead of failing, so a naive regex + Date.parse
+// check would let this through despite being calendar-impossible.
+test("defineVersionedDataset throws on a calendar-impossible lastUpdated (e.g. February 31st)", () => {
+  assert.throws(() => defineVersionedDataset("x", baseMeta({ lastUpdated: "2026-02-31" }), {}), /lastUpdated/);
+});
+
+test("defineVersionedDataset throws on a calendar-impossible nextReviewAt (e.g. April 31st)", () => {
+  assert.throws(() => defineVersionedDataset("x", baseMeta({ nextReviewAt: "2026-04-31" }), {}), /nextReviewAt/);
+});
+
 test("defineVersionedDataset throws on malformed nextReviewAt", () => {
   assert.throws(() => defineVersionedDataset("x", baseMeta({ nextReviewAt: "soon" }), {}), /nextReviewAt/);
 });

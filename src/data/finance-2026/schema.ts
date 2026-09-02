@@ -36,7 +36,22 @@ const CADENCE_TOLERANCE_DAYS: Record<string, { min: number; max: number } | null
 };
 
 export function isIsoDate(value: unknown): value is string {
-  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
+  if (typeof value !== "string") return false;
+
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12) return false;
+
+  // Date.parse/new Date silently roll over an impossible day-of-month (e.g.
+  // "2026-02-31" becomes 2026-03-03) instead of failing, so a naive regex +
+  // Date.parse check would let a calendar-invalid date through. Round-trip
+  // the parsed components against a UTC date to reject that case.
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
 }
 
 function daysBetween(fromIso: string, toIso: string): number {
