@@ -44,7 +44,7 @@ const postes = [
     coutFamille: "200 $ – 1 500 $",
     note: "CPE subventionné à ~10 $/jour. Garderie privée non subventionnée: 40-55 $/jour.",
     aides: [
-      { label: "Crédit frais de garde (75%)", href: "/blog/frais-garde-enfants-quebec-2026" },
+      { label: "Crédit frais de garde (67-78%)", href: "/blog/frais-garde-enfants-quebec-2026" },
       { label: "Allocation famille", href: "/aide-famille-quebec" },
     ],
   },
@@ -116,7 +116,7 @@ const profils = [
 
 const satellites = [
   { href: "/aide-famille-quebec", titre: "Aide financière famille Québec", desc: "ACE, allocation famille, crédit solidarité", emoji: "👨‍👩‍👧" },
-  { href: "/blog/frais-garde-enfants-quebec-2026", titre: "Coût garderie Québec – crédit jusqu'à 75%", desc: "Récupérez une grande partie de vos frais", emoji: "🏫" },
+  { href: "/blog/frais-garde-enfants-quebec-2026", titre: "Coût garderie Québec – crédit de 67% à 78%", desc: "Récupérez une partie de vos frais de garde non subventionnée", emoji: "🏫" },
   { href: "/aide-financiere-sport-enfant-quebec", titre: "Coût sport enfant Québec", desc: "Aides disponibles pour les activités", emoji: "⚽" },
   { href: "/fr/budget/allocation-logement", titre: "Allocation logement Québec", desc: "Aide pour locataires à faible revenu", emoji: "🏠" },
   { href: "/credit-impot-frais-medicaux-quebec", titre: "Crédit frais médicaux Québec", desc: "Récupérez jusqu'à 20% de vos dépenses", emoji: "💊" },
@@ -130,7 +130,7 @@ const faqs = [
   },
   {
     q: "Combien coûte élever un enfant au Québec ?",
-    r: "Selon les estimations, élever un enfant au Québec coûte entre 10 000 $ et 15 000 $ par année jusqu'à 18 ans, incluant garderie/école, vêtements, nourriture, sports et loisirs. Grâce aux aides gouvernementales (ACE + allocation famille + crédit frais de garde), une famille peut récupérer 5 000 $ à 12 000 $ par an selon son revenu.",
+    r: "Selon les estimations, élever un enfant au Québec coûte entre 10 000 $ et 15 000 $ par année jusqu'à 18 ans, incluant garderie/école, vêtements, nourriture, sports et loisirs. Des aides gouvernementales (ACE, allocation famille, crédit frais de garde si applicable) réduisent cette charge, mais le montant total récupéré dépend entièrement du revenu familial, du nombre d'enfants et du type de garde : vérifie ton admissibilité précise plutôt que de te fier à un montant type.",
   },
   {
     q: "Le Québec est-il moins cher que le reste du Canada ?",

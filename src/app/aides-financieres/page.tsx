@@ -23,8 +23,8 @@ const categoriesAides = [
     aides: [
       { nom: "Allocation canadienne pour enfants (ACE)", montant: "jusqu'à 8 157 $ avant 6 ans — à vérifier", lien: "/allocation-enfant-quebec" },
       { nom: "Allocation famille Québec", montant: "jusqu'à 3 068 $/enfant — à vérifier", lien: "/aide-famille-quebec" },
-      { nom: "Crédit d'impôt frais de garde", montant: "75 % des frais couverts", lien: "/fr/questionnaire" },
-      { nom: "Subvention sport enfant", montant: "jusqu'à 300 $/an", lien: "/subvention-sport-enfant-quebec" },
+      { nom: "Crédit d'impôt frais de garde", montant: "67 % à 78 % des frais couverts — à vérifier", lien: "/fr/questionnaire" },
+      { nom: "Subvention sport enfant", montant: "jusqu'à 300 $/an", lien: "/aide-financiere-sport-enfant-quebec" },
     ],
   },
   {

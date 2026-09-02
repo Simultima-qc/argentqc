@@ -429,14 +429,17 @@
     "organisme": "Revenu Québec",
     "niveau": "provincial",
     "categorie": "famille",
-    "montant_min": 500,
-    "montant_max": 4500,
-    "montant_affiche": "500 $ – 4 500 $",
-    "description": "Crédit d'impôt remboursable couvrant 67 % à 75 % des frais de garde admissibles selon le revenu familial. Peut s'appliquer aux CPE, garderies, services de garde en milieu scolaire et gardiennes reconnues.",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant déterminé par Revenu Québec — à vérifier",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Crédit remboursable couvrant 67 % à 78 % des frais de garde admissibles (barème 2026 à paliers selon le revenu familial), pour un enfant de moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée). S'applique seulement à la garde non subventionnée (CPE/milieu familial à tarif réduit exclus). Le montant exact dépend du plafond de dépenses selon la situation de l'enfant et doit être vérifié auprès de Revenu Québec.",
     "conditions": [
       "Résider au Québec",
-      "Avoir un enfant de moins de 16 ans (ou handicapé quel que soit l'âge)",
-      "Frais payés à un service de garde reconnu par le gouvernement du Québec"
+      "Avoir un enfant admissible de moins de 14 ans (aucune limite d'âge en cas de déficience grave et prolongée)",
+      "Frais payés à un service de garde non subventionné reconnu par le gouvernement du Québec",
+      "Faire vérifier le montant exact par Revenu Québec"
     ],
     "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-de-garde-denfants/",
     "criteres": {
