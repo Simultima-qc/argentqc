@@ -251,19 +251,20 @@
     "organisme": "Revenu Québec",
     "niveau": "provincial",
     "categorie": "credits_impot",
-    "montant_min": 150,
-    "montant_max": 2000,
-    "montant_affiche": "150 $ – 2 000 $",
-    "description": "Crédit d'impôt remboursable combinant l'ancien crédit de TPS, la TVQ et le crédit pour habitation. Versé mensuellement ou annuellement.",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant déterminé par Revenu Québec — à vérifier",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Crédit remboursable qui combine jusqu'à trois composantes (TVQ, logement, village nordique) selon la déclaration de revenus 2025 et l'annexe D. Le montant et la fréquence de versement (annuelle, trimestrielle ou mensuelle) sont déterminés par Revenu Québec.",
     "conditions": [
-      "Résider au Québec",
-      "Revenu familial sous les seuils établis",
-      "Produire une déclaration de revenus au Québec"
+      "Résider au Québec au 31 décembre 2025",
+      "Produire la déclaration de revenus 2025 et l'annexe D si le logement ou le village nordique s'appliquent",
+      "Faire vérifier le montant et la fréquence par Revenu Québec"
     ],
     "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
     "criteres": {
-      "provinces": ["QC"],
-      "revenu_max": 60000
+      "provinces": ["QC"]
     }
   },
   {

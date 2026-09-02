@@ -21,6 +21,11 @@ const matchingFile = path.join(rootDir, "src", "lib", "matching.ts");
 const questionnaireUrlFile = path.join(rootDir, "src", "lib", "questionnaire-url.ts");
 const typesFile = path.join(rootDir, "src", "types", "index.ts");
 const dynamicBlogRouteFile = path.join(appDir, "blog", "[slug]", "page.tsx");
+const programmesJsonFile = path.join(rootDir, "src", "data", "programmes.json");
+const blogIndexFile = path.join(rootDir, "src", "data", "blog", "index.ts");
+const solidarityCreditLegacyArticleFile = path.join(rootDir, "src", "data", "blog", "entries", "credit-solidarite-guide-complet-2026.tsx");
+const solidarityCreditLegacyRedirectFile = path.join(appDir, "blog", "credit-solidarite-guide-complet-2026", "page.tsx");
+const solidarityCreditLedgerFile = path.join(claimsDir, "credit-impot-solidarite-2026.md");
 
 const errors = [];
 
@@ -793,6 +798,120 @@ function checkSourceBackedClaimLedgers() {
     }
   }
 }
+function checkSolidarityCreditGuardrails() {
+  if (!fs.existsSync(programmesJsonFile)) {
+    report("Programmes catalogue is missing", [relative(programmesJsonFile)]);
+    return;
+  }
+
+  const programmes = JSON.parse(read(programmesJsonFile));
+  const solidarityCredit = programmes.find((programme) => programme.id === "credit-loyer-qc");
+
+  if (!solidarityCredit) {
+    report("Solidarity tax credit programme is missing from the catalogue", [
+      `${relative(programmesJsonFile)} should contain a "credit-loyer-qc" entry`,
+    ]);
+  } else {
+    if (solidarityCredit.montant_sommable !== false) {
+      report("Solidarity tax credit must stay non-summable", [
+        `${relative(programmesJsonFile)}: credit-loyer-qc.montant_sommable must be false`,
+      ]);
+    }
+    if (solidarityCredit.preselection_only !== true) {
+      report("Solidarity tax credit must stay preselection-only", [
+        `${relative(programmesJsonFile)}: credit-loyer-qc.preselection_only must be true`,
+      ]);
+    }
+    if (solidarityCredit.montant_min !== 0 || solidarityCredit.montant_max !== 0) {
+      report("Solidarity tax credit must not display a fixed amount range", [
+        `${relative(programmesJsonFile)}: credit-loyer-qc.montant_min/montant_max must be 0`,
+      ]);
+    }
+    if (solidarityCredit.criteres && "revenu_max" in solidarityCredit.criteres) {
+      report("Solidarity tax credit must not apply a generic universal income cap", [
+        `${relative(programmesJsonFile)}: credit-loyer-qc.criteres should not include revenu_max`,
+      ]);
+    }
+  }
+
+  if (!fs.existsSync(solidarityCreditLedgerFile)) {
+    report("Solidarity tax credit claim ledger is missing", [relative(solidarityCreditLedgerFile)]);
+  } else {
+    const ledgerSource = read(solidarityCreditLedgerFile);
+    const requiredColumns = "programme/incitatif | surface/fichier | affirmation | valeur ou formulation actuelle | source officielle précise | date de la source ou date de récupération | statut | risque | action ultérieure recommandée";
+    if (!ledgerSource.includes(requiredColumns)) {
+      report("Solidarity tax credit claim ledger is missing required columns", [
+        `${relative(solidarityCreditLedgerFile)} should include: ${requiredColumns}`,
+      ]);
+    }
+  }
+
+  if (fs.existsSync(solidarityCreditLegacyArticleFile)) {
+    report("Retired solidarity tax credit article must not be republished", [
+      `${relative(solidarityCreditLegacyArticleFile)} should not exist; the article was consolidated into the /fr/budget/credit-solidarite guide`,
+    ]);
+  }
+
+  if (!fs.existsSync(solidarityCreditLegacyRedirectFile)) {
+    report("Legacy solidarity tax credit article route must permanently redirect to the guide", [
+      relative(solidarityCreditLegacyRedirectFile),
+    ]);
+  } else {
+    const redirectSource = read(solidarityCreditLegacyRedirectFile);
+    if (!/permanentRedirect\("\/fr\/budget\/credit-solidarite"\)/.test(redirectSource)) {
+      report("Legacy solidarity tax credit article route must redirect to the canonical guide", [
+        relative(solidarityCreditLegacyRedirectFile),
+      ]);
+    }
+  }
+
+  if (fs.existsSync(blogIndexFile)) {
+    const blogIndexSource = read(blogIndexFile);
+    if (/creditSolidariteGuideComplet2026/.test(blogIndexSource)) {
+      report("Retired solidarity tax credit article must not be registered in the blog index", [relative(blogIndexFile)]);
+    }
+  }
+
+  const forbiddenValuePatterns = [
+    { pattern: /369 \$/, label: "obsolete TVQ amount (369 $)" },
+    { pattern: /829 \$/, label: "obsolete rental housing amount (829 $)" },
+    { pattern: /649 \$/, label: "obsolete owner housing amount (649 $)" },
+    { pattern: /1 ?773 \$/, label: "obsolete northern village amount (1 773 $)" },
+    { pattern: /38 ?000 \$/, label: "obsolete reduction threshold (~38 000 $)" },
+    { pattern: /150 \$ [aà–-] 2 ?000 \$|\$150 to \$2,000|150 CAD to 2,000 CAD/, label: "misleading universal amount range (150 $ - 2 000 $)" },
+    { pattern: /choix (du mode )?de versement|versements? mensuels? ou (versement )?annuel/i, label: "monthly-or-annual choice wording" },
+  ];
+
+  const activeSurfaceFiles = [
+    "src/data/programmes.json",
+    "src/i18n/programmes.ts",
+    "src/i18n/budgetSolidarityCredit.ts",
+    "src/i18n/budgetHousingAllowance.ts",
+    "src/i18n/hubs.ts",
+    "src/app/credit-impot-quebec/page.tsx",
+    "src/app/aide-famille-quebec/page.tsx",
+    "src/app/aide-lunettes-quebec/page.tsx",
+    "src/app/aides-financieres/page.tsx",
+    "src/app/aides-financieres/famille/page.tsx",
+    "src/app/aides-financieres/logement/page.tsx",
+    "src/app/scenarios/celibataire-locataire/page.tsx",
+    "src/app/scenarios/famille-2-enfants/page.tsx",
+    "src/components/LocalizedTaxRefundPage.tsx",
+  ].map((relativePath) => path.join(rootDir, relativePath));
+
+  for (const filePath of activeSurfaceFiles) {
+    if (!fs.existsSync(filePath)) continue;
+    const source = read(filePath);
+    for (const { pattern, label } of forbiddenValuePatterns) {
+      if (pattern.test(source)) {
+        report("Active surface still carries an outdated solidarity tax credit claim", [
+          `${relative(filePath)}: ${label}`,
+        ]);
+      }
+    }
+  }
+}
+
 function checkEncoding() {
   const files = [];
   walkTextFiles(srcDir, files);
@@ -900,6 +1019,7 @@ checkLocalizedRoutes();
 checkDictionaryShapes();
 checkQuestionnairePropagation();
 checkSourceBackedClaimLedgers();
+checkSolidarityCreditGuardrails();
 checkEncoding();
 checkPublicFooterPrivacyLinks();
 checkInternalAnchorLinks();

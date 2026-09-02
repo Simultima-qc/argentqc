@@ -145,13 +145,13 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
   "credit-loyer-qc": {
     nom: "Quebec solidarity tax credit",
     organisme: "Revenu Quebec",
-    montant_affiche: "$150 to $2,000",
+    montant_affiche: "Amount determined by Revenu Quebec — verify",
     description:
-      "Refundable tax credit that combines support related to sales tax and housing costs. It may be paid monthly or annually.",
+      "Refundable credit that combines up to three components (sales tax, housing, northern village) based on the 2025 tax return and Schedule D. The amount and payment frequency (annual, quarterly, or monthly) are set by Revenu Quebec, not chosen by the household.",
     conditions: [
-      "You must live in Quebec",
-      "Your family income must remain under the applicable thresholds",
-      "You must file a Quebec income tax return",
+      "You must live in Quebec on December 31, 2025",
+      "You must file your 2025 tax return, plus Schedule D if the housing or northern village component applies",
+      "Have Revenu Quebec verify the amount and payment frequency",
     ],
   },
   "allocation-logement-qc": {

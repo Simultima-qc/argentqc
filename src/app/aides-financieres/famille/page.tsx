@@ -66,7 +66,7 @@ export default function AidesFinancieresFamillePage() {
                 {[
                   ["Allocation canadienne pour enfants (ACE)", "+ 4 200 $/an"],
                   ["Allocation famille Québec", "+ 2 100 $/an"],
-                  ["Crédit de solidarité (volets TVQ + logement)", "+ 680 $/an"],
+                  ["Crédit de solidarité (volets TVQ + logement)", "À vérifier"],
                   ["Subvention activités sportives (2 enfants)", "+ 300 $/an"],
                   ["Crédit frais de garde (garderie non subventionnée)", "variable"],
                 ].map(([label, montant]) => (
@@ -76,8 +76,8 @@ export default function AidesFinancieresFamillePage() {
                   </div>
                 ))}
                 <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "8px", display: "flex", justifyContent: "space-between" }}>
-                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Total estimé</span>
-                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>7 280 $/an</span>
+                  <span style={{ color: "#F0EBE0", fontWeight: 700, fontSize: "14px" }}>Sous-total illustratif (hors crédit de solidarité)</span>
+                  <span style={{ color: GREEN, fontWeight: 800, fontSize: "1.1rem" }}>6 600 $/an</span>
                 </div>
               </div>
             </div>
