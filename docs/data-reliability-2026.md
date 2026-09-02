@@ -60,8 +60,14 @@ Centraliser les valeurs 2026 sensibles pour reduire les ecarts entre guides, com
 - Risque: duplication de montants RRQ, SV, RAP, Rénoclimat, frais de garde, etc.
 - Etat: inventaire confirme, refactor complet encore a faire
 
+## Gouvernance de fraicheur et de couverture (issue #28)
+
+- `DataSourceMeta` (schema.ts) exige desormais aussi `nextReviewAt`, `criticality` (`critical`/`high`/`medium`) et un `staleException?` optionnel, valides a la construction de chaque dataset.
+- Le registre central `src/data/finance-2026/claims-registry.mjs` relie chaque ledger de `docs/claims/` et chaque article financier sensible a son etat de gouvernance (`governed` ou `explicitly-out-of-scope`), et est recoupe automatiquement avec le systeme de fichiers par `npm run check:seo`.
+- La politique de fraicheur executable (bloquant/avertissement/exception) est implementee dans `scripts/lib/claims-freshness.mjs`, avec une horloge injectable (`ARGENTQC_FRESHNESS_NOW`) pour des tests deterministes. Voir `tests/claims-freshness.test.mjs` et `tests/finance-2026-schema.test.mjs`.
+
 ## Prochaine tranche recommandee
 
-1. Extraire les montants repetes du blog vers des modules 2026 partages
-2. Ajouter une verification CI pour echouer si un module 2026 a une date invalide
+1. Etendre le registre aux 17 articles actuellement `explicitly-out-of-scope`, en commencant par les plus denses (voir scopeNote de chaque entree)
+2. Revalider humainement `tax-2026.ts`, `internet-offers-2026.ts`, `insurance-2026.ts` et `programmes-2026.ts`, actuellement en avertissement de fraicheur non bloquant
 3. Remplacer progressivement les chiffres sensibles restants dans `src/app/*/page.tsx`

@@ -48,6 +48,8 @@ export const childcareCreditGuide2026 = defineVersionedDataset(
     sourceNote:
       "Bareme, plafonds de depenses et regle d'age 2026 etablis via l'audit source-backed issue #24 (Revenu Quebec, page 'Bareme des taux du credit d'impot pour frais de garde d'enfants - 2026', communique du 2025-09-23 sur le changement d'age, et ministere des Finances du Quebec, Parametres du regime d'imposition des particuliers 2026 / fiche de depense fiscale 110604), avec deux tours de revue independante (GO le 2026-09-02). L'environnement d'implementation (issue #25) a WebFetch bloque (EGRESS_BLOCKED) vers revenuquebec.ca et les sources secondaires testees, comme l'environnement d'audit: la lecture directe finale de la page primaire n'a pas pu etre repetee dans cette session. Corroboration independante obtenue par recherche web: la regle d'age <14 ans est confirmee par plusieurs sources secondaires convergentes; les plafonds de depenses 2026 sont corrobores arithmetiquement (indexation 2,05% des montants 2025 arrondis au multiple de 5$ le plus proche reproduit exactement 17 145$/12 525$/6 305$). Le bareme complet a 8 paliers provient de la lecture directe de la source primaire rapportee par la revue independante et n'a pas pu etre recoupe caractere pres par une deuxieme source independante dans cette session (voir docs/claims/credit-frais-garde-enfants-2026.md, section limites). A revalider a la prochaine cadence ou des qu'un acces direct a revenuquebec.ca est disponible.",
     reviewCadence: "quarterly",
+    nextReviewAt: "2026-12-01",
+    criticality: "critical",
   },
   {
     programmeId: "credit-frais-garde-qc",
