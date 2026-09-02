@@ -62,11 +62,13 @@ test("no active cluster surface still carries an obsolete 2026 rate range or age
     /26 ?[–-] ?78 ?%/,
     /33 ?655 ?\$/,
     /157 ?179 ?\$/,
-    /moins de 16 ans/,
+    /(?<!auparavant )moins de 16 ans/,
+    /CPE\s+non subventionn/i,
   ];
 
   const activeSurfaces = [
     "src/data/programmes.json",
+    "src/data/finance-2026/childcare-credit-2026.ts",
     "src/data/blog/entries/frais-garde-enfants-quebec-2026.tsx",
     "src/data/blog/entries/bouclier-fiscal-quebec-2026.tsx",
     "src/app/aides-financieres/page.tsx",
@@ -79,6 +81,21 @@ test("no active cluster surface still carries an obsolete 2026 rate range or age
   for (const pattern of forbidden) {
     assert.doesNotMatch(activeSurfaces, pattern);
   }
+});
+
+test("childcare credit care types describe subsidization status, not CPE as a non-subsidized category", () => {
+  const dataset = read("src/data/finance-2026/childcare-credit-2026.ts");
+  assert.doesNotMatch(dataset, /CPE\s+non subventionn/i);
+  assert.match(dataset, /contribution reduite/);
+
+  const article = read("src/data/blog/entries/frais-garde-enfants-quebec-2026.tsx");
+  assert.doesNotMatch(article, /CPE\s+non subventionn/i);
+});
+
+test("rate schedule boundary semantics are documented before a future calculation consumes the table", () => {
+  const dataset = read("src/data/finance-2026/childcare-credit-2026.ts");
+  assert.match(dataset, /minIncome est exclusif/);
+  assert.match(dataset, /maxIncome est inclusif/);
 });
 
 test("the ~55% / ~4 400 $ example at a 60 000 $ income does not return", () => {

@@ -23,6 +23,11 @@ export const childcareCreditOfficialUrls = {
     "https://www.budget.finances.gouv.qc.ca/budget/outils/depenses-fiscales/fiches/fiche-110604.asp",
 } as const;
 
+// Barieme officiel 2026 (paliers) : minIncome est exclusif sauf pour le premier
+// palier qui part de 0$ inclusivement; maxIncome est inclusif (le taux du palier
+// s'applique jusqu'a et incluant ce montant). Le dernier palier (maxIncome: null)
+// n'a pas de plafond. Un futur calcul doit trancher un revenu egal a une borne au
+// palier ou cette borne apparait comme maxIncome, jamais comme minIncome.
 export const childcareCreditRateSchedule2026 = [
   { minIncome: 0, maxIncome: 25_305, rate: 0.78 },
   { minIncome: 25_305, maxIncome: 44_620, rate: 0.75 },
@@ -65,8 +70,7 @@ export const childcareCreditGuide2026 = defineVersionedDataset(
     },
     subsidizedCareExcluded: true,
     eligibleCareTypes: [
-      "Garderie ou CPE non subventionne",
-      "Milieu familial reconnu par un bureau coordonnateur",
+      "Garde en installation (CPE ou garderie) ou en milieu familial reconnu par un bureau coordonnateur, uniquement si la place n'est pas a contribution reduite: une place subventionnee est exclue quel que soit le type d'etablissement, y compris en CPE",
       "Camp de jour (si le parent travaille, etudie ou cherche un emploi)",
       "Garde a domicile (avec NAS du prestataire)",
       "Pensionnat ou colonie de vacances (frais de garde seulement, part distincte des frais de scolarite/hebergement)",

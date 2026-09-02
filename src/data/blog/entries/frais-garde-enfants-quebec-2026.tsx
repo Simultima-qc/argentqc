@@ -157,7 +157,7 @@ function Content() {
           </div>
           <div className="grid grid-cols-1 gap-3">
             {[
-              { titre: "Garderie et CPE non subventionnés", desc: "Garderies privées et places non subventionnées seulement" },
+              { titre: "Garderie ou CPE — place non subventionnée seulement", desc: "Une place à contribution réduite (CPE, garderie ou milieu familial) est exclue, peu importe l'établissement" },
               { titre: "Garde en milieu familial reconnu", desc: "Reconnaissance par un bureau coordonnateur requise, hors places subventionnées" },
               { titre: "Camps de jour", desc: "Sports, arts, nature — si l'enfant a moins de 14 ans et que vous travaillez, étudiez ou cherchez un emploi" },
               { titre: "Garde à domicile", desc: "Gardienne ou aide familiale — reçus officiels obligatoires avec NAS" },

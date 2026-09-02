@@ -1010,13 +1010,15 @@ function checkChildcareCreditGuardrails() {
     { pattern: /26 ?[–-] ?78 ?%/, label: "obsolete rate range (26-78%)" },
     { pattern: /33 ?655 ?\$/, label: "fabricated income threshold (33 655 $)" },
     { pattern: /157 ?179 ?\$/, label: "fabricated income threshold (157 179 $)" },
-    { pattern: /moins de 16 ans/, label: "obsolete age rule (under 16) for the 2026 childcare credit" },
+    { pattern: /(?<!auparavant )moins de 16 ans/, label: "obsolete age rule (under 16) for the 2026 childcare credit" },
     { pattern: /~55%/, label: "impossible example rate (~55%) at 60 000 $ income" },
     { pattern: /~4 ?400 ?\$/, label: "obsolete example amount (~4 400 $)" },
+    { pattern: /CPE\s+non subventionn/i, label: "misleading pairing of CPE with a non-subsidized category (most CPE spaces are subsidized and excluded)" },
   ];
 
   const activeSurfaceFiles = [
     "src/data/programmes.json",
+    "src/data/finance-2026/childcare-credit-2026.ts",
     "src/data/blog/entries/frais-garde-enfants-quebec-2026.tsx",
     "src/data/blog/entries/bouclier-fiscal-quebec-2026.tsx",
     "src/app/aides-financieres/page.tsx",

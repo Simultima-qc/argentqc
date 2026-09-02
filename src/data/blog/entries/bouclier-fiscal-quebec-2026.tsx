@@ -93,7 +93,7 @@ function Content() {
               },
               {
                 titre: "Crédit d'impôt pour frais de garde d'enfants",
-                desc: "Remboursement partiel des frais de garde non subventionnée payés à une garderie, CPE ou gardienne reconnue. Le taux de crédit (67 % à 78 %) baisse avec le revenu.",
+                desc: "Remboursement partiel des frais de garde payés pour une place non subventionnée (CPE, garderie ou milieu familial) ou une gardienne reconnue — une place à contribution réduite est exclue, peu importe l'établissement. Le taux de crédit (67 % à 78 %) baisse avec le revenu.",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
