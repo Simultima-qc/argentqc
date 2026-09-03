@@ -8,7 +8,7 @@ const slug = "rap-reer-premier-acheteur-quebec-2026";
 const baseMetadata: Metadata = {
   title: "RAP 2026 : Comment utiliser votre REER pour acheter votre première maison au Québec",
   description:
-    "Le Régime d'accession à la propriété (RAP) vous permet de retirer jusqu'à 35 000 $ de votre REER sans impôt pour acheter votre première maison. Guide complet 2026.",
+    "Le Régime d'accession à la propriété (RAP) vous permet de retirer jusqu'à 60 000 $ de votre REER sans impôt pour acheter votre première maison. Guide complet 2026.",
   keywords: [
     "RAP REER 2026",
     "régime accession propriété Québec",
@@ -53,8 +53,8 @@ function Content() {
           <p className="text-lg text-slate-600 leading-relaxed">
             Le Régime d&apos;accession à la propriété (RAP) est l&apos;un des avantages fiscaux les plus puissants
             pour les premiers acheteurs au Canada. En 2026, vous pouvez retirer jusqu&apos;à{" "}
-            <strong>35 000 $</strong> de votre REER — sans payer d&apos;impôt — pour financer l&apos;achat de votre
-            première maison. Pour un couple, c&apos;est jusqu&apos;à <strong>70 000 $</strong> combinés.
+            <strong>60 000 $</strong> de votre REER — sans payer d&apos;impôt — pour financer l&apos;achat de votre
+            première maison. Pour un couple, c&apos;est jusqu&apos;à <strong>120 000 $</strong> combinés.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>? Retrait sans impôt de <strong>jusqu&apos;à 35 000 $</strong> par personne (70 000 $ pour un couple)</li>
+            <li>? Retrait sans impôt de <strong>jusqu&apos;à 60 000 $</strong> par personne (120 000 $ pour un couple)</li>
             <li>? Remboursement étalé sur <strong>15 ans</strong> — sans intérêt</li>
             <li>? Cumulable avec le <strong>CELIAPP</strong> pour maximiser votre mise de fonds</li>
             <li>? Vous devez ne pas avoir été propriétaire au cours des <strong>4 dernières années</strong></li>
@@ -111,9 +111,9 @@ function Content() {
             <p className="font-bold text-blue-800 mb-4">Montants RAP 2026</p>
             <div className="space-y-3">
               {[
-                { situation: "Acheteur seul", montant: "35 000 $", detail: "Maximum par personne" },
-                { situation: "Couple (2 acheteurs)", montant: "70 000 $", detail: "35 000 $ chacun" },
-                { situation: "Remboursement annuel", montant: "~2 333 $", detail: "Sur 15 ans (1/15 du total)" },
+                { situation: "Acheteur seul", montant: "60 000 $", detail: "Maximum par personne" },
+                { situation: "Couple (2 acheteurs)", montant: "120 000 $", detail: "60 000 $ chacun" },
+                { situation: "Remboursement annuel", montant: "~4 000 $", detail: "Sur 15 ans (1/15 du total)" },
                 { situation: "Délai de remboursement", montant: "15 ans", detail: "À partir de la 2e année suivant le retrait" },
               ].map((row) => (
                 <div key={row.situation} className="flex items-center justify-between bg-white rounded-xl px-4 py-3">
@@ -128,8 +128,8 @@ function Content() {
           </div>
           <p className="text-slate-500 text-sm leading-relaxed">
             Important : vous pouvez faire plusieurs retraits RAP dans la même année, mais le total
-            cumulatif ne peut pas dépasser 35 000 $ par personne. Si votre REER contient moins de
-            35 000 $, vous pouvez retirer seulement ce que vous avez accumulé.
+            cumulatif ne peut pas dépasser 60 000 $ par personne. Si votre REER contient moins de
+            60 000 $, vous pouvez retirer seulement ce que vous avez accumulé.
           </p>
         </section>
 
@@ -139,18 +139,19 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-4">
             Depuis 2023, le gouvernement fédéral a créé le <strong>Compte d&apos;épargne libre d&apos;impôt
             pour l&apos;achat d&apos;une première propriété (CELIAPP)</strong>. Bonne nouvelle : le RAP et le
-            CELIAPP sont entièrement cumulables.
+            CELIAPP sont entièrement cumulables. Notez aussi que le plafond de retrait du RAP a été relevé
+            de 35 000 $ à 60 000 $ pour les retraits effectués depuis le 16 avril 2024 (budget fédéral 2024).
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-4">
             <p className="font-bold text-green-800 mb-3">Exemple — couple premier acheteur</p>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-green-900">RAP — Personne 1</span>
-                <span className="font-bold text-green-800">35 000 $</span>
+                <span className="font-bold text-green-800">60 000 $</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-green-900">RAP — Personne 2</span>
-                <span className="font-bold text-green-800">35 000 $</span>
+                <span className="font-bold text-green-800">60 000 $</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-green-900">CELIAPP — Personne 1</span>
@@ -162,7 +163,7 @@ function Content() {
               </div>
               <div className="border-t border-green-200 pt-2 flex justify-between">
                 <span className="font-bold text-green-900">Mise de fonds totale possible</span>
-                <span className="font-extrabold text-green-800 text-base">150 000 $</span>
+                <span className="font-extrabold text-green-800 text-base">200 000 $</span>
               </div>
             </div>
             <p className="text-green-700 text-xs mt-2">
@@ -258,7 +259,7 @@ function Content() {
 const article: BlogArticle = {
   slug,
   titre: "RAP 2026 : Comment utiliser votre REER pour acheter votre première maison au Québec",
-  description: "Le RAP vous permet de retirer jusqu'à 35 000 $ de votre REER sans impôt pour votre première maison. Cumulable avec le CELIAPP pour un couple : jusqu'à 150 000 $ de mise de fonds.",
+  description: "Le RAP vous permet de retirer jusqu'à 60 000 $ de votre REER sans impôt pour votre première maison. Cumulable avec le CELIAPP pour un couple : jusqu'à 200 000 $ de mise de fonds.",
   date: "2026-04-02",
   categorie: "Immobilier",
   tempsLecture: "6 min",

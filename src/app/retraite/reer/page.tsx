@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     q: "C'est quoi le RAP (Régime d'accession à la propriété) ?",
-    r: "Le RAP permet de retirer jusqu'à 35 000 $ de son REER sans impôt pour acheter une première propriété. Un couple peut retirer jusqu'à 70 000 $ combinés. Le montant doit être remboursé dans le REER sur 15 ans (à partir de la 2e année suivant le retrait), sinon la partie non remboursée est incluse dans le revenu. Depuis 2023, le plafond est passé de 35 000 $ à 35 000 $.",
+    r: "Le RAP permet de retirer jusqu'à 60 000 $ de son REER sans impôt pour acheter une première propriété. Un couple peut retirer jusqu'à 120 000 $ combinés. Le montant doit être remboursé dans le REER sur 15 ans (à partir de la 2e année suivant le retrait), sinon la partie non remboursée est incluse dans le revenu. Depuis le budget fédéral d'avril 2024, le plafond est passé de 35 000 $ à 60 000 $ pour les retraits effectués après le 16 avril 2024.",
   },
   {
     q: "Qu'est-ce que le LLP (Régime d'encouragement à l'éducation permanente) ?",
@@ -211,8 +211,8 @@ export default function ReerPage() {
             <div style={{ fontSize: "1.5rem", marginBottom: "8px" }}>🏠</div>
             <h3 style={{ fontWeight: 800, fontSize: "14px", color: "#1E40AF", marginBottom: "8px" }}>RAP — Régime d&apos;accession à la propriété</h3>
             <ul style={{ margin: 0, paddingLeft: "1.1rem", fontSize: "12px", color: "#1E3A8A", lineHeight: 1.75 }}>
-              <li>Retrait max. : <strong>35 000 $</strong>{" "}par personne</li>
-              <li>Couple : jusqu&apos;à <strong>70 000 $</strong>{" "}combinés</li>
+              <li>Retrait max. : <strong>60 000 $</strong>{" "}par personne</li>
+              <li>Couple : jusqu&apos;à <strong>120 000 $</strong>{" "}combinés</li>
               <li>Sans impôt si remboursé sur 15 ans</li>
               <li>Réservé aux premiers acheteurs</li>
             </ul>

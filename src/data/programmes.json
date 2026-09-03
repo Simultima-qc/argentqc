@@ -2,13 +2,13 @@
   {
     "id": "renoclimat-qc",
     "nom": "Rénoclimat",
-    "organisme": "Transition énergétique Québec",
+    "organisme": "Gouvernement du Québec",
     "niveau": "provincial",
     "categorie": "renovation",
     "montant_min": 100,
-    "montant_max": 10000,
-    "montant_affiche": "100 $ – 10 000 $",
-    "description": "Subventions pour améliorer l'efficacité énergétique de votre maison : isolation, fenêtres, portes, thermopompe et plus.",
+    "montant_max": 20000,
+    "montant_affiche": "100 $ – 20 000 $ (à vérifier; plafond relevé depuis l'ancien maximum de 10 000 $)",
+    "description": "Subventions pour améliorer l'efficacité énergétique de votre maison : isolation, fenêtres, portes et plus. Programme administré par le gouvernement du Québec (l'ancienne agence Transition énergétique Québec a été dissoute et intégrée au ministère). Le plafond par résidence a été relevé au-delà de l'ancien maximum de 10 000 $ (jusqu'à 20 000 $ pour une maison unifamiliale selon des sources récentes, non confirmé directement sur la page officielle dans cet audit); certaines mesures de chauffage (thermopompe) peuvent désormais relever de programmes distincts (LogisVert, Chauffez vert).",
     "conditions": [
       "Être propriétaire d'une résidence principale au Québec",
       "Maison construite avant 2012",
@@ -51,11 +51,11 @@
     "niveau": "federal",
     "categorie": "logement",
     "montant_min": 0,
-    "montant_max": 35000,
-    "montant_affiche": "Retrait REER jusqu'à 35 000 $ (à rembourser en 15 ans)",
+    "montant_max": 60000,
+    "montant_affiche": "Retrait REER jusqu'à 60 000 $ (à rembourser en 15 ans)",
     "montant_sommable": false,
     "preselection_only": true,
-    "description": "Le RAP permet de retirer jusqu'à 35 000 $ de votre REER sans impôt immédiat pour l'achat d'une première propriété. Ce n'est pas une aide gratuite : la somme doit être remboursée dans votre REER sur au plus 15 ans. Les tranches non remboursées sont ajoutées à votre revenu imposable chaque année. Pertinent si vous avez déjà des économies dans un REER et envisagez l'achat d'une première maison.",
+    "description": "Le RAP permet de retirer jusqu'à 60 000 $ de votre REER (plafond relevé depuis le budget fédéral d'avril 2024, applicable aux retraits après le 16 avril 2024; 35 000 $ pour un retrait antérieur) sans impôt immédiat pour l'achat d'une première propriété. Ce n'est pas une aide gratuite : la somme doit être remboursée dans votre REER sur au plus 15 ans, avec un délai de grâce temporaire pour les retraits de 2022 à 2025 (le remboursement débute la 5e année suivant le retrait plutôt que la 2e). Les tranches non remboursées sont ajoutées à votre revenu imposable chaque année. Pertinent si vous avez déjà des économies dans un REER et envisagez l'achat d'une première maison.",
     "conditions": [
       "Être acheteur d'une première propriété (ou ne pas avoir été propriétaire depuis au moins 4 ans)",
       "Le REER doit être ouvert depuis au moins 90 jours avant le retrait",
@@ -140,13 +140,13 @@
   {
     "id": "subv-auto-elec-qc",
     "nom": "Roulez vert – Rabais à l'achat d'un VE",
-    "organisme": "Transition énergétique Québec",
+    "organisme": "Gouvernement du Québec",
     "niveau": "provincial",
     "categorie": "transport",
     "montant_min": 500,
     "montant_max": 2000,
-    "montant_affiche": "500 $ – 2 000 $",
-    "description": "Rabais à l'achat ou à la location d'un véhicule électrique neuf ou d'occasion. 2 000 $ pour un VÉ 100% électrique neuf, 1 000 $ pour un usage.",
+    "montant_affiche": "500 $ – 2 000 $ (2026, dernière année du programme)",
+    "description": "Rabais à l'achat ou à la location d'un véhicule électrique neuf ou d'occasion. 2 000 $ pour un VÉ 100% électrique neuf, 1 000 $ pour un usage, 500 $ pour une motocyclette électrique neuve — montants réduits progressivement (7 000 $ en 2024, 4 000 $ en 2025, 2 000 $ en 2026). Le programme prend fin définitivement le 31 décembre 2026; aucun rabais provincial ne sera offert à compter du 1er janvier 2027.",
     "conditions": [
       "Résider au Québec",
       "Acheter ou louer un VÉ admissible (neuf ou usage)",
@@ -168,7 +168,7 @@
     "montant_min": 0,
     "montant_max": 7500,
     "montant_affiche": "Jusqu'à 7 500 $",
-    "description": "Crédit d'impôt remboursable de 15% sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée.",
+    "description": "Crédit d'impôt remboursable de 15 % sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée. Le taux fédéral le plus bas est passé à 14 % en 2026 pour la plupart des crédits non remboursables, mais un mécanisme distinct pourrait maintenir certains crédits (dont potentiellement celui-ci) à 15 % jusqu'en 2030; le taux exact applicable à ce crédit précis n'a pas pu être confirmé directement auprès de l'ARC dans cet audit.",
     "conditions": [
       "Créer un logement secondaire dans votre domicile",
       "Le logement est destiné à un aîné (65+) ou une personne handicapée",
@@ -188,9 +188,9 @@
     "niveau": "federal",
     "categorie": "sante",
     "montant_min": 1000,
-    "montant_max": 11000,
-    "montant_affiche": "Jusqu'à 11 000 $ par année",
-    "description": "Prestations mensuelles non imposables pour les aînés à faible revenu qui reçoivent la Sécurité de la vieillesse. Montant selon revenus et situation.",
+    "montant_max": 13478,
+    "montant_affiche": "Jusqu'à 13 478 $ par année (1 123,17 $/mois, juillet-septembre 2026)",
+    "description": "Prestations mensuelles non imposables pour les aînés à faible revenu qui reçoivent la Sécurité de la vieillesse. Maximum de 1 123,17 $/mois pour une personne seule (676,09 $/mois par personne si les deux conjoints reçoivent la SV) pour le trimestre juillet-septembre 2026; révisé trimestriellement selon l'IPC. Montant réel selon revenus et situation.",
     "conditions": [
       "Avoir 65 ans ou plus",
       "Recevoir la Sécurité de la vieillesse",
@@ -211,9 +211,9 @@
     "niveau": "federal",
     "categorie": "sante",
     "montant_min": 600,
-    "montant_max": 8000,
-    "montant_affiche": "Jusqu'à 8 000 $ par année",
-    "description": "Pension mensuelle pour les personnes de 65 ans et plus qui ont résidé au Canada pendant au moins 10 ans après l'âge de 18 ans.",
+    "montant_max": 9926,
+    "montant_affiche": "Jusqu'à 9 926 $ par année (827,17 $/mois pour 75 ans et plus, juillet-septembre 2026)",
+    "description": "Pension mensuelle pour les personnes de 65 ans et plus qui ont résidé au Canada pendant au moins 10 ans après l'âge de 18 ans. Maximum de 751,97 $/mois (65-74 ans) ou 827,17 $/mois (75 ans et plus) pour le trimestre juillet-septembre 2026; révisé trimestriellement selon l'IPC.",
     "conditions": [
       "Avoir 65 ans ou plus",
       "Résider ou avoir résidé au Canada",
@@ -284,7 +284,7 @@
       "Avoir 50 ans ou plus, ou avoir un enfant à charge",
       "Revenu annuel brut sous les seuils établis"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/allocation-logement",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/location/aides-financieres-au-logement/programme-allocation-logement",
     "criteres": {
       "locataire": true,
       "provinces": ["QC"],
@@ -298,9 +298,9 @@
     "niveau": "provincial",
     "categorie": "sante",
     "montant_min": 500,
-    "montant_max": 6000,
-    "montant_affiche": "Jusqu'à 6 000 $",
-    "description": "Crédit d'impôt remboursable de 40% (en 2026) sur les dépenses admissibles pour aider les aînés à demeurer dans leur domicile (aide ménagère, soins, etc.).",
+    "montant_max": 10200,
+    "montant_affiche": "7 800 $ (aîné autonome) – 10 200 $ (aîné non autonome)",
+    "description": "Crédit d'impôt remboursable de 40 % sur les dépenses admissibles pour aider les aînés à demeurer dans leur domicile (aide ménagère, soins, etc.). Plafond de dépenses admissibles de 19 500 $ (aîné autonome) ou 25 500 $ (aîné non autonome) en 2026, soit un crédit maximal avant réduction selon le revenu de 7 800 $ ou 10 200 $.",
     "conditions": [
       "Avoir 70 ans ou plus",
       "Résider au Québec",
@@ -316,13 +316,13 @@
   {
     "id": "subv-bornes-recharge-qc",
     "nom": "Borne de recharge à domicile – Roulez vert",
-    "organisme": "Transition énergétique Québec",
+    "organisme": "Gouvernement du Québec",
     "niveau": "provincial",
     "categorie": "transport",
     "montant_min": 600,
     "montant_max": 600,
     "montant_affiche": "600 $",
-    "description": "Subvention de 600 $ pour l'achat et l'installation d'une borne de recharge de niveau 2 à domicile pour votre véhicule électrique.",
+    "description": "Subvention de 600 $ pour l'achat et l'installation d'une borne de recharge de niveau 2 à domicile pour votre véhicule électrique, également liée à la fin du programme Roulez vert au 31 décembre 2026.",
     "conditions": [
       "Être propriétaire ou locataire au Québec",
       "Posséder ou acheter un véhicule électrique rechargeable",
@@ -335,42 +335,19 @@
     }
   },
   {
-    "id": "chauffez-vert-qc",
-    "nom": "Chauffez vert",
-    "organisme": "Transition énergétique Québec",
-    "niveau": "provincial",
-    "categorie": "energie",
-    "montant_min": 1000,
-    "montant_max": 5000,
-    "montant_affiche": "1 000 $ – 5 000 $",
-    "description": "Aide financière pour remplacer un système de chauffage au mazout, au propane ou au gaz naturel par un système à l'électricité ou aux énergies renouvelables (thermopompe, géothermie, biomasse).",
-    "conditions": [
-      "Être propriétaire d'une résidence principale au Québec",
-      "Remplacer un système de chauffage à combustibles fossiles",
-      "Nouveau système : électrique, thermopompe, géothermie ou biomasse",
-      "Travaux réalisés par un entrepreneur certifié RBQ"
-    ],
-    "lien_officiel": "https://www.transitionenergetique.gouv.qc.ca/residentiel/programmes/chauffez-vert",
-    "criteres": {
-      "proprietaire": true,
-      "provinces": ["QC"],
-      "renovation": true
-    }
-  },
-  {
     "id": "credit-impot-reno-fed",
     "nom": "Crédit d'impôt pour rénovation domiciliaire (CIHA)",
     "organisme": "Gouvernement du Canada",
     "niveau": "federal",
     "categorie": "renovation",
     "montant_min": 0,
-    "montant_max": 3750,
-    "montant_affiche": "Jusqu'à 3 750 $",
-    "description": "Crédit d'impôt de 15% sur les dépenses admissibles de rénovation résidentielle pour améliorer l'accessibilité ou permettre à une personne âgée de rester chez elle.",
+    "montant_max": 3000,
+    "montant_affiche": "Environ 2 800 $ – 3 000 $ (taux exact 2026 à confirmer)",
+    "description": "Crédit d'impôt sur les dépenses admissibles de rénovation résidentielle pour améliorer l'accessibilité ou permettre à une personne âgée de rester chez elle. Plafond de dépenses admissibles de 20 000 $ (relevé depuis l'année d'imposition 2022; 10 000 $ auparavant). Le taux applicable au premier palier fédéral est de 14 % en 2026 pour la plupart des crédits non remboursables, mais un mécanisme de maintien à 15 % pourrait s'appliquer à certains crédits jusqu'en 2030 : le taux exact de ce crédit précis n'a pas pu être confirmé directement auprès de l'ARC dans cet audit.",
     "conditions": [
       "Dépenses admissibles de rénovation domiciliaire",
       "Améliorer l'accessibilité ou la sécurité du domicile",
-      "Maximum de 10 000 $ en dépenses admissibles"
+      "Maximum de 20 000 $ en dépenses admissibles"
     ],
     "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-31285-depenses-accessibilite-domiciliaire.html",
     "criteres": {
@@ -455,10 +432,12 @@
     "organisme": "Conseil de gestion de l'assurance parentale",
     "niveau": "provincial",
     "categorie": "famille",
-    "montant_min": 4000,
-    "montant_max": 22000,
-    "montant_affiche": "4 000 $ – 22 000 $ (selon revenu et durée)",
-    "description": "Prestations de remplacement de revenu lors d'un congé de maternité, de paternité, parental ou d'adoption. Montant indicatif selon le revenu de travail et la durée du congé choisi.",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant personnalisé — dépend du revenu, du régime choisi (de base ou particulier) et de la durée du congé",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Prestations de remplacement de revenu lors d'un congé de maternité, de paternité, parental ou d'adoption, calculées selon le revenu de travail (jusqu'à 103 000 $ de revenu assurable maximal en 2026), le régime choisi (base ou particulier) et le nombre de semaines prises. Ce questionnaire ne collecte pas ces éléments et ne peut donc pas calculer un montant fiable : le programme reste une piste à confirmer auprès du RQAP.",
     "conditions": [
       "Résider au Québec",
       "Avoir travaillé et cotisé au RQAP",
@@ -480,7 +459,7 @@
     "montant_min": 2000,
     "montant_max": 8000,
     "montant_affiche": "2 000 $ – 8 000 $/année (économie estimée)",
-    "description": "Les places subventionnées dans les CPE et garderies à contribution réduite permettent de payer seulement 10 $/jour ou moins, comparativement à 40 $–55 $/jour en garderie non subventionnée. L'économie annuelle estimée varie selon le nombre d'enfants.",
+    "description": "Les places subventionnées dans les CPE et garderies à contribution réduite permettent de payer un tarif indexé annuellement (9,65 $/jour au 1er janvier 2026), comparativement à environ 35 $–58 $/jour en garderie non subventionnée. L'économie annuelle estimée varie selon le nombre d'enfants.",
     "conditions": [
       "Résider au Québec",
       "Avoir un enfant de moins de 5 ans",
@@ -499,9 +478,9 @@
     "niveau": "provincial",
     "categorie": "famille",
     "montant_min": 1000,
-    "montant_max": 3000,
-    "montant_affiche": "Jusqu'à 250 $/mois par enfant",
-    "description": "Versement mensuel pour les familles ayant un enfant de moins de 18 ans avec une limitation fonctionnelle importante reconnue. Peut s'appliquer si votre enfant a un handicap ou une limitation sévère. Montant indicatif 2026.",
+    "montant_max": 14580,
+    "montant_affiche": "241 $/mois par enfant (jusqu'à 1 215 $/mois si l'enfant a des besoins de soins exceptionnels)",
+    "description": "Versement mensuel pour les familles ayant un enfant de moins de 18 ans avec une limitation fonctionnelle importante reconnue (Supplément pour enfant handicapé, 241 $/mois). Un palier distinct et plus élevé (SEHNSE, soins exceptionnels) verse jusqu'à 1 215 $/mois (palier 1) ou 808 $/mois (palier 2) pour un enfant nécessitant des soins exceptionnels. Peut s'appliquer si votre enfant a un handicap ou une limitation sévère.",
     "conditions": [
       "Résider au Québec",
       "Avoir un enfant de moins de 18 ans avec une limitation fonctionnelle sévère",
@@ -584,7 +563,7 @@
     "montant_min": 1500,
     "montant_max": 1500,
     "montant_affiche": "1 500 $",
-    "description": "Crédit d'impôt non remboursable de 1 500 $ (15 % de 10 000 $) pour les acheteurs d'une première propriété au Canada. Peut se partager entre deux acheteurs admissibles.",
+    "description": "Crédit d'impôt non remboursable de 1 500 $ (15 % de 10 000 $) pour les acheteurs d'une première propriété au Canada. Peut se partager entre deux acheteurs admissibles. Le taux fédéral le plus bas est passé à 14 % en 2026 pour la plupart des crédits non remboursables, mais un mécanisme distinct pourrait maintenir certains crédits (dont potentiellement celui-ci) à 15 % jusqu'en 2030; le taux exact applicable à ce crédit précis n'a pas pu être confirmé directement auprès de l'ARC dans cet audit.",
     "conditions": [
       "Avoir acheté une propriété admissible au cours de l'année",
       "Ne pas avoir habité une propriété dont vous ou votre conjoint étiez propriétaire dans les 4 années précédentes",
@@ -611,7 +590,7 @@
       "Avoir un faible revenu (seuils établis par la SHQ)",
       "Être sélectionné par une liste d'attente administrée par les organismes locaux"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/supplement-au-loyer",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/location/aides-financieres-au-logement/programme-supplement-loyer-quebec/a-propos-du-programme",
     "criteres": {
       "locataire": true,
       "provinces": ["QC"],
@@ -627,7 +606,7 @@
     "montant_min": 500,
     "montant_max": 6300,
     "montant_affiche": "Jusqu'à 6 300 $",
-    "description": "Remboursement partiel de la TPS (36 %) payée lors de l'achat ou de la construction d'une habitation neuve admissible dont le prix est inférieur à 450 000 $. Peut s'appliquer si vous avez acquis une propriété neuve récemment.",
+    "description": "Remboursement partiel de la TPS (36 %) payée lors de l'achat ou de la construction d'une habitation neuve admissible dont le prix est inférieur à 450 000 $. Peut s'appliquer si vous avez acquis une propriété neuve récemment. Depuis le projet de loi C-4 (sanction royale le 12 mars 2026), un remboursement de TPS distinct et plus généreux pour les acheteurs d'une première propriété neuve (élimination complète de la TPS jusqu'à 1 M$, partielle jusqu'à 1,5 M$) coexiste pour les contrats signés après le 27 mai 2025 environ; ce nouveau programme n'est pas encore détaillé dans cette fiche et doit être vérifié séparément.",
     "conditions": [
       "Avoir acheté ou fait construire une habitation neuve",
       "Prix d'achat inférieur à 450 000 $ pour le remboursement complet",
@@ -654,7 +633,7 @@
       "Être en situation de précarité locative",
       "Critères selon le programme et l'organisme responsable"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/location/aides-financieres-au-logement",
     "criteres": {
       "locataire": true,
       "provinces": ["QC"],
@@ -676,7 +655,7 @@
       "Avoir un très faible revenu (seuils établis par la SHQ)",
       "S'inscrire sur la liste d'attente de l'office municipal d'habitation local"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/habitation-loyer-modique",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/location/aides-financieres-au-logement/programme-logement-sans-but-lucratif",
     "criteres": {
       "locataire": true,
       "provinces": ["QC"],
@@ -690,15 +669,15 @@
     "niveau": "provincial",
     "categorie": "renovation",
     "montant_min": 1000,
-    "montant_max": 20000,
-    "montant_affiche": "Jusqu'à 20 000 $",
-    "description": "Aide financière pour les propriétaires-occupants à faible ou moyen revenu habitant en milieu rural, afin de corriger des déficiences majeures affectant la sécurité, la salubrité ou la structure du logement.",
+    "montant_max": 25000,
+    "montant_affiche": "Jusqu'à 20 000 $ (bonifiable à 25 000 $ selon le revenu)",
+    "description": "Aide financière pour les propriétaires-occupants à faible ou moyen revenu habitant en milieu rural, afin de corriger des déficiences majeures affectant la sécurité, la salubrité ou la structure du logement. Plafond de base de 20 000 $ (95 % des coûts reconnus), bonifiable jusqu'à 25 000 $ pour les ménages sous le seuil de revenu applicable de la SHQ (un test fondé sur la composition du ménage et la région, plus précis que le seuil unique de 45 000 $ utilisé comme approximation dans ce catalogue).",
     "conditions": [
       "Être propriétaire-occupant au Québec (milieu rural, hors grandes villes)",
       "Revenu du ménage sous les seuils établis par la SHQ",
       "Logement présentant des déficiences majeures"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/renoregion",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/construction-renovation/renovation-residentielle/programme-renoregion",
     "criteres": {
       "proprietaire": true,
       "provinces": ["QC"],
@@ -715,41 +694,18 @@
     "montant_min": 2000,
     "montant_max": 15000,
     "montant_affiche": "2 000 $ – 15 000 $",
-    "description": "Aide pour les propriétaires à très faible revenu afin d'effectuer des travaux de réparation urgents sur leur résidence principale. Peut s'appliquer si votre revenu est très limité et que votre logement nécessite des réparations importantes.",
+    "description": "Aide pour les propriétaires à très faible revenu afin d'effectuer des travaux de réparation urgents sur leur résidence principale. Peut s'appliquer si votre revenu est très limité et que votre logement nécessite des réparations importantes. Le nom exact et le statut courant de ce programme n'ont pas pu être confirmés avec certitude lors de cet audit (un signal non corroboré suggère qu'un programme comparable de réparations urgentes pour propriétaires à faible revenu serait suspendu depuis avril 2025, en attente de financement) : à vérifier directement auprès de la SHQ/Québec.ca avant de vous y fier.",
     "conditions": [
       "Être propriétaire-occupant au Québec",
       "Avoir un revenu très faible (seuils SHQ)",
       "Résidence principale nécessitant des réparations urgentes"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/construction-renovation/renovation-residentielle",
     "criteres": {
       "proprietaire": true,
       "provinces": ["QC"],
       "renovation": true,
       "revenu_max": 25000
-    }
-  },
-  {
-    "id": "canada-greener-homes-fed",
-    "nom": "Rénovations écoénergétiques Canada — Maisons plus vertes",
-    "organisme": "Gouvernement du Canada / RNCan",
-    "niveau": "federal",
-    "categorie": "renovation",
-    "montant_min": 500,
-    "montant_max": 10000,
-    "montant_affiche": "500 $ – 10 000 $",
-    "description": "Subventions et prêts pour aider les propriétaires à revenu faible ou modeste à améliorer l'efficacité énergétique de leur résidence : isolation, fenêtres, systèmes de chauffage, panneaux solaires. Admissibilité et montants selon le programme actif.",
-    "conditions": [
-      "Être propriétaire-occupant au Canada",
-      "Revenu du ménage sous les seuils établis",
-      "Réaliser des améliorations écoénergétiques admissibles"
-    ],
-    "lien_officiel": "https://www.canada.ca/fr/ressources-naturelles/nouvelles/2021/05/programme-canadien-pour-des-maisons-plus-vertes.html",
-    "criteres": {
-      "proprietaire": true,
-      "renovation": true,
-      "revenu_max": 70000,
-      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
     }
   },
   {
@@ -761,13 +717,13 @@
     "montant_min": 1000,
     "montant_max": 16000,
     "montant_affiche": "Jusqu'à 16 000 $",
-    "description": "Aide financière pour adapter une résidence aux besoins d'une personne en perte d'autonomie ou ayant une limitation fonctionnelle sévère, afin de lui permettre de rester à domicile en toute sécurité.",
+    "description": "Aide financière pour adapter une résidence aux besoins d'une personne en perte d'autonomie ou ayant une limitation fonctionnelle sévère, afin de lui permettre de rester à domicile en toute sécurité. Le plafond exact combiné (accès extérieur + aménagements intérieurs) peut dépasser 16 000 $ selon le dossier; à confirmer auprès de la SHQ.",
     "conditions": [
       "Être propriétaire-occupant ou locataire au Québec",
       "Avoir une limitation fonctionnelle sévère reconnue",
       "Travaux visant à adapter le domicile aux besoins de la personne"
     ],
-    "lien_officiel": "https://www.habitation.gouv.qc.ca/programme/programme/programme-adaptation-domicile",
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/construction-renovation/adapter-etablissement-domicile-personnes-handicapees/programme-adaptation-domicile",
     "criteres": {
       "provinces": ["QC"],
       "renovation": true,
@@ -826,7 +782,7 @@
     "montant_min": 100,
     "montant_max": 400,
     "montant_affiche": "100 $ – 400 $",
-    "description": "Aide financière pour le remplacement d'un chauffe-eau conventionnel par un modèle à haute efficacité (pompe à chaleur ou autre technologie reconnue). Montant selon l'appareil installé.",
+    "description": "Aide financière pour le remplacement d'un chauffe-eau conventionnel par un modèle à haute efficacité (pompe à chaleur ou autre technologie reconnue). Montant selon l'appareil installé. L'existence de ce programme comme mesure distincte (plutôt qu'intégrée à LogisVert) n'a pas pu être confirmée directement lors de cet audit (lien générique, accès direct bloqué) : à vérifier auprès d'Hydro-Québec avant de vous y fier.",
     "conditions": [
       "Être client Hydro-Québec",
       "Remplacer un chauffe-eau existant par un modèle efficace reconnu",
@@ -887,7 +843,7 @@
     "montant_affiche": "Par session admissible : 1 500 $ collégial ou 2 500 $ université",
     "montant_sommable": false,
     "preselection_only": true,
-    "description": "Bourse en continuité pour les personnes qui ont commencé un programme admissible au plus tard à l'hiver 2025 et poursuivent ce même programme. Le questionnaire ne vérifie pas les conditions complètes.",
+    "description": "Bourse en continuité pour les personnes qui ont commencé un programme admissible au plus tard à l'hiver 2025 et poursuivent ce même programme. Le programme n'accepte plus de nouvelles cohortes depuis l'hiver 2025 : seules les personnes déjà inscrites avant cette date peuvent continuer à recevoir la bourse jusqu'à la fin de leur programme, sous conditions. Le questionnaire ne vérifie pas les conditions complètes.",
     "conditions": [
       "Avoir commencé un programme admissible au plus tard à l'hiver 2025 et poursuivre ce même programme",
       "Réussir la session admissible et respecter la charge d'études requise",
@@ -906,9 +862,9 @@
     "niveau": "federal",
     "categorie": "education",
     "montant_min": 500,
-    "montant_max": 3000,
-    "montant_affiche": "500 $ – 3 000 $/année",
-    "description": "Bourses fédérales non remboursables destinées aux étudiants ayant des contraintes financières (faible revenu, études à temps partiel, étudiants avec personne à charge, etc.). Montant indicatif selon la situation.",
+    "montant_max": 4200,
+    "montant_affiche": "Jusqu'à 4 200 $/année (temps plein), 2 520 $/année (temps partiel), 2 240 $/année par enfant à charge (2026-2027)",
+    "description": "Bourses fédérales non remboursables destinées aux étudiants ayant des contraintes financières (faible revenu, études à temps partiel, étudiants avec personne à charge, etc.). Pour l'année 2026-2027 : jusqu'à 4 200 $/année (525 $/mois) à temps plein, 2 520 $/année à temps partiel, et un supplément pour personnes à charge de 2 240 $/année (280 $/mois) par enfant.",
     "conditions": [
       "Être inscrit dans un programme postsecondaire admissible",
       "Avoir un besoin financier établi",
@@ -945,14 +901,14 @@
   },
   {
     "id": "aide-formation-adultes-qc",
-    "nom": "Aide financière pour adultes en formation (Québec)",
-    "organisme": "Gouvernement du Québec — Ministère de l'Éducation",
+    "nom": "AFE — volet formation générale des adultes / formation professionnelle (Québec)",
+    "organisme": "Gouvernement du Québec — Aide financière aux études",
     "niveau": "provincial",
     "categorie": "education",
     "montant_min": 500,
     "montant_max": 8000,
     "montant_affiche": "500 $ – 8 000 $/année",
-    "description": "Aide financière pour les adultes qui retournent aux études dans le cadre d'un retour à l'éducation ou d'une réorientation professionnelle (formation professionnelle, CÉGEP, université). Montant indicatif selon le revenu et la charge familiale.",
+    "description": "Il ne s'agit pas d'un programme distinct, mais des règles d'admissibilité standard de l'Aide financière aux études (AFE, voir aussi le programme « aides-etudiants-afe-qc ») pour un étudiant adulte en formation générale des adultes ou en formation professionnelle. Montant indicatif selon le revenu et la charge familiale; calcul officiel selon le dossier complet auprès de l'AFE.",
     "conditions": [
       "Être considéré comme étudiant adulte selon les critères de l'AFE",
       "Être inscrit dans un programme admissible au Québec",
@@ -974,13 +930,13 @@
     "montant_min": 1000,
     "montant_max": 8000,
     "montant_affiche": "1 000 $ – 8 000 $ (selon la région)",
-    "description": "Plusieurs régions du Québec offrent des bourses pour attirer des étudiants ou des jeunes professionnels. Ces programmes régionaux varient en montant et en critères selon la MRC ou l'organisme responsable.",
+    "description": "Plusieurs régions du Québec offrent des bourses pour attirer des étudiants ou des jeunes professionnels, notamment via le réseau Place aux jeunes en région. Ces programmes régionaux varient en montant et en critères selon la MRC ou l'organisme responsable.",
     "conditions": [
       "S'installer ou étudier dans une région éligible",
       "Respecter les critères du programme régional spécifique",
       "Montant et conditions variables selon la région"
     ],
-    "lien_officiel": "https://www.quebecregions.com",
+    "lien_officiel": "https://placeauxjeunes.qc.ca/regions",
     "criteres": {
       "etudiant": true,
       "provinces": ["QC"],
@@ -1018,9 +974,9 @@
     "niveau": "federal",
     "categorie": "credits_impot",
     "montant_min": 200,
-    "montant_max": 1260,
-    "montant_affiche": "200 $ – 1 260 $ (selon situation)",
-    "description": "Crédit d'impôt fédéral non remboursable pour les personnes de 65 ans et plus. Montant de base d'environ 8 396 $ en 2026 (15 % = jusqu'à 1 260 $). Peut être réduit selon le revenu.",
+    "montant_max": 1289,
+    "montant_affiche": "200 $ – 1 289 $ (selon le revenu)",
+    "description": "Crédit d'impôt fédéral non remboursable pour les personnes de 65 ans et plus. Montant de base de 9 208 $ en 2026 (taux de 14 %, soit un crédit maximal d'environ 1 289 $). Réduit si le revenu net dépasse 46 432 $, nul au-delà de 107 819 $.",
     "conditions": [
       "Avoir 65 ans ou plus",
       "Résider au Canada",
@@ -1039,9 +995,9 @@
     "niveau": "federal",
     "categorie": "credits_impot",
     "montant_min": 100,
-    "montant_max": 300,
-    "montant_affiche": "Jusqu'à 300 $",
-    "description": "Crédit d'impôt fédéral non remboursable de 15 % sur les premiers 2 000 $ de revenus de pension ou de fonds de revenu de retraite admissibles. Peut se qualifier dès 65 ans ou si vous recevez certaines rentes.",
+    "montant_max": 280,
+    "montant_affiche": "Jusqu'à 280 $",
+    "description": "Crédit d'impôt fédéral non remboursable de 14 % en 2026 (taux du premier palier fédéral) sur les premiers 2 000 $ de revenus de pension ou de fonds de revenu de retraite admissibles, soit un crédit maximal d'environ 280 $. Peut se qualifier dès 65 ans ou si vous recevez certaines rentes.",
     "conditions": [
       "Avoir 65 ans ou plus (ou recevoir une rente d'un défunt conjoint)",
       "Avoir des revenus de pension ou de FERR admissibles",
@@ -1061,9 +1017,9 @@
     "niveau": "federal",
     "categorie": "credits_impot",
     "montant_min": 200,
-    "montant_max": 2616,
-    "montant_affiche": "200 $ – 2 616 $ (selon situation)",
-    "description": "Crédit d'impôt remboursable pour les personnes et les familles à faible revenu qui travaillent. Le montant varie selon le revenu gagné, la situation de famille et la province. Peut être versé en avance trimestrielle.",
+    "montant_max": 2869,
+    "montant_affiche": "Jusqu'à 1 665 $ (personne seule) ou 2 869 $ (couple avec enfant) en 2026 au Québec, plus un supplément pour personnes handicapées de jusqu'à 860 $",
+    "description": "Crédit d'impôt remboursable pour les personnes et les familles à faible revenu qui travaillent. Paramètres 2026 spécifiques au Québec : maximum de 1 665 $/an pour une personne seule (revenu sous 27 392 $) ou 2 869 $/an pour un couple avec enfant (revenu familial sous 31 251 $), plus un supplément pour personnes handicapées pouvant atteindre 860 $/an. Le montant varie selon le revenu gagné et la situation de famille. Peut être versé en avance trimestrielle.",
     "conditions": [
       "Avoir 19 ans ou plus (ou avoir un conjoint ou un enfant à charge)",
       "Résider au Canada",
@@ -1077,20 +1033,20 @@
   },
   {
     "id": "credit-aidant-naturel-qc",
-    "nom": "Crédit d'impôt pour aidant naturel (Québec)",
+    "nom": "Crédit d'impôt pour personnes aidantes (Québec)",
     "organisme": "Revenu Québec",
     "niveau": "provincial",
     "categorie": "sante",
-    "montant_min": 500,
-    "montant_max": 800,
-    "montant_affiche": "500 $ – 800 $",
-    "description": "Crédit d'impôt remboursable pour les personnes qui soutiennent activement un proche en perte d'autonomie (conjoint, parent, enfant adulte). Uniquement si vous aidez un proche ayant une limitation fonctionnelle reconnue par Revenu Québec. Ne s'applique pas automatiquement.",
+    "montant_min": 1525,
+    "montant_max": 3050,
+    "montant_affiche": "1 525 $ (aîné 70 ans et plus) – 3 050 $ (proche 18 ans et plus avec déficience grave, cohabitation)",
+    "description": "Crédit d'impôt remboursable pour les personnes qui soutiennent activement un proche en perte d'autonomie (conjoint, parent, enfant adulte). Anciennement nommé « crédit pour aidant naturel », renommé « crédit d'impôt pour personnes aidantes ». Deux volets : jusqu'à 3 050 $ pour un proche de 18 ans et plus ayant une déficience grave et prolongée en cohabitation; 1 525 $ pour un aîné de 70 ans et plus en cohabitation. Uniquement si vous aidez un proche ayant une limitation fonctionnelle reconnue par Revenu Québec. Ne s'applique pas automatiquement.",
     "conditions": [
       "Résider au Québec",
       "Vivre avec un proche en perte d'autonomie ou lui apporter un soutien continu",
       "Le proche doit avoir une limitation fonctionnelle reconnue par Revenu Québec"
     ],
-    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-aidant-naturel/",
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-personne-aidante/",
     "criteres": {
       "provinces": ["QC"],
       "age_min": 35,
@@ -1103,10 +1059,10 @@
     "organisme": "Gouvernement du Canada",
     "niveau": "federal",
     "categorie": "sante",
-    "montant_min": 500,
-    "montant_max": 1000,
-    "montant_affiche": "500 $ – 1 000 $",
-    "description": "Crédit d'impôt non remboursable pour les Canadiens qui s'occupent activement d'un proche à charge ayant une déficience physique ou mentale reconnue. Ne s'applique que si vous avez un proche dépendant avec déficience diagnostiquée. Montant indicatif selon le revenu du proche aidé.",
+    "montant_min": 380,
+    "montant_max": 450,
+    "montant_affiche": "Environ 380 $ – 450 $ selon le cas",
+    "description": "Crédit d'impôt non remboursable pour les Canadiens qui s'occupent activement d'un proche à charge ayant une déficience physique ou mentale reconnue. Montant admissible de base d'environ 2 740 $ en 2026 (indexé annuellement) au taux fédéral de 14 % du premier palier, soit un crédit d'environ 384 $ par personne à charge, pouvant varier selon le revenu du proche aidé. Ne s'applique que si vous avez un proche dépendant avec déficience diagnostiquée.",
     "conditions": [
       "Résider au Canada",
       "Prendre soin d'un proche dépendant (enfant, conjoint, parent, etc.) ayant une déficience reconnue",
@@ -1311,23 +1267,23 @@
   },
   {
     "id": "credit-travailleurs-experience-qc",
-    "nom": "Crédit d'impôt pour travailleur d'expérience (Québec)",
+    "nom": "Crédit d'impôt pour la prolongation de carrière (Québec)",
     "organisme": "Revenu Québec",
     "niveau": "provincial",
     "categorie": "credits_impot",
     "montant_min": 300,
-    "montant_max": 1800,
-    "montant_affiche": "300 $ – 1 800 $",
-    "description": "Crédit d'impôt non remboursable pour les travailleurs de 60 ans et plus qui continuent d'exercer un emploi au Québec. Permet de réduire les cotisations au Fonds des services de santé en proportion des revenus d'emploi admissibles. Montant indicatif selon le revenu.",
+    "montant_max": 1786,
+    "montant_affiche": "Jusqu'à 1 786 $",
+    "description": "Crédit d'impôt non remboursable pour les travailleurs de 65 ans et plus qui continuent d'exercer un emploi au Québec (anciennement « crédit pour travailleur d'expérience »; l'âge d'admissibilité a été relevé de 60 à 65 ans depuis l'année d'imposition 2025). Paramètres 2026 : exclusion de 7 655 $, revenu de travail admissible plafonné à 12 755 $, taux de 14 %, réduit de 7 % du revenu net au-delà de 57 660 $ — crédit maximal avant réduction d'environ 1 786 $. Montant indicatif selon le revenu.",
     "conditions": [
-      "Avoir 60 ans ou plus",
+      "Avoir 65 ans ou plus",
       "Avoir des revenus d'emploi ou de travail autonome admissibles au Québec",
       "Produire une déclaration de revenus au Québec"
     ],
-    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-travailleur-dexperience/",
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-la-prolongation-de-carriere/",
     "criteres": {
       "provinces": ["QC"],
-      "age_min": 55
+      "age_min": 65
     }
   },
   {
@@ -1336,10 +1292,10 @@
     "organisme": "Gouvernement du Canada",
     "niveau": "federal",
     "categorie": "credits_impot",
-    "montant_min": 300,
-    "montant_max": 3000,
-    "montant_affiche": "300 $ – 3 000 $ (selon écart de revenus)",
-    "description": "Permet de répartir jusqu'à 50 % des revenus de pension admissibles avec votre conjoint pour réduire l'impôt combiné du ménage. Particulièrement avantageux lorsque les revenus de retraite sont inégaux entre conjoints. Montant indicatif.",
+    "montant_min": 2000,
+    "montant_max": 10000,
+    "montant_affiche": "2 000 $ – 10 000 $ (économie annuelle typique, selon écart de revenus)",
+    "description": "Permet de répartir jusqu'à 50 % des revenus de pension admissibles avec votre conjoint pour réduire l'impôt combiné du ménage. Particulièrement avantageux lorsque les revenus de retraite sont inégaux entre conjoints. Fourchette éditoriale d'économies typiques, alignée sur le ledger source-backed déjà gouverné pour cette même stratégie (docs/claims/fractionnement-revenu-retraite-2026.md).",
     "conditions": [
       "Avoir 65 ans ou plus",
       "Avoir des revenus de pension admissibles (FERR, rente viagère, etc.)",
@@ -1361,10 +1317,10 @@
     "montant_min": 50,
     "montant_max": 400,
     "montant_affiche": "50 $ – 400 $ (selon dépenses médicales)",
-    "description": "Crédit d'impôt non remboursable de 20 % sur les frais médicaux admissibles dépassant 3 % de votre revenu net (lunettes, médicaments, soins dentaires, prothèses, etc.). Ne s'applique que si vos frais médicaux réels dépassent le seuil minimal. Montant indicatif — varie entièrement selon les dépenses engagées.",
+    "description": "Crédit d'impôt non remboursable de 20 % sur les frais médicaux admissibles dépassant 3 % de votre revenu familial net (lunettes, médicaments, soins dentaires, prothèses, etc.), sans plafond en dollars fixe pour ce seuil au Québec. Ne s'applique que si vos frais médicaux réels dépassent le seuil minimal. Montant indicatif — varie entièrement selon les dépenses engagées.",
     "conditions": [
       "Résider au Québec",
-      "Avoir des frais médicaux admissibles dépassant 3 % du revenu net (ou 2 397 $, selon le moindre)",
+      "Avoir des frais médicaux admissibles dépassant 3 % du revenu familial net (sans plafond en dollars fixe côté Québec; un seuil fixe distinct s'applique au crédit fédéral équivalent)",
       "Produire une déclaration de revenus au Québec"
     ],
     "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-medicaux/",
@@ -1379,9 +1335,9 @@
     "niveau": "federal",
     "categorie": "sante",
     "montant_min": 1000,
-    "montant_max": 9000,
-    "montant_affiche": "1 000 $ – 9 000 $/année",
-    "description": "Prestation mensuelle pour les personnes de 60 à 64 ans dont le conjoint reçoit la SV et le SRG, ou qui sont veuves ou veufs à faible revenu. Peut s'appliquer si vous ou votre conjoint approchez la retraite avec un faible revenu familial. Montant indicatif selon la situation.",
+    "montant_max": 20428,
+    "montant_affiche": "Jusqu'à 17 137 $/année (Allocation) ou 20 428 $/année (Allocation au survivant), juillet-septembre 2026",
+    "description": "Prestation mensuelle pour les personnes de 60 à 64 ans dont le conjoint reçoit la SV et le SRG (Allocation, maximum 1 428,06 $/mois), ou qui sont veuves ou veufs à faible revenu (Allocation au survivant, maximum 1 702,34 $/mois), pour le trimestre juillet-septembre 2026; révisé trimestriellement selon l'IPC. Peut s'appliquer si vous ou votre conjoint approchez la retraite avec un faible revenu familial. Montant réel selon la situation.",
     "conditions": [
       "Avoir entre 60 et 64 ans",
       "Avoir un faible revenu annuel (seuils selon situation conjugale)",
@@ -1445,7 +1401,7 @@
     "montant_min": 200,
     "montant_max": 1500,
     "montant_affiche": "200 $ – 1 500 $",
-    "description": "Aide financière pour l'achat et l'installation d'un récupérateur de chaleur sur la conduite d'eaux de drainage de la douche, permettant de réduire la consommation d'eau chaude. Programme disponible pour les clients Hydro-Québec propriétaires.",
+    "description": "Aide financière pour l'achat et l'installation d'un récupérateur de chaleur sur la conduite d'eaux de drainage de la douche, permettant de réduire la consommation d'eau chaude. Programme disponible pour les clients Hydro-Québec propriétaires. Ce montant pourrait correspondre à une mesure intégrée au programme Rénoclimat plutôt qu'à un rabais Hydro-Québec distinct (non confirmé avec certitude dans cet audit, accès direct bloqué) : à vérifier avant de vous y fier.",
     "conditions": [
       "Être client Hydro-Québec",
       "Être propriétaire d'une résidence principale",
@@ -1498,14 +1454,16 @@
   },
   {
     "id": "aide-energie-faible-revenu-hq",
-    "nom": "Programme d'aide à l'efficacité énergétique pour ménages à faible revenu — Hydro-Québec",
-    "organisme": "Hydro-Québec",
+    "nom": "Éconologis — efficacité énergétique pour ménages à revenu modeste",
+    "organisme": "Gouvernement du Québec / Hydro-Québec",
     "niveau": "provincial",
     "categorie": "energie",
     "montant_min": 100,
     "montant_max": 500,
-    "montant_affiche": "100 $ – 500 $",
-    "description": "Hydro-Québec offre des programmes ciblant les ménages à faible revenu pour améliorer l'efficacité énergétique de leur logement : remplacement d'ampoules, installations de thermostats programmables, etc. Montant indicatif selon les mesures réalisées.",
+    "montant_affiche": "Services gratuits (visite-conseil et équipements installés); valeur estimée 100 $ – 500 $",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Le programme réel pour les ménages à revenu modeste est Éconologis : services-conseils et installation gratuite d'équipements écoénergétiques (pas un versement en argent). Un volet distinct 2026 de thermopompes gratuites (LogisVert, faible revenu) a connu une suspension des nouvelles inscriptions en 2026-2027 après un fort volume de demandes. Ce questionnaire ne peut pas confirmer l'admissibilité ni la valeur exacte du service reçu : à vérifier directement auprès de Services Québec/Hydro-Québec.",
     "conditions": [
       "Être client Hydro-Québec",
       "Avoir un revenu sous les seuils établis par Hydro-Québec",
@@ -1607,14 +1565,16 @@
   },
   {
     "id": "aide-qualification-emploi-qc",
-    "nom": "Services Québec — Aide à la formation et à la qualification professionnelle",
+    "nom": "Mesure de formation de la main-d'œuvre (MFOR) — Services Québec",
     "organisme": "Services Québec / Ministère du Travail",
     "niveau": "provincial",
     "categorie": "education",
     "montant_min": 500,
     "montant_max": 3000,
-    "montant_affiche": "500 $ – 3 000 $",
-    "description": "Services Québec offre des programmes d'aide à la formation, à la requalification et à l'intégration en emploi pour les travailleurs souhaitant développer ou mettre à jour leurs compétences. L'aide peut couvrir des frais de formation, de matériel ou de déplacement selon le programme.",
+    "montant_affiche": "Variable selon le profil (frais de formation et allocation possible) — à vérifier",
+    "montant_sommable": false,
+    "preselection_only": true,
+    "description": "Le programme correspondant chez Services Québec/Emploi-Québec est la Mesure de formation de la main-d'œuvre (MFOR), qui rembourse des frais de formation et peut inclure une allocation, selon le profil de la personne. Aucun plafond simple confirmé pour cet audit : le montant réel varie selon le profil et doit être établi avec un conseiller Services Québec.",
     "conditions": [
       "Résider au Québec",
       "Être admissible à un programme de formation ou de requalification",
@@ -1806,8 +1766,8 @@
     "categorie": "credits_impot",
     "montant_min": 500,
     "montant_max": 2700,
-    "montant_affiche": "500 $ – 2 700 $",
-    "description": "Programme d'aide et de supplément financier destiné aux personnes faisant une première demande d'aide sociale, pour les encourager à intégrer rapidement le marché du travail ou à participer à des activités de qualification. Montant indicatif selon la durée de participation.",
+    "montant_affiche": "500 $ – 2 700 $ (à vérifier; supplément de revenu de travail confirmé à 200 $/mois, max 12 mois)",
+    "description": "Programme d'aide et de supplément financier destiné aux personnes faisant une première demande d'aide sociale, pour les encourager à intégrer rapidement le marché du travail ou à participer à des activités de qualification. Programme toujours actif en 2026. Un supplément de revenu de travail de 200 $/mois pendant 12 mois maximum est confirmé pour les personnes qui quittent l'aide sociale pour un emploi; la fourchette globale affichée (500 $–2 700 $) n'a pas pu être confirmée avec une source officielle précise dans cet audit.",
     "conditions": [
       "Résider au Québec",
       "Faire une première demande d'aide sociale",

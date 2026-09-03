@@ -3,42 +3,20 @@ import SeoProgrammesPage from "@/components/SeoProgrammesPage";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Chauffez vert Québec 2026 – Jusqu'à 5 000 $ pour abandonner le mazout",
+  title: "Chauffez vert Québec – Programme terminé, alternatives 2026",
   description:
-    "Programme Chauffez vert au Québec en 2026 : obtenez jusqu'à 5 000 $ pour remplacer votre chauffage au mazout, propane ou gaz par une thermopompe ou un système électrique. Guide complet.",
+    "Le programme Chauffez vert (remplacement du mazout) a pris fin le 31 mars 2026. Découvrez les alternatives actuelles : LogisVert (thermopompe) et Rénoclimat pour votre projet au Québec.",
   keywords: [
-    "Chauffez vert Québec 2026",
-    "subvention remplacement mazout Québec",
+    "Chauffez vert Québec fin du programme",
+    "remplacement mazout Québec 2026",
     "aide chauffage électrique Québec",
-    "programme Chauffez vert TEQ",
+    "programme Chauffez vert terminé",
     "subvention thermopompe mazout Québec",
     "abandon mazout Québec subvention",
   ],
 };
 
 const programmes: Programme[] = [
-  {
-    id: "chauffez-vert-qc",
-    nom: "Chauffez vert",
-    organisme: "Transition énergétique Québec",
-    niveau: "provincial",
-    categorie: "energie",
-    montant_min: 1000,
-    montant_max: 5000,
-    montant_affiche: "1 000 $ – 5 000 $",
-    description:
-      "Aide financière pour remplacer un système de chauffage à combustibles fossiles (mazout, propane, gaz naturel) par un système propre : thermopompe, géothermie, biomasse ou chauffage électrique. Le montant varie selon le type de remplacement et la capacité du nouveau système.",
-    conditions: [
-      "Être propriétaire d'une résidence principale au Québec",
-      "Système actuel : mazout, propane ou gaz naturel",
-      "Nouveau système : thermopompe, géothermie, biomasse ou électrique",
-      "Travaux réalisés par un entrepreneur certifié RBQ",
-      "Faire la demande avant le début des travaux",
-    ],
-    lien_officiel:
-      "https://www.transitionenergetique.gouv.qc.ca/residentiel/programmes/chauffez-vert",
-    criteres: { proprietaire: true, provinces: ["QC"], renovation: true },
-  },
   {
     id: "logisvert-hydro-cv",
     nom: "LogisVert – Thermopompe efficace",
@@ -64,41 +42,36 @@ const programmes: Programme[] = [
 
 const faqs = [
   {
-    question: "Quel est le montant exact de la subvention Chauffez vert ?",
+    question: "Le programme Chauffez vert est-il encore disponible en 2026 ?",
     reponse:
-      "Le montant varie selon le type de remplacement : 1 000 $ à 5 000 $ selon le nouveau système installé. Le remplacement par une thermopompe donne généralement le montant le plus élevé. Consultez le site de Transition énergétique Québec pour la grille tarifaire exacte selon votre situation.",
+      "Non. Le programme Chauffez vert a cessé d'accepter de nouvelles demandes le 31 mars 2026. Si vous souhaitez remplacer un système de chauffage au mazout, au propane ou au gaz naturel, LogisVert (thermopompe, Hydro-Québec) et Rénoclimat restent des aides actives à vérifier pour votre projet.",
   },
   {
-    question: "Peut-on cumuler Chauffez vert et LogisVert Hydro-Québec ?",
+    question: "Que faire si j'avais commencé une démarche Chauffez vert avant sa fin ?",
     reponse:
-      "Oui, et c'est la combinaison la plus avantageuse. Si vous remplacez votre mazout par une thermopompe, vous pouvez recevoir jusqu'à 5 000 $ via Chauffez vert + jusqu'à 6 700 $ via LogisVert = jusqu'à 11 700 $ au total. C'est l'une des meilleures aides disponibles pour les propriétaires chauffés au mazout.",
+      "Vérifiez votre dossier directement auprès du ministère : une demande déposée avant la date de fin peut encore être traitée selon les règles en vigueur au moment du dépôt. Ce site ne peut pas confirmer le statut d'une demande individuelle.",
   },
   {
-    question: "Dois-je faire une demande avant ou après les travaux ?",
+    question: "Puis-je encore obtenir de l'aide pour remplacer une thermopompe au mazout ?",
     reponse:
-      "Pour Chauffez vert, il est fortement recommandé de faire la demande AVANT le début des travaux. Contrairement à LogisVert, une demande préalable peut être requise pour obtenir l'aide. Vérifiez les conditions actuelles sur le site officiel de TEQ avant de planifier vos travaux.",
+      "Oui, via LogisVert d'Hydro-Québec, qui offre jusqu'à 6 700 $ pour l'achat d'une thermopompe centrale ou de mini-splits certifiée ENERGY STAR, indépendamment de la fin de Chauffez vert. Vérifiez aussi Rénoclimat pour d'autres travaux d'efficacité énergétique.",
   },
   {
-    question: "Mon système de chauffage au gaz naturel est-il admissible ?",
+    question: "Y a-t-il un successeur annoncé à Chauffez vert ?",
     reponse:
-      "Oui, le remplacement d'un système au gaz naturel est admissible au programme Chauffez vert, en plus du mazout et du propane. L'objectif est de réduire la dépendance aux combustibles fossiles, peu importe le type.",
-  },
-  {
-    question: "Combien de temps pour recevoir la subvention ?",
-    reponse:
-      "Comptez généralement 6 à 12 semaines après la soumission du dossier complet. Assurez-vous d'avoir toutes vos factures, preuves d'installation et certification de l'entrepreneur RBQ avant de soumettre pour éviter des délais supplémentaires.",
+      "Aucun successeur direct n'a été confirmé au moment de la rédaction. Consultez la page officielle du gouvernement du Québec sur l'aide financière à la rénovation écoénergétique pour toute nouvelle mesure.",
   },
 ];
 
 export default function ChauffezVertQuebecPage() {
   return (
     <SeoProgrammesPage
-      titre="Chauffez vert Québec 2026"
-      sousTitre="Jusqu'à 5 000 $ pour remplacer votre mazout, propane ou gaz par un système propre — cumulable avec LogisVert Hydro-Québec."
-      intro="Le programme Chauffez vert de Transition énergétique Québec aide les propriétaires à abandonner le chauffage au mazout, au propane ou au gaz naturel. En 2026, cette aide peut atteindre 5 000 $ — et si vous choisissez une thermopompe comme système de remplacement, vous pouvez cumuler avec LogisVert d'Hydro-Québec pour un total pouvant dépasser 11 000 $. Pour un système qui coûte entre 8 000 $ et 18 000 $, c'est une aide considérable."
+      titre="Chauffez vert Québec — Programme terminé"
+      sousTitre="Le programme Chauffez vert a pris fin le 31 mars 2026. Voici les alternatives actuelles pour remplacer un chauffage au mazout, au propane ou au gaz."
+      intro="Le programme Chauffez vert, qui aidait les propriétaires à abandonner le chauffage au mazout, au propane ou au gaz naturel, a cessé d'accepter de nouvelles demandes le 31 mars 2026. Si vous planifiez ce type de remplacement, LogisVert d'Hydro-Québec (jusqu'à 6 700 $ pour une thermopompe certifiée ENERGY STAR) et Rénoclimat restent des aides actives à vérifier pour votre projet."
       programmes={programmes}
       faqs={faqs}
-      motCle="Chauffez vert Québec 2026"
+      motCle="Chauffez vert Québec"
       pagesRelies={[
         { href: "/subventions-maison-quebec", titre: "Toutes les subventions maison Québec" },
         { href: "/subvention-thermopompe-quebec", titre: "Subvention thermopompe Québec" },
