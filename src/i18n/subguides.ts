@@ -353,6 +353,7 @@ export interface InsuranceComparatorDictionary {
   monthlySuffix: string;
   realQuoteLabel: string;
   estimateDisclaimer: string;
+  unverifiedPriceLabel: string;
   emptyState: string;
   detailedGuidesTitle: string;
   detailedGuides: Array<{ title: string; description: string; href: string; emoji: string }>;
@@ -727,6 +728,7 @@ const frInsuranceComparator: InsuranceComparatorDictionary = {
   realQuoteLabel: "Obtenir une soumission réelle",
   estimateDisclaimer:
     "Ces estimations sont indicatives et basées sur des moyennes éditoriales du marché québécois 2026. Les prix réels varient selon le dossier, l'historique et les protections choisies.",
+  unverifiedPriceLabel: "Prix et lien non reconfirmés récemment contre le site officiel de l'assureur — vérifiez avant de souscrire.",
   emptyState: "Remplissez tous les champs ci-dessus pour voir les estimations.",
   detailedGuidesTitle: "Guides détaillés",
   detailedGuides: [
@@ -844,6 +846,7 @@ const enInsuranceComparator: InsuranceComparatorDictionary = {
   realQuoteLabel: "Get a real quote",
   estimateDisclaimer:
     "These estimates are indicative and based on 2026 Quebec editorial market averages. Real pricing varies with your file, claims history, and selected coverage.",
+  unverifiedPriceLabel: "Price and link not recently reconfirmed against the insurer's official site — verify before signing up.",
   emptyState: "Complete every field above to see the estimated ranges.",
   detailedGuidesTitle: "Detailed guides",
   detailedGuides: [
