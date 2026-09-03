@@ -13,7 +13,7 @@ const baseMetadata: Metadata = {
     "fractionnement revenu retraite 2026",
     "fractionner pension conjoint",
     "T1032",
-    "TP-932",
+    "Annexe Q",
     "économie impôt retraite Québec",
   ],
 };
@@ -61,7 +61,7 @@ function Content() {
             <li>✓ Transférez jusqu&apos;à <strong>50 % de votre revenu de pension</strong>{" "}à votre conjoint pour réduire votre impôt</li>
             <li>✓ Économies typiques de <strong>2 000 $ à 10 000 $</strong>{" "}par année pour un couple avec revenus inégaux</li>
             <li>✓ Se fait directement dans votre déclaration de revenus — formulaire T1032 au fédéral et Annexe Q au Québec</li>
-            <li>✓ Le conjoint receveur peut aussi réclamer le <strong>crédit pour revenu de pension</strong>{" "}de 2 000 $</li>
+            <li>✓ Le conjoint receveur peut aussi devenir admissible au <strong>montant pour revenu de pension</strong>{" "}(jusqu&apos;à 2 000 $, pour un crédit d&apos;environ 280 $), selon le type de revenu reçu</li>
           </ul>
         </div>
 
@@ -281,9 +281,11 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Le bonus souvent oublié : le crédit pour revenu de pension</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Quand vous fractionnez votre pension avec votre conjoint, ce dernier peut réclamer le{" "}
-            <strong>crédit pour revenu de pension</strong>{" "} — même s&apos;il n&apos;aurait autrement aucun revenu
-            de pension admissible.
+            Quand vous fractionnez un revenu admissible avec votre conjoint, ce dernier peut aussi réclamer le{" "}
+            <strong>crédit pour revenu de pension</strong>{" "} sur sa part — mais l&apos;admissibilité suit le même
+            type de revenu et la même condition d&apos;âge que pour le fractionnement lui-même : une rente de RPA
+            reste admissible à tout âge, tandis qu&apos;un revenu de FERR ou de rente de REER exige que le conjoint
+            receveur ait aussi 65 ans ou plus.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-3">
             <p className="font-bold text-green-800 mb-3">Le crédit pour revenu de pension en 2026</p>
@@ -304,9 +306,10 @@ function Content() {
             </p>
           </div>
           <p className="text-slate-600 leading-relaxed text-sm">
-            Si votre conjoint ne touchait aucun revenu de pension avant le fractionnement, il peut maintenant
-            accéder à ce crédit non remboursable grâce au montant que vous lui avez transféré. Cela s&apos;ajoute
-            aux économies sur les taux marginaux.
+            Si votre conjoint ne touchait aucun revenu de pension avant le fractionnement, il peut accéder à ce
+            crédit non remboursable grâce au montant transféré, à condition que ce revenu respecte les mêmes règles
+            d&apos;admissibilité par type et par âge que celles du fractionnement lui-même (voir la section « Quels
+            revenus sont admissibles »). Cela s&apos;ajoute aux économies sur les taux marginaux.
           </p>
         </section>
 
