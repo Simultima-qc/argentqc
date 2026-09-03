@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: "Peut-on combiner CELIAPP et RAP ?",
-    r: "Oui, et c'est même la stratégie recommandée pour maximiser la mise de fonds. Le CELIAPP permet des retraits jusqu'à 40 000 $ entièrement libres d'impôt. Le RAP (Régime d'accession à la propriété) permet en plus de retirer jusqu'à 35 000 $ de son REER sans impôt immédiat (à rembourser sur 15 ans). Un couple peut ainsi combiner jusqu'à 150 000 $ : 80 000 $ en CELIAPP et 70 000 $ en RAP.",
+    r: "Oui, et c'est même la stratégie recommandée pour maximiser la mise de fonds. Le CELIAPP permet des retraits jusqu'à 40 000 $ entièrement libres d'impôt. Le RAP (Régime d'accession à la propriété) permet en plus de retirer jusqu'à 60 000 $ de son REER sans impôt immédiat (à rembourser sur 15 ans, plafond relevé de 35 000 $ depuis le budget fédéral d'avril 2024). Un couple peut ainsi combiner jusqu'à 200 000 $ : 80 000 $ en CELIAPP et 120 000 $ en RAP.",
   },
   {
     q: "Que se passe-t-il si on n'achète pas de propriété ?",
@@ -185,11 +185,11 @@ export default function CeliappPage() {
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
               <span style={{ color: "#1E40AF", fontWeight: 600 }}>RAP — retrait REER (par personne)</span>
-              <span style={{ fontWeight: 800, color: "#1E40AF" }}>35 000 $</span>
+              <span style={{ fontWeight: 800, color: "#1E40AF" }}>60 000 $</span>
             </div>
             <div style={{ borderTop: "1px solid #BFDBFE", paddingTop: "8px", display: "flex", justifyContent: "space-between" }}>
               <span style={{ color: "#1E40AF", fontWeight: 700 }}>Couple — total combiné</span>
-              <span style={{ fontWeight: 800, color: "#1D4ED8", fontSize: "15px" }}>150 000 $</span>
+              <span style={{ fontWeight: 800, color: "#1D4ED8", fontSize: "15px" }}>200 000 $</span>
             </div>
           </div>
           <Link href="/fr/retraite/reer" style={{ display: "inline-block", marginTop: "10px", color: "#1D4ED8", fontWeight: 700, fontSize: "12px", textDecoration: "none" }}>

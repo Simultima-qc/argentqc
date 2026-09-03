@@ -72,7 +72,7 @@ export default function ScenarioProprietairePage() {
                 { label: "Rénoclimat (fenêtres + isolation + thermopompe)", montant: "jusqu'à 10 000 $", detail: "Programme Hydro-Québec + Transition énergétique Québec — cumulables", badge: "Provincial" },
                 { label: "Crédit d'impôt rénovation résidentielle fédéral", montant: "jusqu'à 7 500 $", detail: "15 % des dépenses admissibles (max 50 000 $) — programme fédéral Rénover vert", badge: "Fédéral" },
                 { label: "Chauffez vert (remplacement mazout)", montant: "jusqu'à 12 000 $", detail: "Si la maison est chauffée au mazout — remplacement vers thermopompe géothermique ou air-air", badge: "Provincial" },
-                { label: "RAP REER — retrait pour rénos (si premier achat récent)", montant: "jusqu'à 35 000 $", detail: "Utilisable si achat il y a moins de 2 ans. Sans remboursement si critères rénovation majeure respectés.", badge: "Fédéral" },
+                { label: "RAP REER — retrait pour rénos (si premier achat récent)", montant: "jusqu'à 60 000 $", detail: "Utilisable si achat il y a moins de 2 ans. Sans remboursement si critères rénovation majeure respectés.", badge: "Fédéral" },
               ].map((item, i) => (
                 <div key={item.label} style={{ padding: "16px 20px", borderBottom: i < 3 ? "1px solid #F5F0EA" : "none" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>

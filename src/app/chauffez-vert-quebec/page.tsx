@@ -3,40 +3,38 @@ import SeoProgrammesPage from "@/components/SeoProgrammesPage";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Chauffez vert Québec 2026 – Jusqu'à 5 000 $ pour abandonner le mazout",
+  title: "Chauffez vert Québec 2026 – Volet gaz naturel actif, volet mazout terminé",
   description:
-    "Programme Chauffez vert au Québec en 2026 : obtenez jusqu'à 5 000 $ pour remplacer votre chauffage au mazout, propane ou gaz par une thermopompe ou un système électrique. Guide complet.",
+    "Le volet mazout/propane de Chauffez vert a pris fin le 31 mars 2026, mais le volet biénergie électricité-gaz naturel reste actif (jusqu'à 7 400 $, via Énergir). Guide complet des alternatives 2026.",
   keywords: [
     "Chauffez vert Québec 2026",
-    "subvention remplacement mazout Québec",
+    "biénergie électricité gaz naturel Énergir",
+    "remplacement mazout Québec 2026",
     "aide chauffage électrique Québec",
-    "programme Chauffez vert TEQ",
+    "programme Chauffez vert gaz naturel",
     "subvention thermopompe mazout Québec",
-    "abandon mazout Québec subvention",
   ],
 };
 
 const programmes: Programme[] = [
   {
     id: "chauffez-vert-qc",
-    nom: "Chauffez vert",
-    organisme: "Transition énergétique Québec",
+    nom: "Chauffez vert — volet Passage à la biénergie électricité-gaz naturel",
+    organisme: "Gouvernement du Québec / Énergir",
     niveau: "provincial",
     categorie: "energie",
-    montant_min: 1000,
-    montant_max: 5000,
-    montant_affiche: "1 000 $ – 5 000 $",
+    montant_min: 500,
+    montant_max: 7400,
+    montant_affiche: "Jusqu'à 7 400 $ (jusqu'à 80 % des coûts d'installation)",
     description:
-      "Aide financière pour remplacer un système de chauffage à combustibles fossiles (mazout, propane, gaz naturel) par un système propre : thermopompe, géothermie, biomasse ou chauffage électrique. Le montant varie selon le type de remplacement et la capacité du nouveau système.",
+      "Depuis le 1er avril 2026, l'aide pour convertir un chauffage central au gaz naturel en système biénergie (électricité en source principale, gaz naturel en appoint) est administrée directement par Énergir pour ses clients résidentiels. Ne s'applique pas au remplacement d'un chauffage au mazout ou au propane (volet distinct, terminé).",
     conditions: [
-      "Être propriétaire d'une résidence principale au Québec",
-      "Système actuel : mazout, propane ou gaz naturel",
-      "Nouveau système : thermopompe, géothermie, biomasse ou électrique",
-      "Travaux réalisés par un entrepreneur certifié RBQ",
-      "Faire la demande avant le début des travaux",
+      "Être propriétaire d'une résidence chauffée au gaz naturel desservie par Énergir",
+      "Installer un système biénergie avec l'électricité comme source principale",
+      "S'inscrire directement auprès d'Énergir",
     ],
     lien_officiel:
-      "https://www.transitionenergetique.gouv.qc.ca/residentiel/programmes/chauffez-vert",
+      "https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/conversion-bienergie-electricite-gaz-naturel",
     criteres: { proprietaire: true, provinces: ["QC"], renovation: true },
   },
   {
@@ -49,7 +47,7 @@ const programmes: Programme[] = [
     montant_max: 6700,
     montant_affiche: "Jusqu'à 6 700 $",
     description:
-      "Si vous remplacez votre mazout par une thermopompe, vous pouvez cumuler Chauffez vert avec LogisVert d'Hydro-Québec. LogisVert offre jusqu'à 6 700 $ supplémentaires pour l'achat d'une thermopompe certifiée ENERGY STAR.",
+      "Pour remplacer un chauffage au mazout ou au propane par une thermopompe, maintenant que ce volet de Chauffez vert est terminé, LogisVert d'Hydro-Québec offre jusqu'à 6 700 $ pour l'achat d'une thermopompe centrale ou de mini-splits certifiée ENERGY STAR.",
     conditions: [
       "Être client Hydro-Québec résidentiel",
       "Thermopompe sur la liste des appareils reconnus par Hydro-Québec",
@@ -64,29 +62,24 @@ const programmes: Programme[] = [
 
 const faqs = [
   {
-    question: "Quel est le montant exact de la subvention Chauffez vert ?",
+    question: "Le programme Chauffez vert est-il encore disponible en 2026 ?",
     reponse:
-      "Le montant varie selon le type de remplacement : 1 000 $ à 5 000 $ selon le nouveau système installé. Le remplacement par une thermopompe donne généralement le montant le plus élevé. Consultez le site de Transition énergétique Québec pour la grille tarifaire exacte selon votre situation.",
+      "Cela dépend du volet. Le volet conversion mazout/propane a cessé d'accepter de nouvelles demandes le 31 mars 2026. Le volet distinct « Passage à la biénergie électricité-gaz naturel » reste actif depuis le 1er avril 2026, mais il est désormais administré directement par Énergir pour ses clients, et non plus par une demande gouvernementale classique.",
   },
   {
-    question: "Peut-on cumuler Chauffez vert et LogisVert Hydro-Québec ?",
+    question: "Je chauffe au mazout ou au propane, quelles sont mes options ?",
     reponse:
-      "Oui, et c'est la combinaison la plus avantageuse. Si vous remplacez votre mazout par une thermopompe, vous pouvez recevoir jusqu'à 5 000 $ via Chauffez vert + jusqu'à 6 700 $ via LogisVert = jusqu'à 11 700 $ au total. C'est l'une des meilleures aides disponibles pour les propriétaires chauffés au mazout.",
+      "Le volet Chauffez vert pour ce cas précis est terminé. LogisVert d'Hydro-Québec (jusqu'à 6 700 $ pour une thermopompe certifiée ENERGY STAR) et Rénoclimat restent des aides actives à vérifier pour votre projet.",
   },
   {
-    question: "Dois-je faire une demande avant ou après les travaux ?",
+    question: "Je chauffe au gaz naturel, ai-je encore droit à une aide ?",
     reponse:
-      "Pour Chauffez vert, il est fortement recommandé de faire la demande AVANT le début des travaux. Contrairement à LogisVert, une demande préalable peut être requise pour obtenir l'aide. Vérifiez les conditions actuelles sur le site officiel de TEQ avant de planifier vos travaux.",
+      "Oui, si vous êtes client résidentiel d'Énergir. Le volet biénergie électricité-gaz naturel offre jusqu'à 7 400 $ (jusqu'à 80 % des coûts d'installation) pour convertir votre système en biénergie, avec l'électricité comme source principale. L'inscription se fait directement auprès d'Énergir depuis le 1er avril 2026.",
   },
   {
-    question: "Mon système de chauffage au gaz naturel est-il admissible ?",
+    question: "Que faire si j'avais commencé une démarche Chauffez vert (volet mazout/propane) avant sa fin ?",
     reponse:
-      "Oui, le remplacement d'un système au gaz naturel est admissible au programme Chauffez vert, en plus du mazout et du propane. L'objectif est de réduire la dépendance aux combustibles fossiles, peu importe le type.",
-  },
-  {
-    question: "Combien de temps pour recevoir la subvention ?",
-    reponse:
-      "Comptez généralement 6 à 12 semaines après la soumission du dossier complet. Assurez-vous d'avoir toutes vos factures, preuves d'installation et certification de l'entrepreneur RBQ avant de soumettre pour éviter des délais supplémentaires.",
+      "Vérifiez votre dossier directement auprès du ministère : une demande déposée avant la date de fin peut encore être traitée selon les règles en vigueur au moment du dépôt. Ce site ne peut pas confirmer le statut d'une demande individuelle.",
   },
 ];
 
@@ -94,8 +87,8 @@ export default function ChauffezVertQuebecPage() {
   return (
     <SeoProgrammesPage
       titre="Chauffez vert Québec 2026"
-      sousTitre="Jusqu'à 5 000 $ pour remplacer votre mazout, propane ou gaz par un système propre — cumulable avec LogisVert Hydro-Québec."
-      intro="Le programme Chauffez vert de Transition énergétique Québec aide les propriétaires à abandonner le chauffage au mazout, au propane ou au gaz naturel. En 2026, cette aide peut atteindre 5 000 $ — et si vous choisissez une thermopompe comme système de remplacement, vous pouvez cumuler avec LogisVert d'Hydro-Québec pour un total pouvant dépasser 11 000 $. Pour un système qui coûte entre 8 000 $ et 18 000 $, c'est une aide considérable."
+      sousTitre="Volet mazout/propane terminé le 31 mars 2026 — volet biénergie électricité-gaz naturel toujours actif (jusqu'à 7 400 $, via Énergir)."
+      intro="Le programme Chauffez vert comptait deux volets distincts. Le volet conversion mazout/propane a cessé d'accepter de nouvelles demandes le 31 mars 2026 : pour ce cas, LogisVert d'Hydro-Québec et Rénoclimat restent vos meilleures options. Le volet Passage à la biénergie électricité-gaz naturel, lui, reste actif depuis le 1er avril 2026 pour les clients résidentiels d'Énergir qui souhaitent convertir leur chauffage au gaz naturel en système biénergie, avec une aide pouvant atteindre 7 400 $."
       programmes={programmes}
       faqs={faqs}
       motCle="Chauffez vert Québec 2026"

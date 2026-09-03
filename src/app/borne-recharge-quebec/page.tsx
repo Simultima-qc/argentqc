@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     question: "La subvention borne de recharge est-elle cumulable avec la subvention véhicule électrique ?",
-    reponse: "Oui, les deux subventions du programme Roulez vert sont entièrement cumulables. Un propriétaire qui achète un véhicule électrique et installe une borne peut recevoir jusqu'à 7 000 $ (véhicule) + 600 $ (borne) = 7 600 $ au total de Roulez vert, en plus des crédits fédéraux.",
+    reponse: "Oui, les deux subventions du programme Roulez vert sont entièrement cumulables. Un propriétaire qui achète un véhicule électrique neuf et installe une borne peut recevoir jusqu'à 2 000 $ (véhicule, montant 2026) + 600 $ (borne) = 2 600 $ au total de Roulez vert, en plus des crédits fédéraux. Le programme se termine le 31 décembre 2026.",
   },
 ];
 

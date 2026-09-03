@@ -262,7 +262,7 @@ test("RAP appears as a lead for a matching renter profile but is excluded from t
 
   const totalWithRap = calculerTotal(matched);
   const totalWithoutRap = calculerTotal(matched.filter((programme) => programme.id !== "reer-subvention-fed"));
-  assert.deepEqual(totalWithRap, totalWithoutRap, "35 000 $ from RAP must not be added to the total");
+  assert.deepEqual(totalWithRap, totalWithoutRap, "60 000 $ from RAP must not be added to the total");
 });
 
 test("trouverProgrammes matches a student", () => {
@@ -360,4 +360,91 @@ test("ProgrammeListClient renders all programmes without pagination controls whe
   assert.match(html, /Two/);
   assert.doesNotMatch(html, /Show -?\d+ more programmes/);
   assert.doesNotMatch(html, /Hide extra programmes/);
+});
+
+test("closed federal/provincial programmes are not published as active (issue #51)", () => {
+  const ids = programmeIds(loadProgrammesJson());
+
+  assert.ok(
+    !ids.has("canada-greener-homes-fed"),
+    "canada-greener-homes-fed must stay removed: closed to new applicants since 2024-02 (issue #51 revalidation)",
+  );
+});
+
+test("chauffez-vert-qc is scoped to the still-active dual-energy volet, not the closed mazout/propane volet (issue #51, PR #52 review)", () => {
+  const programmes = loadProgrammesJson();
+  const chauffezVert = programmes.find((programme) => programme.id === "chauffez-vert-qc");
+
+  assert.ok(chauffezVert, "chauffez-vert-qc must be present: the biénergie électricité-gaz naturel volet remains active since 2026-04-01");
+  assert.match(chauffezVert.nom, /bi[ée]nergie/i);
+  assert.match(chauffezVert.description, /mazout|propane/i, "description must clarify the closed mazout/propane volet is distinct");
+  assert.equal(chauffezVert.montant_max, 7400);
+});
+
+test("RQAP remains an orientation-only, non-summable lead (issue #51)", () => {
+  const programmes = loadProgrammesJson();
+  const rqap = programmes.find((programme) => programme.id === "rqap-assurance-parentale-qc");
+
+  assert.ok(rqap);
+  assert.equal(rqap.preselection_only, true);
+  assert.equal(rqap.montant_sommable, false);
+  assert.equal(rqap.montant_min, 0);
+  assert.equal(rqap.montant_max, 0);
+  assert.equal(
+    JSON.stringify(calculerTotal([rqap, { ...rqap, id: "summable", montant_sommable: true, montant_min: 100, montant_max: 200 }])),
+    JSON.stringify({ min: 100, max: 200 }),
+  );
+});
+
+test("SV and SRG amounts match the governed securite-vieillesse/supplement-revenu-garanti ledgers (issue #51)", () => {
+  const programmes = loadProgrammesJson();
+  const psv = programmes.find((programme) => programme.id === "psv-fed");
+  const sre = programmes.find((programme) => programme.id === "sre-fed");
+
+  // Q3 2026 maxima per docs/claims/securite-vieillesse-quebec-2026.md and
+  // docs/claims/supplement-revenu-garanti-2026.md: SV 827,17 $/mois (75 ans et plus),
+  // SRG 1 123,17 $/mois (personne seule) -- annualized (x12).
+  assert.equal(psv.montant_max, 9926);
+  assert.equal(sre.montant_max, 13478);
+});
+
+test("RAP montant_max reflects the 60 000 $ limit raised by the April 2024 federal budget (issue #51)", () => {
+  const programmes = loadProgrammesJson();
+  const rap = programmes.find((programme) => programme.id === "reer-subvention-fed");
+
+  assert.equal(rap.montant_max, 60000);
+});
+
+test("federal age/pension-income credits reflect the 14 % 2026 lowest tax bracket rate (issue #51)", () => {
+  const programmes = loadProgrammesJson();
+  const ageCredit = programmes.find((programme) => programme.id === "montant-personnes-agees-fed");
+  const pensionCredit = programmes.find((programme) => programme.id === "credit-revenus-pension-fed");
+
+  // Per docs/claims/impots-revenus-retraite-quebec-2026.md and
+  // docs/claims/fractionnement-revenu-retraite-2026.md (already-governed sources reused
+  // here, not re-audited): federal base 9 208 $ x 14 % ~= 1 289 $; 2 000 $ x 14 % = 280 $.
+  assert.equal(ageCredit.montant_max, 1289);
+  assert.equal(pensionCredit.montant_max, 280);
+});
+
+test("pension income splitting range matches the already-governed fractionnement ledger (issue #51)", () => {
+  const programmes = loadProgrammesJson();
+  const fractionnement = programmes.find((programme) => programme.id === "fractionnement-revenus-pension-fed");
+
+  // docs/claims/fractionnement-revenu-retraite-2026.md: "économies typiques de 2 000 $ à 10 000 $ par année".
+  assert.equal(fractionnement.montant_min, 2000);
+  assert.equal(fractionnement.montant_max, 10000);
+});
+
+test("programmes.json catalogue size is stable and every entry has a non-empty description (issue #51)", () => {
+  const programmes = loadProgrammesJson();
+
+  assert.equal(programmes.length, 84, "unexpected catalogue size change -- update this count deliberately if programmes were added/removed");
+
+  for (const programme of programmes) {
+    assert.ok(
+      typeof programme.description === "string" && programme.description.trim().length > 0,
+      `${programme.id}: description must not be empty`,
+    );
+  }
 });
