@@ -244,6 +244,11 @@ export default function LocalizedInsuranceComparatorClient({
                     {dictionary.estimateBadge}
                   </span>
                 </div>
+                {!carrier.termesVerifies && (
+                  <p style={{ fontSize: "11px", color: "#92400E", background: "#FEF3C7", borderRadius: "8px", padding: "6px 8px", marginBottom: "10px" }}>
+                    ⚠ {dictionary.unverifiedPriceLabel}
+                  </p>
+                )}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", flexWrap: "wrap" }}>
                   <span style={{ fontWeight: 800, fontSize: "18px", color: DARK }}>
                     {carrier.prixMin} $ - {carrier.prixMax} $

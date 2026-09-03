@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Comment économiser sur mon assurance auto au Québec ?",
-    r: "Optez pour un programme de télématique (Ajusto chez Desjardins, IntelliDrive chez Intact) qui récompense une conduite prudente avec des rabais jusqu'à 25 %. Regroupez auto et habitation chez le même assureur. Augmentez votre franchise collision. Réduisez votre kilométrage déclaré si vous travaillez de la maison. Un bon dossier sans accident vaut de l'or.",
+    r: "Optez pour un programme de télématique (Ajusto chez Desjardins, myDrive chez Intact) qui récompense une conduite prudente avec des rabais jusqu'à 25 %. Regroupez auto et habitation chez le même assureur. Augmentez votre franchise collision. Réduisez votre kilométrage déclaré si vous travaillez de la maison. Un bon dossier sans accident vaut de l'or.",
   },
   {
     q: "Un courtier ou acheter en direct ?",

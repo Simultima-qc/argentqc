@@ -20,43 +20,16 @@ const GREEN = "#10B981";
 // ─── Données habitation ────────────────────────────────────────────────────────
 
 const assureursHabitation = assureursHabitation2026;
-/*
-  { nom: "Desjardins", emoji: "🏦", type: "Mutuelle / Direct", prix_base: [28, 45] as [number, number], url: "https://www.desjardins.com/assurances/habitation/" },
-  { nom: "Intact", emoji: "🏢", type: "Direct / Courtiers", prix_base: [30, 50] as [number, number], url: "https://www.intact.ca/fr/assurance-habitation/" },
-  { nom: "Belair Direct", emoji: "💻", type: "Direct en ligne", prix_base: [25, 42] as [number, number], url: "https://www.belairdirect.com/fr/assurance-habitation.html" },
-  { nom: "CAA-Québec", emoji: "🚘", type: "Membres CAA", prix_base: [27, 44] as [number, number], url: "https://www.caaquebec.com/fr/assurance/habitation/" },
-  { nom: "SSQ / Beneva", emoji: "🌿", type: "Mutuelle", prix_base: [26, 43] as [number, number], url: "https://www.beneva.ca/fr/assurance-habitation" },
-  { nom: "La Personnelle", emoji: "🎓", type: "Groupes / Syndicats", prix_base: [24, 40] as [number, number], url: "https://www.lapersonnelle.com/fr/assurances/habitation" },
-];
-
-const multStatut: Record<string, number> = { locataire: 1.0, proprietaire: 2.8, condo: 1.6 };
-const multRegionHab: Record<string, number> = { montreal: 1.15, quebec: 1.0, laval: 1.05, rive_sud: 1.08, region: 0.9 };
-const multBiens: Record<string, number> = { bas: 0.85, moyen: 1.0, eleve: 1.25, tres_eleve: 1.55 };
 
 // ─── Données auto ─────────────────────────────────────────────────────────────
 
 const assureursAuto = assureursAuto2026;
-/*
-  { nom: "Desjardins", emoji: "🏦", type: "Mutuelle / Direct", prix_base: [95, 140] as [number, number], url: "https://www.desjardins.com/assurances/auto/" },
-  { nom: "Intact", emoji: "🏢", type: "Direct / Courtiers", prix_base: [100, 155] as [number, number], url: "https://www.intact.ca/fr/assurance-auto/" },
-  { nom: "Belair Direct", emoji: "💻", type: "Direct en ligne", prix_base: [88, 135] as [number, number], url: "https://www.belairdirect.com/fr/assurance-auto.html" },
-  { nom: "CAA-Québec", emoji: "🚘", type: "Membres CAA", prix_base: [92, 138] as [number, number], url: "https://www.caaquebec.com/fr/assurance/automobile/" },
-  { nom: "SSQ / Beneva", emoji: "🌿", type: "Mutuelle", prix_base: [90, 132] as [number, number], url: "https://www.beneva.ca/fr/assurance-auto" },
-  { nom: "Promutuel", emoji: "🌾", type: "Mutuelle (régions)", prix_base: [85, 128] as [number, number], url: "https://www.promutuel.ca/" },
-];
-
-const multAge: Record<string, number> = { jeune: 2.2, jeune_adulte: 1.35, adulte: 1.0, senior: 1.05 };
-const multVehicule: Record<string, number> = { berline: 1.0, vus_compact: 1.12, vus_grand: 1.28, camionnette: 1.22, electrique: 1.08 };
-const multRegionAuto: Record<string, number> = { montreal: 1.30, quebec: 1.0, laval: 1.18, rive_sud: 1.12, region: 0.88 };
-const multUsage: Record<string, number> = { faible: 0.95, moyen: 1.0, eleve: 1.15 };
-*/
 
 // ─── Composant ────────────────────────────────────────────────────────────────
 
 const multStatut = multStatutHabitation2026;
 const multRegionHab = multRegionHabitation2026;
 const multBiens = multBiensHabitation2026;
-const assureursAuto = assureursAuto2026;
 const multAge = multAgeAuto2026;
 const multVehicule = multVehiculeAuto2026;
 const multRegionAuto = multRegionAuto2026;
@@ -470,6 +443,20 @@ export default function ComparateurClient() {
                     Estimation
                   </span>
                 </div>
+                {!a.termesVerifies && (
+                  <p
+                    style={{
+                      fontSize: "11px",
+                      color: "#92400E",
+                      background: "#FEF3C7",
+                      borderRadius: "8px",
+                      padding: "6px 8px",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    ⚠ Prix et lien non reconfirmés récemment contre le site officiel de l&apos;assureur — vérifiez avant de souscrire.
+                  </p>
+                )}
                 <div
                   style={{
                     display: "flex",
