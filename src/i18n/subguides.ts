@@ -155,6 +155,7 @@ export interface InternetComparatorDictionary {
   noContractValue: string;
   modemIncludedLabel: string;
   modemNotIncludedLabel: string;
+  unverifiedPriceLabel: string;
   viewOfferLabel: string;
   introSectionsTitle: string;
   introParagraphs: string[];
@@ -1686,6 +1687,7 @@ const frInternetComparator: InternetComparatorDictionary = {
   noContractValue: "Aucun",
   modemIncludedLabel: "Modem inclus",
   modemNotIncludedLabel: "Modem non inclus",
+  unverifiedPriceLabel: "Prix, vitesse et disponibilité non reconfirmés récemment contre le site officiel — vérifiez avant de vous engager.",
   viewOfferLabel: "Voir l'offre",
   introSectionsTitle: "Le marché internet au Québec en 2026",
   introParagraphs: [
@@ -1738,6 +1740,7 @@ const enInternetComparator: InternetComparatorDictionary = {
   noContractValue: "None",
   modemIncludedLabel: "Modem included",
   modemNotIncludedLabel: "Modem not included",
+  unverifiedPriceLabel: "Price, speed, and availability not recently reconfirmed against the official site — verify before signing up.",
   viewOfferLabel: "View offer",
   introSectionsTitle: "The Quebec internet market in 2026",
   introParagraphs: [
