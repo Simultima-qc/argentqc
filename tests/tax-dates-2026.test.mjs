@@ -4,9 +4,11 @@
  * for issue #45.
  *
  * These guard against reintroducing claims already identified as inaccurate or
- * misleading during that revalidation: a mismatched federal/Quebec balance-due
+ * unconfirmed during that revalidation: a mismatched federal/Quebec balance-due
  * date, an over-long Quebec late-filing penalty cap, unadjusted weekend/Saturday
- * deadlines, and a stale fixed-percentage interest approximation.
+ * deadlines, a stale fixed-percentage interest approximation, and a Quebec
+ * repeat-offender penalty claim copied from the federal rule without a distinct
+ * Revenu Quebec primary source confirming it applies the same way provincially.
  */
 
 import assert from "node:assert/strict";
@@ -84,6 +86,19 @@ test("interest wording avoids a stale fixed-percentage annual approximation", ()
   assert.notEqual(arc.interets, rq.interets);
 });
 
+test("Quebec repeat-offender penalty is not asserted without a distinct primary source", () => {
+  const [arc, rq] = taxData.taxPenalites2026;
+  // The federal repeat-offender rule (10% + 2%/month, up to 20 months) is
+  // grounded in Income Tax Act s.162(2); no equivalent Revenu Quebec primary
+  // source was found confirming the same mechanism applies provincially (Revenu
+  // Quebec documents a structurally different non-compliance penalty instead).
+  // Republishing the federal figure under the Quebec entry would misrepresent
+  // it as confirmed, so the claim must not carry an unqualified percentage.
+  assert.match(arc.recidive, /10%/);
+  assert.doesNotMatch(rq.recidive, /10%/);
+  assert.match(rq.recidive, /[Nn]on confirme/);
+});
+
 test("REER contribution and T4/RL-1 deadlines account for the Feb 28 / Mar 1, 2026 weekend", () => {
   const reer = taxData.taxCalendrier2026.find((entry) => entry.evenement.includes("cotisation REER"));
   const slips = taxData.taxCalendrier2026.find((entry) => entry.evenement.includes("T4/RL-1"));
@@ -110,6 +125,14 @@ test("published tax-dates surfaces no longer claim a May 1 Quebec balance-due da
   assert.doesNotMatch(files, /"May 1, 2026"/);
   assert.doesNotMatch(files, /up to 20 months/);
   assert.doesNotMatch(files, /~8%/);
+});
+
+test("English mirror does not claim an unconfirmed Quebec repeat-offender percentage", () => {
+  const localized = read("src/components/LocalizedTaxDeadlinesPage.tsx");
+  const rqBlock = localized.slice(localized.indexOf('organisme: "Revenu Quebec (provincial)"'));
+
+  assert.match(rqBlock, /recidive: "Not confirmed by a Revenu Quebec primary source/);
+  assert.doesNotMatch(rqBlock.slice(0, rqBlock.indexOf("interets:")), /10%/);
 });
 
 test("tax-guide-2026 freshness metadata reflects a real revalidation (not a mechanical bump)", () => {

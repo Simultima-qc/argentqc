@@ -33,7 +33,7 @@ const enPenalties = [
     organisme: "Revenu Quebec (provincial)",
     penaliteBase: "5% of balance owing",
     penaliteMensuelle: "+ 1% for each full month (up to 12 months)",
-    recidive: "10% if repeated within 3 years",
+    recidive: "Not confirmed by a Revenu Quebec primary source distinct from the CRA's",
     interets: "Interest compounded daily, at Revenu Quebec's quarterly prescribed rate (distinct from the CRA's)",
   },
 ];
