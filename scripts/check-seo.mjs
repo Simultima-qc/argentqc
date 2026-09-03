@@ -1,5 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
+import { claimsRegistry } from "../src/data/finance-2026/claims-registry.mjs";
+import {
+  computeCriticalityDrift,
+  computeRegistryDrift,
+  evaluateCalendarStatus,
+  evaluateYearDrift,
+  extractVersionedDatasetMetas,
+  isIsoDate,
+  validateDatasetMetaShape,
+  validateRegistryEntryShape,
+} from "./lib/claims-freshness.mjs";
 
 const rootDir = process.cwd();
 const appDir = path.join(rootDir, "src", "app");
@@ -29,6 +40,8 @@ const solidarityCreditLedgerFile = path.join(claimsDir, "credit-impot-solidarite
 const childcareCreditLedgerFile = path.join(claimsDir, "credit-frais-garde-enfants-2026.md");
 const childcareCreditDatasetFile = path.join(rootDir, "src", "data", "finance-2026", "childcare-credit-2026.ts");
 const sportLegacyRedirectFile = path.join(appDir, "subvention-sport-enfant-quebec", "page.tsx");
+const financeDir = path.join(rootDir, "src", "data", "finance-2026");
+const freshnessNowEnvVar = "ARGENTQC_FRESHNESS_NOW";
 
 const errors = [];
 
@@ -1045,6 +1058,134 @@ function checkChildcareCreditGuardrails() {
   }
 }
 
+function resolveFreshnessNow() {
+  const override = process.env[freshnessNowEnvVar];
+  if (override === undefined || override === "") {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  if (!isIsoDate(override)) {
+    report(`${freshnessNowEnvVar} is set but not a valid YYYY-MM-DD date`, [
+      `Got: ${JSON.stringify(override)}. Unset it or use an ISO date to run the freshness gate against a fixed reference date (tests only).`,
+    ]);
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  return override;
+}
+
+function checkClaimsFreshnessAndCoverage() {
+  const now = resolveFreshnessNow();
+
+  const ledgerFilesOnDisk = fs.readdirSync(claimsDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+    .map((entry) => relative(path.join(claimsDir, entry.name)));
+
+  const articleFilesOnDisk = fs.readdirSync(articleEntriesDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".tsx"))
+    .map((entry) => relative(path.join(articleEntriesDir, entry.name)));
+
+  const shapeErrors = claimsRegistry.flatMap((entry) => validateRegistryEntryShape(entry));
+  if (shapeErrors.length > 0) {
+    report("Claims registry entries have malformed governance metadata", shapeErrors);
+  }
+
+  const driftErrors = computeRegistryDrift({
+    registry: claimsRegistry,
+    ledgerFilesOnDisk,
+    articleFilesOnDisk,
+    fileExists: (relPath) => fs.existsSync(path.join(rootDir, relPath)),
+  });
+  if (driftErrors.length > 0) {
+    report("Claims registry has drifted from the repository (docs/claims and blog articles)", driftErrors);
+  }
+
+  const warnings = [];
+  const visibleExceptions = [];
+
+  function evaluateAndCollect(label, meta) {
+    const calendarResult = evaluateCalendarStatus(meta, { now });
+    const yearResult = evaluateYearDrift(meta, { now });
+
+    for (const result of [calendarResult, yearResult]) {
+      if (result.level === "blocking") {
+        report(`"${label}" failed the freshness gate`, result.messages);
+      } else if (result.level === "warning") {
+        warnings.push(...result.messages.map((message) => `${label}: ${message}`));
+      } else if (result.messages.length > 0) {
+        visibleExceptions.push(...result.messages.map((message) => `${label}: ${message}`));
+      }
+    }
+  }
+
+  // Every finance-2026/*.ts dataset module is scanned regardless of whether
+  // it is linked from the claims registry: a versioned dataset with no
+  // dedicated claim ledger (e.g. tax-2026.ts, internet-offers-2026.ts) must
+  // still surface its own freshness state, not just datasets tied to a
+  // docs/claims/*.md ledger.
+  const datasetFiles = fs.readdirSync(financeDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".ts") && entry.name !== "schema.ts" && entry.name !== "index.ts")
+    .map((entry) => path.join(financeDir, entry.name));
+
+  const datasetCriticalityByModule = {};
+
+  for (const filePath of datasetFiles) {
+    const metas = extractVersionedDatasetMetas(read(filePath));
+    if (metas.length === 0) {
+      report("Finance-2026 module does not define a versioned dataset", [
+        `${relative(filePath)} should call defineVersionedDataset(...) per docs/data-reliability-2026.md`,
+      ]);
+      continue;
+    }
+
+    for (const { datasetName, meta } of metas) {
+      const label = `${datasetName ?? "(unnamed dataset)"} (${relative(filePath)})`;
+      const shapeIssues = validateDatasetMetaShape(label, meta);
+      if (shapeIssues.length > 0) {
+        report("Finance-2026 dataset has malformed freshness metadata", shapeIssues);
+        continue;
+      }
+      evaluateAndCollect(label, meta);
+      datasetCriticalityByModule[relative(filePath)] = meta.criticality;
+    }
+  }
+
+  // Ledger-only governed claims (no dedicated finance-2026 dataset module):
+  // the registry entry itself is the sole source of truth for nextReviewAt.
+  for (const entry of claimsRegistry) {
+    if (entry.status !== "governed" || entry.datasetModule) continue;
+
+    const meta = {
+      year: 2026,
+      nextReviewAt: entry.nextReviewAt,
+      criticality: entry.criticality,
+      staleException: entry.staleException,
+      historicalStatus: entry.historicalStatus,
+    };
+    evaluateAndCollect(entry.slug, meta);
+  }
+
+  // Structural drift, not calendar-dependent: a governed entry's declared
+  // criticality must match the criticality actually declared by the
+  // dataset module it points to, so an accidental downgrade inside the
+  // dataset can never silently turn a "critical" blocking claim into a
+  // non-blocking warning while the registry still claims "critical".
+  const criticalityDriftErrors = computeCriticalityDrift({ registry: claimsRegistry, datasetCriticalityByModule });
+  if (criticalityDriftErrors.length > 0) {
+    report("Claims registry criticality has drifted from its linked dataset module", criticalityDriftErrors);
+  }
+
+  if (warnings.length > 0) {
+    console.warn(`\nClaims freshness warnings (non-blocking, ${warnings.length}):`);
+    for (const warning of warnings) console.warn(`- ${warning}`);
+  }
+
+  if (visibleExceptions.length > 0) {
+    console.log(`\nActive staleException(s) in effect (${visibleExceptions.length}):`);
+    for (const exception of visibleExceptions) console.log(`- ${exception}`);
+  }
+}
+
 function checkEncoding() {
   const files = [];
   walkTextFiles(srcDir, files);
@@ -1154,9 +1295,10 @@ checkQuestionnairePropagation();
 checkSourceBackedClaimLedgers();
 checkSolidarityCreditGuardrails();
 checkChildcareCreditGuardrails();
+checkClaimsFreshnessAndCoverage();
 checkEncoding();
 checkPublicFooterPrivacyLinks();
 checkInternalAnchorLinks();
 finish();
 
-console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, source-backed claim ledgers, footer links, and internal link usage.`);
+console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, source-backed claim ledgers, claims freshness/coverage registry, footer links, and internal link usage.`);

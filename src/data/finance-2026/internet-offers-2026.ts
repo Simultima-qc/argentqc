@@ -24,6 +24,8 @@ export const internetComparatorUi2026 = defineVersionedDataset(
     status: "estimate",
     sourceNote: "Tarifs publics et hypotheses editoriales du comparateur internet Quebec 2026.",
     reviewCadence: "monthly",
+    nextReviewAt: "2026-05-12",
+    criticality: "medium",
   },
   {
     budgetOptions: [50, 75, 100, 999] as const,

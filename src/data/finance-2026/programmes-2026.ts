@@ -21,8 +21,15 @@ export const programmesDataset2026 = defineVersionedDataset(
     year: 2026,
     lastUpdated: "2026-04-12",
     status: "editorial",
-    sourceNote: "Dataset editorial des programmes 2026, a maintenir a partir des pages officielles et hypotheses internes.",
+    sourceNote:
+      "Dataset editorial des programmes 2026, a maintenir a partir des pages officielles et hypotheses internes. " +
+      "Limite connue (issue #27/#28, P2): ce champ lastUpdated decrit le wrapper et n'est pas recalcule depuis le " +
+      "contenu reel de programmes.json; ce fichier a ete modifie plus recemment que cette date sans que ce champ le " +
+      "reflete. Les 3 programmes a plus haut risque (credit-loyer-qc, credit-frais-garde-qc, credit-tps-fed) restent " +
+      "proteges par des guardrails dedies dans check-seo.mjs independamment de cette date.",
     reviewCadence: "monthly",
+    nextReviewAt: "2026-05-12",
+    criticality: "medium",
   },
   programmes
 );

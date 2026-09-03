@@ -16,6 +16,8 @@ export const insuranceComparator2026 = defineVersionedDataset(
     status: "estimate",
     sourceNote: "Moyennes editoriales et hypotheses du comparateur assurances Quebec 2026.",
     reviewCadence: "monthly",
+    nextReviewAt: "2026-05-12",
+    criticality: "medium",
   },
   {
     habitation: {

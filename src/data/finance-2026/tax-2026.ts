@@ -8,6 +8,8 @@ export const taxGuide2026 = defineVersionedDataset(
     status: "official",
     sourceNote: "Dates fiscales 2026 et regles de retard publiees ou resumees pour ARC et Revenu Quebec.",
     reviewCadence: "quarterly",
+    nextReviewAt: "2026-07-12",
+    criticality: "high",
   },
   {
     datesLimites: [

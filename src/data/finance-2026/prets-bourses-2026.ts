@@ -65,7 +65,9 @@ export const pretsBourses2026 = defineVersionedDataset(
     sourceNote:
       "Règles vérifiées dans les sources officielles AFE 2026-2027, Revenu Québec et ARC. " +
       "Aucun montant AFE personnalisé n'est estimé par ArgentQC.",
-    reviewCadence: "quarterly",
+    reviewCadence: "manual",
+    nextReviewAt: "2026-10-12",
+    criticality: "high",
   },
   {
     programmes: [

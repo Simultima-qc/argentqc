@@ -36,6 +36,8 @@ export const solidarityCreditGuide2026 = defineVersionedDataset(
     sourceNote:
       "Parametres du credit d'impot pour solidarite verifies le 2026-09-01 aupres de Revenu Quebec et du ministere des Finances du Quebec (audit source-backed, issue #21). Le montant reel depend du dossier complet du menage (annexe D, logement, revenu familial).",
     reviewCadence: "quarterly",
+    nextReviewAt: "2026-12-01",
+    criticality: "critical",
   },
   {
     programmeId: "credit-loyer-qc",

@@ -26,6 +26,8 @@ export const retirementGuide2026 = defineVersionedDataset(
     sourceNote:
       "Parametres RRQ 2026 verifies le 2026-08-31 aupres de Revenu Quebec et Retraite Quebec. Les montants reels dependent du dossier de cotisation et de l'age de demande.",
     reviewCadence: "quarterly",
+    nextReviewAt: "2026-11-30",
+    criticality: "critical",
   },
   {
     contributions: {

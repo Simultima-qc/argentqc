@@ -21,6 +21,8 @@ export const groceriesEssentialsBenefitDataset2026 = defineVersionedDataset(
     status: "official",
     sourceNote: "Agence du revenu du Canada et ministère des Finances du Canada",
     reviewCadence: "quarterly",
+    nextReviewAt: "2026-12-01",
+    criticality: "critical",
   },
   {
     programmeId: "credit-tps-fed",

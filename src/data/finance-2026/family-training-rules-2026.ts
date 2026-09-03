@@ -8,6 +8,8 @@ export const familyTrainingRules2026 = defineVersionedDataset(
     status: "official",
     sourceNote: "Paramètres ARC, Retraite Québec et Revenu Québec vérifiés pour 2026.",
     reviewCadence: "quarterly",
+    nextReviewAt: "2026-11-29",
+    criticality: "high",
   },
   {
     ace: {
