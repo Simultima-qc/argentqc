@@ -89,7 +89,7 @@ function getStrategies(r: ReponseQuestionnaire): Array<{
       emoji: "🏦",
       titre: "REER ou CELI : lequel choisir ?",
       desc: "La règle de base : REER si ton revenu actuel dépasse ton revenu estimé à la retraite. La différence peut représenter plusieurs milliers de dollars par an.",
-      lien: "/strategies/reer-vs-celi",
+      lien: "/retraite/reer-vs-celi",
       libelleBtn: "Comparaison REER vs CELI",
     });
   } else {
