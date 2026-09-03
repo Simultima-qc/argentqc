@@ -274,6 +274,21 @@ export default function ComparateurInternetClient() {
               <span style={{ fontSize: "11px", color: "#A8A29E" }}>{f.regions.join(", ")}</span>
             </div>
 
+            {!f.termesVerifies && (
+              <p
+                style={{
+                  fontSize: "11px",
+                  color: "#92400E",
+                  background: "#FEF3C7",
+                  borderRadius: "8px",
+                  padding: "6px 8px",
+                  marginBottom: "10px",
+                }}
+              >
+                ⚠ Prix, vitesse et disponibilité non reconfirmés récemment contre le site officiel — vérifiez avant de vous engager.
+              </p>
+            )}
+
             <a
               href={f.url}
               target="_blank"

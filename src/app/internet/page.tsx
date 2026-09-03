@@ -201,7 +201,7 @@ export default function InternetPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Comparez Vidéotron, Bell, Fizz, Oxio, TekSavvy et Cogeco. Fibre vs câble,
+            Comparez Vidéotron, Bell, Fizz, Oxio et TekSavvy. Fibre vs câble,
             contrat vs sans engagement — tout ce qu&apos;il faut savoir pour choisir
             le meilleur forfait internet selon votre région et votre budget.
           </p>
