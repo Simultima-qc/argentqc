@@ -53,6 +53,8 @@
     "montant_min": 0,
     "montant_max": 35000,
     "montant_affiche": "Retrait REER jusqu'à 35 000 $ (à rembourser en 15 ans)",
+    "montant_sommable": false,
+    "preselection_only": true,
     "description": "Le RAP permet de retirer jusqu'à 35 000 $ de votre REER sans impôt immédiat pour l'achat d'une première propriété. Ce n'est pas une aide gratuite : la somme doit être remboursée dans votre REER sur au plus 15 ans. Les tranches non remboursées sont ajoutées à votre revenu imposable chaque année. Pertinent si vous avez déjà des économies dans un REER et envisagez l'achat d'une première maison.",
     "conditions": [
       "Être acheteur d'une première propriété (ou ne pas avoir été propriétaire depuis au moins 4 ans)",

@@ -234,6 +234,37 @@ test("RRQ remains an orientation-only, non-summable lead", () => {
   );
 });
 
+test("RAP remains an orientation-only, non-summable lead", () => {
+  const programmes = loadProgrammesJson();
+  const rap = programmes.find((programme) => programme.id === "reer-subvention-fed");
+
+  assert.ok(rap);
+  assert.equal(rap.preselection_only, true);
+  assert.equal(rap.montant_sommable, false);
+  assert.equal(
+    JSON.stringify(calculerTotal([rap, { ...rap, id: "summable", montant_sommable: true, montant_min: 100, montant_max: 200 }])),
+    JSON.stringify({ min: 100, max: 200 }),
+  );
+});
+
+test("RAP appears as a lead for a matching renter profile but is excluded from the total", () => {
+  const matched = trouverProgrammes(makeAnswers({
+    statut_logement: "locataire",
+    revenu: "30000-50000",
+  }));
+  const ids = programmeIds(matched);
+
+  assert.ok(ids.has("reer-subvention-fed"), "RAP should still surface as a lead for an eligible renter");
+
+  const rap = matched.find((programme) => programme.id === "reer-subvention-fed");
+  assert.equal(rap.preselection_only, true);
+  assert.equal(rap.montant_sommable, false);
+
+  const totalWithRap = calculerTotal(matched);
+  const totalWithoutRap = calculerTotal(matched.filter((programme) => programme.id !== "reer-subvention-fed"));
+  assert.deepEqual(totalWithRap, totalWithoutRap, "35 000 $ from RAP must not be added to the total");
+});
+
 test("trouverProgrammes matches a student", () => {
   const ids = programmeIds(trouverProgrammes(makeAnswers({
     age: "18-30",
