@@ -166,7 +166,7 @@ export default function ComparateurInternetPage() {
               lineHeight: 1.7,
             }}
           >
-            Comparez les forfaits de 7 fournisseurs internet au Québec. Filtrez par budget,
+            Comparez les forfaits de 6 fournisseurs internet au Québec. Filtrez par budget,
             vitesse et type de connexion pour trouver la meilleure offre selon votre
             situation.
           </p>
