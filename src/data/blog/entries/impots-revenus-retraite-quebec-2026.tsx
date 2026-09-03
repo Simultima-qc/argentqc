@@ -189,10 +189,10 @@ function Content() {
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
             <div className="space-y-3 text-sm">
               {[
-                { credit: "Crédit en raison de l&apos;âge (65 ans et plus)", montant: "Montant admissible — Fédéral : 8 396 $ (crédit ≈ 15 %) · Québec : 3 906 $ (2025, crédit 14 % ≈ 547 $)" },
+                { credit: "Crédit en raison de l&apos;âge (65 ans et plus)", montant: "Montant admissible 2026 — Fédéral : 9 208 $ (crédit 14 % ≈ 1 289 $) · Québec : 3 986 $ (crédit 14 % ≈ 558 $)" },
                 { credit: "Crédit pour revenus de pension", montant: "Fédéral : montant admissible de 2 000 $ (crédit ≈ 280 $) · Québec : inclus au crédit combiné âge/retraite (14 %), pas un crédit distinct" },
                 { credit: "Crédit d&apos;impôt pour maintien à domicile (70 ans+)", montant: "Jusqu&apos;à 6 000 $ remboursables (à valider sur revenuquebec.ca, montant potentiellement sous-évalué pour 2026)" },
-                { credit: "Crédit pour la prolongation de carrière (65 ans et plus, depuis 2025)", montant: "Jusqu&apos;à 1 650 $ si vous travaillez encore" },
+                { credit: "Crédit pour la prolongation de carrière (65 ans et plus, depuis 2025)", montant: "Jusqu&apos;à 1 750 $ (2025 confirmé; montant 2026 indexé, non confirmé)" },
               ].map((item) => (
                 <div key={item.credit} className="flex justify-between items-start border-b border-blue-100 pb-3 last:border-0 last:pb-0 gap-3">
                   <span className="text-blue-900" dangerouslySetInnerHTML={{ __html: item.credit }} />
