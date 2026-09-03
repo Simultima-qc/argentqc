@@ -68,9 +68,9 @@ function Content() {
           <div className="grid grid-cols-1 gap-2">
             {[
               { source: "RRQ — Rente de retraite", imposable: true, detail: "Revenu imposable intégralement, fédéral et provincial" },
-              { source: "PSV — Pension de Sécurité de la vieillesse", imposable: true, detail: "Imposable, mais récupérée si revenu > 90 997 $ (2026)" },
+              { source: "PSV — Pension de Sécurité de la vieillesse", imposable: true, detail: "Imposable, mais récupérée si revenu net > 93 454 $ (2026)" },
               { source: "SRG — Supplément de revenu garanti", imposable: false, detail: "Non imposable, mais réduit si autres revenus augmentent" },
-              { source: "Retraits REER / FERR", imposable: true, detail: "Intégralement imposables — retenue à la source obligatoire" },
+              { source: "Retraits REER / FERR", imposable: true, detail: "Intégralement imposables — retenue à la source de 10 % à 30 % (5 % à 15 % + 14 % au Québec) sur la portion excédant le retrait minimal FERR" },
               { source: "Rente d&apos;un fonds de pension d&apos;employeur", imposable: true, detail: "Admissible au fractionnement si vous avez 65 ans et plus" },
               { source: "Retraits CELI", imposable: false, detail: "Entièrement libres d&apos;impôt, aucun effet sur les prestations" },
               { source: "Dividendes et gains en capital", imposable: true, detail: "Partiellement imposables — taux préférentiels s&apos;appliquent" },
@@ -150,7 +150,7 @@ function Content() {
             {[
               {
                 strategie: "Fractionnement du revenu de retraite",
-                detail: "Transférez jusqu&apos;à 50 % de votre rente de pension admissible à votre conjoint. Économies potentielles : 2 000 $ à 8 000 $ par an.",
+                detail: "Transférez jusqu&apos;à 50 % de votre rente de pension admissible à votre conjoint. Économies potentielles : 2 000 $ à 10 000 $ par an.",
                 badge: "Très efficace",
                 badgeCouleur: "bg-green-600 text-white",
               },
@@ -189,10 +189,10 @@ function Content() {
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
             <div className="space-y-3 text-sm">
               {[
-                { credit: "Crédit en raison de l&apos;âge (65 ans et plus)", montant: "Fédéral : 8 396 $ · Québec : 3 380 $" },
-                { credit: "Crédit pour revenus de pension", montant: "Fédéral : jusqu&apos;à 2 000 $ · Québec : jusqu&apos;à 2 000 $" },
-                { credit: "Crédit d&apos;impôt pour maintien à domicile (70 ans+)", montant: "Jusqu&apos;à 6 000 $ remboursables" },
-                { credit: "Crédit pour la prolongation de carrière (60 ans+)", montant: "Jusqu&apos;à 1 650 $ si vous travaillez encore" },
+                { credit: "Crédit en raison de l&apos;âge (65 ans et plus)", montant: "Montant admissible — Fédéral : 8 396 $ (crédit ≈ 15 %) · Québec : 3 906 $ (2025, crédit 14 % ≈ 547 $)" },
+                { credit: "Crédit pour revenus de pension", montant: "Fédéral : montant admissible de 2 000 $ (crédit ≈ 280 $) · Québec : inclus au crédit combiné âge/retraite (14 %), pas un crédit distinct" },
+                { credit: "Crédit d&apos;impôt pour maintien à domicile (70 ans+)", montant: "Jusqu&apos;à 6 000 $ remboursables (à valider sur revenuquebec.ca, montant potentiellement sous-évalué pour 2026)" },
+                { credit: "Crédit pour la prolongation de carrière (65 ans et plus, depuis 2025)", montant: "Jusqu&apos;à 1 650 $ si vous travaillez encore" },
               ].map((item) => (
                 <div key={item.credit} className="flex justify-between items-start border-b border-blue-100 pb-3 last:border-0 last:pb-0 gap-3">
                   <span className="text-blue-900" dangerouslySetInnerHTML={{ __html: item.credit }} />

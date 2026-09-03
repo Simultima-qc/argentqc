@@ -206,10 +206,12 @@ export const claimsRegistry = [
     slug: "impots-revenus-retraite-quebec-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/impots-revenus-retraite-quebec-2026.tsx",
+    ledgerFile: "docs/claims/impots-revenus-retraite-quebec-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
     scopeNote:
-      "31 occurrences $/%. Guide d'imposition des revenus de retraite; recoupe RRQ/SV/SRG déjà gouvernés individuellement mais n'a pas son propre ledger. À prioriser en 2e position par densité dans un futur workstream.",
+      "Gouverné par l'issue #43 (audit source-backed ciblé). Aucun module finance-2026 dédié aux tranches d'imposition combinées, aux taux de retenue REER/FERR ou au crédit québécois âge/personne vivant seule/revenus de retraite n'existe encore; ledger seul, schéma classique. Corrections appliquées : seuil de récupération de la PSV aligné sur le ledger securite-vieillesse-quebec-2026 (93 454 $), taux de retenue à la source REER/FERR ajoutés, fourchette d'économies du fractionnement alignée sur le ledger fractionnement-revenu-retraite-2026 (2 000 $-10 000 $), mécanisme du crédit fédéral/québécois pour revenu de pension corrigé (mêmes claims que fractionnement-revenu-retraite-2026), montant québécois du crédit en raison de l'âge corrigé (3 906 $ au lieu de 3 380 $), condition d'âge du crédit pour la prolongation de carrière mise à jour (65 ans et plus depuis 2025). Maintien à domicile et montant du crédit de prolongation de carrière restent incertains (hors périmètre, articles dédiés).",
   },
   {
     slug: "celiapp-premier-acheteur-quebec-2026",

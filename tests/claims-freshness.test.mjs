@@ -39,15 +39,15 @@ test("registry entries are all structurally valid", () => {
   assert.deepEqual(errors, []);
 });
 
-test("registry has zero drift against the real repository tree (all 14 ledgers registered, all 29 articles covered)", () => {
+test("registry has zero drift against the real repository tree (all 15 ledgers registered, all 29 articles covered)", () => {
   const errors = computeRegistryDrift({ registry: claimsRegistry, ledgerFilesOnDisk, articleFilesOnDisk, fileExists });
   assert.deepEqual(errors, []);
-  assert.equal(ledgerFilesOnDisk.length, 14);
+  assert.equal(ledgerFilesOnDisk.length, 15);
   assert.equal(articleFilesOnDisk.length, 29);
   const governed = claimsRegistry.filter((entry) => entry.status === "governed");
   const outOfScope = claimsRegistry.filter((entry) => entry.status === "explicitly-out-of-scope");
-  assert.equal(governed.length, 14);
-  assert.equal(outOfScope.length, 16);
+  assert.equal(governed.length, 15);
+  assert.equal(outOfScope.length, 15);
 });
 
 test("fractionnement-revenu-retraite-2026 is governed by issue #41 with a valid nextReviewAt", () => {
@@ -55,6 +55,14 @@ test("fractionnement-revenu-retraite-2026 is governed by issue #41 with a valid 
   assert.ok(entry, "registry entry must exist");
   assert.equal(entry.status, "governed");
   assert.equal(entry.ledgerFile, "docs/claims/fractionnement-revenu-retraite-2026.md");
+  assert.ok(isIsoDate(entry.nextReviewAt));
+});
+
+test("impots-revenus-retraite-quebec-2026 is governed by issue #43 with a valid nextReviewAt", () => {
+  const entry = claimsRegistry.find((candidate) => candidate.slug === "impots-revenus-retraite-quebec-2026");
+  assert.ok(entry, "registry entry must exist");
+  assert.equal(entry.status, "governed");
+  assert.equal(entry.ledgerFile, "docs/claims/impots-revenus-retraite-quebec-2026.md");
   assert.ok(isIsoDate(entry.nextReviewAt));
 });
 
