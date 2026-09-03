@@ -6,9 +6,9 @@ import type { BlogArticle } from "@/data/blog/types";
 const slug = "credit-impot-maintien-domicile-2026";
 
 const baseMetadata: Metadata = {
-  title: "Crédit d&apos;impôt pour maintien à domicile 2026 : Jusqu&apos;à 6 000 $ pour les 70 ans et plus",
+  title: "Crédit d&apos;impôt pour maintien à domicile 2026 : Jusqu&apos;à 7 800 $ pour les 70 ans et plus",
   description:
-    "Tout sur le crédit d&apos;impôt pour maintien à domicile des aînés en 2026 : services admissibles, taux de 36 % ou 38 %, plafond annuel et comment faire votre demande.",
+    "Tout sur le crédit d&apos;impôt pour maintien à domicile des aînés en 2026 : services admissibles, taux de 40 %, plafonds annuels et comment faire votre demande.",
   keywords: [
     "crédit impôt maintien domicile 2026",
     "crédit maintien domicile aînés",
@@ -43,13 +43,13 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">5 min de lecture · 1 juillet 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            Crédit d&apos;impôt pour maintien à domicile 2026 : Jusqu&apos;à 6 000 $ pour les 70 ans et plus
+            Crédit d&apos;impôt pour maintien à domicile 2026 : Jusqu&apos;à 7 800 $ pour les 70 ans et plus
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Si vous avez 70 ans ou plus et que vous payez des services pour rester chez vous,
             le gouvernement du Québec vous rembourse une partie de ces dépenses.
-            Ce crédit d&apos;impôt remboursable peut atteindre <strong>6 000 $ par année</strong>{" "}
-            — et il est souvent ignoré par ceux qui en ont le plus besoin.
+            Ce crédit d&apos;impôt remboursable peut atteindre <strong>7 800 $ par année</strong>{" "}
+            (jusqu&apos;à 10 200 $ pour une personne non autonome) — et il est souvent ignoré par ceux qui en ont le plus besoin.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Crédit <strong>remboursable</strong>{" "} de 36 % (autonome) ou 38 % (non autonome) des dépenses admissibles</li>
+            <li>✓ Crédit <strong>remboursable</strong>{" "} de 40 % des dépenses admissibles, que vous soyez autonome ou non autonome</li>
             <li>✓ Disponible dès <strong>70 ans</strong>, que vous soyez propriétaire ou locataire</li>
             <li>✓ Services admissibles : aide ménagère, repas, soins personnels, entretien extérieur</li>
             <li>✓ Demande faite automatiquement dans votre déclaration de revenus québécoise (TP-1)</li>
@@ -140,15 +140,15 @@ function Content() {
               {[
                 {
                   type: "Personne autonome (70 ans et plus)",
-                  taux: "36 %",
+                  taux: "40 %",
                   plafond: "19 500 $/an",
-                  max: "~6 000 $",
+                  max: "7 800 $",
                 },
                 {
                   type: "Personne non autonome",
-                  taux: "38 %",
+                  taux: "40 %",
                   plafond: "25 500 $/an",
-                  max: "~9 700 $",
+                  max: "10 200 $",
                 },
               ].map((ex) => (
                 <div key={ex.type} className="bg-white rounded-xl border border-blue-100 px-4 py-3">
@@ -165,8 +165,8 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-3">
             <strong>Exemple concret :</strong> {" "}
             Madeleine, 78 ans, autonome, paie 500 $/mois pour de l&apos;aide ménagère et des repas livrés,
-            soit 6 000 $ par année. Elle reçoit <strong>36 % × 6 000 $ = 2 160 $</strong>{" "} de crédit.
-            Si ses dépenses atteignent le plafond de 19 500 $, elle touche le maximum de <strong>7 020 $</strong>.
+            soit 6 000 $ par année. Elle reçoit <strong>40 % × 6 000 $ = 2 400 $</strong>{" "} de crédit.
+            Si ses dépenses atteignent le plafond de 19 500 $, elle touche le maximum de <strong>7 800 $</strong>.
           </p>
           <p className="text-slate-500 text-sm">
             * Le crédit n&apos;est pas réduit en fonction du revenu : même une personne à revenu élevé y a droit au même taux.
@@ -223,7 +223,7 @@ function Content() {
             <div className="space-y-2 text-sm mb-3">
               <div className="flex justify-between">
                 <span className="text-green-900">Crédit maintien à domicile</span>
-                <span className="font-bold text-green-800">jusqu&apos;à 6 000 $/an</span>
+                <span className="font-bold text-green-800">jusqu&apos;à 7 800 $/an</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-green-900">Supplément de revenu garanti (fédéral)</span>
@@ -235,7 +235,7 @@ function Content() {
               </div>
               <div className="border-t border-green-200 pt-2 flex justify-between">
                 <span className="font-bold text-green-900">Total potentiel cumulé</span>
-                <span className="font-extrabold text-green-800 text-base">plus de 22 500 $/an</span>
+                <span className="font-extrabold text-green-800 text-base">plus de 24 000 $/an</span>
               </div>
             </div>
             <p className="text-green-700 text-xs">Les montants dépendent de votre revenu et de votre situation personnelle.</p>
@@ -280,9 +280,9 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "Crédit d'impôt pour maintien à domicile 2026 : Jusqu'à 6 000 $ pour les 70 ans et plus",
+  titre: "Crédit d'impôt pour maintien à domicile 2026 : Jusqu'à 7 800 $ pour les 70 ans et plus",
   description:
-    "Tout sur le crédit d'impôt pour maintien à domicile des aînés en 2026 : services admissibles, taux de 36 % ou 38 %, plafond annuel et comment faire votre demande.",
+    "Tout sur le crédit d'impôt pour maintien à domicile des aînés en 2026 : services admissibles, taux de 40 %, plafonds annuels et comment faire votre demande.",
   date: "2026-07-01",
   categorie: "Aînés",
   tempsLecture: "5 min",

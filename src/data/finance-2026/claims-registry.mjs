@@ -188,9 +188,11 @@ export const claimsRegistry = [
       "Ancien article de blog retiré et redirigé en permanence vers /fr/budget/credit-solidarite (page statique, pas un article src/data/blog/entries). Protection métier détaillée déjà assurée par checkSolidarityCreditGuardrails() dans check-seo.mjs, conservée sans modification; cette entrée assure seulement la couverture d'inventaire (ledger <-> dataset) pour la détection de dérive.",
   },
 
-  // ── 16 articles sans ledger dédié (audit #27, densité $/% en signal de découverte uniquement) ──
-  // fractionnement-revenu-retraite-2026 reste listé ici (ordre historique par densité) mais son
-  // status est "governed" depuis l'issue #41; voir son ledgerFile pour le détail.
+  // ── 17 articles initialement sans ledger dédié (audit #27, densité $/% en signal de découverte
+  // uniquement) ── fractionnement-revenu-retraite-2026, impots-revenus-retraite-quebec-2026,
+  // credit-impot-maintien-domicile-2026 et credit-impot-prolongation-carriere-2026 restent listés ici
+  // (ordre historique par densité) mais leur status est "governed" depuis, respectivement, les issues
+  // #41, #43 et #54; voir leur ledgerFile pour le détail.
   {
     slug: "fractionnement-revenu-retraite-2026",
     kind: "blog-article",
@@ -226,10 +228,12 @@ export const claimsRegistry = [
     slug: "credit-impot-maintien-domicile-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/credit-impot-maintien-domicile-2026.tsx",
+    ledgerFile: "docs/claims/credit-impot-maintien-domicile-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
     scopeNote:
-      "27 occurrences $/%. Crédit remboursable à taux/plafonds indexés annuellement pour aînés (YMYL); pas de ledger produit dans cette issue de gouvernance, à prioriser par densité.",
+      "Gouverné par l'issue #54 (P1 YMYL actif identifié par l'audit #53) : taux corrigé de 36 %/38 % à 40 % unique, montant maximal corrigé de ~6 000 $/~9 700 $ à 7 800 $/10 200 $, alignés sur le ledger déjà gouverné impots-revenus-retraite-quebec-2026. Aucun module finance-2026 dédié; ledger seul, schéma classique.",
   },
   {
     slug: "bouclier-fiscal-quebec-2026",
@@ -244,9 +248,12 @@ export const claimsRegistry = [
     slug: "credit-impot-prolongation-carriere-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/credit-impot-prolongation-carriere-2026.tsx",
+    ledgerFile: "docs/claims/credit-impot-prolongation-carriere-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
-    scopeNote: "26 occurrences $/%. Crédit à taux/seuils pour travailleurs de 60 ans et plus; pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
+    scopeNote:
+      "Gouverné par l'issue #54 (P1 YMYL actif identifié par l'audit #53) : âge d'admissibilité corrigé de 60 à 65 ans (depuis 2025), montant maximal corrigé de 1 650 $ à 1 786 $, taux/seuil/plafond alignés sur le ledger déjà gouverné impots-revenus-retraite-quebec-2026. Aucun module finance-2026 dédié; ledger seul, schéma classique.",
   },
   {
     slug: "credit-impot-handicap-canada-2026",
