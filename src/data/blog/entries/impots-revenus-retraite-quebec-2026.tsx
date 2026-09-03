@@ -96,51 +96,33 @@ function Content() {
               {
                 profil: "Retraité seul — 35 000 $/an de revenus",
                 detail: "RRQ : 12 000 $ · PSV : 8 100 $ · FERR : 14 900 $",
-                impotFederal: "~1 200 $",
-                impotProvincial: "~2 400 $",
-                tauxEffectif: "~10 %",
+                charge: "Charge fiscale faible : le montant personnel de base et le crédit en raison de l&apos;âge éliminent une large part de l&apos;impôt à ce niveau de revenu.",
                 couleur: "bg-green-50 border-green-200",
               },
               {
                 profil: "Couple — 70 000 $/an combinés",
                 detail: "Avec fractionnement du revenu de pension",
-                impotFederal: "~4 800 $",
-                impotProvincial: "~8 200 $",
-                tauxEffectif: "~18 %",
+                charge: "Charge fiscale modérée : le fractionnement réduit la charge combinée par rapport à un couple avec un seul revenu élevé.",
                 couleur: "bg-blue-50 border-blue-200",
               },
               {
                 profil: "Retraité aisé — 100 000 $/an",
-                detail: "Sans planification — PSV partiellement récupérée",
-                impotFederal: "~14 000 $",
-                impotProvincial: "~18 500 $",
-                tauxEffectif: "~32 %",
+                detail: "Sans planification — PSV potentiellement récupérée",
+                charge: "Charge fiscale plus élevée : les tranches supérieures s&apos;appliquent et la PSV est partiellement récupérée au-delà de 93 454 $ de revenu net individuel.",
                 couleur: "bg-orange-50 border-orange-200",
               },
             ].map((ex) => (
               <div key={ex.profil} className={`border rounded-2xl p-4 ${ex.couleur}`}>
                 <p className="font-bold text-slate-800 mb-1">{ex.profil}</p>
                 <p className="text-slate-500 text-xs mb-3">{ex.detail}</p>
-                <div className="grid grid-cols-3 gap-2 text-center text-sm">
-                  <div>
-                    <div className="font-bold text-slate-800">{ex.impotFederal}</div>
-                    <div className="text-xs text-slate-500">Impôt fédéral</div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-800">{ex.impotProvincial}</div>
-                    <div className="text-xs text-slate-500">Impôt Québec</div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-800">{ex.tauxEffectif}</div>
-                    <div className="text-xs text-slate-500">Taux effectif</div>
-                  </div>
-                </div>
+                <p className="text-slate-600 text-sm" dangerouslySetInnerHTML={{ __html: ex.charge }} />
               </div>
             ))}
           </div>
           <p className="text-slate-500 text-sm mt-3">
-            Ces estimations sont à titre indicatif. Votre situation réelle dépend de votre composition de revenus,
-            de votre situation familiale et des crédits auxquels vous avez droit.
+            L&apos;impôt réel dépend des paliers fédéraux et québécois combinés, de votre composition de revenus,
+            de votre situation familiale et des crédits auxquels vous avez droit — utilisez notre{" "}
+            <Link href="/questionnaire" className="underline">questionnaire</Link> pour une estimation personnalisée.
           </p>
         </section>
 
@@ -191,8 +173,8 @@ function Content() {
               {[
                 { credit: "Crédit en raison de l&apos;âge (65 ans et plus)", montant: "Montant admissible 2026 — Fédéral : 9 208 $ (crédit 14 % ≈ 1 289 $) · Québec : 3 986 $ (crédit 14 % ≈ 558 $)" },
                 { credit: "Crédit pour revenus de pension", montant: "Fédéral : montant admissible de 2 000 $ (crédit ≈ 280 $) · Québec : inclus au crédit combiné âge/retraite (14 %), pas un crédit distinct" },
-                { credit: "Crédit d&apos;impôt pour maintien à domicile (70 ans+)", montant: "Jusqu&apos;à 6 000 $ remboursables (à valider sur revenuquebec.ca, montant potentiellement sous-évalué pour 2026)" },
-                { credit: "Crédit pour la prolongation de carrière (65 ans et plus, depuis 2025)", montant: "Jusqu&apos;à 1 750 $ (2025 confirmé; montant 2026 indexé, non confirmé)" },
+                { credit: "Crédit d&apos;impôt pour maintien à domicile (70 ans+)", montant: "Jusqu&apos;à 7 800 $ (autonome) ou 10 200 $ (non autonome), remboursable — 40 % des dépenses admissibles (2026)" },
+                { credit: "Crédit pour la prolongation de carrière (65 ans et plus, depuis 2025)", montant: "Jusqu&apos;à 1 786 $ (2026) — 14 % du revenu de travail admissible, plafonné à 12 755 $" },
               ].map((item) => (
                 <div key={item.credit} className="flex justify-between items-start border-b border-blue-100 pb-3 last:border-0 last:pb-0 gap-3">
                   <span className="text-blue-900" dangerouslySetInnerHTML={{ __html: item.credit }} />
