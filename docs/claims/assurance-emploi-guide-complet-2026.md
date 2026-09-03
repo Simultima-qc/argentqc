@@ -1,5 +1,7 @@
 # Ledger de claims - assurance-emploi-guide-complet-2026
 
+Tentative de revalidation (issue #36, 2026-09-03) : l'accès direct à canada.ca, aux pages ARC et aux autres domaines gouvernementaux (*.gc.ca, dont laws-lois.justice.gc.ca et gazette.gc.ca) était bloqué par la politique réseau de cette session (confirmé par des échecs de connexion répétés, y compris en tentative directe hors outil de navigation). Aucune source primaire n'a donc pu être consultée pour cette tentative, et aucune valeur ni aucune date de vérification ci-dessous n'a été modifiée en conséquence. La dernière vérification confirmée sur source primaire reste celle du 2026-08-08. Une revalidation réelle nécessite un accès réseau direct aux domaines gouvernementaux, à effectuer lors d'un prochain passage.
+
 | claim | source officielle | date de vérification | statut | prochaine vérification | action |
 | --- | --- | --- | --- | --- | --- |
 | Les prestations régulières visent notamment les personnes qui ont perdu leur emploi sans en être responsables, sont disponibles et cherchent activement du travail. | Canada.ca - Admissibilité aux prestations régulières, https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere/admissibilite.html | 2026-08-08 | confirmé | 2026-11-08 | Aucune. |
