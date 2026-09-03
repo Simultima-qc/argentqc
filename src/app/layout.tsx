@@ -30,14 +30,6 @@ export default function RootLayout({
             gtag('config', 'G-EHYFT9BFCN');
           `}
         </Script>
-
-        {/* Google AdSense – Auto ads */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2932496105657945"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
       </head>
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
         {children}
