@@ -11,6 +11,7 @@ import {
   validateDatasetMetaShape,
   validateRegistryEntryShape,
 } from "./lib/claims-freshness.mjs";
+import { findUnregisteredIndexableRoutes } from "./lib/route-registry.mjs";
 
 const rootDir = process.cwd();
 const appDir = path.join(rootDir, "src", "app");
@@ -42,6 +43,12 @@ const childcareCreditDatasetFile = path.join(rootDir, "src", "data", "finance-20
 const sportLegacyRedirectFile = path.join(appDir, "subvention-sport-enfant-quebec", "page.tsx");
 const financeDir = path.join(rootDir, "src", "data", "finance-2026");
 const freshnessNowEnvVar = "ARGENTQC_FRESHNESS_NOW";
+
+// Routes intentionally outside seoPageDefinitions/blogIndexDefinition but
+// already covered by another documented, non-registry mechanism.
+const legitimateSeoRegistryExceptions = [
+  "/politique-confidentialite", // registered directly in sitemap.ts legalEntries
+];
 
 const errors = [];
 
@@ -439,6 +446,37 @@ function checkBlogAndSeoRoutes() {
   }
 
   return { seoRoutes, articleSlugs };
+}
+
+function checkStaticRoutesRegisteredInSeoRegistry(seoRoutes) {
+  const pageFiles = [];
+  walkPages(appDir, pageFiles);
+
+  const seoPagesSource = read(seoPagesFile);
+  const blogIndexBlock = extractBlockAfter(seoPagesSource, "export const blogIndexDefinition");
+  const blogIndexPathMatch = blogIndexBlock ? blogIndexBlock.match(/path:\s*"([^"]+)"/) : null;
+  if (!blogIndexPathMatch) {
+    report("Unable to read blogIndexDefinition path", [`Expected a path field in ${relative(seoPagesFile)}`]);
+  }
+  const registeredPaths = [...seoRoutes, ...(blogIndexPathMatch ? [blogIndexPathMatch[1]] : [])];
+
+  const pages = pageFiles.map((filePath) => ({
+    routePath: routePathForPageFile(filePath),
+    source: read(filePath),
+  }));
+
+  const orphanRoutes = findUnregisteredIndexableRoutes({
+    pages,
+    registeredPaths,
+    legitimateExceptions: legitimateSeoRegistryExceptions,
+  });
+
+  if (orphanRoutes.length > 0) {
+    report("Static indexable routes exist in src/app but are missing from the SEO registry", [
+      ...orphanRoutes,
+      "Register each route in seoPageDefinitions (src/data/seo-pages.ts), or mark it noindex / permanentRedirect if it must not be indexed.",
+    ]);
+  }
 }
 
 function checkMetadataExports() {
@@ -1288,6 +1326,7 @@ function checkInternalAnchorLinks() {
 }
 
 const { seoRoutes, articleSlugs } = checkBlogAndSeoRoutes();
+checkStaticRoutesRegisteredInSeoRegistry(seoRoutes);
 checkMetadataExports();
 checkLocalizedRoutes();
 checkDictionaryShapes();
@@ -1301,4 +1340,4 @@ checkPublicFooterPrivacyLinks();
 checkInternalAnchorLinks();
 finish();
 
-console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, source-backed claim ledgers, claims freshness/coverage registry, footer links, and internal link usage.`);
+console.log(`SEO check passed for ${seoRoutes.length} static routes, ${articleSlugs.length} blog articles, localized routes, dictionaries, questionnaire propagation, text encoding, source-backed claim ledgers, claims freshness/coverage registry, footer links, internal link usage, and the inverse SEO registry orphan gate.`);

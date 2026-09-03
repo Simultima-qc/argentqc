@@ -10,7 +10,7 @@
     "check:seo": "node scripts/check-seo.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "test": "npm run test:unit && node node_modules/@playwright/test/cli.js test",
-    "test:unit": "node --test tests/questionnaire-url.test.mjs tests/tax-calculator.test.mjs tests/programmes-matching.test.mjs tests/json-ld.test.mjs tests/student-aid.test.mjs tests/ace-ccf.test.mjs tests/reee.test.mjs tests/rrq-2026.test.mjs tests/acebe-2026.test.mjs tests/solidarity-credit-2026.test.mjs tests/childcare-credit-2026.test.mjs tests/finance-2026-schema.test.mjs tests/claims-freshness.test.mjs",
+    "test:unit": "node --test tests/questionnaire-url.test.mjs tests/tax-calculator.test.mjs tests/programmes-matching.test.mjs tests/json-ld.test.mjs tests/student-aid.test.mjs tests/ace-ccf.test.mjs tests/reee.test.mjs tests/rrq-2026.test.mjs tests/acebe-2026.test.mjs tests/solidarity-credit-2026.test.mjs tests/childcare-credit-2026.test.mjs tests/finance-2026-schema.test.mjs tests/claims-freshness.test.mjs tests/route-registry.test.mjs",
     "test:ui": "node node_modules/@playwright/test/cli.js test --ui"
   },
   "dependencies": {
