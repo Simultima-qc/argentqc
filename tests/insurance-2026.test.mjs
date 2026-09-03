@@ -104,32 +104,40 @@ test("Desjardins and CAA-Quebec URLs were corrected to their current site struct
   assert.equal(caaAuto.url, "https://www.caaquebec.com/fr/assurances/vehicule/assurance-auto");
 });
 
-test("Promutuel auto URL was migrated off the stale promutuel.ca domain", () => {
+test("Promutuel auto URL points at the stable product page on the migrated promutuelassurance.ca domain", () => {
   const promutuel = insuranceData.assureursAuto2026.find((c) => c.nom === "Promutuel");
   assert.ok(promutuel);
-  const url = new URL(promutuel.url);
-  assert.equal(url.hostname, "www.promutuelassurance.ca", "promutuel.ca did not surface in any current search result; the live domain is promutuelassurance.ca");
+  assert.equal(promutuel.url, "https://www.promutuelassurance.ca/fr/assurance-auto", "independent review corrected the exact path from the earlier campaign-slug URL to the stable product page; the domain migration off promutuel.ca is unchanged");
 });
 
-test("auto prix_base ranges were corrected down to align with 2025-2026 Quebec market averages (GAA-anchored), habitation ranges left unchanged", () => {
-  const autoMidpoints = insuranceData.assureursAuto2026.map((c) => (c.prix_base[0] + c.prix_base[1]) / 2);
-  const averageMonthly = autoMidpoints.reduce((a, b) => a + b, 0) / autoMidpoints.length;
-  const averageAnnual = averageMonthly * 12;
-  // Convergent 2025-2026 sources (GAA ~1006$/an 2025, KBD ~1045$/an early 2026,
-  // other aggregators 850$-1352$/an) cluster well below the previous ~1377$/an
-  // dataset average; the corrected average must land inside that range.
-  assert.ok(averageAnnual > 900 && averageAnnual < 1300, `expected corrected auto average annual premium between 900$ and 1300$, got ${averageAnnual.toFixed(0)}$`);
+test("Beneva habitation and auto URLs point at their stable official product pages (independent review correction)", () => {
+  const hab = insuranceData.assureursHabitation2026.find((c) => c.nom === "Beneva");
+  const auto = insuranceData.assureursAuto2026.find((c) => c.nom === "Beneva");
+  assert.equal(hab.url, "https://www.beneva.ca/fr/assurance-habitation");
+  assert.equal(auto.url, "https://www.beneva.ca/fr/assurance-auto");
+});
 
+test("auto prix_base ranges were reverted to their pre-issue-#49 values: an aggregate provincial statistic does not justify six fabricated per-carrier ranges (independent review rejected the recalibration)", () => {
   // Values come from a module evaluated in a separate vm context (a
   // different realm), so its arrays are not `instanceof` this file's Array
   // and deepEqual's cross-realm check trips on them; spread into a
   // same-realm array first so only element values are compared.
-  const desjardinsAuto = insuranceData.assureursAuto2026.find((c) => c.nom === "Desjardins");
-  assert.deepEqual([...desjardinsAuto.prix_base], [76, 112]);
-  assert.notDeepEqual([...desjardinsAuto.prix_base], [95, 140], "the previous, uncorrected base range should not survive this pass");
+  const expected = {
+    Desjardins: [95, 140],
+    Intact: [100, 155],
+    "Belair Direct": [88, 135],
+    "CAA-Quebec": [92, 138],
+    Beneva: [90, 132],
+    Promutuel: [85, 128],
+  };
+  for (const [nom, range] of Object.entries(expected)) {
+    const carrier = insuranceData.assureursAuto2026.find((c) => c.nom === nom);
+    assert.ok(carrier, `expected an auto carrier named ${nom}`);
+    assert.deepEqual([...carrier.prix_base], range, `${nom}: auto prix_base should be reverted to its pre-issue-#49 value, not an unsourced per-carrier recalibration`);
+  }
 
   const desjardinsHab = insuranceData.assureursHabitation2026.find((c) => c.nom === "Desjardins");
-  assert.deepEqual([...desjardinsHab.prix_base], [28, 45], "habitation prix_base cross-validated successfully against current market data, so it is unchanged");
+  assert.deepEqual([...desjardinsHab.prix_base], [28, 45], "habitation prix_base cross-validated successfully against current market data and was never part of the rejected recalibration, so it stays unchanged");
 });
 
 test("Montreal auto region multiplier reflects the ~35% regional premium gap found in convergent sources", () => {
