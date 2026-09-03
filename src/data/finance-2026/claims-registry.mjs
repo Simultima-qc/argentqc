@@ -188,15 +188,19 @@ export const claimsRegistry = [
       "Ancien article de blog retiré et redirigé en permanence vers /fr/budget/credit-solidarite (page statique, pas un article src/data/blog/entries). Protection métier détaillée déjà assurée par checkSolidarityCreditGuardrails() dans check-seo.mjs, conservée sans modification; cette entrée assure seulement la couverture d'inventaire (ledger <-> dataset) pour la détection de dérive.",
   },
 
-  // ── 17 articles sans ledger dédié (audit #27, densité $/% en signal de découverte uniquement) ──
+  // ── 16 articles sans ledger dédié (audit #27, densité $/% en signal de découverte uniquement) ──
+  // fractionnement-revenu-retraite-2026 reste listé ici (ordre historique par densité) mais son
+  // status est "governed" depuis l'issue #41; voir son ledgerFile pour le détail.
   {
     slug: "fractionnement-revenu-retraite-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/fractionnement-revenu-retraite-2026.tsx",
+    ledgerFile: "docs/claims/fractionnement-revenu-retraite-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
     scopeNote:
-      "33 occurrences $/% (signal de découverte, pas une preuve d'erreur). Aucun ledger produit dans cette issue de gouvernance (#28): créer 17 ledgers complets mécaniquement est explicitement hors mandat. Stratégie de fractionnement du revenu de retraite, dépendante des tranches d'imposition 2026 déjà versionnées dans tax-2026.ts; à auditer/lier en priorité dans un futur workstream de couverture (la plus haute densité des 17).",
+      "Gouverné par l'issue #41 (audit source-backed ciblé). Aucun module finance-2026 dédié aux tranches d'imposition combinées ou au crédit québécois âge/personne vivant seule/revenus de retraite n'existe encore; ledger seul, schéma classique. Corrections appliquées : formulaire québécois fabriqué « TP-932/TP-932.A » remplacé par l'Annexe Q réelle, taux et montant du crédit fédéral pour revenu de pension mis à jour (14 %, ~280 $), mécanisme du crédit québécois corrigé (pas 20 % sur 2 000 $), et ajout de la condition d'âge de 65 ans propre au Québec pour une rente de RPA (absente de l'article d'origine).",
   },
   {
     slug: "impots-revenus-retraite-quebec-2026",
