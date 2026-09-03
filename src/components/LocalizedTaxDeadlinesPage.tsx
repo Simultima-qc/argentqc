@@ -15,10 +15,10 @@ const PARCH = "#F7F3EC";
 const enDates = [
   { situation: "Employee", federal: "April 30, 2026", provincial: "April 30, 2026" },
   { situation: "Self-employed taxpayer (or spouse)", federal: "June 15, 2026", provincial: "June 15, 2026" },
-  { situation: "Payment of balance owing", federal: "April 30, 2026", provincial: "May 1, 2026" },
+  { situation: "Payment of balance owing", federal: "April 30, 2026", provincial: "April 30, 2026" },
   { situation: "Deceased person (before November 2025)", federal: "April 30, 2026", provincial: "April 30, 2026" },
   { situation: "Deceased person (Nov.-Dec. 2025)", federal: "6 months after death", provincial: "6 months after death" },
-  { situation: "Graduated rate estate", federal: "90 days after year-end", provincial: "90 days after year-end" },
+  { situation: "Graduated rate estate", federal: "90 days after the trust's tax year-end", provincial: "90 days after the trust's tax year-end" },
 ];
 
 const enPenalties = [
@@ -27,21 +27,21 @@ const enPenalties = [
     penaliteBase: "5% of balance owing",
     penaliteMensuelle: "+ 1% for each full month (up to 12 months)",
     recidive: "10% if repeated within 3 years",
-    interets: "Interest compounded daily at the prescribed rate (~8%)",
+    interets: "Interest compounded daily, at the CRA's quarterly prescribed rate (7% for all four quarters of 2026)",
   },
   {
     organisme: "Revenu Quebec (provincial)",
     penaliteBase: "5% of balance owing",
-    penaliteMensuelle: "+ 1% for each full month (up to 20 months)",
+    penaliteMensuelle: "+ 1% for each full month (up to 12 months)",
     recidive: "10% if repeated within 3 years",
-    interets: "Interest compounded daily at the prescribed rate",
+    interets: "Interest compounded daily, at Revenu Quebec's quarterly prescribed rate (distinct from the CRA's)",
   },
 ];
 
 const enCalendar = [
-  { date: "March 1, 2026", evenement: "RRSP contribution deadline for the 2025 tax year", note: "Already passed, but worth keeping in mind for the next filing cycle." },
-  { date: "Late February 2026", evenement: "Receive T4 and RL-1 slips from your employer", note: "Make sure every slip has arrived before you file." },
-  { date: "Starting in March 2026", evenement: "NETFILE and Quebec online filing open", note: "Filing early usually means receiving your refund sooner." },
+  { date: "March 2, 2026", evenement: "RRSP contribution deadline for the 2025 tax year", note: "Already passed, but worth keeping in mind for the next filing cycle (the 60th day, March 1, 2026, is a Sunday, pushing the deadline to March 2)." },
+  { date: "March 2, 2026", evenement: "Receive T4 and RL-1 slips from your employer", note: "Employers' legal deadline moves to March 2, 2026 since February 28, 2026 is a Saturday - make sure every slip has arrived before you file." },
+  { date: "February 23, 2026", evenement: "NETFILE and Quebec online filing open", note: "Filing early usually means receiving your refund sooner." },
   { date: "April 30, 2026", evenement: "Main deadline for employees and balance owing", note: "Late-payment penalties can begin immediately after the deadline." },
   { date: "June 15, 2026", evenement: "Filing deadline for self-employed taxpayers", note: "The payment deadline does not move with this filing extension." },
 ];

@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Est-ce que je dois payer mon solde même si j'ai jusqu'au 15 juin (travailleur autonome) ?",
-    r: "Non — l'extension du 15 juin concerne uniquement la production de la déclaration, pas le paiement. Si vous avez un solde à payer, il reste dû au 30 avril pour l'ARC et au 1er mai pour Revenu Québec. Des intérêts s'accumulent sur le solde non payé dès le lendemain de la date limite de paiement.",
+    r: "Non — l'extension du 15 juin concerne uniquement la production de la déclaration, pas le paiement. Si vous avez un solde à payer, il reste dû au 30 avril pour l'ARC et pour Revenu Québec. Des intérêts s'accumulent sur le solde non payé dès le lendemain de la date limite de paiement.",
   },
   {
     q: "Comment obtenir un délai supplémentaire pour produire ma déclaration ?",
