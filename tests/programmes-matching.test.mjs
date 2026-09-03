@@ -366,13 +366,19 @@ test("closed federal/provincial programmes are not published as active (issue #5
   const ids = programmeIds(loadProgrammesJson());
 
   assert.ok(
-    !ids.has("chauffez-vert-qc"),
-    "chauffez-vert-qc must stay removed: the program closed on 2026-03-31 (issue #51 revalidation)",
-  );
-  assert.ok(
     !ids.has("canada-greener-homes-fed"),
     "canada-greener-homes-fed must stay removed: closed to new applicants since 2024-02 (issue #51 revalidation)",
   );
+});
+
+test("chauffez-vert-qc is scoped to the still-active dual-energy volet, not the closed mazout/propane volet (issue #51, PR #52 review)", () => {
+  const programmes = loadProgrammesJson();
+  const chauffezVert = programmes.find((programme) => programme.id === "chauffez-vert-qc");
+
+  assert.ok(chauffezVert, "chauffez-vert-qc must be present: the biénergie électricité-gaz naturel volet remains active since 2026-04-01");
+  assert.match(chauffezVert.nom, /bi[ée]nergie/i);
+  assert.match(chauffezVert.description, /mazout|propane/i, "description must clarify the closed mazout/propane volet is distinct");
+  assert.equal(chauffezVert.montant_max, 7400);
 });
 
 test("RQAP remains an orientation-only, non-summable lead (issue #51)", () => {
@@ -433,7 +439,7 @@ test("pension income splitting range matches the already-governed fractionnement
 test("programmes.json catalogue size is stable and every entry has a non-empty description (issue #51)", () => {
   const programmes = loadProgrammesJson();
 
-  assert.equal(programmes.length, 83, "unexpected catalogue size change -- update this count deliberately if programmes were added/removed");
+  assert.equal(programmes.length, 84, "unexpected catalogue size change -- update this count deliberately if programmes were added/removed");
 
   for (const programme of programmes) {
     assert.ok(

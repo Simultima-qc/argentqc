@@ -45,6 +45,28 @@
     }
   },
   {
+    "id": "chauffez-vert-qc",
+    "nom": "Chauffez vert — volet Passage à la biénergie électricité-gaz naturel",
+    "organisme": "Gouvernement du Québec / Énergir",
+    "niveau": "provincial",
+    "categorie": "energie",
+    "montant_min": 500,
+    "montant_max": 7400,
+    "montant_affiche": "Jusqu'à 7 400 $ (jusqu'à 80 % des coûts d'installation)",
+    "description": "Le volet conversion mazout/propane de Chauffez vert a cessé d'accepter de nouvelles demandes le 31 mars 2026. Le volet distinct « Passage à la biénergie électricité-gaz naturel » reste actif : depuis le 1er avril 2026, l'aide financière pour convertir un chauffage central au gaz naturel en système biénergie (électricité en source principale, gaz naturel en appoint) est administrée directement par Énergir pour ses clients, avec un investissement gouvernemental de 163,4 M$. Ne pas confondre les deux volets : ne s'applique pas au remplacement d'un chauffage au mazout ou au propane.",
+    "conditions": [
+      "Être propriétaire d'une résidence chauffée au gaz naturel (unifamiliale, jumelée, en rangée, duplex/triplex/condo) desservie par Énergir",
+      "Installer un système biénergie avec l'électricité comme source principale et le gaz naturel en appoint",
+      "S'inscrire directement auprès d'Énergir (et non plus via le programme gouvernemental Chauffez vert d'origine)"
+    ],
+    "lien_officiel": "https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/conversion-bienergie-electricite-gaz-naturel",
+    "criteres": {
+      "proprietaire": true,
+      "provinces": ["QC"],
+      "renovation": true
+    }
+  },
+  {
     "id": "reer-subvention-fed",
     "nom": "Régime d'accession à la propriété (RAP) — retrait REER remboursable",
     "organisme": "Gouvernement du Canada",

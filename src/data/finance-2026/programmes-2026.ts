@@ -26,9 +26,13 @@ export const programmesDataset2026 = defineVersionedDataset(
       "inventaire complet des programmes, verification contre des sources gouvernementales officielles ou " +
       "reutilisation des sources de verite deja gouvernees du depot (SV/SRG, RRQ, AFE, ACE, ACEBE, credit " +
       "solidarite, frais de garde, credit combine age/personne vivant seule/revenus de retraite, fractionnement " +
-      "du revenu de pension) lorsque le meme claim y etait deja audite. Deux programmes fermes retires " +
-      "(chauffez-vert-qc, ferme le 2026-03-31; canada-greener-homes-fed, ferme aux nouvelles demandes depuis " +
-      "2024-02) plutot que publies comme actifs. Plusieurs claims corriges (montants SV/SRG/Allocation/SRG-survivant, " +
+      "du revenu de pension) lorsque le meme claim y etait deja audite. Un programme ferme retire " +
+      "(canada-greener-homes-fed, ferme aux nouvelles demandes depuis 2024-02) plutot que publie comme actif. " +
+      "chauffez-vert-qc corrige suite a la revue independante de la PR #52 (2026-09-03): la premiere version de " +
+      "cette PR l'avait retire integralement, mais le volet distinct 'Passage a la bienergie electricite-gaz " +
+      "naturel' reste actif depuis le 2026-04-01 (administre par Energir); seul le volet mazout/propane est " +
+      "ferme (2026-03-31) - l'entree est desormais explicitement rebornee a ce volet actif. Plusieurs autres " +
+      "claims corriges (montants SV/SRG/Allocation/SRG-survivant, " +
       "RAP releve a 60 000$, credits fiscaux au taux federal 2026 de 14%, credit personnes aidantes restructure, " +
       "Roulez vert reduit a 2 000$/1 000$ avant sa fin le 2026-12-31, etc.). Accès direct bloque (EGRESS_BLOCKED) " +
       "vers la plupart des domaines gouvernementaux dans cet environnement: verification par recherche web ciblee " +
