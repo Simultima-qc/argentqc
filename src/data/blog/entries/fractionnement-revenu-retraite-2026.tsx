@@ -60,7 +60,7 @@ function Content() {
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Transférez jusqu&apos;à <strong>50 % de votre revenu de pension</strong>{" "}à votre conjoint pour réduire votre impôt</li>
             <li>✓ Économies typiques de <strong>2 000 $ à 10 000 $</strong>{" "}par année pour un couple avec revenus inégaux</li>
-            <li>✓ Se fait directement dans votre déclaration de revenus — formulaires T1032 (fédéral) et TP-932 (Québec)</li>
+            <li>✓ Se fait directement dans votre déclaration de revenus — formulaire T1032 au fédéral et Annexe Q au Québec</li>
             <li>✓ Le conjoint receveur peut aussi réclamer le <strong>crédit pour revenu de pension</strong>{" "}de 2 000 $</li>
           </ul>
         </div>
@@ -81,7 +81,7 @@ function Content() {
           </p>
           <p className="text-slate-600 leading-relaxed">
             L&apos;avantage est simple : si un conjoint est imposé à un taux marginal élevé (par exemple 53 %) et
-            l&apos;autre à un taux faible (par exemple 20 %), déplacer du revenu du premier vers le second réduit
+            l&apos;autre à un taux faible (par exemple 26 %), déplacer du revenu du premier vers le second réduit
             la facture totale d&apos;impôt du ménage.
           </p>
         </section>
@@ -126,6 +126,15 @@ function Content() {
               <li>• Retraits du REER (avant conversion en rente ou FERR)</li>
               <li>• Retraits d&apos;un FERR avant 65 ans (sauf décès du conjoint)</li>
             </ul>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mt-3">
+            <p className="font-bold text-amber-800 mb-2 text-sm">Particularité Québec : 65 ans exigés pour tous les revenus, y compris une rente d&apos;employeur (RPA)</p>
+            <p className="text-amber-700 text-sm">
+              Au fédéral, une rente viagère de RPA est admissible à tout âge. Au Québec, l&apos;Annexe Q exige que la
+              personne qui transfère ait 65 ans ou plus au 31 décembre de l&apos;année, quel que soit le type de revenu
+              de retraite transféré — y compris une rente de RPA. Avant cet âge, le fractionnement d&apos;une rente de
+              RPA reste possible au fédéral seul et n&apos;a aucun effet sur l&apos;impôt du Québec.
+            </p>
           </div>
         </section>
 
@@ -241,8 +250,8 @@ function Content() {
               },
               {
                 num: "2",
-                titre: "Remplir le formulaire TP-932.A (Québec)",
-                texte: "Le formulaire TP-932.A est l'équivalent provincial québécois. Le Québec a ses propres règles d'admissibilité qui sont généralement similaires au fédéral, mais vérifiez les détails sur le site de Revenu Québec.",
+                titre: "Remplir l'Annexe Q (Québec)",
+                texte: "L'Annexe Q est l'équivalent provincial québécois du formulaire fédéral. Le Québec exige que la personne qui transfère ait 65 ans ou plus, y compris pour une rente de RPA — vérifiez les détails sur le site de Revenu Québec.",
               },
               {
                 num: "3",
@@ -280,18 +289,19 @@ function Content() {
             <p className="font-bold text-green-800 mb-3">Le crédit pour revenu de pension en 2026</p>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-green-900">Crédit fédéral (15 % sur max 2 000 $)</span>
-                <span className="font-bold text-green-800">jusqu&apos;à 300 $</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-green-900">Crédit provincial Québec (20 % sur max 2 000 $)</span>
-                <span className="font-bold text-green-800">jusqu&apos;à 400 $</span>
-              </div>
-              <div className="border-t border-green-200 pt-2 flex justify-between">
-                <span className="font-bold text-green-900">Total combiné possible</span>
-                <span className="font-extrabold text-green-800 text-base">jusqu&apos;à 700 $</span>
+                <span className="text-green-900">Crédit fédéral (14 % sur max 2 000 $, ligne 31400)</span>
+                <span className="font-bold text-green-800">jusqu&apos;à 280 $</span>
               </div>
             </div>
+            <p className="text-green-900 text-sm mt-3">
+              Le Québec n&apos;a pas de crédit distinct « pour revenu de pension » calqué sur le montant fédéral. Il
+              accorde plutôt un <strong>montant pour revenus de retraite</strong>, combiné dans un seul crédit avec le
+              montant en raison de l&apos;âge et le montant pour personne vivant seule, calculé à 14 % sur un montant
+              admissible plafonné et indexé chaque année (3 470 $ en 2025, pour un crédit maximal de 486 $), puis réduit
+              de 18,75 % du revenu familial net excédant un seuil également indexé (42 090 $ en 2025). Le total combiné
+              dépend donc du revenu familial du couple — vérifiez les paramètres indexés de l&apos;année courante sur le
+              site de Revenu Québec avant de planifier un montant précis.
+            </p>
           </div>
           <p className="text-slate-600 leading-relaxed text-sm">
             Si votre conjoint ne touchait aucun revenu de pension avant le fractionnement, il peut maintenant
