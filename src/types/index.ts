@@ -26,6 +26,12 @@ export interface Programme {
    * be determined from the questionnaire alone (see issue #58).
    */
   admissibiliteAgeIncertaine?: boolean;
+  /**
+   * Computed by trouverProgrammes(), not stored in the catalogue: true when the
+   * user's income bucket overlaps a revenu_min/revenu_max boundary so eligibility
+   * cannot be determined from the questionnaire alone (see issue #67).
+   */
+  admissibiliteRevenuIncertaine?: boolean;
   description: string;
   conditions: string[];
   lien_officiel: string;

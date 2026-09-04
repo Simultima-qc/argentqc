@@ -25,19 +25,22 @@ interface LocalizedResultsPageProps {
 }
 
 export function getConfidenceTier(programme: Programme): "principal" | "verifier" {
-  return programme.niveau === "municipal" || programme.preselection_only || programme.admissibiliteAgeIncertaine
+  return programme.niveau === "municipal" ||
+    programme.preselection_only ||
+    programme.admissibiliteAgeIncertaine ||
+    programme.admissibiliteRevenuIncertaine
     ? "verifier"
     : "principal";
 }
 
-// issue #58: a programme whose age eligibility is uncertain must not be
-// presented in the hero summary as a confirmed amount (calculerTotal already
+// issue #58/#67: a programme whose age or income eligibility is uncertain must not
+// be presented in the hero summary as a confirmed amount (calculerTotal already
 // excludes it from the certain total — the display must match).
 export function getHeroRowDisplay(
   programme: Programme,
   verifierLabel: string
 ): { icon: string; iconColor: string; value: string; valueColor?: string } {
-  if (programme.admissibiliteAgeIncertaine) {
+  if (programme.admissibiliteAgeIncertaine || programme.admissibiliteRevenuIncertaine) {
     return { icon: "?", iconColor: GOLD, value: verifierLabel, valueColor: GOLD };
   }
   return { icon: "✓", iconColor: GREEN, value: programme.montant_affiche };
@@ -65,6 +68,14 @@ export function getProgrammeReason(programme: Programme, reponses: ReponseQuesti
     return fr
       ? "Votre tranche d'âge chevauche le seuil d'âge de ce programme : votre admissibilité exacte reste à vérifier."
       : "Your age range overlaps this program's age threshold: your exact eligibility still needs to be verified.";
+
+  // issue #67: same principle as age ambiguity — surfaces even for
+  // preselection_only programmes, and before the generic revenu_max reason below
+  // (which assumes certain eligibility).
+  if (programme.admissibiliteRevenuIncertaine)
+    return fr
+      ? "Votre tranche de revenu chevauche le seuil de revenu de ce programme : votre admissibilité exacte reste à vérifier."
+      : "Your income range overlaps this program's income threshold: your exact eligibility still needs to be verified.";
 
   if (programme.preselection_only)
     return fr
