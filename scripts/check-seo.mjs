@@ -13,6 +13,7 @@ import {
   validateRegistryEntryShape,
 } from "./lib/claims-freshness.mjs";
 import { findUnregisteredIndexableRoutes } from "./lib/route-registry.mjs";
+import { findProgrammeCatalogueDrift, isMiddlewareRedirectedRoute } from "./lib/programme-catalogue-drift.mjs";
 
 const rootDir = process.cwd();
 const appDir = path.join(rootDir, "src", "app");
@@ -42,6 +43,7 @@ const solidarityCreditLedgerFile = path.join(claimsDir, "credit-impot-solidarite
 const childcareCreditLedgerFile = path.join(claimsDir, "credit-frais-garde-enfants-2026.md");
 const childcareCreditDatasetFile = path.join(rootDir, "src", "data", "finance-2026", "childcare-credit-2026.ts");
 const sportLegacyRedirectFile = path.join(appDir, "subvention-sport-enfant-quebec", "page.tsx");
+const middlewareFile = path.join(rootDir, "src", "middleware.ts");
 const financeDir = path.join(rootDir, "src", "data", "finance-2026");
 const freshnessNowEnvVar = "ARGENTQC_FRESHNESS_NOW";
 
@@ -967,6 +969,39 @@ function checkSolidarityCreditGuardrails() {
   }
 }
 
+// Structural guardrail for issue #69 (Finding 2 of #66): any src/app
+// page.tsx that still hardcodes a local `Programme[]` literal (the
+// SeoProgrammesPage.tsx duplication pattern) must not disagree with
+// src/data/programmes.json for a programme id it duplicates. This is
+// generic - it walks every page under src/app, not a fixed allowlist of
+// the files known to be wrong today - so a future page copying a stale
+// montant_min/montant_max under an id that also exists centrally is
+// caught automatically, instead of only the three concrete values fixed
+// by this issue.
+function checkProgrammeCatalogueDrift() {
+  if (!fs.existsSync(programmesJsonFile)) {
+    report("Programmes catalogue is missing", [relative(programmesJsonFile)]);
+    return;
+  }
+
+  const catalogue = JSON.parse(read(programmesJsonFile));
+  const middlewareSource = fs.existsSync(middlewareFile) ? read(middlewareFile) : "";
+
+  const pageFiles = [];
+  walkPages(appDir, pageFiles);
+  const pages = pageFiles
+    .map((filePath) => ({ filePath, source: read(filePath) }))
+    .filter(({ filePath }) => !isMiddlewareRedirectedRoute(routePathForPageFile(filePath), middlewareSource));
+
+  const drifts = findProgrammeCatalogueDrift({ pages, catalogue });
+  for (const drift of drifts) {
+    report("SEO page programme copy has drifted from the governed programmes catalogue", [
+      `${relative(drift.filePath)}: "${drift.id}" montant_min/montant_max is ${drift.local.montant_min}/${drift.local.montant_max}, ` +
+        `but ${relative(programmesJsonFile)} has ${drift.canonical.montant_min}/${drift.canonical.montant_max}`,
+    ]);
+  }
+}
+
 function checkChildcareCreditGuardrails() {
   if (!fs.existsSync(programmesJsonFile)) {
     report("Programmes catalogue is missing", [relative(programmesJsonFile)]);
@@ -1336,6 +1371,7 @@ checkQuestionnairePropagation();
 checkSourceBackedClaimLedgers();
 checkSolidarityCreditGuardrails();
 checkChildcareCreditGuardrails();
+checkProgrammeCatalogueDrift();
 checkClaimsFreshnessAndCoverage();
 checkEncoding();
 checkPublicFooterPrivacyLinks();

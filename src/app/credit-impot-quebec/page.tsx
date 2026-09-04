@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -42,20 +43,7 @@ const programmes: Programme[] = [
     lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
     criteres: {},
   },
-  {
-    id: "credit-maintien-qc",
-    nom: "Crédit d'impôt pour maintien à domicile des aînés",
-    organisme: "Revenu Québec",
-    niveau: "provincial",
-    categorie: "credits_impot",
-    montant_min: 500,
-    montant_max: 6000,
-    montant_affiche: "Jusqu'à 6 000 $",
-    description: "Crédit remboursable de 40% en 2026 sur les dépenses d'aide à domicile pour les personnes de 70 ans et plus. Peut être versé en avance mensuellement.",
-    conditions: ["Avoir 70 ans ou plus", "Résider au Québec", "Dépenses pour services admissibles (aide ménagère, soins, livraison de repas)"],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-maintien-a-domicile/",
-    criteres: { provinces: ["QC"], age_min: 70, retraite: true },
-  },
+  getProgrammeFromCatalogue("credit-maintien-qc"),
   {
     id: "credit-reno-fed",
     nom: "Crédit pour rénovations multigénérationnelles",

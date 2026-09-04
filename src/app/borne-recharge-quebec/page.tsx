@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -16,45 +17,8 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
-  {
-    id: "roulez-vert-borne",
-    nom: "Roulez vert – Borne de recharge résidentielle",
-    organisme: "Transition énergétique Québec",
-    niveau: "provincial",
-    categorie: "transport",
-    montant_min: 600,
-    montant_max: 600,
-    montant_affiche: "600 $",
-    description: "Subvention de 600 $ pour l'achat et l'installation d'une borne de recharge de niveau 2 (240V) à domicile, dans le cadre du programme Roulez vert. La borne doit être certifiée et installée par un électricien licencié. Cette aide est cumulable avec la subvention à l'achat d'un véhicule électrique.",
-    conditions: [
-      "Posséder ou commander un véhicule électrique ou hybride rechargeable admissible",
-      "Résider au Québec",
-      "Borne de niveau 2 certifiée sur la liste des appareils reconnus",
-      "Installation par un électricien titulaire d'une licence de la CMEQ",
-      "Faire la demande avant ou dans les 6 mois suivant l'installation",
-    ],
-    lien_officiel: "https://vehiculeselectriques.gouv.qc.ca/rabais/borne-recharge/index.asp",
-    criteres: { provinces: ["QC"] },
-  },
-  {
-    id: "roulez-vert-veh",
-    nom: "Roulez vert – Véhicule électrique neuf",
-    organisme: "Transition énergétique Québec",
-    niveau: "provincial",
-    categorie: "transport",
-    montant_min: 4000,
-    montant_max: 7000,
-    montant_affiche: "4 000 $ – 7 000 $",
-    description: "En plus de la subvention pour la borne, vous pouvez recevoir jusqu'à 7 000 $ pour l'achat d'un véhicule électrique neuf via le programme Roulez vert. Ces deux aides sont cumulables.",
-    conditions: [
-      "Résider au Québec",
-      "Acheter ou louer un véhicule électrique neuf admissible",
-      "Prix de vente maximal établi par le programme",
-      "Demande soumise au moment de l'achat chez le concessionnaire",
-    ],
-    lien_officiel: "https://vehiculeselectriques.gouv.qc.ca/rabais/vehicule-neuf/index.asp",
-    criteres: { provinces: ["QC"] },
-  },
+  getProgrammeFromCatalogue("subv-bornes-recharge-qc"),
+  getProgrammeFromCatalogue("subv-auto-elec-qc"),
 ];
 
 const faqs = [
