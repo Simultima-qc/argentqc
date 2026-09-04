@@ -5,6 +5,7 @@ import {
   computeCriticalityDrift,
   computeRegistryDrift,
   evaluateCalendarStatus,
+  evaluateUpcomingReview,
   evaluateYearDrift,
   extractVersionedDatasetMetas,
   isIsoDate,
@@ -1144,8 +1145,9 @@ function checkClaimsFreshnessAndCoverage() {
   function evaluateAndCollect(label, meta) {
     const calendarResult = evaluateCalendarStatus(meta, { now });
     const yearResult = evaluateYearDrift(meta, { now });
+    const upcomingResult = evaluateUpcomingReview(meta, { now });
 
-    for (const result of [calendarResult, yearResult]) {
+    for (const result of [calendarResult, yearResult, upcomingResult]) {
       if (result.level === "blocking") {
         report(`"${label}" failed the freshness gate`, result.messages);
       } else if (result.level === "warning") {

@@ -66,6 +66,16 @@ Centraliser les valeurs 2026 sensibles pour reduire les ecarts entre guides, com
 - Le registre central `src/data/finance-2026/claims-registry.mjs` relie chaque ledger de `docs/claims/` et chaque article financier sensible a son etat de gouvernance (`governed` ou `explicitly-out-of-scope`), et est recoupe automatiquement avec le systeme de fichiers par `npm run check:seo`.
 - La politique de fraicheur executable (bloquant/avertissement/exception) est implementee dans `scripts/lib/claims-freshness.mjs`, avec une horloge injectable (`ARGENTQC_FRESHNESS_NOW`) pour des tests deterministes. Voir `tests/claims-freshness.test.mjs` et `tests/finance-2026-schema.test.mjs`.
 
+### Alerte proactive de fraicheur (issue #64)
+
+- En plus du mecanisme bloquant existant (qui ne reagit qu'une fois `nextReviewAt` atteinte ou depassee), `scripts/lib/claims-freshness.mjs` expose `evaluateUpcomingReview`, qui emet un **avertissement non bloquant** des qu'une claim/surface approche de sa `nextReviewAt`.
+- Fenetre par defaut : **J-30**, centralisee dans la constante exportee `UPCOMING_REVIEW_WARNING_DAYS`. Meme fenetre pour toutes les criticites (`critical`/`high`/`medium`) : c'est une visibilite informative, pas un changement de politique de blocage.
+- `npm run check:seo` appelle cette fonction pour chaque dataset finance-2026 et chaque entree de registre gouvernee sans module dedie, et affiche le resultat dans le meme bloc `Claims freshness warnings (non-blocking, N)` que les avertissements existants (fraicheur haute/medium depassee, derive d'annee). Chaque ligne identifie la claim/surface, la date `nextReviewAt` et le nombre de jours restants.
+- Une claim non echue en dehors de la fenetre de 30 jours n'est **jamais** traitee comme `stale` ni averti : `evaluateUpcomingReview` reste silencieux tant qu'il reste plus de 30 jours.
+- Des que `nextReviewAt` est atteinte ou depassee, l'alerte proactive s'efface d'elle-meme (elle est exclusivement pre-echeance) et la politique bloquante existante (`evaluateCalendarStatus`) prend seule le relais : une claim `critical` depassee reste bloquante, une claim `high`/`medium` depassee reste un avertissement non bloquant, sans aucun changement de comportement.
+- `staleException` garde exactement sa semantique actuelle (couvre une echeance deja depassee sur une claim critique) ; elle ne doit jamais etre posee pour faire taire l'alerte proactive d'une echeance a venir normale.
+- **Reaction attendue d'un mainteneur** face a l'avertissement : planifier/effectuer la revalidation source-backed de la claim concernee avant sa `nextReviewAt`, ou documenter une `staleException` justifiee si l'echeance est reellement depassee et non regularisable immediatement. L'avertissement seul ne bloque jamais `check:seo` ni `next build`.
+
 ## Prochaine tranche recommandee
 
 1. Etendre le registre aux 17 articles actuellement `explicitly-out-of-scope`, en commencant par les plus denses (voir scopeNote de chaque entree)
