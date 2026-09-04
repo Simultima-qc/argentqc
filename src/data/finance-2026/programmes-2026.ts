@@ -50,3 +50,15 @@ export const programmesDataset2026 = defineVersionedDataset(
 );
 
 export const programmes2026 = programmesDataset2026.values;
+
+// Lets SEO landing pages that still keep a local Programme[] literal (see
+// SeoProgrammesPage.tsx) source individual entries directly from the
+// governed catalogue instead of hand-copying montant_max/montant_affiche,
+// so those entries cannot drift from src/data/programmes.json (issue #69).
+export function getProgrammeFromCatalogue(id: string): Programme {
+  const programme = programmes2026.find((candidate) => candidate.id === id);
+  if (!programme) {
+    throw new Error(`programmes-2026: no programme with id "${id}" in the catalogue.`);
+  }
+  return programme;
+}

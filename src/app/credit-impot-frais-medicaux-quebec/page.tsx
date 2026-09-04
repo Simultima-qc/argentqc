@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -48,24 +49,7 @@ const programmes: Programme[] = [
     lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-33099-33199-depenses-admissibles-frais-medicaux.html",
     criteres: { provinces: ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"] },
   },
-  {
-    id: "credit-maintien-qc-2",
-    nom: "Crédit d'impôt pour maintien à domicile des aînés",
-    organisme: "Revenu Québec",
-    niveau: "provincial",
-    categorie: "sante",
-    montant_min: 500,
-    montant_max: 6000,
-    montant_affiche: "Jusqu'à 6 000 $",
-    description: "Pour les aînés de 70 ans et plus : crédit remboursable de 40% sur les dépenses de soins à domicile admissibles, incluant soins infirmiers, aide ménagère et services de santé à domicile.",
-    conditions: [
-      "Avoir 70 ans ou plus",
-      "Résider au Québec",
-      "Services admissibles rendus à domicile (soins, aide ménagère, etc.)"
-    ],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-maintien-a-domicile/",
-    criteres: { provinces: ["QC"], age_min: 70 },
-  },
+  getProgrammeFromCatalogue("credit-maintien-qc"),
 ];
 
 const faqs = [
