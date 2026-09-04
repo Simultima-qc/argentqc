@@ -6,13 +6,13 @@ import type { BlogArticle } from "@/data/blog/types";
 const slug = "credit-impot-prolongation-carriere-2026";
 
 const baseMetadata: Metadata = {
-  title: "Crédit d'impôt pour prolongation de carrière 2026 : Un bonus pour travailler après 60 ans",
+  title: "Crédit d'impôt pour prolongation de carrière 2026 : Un bonus pour travailler après 65 ans",
   description:
     "Guide complet sur le crédit d'impôt québécois pour prolongation de carrière en 2026 : qui est admissible, revenus de travail admissibles, calcul du crédit et exemples concrets.",
   keywords: [
     "crédit impôt prolongation carrière 2026",
-    "travail après 60 ans Québec",
-    "crédit impôt 60 ans Québec",
+    "travail après 65 ans Québec",
+    "crédit impôt 65 ans Québec",
     "travailleur expérimenté Québec 2026",
     "incitatif retraite Québec",
   ],
@@ -43,12 +43,12 @@ function Content() {
             <span className="text-xs text-slate-400 py-0.5">5 min de lecture · 5 juillet 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
-            Crédit d&apos;impôt pour prolongation de carrière 2026 : Un bonus pour travailler après 60 ans
+            Crédit d&apos;impôt pour prolongation de carrière 2026 : Un bonus pour travailler après 65 ans
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Le Québec vous récompense financièrement si vous continuez de travailler après 60 ans.
+            Le Québec vous récompense financièrement si vous continuez de travailler après 65 ans.
             Le crédit d&apos;impôt pour la prolongation de carrière peut vous faire économiser jusqu&apos;à
-            <strong> 1 650 $ d&apos;impôt par an</strong>{" "}— une aide concrète pour les travailleurs expérimentés
+            <strong> 1 786 $ d&apos;impôt par an</strong>{" "}— une aide concrète pour les travailleurs expérimentés
             qui choisissent de rester actifs.
           </p>
         </div>
@@ -56,9 +56,9 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Disponible dès <strong>60 ans</strong>{" "}si vous avez un revenu de travail</li>
-            <li>✓ Taux de crédit : <strong>15 %</strong>{" "}sur les revenus admissibles</li>
-            <li>✓ Plafond : <strong>11 000 $</strong>{" "}de revenus admissibles (soit 1 650 $ max de crédit)</li>
+            <li>✓ Disponible dès <strong>65 ans</strong>{" "}(depuis l&apos;année d&apos;imposition 2025) si vous avez un revenu de travail</li>
+            <li>✓ Taux de crédit : <strong>14 %</strong>{" "}sur les revenus admissibles</li>
+            <li>✓ Plafond : <strong>12 755 $</strong>{" "}de revenus de travail admissibles excédant le seuil (soit 1 786 $ max de crédit)</li>
             <li>✓ Réclamé directement dans votre déclaration de revenus québécoise</li>
           </ul>
         </div>
@@ -68,12 +68,12 @@ function Content() {
           <p className="text-slate-600 leading-relaxed mb-3">
             Instauré par le gouvernement du Québec pour contrer la pénurie de main-d&apos;œuvre,
             le crédit d&apos;impôt pour la prolongation de carrière vise à inciter les travailleurs
-            de 60 ans et plus à demeurer sur le marché du travail ou à y revenir.
+            de 65 ans et plus (depuis l&apos;année d&apos;imposition 2025) à demeurer sur le marché du travail ou à y revenir.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Concrètement, il réduit votre impôt provincial en fonction de vos revenus de travail.
             Plus vous gagnez (jusqu&apos;au plafond), plus le crédit est élevé. Il s&apos;applique sur le
-            revenu qui <strong>dépasse 5 000 $</strong>{" "}de revenus de travail admissibles.
+            revenu qui <strong>dépasse 7 655 $</strong>{" "}de revenus de travail admissibles.
           </p>
         </section>
 
@@ -81,7 +81,7 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Qui est admissible ?</h2>
           <div className="grid grid-cols-1 gap-3">
             {[
-              { critere: "Avoir 60 ans ou plus au 31 décembre de l&apos;année d&apos;imposition", ok: true },
+              { critere: "Avoir 65 ans ou plus au 31 décembre de l&apos;année d&apos;imposition (depuis l&apos;année d&apos;imposition 2025)", ok: true },
               { critere: "Résider au Québec à la fin de l&apos;année", ok: true },
               { critere: "Avoir un revenu de travail admissible (emploi ou travail autonome)", ok: true },
               { critere: "Produire une déclaration de revenus québécoise", ok: true },
@@ -97,17 +97,17 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Comment se calcule le crédit ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le crédit s&apos;applique sur vos revenus de travail admissibles qui <strong>dépassent 5 000 $</strong>,
-            jusqu&apos;à un maximum de 11 000 $. Le taux est de <strong>15 %</strong>.
+            Le crédit s&apos;applique sur vos revenus de travail admissibles qui <strong>dépassent 7 655 $</strong>,
+            jusqu&apos;à un maximum de 12 755 $ de revenu excédentaire admissible. Le taux est de <strong>14 %</strong>.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
             <p className="font-bold text-blue-800 mb-3">Calcul du crédit selon le revenu de travail</p>
             <div className="space-y-2 text-sm">
               {[
-                { revenu: "5 000 $ ou moins", credit: "0 $", note: "Seuil non atteint" },
-                { revenu: "8 000 $", credit: "450 $", note: "(8 000 – 5 000) × 15 %" },
-                { revenu: "11 000 $", credit: "900 $", note: "(11 000 – 5 000) × 15 %" },
-                { revenu: "16 000 $ et plus", credit: "1 650 $", note: "Maximum — (11 000) × 15 %" },
+                { revenu: "7 655 $ ou moins", credit: "0 $", note: "Seuil non atteint" },
+                { revenu: "10 000 $", credit: "328 $", note: "(10 000 – 7 655) × 14 %" },
+                { revenu: "15 000 $", credit: "1 028 $", note: "(15 000 – 7 655) × 14 %" },
+                { revenu: "20 410 $ et plus", credit: "1 786 $", note: "Maximum — (12 755) × 14 %" },
               ].map((item) => (
                 <div key={item.revenu} className="flex justify-between items-center border-b border-blue-100 pb-2 last:border-0 last:pb-0">
                   <div>
@@ -120,8 +120,10 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-500 text-sm">
-            Le montant maximal du crédit de 1 650 $ s&apos;obtient à partir de 16 000 $ de revenus
-            de travail admissibles (5 000 $ de seuil + 11 000 $ de base de crédit).
+            Le montant maximal du crédit de 1 786 $ s&apos;obtient à partir de 20 410 $ de revenus
+            de travail admissibles (7 655 $ de seuil + 12 755 $ de base de crédit). Le crédit ainsi calculé
+            est ensuite réduit de 7 % de la portion du revenu net qui excède 57 660 $ (2026), jusqu&apos;à
+            élimination complète à un revenu net plus élevé.
           </p>
         </section>
 
@@ -193,9 +195,9 @@ function Content() {
             de ne pas la toucher avant 65 ou 70 ans.
           </p>
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-            <p className="font-semibold text-amber-800 text-sm mb-2">Avantages cumulés à continuer de travailler après 60 ans</p>
+            <p className="font-semibold text-amber-800 text-sm mb-2">Avantages cumulés à continuer de travailler après 65 ans</p>
             <ul className="space-y-1.5 text-sm text-amber-900">
-              <li>• Crédit d&apos;impôt pour prolongation de carrière : jusqu&apos;à 1 650 $/an</li>
+              <li>• Crédit d&apos;impôt pour prolongation de carrière : jusqu&apos;à 1 786 $/an</li>
               <li>• Bonification de la rente RRQ (jusqu&apos;à +42 % à 70 ans vs 65 ans)</li>
               <li>• Report de la PSV pour bonification (jusqu&apos;à +36 % à 70 ans vs 65 ans)</li>
               <li>• Revenus supplémentaires qui s&apos;ajoutent à votre épargne retraite</li>
@@ -241,7 +243,7 @@ function Content() {
 
 const article: BlogArticle = {
   slug,
-  titre: "Crédit d'impôt pour prolongation de carrière 2026 : Un bonus pour travailler après 60 ans",
+  titre: "Crédit d'impôt pour prolongation de carrière 2026 : Un bonus pour travailler après 65 ans",
   description:
     "Tout sur le crédit d'impôt québécois pour prolongation de carrière en 2026 : admissibilité, calcul du crédit, revenus admissibles et comment le réclamer dans votre déclaration.",
   date: "2026-07-05",
