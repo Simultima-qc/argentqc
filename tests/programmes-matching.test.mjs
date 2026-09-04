@@ -149,7 +149,7 @@ const resultsPageModule = loadSourceModule(join(rootDir, "src", "components", "L
   },
 });
 
-const { getConfidenceTier, sortProgrammesForTopPistes } = resultsPageModule;
+const { getConfidenceTier, getHeroRowDisplay, getProgrammeReason, sortProgrammesForTopPistes } = resultsPageModule;
 
 test("programmes.json catalogue structure is valid", () => {
   const programmes = loadProgrammesJson();
@@ -308,6 +308,33 @@ test("calculerTotal excludes programmes whose age eligibility is uncertain, even
     totalWithout,
     "an age-uncertain programme's montant must not inflate the presented total",
   );
+});
+
+test("getHeroRowDisplay does not present an age-uncertain programme as a confirmed amount (issue #58, PR #59 review)", () => {
+  const verifierLabel = "À vérifier";
+
+  const uncertain = getHeroRowDisplay({ montant_affiche: "Jusqu'à 6 000 $", admissibiliteAgeIncertaine: true }, verifierLabel);
+  assert.equal(uncertain.icon, "?");
+  assert.equal(uncertain.value, verifierLabel, "must not display the programme's montant_affiche as if it were certain");
+  assert.notEqual(uncertain.value, "Jusqu'à 6 000 $");
+
+  const certain = getHeroRowDisplay({ montant_affiche: "Jusqu'à 6 000 $", admissibiliteAgeIncertaine: false }, verifierLabel);
+  assert.equal(certain.icon, "✓");
+  assert.equal(certain.value, "Jusqu'à 6 000 $");
+});
+
+test("getProgrammeReason surfaces the age-uncertainty reason even for a preselection_only programme (issue #58, PR #59 review)", () => {
+  const rqapLikeAndAgeUncertain = {
+    preselection_only: true,
+    admissibiliteAgeIncertaine: true,
+    criteres: {},
+  };
+
+  const reasonFr = getProgrammeReason(rqapLikeAndAgeUncertain, makeAnswers(), "fr");
+  assert.match(reasonFr, /tranche d'âge/i, "the age-overlap reason must take priority over the generic preselection_only reason");
+
+  const reasonEn = getProgrammeReason(rqapLikeAndAgeUncertain, makeAnswers(), "en");
+  assert.match(reasonEn, /age range/i);
 });
 
 test("RRQ remains an orientation-only, non-summable lead", () => {
