@@ -120,7 +120,12 @@ export const claimsRegistry = [
     criticality: "critical",
     status: "governed",
     nextReviewAt: "2026-10-01",
-    scopeNote: "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SRG); prochaine indexation 2026-10-01.",
+    scopeNote:
+      "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SRG); prochaine indexation 2026-10-01. " +
+      "Revalidée le 2026-09-04 (issue #74, WebSearch, accès direct aux domaines gouvernementaux toujours bloqué) : aucune divergence " +
+      "trouvée sur le trimestre juillet-septembre 2026 publié. Le rapport trimestriel octobre-décembre 2026 n'était pas encore publié " +
+      "à la date de vérification; des projections tierces non officielles et mutuellement incohérentes pour ce trimestre ont été " +
+      "rejetées plutôt qu'appliquées. nextReviewAt délibérément laissé inchangé : voir docs/claims/supplement-revenu-garanti-2026.md.",
   },
   {
     slug: "securite-vieillesse-quebec-2026",
@@ -130,7 +135,12 @@ export const claimsRegistry = [
     criticality: "critical",
     status: "governed",
     nextReviewAt: "2026-10-01",
-    scopeNote: "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SV); prochaine indexation 2026-10-01.",
+    scopeNote:
+      "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SV); prochaine indexation 2026-10-01. " +
+      "Revalidée le 2026-09-04 (issue #74, WebSearch, accès direct aux domaines gouvernementaux toujours bloqué) : aucune divergence " +
+      "trouvée sur le trimestre juillet-septembre 2026 publié. Le rapport trimestriel octobre-décembre 2026 n'était pas encore publié " +
+      "à la date de vérification; des projections tierces non officielles et mutuellement incohérentes pour ce trimestre ont été " +
+      "rejetées plutôt qu'appliquées. nextReviewAt délibérément laissé inchangé : voir docs/claims/securite-vieillesse-quebec-2026.md.",
   },
   {
     slug: "rqap-conge-parental-quebec-2026",
