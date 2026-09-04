@@ -25,7 +25,9 @@ interface LocalizedResultsPageProps {
 }
 
 export function getConfidenceTier(programme: Programme): "principal" | "verifier" {
-  return programme.niveau === "municipal" || programme.preselection_only ? "verifier" : "principal";
+  return programme.niveau === "municipal" || programme.preselection_only || programme.admissibiliteAgeIncertaine
+    ? "verifier"
+    : "principal";
 }
 
 function getTierRank(programme: ProgrammeWithMeta): number {
@@ -48,6 +50,11 @@ function getProgrammeReason(programme: Programme, reponses: ReponseQuestionnaire
     return fr
       ? "Préfiltre seulement : le questionnaire ne vérifie pas les conditions complètes de ce programme."
       : "Pre-filter only: the questionnaire does not verify this program's complete requirements.";
+
+  if (programme.admissibiliteAgeIncertaine)
+    return fr
+      ? "Votre tranche d'âge chevauche le seuil d'âge de ce programme : votre admissibilité exacte reste à vérifier."
+      : "Your age range overlaps this program's age threshold: your exact eligibility still needs to be verified.";
 
   if (c.proprietaire && reponses.statut_logement === "proprietaire")
     return fr ? "Vous avez indiqué être propriétaire." : "You indicated you are a homeowner.";

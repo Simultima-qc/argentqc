@@ -205,17 +205,109 @@ test("trouverProgrammes matches a low-income renter", () => {
 });
 
 test("trouverProgrammes matches a retiree", () => {
-  const ids = programmeIds(trouverProgrammes(makeAnswers({
+  const matched = trouverProgrammes(makeAnswers({
     statut_logement: "proprietaire",
     revenu: "0-30000",
     retraite: true,
     age: "65+",
-  })));
+  }));
+  const ids = programmeIds(matched);
 
   assert.ok(ids.has("sre-fed"));
   assert.ok(ids.has("psv-fed"));
   assert.ok(ids.has("rrq-rentes-qc"));
   assert.ok(ids.has("credit-maintien-qc"));
+
+  // issue #58: credit-maintien-qc requires age_min 70, but "65+" also covers
+  // 65-69. The bucket is surfaced as a lead but must not be a certain match.
+  const creditMaintien = matched.find((programme) => programme.id === "credit-maintien-qc");
+  assert.equal(creditMaintien.admissibiliteAgeIncertaine, true);
+});
+
+// issue #58: age bucketing regression matrix.
+//
+// programme                     | borne réelle  | tranche   | avant (parseAge)          | après
+// credit-maintien-qc            | age_min 70    | 65+       | admissible certain (faux+) | incertain
+// rqap-assurance-parentale-qc   | age_max 50    | 46-65     | exclu certain (faux-)      | incertain, toujours visible
+// adaptation-domicile-shq       | age_min 55    | 46-65     | admissible certain (faux+) | incertain
+// aide-retour-region-bourse-qc  | age_max 40    | 31-45     | admissible certain (faux+) | incertain
+// aide-retour-region-bourse-qc  | age_max 40    | 46-65     | exclu (déjà correct)       | exclu (inchangé)
+// aide-formation-adultes-qc     | age_min 24    | 31-45     | admissible (déjà correct)  | admissible certain (inchangé)
+// aide-formation-adultes-qc     | age_min 24    | 18-30     | admissible certain (faux+) | incertain
+
+test("credit-maintien-qc (age_min 70): a 65+ user is flagged uncertain, not certainly eligible (issue #58)", () => {
+  const matched = trouverProgrammes(makeAnswers({ age: "65+", retraite: true, revenu: "0-30000" }));
+  const programme = matched.find((p) => p.id === "credit-maintien-qc");
+
+  assert.ok(programme, "credit-maintien-qc must still surface as a lead for a 65+ user");
+  assert.equal(programme.admissibiliteAgeIncertaine, true);
+});
+
+test("rqap-assurance-parentale-qc (age_max 50): a 46-65 user is no longer wrongly excluded (issue #53/#58)", () => {
+  const matchedWithOverlap = trouverProgrammes(makeAnswers({ age: "46-65", statut_logement: "locataire", enfants: true }));
+  assert.ok(
+    programmeIds(matchedWithOverlap).has("rqap-assurance-parentale-qc"),
+    "a user aged 46-50 within the 46-65 bucket must not be excluded by the representative age 55",
+  );
+
+  const rqap = matchedWithOverlap.find((p) => p.id === "rqap-assurance-parentale-qc");
+  assert.equal(rqap.admissibiliteAgeIncertaine, true);
+  // Already preselection_only/non-summable: presentation as a lead is unaffected.
+  assert.equal(rqap.preselection_only, true);
+});
+
+test("adaptation-domicile-shq (age_min 55, intermediate): 46-65 overlap is uncertain, not a certain match (issue #58)", () => {
+  const matched = trouverProgrammes(makeAnswers({ age: "46-65", statut_logement: "proprietaire", renovation: true }));
+  const programme = matched.find((p) => p.id === "adaptation-domicile-shq");
+
+  assert.ok(programme, "must still surface as a lead");
+  assert.equal(programme.admissibiliteAgeIncertaine, true);
+});
+
+test("aide-retour-region-bourse-qc (age_max 40, intermediate): overlapping, fully-eligible and fully-excluded buckets (issue #58)", () => {
+  // 31-45 overlaps the age_max 40 boundary (31-40 pass, 41-45 fail): uncertain, not a certain match.
+  const overlap = trouverProgrammes(makeAnswers({ age: "31-45", etudiant: true }));
+  const overlapProgramme = overlap.find((p) => p.id === "aide-retour-region-bourse-qc");
+  assert.ok(overlapProgramme, "must still surface as a lead for the overlapping bucket");
+  assert.equal(overlapProgramme.admissibiliteAgeIncertaine, true);
+
+  // 46-65 is entirely above 40: a certain exclusion, correctly absent from results.
+  const excluded = trouverProgrammes(makeAnswers({ age: "46-65", etudiant: true }));
+  assert.ok(
+    !programmeIds(excluded).has("aide-retour-region-bourse-qc"),
+    "a bucket entirely past the age_max boundary must remain a certain exclusion",
+  );
+});
+
+test("aide-formation-adultes-qc (age_min 24): a fully-eligible bucket stays a certain match, an overlapping bucket does not (issue #58)", () => {
+  // 31-45 is entirely above 24: a certain match, unaffected by this fix.
+  const fullyEligible = trouverProgrammes(makeAnswers({ age: "31-45", etudiant: true }));
+  const fullyEligibleProgramme = fullyEligible.find((p) => p.id === "aide-formation-adultes-qc");
+  assert.ok(fullyEligibleProgramme);
+  assert.equal(fullyEligibleProgramme.admissibiliteAgeIncertaine, undefined);
+
+  // 18-30 overlaps the age_min 24 boundary (18-23 fail, 24-30 pass): uncertain.
+  const overlap = trouverProgrammes(makeAnswers({ age: "18-30", etudiant: true }));
+  const overlapProgramme = overlap.find((p) => p.id === "aide-formation-adultes-qc");
+  assert.ok(overlapProgramme, "must still surface as a lead for the overlapping bucket");
+  assert.equal(overlapProgramme.admissibiliteAgeIncertaine, true);
+});
+
+test("calculerTotal excludes programmes whose age eligibility is uncertain, even when montant_sommable is not false (issue #58)", () => {
+  const matched = trouverProgrammes(makeAnswers({ age: "65+", retraite: true, revenu: "0-30000" }));
+  const creditMaintien = matched.find((p) => p.id === "credit-maintien-qc");
+  assert.ok(creditMaintien);
+  assert.notEqual(creditMaintien.montant_sommable, false, "precondition: this programme is summable by default");
+  assert.equal(creditMaintien.admissibiliteAgeIncertaine, true);
+
+  const totalWithout = calculerTotal(matched.filter((p) => p.id !== "credit-maintien-qc"));
+  const totalWith = calculerTotal(matched);
+
+  assert.deepEqual(
+    totalWith,
+    totalWithout,
+    "an age-uncertain programme's montant must not inflate the presented total",
+  );
 });
 
 test("RRQ remains an orientation-only, non-summable lead", () => {
