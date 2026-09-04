@@ -25,7 +25,22 @@ interface LocalizedResultsPageProps {
 }
 
 export function getConfidenceTier(programme: Programme): "principal" | "verifier" {
-  return programme.niveau === "municipal" || programme.preselection_only ? "verifier" : "principal";
+  return programme.niveau === "municipal" || programme.preselection_only || programme.admissibiliteAgeIncertaine
+    ? "verifier"
+    : "principal";
+}
+
+// issue #58: a programme whose age eligibility is uncertain must not be
+// presented in the hero summary as a confirmed amount (calculerTotal already
+// excludes it from the certain total — the display must match).
+export function getHeroRowDisplay(
+  programme: Programme,
+  verifierLabel: string
+): { icon: string; iconColor: string; value: string; valueColor?: string } {
+  if (programme.admissibiliteAgeIncertaine) {
+    return { icon: "?", iconColor: GOLD, value: verifierLabel, valueColor: GOLD };
+  }
+  return { icon: "✓", iconColor: GREEN, value: programme.montant_affiche };
 }
 
 function getTierRank(programme: ProgrammeWithMeta): number {
@@ -40,9 +55,16 @@ export function sortProgrammesForTopPistes(programmes: ProgrammeWithMeta[]): Pro
   });
 }
 
-function getProgrammeReason(programme: Programme, reponses: ReponseQuestionnaire, locale: Locale): string {
+export function getProgrammeReason(programme: Programme, reponses: ReponseQuestionnaire, locale: Locale): string {
   const c = programme.criteres;
   const fr = locale === "fr";
+
+  // Age ambiguity takes priority: it is the more specific reason and must
+  // surface even for programmes that are also preselection_only (e.g. RQAP, RRQ).
+  if (programme.admissibiliteAgeIncertaine)
+    return fr
+      ? "Votre tranche d'âge chevauche le seuil d'âge de ce programme : votre admissibilité exacte reste à vérifier."
+      : "Your age range overlaps this program's age threshold: your exact eligibility still needs to be verified.";
 
   if (programme.preselection_only)
     return fr
@@ -214,15 +236,20 @@ export default function LocalizedResultsPage({
 
           {programmes.length > 0 && (
             <div className="flex flex-col gap-2 border-t border-white/10 pt-4">
-              {programmes.map((programme) => (
-                <div key={programme.id} className="flex items-center justify-between gap-4 text-sm">
-                  <span className="flex items-center gap-2 text-stone-300">
-                    <span style={{ color: GREEN }}>✓</span>
-                    {programme.nom}
-                  </span>
-                  <span className="font-bold text-stone-100">{programme.montant_affiche}</span>
-                </div>
-              ))}
+              {programmes.map((programme) => {
+                const row = getHeroRowDisplay(programme, dictionary.programTierLabels.verifier);
+                return (
+                  <div key={programme.id} className="flex items-center justify-between gap-4 text-sm">
+                    <span className="flex items-center gap-2 text-stone-300">
+                      <span style={{ color: row.iconColor }}>{row.icon}</span>
+                      {programme.nom}
+                    </span>
+                    <span className="font-bold text-stone-100" style={row.valueColor ? { color: row.valueColor } : undefined}>
+                      {row.value}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
