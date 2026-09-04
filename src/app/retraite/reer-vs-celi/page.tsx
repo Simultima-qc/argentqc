@@ -102,6 +102,7 @@ const guides = [
   { href: "/fr/retraite/celi", title: "Guide CELI", text: "Voir la flexibilité, les retraits et les usages retraite." },
   { href: "/fr/retraite/celiapp", title: "Guide CELIAPP", text: "Comparer avec les objectifs de premier achat immobilier." },
   { href: "/retraite/combien-cotiser-reer", title: "Combien cotiser au REER?", text: "Estimer la bonne cotisation selon revenu, impôt et budget." },
+  { href: "/blog/reer-vs-celi-lequel-choisir-2026", title: "Plafonds et exemples chiffrés 2026", text: "Voir les plafonds de cotisation REER/CELI 2026 et des exemples chiffrés selon le revenu." },
 ];
 
 const faqs = [
