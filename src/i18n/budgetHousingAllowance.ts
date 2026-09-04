@@ -64,6 +64,7 @@ const fr: BudgetHousingAllowanceDictionary = {
     { href: "/aide-sociale-quebec", title: "Aide sociale Québec 2026" },
     { href: "/fr/budget", title: "Thème budget" },
     { href: "/fr/questionnaire", title: "Questionnaire aides" },
+    { href: "/blog/allocation-logement-quebec-2026", title: "Guide pratique : exemples et démarches" },
   ],
   faqs: [
     {

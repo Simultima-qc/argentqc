@@ -52,6 +52,16 @@ function Content() {
           </p>
         </div>
 
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 mb-8">
+          <p className="text-slate-600 text-sm leading-relaxed">
+            Cet article se concentre sur les plafonds et des exemples chiffrés 2026. Pour un cadre de décision complet
+            — tableau comparatif, scénarios concrets et erreurs fréquentes —, consultez notre{" "}
+            <Link href="/retraite/reer-vs-celi" className="font-semibold text-blue-700 underline">
+              guide complet REER ou CELI
+            </Link>.
+          </p>
+        </div>
+
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
