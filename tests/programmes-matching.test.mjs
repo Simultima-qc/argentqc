@@ -128,7 +128,7 @@ function programmeIds(programmes) {
   return new Set(programmes.map((programme) => programme.id));
 }
 
-const { calculerTotal, trouverProgrammes } = loadSourceModule(join(rootDir, "src", "lib", "matching.ts"));
+const { calculerTotal, evaluerRevenu, trouverProgrammes } = loadSourceModule(join(rootDir, "src", "lib", "matching.ts"));
 
 const resultsPageModule = loadSourceModule(join(rootDir, "src", "components", "LocalizedResultsPage.tsx"), {
   "next/link": ({ href, children, ...props }) => React.createElement("a", { href, ...props }, children),
@@ -626,4 +626,274 @@ test("programmes.json catalogue size is stable and every entry has a non-empty d
       `${programme.id}: description must not be empty`,
     );
   }
+});
+
+// issue #67: income bucketing regression tests.
+//
+// Same root cause as issue #58 (age), but for revenu_min/revenu_max: parseRevenu()
+// used to collapse a questionnaire income bucket into a single fictitious
+// representative value (15000/40000/62500/87500/120000) before comparing it to a
+// programme's revenu_min/revenu_max. Whenever a threshold fell inside a bucket
+// rather than on its boundary, that produced a certain (and wrong) admissible or
+// excluded verdict. evaluerRevenu() now compares the bucket's real numeric interval
+// to the threshold and returns "incertain" whenever the bucket overlaps it.
+
+test("sre-fed (revenu_max 22000): the 0-30000 bucket is uncertain, not a certain match (issue #67)", () => {
+  const matched = trouverProgrammes(makeAnswers({
+    statut_logement: "proprietaire",
+    revenu: "0-30000",
+    retraite: true,
+    age: "65+",
+  }));
+  const programme = matched.find((p) => p.id === "sre-fed");
+
+  assert.ok(programme, "sre-fed must still surface as a lead for the 0-30000 bucket");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+});
+
+test("allocation-sv-conjoint-survivant-fed (revenu_max 28000): the 0-30000 bucket is uncertain (issue #67)", () => {
+  const matched = trouverProgrammes(makeAnswers({ revenu: "0-30000", retraite: true, age: "46-65" }));
+  const programme = matched.find((p) => p.id === "allocation-sv-conjoint-survivant-fed");
+
+  assert.ok(programme, "must still surface as a lead");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+});
+
+test("aide-solidarite-qc (revenu_max 15000): the 0-30000 bucket is uncertain (issue #67)", () => {
+  const matched = trouverProgrammes(makeAnswers({ revenu: "0-30000" }));
+  const programme = matched.find((p) => p.id === "aide-solidarite-qc");
+
+  assert.ok(programme, "must still surface as a lead");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+});
+
+test("allocation-logement-qc (revenu_max 35000): the 30000-50000 bucket is uncertain, no longer a false-negative exclusion (issue #67)", () => {
+  const matched = trouverProgrammes(makeAnswers({
+    statut_logement: "locataire",
+    revenu: "30000-50000",
+  }));
+  const ids = programmeIds(matched);
+
+  assert.ok(
+    ids.has("allocation-logement-qc"),
+    "a user earning 30 000-35 000 $ within the 30000-50000 bucket must no longer be silently excluded by the representative income of 40 000 $",
+  );
+
+  const programme = matched.find((p) => p.id === "allocation-logement-qc");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+});
+
+test("allocation-travailleurs-fed (revenu_max 33000): the 30000-50000 bucket is uncertain (issue #67)", () => {
+  const matched = trouverProgrammes(makeAnswers({ revenu: "30000-50000" }));
+  const programme = matched.find((p) => p.id === "allocation-travailleurs-fed");
+
+  assert.ok(programme, "must still surface as a lead");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+});
+
+test("a threshold exactly on a bucket boundary produces a certain verdict on both sides (issue #67)", () => {
+  // supplement-loyer-shq: revenu_max 30000, exactly the 0-30000 / 30000-50000 boundary.
+  assert.equal(
+    evaluerRevenu("0-30000", { revenu_max: 30000 }),
+    "admissible",
+    "a bucket entirely at or under the threshold must be a certain match",
+  );
+  assert.equal(
+    evaluerRevenu("30000-50000", { revenu_max: 30000 }),
+    "incertain",
+    "the adjacent bucket still overlaps the threshold and must be uncertain",
+  );
+});
+
+test("a bucket entirely under revenu_max is a certain admissible match (issue #67)", () => {
+  // allocation-logement-qc: revenu_max 35000; the 0-30000 bucket is entirely under it.
+  assert.equal(evaluerRevenu("0-30000", { revenu_max: 35000 }), "admissible");
+});
+
+test("a bucket entirely over revenu_max is a certain exclusion, and the programme is dropped from results (issue #67)", () => {
+  assert.equal(evaluerRevenu("50000-75000", { revenu_max: 22000 }), "exclu");
+
+  const matched = trouverProgrammes(makeAnswers({
+    statut_logement: "proprietaire",
+    revenu: "50000-75000",
+    retraite: true,
+    age: "65+",
+  }));
+  assert.ok(
+    !programmeIds(matched).has("sre-fed"),
+    "a bucket entirely past revenu_max must remain a certain exclusion, not just flagged uncertain",
+  );
+});
+
+test("revenu_min alone: below, straddling and above the threshold (issue #67)", () => {
+  const criteres = { revenu_min: 40000 };
+
+  assert.equal(evaluerRevenu("0-30000", criteres), "exclu", "a bucket entirely under revenu_min must be excluded");
+  assert.equal(evaluerRevenu("30000-50000", criteres), "incertain", "a bucket straddling revenu_min must be uncertain");
+  assert.equal(evaluerRevenu("50000-75000", criteres), "admissible", "a bucket entirely over revenu_min must be a certain match");
+});
+
+test("revenu_max alone: below, straddling and above the threshold (issue #67)", () => {
+  const criteres = { revenu_max: 60000 };
+
+  assert.equal(evaluerRevenu("30000-50000", criteres), "admissible", "a bucket entirely under revenu_max must be a certain match");
+  assert.equal(evaluerRevenu("50000-75000", criteres), "incertain", "a bucket straddling revenu_max must be uncertain");
+  assert.equal(evaluerRevenu("75000-100000", criteres), "exclu", "a bucket entirely over revenu_max must be excluded");
+});
+
+test("revenu_min and revenu_max combined narrow the certain-admissible window (issue #67)", () => {
+  const criteres = { revenu_min: 30000, revenu_max: 75000 };
+
+  assert.equal(evaluerRevenu("0-30000", criteres), "incertain", "straddles revenu_min");
+  assert.equal(evaluerRevenu("30000-50000", criteres), "admissible", "entirely within [revenu_min, revenu_max]");
+  assert.equal(evaluerRevenu("50000-75000", criteres), "admissible", "entirely within [revenu_min, revenu_max]");
+  assert.equal(evaluerRevenu("75000-100000", criteres), "incertain", "straddles revenu_max");
+  assert.equal(evaluerRevenu("100000+", criteres), "exclu", "entirely past revenu_max");
+});
+
+test("calculerTotal excludes programmes whose income eligibility is uncertain (issue #67)", () => {
+  const matched = trouverProgrammes(makeAnswers({
+    statut_logement: "locataire",
+    revenu: "30000-50000",
+  }));
+  const programme = matched.find((p) => p.id === "allocation-logement-qc");
+  assert.ok(programme);
+  assert.notEqual(programme.montant_sommable, false, "precondition: this programme is summable by default");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+
+  const totalWithout = calculerTotal(matched.filter((p) => p.id !== "allocation-logement-qc"));
+  const totalWith = calculerTotal(matched);
+
+  assert.deepEqual(
+    totalWith,
+    totalWithout,
+    "an income-uncertain programme's montant must not inflate the presented total",
+  );
+});
+
+test("age and income uncertainty coexist correctly on the same programme (issue #67)", () => {
+  // sre-fed: age_min 65, revenu_max 22000. A "65+" / "0-30000" profile overlaps
+  // both boundaries at once.
+  const matched = trouverProgrammes(makeAnswers({
+    statut_logement: "proprietaire",
+    revenu: "0-30000",
+    retraite: true,
+    age: "65+",
+  }));
+  const programme = matched.find((p) => p.id === "sre-fed");
+
+  assert.ok(programme, "must still surface as a lead");
+  assert.equal(programme.admissibiliteAgeIncertaine, undefined, "sre-fed age_min 65 does not overlap the 65+ bucket");
+  assert.equal(programme.admissibiliteRevenuIncertaine, true);
+
+  const total = calculerTotal(matched);
+  const totalWithoutSre = calculerTotal(matched.filter((p) => p.id !== "sre-fed"));
+  assert.deepEqual(total, totalWithoutSre, "sre-fed must not be summed while income-uncertain");
+});
+
+test("revenu bucketing regression matrix: internal thresholds stay uncertain, not silently certain (issue #67, protects #66's 19 findings)", () => {
+  const programmes = loadProgrammesJson();
+
+  // Bucket in which each programme's revenu_max threshold falls strictly inside
+  // (not on a bucket boundary). Issue #66 identified 19 such thresholds across the
+  // catalogue; a future programme added with an internal threshold must also be
+  // added here and must fail if it silently regresses to a certain verdict.
+  const internalThresholds = {
+    "sre-fed": "0-30000",
+    "aide-solidarite-qc": "0-30000",
+    "allocation-logement-qc": "30000-50000",
+    "aide-urgence-logement-qc": "0-30000",
+    "hlm-logement-social-qc": "0-30000",
+    "renoregion-shq": "30000-50000",
+    "prafr-shq": "0-30000",
+    "allocation-travailleurs-fed": "30000-50000",
+    "credit-aidant-naturel-qc": "50000-75000",
+    "credit-aidant-naturel-fed": "50000-75000",
+    "aide-premier-achat-municipal-qc": "75000-100000",
+    "allocation-sv-conjoint-survivant-fed": "0-30000",
+    "aide-energie-faible-revenu-hq": "30000-50000",
+    "acces-loisirs-qc": "30000-50000",
+    "aide-alimentaire-scolaire-qc": "30000-50000",
+    "bourse-recherche-grad-fed": "50000-75000",
+    "cooperative-habitation-qc": "50000-75000",
+    "aide-locataire-munic": "30000-50000",
+    "programme-objectif-emploi-qc": "0-30000",
+  };
+
+  assert.equal(
+    Object.keys(internalThresholds).length,
+    19,
+    "regression matrix must cover exactly the 19 internal thresholds identified by issue #66",
+  );
+
+  for (const [id, tranche] of Object.entries(internalThresholds)) {
+    const programme = programmes.find((p) => p.id === id);
+    assert.ok(programme, `${id}: must exist in the catalogue`);
+    assert.equal(
+      evaluerRevenu(tranche, programme.criteres),
+      "incertain",
+      `${id}: tranche ${tranche} overlaps revenu_max=${programme.criteres.revenu_max} and must be uncertain, not a certain match`,
+    );
+  }
+
+  // The remaining catalogue thresholds sit exactly on a bucket boundary: the
+  // bucket below is a certain match, the bucket above overlaps and is uncertain.
+  const boundaryThresholds = {
+    "supplement-loyer-shq": { below: "0-30000", above: "30000-50000" },
+    "tarif-reduit-transport-munic": { below: "0-30000", above: "30000-50000" },
+    "subvention-canadienne-etudes-fed": { below: "30000-50000", above: "50000-75000" },
+    "prog-regional-hab-qc": { below: "30000-50000", above: "50000-75000" },
+  };
+
+  for (const [id, { below, above }] of Object.entries(boundaryThresholds)) {
+    const programme = programmes.find((p) => p.id === id);
+    assert.ok(programme, `${id}: must exist in the catalogue`);
+    assert.equal(
+      evaluerRevenu(below, programme.criteres),
+      "admissible",
+      `${id}: tranche ${below} sits entirely under revenu_max=${programme.criteres.revenu_max} and must be a certain match`,
+    );
+    assert.equal(
+      evaluerRevenu(above, programme.criteres),
+      "incertain",
+      `${id}: tranche ${above} overlaps revenu_max=${programme.criteres.revenu_max} and must be uncertain`,
+    );
+  }
+
+  const withRevenu = programmes.filter(
+    (p) => p.criteres.revenu_min !== undefined || p.criteres.revenu_max !== undefined,
+  );
+  assert.equal(
+    withRevenu.length,
+    Object.keys(internalThresholds).length + Object.keys(boundaryThresholds).length,
+    "unexpected number of programmes with a revenu criterion -- update this regression matrix deliberately if programmes were added/removed",
+  );
+});
+
+test("getHeroRowDisplay does not present an income-uncertain programme as a confirmed amount (issue #67)", () => {
+  const verifierLabel = "À vérifier";
+
+  const uncertain = getHeroRowDisplay({ montant_affiche: "Jusqu'à 1 000 $", admissibiliteRevenuIncertaine: true }, verifierLabel);
+  assert.equal(uncertain.icon, "?");
+  assert.equal(uncertain.value, verifierLabel);
+  assert.notEqual(uncertain.value, "Jusqu'à 1 000 $");
+});
+
+test("getConfidenceTier demotes an income-uncertain programme to verifier (issue #67)", () => {
+  assert.equal(getConfidenceTier({ niveau: "federal", admissibiliteRevenuIncertaine: true }), "verifier");
+  assert.equal(getConfidenceTier({ niveau: "federal", admissibiliteRevenuIncertaine: false }), "principal");
+});
+
+test("getProgrammeReason surfaces the income-uncertainty reason, including for preselection_only programmes (issue #67)", () => {
+  const revenuUncertain = {
+    preselection_only: true,
+    admissibiliteRevenuIncertaine: true,
+    criteres: {},
+  };
+
+  const reasonFr = getProgrammeReason(revenuUncertain, makeAnswers(), "fr");
+  assert.match(reasonFr, /tranche de revenu/i, "the income-overlap reason must take priority over the generic preselection_only reason");
+
+  const reasonEn = getProgrammeReason(revenuUncertain, makeAnswers(), "en");
+  assert.match(reasonEn, /income range/i);
 });
