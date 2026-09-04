@@ -555,6 +555,66 @@ test("pension income splitting range matches the already-governed fractionnement
   assert.equal(fractionnement.montant_max, 10000);
 });
 
+test("physical-work programmes require renovation:true and are excluded when the user has no renovation intent (issue #60)", () => {
+  // issue #53 re-baseline (Finding C): these 5 programmes involve physical work
+  // (isolation, appareil replacement, accessibility work, heat recovery installation,
+  // gouttière disconnection) but were missing criteres.renovation: true, so they could
+  // be matched and summed into the total even for a user who answered renovation: false.
+  const renovationGatedIds = [
+    "subv-isolation-munic",
+    "chauffe-eau-efficace-hq",
+    "accessibilite-domicile-munic",
+    "recuperateur-chaleur-hq",
+    "gouttiere-eaux-pluviales-munic",
+  ];
+
+  const programmes = loadProgrammesJson();
+  for (const id of renovationGatedIds) {
+    const programme = programmes.find((p) => p.id === id);
+    assert.ok(programme, `${id}: must still exist in the catalogue`);
+    assert.equal(programme.criteres.renovation, true, `${id}: must require criteres.renovation: true (issue #60)`);
+  }
+
+  const withoutRenovation = trouverProgrammes(makeAnswers({
+    statut_logement: "proprietaire",
+    renovation: false,
+  }));
+  const withoutRenovationIds = programmeIds(withoutRenovation);
+  for (const id of renovationGatedIds) {
+    assert.ok(
+      !withoutRenovationIds.has(id),
+      `${id}: must not be matched for a homeowner who answered renovation: false`,
+    );
+  }
+
+  const withRenovation = trouverProgrammes(makeAnswers({
+    statut_logement: "proprietaire",
+    renovation: true,
+  }));
+  const withRenovationIds = programmeIds(withRenovation);
+  for (const id of renovationGatedIds) {
+    assert.ok(
+      withRenovationIds.has(id),
+      `${id}: must still be matched for a homeowner who answered renovation: true, when other criteria are satisfied`,
+    );
+  }
+
+  // Already-correctly-scoped renovation programmes remain unchanged and unaffected.
+  const alreadyGatedIds = [
+    "renoclimat-qc",
+    "logisvert-hydro",
+    "chauffez-vert-qc",
+    "aide-securite-domicile-munic",
+    "reno-access-munic",
+  ];
+  for (const id of alreadyGatedIds) {
+    const programme = programmes.find((p) => p.id === id);
+    assert.ok(programme);
+    assert.equal(programme.criteres.renovation, true, `${id}: must remain gated by renovation (unchanged)`);
+    assert.ok(!withoutRenovationIds.has(id), `${id}: must not be matched for renovation: false`);
+  }
+});
+
 test("programmes.json catalogue size is stable and every entry has a non-empty description (issue #51)", () => {
   const programmes = loadProgrammesJson();
 

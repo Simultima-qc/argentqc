@@ -792,7 +792,8 @@
     "lien_officiel": "https://www.transitionenergetique.gouv.qc.ca",
     "criteres": {
       "proprietaire": true,
-      "provinces": ["QC"]
+      "provinces": ["QC"],
+      "renovation": true
     }
   },
   {
@@ -813,7 +814,8 @@
     "lien_officiel": "https://www.hydroquebec.com/residentiel/mieux-consommer",
     "criteres": {
       "proprietaire": true,
-      "provinces": ["QC"]
+      "provinces": ["QC"],
+      "renovation": true
     }
   },
   {
@@ -1411,7 +1413,8 @@
     "lien_officiel": "https://www.mamh.gouv.qc.ca",
     "criteres": {
       "proprietaire": true,
-      "provinces": ["QC"]
+      "provinces": ["QC"],
+      "renovation": true
     }
   },
   {
@@ -1432,7 +1435,8 @@
     "lien_officiel": "https://www.hydroquebec.com/residentiel/mieux-consommer",
     "criteres": {
       "proprietaire": true,
-      "provinces": ["QC"]
+      "provinces": ["QC"],
+      "renovation": true
     }
   },
   {
@@ -1471,7 +1475,8 @@
     "lien_officiel": "https://www.mamh.gouv.qc.ca",
     "criteres": {
       "proprietaire": true,
-      "provinces": ["QC"]
+      "provinces": ["QC"],
+      "renovation": true
     }
   },
   {
