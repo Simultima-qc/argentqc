@@ -147,7 +147,6 @@ test("Montreal auto region multiplier reflects the ~35% regional premium gap fou
 
 test("insurance-comparator-2026 freshness metadata documents this revalidation honestly, not a mechanical bump", () => {
   const meta = insuranceData.insuranceComparator2026.meta;
-  assert.equal(meta.lastUpdated, "2026-09-03");
   assert.equal(meta.status, "estimate", "no carrier price was confirmed against an official primary source, so status must not be promoted to official");
   assert.match(meta.sourceNote, /issue #49/);
   assert.match(meta.sourceNote, /EGRESS_BLOCKED/);
@@ -156,6 +155,18 @@ test("insurance-comparator-2026 freshness metadata documents this revalidation h
   assert.match(meta.sourceNote, /termesVerifies/);
   assert.equal(meta.criticality, "medium");
   assert.equal(meta.reviewCadence, "monthly");
+});
+
+test("insurance-comparator-2026 freshness metadata documents the issue #76 revalidation honestly: Intact URL corrected, no invented price, nextReviewAt tightened rather than pushed out", () => {
+  const meta = insuranceData.insuranceComparator2026.meta;
+  assert.equal(meta.lastUpdated, "2026-09-04");
+  assert.equal(meta.nextReviewAt, "2026-09-25", "most price claims stayed unverified this pass, so nextReviewAt must be brought closer, never pushed further out mechanically");
+  assert.match(meta.sourceNote, /issue #76/);
+  assert.match(meta.sourceNote, /non verifi\w* avec confiance/i);
+  assert.match(meta.sourceNote, /RAPPROCHEE/, "the note must document that nextReviewAt was brought closer, not pushed out");
+
+  const intact = insuranceData.assureursHabitation2026.find((a) => a.nom === "Intact");
+  assert.equal(intact.url, "https://www.intact.ca/fr/assurance-particuliers/habitation", "Intact home insurance URL should follow the confirmed /fr/assurance-particuliers/ restructuring");
 });
 
 test("non-localized and localized comparator UI render a visible warning for unconfirmed carriers instead of hiding it only in sourceNote", () => {

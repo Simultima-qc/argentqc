@@ -174,7 +174,6 @@ test("every remaining offer explicitly declares its price/speed as unconfirmed (
 
 test("internet-offers-2026 freshness metadata documents the 3rd revalidation pass honestly, not a mechanical bump", () => {
   const meta = internetData.internetComparatorUi2026.meta;
-  assert.equal(meta.lastUpdated, "2026-09-03");
   assert.equal(meta.status, "estimate", "no offer was confirmed against an official source, so status must not be promoted to official");
   assert.match(meta.sourceNote, /issue #47/);
   assert.match(meta.sourceNote, /EGRESS_BLOCKED/);
@@ -183,6 +182,15 @@ test("internet-offers-2026 freshness metadata documents the 3rd revalidation pas
   assert.match(meta.sourceNote, /termesVerifies/);
   assert.equal(meta.criticality, "medium");
   assert.equal(meta.reviewCadence, "monthly");
+});
+
+test("internet-offers-2026 freshness metadata documents the 4th revalidation pass (issue #76) honestly: no invented price, nextReviewAt tightened rather than pushed out", () => {
+  const meta = internetData.internetComparatorUi2026.meta;
+  assert.equal(meta.lastUpdated, "2026-09-04");
+  assert.equal(meta.nextReviewAt, "2026-09-25", "most claims stayed unverified this pass, so nextReviewAt must be brought closer, never pushed further out mechanically");
+  assert.match(meta.sourceNote, /issue #76/);
+  assert.match(meta.sourceNote, /non verifi\w* avec confiance/i);
+  assert.match(meta.sourceNote, /RAPPROCHEE/, "the note must document that nextReviewAt was brought closer, not pushed out");
 });
 
 test("published comparator pages state the correct distinct provider count (5, no dangling Cogeco mention)", () => {
