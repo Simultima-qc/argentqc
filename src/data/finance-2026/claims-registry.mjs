@@ -82,7 +82,10 @@ export const claimsRegistry = [
     criticality: "high",
     status: "governed",
     scopeNote:
-      "AFE : reviewCadence corrigée à \"manual\" dans le dataset pour refléter honnêtement la prochaine échéance réelle du ledger (2026-10-12), plus rapprochée qu'un cycle trimestriel générique, plutôt que forcer une étiquette de cadence qui ne correspondrait pas à la date déjà déclarée.",
+      "AFE : reviewCadence \"manual\" dans le dataset. Revalidée le 2026-09-04 (issue #71, WebSearch, accès direct aux domaines " +
+      "gouvernementaux bloqué) : aucune divergence trouvée sur les claims publiées ; nextReviewAt avancé à 2027-01-15, aligné sur " +
+      "la claim la plus volatile du dataset (taux du crédit fédéral pour frais de scolarité, indexé annuellement) plutôt que sur " +
+      "le cycle annuel du guide AFE lui-même. Voir docs/claims/aide-financiere-etudes-quebec-2026.md pour le détail.",
   },
   {
     slug: "assurance-emploi-guide-complet-2026",
@@ -93,7 +96,11 @@ export const claimsRegistry = [
     status: "governed",
     nextReviewAt: "2026-10-11",
     scopeNote:
-      "Aucun module finance-2026 dédié (ledger seul, schéma classique). Critique car une mesure temporaire (carence, +20 semaines) expire le 2026-10-10; nextReviewAt fixé au 2026-10-11 déclaré par le ledger.",
+      "Aucun module finance-2026 dédié (ledger seul, schéma classique). Critique car une mesure temporaire (carence, +20 semaines) expire le 2026-10-10; nextReviewAt fixé au 2026-10-11 déclaré par le ledger. " +
+      "Revalidée le 2026-09-04 (issue #71, WebSearch, accès direct aux domaines gouvernementaux toujours bloqué) : aucune divergence " +
+      "trouvée, y compris confirmation additionnelle (Gazette du Canada DORS/2026-64) que les mesures temporaires ont bien été " +
+      "prolongées jusqu'au 2026-10-10. nextReviewAt délibérément laissé inchangé : c'est une échéance réelle liée à l'expiration " +
+      "des mesures, pas une date de vérification arbitraire à repousser. Voir docs/claims/assurance-emploi-guide-complet-2026.md.",
   },
   {
     slug: "aide-sociale-quebec-2026",

@@ -60,13 +60,16 @@ export const pretsBourses2026 = defineVersionedDataset(
   "prets-bourses-etudiants-2026",
   {
     year: 2026,
-    lastUpdated: "2026-08-28",
+    lastUpdated: "2026-09-04",
     status: "official",
     sourceNote:
-      "Règles vérifiées dans les sources officielles AFE 2026-2027, Revenu Québec et ARC. " +
+      "Règles vérifiées dans les sources officielles AFE 2026-2027, Revenu Québec et ARC (dernière vérification directe le 2026-08-28). " +
+      "Revalidée le 2026-09-04 (issue #71) par recoupement WebSearch (accès direct aux domaines gouvernementaux bloqué par la politique " +
+      "réseau de cette session) : aucune divergence trouvée sur les claims publiées. Voir docs/claims/aide-financiere-etudes-quebec-2026.md " +
+      "pour le détail complet, y compris la réserve documentée sur les maximums 18 415 $/23 033 $ (non publiés dans ce module). " +
       "Aucun montant AFE personnalisé n'est estimé par ArgentQC.",
     reviewCadence: "manual",
-    nextReviewAt: "2026-10-12",
+    nextReviewAt: "2027-01-15",
     criticality: "high",
   },
   {

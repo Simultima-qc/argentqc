@@ -60,6 +60,53 @@ test("fractionnement-revenu-retraite-2026 is governed by issue #41 with a valid 
   assert.ok(isIsoDate(entry.nextReviewAt));
 });
 
+test("assurance-emploi-guide-complet-2026 is revalidated by issue #71 with nextReviewAt tied to the real 2026-10-10 temporary-measure expiry", () => {
+  const entry = claimsRegistry.find((candidate) => candidate.slug === "assurance-emploi-guide-complet-2026");
+  assert.ok(entry, "registry entry must exist");
+  assert.equal(entry.status, "governed");
+  assert.equal(entry.criticality, "critical");
+  assert.equal(entry.ledgerFile, "docs/claims/assurance-emploi-guide-complet-2026.md");
+  // This must stay exactly 2026-10-11: it is not a review-lapse date to push
+  // forward but the day after the temporary EI measures (waived waiting
+  // period, +20 weeks for long-tenured workers) actually expire. Moving it
+  // without new evidence would be the "mechanical bump" issue #71 forbids.
+  assert.equal(entry.nextReviewAt, "2026-10-11");
+
+  // As of the issue #71 revalidation date, the claim must not be overdue...
+  const beforeExpiry = evaluateCalendarStatus(
+    { nextReviewAt: entry.nextReviewAt, criticality: entry.criticality },
+    { now: "2026-09-04" }
+  );
+  assert.equal(beforeExpiry.level, "ok");
+
+  // ...but must still correctly block if left unreviewed past the real
+  // expiry with no staleException, preserving the acceptance criterion that
+  // this critical claim cannot silently slip past 2026-10-11 unreviewed.
+  const afterExpiry = evaluateCalendarStatus(
+    { nextReviewAt: entry.nextReviewAt, criticality: entry.criticality },
+    { now: "2026-10-12" }
+  );
+  assert.equal(afterExpiry.level, "blocking");
+});
+
+test("aide-financiere-etudes-quebec-2026 (prets-bourses-2026.ts) is revalidated by issue #71 with nextReviewAt aligned on its most volatile embedded claim", () => {
+  const entry = claimsRegistry.find((candidate) => candidate.slug === "aide-financiere-etudes-quebec-2026");
+  assert.ok(entry, "registry entry must exist");
+  assert.equal(entry.status, "governed");
+  assert.equal(entry.datasetModule, "src/data/finance-2026/prets-bourses-2026.ts");
+
+  const source = read(entry.datasetModule);
+  const [{ meta }] = extractVersionedDatasetMetas(source);
+  assert.equal(meta.lastUpdated, "2026-09-04");
+  // Aligned on the federal tuition tax credit rate (annually indexed),
+  // the earliest genuinely volatile claim inside this dataset — not on an
+  // arbitrary six-week bump from the prior pass's 2026-10-12.
+  assert.equal(meta.nextReviewAt, "2027-01-15");
+  assert.equal(meta.criticality, "high");
+  assert.ok(isIsoDate(meta.lastUpdated));
+  assert.ok(isIsoDate(meta.nextReviewAt));
+});
+
 test("impots-revenus-retraite-quebec-2026 is governed by issue #43 with a valid nextReviewAt", () => {
   const entry = claimsRegistry.find((candidate) => candidate.slug === "impots-revenus-retraite-quebec-2026");
   assert.ok(entry, "registry entry must exist");
