@@ -10,9 +10,11 @@ import {
   computeCriticalityDrift,
   computeRegistryDrift,
   evaluateCalendarStatus,
+  evaluateUpcomingReview,
   evaluateYearDrift,
   extractVersionedDatasetMetas,
   isIsoDate,
+  UPCOMING_REVIEW_WARNING_DAYS,
   validateDatasetMetaShape,
   validateRegistryEntryShape,
 } from "../scripts/lib/claims-freshness.mjs";
@@ -374,6 +376,146 @@ test("the real registry has zero criticality drift against its linked finance-20
 
   const errors = computeCriticalityDrift({ registry: claimsRegistry, datasetCriticalityByModule });
   assert.deepEqual(errors, []);
+});
+
+// ── Proactive freshness early warning (issue #64) ───────────────────────────
+
+test("UPCOMING_REVIEW_WARNING_DAYS defaults to a J-30 window", () => {
+  assert.equal(UPCOMING_REVIEW_WARNING_DAYS, 30);
+});
+
+// Claim à plus de 30 jours : aucune alerte proactive.
+test("a claim more than 30 days from its nextReviewAt gets no proactive warning", () => {
+  const result = evaluateUpcomingReview({ nextReviewAt: "2026-11-30", criticality: "critical" }, { now: "2026-10-30" });
+  assert.equal(result.level, "ok");
+  assert.deepEqual(result.messages, []);
+});
+
+// Claim exactement à J-30.
+test("a claim exactly 30 days from its nextReviewAt gets a proactive warning", () => {
+  const result = evaluateUpcomingReview({ nextReviewAt: "2026-11-30", criticality: "critical" }, { now: "2026-10-31" });
+  assert.equal(result.level, "warning");
+  assert.match(result.messages[0], /30 day\(s\)/);
+});
+
+// Claim à J-1.
+test("a claim 1 day from its nextReviewAt gets a proactive warning", () => {
+  const result = evaluateUpcomingReview({ nextReviewAt: "2026-11-30", criticality: "critical" }, { now: "2026-11-29" });
+  assert.equal(result.level, "warning");
+  assert.match(result.messages[0], /1 day\(s\)/);
+});
+
+// Claim le jour de nextReviewAt : la sémantique actuelle d'evaluateCalendarStatus
+// considère ce jour comme "ok" (pas encore overdue); le warning proactif doit
+// rester cohérent avec cette même frontière (0 jour restant = encore averti,
+// jamais "overdue" tant que daysBetween(nextReviewAt, now) n'est pas > 0).
+test("a claim due exactly today (0 days remaining) still gets the proactive warning, not the overdue path", () => {
+  const meta = { nextReviewAt: "2026-11-30", criticality: "critical" };
+  const upcoming = evaluateUpcomingReview(meta, { now: "2026-11-30" });
+  assert.equal(upcoming.level, "warning");
+  assert.match(upcoming.messages[0], /0 day\(s\)/);
+
+  const calendar = evaluateCalendarStatus(meta, { now: "2026-11-30" });
+  assert.equal(calendar.level, "ok");
+});
+
+// 31 jours restants : juste hors fenêtre, aucune alerte.
+test("a claim 31 days from its nextReviewAt (just outside the window) gets no proactive warning", () => {
+  const result = evaluateUpcomingReview({ nextReviewAt: "2026-11-30", criticality: "critical" }, { now: "2026-10-30" });
+  assert.equal(result.level, "ok");
+});
+
+// Claim dépassée critique : reste bloquante, le mécanisme proactif ne
+// s'applique pas (et evaluateCalendarStatus est inchangé).
+test("an overdue critical claim gets no proactive warning and stays blocking via evaluateCalendarStatus", () => {
+  const meta = { nextReviewAt: "2026-11-30", criticality: "critical" };
+  const upcoming = evaluateUpcomingReview(meta, { now: "2026-12-01" });
+  assert.equal(upcoming.level, "ok");
+  assert.deepEqual(upcoming.messages, []);
+
+  const calendar = evaluateCalendarStatus(meta, { now: "2026-12-01" });
+  assert.equal(calendar.level, "blocking");
+});
+
+// Claim dépassée non critique : comportement actuel (warning) préservé, et
+// le mécanisme proactif n'ajoute rien pour une échéance déjà passée.
+test("an overdue non-critical claim keeps its existing warning behavior and gets no proactive warning", () => {
+  const meta = { nextReviewAt: "2026-11-30", criticality: "high" };
+  const upcoming = evaluateUpcomingReview(meta, { now: "2026-12-01" });
+  assert.equal(upcoming.level, "ok");
+
+  const calendar = evaluateCalendarStatus(meta, { now: "2026-12-01" });
+  assert.equal(calendar.level, "warning");
+});
+
+// Sortie exploitable : surface/claim (via le label composé côté check-seo.mjs),
+// date d'échéance et nombre de jours restants doivent apparaître.
+test("the proactive warning message carries the exact nextReviewAt date and days-remaining count", () => {
+  const result = evaluateUpcomingReview({ nextReviewAt: "2026-10-11", criticality: "critical" }, { now: "2026-09-21" });
+  assert.equal(result.level, "warning");
+  assert.match(result.messages[0], /2026-10-11/);
+  assert.match(result.messages[0], /20 day\(s\)/);
+  assert.match(result.messages[0], /30-day/);
+});
+
+// Un seuil de fenêtre personnalisé reste utilisable (paramètre optionnel),
+// sans changer le défaut centralisé J-30.
+test("evaluateUpcomingReview accepts a custom windowDays without changing the exported default", () => {
+  const result = evaluateUpcomingReview(
+    { nextReviewAt: "2026-11-30", criticality: "critical" },
+    { now: "2026-11-01", windowDays: 45 }
+  );
+  assert.equal(result.level, "warning");
+  assert.equal(UPCOMING_REVIEW_WARNING_DAYS, 30);
+});
+
+// historicalStatus "historical-corrected" : jamais d'alerte proactive, quelle
+// que soit la proximité de nextReviewAt (même règle que evaluateCalendarStatus).
+test("a historical-corrected claim never gets a proactive warning, however close nextReviewAt is", () => {
+  const result = evaluateUpcomingReview(
+    { nextReviewAt: "2026-09-05", criticality: "critical", historicalStatus: "historical-corrected" },
+    { now: "2026-09-04" }
+  );
+  assert.equal(result.level, "ok");
+  assert.deepEqual(result.messages, []);
+});
+
+// Missing/malformed nextReviewAt: already reported elsewhere, this proactive
+// check must not throw and must stay silent.
+test("evaluateUpcomingReview is silent (not throwing) on a missing or malformed nextReviewAt", () => {
+  assert.deepEqual(evaluateUpcomingReview({ nextReviewAt: undefined, criticality: "critical" }, { now: "2026-09-04" }), {
+    level: "ok",
+    messages: [],
+  });
+  assert.deepEqual(evaluateUpcomingReview({ nextReviewAt: "not-a-date", criticality: "critical" }, { now: "2026-09-04" }), {
+    level: "ok",
+    messages: [],
+  });
+});
+
+// Calcul stable autour des dates, sans dépendance au fuseau horaire local:
+// daysBetween (utilisé en interne) parse en UTC minuit, donc le résultat est
+// identique quel que soit process.env.TZ.
+test("evaluateUpcomingReview is a pure function of the injected now, independent of local timezone", () => {
+  const meta = { nextReviewAt: "2026-11-30", criticality: "critical" };
+  const originalTz = process.env.TZ;
+  try {
+    process.env.TZ = "Pacific/Kiritimati"; // UTC+14
+    const resultA = evaluateUpcomingReview(meta, { now: "2026-11-15" });
+    process.env.TZ = "Etc/GMT+12"; // UTC-12
+    const resultB = evaluateUpcomingReview(meta, { now: "2026-11-15" });
+    assert.deepEqual(resultA, resultB);
+    assert.equal(resultA.level, "warning");
+    assert.match(resultA.messages[0], /15 day\(s\)/);
+  } finally {
+    if (originalTz === undefined) delete process.env.TZ;
+    else process.env.TZ = originalTz;
+  }
+});
+
+test("check-seo.mjs wires evaluateUpcomingReview into its freshness gate alongside evaluateCalendarStatus", () => {
+  const source = read("scripts/check-seo.mjs");
+  assert.match(source, /evaluateUpcomingReview/);
 });
 
 test("check-seo.mjs's ARGENTQC_FRESHNESS_NOW override makes the freshness gate deterministic in CI", () => {

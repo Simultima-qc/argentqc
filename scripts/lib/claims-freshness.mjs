@@ -162,6 +162,58 @@ export function evaluateCalendarStatus(meta, { now }) {
   };
 }
 
+// Default proactive warning window (in days) before `nextReviewAt`. Applies
+// uniformly regardless of `criticality`: the point of this window is purely
+// informational visibility ahead of a deadline, not a policy change, so
+// there is no reason for a "critical" claim to get a different heads-up
+// window than a "high"/"medium" one. The blocking/overdue policy itself
+// (evaluateCalendarStatus) is untouched and still differs by criticality.
+export const UPCOMING_REVIEW_WARNING_DAYS = 30;
+
+/**
+ * Proactive, non-blocking early-warning check for a claim approaching its
+ * `nextReviewAt` (issue #64, following the read-only re-baseline #53). This
+ * is deliberately separate from evaluateCalendarStatus: that function only
+ * ever reacts once `nextReviewAt` has been reached or passed ("ok" for
+ * every day strictly before it), so it can never by itself warn ahead of
+ * time. This function only ever looks at the *upcoming* side of the same
+ * date and never reports anything once the date has arrived or passed —
+ * that is evaluateCalendarStatus's exclusive territory — so the two never
+ * disagree about the same day.
+ *
+ * `now` is always injected (ISO date string), never read from the system
+ * clock, for the same determinism reasons as the rest of this module.
+ *
+ * Returns { level: "ok" | "warning", messages: string[] }.
+ */
+export function evaluateUpcomingReview(meta, { now, windowDays = UPCOMING_REVIEW_WARNING_DAYS }) {
+  if (meta.historicalStatus === "historical-corrected") {
+    return { level: "ok", messages: [] };
+  }
+
+  // A missing/malformed nextReviewAt is already reported elsewhere
+  // (validateDatasetMetaShape as blocking, or evaluateCalendarStatus for
+  // ledger-only entries) — this proactive check has nothing useful to add.
+  if (!isIsoDate(meta.nextReviewAt)) {
+    return { level: "ok", messages: [] };
+  }
+
+  const daysRemaining = daysBetween(now, meta.nextReviewAt);
+
+  // daysRemaining < 0 means nextReviewAt is already in the past: that is
+  // overdue territory, exclusively owned by evaluateCalendarStatus.
+  if (daysRemaining < 0 || daysRemaining > windowDays) {
+    return { level: "ok", messages: [] };
+  }
+
+  return {
+    level: "warning",
+    messages: [
+      `nextReviewAt (${meta.nextReviewAt}) is coming up in ${daysRemaining} day(s) — within the ${windowDays}-day proactive freshness review window. Non-blocking: no action required until the deadline itself.`,
+    ],
+  };
+}
+
 /**
  * Non-blocking-unless-critical check that the dataset's declared `year`
  * has not fallen behind the current calendar year.
