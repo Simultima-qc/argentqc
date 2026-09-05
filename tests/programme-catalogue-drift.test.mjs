@@ -9,7 +9,9 @@ import {
   extractLocalProgrammeCopies,
   extractProgrammeArrayText,
   findProgrammeCatalogueDrift,
+  findUngovernedLocalProgrammes,
   isMiddlewareRedirectedRoute,
+  splitTopLevelArrayElements,
   splitTopLevelBraceObjects,
 } from "../scripts/lib/programme-catalogue-drift.mjs";
 
@@ -84,6 +86,113 @@ test("isMiddlewareRedirectedRoute detects a route in middleware.ts legacyRedirec
   `;
   assert.equal(isMiddlewareRedirectedRoute("/allocation-logement-quebec", middlewareSource), true);
   assert.equal(isMiddlewareRedirectedRoute("/borne-recharge-quebec", middlewareSource), false);
+});
+
+test("splitTopLevelArrayElements separates object literals from catalogue calls without splitting nested criteres braces", () => {
+  const arrayText = '[{ id: "a", criteres: { revenu_max: 1 } }, getProgrammeFromCatalogue("b"), { id: "c" }]';
+  const elements = splitTopLevelArrayElements(arrayText);
+  assert.equal(elements.length, 3);
+  assert.match(elements[0], /"a"/);
+  assert.equal(elements[1], 'getProgrammeFromCatalogue("b")');
+  assert.match(elements[2], /"c"/);
+});
+
+// ── findUngovernedLocalProgrammes (issue #96) ───────────────────────────
+// General fix for the gap left open by #93: id-based drift detection can
+// only compare a local copy against a catalogue entry that shares its id.
+// findUngovernedLocalProgrammes instead rejects any raw object literal in
+// the governed array, whatever id it declares - so a page cannot smuggle
+// in a duplicate benefit just by inventing a local id with no catalogue
+// counterpart, which is exactly what frais-medicaux-qc-2/-fed did.
+
+test("reproduces the historical frais-medicaux-qc-2/frais-medicaux-fed-2 pattern (issue #93): a local id with no catalogue counterpart is still caught", () => {
+  const pages = [
+    {
+      filePath: "src/app/credit-impot-frais-medicaux-quebec/page.tsx",
+      source: `
+        const programmes: Programme[] = [
+          { id: "frais-medicaux-qc-2", montant_min: 0, montant_max: 0, montant_affiche: "x" },
+          { id: "frais-medicaux-fed-2", montant_min: 0, montant_max: 0, montant_affiche: "x" },
+        ];
+      `,
+    },
+  ];
+
+  const violations = findUngovernedLocalProgrammes({ pages });
+  assert.equal(violations.length, 2);
+  assert.deepEqual(violations.map((violation) => violation.id).sort(), ["frais-medicaux-fed-2", "frais-medicaux-qc-2"]);
+});
+
+test("a page fully sourced via getProgrammeFromCatalogue produces no violation", () => {
+  const pages = [
+    {
+      filePath: "src/app/credit-impot-frais-medicaux-quebec/page.tsx",
+      source: `
+        const programmes: Programme[] = [
+          getProgrammeFromCatalogue("credit-frais-medicaux-qc"),
+          getProgrammeFromCatalogue("credit-frais-medicaux-fed"),
+        ];
+      `,
+    },
+  ];
+
+  assert.deepEqual(findUngovernedLocalProgrammes({ pages }), []);
+});
+
+test("a local object literal whose id already matches a catalogue entry is still flagged (duplicate source of truth, even with no active montant drift)", () => {
+  const pages = [
+    {
+      filePath: "src/app/credit-impot-quebec/page.tsx",
+      source: `
+        const programmes: Programme[] = [
+          { id: "credit-loyer-qc", montant_min: 0, montant_max: 0, montant_affiche: "x" },
+        ];
+      `,
+    },
+  ];
+
+  const violations = findUngovernedLocalProgrammes({ pages });
+  assert.equal(violations.length, 1);
+  assert.equal(violations[0].id, "credit-loyer-qc");
+});
+
+test("an explicitly declared (filePath, id) exception is not flagged", () => {
+  const pages = [
+    {
+      filePath: "src/app/some-page/page.tsx",
+      source: `
+        const programmes: Programme[] = [
+          { id: "programme-local-uniquement", montant_min: 0, montant_max: 100, montant_affiche: "x" },
+        ];
+      `,
+    },
+  ];
+
+  const violations = findUngovernedLocalProgrammes({
+    pages,
+    exceptions: [{ filePath: "src/app/some-page/page.tsx", id: "programme-local-uniquement" }],
+  });
+  assert.deepEqual(violations, []);
+});
+
+test("the real src/app tree has zero pages mixing a local Programme literal into the governed array pattern (live routes only)", () => {
+  const middlewareSource = read(middlewareFile);
+  const pageFiles = [];
+  walkPageFiles(appDir, pageFiles);
+
+  const pages = pageFiles
+    .map((filePath) => ({ filePath: relative(filePath), routePath: routePathForPageFile(filePath), source: read(filePath) }))
+    .filter(({ routePath }) => !isMiddlewareRedirectedRoute(routePath, middlewareSource));
+
+  assert.deepEqual(findUngovernedLocalProgrammes({ pages }), []);
+});
+
+test("credit-impot-quebec no longer hardcodes credit-loyer-qc/credit-tps-fed/credit-reno-fed as local literals (issue #96)", () => {
+  const source = read(path.join(appDir, "credit-impot-quebec", "page.tsx"));
+  assert.deepEqual(extractLocalProgrammeCopies(source), []);
+  for (const id of ["credit-loyer-qc", "credit-tps-fed", "credit-maintien-qc", "credit-reno-fed"]) {
+    assert.match(source, new RegExp(`getProgrammeFromCatalogue\\("${id}"\\)`));
+  }
 });
 
 // ── findProgrammeCatalogueDrift (fixtures) ──────────────────────────────

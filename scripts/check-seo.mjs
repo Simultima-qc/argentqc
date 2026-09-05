@@ -13,7 +13,7 @@ import {
   validateRegistryEntryShape,
 } from "./lib/claims-freshness.mjs";
 import { findUnregisteredIndexableRoutes } from "./lib/route-registry.mjs";
-import { findProgrammeCatalogueDrift, isMiddlewareRedirectedRoute } from "./lib/programme-catalogue-drift.mjs";
+import { findProgrammeCatalogueDrift, findUngovernedLocalProgrammes, isMiddlewareRedirectedRoute } from "./lib/programme-catalogue-drift.mjs";
 
 const rootDir = process.cwd();
 const appDir = path.join(rootDir, "src", "app");
@@ -52,6 +52,16 @@ const freshnessNowEnvVar = "ARGENTQC_FRESHNESS_NOW";
 const legitimateSeoRegistryExceptions = [
   "/politique-confidentialite", // registered directly in sitemap.ts legalEntries
 ];
+
+// Pages explicitly allowed to keep a raw local Programme object literal
+// inside the governed `const programmes: Programme[] = [...]` array
+// instead of sourcing it via getProgrammeFromCatalogue (issue #96). Empty
+// by design: every page currently opting into that array pattern sources
+// 100% of its entries from src/data/programmes.json. Adding an entry here
+// requires a one-line justification (the benefit genuinely has no
+// catalogue counterpart yet) and a regression test - it must never be used
+// to silence a real duplicate.
+const governedProgrammeSourcingExceptions = [];
 
 const errors = [];
 
@@ -998,6 +1008,19 @@ function checkProgrammeCatalogueDrift() {
     report("SEO page programme copy has drifted from the governed programmes catalogue", [
       `${relative(drift.filePath)}: "${drift.id}" montant_min/montant_max is ${drift.local.montant_min}/${drift.local.montant_max}, ` +
         `but ${relative(programmesJsonFile)} has ${drift.canonical.montant_min}/${drift.canonical.montant_max}`,
+    ]);
+  }
+
+  const exceptions = governedProgrammeSourcingExceptions.map((exception) => ({
+    ...exception,
+    filePath: relative(path.join(rootDir, exception.filePath)),
+  }));
+  const relativePages = pages.map(({ filePath, source }) => ({ filePath: relative(filePath), source }));
+  const ungoverned = findUngovernedLocalProgrammes({ pages: relativePages, exceptions });
+  for (const violation of ungoverned) {
+    report("SEO page defines a local Programme object instead of sourcing it from the governed catalogue", [
+      `${violation.filePath}: "${violation.id}" is a raw object literal in the governed programmes array; ` +
+        `use getProgrammeFromCatalogue("${violation.id}") or add ${violation.filePath}/${violation.id} to governedProgrammeSourcingExceptions in scripts/check-seo.mjs with a justification`,
     ]);
   }
 }
