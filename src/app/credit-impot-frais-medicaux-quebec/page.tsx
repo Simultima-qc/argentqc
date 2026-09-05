@@ -50,7 +50,7 @@ export default function CreditImpotFraisMedicauxPage() {
   return (
     <SeoProgrammesPage
       titre="Crédit d'impôt pour frais médicaux Québec 2026"
-      sousTitre="Récupérez 20% de vos dépenses médicales admissibles au provincial, en plus du crédit fédéral — lunettes, dentiste, médicaments et plus."
+      sousTitre="Récupérez 20% de la portion de vos dépenses médicales admissibles qui dépasse 3% de votre revenu familial net (crédit non remboursable, ligne 381), en plus du crédit fédéral — lunettes, dentiste, médicaments et plus."
       intro="Le crédit d'impôt pour frais médicaux est l'un des crédits les plus méconnus et pourtant les plus accessibles. Au Québec, le crédit provincial est non remboursable et récupère 20% de vos dépenses médicales admissibles qui dépassent 3% de votre revenu familial net, en plus du crédit fédéral (14% pour l'année d'imposition 2026, sur les dépenses dépassant le moindre de 3% du revenu net ou 2 834 $ pour 2025 — le seuil 2026 n'est pas encore publié par l'ARC). Une famille qui cumule dentiste, lunettes et médicaments sur ordonnance peut facilement réclamer 2 000 $ à 5 000 $ en dépenses admissibles — et récupérer plusieurs centaines de dollars. La clé : garder tous ses reçus."
       programmes={programmes}
       faqs={faqs}
