@@ -75,12 +75,12 @@ const fr: BudgetHousingAllowanceDictionary = {
     {
       question: "Quel est le montant de l'allocation logement?",
       answer:
-        "Le montant peut varier selon le revenu, le loyer et la composition du menage. Verifiez toujours le montant exact et les seuils en vigueur sur le site officiel de la Societe d'habitation du Quebec.",
+        "Le montant est l'un de trois paliers fixes (100 $, 150 $ ou 170 $ par mois) selon votre taux d'effort au logement. Verifiez votre taux exact et les seuils en vigueur sur le site officiel de Revenu Quebec.",
     },
     {
       question: "Comment faire une demande?",
       answer:
-        "La demande se fait aupres de la Societe d'habitation du Quebec ou selon les consignes du programme. Preparez vos preuves de revenu, votre bail ou preuve de loyer et tout document demande.",
+        "Le programme releve de la Societe d'habitation du Quebec, mais les demandes sont traitees par Revenu Quebec (Mon dossier). Preparez vos preuves de revenu, votre bail ou preuve de loyer et tout document demande.",
     },
     {
       question: "L'allocation logement est-elle imposable?",
@@ -97,21 +97,21 @@ const fr: BudgetHousingAllowanceDictionary = {
     {
       id: "allocation-logement-qc",
       nom: "Allocation-logement (Quebec)",
-      organisme: "Societe d'habitation du Quebec (SHQ)",
+      organisme: "Revenu Quebec (programme de la Societe d'habitation du Quebec)",
       niveau: "provincial",
       categorie: "logement",
       montant_min: 100,
       montant_max: 2040,
-      montant_affiche: "Jusqu'a 170 $ par mois",
+      montant_affiche: "100 $, 150 $ ou 170 $ par mois selon le taux d'effort",
       description:
-        "Aide mensuelle pour les locataires a faible revenu qui consacrent une part trop importante de leur revenu au loyer.",
+        "Aide mensuelle pour les locataires et proprietaires-occupants a faible revenu qui consacrent une part trop importante de leur revenu au logement.",
       conditions: [
-        "Etre locataire au Quebec",
+        "Etre locataire ou proprietaire-occupant au Quebec",
         "Avoir 50 ans ou plus, ou avoir un enfant a charge",
-        "Respecter les seuils de revenu applicables",
+        "Respecter les seuils de revenu et d'epargne applicables (max. 50 000 $ d'epargne)",
       ],
-      lien_officiel: "https://www.habitation.gouv.qc.ca/programme/programme/allocation-logement",
-      criteres: { locataire: true, provinces: ["QC"], revenu_max: 35000 },
+      lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/votre-situation/faible-revenu/programme-allocation-logement/",
+      criteres: { provinces: ["QC"], revenu_max: 46640 },
     },
     {
       id: "credit-loyer-qc",
@@ -206,7 +206,7 @@ const en: BudgetHousingAllowanceDictionary = {
     {
       question: "Where do I apply?",
       answer:
-        "Applications are handled through the Societe d'habitation du Quebec. In practice, you need to provide rent information and household income details.",
+        "The program is owned by the Societe d'habitation du Quebec, but applications are processed by Revenu Quebec. You need to provide rent information and household income details.",
     },
     {
       question: "Can it be combined with the solidarity tax credit?",
@@ -218,21 +218,21 @@ const en: BudgetHousingAllowanceDictionary = {
     {
       id: "allocation-logement-qc",
       nom: "Quebec housing allowance",
-      organisme: "Societe d'habitation du Quebec (SHQ)",
+      organisme: "Revenu Quebec (a Societe d'habitation du Quebec program)",
       niveau: "provincial",
       categorie: "logement",
       montant_min: 100,
       montant_max: 2040,
-      montant_affiche: "Up to 170 CAD per month",
+      montant_affiche: "100, 150 or 170 CAD per month depending on housing-cost ratio",
       description:
-        "Monthly support for lower-income renters who spend too much of their income on housing.",
+        "Monthly support for lower-income renters and owner-occupiers who spend too much of their income on housing.",
       conditions: [
-        "Be a renter in Quebec",
+        "Be a renter or owner-occupier in Quebec",
         "Be age 50+ or have a dependent child",
-        "Meet the applicable household income thresholds",
+        "Meet the applicable household income and savings thresholds (max. 50,000 CAD in savings)",
       ],
-      lien_officiel: "https://www.habitation.gouv.qc.ca/programme/programme/allocation-logement",
-      criteres: { locataire: true, provinces: ["QC"], revenu_max: 35000 },
+      lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/votre-situation/faible-revenu/programme-allocation-logement/",
+      criteres: { provinces: ["QC"], revenu_max: 46640 },
     },
     {
       id: "credit-loyer-qc",

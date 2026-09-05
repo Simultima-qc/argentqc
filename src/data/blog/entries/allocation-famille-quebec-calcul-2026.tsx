@@ -71,9 +71,10 @@ function Content() {
             défaut; vous pouvez demander à Retraite Québec de les recevoir mensuellement.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            Le montant est révisé chaque année en juillet selon un taux d&apos;indexation basé sur l&apos;indice des prix
-            à la consommation. Il tient compte de votre revenu familial net de l&apos;année précédente, tel que déclaré
-            dans votre déclaration de revenus provinciale.
+            Les montants sont indexés chaque <strong>1er janvier</strong>{" "}selon l&apos;indice des prix à la
+            consommation. Le montant réellement versé à votre famille, lui, est recalculé chaque{" "}
+            <strong>juillet</strong>{" "}en fonction de votre revenu familial net et de votre situation (conjugale,
+            garde) de l&apos;année précédente, tel que déclaré dans votre déclaration de revenus provinciale.
           </p>
         </section>
 
@@ -169,7 +170,7 @@ function Content() {
             {[
               {
                 titre: "Supplément pour enfant handicapé",
-                desc: "Jusqu&apos;à 239 $/mois par enfant ayant des contraintes importantes liées à un handicap. Demande requise auprès de Retraite Québec.",
+                desc: "Jusqu&apos;à 241 $/mois par enfant ayant des contraintes importantes liées à un handicap. Demande requise auprès de Retraite Québec.",
               },
               {
                 titre: "Supplément pour famille monoparentale",
@@ -251,8 +252,10 @@ function Content() {
               </div>
             </div>
             <p className="text-green-700 text-xs">
-              Soit environ <strong>1 175 $/mois</strong>{" "} combinés des deux programmes. Les montants varient selon
-              l&apos;âge des enfants et le revenu exact.
+              Les deux montants ci-dessus dépendent de l&apos;âge exact des enfants et ne peuvent pas être
+              additionnés de façon fiable sans ces détails; utilisez le questionnaire ou les calculateurs
+              officiels de Retraite Québec et de l&apos;ARC pour un total personnalisé plutôt qu&apos;un montant
+              générique.
             </p>
           </div>
         </section>

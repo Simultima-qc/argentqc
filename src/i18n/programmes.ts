@@ -156,14 +156,14 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
   },
   "allocation-logement-qc": {
     nom: "Quebec housing allowance",
-    organisme: "Societe d'habitation du Quebec",
-    montant_affiche: "Up to $170 per month",
+    organisme: "Revenu Quebec (a Societe d'habitation du Quebec program)",
+    montant_affiche: "100, 150 or 170 CAD per month depending on housing-cost ratio",
     description:
-      "Monthly housing assistance for low-income renters who spend too much of their income on rent.",
+      "Monthly housing assistance for low-income renters and owner-occupiers who spend too much of their income on housing.",
     conditions: [
-      "You must rent your home in Quebec",
+      "You must rent or own-occupy your home in Quebec",
       "You must be aged 50+ or have a dependent child",
-      "Your annual gross income must be under the program thresholds",
+      "Your income and savings must be under the program thresholds",
     ],
   },
   "credit-maintien-qc": {

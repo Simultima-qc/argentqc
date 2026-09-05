@@ -41,16 +41,16 @@ const programmes: Programme[] = [
   {
     id: "allocation-logement-qc",
     nom: "Allocation-logement (Québec)",
-    organisme: "Société d'habitation du Québec (SHQ)",
+    organisme: "Revenu Québec (programme de la Société d'habitation du Québec)",
     niveau: "provincial",
     categorie: "logement",
     montant_min: 100,
     montant_max: 2040,
-    montant_affiche: "Jusqu'à 170 $ par mois",
-    description: "Aide financière mensuelle pour les locataires à faible revenu qui consacrent une trop grande part de leurs revenus au loyer.",
-    conditions: ["Être locataire au Québec", "Avoir 50 ans ou plus, ou avoir un enfant à charge", "Revenu annuel brut sous les seuils établis"],
-    lien_officiel: "https://www.habitation.gouv.qc.ca/programme/programme/allocation-logement",
-    criteres: { locataire: true, provinces: ["QC"], revenu_max: 35000 },
+    montant_affiche: "100 $, 150 $ ou 170 $ par mois selon le taux d'effort",
+    description: "Aide financière mensuelle pour les locataires et propriétaires-occupants à faible revenu qui consacrent une trop grande part de leurs revenus au logement.",
+    conditions: ["Être locataire ou propriétaire-occupant au Québec", "Avoir 50 ans ou plus, ou avoir un enfant à charge", "Revenu et épargne sous les seuils établis (max. 50 000 $ d'épargne)"],
+    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/votre-situation/faible-revenu/programme-allocation-logement/",
+    criteres: { provinces: ["QC"], revenu_max: 46640 },
   },
 ];
 

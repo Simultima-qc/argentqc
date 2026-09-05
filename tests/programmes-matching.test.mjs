@@ -204,6 +204,18 @@ test("trouverProgrammes matches a low-income renter", () => {
   assert.ok(ids.has("supplement-loyer-shq"));
 });
 
+test("allocation-logement-qc matches an eligible low-income owner-occupier, not just renters (issue #81)", () => {
+  const ids = programmeIds(trouverProgrammes(makeAnswers({
+    statut_logement: "proprietaire",
+    revenu: "0-30000",
+  })));
+
+  assert.ok(
+    ids.has("allocation-logement-qc"),
+    "a low-income owner-occupier must not be silently excluded: the program covers owners as well as renters, so the catalogue's criteres must not carry a locataire-only filter",
+  );
+});
+
 test("trouverProgrammes matches a retiree", () => {
   const matched = trouverProgrammes(makeAnswers({
     statut_logement: "proprietaire",
@@ -667,7 +679,7 @@ test("aide-solidarite-qc (revenu_max 15000): the 0-30000 bucket is uncertain (is
   assert.equal(programme.admissibiliteRevenuIncertaine, true);
 });
 
-test("allocation-logement-qc (revenu_max 35000): the 30000-50000 bucket is uncertain, no longer a false-negative exclusion (issue #67)", () => {
+test("allocation-logement-qc (revenu_max 46640, issue #81): the 30000-50000 bucket is uncertain, no longer a false-negative exclusion (issue #67)", () => {
   const matched = trouverProgrammes(makeAnswers({
     statut_logement: "locataire",
     revenu: "30000-50000",
@@ -676,7 +688,7 @@ test("allocation-logement-qc (revenu_max 35000): the 30000-50000 bucket is uncer
 
   assert.ok(
     ids.has("allocation-logement-qc"),
-    "a user earning 30 000-35 000 $ within the 30000-50000 bucket must no longer be silently excluded by the representative income of 40 000 $",
+    "a user earning 30 000-46 640 $ within the 30000-50000 bucket must no longer be silently excluded by the representative income of 40 000 $",
   );
 
   const programme = matched.find((p) => p.id === "allocation-logement-qc");
