@@ -1341,7 +1341,7 @@
     "montant_max": 0,
     "montant_affiche": "Montant calculé par l’ARC — à vérifier",
     "montant_sommable": false,
-    "description": "Crédit d'impôt fédéral non remboursable de 15 % sur les frais médicaux admissibles (lignes 33099/33199 de la déclaration, incluant lunettes et verres de contact prescrits) qui dépassent le moindre de 2 834 $ ou 3 % du revenu net du demandeur. 2 834 $ est le seuil confirmé par l'ARC pour l'année d'imposition 2025, la dernière valeur publiée au moment de cette revalidation (2026-09-05); le seuil indexé de l'année d'imposition 2026 n'est pas encore publié par l'ARC.",
+    "description": "Crédit d'impôt fédéral non remboursable sur les frais médicaux admissibles (lignes 33099/33199 de la déclaration, incluant lunettes et verres de contact prescrits) qui dépassent le moindre de 2 834 $ ou 3 % du revenu net du demandeur. Le taux, historiquement de 15 %, est de 14 % pour l'année d'imposition 2026 et suivantes (14,5 % en 2025, année de transition) : le premier taux d'imposition fédéral — auquel les crédits non remboursables comme celui-ci sont légalement arrimés — a été abaissé de 15 % à 14 % à compter de 2026 (Ministère des Finances du Canada, Report on the Impact of Reducing the Lowest Marginal Personal Income Tax Rate on Non-Refundable Tax Credits). 2 834 $ est le seuil confirmé par l'ARC pour l'année d'imposition 2025, la dernière valeur publiée au moment de cette revalidation (2026-09-05); le seuil indexé de l'année d'imposition 2026 n'est pas encore publié par l'ARC.",
     "conditions": [
       "Résider au Canada",
       "Produire une déclaration de revenus fédérale",

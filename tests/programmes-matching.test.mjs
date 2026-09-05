@@ -640,6 +640,33 @@ test("programmes.json catalogue size is stable and every entry has a non-empty d
   }
 });
 
+// issue #88, independent-review response: the lowest federal personal tax
+// rate (to which most non-refundable credits, including medical expenses,
+// are legally pegged) dropped from 15% to 14.5% for 2025 and 14% for 2026
+// onward (Finance Canada, "Report on the Impact of Reducing the Lowest
+// Marginal Personal Income Tax Rate on Non-Refundable Tax Credits"). Guards
+// against silently reverting to the stale 15% figure. The Québec ligne 381
+// credit is a separate, fixed 20% rate not tied to that mechanism (Revenu
+// Québec's own ligne-381 help page, the CFFP's dedicated 2025 fiche, and
+// Raymond Chabot Grant Thornton's Planiguide all confirm 20% for 2025/2026)
+// -- a NO-GO review claiming it should also read 14% was independently
+// re-verified and rejected; this guards against reintroducing that error.
+test("credit-frais-medicaux-fed states the 2026 federal rate (14%), and credit-frais-medicaux-qc keeps its own 20% rate (issue #88 independent-review response)", () => {
+  const programmes = loadProgrammesJson();
+  const fed = programmes.find((p) => p.id === "credit-frais-medicaux-fed");
+  const qc = programmes.find((p) => p.id === "credit-frais-medicaux-qc");
+
+  assert.ok(fed, "expected credit-frais-medicaux-fed in the catalogue");
+  assert.ok(qc, "expected credit-frais-medicaux-qc in the catalogue");
+  assert.match(fed.description, /14 ?%/, "federal medical expense credit must state the 2026 rate of 14%, not the stale 15%");
+  assert.doesNotMatch(
+    fed.description,
+    /non remboursable de 15/,
+    "federal medical expense credit must not headline the pre-2026 15% rate as current (mentioning it as prior history is fine)",
+  );
+  assert.match(qc.description, /20 ?%/, "Québec ligne 381 medical expense credit must keep its own 20% rate");
+});
+
 // issue #67: income bucketing regression tests.
 //
 // Same root cause as issue #58 (age), but for revenu_min/revenu_max: parseRevenu()
