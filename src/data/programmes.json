@@ -1332,21 +1332,44 @@
     }
   },
   {
+    "id": "credit-frais-medicaux-fed",
+    "nom": "Crédit d'impôt pour frais médicaux (fédéral)",
+    "organisme": "Agence du revenu du Canada",
+    "niveau": "federal",
+    "categorie": "credits_impot",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant calculé par l’ARC — à vérifier",
+    "montant_sommable": false,
+    "description": "Crédit d'impôt fédéral non remboursable sur les frais médicaux admissibles (lignes 33099/33199 de la déclaration, incluant lunettes et verres de contact prescrits) qui dépassent le moindre de 2 834 $ ou 3 % du revenu net du demandeur. Le taux, historiquement de 15 %, est de 14 % pour l'année d'imposition 2026 et suivantes (14,5 % en 2025, année de transition) : le premier taux d'imposition fédéral — auquel les crédits non remboursables comme celui-ci sont légalement arrimés — a été abaissé de 15 % à 14 % à compter de 2026 (Ministère des Finances du Canada, Report on the Impact of Reducing the Lowest Marginal Personal Income Tax Rate on Non-Refundable Tax Credits). 2 834 $ est le seuil confirmé par l'ARC pour l'année d'imposition 2025, la dernière valeur publiée au moment de cette revalidation (2026-09-05); le seuil indexé de l'année d'imposition 2026 n'est pas encore publié par l'ARC.",
+    "conditions": [
+      "Résider au Canada",
+      "Produire une déclaration de revenus fédérale",
+      "Frais médicaux admissibles dépassant le moindre de 2 834 $ (année d'imposition 2025) ou 3 % du revenu net",
+      "Conserver les reçus (lunettes, verres de contact, montures, etc.)"
+    ],
+    "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/lignes-33099-33199-frais-medicaux-admissibles-vous-pouvez-demander-votre-declaration-revenus.html",
+    "criteres": {
+      "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
+    }
+  },
+  {
     "id": "credit-frais-medicaux-qc",
     "nom": "Crédit d'impôt pour frais médicaux (Québec)",
     "organisme": "Revenu Québec",
     "niveau": "provincial",
     "categorie": "credits_impot",
-    "montant_min": 50,
-    "montant_max": 400,
-    "montant_affiche": "50 $ – 400 $ (selon dépenses médicales)",
-    "description": "Crédit d'impôt non remboursable de 20 % sur les frais médicaux admissibles dépassant 3 % de votre revenu familial net (lunettes, médicaments, soins dentaires, prothèses, etc.), sans plafond en dollars fixe pour ce seuil au Québec. Ne s'applique que si vos frais médicaux réels dépassent le seuil minimal. Montant indicatif — varie entièrement selon les dépenses engagées.",
+    "montant_min": 0,
+    "montant_max": 0,
+    "montant_affiche": "Montant déterminé par Revenu Québec — à vérifier",
+    "montant_sommable": false,
+    "description": "Crédit d'impôt non remboursable de 20 % sur les frais médicaux admissibles dépassant 3 % de votre revenu familial net (lunettes et verres de contact prescrits, médicaments, soins dentaires, prothèses, etc.), sans plafond en dollars fixe pour ce seuil au Québec (contrairement au crédit fédéral équivalent, qui applique un seuil fixe indexé annuellement). Depuis le 1er janvier 2026, les frais payés aux homéopathes, naturopathes, ostéopathes et phytothérapeutes ne sont plus admissibles à ce crédit. Ne s'applique que si vos frais médicaux réels dépassent le seuil minimal.",
     "conditions": [
       "Résider au Québec",
       "Avoir des frais médicaux admissibles dépassant 3 % du revenu familial net (sans plafond en dollars fixe côté Québec; un seuil fixe distinct s'applique au crédit fédéral équivalent)",
       "Produire une déclaration de revenus au Québec"
     ],
-    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-medicaux/",
+    "lien_officiel": "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/frais-medicaux/",
     "criteres": {
       "provinces": ["QC"]
     }
