@@ -246,13 +246,17 @@ test("an explicitly declared (filePath, id) exception is not flagged", () => {
 // temporary, tracked exception in governedProgrammeSourcingExceptions,
 // scripts/check-seo.mjs) because credit-reno-fed's prose had a flat 15%
 // rate claim that needed revalidating against an official ARC source before
-// being migrated onto the catalogue. That revalidation found the ARC's own
-// page for this credit (line 45355, updated 5 January 2026) states 14.5% /
-// $7,250 for 2025 tax-year expenses (a mid-year blend of the 15%->14%
-// federal rate cut on 1 July 2025) - neither of the two rates the finding
-// asked to arbitrate between. programmes.json's credit-reno-fed entry was
-// corrected accordingly and all three ids are now sourced from the
-// catalogue; the exception is removed (empty array).
+// being migrated onto the catalogue. This credit is legally arrimé to the
+// lowest federal bracket rate (Income Tax Act s.122.92 and s.248(1)),
+// confirmed at 14% for the 2026 tax year onward by the Loi de 2026 sur
+// l'abordabilité, the ARC's 2026 tax rates, and the Department of Finance's
+// 2026 tax expenditures report - so credit-reno-fed's catalogue entry is
+// 14% / $7,000 for the 2026 tax year (not the prior flat 15% / $7,500
+// claim, and not the transitional 14.5% / $7,250 that applied only to 2025
+// tax-year expenses during the mid-year 15%->14% rate cut on 1 July 2025).
+// programmes.json's credit-reno-fed entry was corrected accordingly and all
+// three ids are now sourced from the catalogue; the exception is removed
+// (empty array).
 
 test("the real src/app tree has zero pages mixing a local Programme literal into the governed array pattern (live routes only)", () => {
   const middlewareSource = read(middlewareFile);
@@ -275,13 +279,16 @@ test("credit-impot-quebec/page.tsx sources credit-loyer-qc, credit-tps-fed, cred
   }
 });
 
-test("catalogue's credit-reno-fed reflects the issue #98 ARC revalidation (14.5% / $7,250 for the 2025 tax year, not the prior flat 15% / $7,500 claim)", () => {
+test("catalogue's credit-reno-fed reflects the issue #98 ARC revalidation for the 2026 tax year (14% / $7,000, not the prior flat 15% / $7,500 claim nor the 2025-only transitional 14.5% / $7,250)", () => {
   const catalogue = JSON.parse(read(programmesJsonFile));
   const renoFed = catalogue.find((programme) => programme.id === "credit-reno-fed");
 
-  assert.equal(renoFed.montant_max, 7250);
-  assert.match(renoFed.description, /14,5 ?%/);
+  assert.equal(renoFed.montant_max, 7000);
+  assert.match(renoFed.description, /remboursable de 14 ?%/);
   assert.doesNotMatch(renoFed.description, /remboursable de 15 ?%/);
+  assert.doesNotMatch(renoFed.montant_affiche, /7 ?250/);
+  assert.doesNotMatch(renoFed.description, /Dépenses admissibles minimales de 500/);
+  assert.deepEqual(renoFed.conditions, ["Créer un logement secondaire dans votre domicile", "Le logement est destiné à un aîné (65+) ou une personne handicapée", "Dépenses admissibles maximales de 50 000 $"]);
 });
 
 // ── findProgrammeCatalogueDrift (fixtures) ──────────────────────────────
