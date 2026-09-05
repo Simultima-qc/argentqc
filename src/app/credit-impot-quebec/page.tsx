@@ -10,6 +10,17 @@ export const metadata: Metadata = {
   keywords: ["crédit impôt Québec", "crédit impôt Québec combien", "crédits impôt remboursables Québec 2026", "récupérer impôt Québec"],
 };
 
+// credit-loyer-qc, credit-tps-fed, and credit-reno-fed below are page-local
+// copies of already-governed catalogue entries, caught by the new
+// findUngovernedLocalProgrammes() structural check (issue #96). Their
+// montant_min/montant_max match the catalogue exactly (no active P1 drift),
+// but the prose has already diverged - notably credit-reno-fed's flat 15%
+// rate claim vs. the catalogue's documented 2026 federal rate uncertainty.
+// Per #96's stop condition, that factual divergence is not corrected here:
+// it is tracked and revalidated in the dedicated follow-up issue #98, which
+// will migrate these three entries onto getProgrammeFromCatalogue(...) once
+// the rate is confirmed. Until then they are a declared, temporary
+// exception in governedProgrammeSourcingExceptions (scripts/check-seo.mjs).
 const programmes: Programme[] = [
   {
     id: "credit-loyer-qc",

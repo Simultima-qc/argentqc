@@ -93,6 +93,162 @@ export function isMiddlewareRedirectedRoute(routePath, middlewareSource) {
   return new RegExp(`"${escaped}":\\s*"`).test(middlewareSource);
 }
 
+// Splits an array-literal text (including its outer [ ]) into its
+// top-level comma-separated elements, respecting nested {}, [], (), and
+// quoted strings. Unlike splitTopLevelBraceObjects, an element does not
+// have to be a `{ ... }` object literal - it can equally be a call
+// expression like `getProgrammeFromCatalogue("id")` - so this is the
+// primitive findUngovernedLocalProgrammes needs to tell the two shapes
+// apart per array entry.
+// Blanks out // line comments and /* */ block comments (replacing them with
+// spaces, so character offsets and line breaks are preserved) while leaving
+// quoted strings untouched, so a `//`/`/*` inside a "montant_affiche" string
+// is never mistaken for a comment. Array-literal comments between entries
+// (see aide-lunettes-quebec/page.tsx) must be removed before splitting on
+// top-level commas, or a comment would otherwise be mistaken for its own
+// array element.
+function blankComments(source) {
+  let result = "";
+  let quote = null;
+  let escaped = false;
+
+  for (let i = 0; i < source.length; i += 1) {
+    const char = source[i];
+    const next = source[i + 1];
+
+    if (quote) {
+      result += char;
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = null;
+      }
+      continue;
+    }
+
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      result += char;
+      continue;
+    }
+
+    if (char === "/" && next === "/") {
+      const end = source.indexOf("\n", i + 2);
+      const stop = end === -1 ? source.length : end;
+      result += " ".repeat(stop - i);
+      i = stop - 1;
+      continue;
+    }
+
+    if (char === "/" && next === "*") {
+      const end = source.indexOf("*/", i + 2);
+      const stop = end === -1 ? source.length : end + 2;
+      result += source.slice(i, stop).replace(/[^\n]/g, " ");
+      i = stop - 1;
+      continue;
+    }
+
+    result += char;
+  }
+
+  return result;
+}
+
+export function splitTopLevelArrayElements(arrayText) {
+  const inner = blankComments(arrayText.slice(1, -1));
+  const elements = [];
+  let depth = 0;
+  let quote = null;
+  let escaped = false;
+  let start = 0;
+
+  for (let i = 0; i < inner.length; i += 1) {
+    const char = inner[i];
+
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = null;
+      }
+      continue;
+    }
+
+    if (char === "\"" || char === "'" || char === "`") {
+      quote = char;
+      continue;
+    }
+
+    if (char === "{" || char === "[" || char === "(") {
+      depth += 1;
+    } else if (char === "}" || char === "]" || char === ")") {
+      depth -= 1;
+    } else if (char === "," && depth === 0) {
+      elements.push(inner.slice(start, i).trim());
+      start = i + 1;
+    }
+  }
+
+  const last = inner.slice(start).trim();
+  if (last) elements.push(last);
+
+  return elements.filter(Boolean);
+}
+
+const CATALOGUE_CALL_PATTERN = /^getProgrammeFromCatalogue\(\s*"[^"]+"\s*\)$/;
+
+// Structural guardrail for issue #96 (gap left open by #69/#93): id-based
+// drift detection (findProgrammeCatalogueDrift above) only catches a local
+// copy when it reuses the *same* id as a catalogue entry. It cannot catch
+// the historical frais-medicaux-qc-2/frais-medicaux-fed-2 pattern (#93),
+// where a page recreated an already-governed benefit under a *different*
+// local id - there is no shared id for the comparison to key on.
+//
+// The chosen invariant does not try to detect "same benefit, different id"
+// semantically (fragile, un-reviewable). Instead it is deterministic and
+// structural: a page that opts into the governed array pattern (the same
+// `const programmes: Programme[] = [...]` literal SeoProgrammesPage
+// consumes) must source *every* entry through getProgrammeFromCatalogue().
+// The check is default-deny, not default-allow: any top-level array
+// element that is not *exactly* a `getProgrammeFromCatalogue("id")` call is
+// rejected, whatever shape it takes - a raw `{ id: ..., ... }` object
+// literal, a variable reference to one declared above the array (e.g.
+// `const localProgramme = { id: ... }; const programmes = [localProgramme]`),
+// a `...spread` of a non-governed array, or any other helper/call. An
+// earlier version of this check only special-cased literal `{ ... }`
+// entries and silently ignored anything else, which a reviewer found still
+// let a hoisted-variable or spread indirection smuggle in a duplicate
+// benefit undetected. So a new local id (or an indirected one) can never
+// smuggle in a duplicate benefit. Legitimate local-only entries (a benefit
+// not yet catalogued) must be added to `exceptions` explicitly, one line
+// per (file, id), so the exception is reviewable and bounded rather than a
+// silent gap.
+export function findUngovernedLocalProgrammes({ pages, exceptions = [] }) {
+  const exceptionKeys = new Set(exceptions.map(({ filePath, id }) => `${filePath}::${id}`));
+  const violations = [];
+
+  for (const { filePath, source } of pages) {
+    const arrayText = extractProgrammeArrayText(source);
+    if (!arrayText) continue;
+
+    for (const element of splitTopLevelArrayElements(arrayText)) {
+      if (CATALOGUE_CALL_PATTERN.test(element)) continue;
+
+      const idMatch = element.match(/\bid:\s*"([^"]+)"/);
+      const id = idMatch ? idMatch[1] : element.length > 60 ? `${element.slice(0, 60)}…` : element;
+      if (exceptionKeys.has(`${filePath}::${id}`)) continue;
+
+      violations.push({ filePath, id });
+    }
+  }
+
+  return violations;
+}
+
 /**
  * @param {{ filePath: string, source: string }[]} pages
  * @param {{ id: string, montant_min: number, montant_max: number }[]} catalogue
