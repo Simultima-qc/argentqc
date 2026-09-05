@@ -10,20 +10,65 @@ export const metadata: Metadata = {
   keywords: ["crédit impôt Québec", "crédit impôt Québec combien", "crédits impôt remboursables Québec 2026", "récupérer impôt Québec"],
 };
 
+// credit-loyer-qc, credit-tps-fed, and credit-reno-fed below are page-local
+// copies of already-governed catalogue entries, caught by the new
+// findUngovernedLocalProgrammes() structural check (issue #96). Their
+// montant_min/montant_max match the catalogue exactly (no active P1 drift),
+// but the prose has already diverged - notably credit-reno-fed's flat 15%
+// rate claim vs. the catalogue's documented 2026 federal rate uncertainty.
+// Per #96's stop condition, that factual divergence is not corrected here:
+// it is tracked and revalidated in the dedicated follow-up issue #98, which
+// will migrate these three entries onto getProgrammeFromCatalogue(...) once
+// the rate is confirmed. Until then they are a declared, temporary
+// exception in governedProgrammeSourcingExceptions (scripts/check-seo.mjs).
 const programmes: Programme[] = [
-  // credit-loyer-qc, credit-tps-fed, and credit-reno-fed were page-local
-  // copies of already-governed catalogue entries (issue #96, the general
-  // structural fix that also closes #93's frais-medicaux-qc-2 pattern):
-  // their montant_min/montant_max matched the catalogue so the id-based
-  // drift gate saw no active P1, but the prose had already drifted (e.g.
-  // this page's credit-reno-fed described a flat 15% rate while the
-  // catalogue documents the 2026 federal rate uncertainty). Sourcing all
-  // four entries from the catalogue removes that second, less obvious
-  // source of truth.
-  getProgrammeFromCatalogue("credit-loyer-qc"),
-  getProgrammeFromCatalogue("credit-tps-fed"),
+  {
+    id: "credit-loyer-qc",
+    nom: "Crédit d'impôt pour solidarité",
+    organisme: "Revenu Québec",
+    niveau: "provincial",
+    categorie: "credits_impot",
+    montant_min: 0,
+    montant_max: 0,
+    montant_affiche: "Montant déterminé par Revenu Québec — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Crédit d'impôt remboursable combinant jusqu'à trois composantes : TVQ, logement et village nordique (pour les 14 villages nordiques du Nunavik). Montant et fréquence de versement déterminés par Revenu Québec selon le dossier complet.",
+    conditions: ["Résider au Québec au 31 décembre 2025", "Produire la déclaration de revenus 2025 et l'annexe D si le logement ou le village nordique s'appliquent", "Faire vérifier le montant par Revenu Québec"],
+    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
+    criteres: { provinces: ["QC"] },
+  },
+  {
+    id: "credit-tps-fed",
+    nom: "Allocation canadienne pour l’épicerie et les besoins essentiels (ACEBE)",
+    organisme: "Gouvernement du Canada",
+    niveau: "federal",
+    categorie: "credits_impot",
+    montant_min: 0,
+    montant_max: 0,
+    montant_affiche: "Montant calculé par l’ARC — à vérifier",
+    montant_sommable: false,
+    preselection_only: true,
+    description: "Prestation fédérale trimestrielle non imposable qui remplace le crédit pour la TPS/TVH depuis juillet 2026.",
+    conditions: ["Résider au Canada", "Produire une déclaration de revenus fédérale", "Faire vérifier le montant selon le RFNR 2025 et la composition familiale"],
+    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
+    criteres: {},
+  },
   getProgrammeFromCatalogue("credit-maintien-qc"),
-  getProgrammeFromCatalogue("credit-reno-fed"),
+  {
+    id: "credit-reno-fed",
+    nom: "Crédit pour rénovations multigénérationnelles",
+    organisme: "Gouvernement du Canada",
+    niveau: "federal",
+    categorie: "credits_impot",
+    montant_min: 0,
+    montant_max: 7500,
+    montant_affiche: "Jusqu'à 7 500 $",
+    description: "Crédit d'impôt remboursable de 15% pour créer un logement secondaire dans votre domicile pour un aîné ou une personne handicapée.",
+    conditions: ["Créer un logement secondaire dans votre domicile", "Le logement est destiné à un aîné (65+) ou une personne handicapée", "Dépenses admissibles entre 500 $ et 50 000 $"],
+    lien_officiel: "https://www.canada.ca/fr/agence-revenu/programmes/a-propos-agence-revenu-canada-arc/impot-cible/credit-renovation-domiciliaire-multigeneration.html",
+    criteres: { proprietaire: true, renovation: true },
+  },
 ];
 
 const faqs = [

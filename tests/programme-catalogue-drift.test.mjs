@@ -88,6 +88,18 @@ test("isMiddlewareRedirectedRoute detects a route in middleware.ts legacyRedirec
   assert.equal(isMiddlewareRedirectedRoute("/borne-recharge-quebec", middlewareSource), false);
 });
 
+test("splitTopLevelArrayElements ignores // and /* */ comments placed between array entries (aide-lunettes-quebec pattern)", () => {
+  const arrayText = `[
+    // a leading comment explaining the next call
+    getProgrammeFromCatalogue("a"),
+    /* a block comment
+       spanning multiple lines */
+    getProgrammeFromCatalogue("b"),
+  ]`;
+  const elements = splitTopLevelArrayElements(arrayText);
+  assert.deepEqual(elements, ['getProgrammeFromCatalogue("a")', 'getProgrammeFromCatalogue("b")']);
+});
+
 test("splitTopLevelArrayElements separates object literals from catalogue calls without splitting nested criteres braces", () => {
   const arrayText = '[{ id: "a", criteres: { revenu_max: 1 } }, getProgrammeFromCatalogue("b"), { id: "c" }]';
   const elements = splitTopLevelArrayElements(arrayText);
@@ -156,6 +168,60 @@ test("a local object literal whose id already matches a catalogue entry is still
   assert.equal(violations[0].id, "credit-loyer-qc");
 });
 
+test("a local Programme hoisted into a variable and referenced in the array is still flagged (default-deny, not just literal-{} matching)", () => {
+  const pages = [
+    {
+      filePath: "src/app/some-page/page.tsx",
+      source: `
+        const localProgramme: Programme = { id: "duplicate-local", montant_min: 0, montant_max: 0 };
+        const programmes: Programme[] = [
+          localProgramme,
+          getProgrammeFromCatalogue("credit-maintien-qc"),
+        ];
+      `,
+    },
+  ];
+
+  const violations = findUngovernedLocalProgrammes({ pages });
+  assert.equal(violations.length, 1);
+  assert.equal(violations[0].id, "localProgramme");
+});
+
+test("a spread of a non-governed array is still flagged (default-deny catches any element that is not exactly getProgrammeFromCatalogue(...))", () => {
+  const pages = [
+    {
+      filePath: "src/app/some-page/page.tsx",
+      source: `
+        const programmes: Programme[] = [
+          ...localProgrammes,
+          getProgrammeFromCatalogue("credit-maintien-qc"),
+        ];
+      `,
+    },
+  ];
+
+  const violations = findUngovernedLocalProgrammes({ pages });
+  assert.equal(violations.length, 1);
+  assert.equal(violations[0].id, "...localProgrammes");
+});
+
+test("a call to a helper other than getProgrammeFromCatalogue is still flagged", () => {
+  const pages = [
+    {
+      filePath: "src/app/some-page/page.tsx",
+      source: `
+        const programmes: Programme[] = [
+          buildLocalProgramme("credit-maintien-qc"),
+        ];
+      `,
+    },
+  ];
+
+  const violations = findUngovernedLocalProgrammes({ pages });
+  assert.equal(violations.length, 1);
+  assert.equal(violations[0].id, 'buildLocalProgramme("credit-maintien-qc")');
+});
+
 test("an explicitly declared (filePath, id) exception is not flagged", () => {
   const pages = [
     {
@@ -175,7 +241,22 @@ test("an explicitly declared (filePath, id) exception is not flagged", () => {
   assert.deepEqual(violations, []);
 });
 
-test("the real src/app tree has zero pages mixing a local Programme literal into the governed array pattern (live routes only)", () => {
+// Mirrors the single, tracked, temporary exception declared in
+// governedProgrammeSourcingExceptions (scripts/check-seo.mjs): #96 found
+// that credit-impot-quebec/page.tsx duplicates 3 already-governed catalogue
+// entries, but one (credit-reno-fed) has diverging prose (a flat 15% rate
+// claim vs. the catalogue's documented 2026 rate uncertainty) - a new
+// factual duplicate discovered mid-implementation, which #96's stop
+// condition requires tracking rather than silently correcting. That
+// revalidation and migration is tracked in the dedicated follow-up issue
+// #98; this exception must be removed once #98 lands.
+const trackedGovernedProgrammeSourcingExceptions = [
+  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-loyer-qc" },
+  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-tps-fed" },
+  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-reno-fed" },
+];
+
+test("the real src/app tree has zero pages mixing a local Programme literal into the governed array pattern, other than the single exception tracked in issue #98 (live routes only)", () => {
   const middlewareSource = read(middlewareFile);
   const pageFiles = [];
   walkPageFiles(appDir, pageFiles);
@@ -184,15 +265,19 @@ test("the real src/app tree has zero pages mixing a local Programme literal into
     .map((filePath) => ({ filePath: relative(filePath), routePath: routePathForPageFile(filePath), source: read(filePath) }))
     .filter(({ routePath }) => !isMiddlewareRedirectedRoute(routePath, middlewareSource));
 
-  assert.deepEqual(findUngovernedLocalProgrammes({ pages }), []);
+  assert.deepEqual(findUngovernedLocalProgrammes({ pages, exceptions: trackedGovernedProgrammeSourcingExceptions }), []);
 });
 
-test("credit-impot-quebec no longer hardcodes credit-loyer-qc/credit-tps-fed/credit-reno-fed as local literals (issue #96)", () => {
+test("without the tracked #98 exception, credit-impot-quebec/page.tsx's local credit-loyer-qc/credit-tps-fed/credit-reno-fed literals are caught (proves the exception is not masking a broader gap)", () => {
   const source = read(path.join(appDir, "credit-impot-quebec", "page.tsx"));
-  assert.deepEqual(extractLocalProgrammeCopies(source), []);
-  for (const id of ["credit-loyer-qc", "credit-tps-fed", "credit-maintien-qc", "credit-reno-fed"]) {
-    assert.match(source, new RegExp(`getProgrammeFromCatalogue\\("${id}"\\)`));
-  }
+  const pages = [{ filePath: "src/app/credit-impot-quebec/page.tsx", source }];
+
+  const violations = findUngovernedLocalProgrammes({ pages });
+  assert.deepEqual(violations.map((violation) => violation.id).sort(), ["credit-loyer-qc", "credit-reno-fed", "credit-tps-fed"]);
+
+  // credit-maintien-qc must remain sourced from the catalogue (not part of
+  // the tracked exception).
+  assert.match(source, /getProgrammeFromCatalogue\("credit-maintien-qc"\)/);
 });
 
 // ── findProgrammeCatalogueDrift (fixtures) ──────────────────────────────
