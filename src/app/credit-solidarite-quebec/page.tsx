@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -10,48 +11,9 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
-  {
-    id: "credit-loyer-qc",
-    nom: "Crédit d'impôt pour solidarité",
-    organisme: "Revenu Québec",
-    niveau: "provincial",
-    categorie: "credits_impot",
-    montant_min: 150,
-    montant_max: 2000,
-    montant_affiche: "150 $ – 2 000 $",
-    description: "Crédit d'impôt remboursable combinant trois composantes : TVQ, habitation et village nordique. Versé mensuellement ou annuellement selon le montant.",
-    conditions: ["Résider au Québec au 31 décembre", "Revenu familial sous les seuils établis", "Produire une déclaration de revenus au Québec"],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-    criteres: { provinces: ["QC"], revenu_max: 60000 },
-  },
-  {
-    id: "credit-tps-fed",
-    nom: "Crédit pour la TPS/TVH",
-    organisme: "Gouvernement du Canada",
-    niveau: "federal",
-    categorie: "credits_impot",
-    montant_min: 100,
-    montant_max: 700,
-    montant_affiche: "Jusqu'à 700 $ par année",
-    description: "Paiements trimestriels non imposables pour aider les personnes et familles à revenus faibles ou modestes à récupérer une partie de la TPS/TVH payée.",
-    conditions: ["Résider au Canada", "Produire une déclaration de revenus", "Avoir 19 ans ou plus (ou avoir un conjoint/enfant)"],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/credit-taxe-produits-services-taxe-vente-harmonisee-tps-tvh.html",
-    criteres: { revenu_max: 50000 },
-  },
-  {
-    id: "allocation-logement-qc",
-    nom: "Allocation-logement (Québec)",
-    organisme: "Revenu Québec (programme de la Société d'habitation du Québec)",
-    niveau: "provincial",
-    categorie: "logement",
-    montant_min: 100,
-    montant_max: 2040,
-    montant_affiche: "100 $, 150 $ ou 170 $ par mois selon le taux d'effort",
-    description: "Aide financière mensuelle pour les locataires et propriétaires-occupants à faible revenu qui consacrent une trop grande part de leurs revenus au logement.",
-    conditions: ["Être locataire ou propriétaire-occupant au Québec", "Avoir 50 ans ou plus, ou avoir un enfant à charge", "Revenu et épargne sous les seuils établis (max. 50 000 $ d'épargne)"],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/votre-situation/faible-revenu/programme-allocation-logement/",
-    criteres: { provinces: ["QC"], revenu_max: 46640 },
-  },
+  getProgrammeFromCatalogue("credit-loyer-qc"),
+  getProgrammeFromCatalogue("credit-tps-fed"),
+  getProgrammeFromCatalogue("allocation-logement-qc"),
 ];
 
 const faqs = [

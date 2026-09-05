@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -17,47 +18,11 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
-  {
-    id: "chauffez-vert-qc",
-    nom: "Chauffez vert — volet Passage à la biénergie électricité-gaz naturel",
-    organisme: "Gouvernement du Québec / Énergir",
-    niveau: "provincial",
-    categorie: "energie",
-    montant_min: 500,
-    montant_max: 7400,
-    montant_affiche: "Jusqu'à 7 400 $ (jusqu'à 80 % des coûts d'installation)",
-    description:
-      "Depuis le 1er avril 2026, l'aide pour convertir un chauffage central au gaz naturel en système biénergie (électricité en source principale, gaz naturel en appoint) est administrée directement par Énergir pour ses clients résidentiels. Ne s'applique pas au remplacement d'un chauffage au mazout ou au propane (volet distinct, terminé).",
-    conditions: [
-      "Être propriétaire d'une résidence chauffée au gaz naturel desservie par Énergir",
-      "Installer un système biénergie avec l'électricité comme source principale",
-      "S'inscrire directement auprès d'Énergir",
-    ],
-    lien_officiel:
-      "https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/conversion-bienergie-electricite-gaz-naturel",
-    criteres: { proprietaire: true, provinces: ["QC"], renovation: true },
-  },
-  {
-    id: "logisvert-hydro-cv",
-    nom: "LogisVert – Thermopompe efficace",
-    organisme: "Hydro-Québec",
-    niveau: "provincial",
-    categorie: "energie",
-    montant_min: 500,
-    montant_max: 6700,
-    montant_affiche: "Jusqu'à 6 700 $",
-    description:
-      "Pour remplacer un chauffage au mazout ou au propane par une thermopompe, maintenant que ce volet de Chauffez vert est terminé, LogisVert d'Hydro-Québec offre jusqu'à 6 700 $ pour l'achat d'une thermopompe centrale ou de mini-splits certifiée ENERGY STAR.",
-    conditions: [
-      "Être client Hydro-Québec résidentiel",
-      "Thermopompe sur la liste des appareils reconnus par Hydro-Québec",
-      "Installation par un entrepreneur certifié RBQ",
-      "Faire la demande dans les 9 mois suivant l'installation",
-    ],
-    lien_officiel:
-      "https://www.hydroquebec.com/residentiel/mieux-consommer/conseils/fenetres-chauffage-climatisation/thermopompes/aide-financiere.html",
-    criteres: { proprietaire: true, provinces: ["QC"], renovation: true },
-  },
+  getProgrammeFromCatalogue("chauffez-vert-qc"),
+  // Catalogue id is "logisvert-hydro" (no "-cv" suffix) — same program, same
+  // Hydro-Québec amounts (500 $–6 700 $); this page previously carried its
+  // own copy under a page-local id variant (issue #86).
+  getProgrammeFromCatalogue("logisvert-hydro"),
 ];
 
 const faqs = [

@@ -78,6 +78,6 @@ Centraliser les valeurs 2026 sensibles pour reduire les ecarts entre guides, com
 
 ## Prochaine tranche recommandee
 
-1. Etendre le registre aux 17 articles actuellement `explicitly-out-of-scope`, en commencant par les plus denses (voir scopeNote de chaque entree)
+1. Le registre est complet a **30 governed / 0 explicitly-out-of-scope** (re-baseline issue #85) ; aucun article restant a etendre sur cet axe
 2. Revalider humainement `tax-2026.ts`, `internet-offers-2026.ts`, `insurance-2026.ts` et `programmes-2026.ts`, actuellement en avertissement de fraicheur non bloquant
 3. Remplacer progressivement les chiffres sensibles restants dans `src/app/*/page.tsx`

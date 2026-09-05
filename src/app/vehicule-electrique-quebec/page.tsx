@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -10,34 +11,8 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
-  {
-    id: "subv-auto-elec-qc",
-    nom: "Roulez vert – Rabais à l'achat d'un VE",
-    organisme: "Transition énergétique Québec",
-    niveau: "provincial",
-    categorie: "transport",
-    montant_min: 500,
-    montant_max: 2000,
-    montant_affiche: "500 $ – 2 000 $",
-    description: "Rabais direct à l'achat ou à la location d'un VÉ neuf ou d'occasion. 2 000 $ pour un 100% électrique neuf, 1 000 $ pour un usage admissible. Programme valide jusqu'au 31 décembre 2026.",
-    conditions: ["Résider au Québec", "Véhicule admissible neuf ou d'occasion", "Prix de détail suggéré inférieur à 65 000 $", "Programme valide jusqu'au 31 décembre 2026"],
-    lien_officiel: "https://roulezelectrique.gouv.qc.ca/Accueil",
-    criteres: { provinces: ["QC"], vehicule_elec: true },
-  },
-  {
-    id: "subv-bornes-recharge-qc",
-    nom: "Borne de recharge à domicile – Roulez vert",
-    organisme: "Transition énergétique Québec",
-    niveau: "provincial",
-    categorie: "transport",
-    montant_min: 600,
-    montant_max: 600,
-    montant_affiche: "600 $",
-    description: "Subvention de 600 $ pour l'achat et l'installation d'une borne de recharge de niveau 2 à domicile. Cumulable avec le rabais à l'achat du VE.",
-    conditions: ["Être propriétaire ou locataire au Québec", "Posséder un véhicule électrique rechargeable", "Installation par un électricien certifié RBQ"],
-    lien_officiel: "https://roulezelectrique.gouv.qc.ca/Accueil",
-    criteres: { provinces: ["QC"], vehicule_elec: true },
-  },
+  getProgrammeFromCatalogue("subv-auto-elec-qc"),
+  getProgrammeFromCatalogue("subv-bornes-recharge-qc"),
 ];
 
 const faqs = [
