@@ -188,9 +188,9 @@
     "niveau": "federal",
     "categorie": "renovation",
     "montant_min": 0,
-    "montant_max": 7500,
-    "montant_affiche": "Jusqu'à 7 500 $",
-    "description": "Crédit d'impôt remboursable de 15 % sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée. Le taux fédéral le plus bas est passé à 14 % en 2026 pour la plupart des crédits non remboursables, mais un mécanisme distinct pourrait maintenir certains crédits (dont potentiellement celui-ci) à 15 % jusqu'en 2030; le taux exact applicable à ce crédit précis n'a pas pu être confirmé directement auprès de l'ARC dans cet audit.",
+    "montant_max": 7250,
+    "montant_affiche": "Jusqu'à 7 250 $ (déclaration de revenus 2025)",
+    "description": "Crédit d'impôt remboursable sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée. Revalidé le 2026-09-05 (issue #98) directement sur la page officielle de l'ARC dédiée à ce crédit (ligne 45355, ministère du Revenu du Canada, mise à jour du 20 janvier 2026) : le taux applicable aux dépenses de l'année d'imposition 2025 (déclarée en 2026) est de 14,5 %, pour un crédit maximal de 7 250 $ — et non le taux fixe de 15 % (7 500 $) précédemment affiché sur cette page, ni un taux de 14 % plat. Ce 14,5 % reflète le passage en cours d'année du premier taux d'imposition fédéral de 15 % à 14 % (1er juillet 2025), auquel ce crédit est arrimé; il devrait redescendre à 14 % (7 000 $) pour l'année d'imposition 2026 complète, à confirmer lors d'une prochaine revalidation.",
     "conditions": [
       "Créer un logement secondaire dans votre domicile",
       "Le logement est destiné à un aîné (65+) ou une personne handicapée",

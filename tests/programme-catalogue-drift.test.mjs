@@ -241,22 +241,20 @@ test("an explicitly declared (filePath, id) exception is not flagged", () => {
   assert.deepEqual(violations, []);
 });
 
-// Mirrors the single, tracked, temporary exception declared in
-// governedProgrammeSourcingExceptions (scripts/check-seo.mjs): #96 found
-// that credit-impot-quebec/page.tsx duplicates 3 already-governed catalogue
-// entries, but one (credit-reno-fed) has diverging prose (a flat 15% rate
-// claim vs. the catalogue's documented 2026 rate uncertainty) - a new
-// factual duplicate discovered mid-implementation, which #96's stop
-// condition requires tracking rather than silently correcting. That
-// revalidation and migration is tracked in the dedicated follow-up issue
-// #98; this exception must be removed once #98 lands.
-const trackedGovernedProgrammeSourcingExceptions = [
-  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-loyer-qc" },
-  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-tps-fed" },
-  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-reno-fed" },
-];
+// issue #98: credit-impot-quebec/page.tsx used to keep credit-loyer-qc,
+// credit-tps-fed, and credit-reno-fed as page-local Programme literals (a
+// temporary, tracked exception in governedProgrammeSourcingExceptions,
+// scripts/check-seo.mjs) because credit-reno-fed's prose had a flat 15%
+// rate claim that needed revalidating against an official ARC source before
+// being migrated onto the catalogue. That revalidation found the ARC's own
+// page for this credit (line 45355, updated 5 January 2026) states 14.5% /
+// $7,250 for 2025 tax-year expenses (a mid-year blend of the 15%->14%
+// federal rate cut on 1 July 2025) - neither of the two rates the finding
+// asked to arbitrate between. programmes.json's credit-reno-fed entry was
+// corrected accordingly and all three ids are now sourced from the
+// catalogue; the exception is removed (empty array).
 
-test("the real src/app tree has zero pages mixing a local Programme literal into the governed array pattern, other than the single exception tracked in issue #98 (live routes only)", () => {
+test("the real src/app tree has zero pages mixing a local Programme literal into the governed array pattern (live routes only)", () => {
   const middlewareSource = read(middlewareFile);
   const pageFiles = [];
   walkPageFiles(appDir, pageFiles);
@@ -265,19 +263,25 @@ test("the real src/app tree has zero pages mixing a local Programme literal into
     .map((filePath) => ({ filePath: relative(filePath), routePath: routePathForPageFile(filePath), source: read(filePath) }))
     .filter(({ routePath }) => !isMiddlewareRedirectedRoute(routePath, middlewareSource));
 
-  assert.deepEqual(findUngovernedLocalProgrammes({ pages, exceptions: trackedGovernedProgrammeSourcingExceptions }), []);
+  assert.deepEqual(findUngovernedLocalProgrammes({ pages, exceptions: [] }), []);
 });
 
-test("without the tracked #98 exception, credit-impot-quebec/page.tsx's local credit-loyer-qc/credit-tps-fed/credit-reno-fed literals are caught (proves the exception is not masking a broader gap)", () => {
+test("credit-impot-quebec/page.tsx sources credit-loyer-qc, credit-tps-fed, credit-maintien-qc, and credit-reno-fed from the catalogue instead of page-local copies (issue #98)", () => {
   const source = read(path.join(appDir, "credit-impot-quebec", "page.tsx"));
-  const pages = [{ filePath: "src/app/credit-impot-quebec/page.tsx", source }];
 
-  const violations = findUngovernedLocalProgrammes({ pages });
-  assert.deepEqual(violations.map((violation) => violation.id).sort(), ["credit-loyer-qc", "credit-reno-fed", "credit-tps-fed"]);
+  assert.deepEqual(extractLocalProgrammeCopies(source), []);
+  for (const id of ["credit-loyer-qc", "credit-tps-fed", "credit-maintien-qc", "credit-reno-fed"]) {
+    assert.match(source, new RegExp(`getProgrammeFromCatalogue\\("${id}"\\)`));
+  }
+});
 
-  // credit-maintien-qc must remain sourced from the catalogue (not part of
-  // the tracked exception).
-  assert.match(source, /getProgrammeFromCatalogue\("credit-maintien-qc"\)/);
+test("catalogue's credit-reno-fed reflects the issue #98 ARC revalidation (14.5% / $7,250 for the 2025 tax year, not the prior flat 15% / $7,500 claim)", () => {
+  const catalogue = JSON.parse(read(programmesJsonFile));
+  const renoFed = catalogue.find((programme) => programme.id === "credit-reno-fed");
+
+  assert.equal(renoFed.montant_max, 7250);
+  assert.match(renoFed.description, /14,5 ?%/);
+  assert.doesNotMatch(renoFed.description, /remboursable de 15 ?%/);
 });
 
 // ── findProgrammeCatalogueDrift (fixtures) ──────────────────────────────
