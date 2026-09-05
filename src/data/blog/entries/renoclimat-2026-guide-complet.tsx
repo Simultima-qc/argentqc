@@ -8,7 +8,7 @@ const slug = "renoclimat-2026-guide-complet";
 const baseMetadata: Metadata = {
   title: "Rénoclimat 2026 : Guide complet pour obtenir votre subvention",
   description:
-    "Tout sur Rénoclimat en 2026 : montants jusqu'à 10 000 $, travaux admissibles, étapes de demande et comment cumuler avec LogisVert Hydro-Québec.",
+    "Tout sur Rénoclimat en 2026 : montants jusqu'à 20 000 $ selon le projet, travaux admissibles, étapes de demande et comment cumuler avec LogisVert Hydro-Québec.",
   keywords: ["Rénoclimat 2026", "subvention Rénoclimat", "comment faire demande Rénoclimat", "Rénoclimat montant"],
 };
 
@@ -42,8 +42,9 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Rénoclimat est le programme phare de subvention à la rénovation écoénergétique au Québec.
-            En 2026, les propriétaires peuvent obtenir jusqu&apos;à <strong>10 000 $</strong> pour améliorer l&apos;efficacité
-            énergétique de leur maison. Voici tout ce qu&apos;il faut savoir.
+            En 2026, les propriétaires peuvent obtenir jusqu&apos;à <strong>20 000 $</strong> selon l&apos;ampleur du projet pour
+            améliorer l&apos;efficacité énergétique de leur maison — le plafond a été relevé au-delà de l&apos;ancien maximum de
+            10 000 $, mais le montant exact dépend de votre dossier. Voici tout ce qu&apos;il faut savoir.
           </p>
         </div>
 
@@ -51,7 +52,7 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>? Subvention de <strong>100 $ à 10 000 $</strong> selon les travaux</li>
+            <li>? Subvention de <strong>100 $ à 20 000 $</strong> selon les travaux (plafond relevé au-delà de l&apos;ancien maximum de 10 000 $)</li>
             <li>? Cumulable avec LogisVert Hydro-Québec (jusqu&apos;à 6 700 $ de plus)</li>
             <li>? Évaluation énergétique obligatoire avant ET après les travaux</li>
             <li>? Maisons construites avant 2012 seulement</li>
@@ -62,8 +63,10 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">C&apos;est quoi Rénoclimat exactement ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Rénoclimat est un programme administré par Transition énergétique Québec (TEQ) qui offre des subventions
-            aux propriétaires résidentiels pour améliorer l&apos;efficacité énergétique de leur logement.
+            Rénoclimat est un programme du gouvernement du Québec qui offre des subventions aux propriétaires
+            résidentiels pour améliorer l&apos;efficacité énergétique de leur logement. L&apos;ancienne société d&apos;État
+            responsable, Transition énergétique Québec (TEQ), a été dissoute en 2020-2022; ses programmes, dont
+            Rénoclimat, sont désormais administrés directement par le ministère responsable de l&apos;énergie.
             L&apos;objectif est de réduire la consommation d&apos;énergie des bâtiments résidentiels, ce qui
             bénéficie à la fois au portefeuille du propriétaire et à l&apos;environnement.
           </p>
@@ -110,7 +113,7 @@ function Content() {
                 { travaux: "Isolation du grenier", montant: "500 $ – 1 500 $" },
                 { travaux: "Isolation des murs", montant: "1 000 $ – 4 000 $" },
                 { travaux: "Thermopompe + isolation", montant: "3 000 $ – 7 000 $" },
-                { travaux: "Rénovation écoénergétique complète", montant: "7 000 $ – 10 000 $" },
+                { travaux: "Rénovation écoénergétique complète", montant: "7 000 $ – 20 000 $" },
               ].map((ex) => (
                 <div key={ex.travaux} className="flex justify-between text-sm">
                   <span className="text-blue-900">{ex.travaux}</span>

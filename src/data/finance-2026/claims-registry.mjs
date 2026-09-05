@@ -236,10 +236,12 @@ export const claimsRegistry = [
     slug: "celiapp-premier-acheteur-quebec-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/celiapp-premier-acheteur-quebec-2026.tsx",
+    ledgerFile: "docs/claims/celiapp-premier-acheteur-quebec-2026.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
     scopeNote:
-      "28 occurrences $/%. Plafonds fédéraux CELIAPP relativement stables et peu de paramètres propres au Québec; criticité moyenne. Pas de ledger dans cette issue de gouvernance.",
+      "Gouverné par l'issue #83 : corrige une contradiction directe avec l'article rap-reer-premier-acheteur-quebec-2026 (RAP présenté à 35 000 $ dans cet article contre 60 000 $ dans l'autre, réel depuis le budget fédéral 2024); RAP corrigé à 60 000 $, total combiné CELIAPP+RAP à 100 000 $/200 000 $ pour un couple. Condition de retrait admissible « avant le 1er octobre » reformulée (c'est l'entente d'achat, pas le retrait, qui doit précéder cette date, et l'année de référence est celle suivant le retrait). Aucun module finance-2026 dédié; ledger seul, schéma classique.",
   },
   {
     slug: "credit-impot-maintien-domicile-2026",
@@ -278,9 +280,12 @@ export const claimsRegistry = [
     slug: "credit-impot-handicap-canada-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/credit-impot-handicap-canada-2026.tsx",
+    ledgerFile: "docs/claims/credit-impot-handicap-canada-2026.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
-    scopeNote: "15 occurrences $/%. Montant fédéral fixe, indexation annuelle standard; criticité moyenne, pas de ledger dans cette issue.",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
+    scopeNote:
+      "Gouverné par l'issue #83 : l'article publiait les montants de base 2023 (9 428 $/5 500 $) sous le libellé « 2026 », jamais mis à jour depuis; corrigés à 10 341 $/6 032 $ (chaîne d'indexation 2023→2026 recoupée), taux fédéral de calcul corrigé de 15 % à 14 % (déjà gouverné ailleurs dans ce dépôt). REEI reformulé pour éviter l'ambiguïté 70 000 $ (SCEI) + 20 000 $ (BCEI) = 90 000 $ combinés, pas 110 000 $. Nommage PCT→ACT corrigé (déjà appliqué à un autre article, issue #81); montant du supplément ACT corrigé de 784 $ à 860 $. Supplément ACE (3 480 $) confirmé inchangé via le module déjà gouverné family-training-rules-2026.ts.",
   },
   {
     slug: "prestation-dentaire-canadienne-2026",
@@ -297,9 +302,12 @@ export const claimsRegistry = [
     slug: "credit-impot-aidants-naturels-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/credit-impot-aidants-naturels-2026.tsx",
+    ledgerFile: "docs/claims/credit-impot-aidants-naturels-2026.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
-    scopeNote: "7 occurrences $/%, la densité la plus basse des 17. Pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
+    scopeNote:
+      "Gouverné par l'issue #83 : constat majeur, le crédit québécois a été restructuré depuis la version décrite (3 tiers par lien de parenté à 868 $/1 383 $/1 112 $, ancienne structure) en un crédit à deux volets par âge/condition de la personne aidée (volet 1 : proche 18+ avec déficience, jusqu'à 3 050 $; volet 2 : proche 70+, 1 525 $), déjà gouverné dans programmes.json (credit-aidant-naturel-qc, issue #51) et repris ici sans deuxième vérité. Seuil de réduction de l'ancienne structure (25 000 $) retiré faute de confirmation sous la structure actuelle plutôt que republié sans preuve. Durée de cohabitation corrigée (365 jours/183 jours, pas « la moitié de l'année »). Prestations AE pour proches aidants distinguées par durée réelle (15/26/35 semaines selon le cas, pas 35 semaines pour tous les cas). Renvoi croisé au crédit maintien à domicile corrigé pour cohérence avec le ledger déjà gouverné credit-impot-maintien-domicile-2026.md (7 800 $/10 200 $, pas 6 000 $).",
   },
   {
     slug: "credit-impot-prime-travail-2026",
@@ -316,10 +324,12 @@ export const claimsRegistry = [
     slug: "reer-vs-celi-lequel-choisir-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/reer-vs-celi-lequel-choisir-2026.tsx",
+    ledgerFile: "docs/claims/reer-vs-celi-lequel-choisir-2026.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
     scopeNote:
-      "22 occurrences $/%. Guide comparatif éditorial (pas d'admissibilité à un programme précis); plafonds REER/CELI fédéraux stables. Pas de ledger dans cette issue de gouvernance.",
+      "Gouverné par l'issue #83 : plafonds 2025 republiés sous le libellé « 2026 » (CELI 102 000 $ cumulé, REER 32 490 $) corrigés aux valeurs 2026 réelles (109 000 $ cumulé, 33 810 $). Taux marginaux des exemples chiffrés (Marie, Jean) recalculés avec le calculateur fiscal déjà gouverné tax-calculator.ts (52 %→36 %, 40 %→31 %, 38 %→26 %) : les valeurs d'origine correspondaient à un palier d'imposition bien plus élevé que celui des profils décrits. Aucun module finance-2026 dédié aux plafonds CELI/REER; ledger seul, schéma classique.",
   },
   {
     slug: "allocation-logement-quebec-2026",
@@ -336,17 +346,23 @@ export const claimsRegistry = [
     slug: "renoclimat-2026-guide-complet",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/renoclimat-2026-guide-complet.tsx",
+    ledgerFile: "docs/claims/renoclimat-2026-guide-complet.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
-    scopeNote: "21 occurrences $/%. Subvention à montants fixes par mesure, moins sensible au revenu du ménage. Pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
+    scopeNote:
+      "Gouverné par l'issue #83 : attribution à « Transition énergétique Québec (TEQ) », entité dissoute depuis 2020-2022, corrigée; plafond de 10 000 $ aligné sur la valeur déjà gouvernée de programmes.json (jusqu'à 20 000 $, issue #51, marquée « à vérifier » dans le dataset et reprise avec la même réserve ici plutôt qu'une deuxième vérité). Cumul LogisVert (jusqu'à 6 700 $) confirmé actif en 2026. Condition « maison construite avant 2012 » confirmée inchangée via la valeur déjà gouvernée de programmes.json plutôt qu'une valeur contradictoire trouvée isolément.",
   },
   {
     slug: "rap-reer-premier-acheteur-quebec-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/rap-reer-premier-acheteur-quebec-2026.tsx",
+    ledgerFile: "docs/claims/rap-reer-premier-acheteur-quebec-2026.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
-    scopeNote: "20 occurrences $/%. Plafond de retrait RAP fédéral stable. Pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
+    scopeNote:
+      "Gouverné par l'issue #83 : plafond de 60 000 $ confirmé exact (déjà cohérent avec programmes.json, issue #51), mais délai de remboursement corrigé (premier versement dû pendant la 2e année suivant le retrait ou dans les 60 premiers jours de l'année suivante, pas « jusqu'au 60e jour de la 2e année »); allègement temporaire 2022-2025 (report à la 5e année) ajouté avec précision qu'il ne s'applique pas à un retrait fait en 2026. Aucun module finance-2026 dédié; ledger seul, schéma classique.",
   },
   {
     slug: "prestation-canadienne-travailleurs-2026",
@@ -374,8 +390,11 @@ export const claimsRegistry = [
     slug: "reno-adaptation-programme-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/reno-adaptation-programme-2026.tsx",
+    ledgerFile: "docs/claims/reno-adaptation-programme-2026.md",
     criticality: "medium",
-    status: "explicitly-out-of-scope",
-    scopeNote: "13 occurrences $/%, densité comparable à un cluster déjà gouverné (credit-canadien-formation-2026). Pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-11-01",
+    scopeNote:
+      "Gouverné par l'issue #83 : constat majeur, le programme (nom officiel actuel « Programme d'adaptation de domicile / PAD », l'article utilise l'ancien nom « Réno-Adaptation ») a été suspendu aux nouvelles inscriptions du 2025-04-01 au 2026-08-12 par la SHQ, réouvert depuis via un nouveau formulaire en ligne; l'article, publié sans cette mention, présentait une démarche continue et une procédure municipale/OSBL désormais obsolète. Montant maximal de 16 000 $ confirmé inchangé via la valeur déjà gouvernée de programmes.json (adaptation-domicile-shq, issue #51). Revue rapprochée au 2026-11-01 plutôt que 2026-12-01, la reprise étant très récente.",
   },
 ];

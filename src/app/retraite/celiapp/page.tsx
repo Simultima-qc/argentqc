@@ -38,7 +38,7 @@ const celiappVsCeliVsReer = [
   { critere: "Cotisation déductible d'impôt ?", celiapp: "✅ Oui — remboursement immédiat", celi: "❌ Non", reer: "✅ Oui — remboursement immédiat" },
   { critere: "Croissance libre d'impôt ?", celiapp: "✅ Oui", celi: "✅ Oui", reer: "✅ Oui" },
   { critere: "Retrait libre d'impôt ?", celiapp: "✅ Si achat admissible", celi: "✅ Toujours", reer: "❌ Imposé comme revenu" },
-  { critere: "Plafond annuel", celiapp: "8 000 $", celi: "7 000 $ (2026)", reer: "18% revenus (max 32 490 $)" },
+  { critere: "Plafond annuel", celiapp: "8 000 $", celi: "7 000 $ (2026)", reer: "18% revenus (max 33 810 $)" },
   { critere: "Plafond à vie", celiapp: "40 000 $", celi: "Aucun (cumulatif)", reer: "Aucun" },
   { critere: "Droits récupérés après retrait ?", celiapp: "❌ Non", celi: "✅ L'année suivante", reer: "❌ Non" },
   { critere: "Idéal pour", celiapp: "Premier achat maison", celi: "Épargne flexible / retraite", reer: "Retraite (revenu élevé)" },

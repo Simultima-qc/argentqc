@@ -33,7 +33,7 @@ const economiesImpot = [
 const reerVsCeli = [
   { critere: "Cotisation réduit le revenu imposable ?", reer: "✅ Oui — remboursement d'impôt immédiat", celi: "❌ Non — pas de déduction" },
   { critere: "Retrait imposable ?", reer: "✅ Oui — imposé comme revenu à la retraite", celi: "❌ Non — retraits toujours libres d'impôt" },
-  { critere: "Plafond de cotisation 2026", reer: "18% du revenu gagné (max. 32 490 $)", celi: "7 000 $/an (+ droits inutilisés)" },
+  { critere: "Plafond de cotisation 2026", reer: "18% du revenu gagné (max. 33 810 $)", celi: "7 000 $/an (+ droits inutilisés)" },
   { critere: "Droits récupérés après retrait ?", reer: "❌ Non — un retrait perd les droits", celi: "✅ Oui — récupérés l'année suivante" },
   { critere: "Âge limite de cotisation", reer: "71 ans — conversion en FERR obligatoire", celi: "Aucun âge limite" },
   { critere: "Idéal pour", reer: "Revenu élevé maintenant, plus faible à la retraite", celi: "Flexibilité, revenus similaires avant/après retraite" },
@@ -50,7 +50,7 @@ const erreurs = [
 const faqs = [
   {
     q: "Quel est le plafond de cotisation REER en 2026 ?",
-    r: "Le plafond de cotisation REER 2026 est de 18% du revenu gagné en 2025, jusqu'à un maximum de 32 490 $. Votre plafond personnel est indiqué sur votre avis de cotisation de l'Agence du revenu du Canada (ARC). N'oubliez pas d'ajouter vos droits inutilisés des années précédentes.",
+    r: "Le plafond de cotisation REER 2026 est de 18% du revenu gagné en 2025, jusqu'à un maximum de 33 810 $. Votre plafond personnel est indiqué sur votre avis de cotisation de l'Agence du revenu du Canada (ARC). N'oubliez pas d'ajouter vos droits inutilisés des années précédentes.",
   },
   {
     q: "C'est quoi le RAP (Régime d'accession à la propriété) ?",
@@ -135,7 +135,7 @@ export default function ReerPage() {
         {/* Plafond 2026 */}
         <div style={{ background: DARK, borderRadius: "16px", padding: "1.25rem", marginBottom: "2rem", textAlign: "center" }}>
           <p style={{ color: "rgba(240,235,224,0.5)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "8px" }}>Plafond REER 2026</p>
-          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2rem", fontWeight: 800, marginBottom: "4px" }}>32 490 $</p>
+          <p style={{ fontFamily: "var(--font-playfair)", color: GOLD, fontSize: "2rem", fontWeight: 800, marginBottom: "4px" }}>33 810 $</p>
           <p style={{ color: "rgba(240,235,224,0.6)", fontSize: "13px" }}>ou 18% du revenu gagné en 2025, selon le moins élevé des deux</p>
           <p style={{ color: "rgba(240,235,224,0.4)", fontSize: "11px", marginTop: "8px" }}>
             Votre plafond personnel (incluant les droits inutilisés) figure sur votre avis de cotisation ARC.

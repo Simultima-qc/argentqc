@@ -41,15 +41,42 @@ test("registry entries are all structurally valid", () => {
   assert.deepEqual(errors, []);
 });
 
-test("registry has zero drift against the real repository tree (all 23 ledgers registered, all 29 articles covered)", () => {
+test("registry has zero drift against the real repository tree (all 30 ledgers registered, all 29 articles covered)", () => {
   const errors = computeRegistryDrift({ registry: claimsRegistry, ledgerFilesOnDisk, articleFilesOnDisk, fileExists });
   assert.deepEqual(errors, []);
-  assert.equal(ledgerFilesOnDisk.length, 23);
+  assert.equal(ledgerFilesOnDisk.length, 30);
   assert.equal(articleFilesOnDisk.length, 29);
   const governed = claimsRegistry.filter((entry) => entry.status === "governed");
   const outOfScope = claimsRegistry.filter((entry) => entry.status === "explicitly-out-of-scope");
-  assert.equal(governed.length, 23);
-  assert.equal(outOfScope.length, 7);
+  assert.equal(governed.length, 30);
+  assert.equal(outOfScope.length, 0);
+});
+
+test("the 7 medium-risk articles governed by issue #83 are all governed with a valid ledger", () => {
+  const slugs = [
+    "celiapp-premier-acheteur-quebec-2026",
+    "credit-impot-handicap-canada-2026",
+    "credit-impot-aidants-naturels-2026",
+    "reer-vs-celi-lequel-choisir-2026",
+    "renoclimat-2026-guide-complet",
+    "rap-reer-premier-acheteur-quebec-2026",
+    "reno-adaptation-programme-2026",
+  ];
+
+  for (const slug of slugs) {
+    const entry = claimsRegistry.find((candidate) => candidate.slug === slug);
+    assert.ok(entry, `registry entry must exist for ${slug}`);
+    assert.equal(entry.status, "governed", `${slug} must be governed`);
+    assert.equal(entry.ledgerFile, `docs/claims/${slug}.md`, `${slug} must reference its own ledger`);
+    assert.equal(entry.criticality, "medium", `${slug} must keep its medium criticality`);
+    assert.ok(fileExists(entry.ledgerFile), `${slug}'s ledgerFile must exist on disk`);
+
+    if (entry.datasetModule) {
+      assert.ok(fileExists(entry.datasetModule), `${slug}'s datasetModule must exist on disk`);
+    } else {
+      assert.ok(isIsoDate(entry.nextReviewAt), `${slug} without a datasetModule must declare its own valid nextReviewAt`);
+    }
+  }
 });
 
 test("the 6 high-risk articles governed by issue #81 are all governed with a valid ledger and freshness date", () => {

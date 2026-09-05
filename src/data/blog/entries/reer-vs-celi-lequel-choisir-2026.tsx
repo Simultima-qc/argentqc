@@ -67,8 +67,8 @@ function Content() {
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ <strong>REER</strong>{" "} : meilleur si votre revenu actuel est élevé et sera plus faible à la retraite</li>
             <li>✓ <strong>CELI</strong>{" "} : meilleur si votre revenu actuel est faible ou si vos retraits risquent de réduire vos prestations (PSV, SRG)</li>
-            <li>✓ Plafond CELI 2026 : <strong>7 000 $/an</strong>{" "}(cumul total possible : jusqu&apos;à 102 000 $)</li>
-            <li>✓ Plafond REER 2026 : <strong>18 % du revenu gagné</strong>, max <strong>32 490 $</strong></li>
+            <li>✓ Plafond CELI 2026 : <strong>7 000 $/an</strong>{" "}(cumul total possible depuis 2009 : jusqu&apos;à 109 000 $)</li>
+            <li>✓ Plafond REER 2026 : <strong>18 % du revenu gagné</strong>, max <strong>33 810 $</strong></li>
           </ul>
         </div>
 
@@ -155,13 +155,13 @@ function Content() {
                 profil: "Marie, 35 ans, ingénieure — 95 000 $/an",
                 choix: "REER en priorité",
                 couleur: "bg-blue-50 border-blue-200",
-                explication: "Taux marginal québécois : ~52 %. Chaque 1 000 $ en REER lui fait économiser ~520 $ en impôt maintenant. À la retraite avec 55 000 $, son taux sera ~40 % — elle paiera moins à la sortie.",
+                explication: "Taux marginal combiné (fédéral après abattement + Québec) : ~36 %. Chaque 1 000 $ en REER lui fait économiser ~360 $ en impôt maintenant. À la retraite avec 55 000 $, son taux sera ~31 % — elle paiera un peu moins à la sortie.",
               },
               {
                 profil: "Jean, 28 ans, technicien — 42 000 $/an",
                 choix: "CELI en priorité",
                 couleur: "bg-emerald-50 border-emerald-200",
-                explication: "Taux marginal : ~38 %. La déduction REER rapporte moins. En économisant dans un CELI, il garde la flexibilité et évite de réduire ses futures prestations gouvernementales.",
+                explication: "Taux marginal combiné : ~26 %. La déduction REER rapporte moins. En économisant dans un CELI, il garde la flexibilité et évite de réduire ses futures prestations gouvernementales.",
               },
               {
                 profil: "Claire, 58 ans, retraitée anticipée — 28 000 $/an",
@@ -188,13 +188,13 @@ function Content() {
               {[
                 {
                   compte: "CELI",
-                  plafond2026: "7 000 $ par année",
-                  cumul: "Jusqu&apos;à 102 000 $ depuis 2009 (si vous avez 18 ans en 2009)",
+                  plafond2026: "7 000 $ par année (inchangé depuis 2024; l&apos;indexation à l&apos;inflation, arrondie au 500 $ près, n&apos;a pas fait franchir de nouveau palier)",
+                  cumul: "Jusqu&apos;à 109 000 $ depuis 2009 (si vous avez 18 ans en 2009)",
                   note: "Les droits non utilisés se reportent indéfiniment",
                 },
                 {
                   compte: "REER",
-                  plafond2026: "18 % du revenu gagné, max 32 490 $",
+                  plafond2026: "18 % du revenu gagné de 2025, max 33 810 $",
                   cumul: "Les droits inutilisés se cumulent depuis 1991",
                   note: "Expirent à 71 ans — le REER doit être converti en FERR",
                 },

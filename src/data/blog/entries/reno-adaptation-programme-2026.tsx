@@ -66,10 +66,16 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Qu&apos;est-ce que Réno-Adaptation ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Réno-Adaptation est un programme d&apos;aide financière administré par la Société d&apos;habitation
-            du Québec (SHQ). Il vise à permettre aux personnes âgées et aux personnes handicapées
-            de demeurer dans leur logement en finançant les travaux d&apos;adaptation nécessaires à leur
-            sécurité et à leur autonomie.
+            Réno-Adaptation, aujourd&apos;hui officiellement nommé <strong>Programme d&apos;adaptation de domicile (PAD)</strong>,
+            est un programme d&apos;aide financière administré par la Société d&apos;habitation du Québec (SHQ). Il vise à
+            permettre aux personnes âgées et aux personnes handicapées de demeurer dans leur logement en finançant
+            les travaux d&apos;adaptation nécessaires à leur sécurité et à leur autonomie.
+          </p>
+          <p className="text-slate-600 leading-relaxed mb-3">
+            <strong>Important — historique récent :</strong> la SHQ a suspendu les nouvelles inscriptions au PAD du
+            1er avril 2025 jusqu&apos;au 12 août 2026. Les inscriptions ont repris depuis cette date, désormais via un
+            formulaire en ligne sécurisé plutôt que par la démarche décrite ci-dessous. Confirmez le statut actuel
+            du programme et la procédure d&apos;inscription en vigueur auprès de la SHQ avant d&apos;entamer vos démarches.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Contrairement aux rénovations esthétiques, Réno-Adaptation finance des modifications
@@ -163,8 +169,8 @@ function Content() {
             {[
               {
                 num: "1",
-                titre: "Contactez votre municipalité ou un OSBL partenaire",
-                texte: "Réno-Adaptation est administré localement par les municipalités et certains organismes sans but lucratif mandatés par la SHQ. Commencez par appeler votre municipalité ou le Centre local de développement (CLD) de votre région.",
+                titre: "Inscrivez-vous auprès de la SHQ",
+                texte: "Depuis la reprise des inscriptions le 12 août 2026, l&apos;inscription au PAD se fait via un formulaire en ligne sécurisé de la SHQ. Certaines municipalités ou organismes partenaires mandatés peuvent aussi vous accompagner dans la démarche — vérifiez la procédure en vigueur auprès de la SHQ.",
               },
               {
                 num: "2",

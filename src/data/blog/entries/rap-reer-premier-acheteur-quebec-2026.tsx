@@ -182,7 +182,7 @@ function Content() {
               { num: "2", titre: "Remplissez le formulaire T1036", texte: "Le formulaire T1036 (Demande de retirer des fonds d'un REER dans le cadre du RAP) est disponible sur canada.ca. Il doit être rempli pour chaque retrait." },
               { num: "3", titre: "Soumettez à votre institution financière", texte: "Remettez le formulaire T1036 à votre banque ou caisse qui effectuera le retrait sans retenue d'impôt." },
               { num: "4", titre: "Déclarez dans votre rapport d'impôt", texte: "L'institution financière émet un feuillet T4RSP. Déclarez le retrait RAP dans votre déclaration de revenus — mais aucun impôt n'est dû si vous respectez les conditions." },
-              { num: "5", titre: "Remboursez à partir de la 2e année", texte: "Vous avez jusqu'au 60e jour de la 2e année civile suivant le retrait pour commencer à rembourser. Cotisez 1/15 du montant retiré chaque année." },
+              { num: "5", titre: "Remboursez à partir de la 2e année", texte: "Votre premier remboursement doit être versé au cours de la 2e année civile suivant le retrait, ou dans les 60 premiers jours de l'année suivante. Cotisez 1/15 du montant retiré chaque année pendant 15 ans. Allègement temporaire : pour un premier retrait effectué entre le 1er janvier 2022 et le 31 décembre 2025, le remboursement débute plutôt la 5e année suivant le retrait (ne s'applique pas à un retrait effectué en 2026)." },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
                 <div className="w-9 h-9 text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0" style={{ background: "#060D1A" }}>
