@@ -1,4 +1,5 @@
-﻿import impotsRevenusRetraiteQuebec2026 from "@/data/blog/entries/impots-revenus-retraite-quebec-2026";
+﻿import creditTpsTvhCanada2026 from "@/data/blog/entries/credit-tps-tvh-canada-2026";
+import impotsRevenusRetraiteQuebec2026 from "@/data/blog/entries/impots-revenus-retraite-quebec-2026";
 import reerVsCeliLequelChoisir2026 from "@/data/blog/entries/reer-vs-celi-lequel-choisir-2026";
 import creditImpotHandicapCanada2026 from "@/data/blog/entries/credit-impot-handicap-canada-2026";
 import creditImpotPrimeTravail2026 from "@/data/blog/entries/credit-impot-prime-travail-2026";
@@ -32,6 +33,7 @@ import type { BlogArticle } from "@/data/blog/types";
 export type { Article, BlogArticle } from "@/data/blog/types";
 
 export const blogArticles: BlogArticle[] = [
+  creditTpsTvhCanada2026,
   impotsRevenusRetraiteQuebec2026,
   reerVsCeliLequelChoisir2026,
   creditImpotHandicapCanada2026,
