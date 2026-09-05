@@ -285,16 +285,19 @@ test("vehicule-electrique-quebec sources subv-auto-elec-qc and subv-bornes-recha
   assert.match(source, /getProgrammeFromCatalogue\("subv-bornes-recharge-qc"\)/);
 });
 
-test("aide-lunettes-quebec consolidates its credit-solidarite-sante alias onto the catalogue's credit-loyer-qc, but keeps frais-medicaux-fed/frais-medicaux-qc local (no catalogue entry represents the same claim without revalidating it)", () => {
+test("aide-lunettes-quebec sources credit-loyer-qc, credit-frais-medicaux-fed and credit-frais-medicaux-qc from the catalogue, closing the #86 residual resolved by issue #88", () => {
   const source = read(path.join(appDir, "aide-lunettes-quebec", "page.tsx"));
   assert.match(source, /getProgrammeFromCatalogue\("credit-loyer-qc"\)/);
+  assert.match(source, /getProgrammeFromCatalogue\("credit-frais-medicaux-fed"\)/);
+  assert.match(source, /getProgrammeFromCatalogue\("credit-frais-medicaux-qc"\)/);
   assert.doesNotMatch(source, /id:\s*"credit-solidarite-sante"/);
-
-  const copies = extractLocalProgrammeCopies(source);
-  const copiedIds = copies.map((copy) => copy.id).sort();
-  assert.deepEqual(copiedIds, ["frais-medicaux-fed", "frais-medicaux-qc"]);
+  assert.deepEqual(extractLocalProgrammeCopies(source), []);
 
   const catalogue = JSON.parse(read(programmesJsonFile));
-  assert.equal(catalogue.find((p) => p.id === "frais-medicaux-fed"), undefined);
-  assert.equal(catalogue.find((p) => p.id === "frais-medicaux-qc"), undefined);
+  const fed = catalogue.find((p) => p.id === "credit-frais-medicaux-fed");
+  const qc = catalogue.find((p) => p.id === "credit-frais-medicaux-qc");
+  assert.ok(fed, "expected credit-frais-medicaux-fed in the governed catalogue");
+  assert.ok(qc, "expected credit-frais-medicaux-qc in the governed catalogue");
+  assert.deepEqual({ min: fed.montant_min, max: fed.montant_max }, { min: 0, max: 0 });
+  assert.deepEqual({ min: qc.montant_min, max: qc.montant_max }, { min: 0, max: 0 });
 });

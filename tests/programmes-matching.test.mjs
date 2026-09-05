@@ -630,7 +630,7 @@ test("physical-work programmes require renovation:true and are excluded when the
 test("programmes.json catalogue size is stable and every entry has a non-empty description (issue #51)", () => {
   const programmes = loadProgrammesJson();
 
-  assert.equal(programmes.length, 84, "unexpected catalogue size change -- update this count deliberately if programmes were added/removed");
+  assert.equal(programmes.length, 85, "unexpected catalogue size change -- update this count deliberately if programmes were added/removed");
 
   for (const programme of programmes) {
     assert.ok(

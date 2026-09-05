@@ -11,52 +11,21 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
-  // frais-medicaux-fed and frais-medicaux-qc have no catalogue counterpart
-  // that represents the same claim: the closest catalogue entry
-  // (credit-frais-medicaux-qc, a flat 50 $–400 $ range) frames the Québec
-  // medical-expense credit differently from this page's rate-based
-  // presentation (up to 20% of expenses, up to 1 500 $) and is not a
-  // mechanical rename — reconciling it would mean revalidating which claim
-  // is correct, out of scope for issue #86 (see the durable report on
-  // issue #86 for the residual P2 finding and recommended follow-up).
-  {
-    id: "frais-medicaux-fed",
-    nom: "Crédit d'impôt pour frais médicaux",
-    organisme: "Gouvernement du Canada",
-    niveau: "federal",
-    categorie: "sante",
-    montant_min: 0,
-    montant_max: 2500,
-    montant_affiche: "15% des dépenses admissibles",
-    description: "Crédit d'impôt non remboursable de 15% sur vos frais médicaux admissibles dépassant le seuil de 3% de votre revenu net (ou 2 635 $ en 2026, selon le moins élevé). Les lunettes et verres de contact sont des dépenses admissibles.",
-    conditions: [
-      "Résider au Canada",
-      "Produire une déclaration de revenus fédérale",
-      "Conserver vos reçus de lunettes, montures, verres de contact",
-      "Dépenses dépassant 3% de votre revenu net ou 2 635 $"
-    ],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-33099-33199-depenses-admissibles-frais-medicaux.html",
-    criteres: { provinces: ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"] },
-  },
-  {
-    id: "frais-medicaux-qc",
-    nom: "Crédit d'impôt pour frais médicaux (Québec)",
-    organisme: "Revenu Québec",
-    niveau: "provincial",
-    categorie: "sante",
-    montant_min: 0,
-    montant_max: 1500,
-    montant_affiche: "Jusqu'à 20% des dépenses",
-    description: "Crédit d'impôt remboursable du Québec pour frais médicaux, incluant les lunettes, verres correcteurs et verres de contact prescrits. Le taux varie selon votre revenu — les ménages à faible revenu obtiennent un crédit plus élevé.",
-    conditions: [
-      "Résider au Québec",
-      "Produire une déclaration de revenus provinciale",
-      "Lunettes ou verres prescrit par un optométriste ou médecin",
-      "Conserver tous vos reçus"
-    ],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-medicaux/",
-    criteres: { provinces: ["QC"] },
-  },
+  // frais-medicaux-fed/frais-medicaux-qc were page-local copies with no
+  // catalogue counterpart representing the same claim (issue #86 residual).
+  // Issue #88 revalidated both credits against official sources (ARC line
+  // 33099/33199; Revenu Québec ligne 381) and reconciled the real
+  // disagreement found on the Québec side: this page previously described
+  // it as a "remboursable" credit capped at 1 500 $ varying by income, but
+  // the credit that applies to eyeglasses generally is the non-refundable
+  // 20 % credit on expenses above 3 % of net family income, with no fixed
+  // dollar cap (a separate, narrower refundable credit for low-income
+  // workers exists but is out of this page's scope). Both credits now
+  // source the catalogue under credit-frais-medicaux-fed/-qc; see the
+  // durable report on issue #88 and programmes-2026.ts sourceNote for the
+  // full revalidation detail.
+  getProgrammeFromCatalogue("credit-frais-medicaux-fed"),
+  getProgrammeFromCatalogue("credit-frais-medicaux-qc"),
   // credit-solidarite-sante was a page-local alias for the same governed
   // program as credit-loyer-qc (Crédit d'impôt pour solidarité), already
   // at 0 $/0 $ "à vérifier" on both sides — a safe id consolidation, not a
