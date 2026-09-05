@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -10,6 +11,14 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
+  // frais-medicaux-fed and frais-medicaux-qc have no catalogue counterpart
+  // that represents the same claim: the closest catalogue entry
+  // (credit-frais-medicaux-qc, a flat 50 $–400 $ range) frames the Québec
+  // medical-expense credit differently from this page's rate-based
+  // presentation (up to 20% of expenses, up to 1 500 $) and is not a
+  // mechanical rename — reconciling it would mean revalidating which claim
+  // is correct, out of scope for issue #86 (see the durable report on
+  // issue #86 for the residual P2 finding and recommended follow-up).
   {
     id: "frais-medicaux-fed",
     nom: "Crédit d'impôt pour frais médicaux",
@@ -48,26 +57,11 @@ const programmes: Programme[] = [
     lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-frais-medicaux/",
     criteres: { provinces: ["QC"] },
   },
-  {
-    id: "credit-solidarite-sante",
-    nom: "Crédit d'impôt pour solidarité",
-    organisme: "Revenu Québec",
-    niveau: "provincial",
-    categorie: "credits_impot",
-    montant_min: 0,
-    montant_max: 0,
-    montant_affiche: "Montant déterminé par Revenu Québec — à vérifier",
-    montant_sommable: false,
-    preselection_only: true,
-    description: "Crédit remboursable pour les ménages à revenus modestes. Bien qu'il ne couvre pas directement les lunettes, il peut augmenter le revenu disponible pour ces dépenses.",
-    conditions: [
-      "Résider au Québec au 31 décembre 2025",
-      "Produire la déclaration de revenus 2025",
-      "Faire vérifier le montant par Revenu Québec"
-    ],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-    criteres: { provinces: ["QC"] },
-  },
+  // credit-solidarite-sante was a page-local alias for the same governed
+  // program as credit-loyer-qc (Crédit d'impôt pour solidarité), already
+  // at 0 $/0 $ "à vérifier" on both sides — a safe id consolidation, not a
+  // claim change (issue #86).
+  getProgrammeFromCatalogue("credit-loyer-qc"),
 ];
 
 const faqs = [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SeoProgrammesPage from "@/components/SeoProgrammesPage";
+import { getProgrammeFromCatalogue } from "@/data/finance-2026";
 import type { Programme } from "@/types";
 
 export const metadata: Metadata = {
@@ -11,70 +12,10 @@ export const metadata: Metadata = {
 };
 
 const programmes: Programme[] = [
-  {
-    id: "irapvf-qc",
-    nom: "Allocation famille (Québec)",
-    organisme: "Retraite Québec",
-    niveau: "provincial",
-    categorie: "famille",
-    montant_min: 0,
-    montant_max: 3068,
-    montant_affiche: "Jusqu'à 3 068 $ par enfant en 2026 — à vérifier",
-    montant_sommable: false,
-    preselection_only: true,
-    description: "Allocation québécoise versée trimestriellement par défaut, ou mensuellement sur demande. Le montant dépend de la situation familiale et du revenu.",
-    conditions: ["Résider au Québec", "Avoir au moins un enfant de moins de 18 ans", "Être le principal responsable de l'enfant"],
-    lien_officiel: "https://www.retraitequebec.gouv.qc.ca/fr/enfants/allocation-famille/Pages/allocation-famille.aspx",
-    criteres: { enfants: true, provinces: ["QC"] },
-  },
-  {
-    id: "ace-fed",
-    nom: "Allocation canadienne pour enfants (ACE)",
-    organisme: "Gouvernement du Canada",
-    niveau: "federal",
-    categorie: "famille",
-    montant_min: 0,
-    montant_max: 8157,
-    montant_affiche: "Jusqu'à 8 157 $ par enfant de moins de 6 ans — à vérifier",
-    montant_sommable: false,
-    preselection_only: true,
-    description: "Paiement mensuel non imposable basé sur le RFNR 2025. Une demande à l'ARC est requise; produire les déclarations maintient le calcul à jour.",
-    conditions: ["Avoir au moins un enfant de moins de 18 ans", "Résider au Canada", "Être le principal responsable des soins de l'enfant"],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-enfants-apercu.html",
-    criteres: { enfants: true },
-  },
-  {
-    id: "credit-loyer-qc",
-    nom: "Crédit d'impôt pour solidarité",
-    organisme: "Revenu Québec",
-    niveau: "provincial",
-    categorie: "credits_impot",
-    montant_min: 0,
-    montant_max: 0,
-    montant_affiche: "Montant déterminé par Revenu Québec — à vérifier",
-    montant_sommable: false,
-    preselection_only: true,
-    description: "Crédit d'impôt remboursable pour les ménages à revenus faibles ou modestes, combinant jusqu'à trois composantes selon le dossier. Montant et fréquence de versement déterminés par Revenu Québec.",
-    conditions: ["Résider au Québec au 31 décembre 2025", "Produire la déclaration de revenus 2025 et l'annexe D si le logement s'applique", "Faire vérifier le montant par Revenu Québec"],
-    lien_officiel: "https://www.revenuquebec.ca/fr/citoyens/credits-dimpot/credit-dimpot-pour-solidarite/",
-    criteres: { provinces: ["QC"] },
-  },
-  {
-    id: "credit-tps-fed",
-    nom: "Allocation canadienne pour l’épicerie et les besoins essentiels (ACEBE)",
-    organisme: "Gouvernement du Canada",
-    niveau: "federal",
-    categorie: "credits_impot",
-    montant_min: 0,
-    montant_max: 0,
-    montant_affiche: "Montant calculé par l’ARC — à vérifier",
-    montant_sommable: false,
-    preselection_only: true,
-    description: "Prestation trimestrielle non imposable calculée selon le revenu familial net rajusté de 2025 et la composition familiale.",
-    conditions: ["Résider au Canada", "Produire une déclaration de revenus", "Faire vérifier le montant par l’ARC"],
-    lien_officiel: "https://www.canada.ca/fr/agence-revenu/services/prestations-enfants-familles/allocation-canadienne-epicerie-besoins-essentiels.html",
-    criteres: {},
-  },
+  getProgrammeFromCatalogue("irapvf-qc"),
+  getProgrammeFromCatalogue("ace-fed"),
+  getProgrammeFromCatalogue("credit-loyer-qc"),
+  getProgrammeFromCatalogue("credit-tps-fed"),
 ];
 
 const faqs = [

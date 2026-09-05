@@ -250,3 +250,51 @@ test("credit-impot-quebec and credit-impot-frais-medicaux-quebec no longer hardc
   assert.equal(maintien.montant_max, 10200);
   assert.equal(maintien.montant_min, 500);
 });
+
+// ── issue #86: the 5 live pages whose local text had drifted from the ──
+// governed catalogue (organisme/description/conditions/lien_officiel),
+// even though checkProgrammeCatalogueDrift's montant-only comparison saw
+// no active drift. Reconciled onto the catalogue as the single governed
+// source of truth (see the durable report on issue #86).
+
+test("allocation-enfant-quebec and aide-famille-quebec source irapvf-qc/ace-fed (and, for aide-famille-quebec, credit-loyer-qc/credit-tps-fed) from the catalogue instead of a local copy", () => {
+  const enfant = read(path.join(appDir, "allocation-enfant-quebec", "page.tsx"));
+  assert.deepEqual(extractLocalProgrammeCopies(enfant), []);
+  assert.match(enfant, /getProgrammeFromCatalogue\("irapvf-qc"\)/);
+  assert.match(enfant, /getProgrammeFromCatalogue\("ace-fed"\)/);
+
+  const famille = read(path.join(appDir, "aide-famille-quebec", "page.tsx"));
+  assert.deepEqual(extractLocalProgrammeCopies(famille), []);
+  for (const id of ["irapvf-qc", "ace-fed", "credit-loyer-qc", "credit-tps-fed"]) {
+    assert.match(famille, new RegExp(`getProgrammeFromCatalogue\\("${id}"\\)`));
+  }
+});
+
+test("chauffez-vert-quebec sources chauffez-vert-qc and consolidates its page-local logisvert-hydro-cv id onto the catalogue's logisvert-hydro", () => {
+  const source = read(path.join(appDir, "chauffez-vert-quebec", "page.tsx"));
+  assert.deepEqual(extractLocalProgrammeCopies(source), []);
+  assert.match(source, /getProgrammeFromCatalogue\("chauffez-vert-qc"\)/);
+  assert.match(source, /getProgrammeFromCatalogue\("logisvert-hydro"\)/);
+  assert.doesNotMatch(source, /logisvert-hydro-cv/);
+});
+
+test("vehicule-electrique-quebec sources subv-auto-elec-qc and subv-bornes-recharge-qc from the catalogue instead of a stale local copy (was still crediting Transition énergétique Québec, dissolved into the ministry)", () => {
+  const source = read(path.join(appDir, "vehicule-electrique-quebec", "page.tsx"));
+  assert.deepEqual(extractLocalProgrammeCopies(source), []);
+  assert.match(source, /getProgrammeFromCatalogue\("subv-auto-elec-qc"\)/);
+  assert.match(source, /getProgrammeFromCatalogue\("subv-bornes-recharge-qc"\)/);
+});
+
+test("aide-lunettes-quebec consolidates its credit-solidarite-sante alias onto the catalogue's credit-loyer-qc, but keeps frais-medicaux-fed/frais-medicaux-qc local (no catalogue entry represents the same claim without revalidating it)", () => {
+  const source = read(path.join(appDir, "aide-lunettes-quebec", "page.tsx"));
+  assert.match(source, /getProgrammeFromCatalogue\("credit-loyer-qc"\)/);
+  assert.doesNotMatch(source, /id:\s*"credit-solidarite-sante"/);
+
+  const copies = extractLocalProgrammeCopies(source);
+  const copiedIds = copies.map((copy) => copy.id).sort();
+  assert.deepEqual(copiedIds, ["frais-medicaux-fed", "frais-medicaux-qc"]);
+
+  const catalogue = JSON.parse(read(programmesJsonFile));
+  assert.equal(catalogue.find((p) => p.id === "frais-medicaux-fed"), undefined);
+  assert.equal(catalogue.find((p) => p.id === "frais-medicaux-qc"), undefined);
+});
