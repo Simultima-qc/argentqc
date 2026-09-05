@@ -189,13 +189,19 @@ test("the real src/app tree has zero drift between local programme copies and th
   assert.deepEqual(drifts, []);
 });
 
-test("allocation-logement-quebec and credit-solidarite-quebec keep drifted copies, but only because middleware.ts permanently redirects both away before they ever render (issue #63/#66 dead code, out of scope for #69)", () => {
+test("allocation-logement-quebec and credit-solidarite-quebec (dead code, still permanently redirected by middleware.ts per issue #63/#66) now source the catalogue directly, closing the #69 exception (issue #86)", () => {
   const legacyLoyer = path.join(appDir, "allocation-logement-quebec", "page.tsx");
   const legacySolidarite = path.join(appDir, "credit-solidarite-quebec", "page.tsx");
   const middlewareSource = read(middlewareFile);
 
   assert.equal(isMiddlewareRedirectedRoute(routePathForPageFile(legacyLoyer), middlewareSource), true);
   assert.equal(isMiddlewareRedirectedRoute(routePathForPageFile(legacySolidarite), middlewareSource), true);
+
+  for (const filePath of [legacyLoyer, legacySolidarite]) {
+    const source = read(filePath);
+    assert.deepEqual(extractLocalProgrammeCopies(source), [], `${relative(filePath)} should no longer hold a local Programme[] literal to drift`);
+    assert.match(source, /getProgrammeFromCatalogue\(/);
+  }
 
   const catalogue = JSON.parse(read(programmesJsonFile));
   const drifts = findProgrammeCatalogueDrift({
@@ -205,7 +211,7 @@ test("allocation-logement-quebec and credit-solidarite-quebec keep drifted copie
     ],
     catalogue,
   });
-  assert.ok(drifts.length > 0, "expected the dead-code pages to still carry a stale credit-loyer-qc copy");
+  assert.deepEqual(drifts, []);
 });
 
 test("borne-recharge-quebec no longer hardcodes the obsolete 7 000 $ 2024 vehicle amount and sources the catalogue instead", () => {
