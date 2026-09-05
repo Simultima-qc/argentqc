@@ -41,8 +41,10 @@ function Content() {
             Guide explicatif de l&apos;allocation-logement au Québec en 2026
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
-            L&apos;allocation-logement est une aide mensuelle versée par Retraite Québec aux locataires et propriétaires
-            à faible revenu qui consacrent une trop grande part de leurs revenus à se loger. En 2026, ce programme peut
+            L&apos;allocation-logement est une aide mensuelle versée aux locataires et propriétaires à faible revenu
+            qui consacrent une trop grande part de leurs revenus à se loger. Le programme relève de la Société
+            d&apos;habitation du Québec (SHQ) et les demandes sont administrées par Revenu Québec. Pour la période
+            d&apos;octobre 2025 à septembre 2026, ce programme peut
             vous rapporter jusqu&apos;à <strong>170 $ par mois</strong>{" "} — soit <strong>2 040 $ par année</strong>{" "} — directement dans votre compte bancaire.
           </p>
         </div>
@@ -67,10 +69,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Jusqu&apos;à <strong>170 $/mois</strong>{" "} (2 040 $/an) pour les ménages à faible revenu</li>
-            <li>✓ Pour locataires ET propriétaires âgés de <strong>50 ans et plus</strong></li>
-            <li>✓ Revenus nets admissibles jusqu&apos;à environ <strong>22 000 $</strong>{" "} (seul) ou <strong>33 000 $</strong>{" "} (couple)</li>
-            <li>✓ Aide non imposable, demande gratuite en ligne via Retraite Québec</li>
+            <li>✓ 100 $, 150 $ ou <strong>170 $/mois</strong>{" "}selon votre taux d&apos;effort au logement (jusqu&apos;à 2 040 $/an)</li>
+            <li>✓ Pour les ménages où une personne a <strong>50 ans et plus</strong>{" "}OU qui ont <strong>au moins un enfant à charge</strong>{" "}(locataires et propriétaires)</li>
+            <li>✓ Revenu admissible jusqu&apos;à environ <strong>40 740 $ à 46 640 $</strong>{" "}selon la composition du ménage, et avoir moins de 50 000 $ en épargne (comptes, CELI, placements)</li>
+            <li>✓ Aide non imposable, demande gratuite en ligne via Revenu Québec</li>
           </ul>
         </div>
 
@@ -99,8 +101,8 @@ function Content() {
           <div className="grid grid-cols-1 gap-3 mb-4">
             {[
               {
-                titre: "Âge ou situation",
-                desc: "Avoir 50 ans ou plus, OU avoir une limitation fonctionnelle certifiée par un professionnel de la santé reconnu",
+                titre: "Âge ou situation familiale",
+                desc: "Vous ou votre conjoint avez 50 ans ou plus, OU vous avez au moins un enfant à charge (peu importe votre âge)",
               },
               {
                 titre: "Résidence au Québec",
@@ -108,11 +110,15 @@ function Content() {
               },
               {
                 titre: "Revenu familial net",
-                desc: "Revenu inférieur aux seuils établis : environ 22 000 $ pour une personne seule, 33 000 $ pour un couple",
+                desc: "Revenu inférieur aux seuils établis : environ 40 740 $ à 46 640 $ selon la composition du ménage (personne seule, couple, avec ou sans enfants)",
+              },
+              {
+                titre: "Épargne et placements",
+                desc: "Avoir moins de 50 000 $ au total dans vos comptes bancaires, CELI et placements non enregistrés (vous et votre conjoint)",
               },
               {
                 titre: "Loyer ou charges admissibles",
-                desc: "Payer un loyer ou des charges d'habitation qui représentent une part importante de votre revenu mensuel",
+                desc: "Consacrer au moins 30 % de votre revenu familial à votre loyer ou à vos charges d'habitation",
               },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
@@ -128,19 +134,19 @@ function Content() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">Combien pouvez-vous recevoir en 2026 ?</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Combien pouvez-vous recevoir ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le montant de l&apos;allocation dépend de votre <strong>revenu familial net</strong>{" "} et du <strong>loyer mensuel</strong>{" "} que vous payez.
-            Plus votre revenu est bas et votre loyer élevé par rapport à ce revenu, plus l&apos;aide sera importante — jusqu&apos;au maximum de 170 $/mois.
+            L&apos;allocation-logement verse un montant fixe parmi trois paliers, selon votre{" "}
+            <strong>taux d&apos;effort au logement</strong>{" "}(la part de votre revenu familial consacrée au loyer ou
+            aux charges d&apos;habitation) :
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Exemples de montants mensuels approximatifs</p>
+            <p className="font-bold text-blue-800 mb-3">Paliers de versement mensuel (octobre 2025 à septembre 2026)</p>
             <div className="space-y-2">
               {[
-                { situation: "Seul, revenu 13 000 $, loyer 750 $/mois", montant: "~170 $/mois" },
-                { situation: "Seul, revenu 18 000 $, loyer 800 $/mois", montant: "~115 $/mois" },
-                { situation: "Couple, revenu 24 000 $, loyer 1 100 $/mois", montant: "~145 $/mois" },
-                { situation: "Couple, revenu 30 000 $, loyer 1 200 $/mois", montant: "~55 $/mois" },
+                { situation: "Taux d'effort de 30 % à 49,9 % du revenu", montant: "100 $/mois" },
+                { situation: "Taux d'effort de 50 % à 79,9 % du revenu", montant: "150 $/mois" },
+                { situation: "Taux d'effort de 80 % et plus du revenu", montant: "170 $/mois" },
               ].map((ex) => (
                 <div key={ex.situation} className="flex justify-between text-sm gap-4">
                   <span className="text-blue-900">{ex.situation}</span>
@@ -150,8 +156,9 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-500 text-sm">
-            * Ces montants sont approximatifs et fournis à titre indicatif. Le calcul exact dépend de votre situation personnelle
-            et des barèmes officiels indexés par Retraite Québec chaque année.
+            * L&apos;allocation-logement n&apos;est pas un calcul continu : c&apos;est l&apos;un de ces trois montants fixes qui est
+            versé selon le palier atteint. Vérifiez votre taux d&apos;effort exact et votre admissibilité (y compris le
+            plafond d&apos;épargne de 50 000 $) avec le simulateur officiel de Revenu Québec.
           </p>
         </section>
 
@@ -166,8 +173,8 @@ function Content() {
               },
               {
                 num: "2",
-                titre: "Accédez au portail Mon dossier de Retraite Québec",
-                texte: "Rendez-vous sur retraitequebec.gouv.qc.ca et connectez-vous via Mon dossier ou clicSÉQUR. La demande se fait entièrement en ligne — aucun déplacement requis.",
+                titre: "Accédez à Mon dossier de Revenu Québec",
+                texte: "Rendez-vous sur revenuquebec.ca et connectez-vous via Mon dossier ou clicSÉQUR. La demande se fait entièrement en ligne — aucun déplacement requis. Le programme relève de la Société d'habitation du Québec, mais Revenu Québec traite les demandes.",
               },
               {
                 num: "3",
@@ -177,12 +184,12 @@ function Content() {
               {
                 num: "4",
                 titre: "Attendez la décision",
-                texte: "Retraite Québec analyse votre demande et vous envoie une décision par courrier. Le traitement prend généralement 4 à 8 semaines. En cas de refus, vous pouvez demander une révision.",
+                texte: "Revenu Québec analyse votre demande et vous envoie une décision. Le traitement prend généralement environ 45 jours pour un dossier complet. En cas de refus, vous pouvez demander une révision.",
               },
               {
                 num: "5",
                 titre: "Recevez vos paiements et renouvelez chaque année",
-                texte: "Une fois approuvée, l'allocation est versée mensuellement. Vous devez renouveler votre demande chaque année — Retraite Québec vous enverra un avis à cet effet.",
+                texte: "Une fois approuvée, l'allocation est versée mensuellement. Vous devez renouveler votre demande chaque année — Revenu Québec vous enverra un avis à cet effet.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -229,6 +236,13 @@ function Content() {
                   Beaucoup de propriétaires à la retraite passent à côté de cette aide.
                 </p>
               </div>
+              <div>
+                <p className="font-semibold">Pas seulement pour les 50 ans et plus</p>
+                <p className="text-green-700 mt-0.5">
+                  Un ménage avec au moins un enfant à charge peut être admissible même si personne n&apos;a
+                  50 ans, en plus de respecter les seuils de revenu et le plafond d&apos;épargne de 50 000 $.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -250,12 +264,12 @@ function Content() {
         <p className="text-center text-slate-400 text-xs mt-6">
           Source officielle :{" "}
           <a
-            href="https://www.retraitequebec.gouv.qc.ca/fr/produits-services/Pages/allocation-logement.aspx"
+            href="https://www.revenuquebec.ca/fr/citoyens/votre-situation/faible-revenu/programme-allocation-logement/"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
           >
-            Retraite Québec – Allocation-logement
+            Revenu Québec – Programme Allocation-logement
           </a>
         </p>
       </article>

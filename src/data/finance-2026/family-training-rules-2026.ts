@@ -33,6 +33,7 @@ export const familyTrainingRules2026 = defineVersionedDataset(
       baseMaxAnnual: 3_068,
       singleParentSupplementAnnual: 1_077,
       singleParentMaxAnnual: 4_145,
+      disabilitySupplementMonthly: 241,
       defaultFrequency: "trimestrielle",
       optionalFrequency: "mensuelle sur demande",
       officialUrl:

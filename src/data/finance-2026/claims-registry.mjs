@@ -256,10 +256,12 @@ export const claimsRegistry = [
     slug: "bouclier-fiscal-quebec-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/bouclier-fiscal-quebec-2026.tsx",
+    ledgerFile: "docs/claims/bouclier-fiscal-quebec-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
+    status: "governed",
+    nextReviewAt: "2027-03-31",
     scopeNote:
-      "27 occurrences $/%. Mesure fiscale à seuils indexés; cite déjà childcare-credit-2026 comme exemple (corrigé lors de l'issue #25) mais n'a pas son propre ledger de mesure. Pas de nouveau ledger dans cette issue de gouvernance.",
+      "Gouverné par l'issue #81 : constat majeur que le bouclier fiscal a été aboli à compter de l'année d'imposition 2026 (Budget du Québec 2025-2026); l'article, qui le présentait comme une mesure active, est corrigé pour refléter l'abolition et reformulé au passé pour l'année d'imposition 2025 (dernière année d'application). Lien officiel corrigé de la ligne 462 à la ligne 460. Aucun module finance-2026 dédié; ledger seul.",
   },
   {
     slug: "credit-impot-prolongation-carriere-2026",
@@ -284,9 +286,12 @@ export const claimsRegistry = [
     slug: "prestation-dentaire-canadienne-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/prestation-dentaire-canadienne-2026.tsx",
+    ledgerFile: "docs/claims/prestation-dentaire-canadienne-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
-    scopeNote: "12 occurrences $/%. Prestation fédérale sous condition de revenu; pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-12-01",
+    scopeNote:
+      "Gouverné par l'issue #81 : correction prioritaire d'un numéro de téléphone erroné (associé à des tentatives de fraude imitant le programme), correction de la structure du tableau de coassurance (taux unique par palier de revenu, pas par catégorie de soin), reclassement des couronnes hors des prothèses, et mise à jour du parcours d'inscription (demande directe via Service Canada depuis 2026, sans invitation requise). Aucun module finance-2026 dédié; ledger seul.",
   },
   {
     slug: "credit-impot-aidants-naturels-2026",
@@ -300,9 +305,12 @@ export const claimsRegistry = [
     slug: "credit-impot-prime-travail-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/credit-impot-prime-travail-2026.tsx",
+    ledgerFile: "docs/claims/credit-impot-prime-travail-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
-    scopeNote: "22 occurrences $/%. Crédit remboursable sous condition de revenu de travail; pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-12-15",
+    scopeNote:
+      "Gouverné par l'issue #81 : montants par situation familiale non confirmables de façon fiable (sources secondaires mutuellement contradictoires, risque de contamination avec des mesures voisines) et retirés du tableau statique sauf le montant du couple avec enfant, corroboré par une source spécialisée (CFFP); numéro de formulaire de versements anticipés corrigé (TPZ-1029.8.P plutôt que TP-1015.3); toute mention de « Prestation canadienne pour les travailleurs (PCT) » corrigée en « Allocation canadienne pour les travailleurs (ACT) ». Aucun module finance-2026 dédié; ledger seul.",
   },
   {
     slug: "reer-vs-celi-lequel-choisir-2026",
@@ -317,9 +325,12 @@ export const claimsRegistry = [
     slug: "allocation-logement-quebec-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/allocation-logement-quebec-2026.tsx",
+    ledgerFile: "docs/claims/allocation-logement-quebec-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
-    scopeNote: "21 occurrences $/%. Allocation sous condition de revenu et de loyer; pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2026-10-15",
+    scopeNote:
+      "Gouverné par l'issue #81 : deux erreurs directes corrigées (critère d'admissibilité alternatif « limitation fonctionnelle » inexistant, remplacé par le vrai critère « enfant à charge »; organisme administrateur corrigé de Retraite Québec, sans lien avec ce programme, à Revenu Québec). Seuils de revenu, structure à trois paliers fixes (100 $/150 $/170 $) et plafond d'épargne de 50 000 $ corrigés. Défaut du moteur de correspondance corrigé (critère locataire-seulement excluant à tort les propriétaires admissibles). Aucun module finance-2026 dédié; ledger seul.",
   },
   {
     slug: "renoclimat-2026-guide-complet",
@@ -341,18 +352,23 @@ export const claimsRegistry = [
     slug: "prestation-canadienne-travailleurs-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/prestation-canadienne-travailleurs-2026.tsx",
+    ledgerFile: "docs/claims/prestation-canadienne-travailleurs-2026.md",
     criticality: "high",
-    status: "explicitly-out-of-scope",
-    scopeNote: "17 occurrences $/%. Prestation fédérale sous condition de revenu de travail; pas de ledger dans cette issue de gouvernance.",
+    status: "governed",
+    nextReviewAt: "2027-01-15",
+    scopeNote:
+      "Gouverné par l'issue #81 : nom du programme corrigé (« Prestation canadienne pour les travailleurs / PCT » n'est plus le nom officiel depuis 2019; renommé « Allocation canadienne pour les travailleurs / ACT »); montants alignés sur ceux déjà utilisés par le moteur de correspondance pour le Québec (programmes.json, entrée allocation-travailleurs-fed) plutôt que sur des montants génériques du reste du Canada. Aucun module finance-2026 dédié; ledger seul.",
   },
   {
     slug: "allocation-famille-quebec-calcul-2026",
     kind: "blog-article",
     articleFile: "src/data/blog/entries/allocation-famille-quebec-calcul-2026.tsx",
+    ledgerFile: "docs/claims/allocation-famille-quebec-calcul-2026.md",
+    datasetModule: "src/data/finance-2026/family-training-rules-2026.ts",
     criticality: "high",
-    status: "explicitly-out-of-scope",
+    status: "governed",
     scopeNote:
-      "13 occurrences $/%. Recoupe les montants d'Allocation famille déjà présents dans family-training-rules-2026.ts (quebecFamilyAllowance), mais l'article lui-même n'a pas de ledger propre dans cette issue de gouvernance; à lier en priorité au module existant plutôt qu'à un nouveau ledger.",
+      "Gouverné par l'issue #81 : montants de base et supplément monoparental déjà corrects, confirmés via le module partagé family-training-rules-2026.ts (quebecFamilyAllowance) plutôt qu'une deuxième vérité. Supplément pour enfant handicapé corrigé (239 $ -> 241 $/mois) et ajouté au module comme disabilitySupplementMonthly. Exemple chiffré final retiré pour incohérence interne (contredisait ses propres mentions « à vérifier »).",
   },
   {
     slug: "reno-adaptation-programme-2026",

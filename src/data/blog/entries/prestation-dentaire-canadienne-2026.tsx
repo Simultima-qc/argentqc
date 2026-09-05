@@ -117,30 +117,31 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Quels soins sont couverts ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le régime couvre une large gamme de soins préventifs et curatifs. Le taux de remboursement
-            varie selon votre revenu et le type de soin.
+            Le régime couvre une large gamme de soins préventifs et curatifs : examens, radiographies,
+            nettoyages, scellants, obturations, extractions, traitements de canal, et certaines prothèses
+            (dentiers) sous conditions. Contrairement à un régime privé, le RCSD n&apos;applique pas un taux
+            différent par catégorie de soin : c&apos;est votre <strong>revenu familial</strong>{" "}qui détermine un
+            taux de coassurance unique, appliqué à l&apos;ensemble des soins couverts :
           </p>
           <div className="grid grid-cols-1 gap-3">
             {[
-              { categorie: "Soins préventifs", exemples: "Examens, radiographies, nettoyages, scellants dentaires", taux: "100 % pour revenu &lt; 70 000 $" },
-              { categorie: "Soins de base", exemples: "Obturations, extractions, traitements de canal", taux: "80 % pour revenu &lt; 70 000 $" },
-              { categorie: "Prothèses", exemples: "Dentiers complets et partiels, couronnes", taux: "60 % pour revenu &lt; 70 000 $" },
-              { categorie: "Soins d&apos;urgence", exemples: "Soulagement de la douleur, infections", taux: "Couvert selon le barème applicable" },
+              { categorie: "Revenu familial net inférieur à 70 000 $", taux: "100 % couvert (aucuns frais)" },
+              { categorie: "Revenu familial net de 70 000 $ à 79 999 $", taux: "60 % couvert (40 % à votre charge)" },
+              { categorie: "Revenu familial net de 80 000 $ à 89 999 $", taux: "40 % couvert (60 % à votre charge)" },
+              { categorie: "Revenu familial net de 90 000 $ et plus", taux: "Aucune couverture" },
             ].map((item) => (
               <div key={item.categorie} className="bg-white border border-slate-100 rounded-xl px-4 py-3">
                 <div className="flex justify-between items-start gap-2">
-                  <div>
-                    <p className="font-semibold text-slate-800 text-sm" dangerouslySetInnerHTML={{ __html: item.categorie }} />
-                    <p className="text-slate-500 text-xs mt-0.5" dangerouslySetInnerHTML={{ __html: item.exemples }} />
-                  </div>
-                  <span className="text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-1 rounded-full shrink-0" dangerouslySetInnerHTML={{ __html: item.taux }} />
+                  <p className="font-semibold text-slate-800 text-sm">{item.categorie}</p>
+                  <span className="text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-1 rounded-full shrink-0 text-right">{item.taux}</span>
                 </div>
               </div>
             ))}
           </div>
           <p className="text-slate-500 text-sm mt-3">
-            Les taux de remboursement sont réduits pour les revenus entre 70 000 $ et 90 000 $.
-            Au-delà de 90 000 $, aucune couverture n&apos;est offerte.
+            Les couronnes sont classées parmi les soins de restauration majeurs (comme les obturations et
+            traitements de canal), pas parmi les prothèses — elles nécessitent une préautorisation et ne sont
+            couvertes que si elles sont jugées nécessaires sur le plan médical, pas pour des raisons esthétiques.
           </p>
         </section>
 
@@ -150,18 +151,18 @@ function Content() {
             {[
               {
                 num: "1",
-                titre: "Vérifiez votre admissibilité",
-                texte: "L&apos;ARC vérifie automatiquement votre admissibilité à partir de votre déclaration de revenus. Si vous êtes admissible, vous recevrez une invitation par courrier ou via Mon dossier CRA.",
+                titre: "Faites votre demande auprès de Service Canada",
+                texte: "Depuis 2026, vous n&apos;avez plus besoin d&apos;attendre une invitation : toute personne admissible peut faire une demande en tout temps via Mon dossier Service Canada (MDSC) ou par téléphone auprès de Service Canada.",
               },
               {
                 num: "2",
-                titre: "Inscrivez-vous via Sun Life",
-                texte: "Rendez-vous sur le portail Sun Life dédié au RCSD ou appelez le 1-833-537-2635. Vous devrez fournir votre NAS et vos informations personnelles.",
+                titre: "Recevez votre carte de membre Sun Life",
+                texte: "Une fois votre admissibilité confirmée par Service Canada, vos renseignements sont transmis à Sun Life, l&apos;administrateur du régime, qui vous envoie votre carte de membre. Pour toute question sur votre couverture ou vos réclamations, contactez Sun Life au 1-833-537-4342 (ATS : 1-833-677-6262) — méfiez-vous des numéros similaires utilisés par des tentatives de fraude.",
               },
               {
                 num: "3",
-                titre: "Obtenez votre carte de membre",
-                texte: "Une fois inscrit, vous recevez une carte de membre Sun Life. Présentez-la à votre dentiste — le remboursement se fait directement, sans avance de frais dans la plupart des cas.",
+                titre: "Présentez votre carte à votre dentiste",
+                texte: "Présentez votre carte de membre Sun Life à votre dentiste — le remboursement se fait directement, sans avance de frais dans la plupart des cas.",
               },
               {
                 num: "4",
@@ -189,7 +190,7 @@ function Content() {
           </p>
           <div className="grid grid-cols-1 gap-2">
             {[
-              "Orthodontie (broches, aligneurs invisibles)",
+              "Orthodontie de routine (broches, aligneurs invisibles) — un supplément limité pour des cas jugés médicalement nécessaires (malocclusion sévère chez l&apos;enfant, anomalies craniofaciales) a été annoncé mais n&apos;était pas confirmé actif dans tous les cas au moment de cette vérification",
               "Implants dentaires",
               "Blanchiment des dents et soins esthétiques",
               "Soins hors du Canada",

@@ -41,15 +41,40 @@ test("registry entries are all structurally valid", () => {
   assert.deepEqual(errors, []);
 });
 
-test("registry has zero drift against the real repository tree (all 17 ledgers registered, all 29 articles covered)", () => {
+test("registry has zero drift against the real repository tree (all 23 ledgers registered, all 29 articles covered)", () => {
   const errors = computeRegistryDrift({ registry: claimsRegistry, ledgerFilesOnDisk, articleFilesOnDisk, fileExists });
   assert.deepEqual(errors, []);
-  assert.equal(ledgerFilesOnDisk.length, 17);
+  assert.equal(ledgerFilesOnDisk.length, 23);
   assert.equal(articleFilesOnDisk.length, 29);
   const governed = claimsRegistry.filter((entry) => entry.status === "governed");
   const outOfScope = claimsRegistry.filter((entry) => entry.status === "explicitly-out-of-scope");
-  assert.equal(governed.length, 17);
-  assert.equal(outOfScope.length, 13);
+  assert.equal(governed.length, 23);
+  assert.equal(outOfScope.length, 7);
+});
+
+test("the 6 high-risk articles governed by issue #81 are all governed with a valid ledger and freshness date", () => {
+  const slugs = [
+    "bouclier-fiscal-quebec-2026",
+    "credit-impot-prime-travail-2026",
+    "allocation-logement-quebec-2026",
+    "prestation-canadienne-travailleurs-2026",
+    "allocation-famille-quebec-calcul-2026",
+    "prestation-dentaire-canadienne-2026",
+  ];
+
+  for (const slug of slugs) {
+    const entry = claimsRegistry.find((candidate) => candidate.slug === slug);
+    assert.ok(entry, `registry entry must exist for ${slug}`);
+    assert.equal(entry.status, "governed", `${slug} must be governed`);
+    assert.equal(entry.ledgerFile, `docs/claims/${slug}.md`, `${slug} must reference its own ledger`);
+    assert.equal(entry.criticality, "high", `${slug} must keep its high criticality`);
+
+    if (entry.datasetModule) {
+      assert.ok(fileExists(entry.datasetModule), `${slug}'s datasetModule must exist on disk`);
+    } else {
+      assert.ok(isIsoDate(entry.nextReviewAt), `${slug} without a datasetModule must declare its own valid nextReviewAt`);
+    }
+  }
 });
 
 test("fractionnement-revenu-retraite-2026 is governed by issue #41 with a valid nextReviewAt", () => {
