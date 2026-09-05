@@ -351,7 +351,7 @@ export const claimsRegistry = [
     status: "governed",
     nextReviewAt: "2026-12-01",
     scopeNote:
-      "Gouverné par l'issue #83 : attribution à « Transition énergétique Québec (TEQ) », entité dissoute depuis 2020-2022, corrigée; plafond de 10 000 $ aligné sur la valeur déjà gouvernée de programmes.json (jusqu'à 20 000 $, issue #51, marquée « à vérifier » dans le dataset et reprise avec la même réserve ici plutôt qu'une deuxième vérité). Cumul LogisVert (jusqu'à 6 700 $) confirmé actif en 2026. Condition « maison construite avant 2012 » confirmée inchangée via la valeur déjà gouvernée de programmes.json plutôt qu'une valeur contradictoire trouvée isolément.",
+      "Gouverné par l'issue #83, corrigé le 2026-09-05 suite à une revue indépendante NO-GO du Product Owner sur la PR #84 : attribution à « Transition énergétique Québec (TEQ) », entité dissoute depuis 2020-2022, corrigée (ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs); plafond de 10 000 $ corrigé à 20 000 $, confirmé exact par le Product Owner. Bloquant majeur corrigé : la thermopompe était présentée comme admissible à Rénoclimat (avec un exemple de cumul erroné sur le même équipement), alors qu'elle relève exclusivement de LogisVert; les deux programmes ne sont complémentaires que pour des travaux distincts. Admissibilité corrigée (habitation construite/habitée depuis 12 mois, pas de cutoff 2012; pas de restriction résidence principale); entrepreneur RBQ non obligatoire pour tous les travaux; coûts et délais corrigés (150 $ + taxes, versement 8-10 semaines). Voir docs/claims/renoclimat-2026-guide-complet.md pour le détail complet.",
   },
   {
     slug: "rap-reer-premier-acheteur-quebec-2026",

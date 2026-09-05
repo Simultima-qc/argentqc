@@ -9,13 +9,13 @@ type ProgrammeTranslation = Pick<
 const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
   "renoclimat-qc": {
     nom: "RenoClimat",
-    organisme: "Transition energetique Quebec",
-    montant_affiche: "$100 to $10,000",
+    organisme: "Government of Quebec (Ministere de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs)",
+    montant_affiche: "$100 to $20,000",
     description:
-      "Grants for improving your home's energy efficiency, including insulation, windows, doors, heat pumps, and related upgrades.",
+      "Grants for improving your home's energy efficiency, including insulation, windows, doors, and related upgrades. Heat pumps are not eligible under Renoclimat itself; they are covered separately by Hydro-Quebec's LogisVert program.",
     conditions: [
-      "You must own a principal residence in Quebec",
-      "The home must have been built before 2012",
+      "The home must be built and lived in for at least 12 months (no cutoff by construction year)",
+      "Single-family homes, duplex/triplex/small multi-unit buildings, condo syndicates, businesses and non-profits in Quebec are eligible; the property does not need to be a principal residence",
       "An energy evaluation must be completed before the work starts",
     ],
   },

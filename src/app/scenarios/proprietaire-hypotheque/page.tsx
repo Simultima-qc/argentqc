@@ -69,7 +69,7 @@ export default function ScenarioProprietairePage() {
             </h2>
             <div style={{ border: "1px solid #EDE9E0", borderRadius: "14px", overflow: "hidden" }}>
               {[
-                { label: "Rénoclimat (fenêtres + isolation + thermopompe)", montant: "jusqu'à 10 000 $", detail: "Programme Hydro-Québec + Transition énergétique Québec — cumulables", badge: "Provincial" },
+                { label: "Rénoclimat (fenêtres + isolation)", montant: "jusqu'à 20 000 $", detail: "Programme du gouvernement du Québec — ne couvre pas la thermopompe, qui relève de LogisVert (voir ci-dessous)", badge: "Provincial" },
                 { label: "Crédit d'impôt rénovation résidentielle fédéral", montant: "jusqu'à 7 500 $", detail: "15 % des dépenses admissibles (max 50 000 $) — programme fédéral Rénover vert", badge: "Fédéral" },
                 { label: "Chauffez vert (remplacement mazout)", montant: "jusqu'à 12 000 $", detail: "Si la maison est chauffée au mazout — remplacement vers thermopompe géothermique ou air-air", badge: "Provincial" },
                 { label: "RAP REER — retrait pour rénos (si premier achat récent)", montant: "jusqu'à 60 000 $", detail: "Utilisable si achat il y a moins de 2 ans. Sans remboursement si critères rénovation majeure respectés.", badge: "Fédéral" },

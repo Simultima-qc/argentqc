@@ -69,7 +69,7 @@ const faqs = [
   {
     question: "Je chauffe au mazout ou au propane, quelles sont mes options ?",
     reponse:
-      "Le volet Chauffez vert pour ce cas précis est terminé. LogisVert d'Hydro-Québec (jusqu'à 6 700 $ pour une thermopompe certifiée ENERGY STAR) et Rénoclimat restent des aides actives à vérifier pour votre projet.",
+      "Le volet Chauffez vert pour ce cas précis est terminé. LogisVert d'Hydro-Québec (jusqu'à 6 700 $ pour une thermopompe certifiée ENERGY STAR) reste l'aide active pour la thermopompe elle-même — Rénoclimat ne couvre pas cet équipement, mais peut rester pertinent si votre projet inclut aussi des travaux d'isolation ou d'étanchéité distincts.",
   },
   {
     question: "Je chauffe au gaz naturel, ai-je encore droit à une aide ?",

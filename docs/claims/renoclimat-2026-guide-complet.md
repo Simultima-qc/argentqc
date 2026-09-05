@@ -1,32 +1,47 @@
 # Ledger de claims - renoclimat-2026-guide-complet
 
 Année effective : 2026. Article audité : `src/data/blog/entries/renoclimat-2026-guide-complet.tsx`.
-Ledger créé le 2026-09-05 (issue #83). Prochaine revue : 2026-12-01, alignée sur la cadence trimestrielle du
-catalogue `programmes-2026.ts` dont ce programme fait partie (revue déjà prévue au 2026-12-01).
+Ledger créé le 2026-09-05 (issue #83), **corrigé le 2026-09-05 suite à une revue indépendante NO-GO du
+Product Owner** sur la PR #84 (voir commentaire dans l'issue #83), qui a identifié plusieurs claims matériels
+faux non détectés par la première passe de cet audit. Prochaine revue : 2026-12-01.
 
-Méthode : accès direct bloqué par la politique réseau de cet environnement pour `quebec.ca` et
-`transitionenergetique.gouv.qc.ca` (`EGRESS_BLOCKED`). Ce claim réutilise en priorité la source de vérité déjà
-gouvernée `src/data/programmes.json` (entrée `renoclimat-qc`, revalidée à l'issue #51/PR #52), complétée par
-recherche web ciblée pour les points non couverts par cette entrée (organisme historique, admissibilité par
-date de construction).
+## Constat majeur (correction post-NO-GO)
+
+La première version de ce ledger s'appuyait presque exclusivement sur `src/data/programmes.json` et sur des
+recherches web ne convergeant pas toujours vers la page officielle actuelle, faute d'accès direct
+(`EGRESS_BLOCKED`). Le Product Owner, avec accès direct à la page officielle actuelle de Rénoclimat, a identifié
+plusieurs divergences que cette première passe n'avait pas détectées, dont un bloquant majeur : l'article
+présentait la thermopompe comme un équipement admissible à Rénoclimat (y compris un exemple chiffré de cumul
+« Rénoclimat + LogisVert » sur la même thermopompe), alors que l'installation, le remplacement ou la réparation
+d'une thermopompe **n'est pas admissible à Rénoclimat** — cet équipement relève exclusivement de LogisVert
+(Hydro-Québec). Les deux programmes ne sont complémentaires que pour des travaux distincts au sein d'un même
+projet, jamais pour le même équipement.
+
+Méthode pour cette correction : les valeurs ci-dessous proviennent directement de la revue indépendante du
+Product Owner (accès direct à la page officielle actuelle, hors des contraintes réseau de cet environnement),
+traitée comme source de vérité prioritaire au même titre qu'une source primaire, conformément à la hiérarchie
+de gouvernance de `AGENTS.md` (le Product Owner autorise et arbitre le contenu publié).
 
 | claim | source officielle | date de vérification | statut | prochaine vérification | action |
 | --- | --- | --- | --- | --- | --- |
-| Organisme administrateur : l'article d'origine affirmait « administré par Transition énergétique Québec (TEQ) », présentée comme une entité active. | TEQ (société d'État) a été dissoute en 2020-2022, ses programmes transférés au ministère responsable de l'énergie (Le Devoir; portail transitionenergetique.gouv.qc.ca lui-même, qui documente le transfert). Déjà noté dans `src/data/programmes.json` (`renoclimat-qc` : « l'ancienne agence Transition énergétique Québec a été dissoute et intégrée au ministère »), revalidé issue #51. | 2026-09-05 | corrigé | 2026-12-01 | Reformulé pour indiquer que TEQ a été dissoute et que le programme est administré directement par le gouvernement du Québec/le ministère responsable de l'énergie, sans affirmer un nom de ministère précis non confirmé directement. |
-| Plafond de subvention : l'article d'origine affirmait « 100 $ à 10 000 $ ». | Déjà gouverné dans `src/data/programmes.json` (`renoclimat-qc`) : plafond relevé au-delà de l'ancien maximum de 10 000 $, jusqu'à 20 000 $ pour une maison unifamiliale selon des sources récentes (non confirmé directement sur la page officielle par l'audit de l'issue #51 non plus, marqué « à vérifier » dans le dataset lui-même). | 2026-09-05 | non universel / incertain (réutilise la valeur déjà gouvernée) | 2026-12-01 | 10 000 $ remplacé par 20 000 $ dans le titre, l'encadré « En bref » et l'exemple de rénovation complète, avec la même réserve d'incertitude que `programmes.json` plutôt qu'une affirmation catégorique. |
-| Admissibilité : maison construite avant 2012. | Déjà gouverné dans `src/data/programmes.json` (`renoclimat-qc`, condition « Maison construite avant 2012 »). Une recherche web indépendante dans cette issue a renvoyé un résultat contradictoire (« avant le 1er octobre 2018 »), mais provenant d'une page indexant potentiellement notre propre article en circularité et non convergent avec une source primaire distincte fiable; la valeur déjà gouvernée du dépôt est conservée plutôt qu'une valeur non confirmée. | 2026-09-05 | confirmé (valeur déjà gouvernée conservée) | 2026-12-01 | Inchangé, conformément au principe de ne pas dupliquer une deuxième vérité indépendante quand une valeur est déjà gouvernée ailleurs dans le dépôt. |
-| Cumul avec LogisVert (Hydro-Québec) jusqu'à 6 700 $ pour une thermopompe. | Hydro-Québec — LogisVert 2026 : aide de 1 700 $ à 6 700 $ pour une thermopompe centrale certifiée ENERGY STAR ou climat froid, programme actif en 2026 (le volet gratuit pour ménages à revenu modeste est suspendu aux nouvelles inscriptions, mais le volet régulier cité par l'article demeure actif). Recoupement convergent (plusieurs guides spécialisés 2026). | 2026-09-05 | confirmé | 2026-12-01 | Inchangé : ce montant et le statut actif du programme étaient déjà exacts. |
-| Étapes de demande (évaluation avant/après travaux, conseiller certifié, délai de remboursement 4-12 semaines). | Non identifié comme contradictoire par cet audit. | 2026-09-05 | confirmé (non revalidé en profondeur) | 2026-12-01 | Inchangé. |
+| Admissibilité de l'habitation : l'article affirmait « construite avant 2012 seulement ». | Revue indépendante du Product Owner (page officielle Rénoclimat actuelle) : l'habitation doit être construite et habitable depuis au moins 12 mois; aucun cutoff par année de construction. | 2026-09-05 | corrigé | 2026-12-01 | « Maisons construites avant 2012 » remplacé par « construite et habitée depuis au moins 12 mois » dans l'encadré « En bref » et l'étape 1. |
+| Type de propriété admissible : l'article exigeait que la propriété soit la « résidence principale » du demandeur. | Revue indépendante du Product Owner : Rénoclimat accepte notamment maisons unifamiliales, duplex, triplex, petits multilogements, syndicats de copropriété, entreprises, OBNL, et certains chalets quatre saisons; l'exigence générale de résidence principale est trop restrictive. | 2026-09-05 | corrigé | 2026-12-01 | Étape 1 reformulée pour lister les types de propriétés admissibles sans exiger la résidence principale. |
+| Entrepreneur RBQ obligatoire : l'article affirmait « faites effectuer les travaux par un entrepreneur qualifié RBQ ». | Revue indépendante du Product Owner : Rénoclimat n'exige pas un entrepreneur licencié RBQ pour l'ensemble des travaux; seules certaines catégories réglementées (plomberie, électricité, etc.) doivent être confiées au professionnel requis par la loi. | 2026-09-05 | corrigé | 2026-12-01 | Étape 3 reformulée pour ne plus présenter un entrepreneur RBQ comme une exigence générale. |
+| **Thermopompe présentée comme travail admissible à Rénoclimat**, avec exemple chiffré « Rénoclimat jusqu'à 3 000 $ » cumulé à LogisVert sur le même équipement. | Revue indépendante du Product Owner : l'installation/le remplacement/la réparation d'une thermopompe n'est **pas admissible** à l'aide Rénoclimat; cet équipement relève exclusivement de LogisVert. Les deux programmes sont complémentaires seulement pour des travaux distincts. | 2026-09-05 | corrigé (bloquant) | 2026-12-01 | Thermopompe retirée de la liste des travaux admissibles à Rénoclimat (section 2), avertissement explicite ajouté; exemple de la section « cumuler les programmes » réécrit pour montrer Rénoclimat (isolation) + LogisVert (thermopompe) comme deux aides sur deux volets distincts du même projet, jamais sur le même équipement; ligne du tableau des exemples de subventions renommée « Isolation + fenêtres et portes » plutôt que « Thermopompe + isolation ». |
+| Administrateur du programme : « ministère responsable de l'énergie » (formulation vague, issue de la 1re passe de cette issue). | Revue indépendante du Product Owner : ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (MELCCFP). | 2026-09-05 | corrigé | 2026-12-01 | Nom du ministère précisé dans la section 1. |
+| Coût de la première évaluation énergétique : l'article affirmait « 150 $ à 300 $ ». | Revue indépendante du Product Owner : 150 $ + taxes pour la première évaluation; la deuxième évaluation (après travaux) est gratuite. | 2026-09-05 | corrigé | 2026-12-01 | Étape 2 corrigée à « 150 $ + taxes »; étape 4 précise que la deuxième évaluation est gratuite. |
+| Délai de versement : l'article affirmait « 4 à 12 semaines ». | Revue indépendante du Product Owner : 8 à 10 semaines après l'évaluation après travaux. | 2026-09-05 | corrigé | 2026-12-01 | Étape 5 corrigée à « 8 à 10 semaines après l'évaluation après travaux ». |
+| Plafond de subvention de 20 000 $ pour une habitation unifamiliale. | Revue indépendante du Product Owner : confirmé exact, non bloquant. | 2026-09-05 | confirmé | 2026-12-01 | Inchangé (déjà corrigé lors de la première passe de cette issue, alignée sur `programmes.json`). |
+| Cumul avec LogisVert (Hydro-Québec) jusqu'à 6 700 $ pour une thermopompe. | Hydro-Québec — LogisVert 2026, montant confirmé lors de la première passe. Le montant lui-même n'est pas en cause; c'est sa présentation comme cumulable avec Rénoclimat sur le même équipement qui était fausse (voir ligne ci-dessus). | 2026-09-05 | confirmé (montant), corrigé (contexte de présentation) | 2026-12-01 | Montant inchangé; présentation corrigée pour clarifier qu'il s'agit d'une aide distincte pour un équipement non couvert par Rénoclimat. |
 
 ## Résidu et incertitude
 
-Ce claim réutilise `src/data/programmes.json` (`renoclimat-qc`) comme source de vérité principale plutôt que
-de revalider indépendamment chaque paramètre, conformément au principe de ne pas dupliquer une deuxième
-vérité dans ce dépôt. L'incertitude déjà documentée dans ce dataset (plafond exact « à vérifier »,
-admissibilité par date de construction) est héritée telle quelle par ce ledger.
+Cette correction traite les points explicitement signalés par la revue indépendante du Product Owner. Elle ne
+constitue pas une revalidation exhaustive de chaque paramètre restant de l'article (ex. : liste complète des
+travaux d'isolation admissibles, barème détaillé par unité ÉnerGuide) au-delà des points corrigés ci-dessus.
 
-Risques principaux restants : (1) le plafond exact de 20 000 $ n'est pas confirmé directement sur une page
-officielle dans cette issue non plus; (2) le nom exact du ministère responsable en 2026 n'a pas pu être établi
-avec confiance (plusieurs candidats sont apparus dans la recherche web sans convergence suffisante) et n'est
-donc pas nommé explicitement dans l'article corrigé, pour éviter d'inventer une valeur; une revalidation
-directe est recommandée dès qu'un accès à `quebec.ca` sera possible depuis cet environnement.
+Risques principaux restants : (1) le nom exact et la structure interne du MELCCFP pour ce programme n'ont pas
+été revalidés au-delà de la correction du nom du ministère; (2) la liste des travaux additionnels admissibles
+(hors thermopompe, désormais exclue) n'a pas été revalidée exhaustivement contre la page officielle dans cette
+correction; une revalidation directe complète est recommandée dès qu'un accès à `quebec.ca` sera possible
+depuis cet environnement, plutôt que de se fier uniquement à des revues ponctuelles.

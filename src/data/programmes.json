@@ -7,11 +7,11 @@
     "categorie": "renovation",
     "montant_min": 100,
     "montant_max": 20000,
-    "montant_affiche": "100 $ – 20 000 $ (à vérifier; plafond relevé depuis l'ancien maximum de 10 000 $)",
-    "description": "Subventions pour améliorer l'efficacité énergétique de votre maison : isolation, fenêtres, portes et plus. Programme administré par le gouvernement du Québec (l'ancienne agence Transition énergétique Québec a été dissoute et intégrée au ministère). Le plafond par résidence a été relevé au-delà de l'ancien maximum de 10 000 $ (jusqu'à 20 000 $ pour une maison unifamiliale selon des sources récentes, non confirmé directement sur la page officielle dans cet audit); certaines mesures de chauffage (thermopompe) peuvent désormais relever de programmes distincts (LogisVert, Chauffez vert).",
+    "montant_affiche": "100 $ – 20 000 $ (plafond relevé depuis l'ancien maximum de 10 000 $)",
+    "description": "Subventions pour améliorer l'efficacité énergétique de votre maison : isolation, fenêtres, portes et plus. Programme administré par le ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs (l'ancienne agence Transition énergétique Québec a été dissoute et intégrée au ministère). Plafond de 20 000 $ pour une maison unifamiliale. La thermopompe (installation, remplacement ou réparation) n'est pas admissible à Rénoclimat : cet équipement relève exclusivement de LogisVert (Hydro-Québec); les deux programmes ne sont complémentaires que pour des travaux distincts d'un même projet.",
     "conditions": [
-      "Être propriétaire d'une résidence principale au Québec",
-      "Maison construite avant 2012",
+      "Habitation construite et habitée depuis au moins 12 mois (aucune restriction liée à l'année de construction)",
+      "Propriétaire d'une maison unifamiliale, d'un duplex/triplex/petit multilogement, d'une copropriété, d'une entreprise ou d'un OBNL au Québec (résidence principale non exigée)",
       "Faire réaliser une évaluation énergétique avant les travaux"
     ],
     "lien_officiel": "https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/renoclimat",
