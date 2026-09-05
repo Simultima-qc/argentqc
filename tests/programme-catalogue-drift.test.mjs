@@ -301,3 +301,20 @@ test("aide-lunettes-quebec sources credit-loyer-qc, credit-frais-medicaux-fed an
   assert.deepEqual({ min: fed.montant_min, max: fed.montant_max }, { min: 0, max: 0 });
   assert.deepEqual({ min: qc.montant_min, max: qc.montant_max }, { min: 0, max: 0 });
 });
+
+test("credit-impot-frais-medicaux-quebec sources credit-frais-medicaux-qc and credit-frais-medicaux-fed from the catalogue instead of the competing frais-medicaux-qc-2/frais-medicaux-fed-2 local copies (issue #93)", () => {
+  const source = read(path.join(appDir, "credit-impot-frais-medicaux-quebec", "page.tsx"));
+  assert.deepEqual(extractLocalProgrammeCopies(source), []);
+  assert.match(source, /getProgrammeFromCatalogue\("credit-frais-medicaux-qc"\)/);
+  assert.match(source, /getProgrammeFromCatalogue\("credit-frais-medicaux-fed"\)/);
+  assert.doesNotMatch(source, /id:\s*"frais-medicaux-qc-2"/);
+  assert.doesNotMatch(source, /id:\s*"frais-medicaux-fed-2"/);
+
+  // The page must no longer assert the pre-#88 15% federal rate, the old
+  // 2 635 $ (2023) threshold presented as current, or the Québec credit as
+  // refundable / variable 5%-20%.
+  assert.doesNotMatch(source, /15%/);
+  assert.doesNotMatch(source, /2 ?635 ?\$/);
+  assert.doesNotMatch(source, /remboursable sur vos frais médicaux/);
+  assert.doesNotMatch(source, /5% et 20%/);
+});
