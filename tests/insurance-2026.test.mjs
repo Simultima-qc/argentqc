@@ -159,7 +159,6 @@ test("insurance-comparator-2026 freshness metadata documents this revalidation h
 
 test("insurance-comparator-2026 freshness metadata documents the issue #76 revalidation honestly: Intact URL corrected, no invented price, nextReviewAt tightened rather than pushed out", () => {
   const meta = insuranceData.insuranceComparator2026.meta;
-  assert.equal(meta.lastUpdated, "2026-09-04");
   assert.equal(meta.nextReviewAt, "2026-09-25", "most price claims stayed unverified this pass, so nextReviewAt must be brought closer, never pushed further out mechanically");
   assert.match(meta.sourceNote, /issue #76/);
   assert.match(meta.sourceNote, /non verifi\w* avec confiance/i);
@@ -180,6 +179,21 @@ test("non-localized and localized comparator UI render a visible warning for unc
 
   const dictionaries = read("src/i18n/subguides.ts");
   assert.match(dictionaries, /unverifiedPriceLabel:/);
+});
+
+test("insurance-comparator-2026 freshness metadata documents the issue #79 correction: Intact auto URL fixed via independent review, no invented Bell/TekSavvy value, nextReviewAt untouched", () => {
+  const meta = insuranceData.insuranceComparator2026.meta;
+  assert.equal(meta.lastUpdated, "2026-09-05");
+  assert.equal(meta.nextReviewAt, "2026-09-25", "only one URL was corrected while most prix_base values remain unverified, so nextReviewAt must not move");
+  assert.match(meta.sourceNote, /issue #79/);
+
+  const intactAuto = insuranceData.assureursAuto2026.find((a) => a.nom === "Intact");
+  assert.equal(
+    intactAuto.url,
+    "https://www.intact.ca/fr/assurance-particuliers/vehicule/assurance-auto/quebec",
+    "Intact auto URL should point at the confirmed Quebec product page found via the official /fr/assurance-particuliers/vehicule hub"
+  );
+  assert.equal(intactAuto.termesVerifies, false, "only the URL was confirmed this pass, not the prix_base range");
 });
 
 test("comparateur FAQ names Intact's real telematics program (myDrive), not the fabricated 'IntelliDrive'", () => {
