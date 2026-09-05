@@ -8,7 +8,7 @@ const slug = "renoclimat-2026-guide-complet";
 const baseMetadata: Metadata = {
   title: "Rénoclimat 2026 : Guide complet pour obtenir votre subvention",
   description:
-    "Tout sur Rénoclimat en 2026 : montants jusqu'à 10 000 $, travaux admissibles, étapes de demande et comment cumuler avec LogisVert Hydro-Québec.",
+    "Tout sur Rénoclimat en 2026 : montants jusqu'à 20 000 $ selon le projet, travaux admissibles, étapes de demande et comment cumuler avec LogisVert Hydro-Québec.",
   keywords: ["Rénoclimat 2026", "subvention Rénoclimat", "comment faire demande Rénoclimat", "Rénoclimat montant"],
 };
 
@@ -42,8 +42,9 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Rénoclimat est le programme phare de subvention à la rénovation écoénergétique au Québec.
-            En 2026, les propriétaires peuvent obtenir jusqu&apos;à <strong>10 000 $</strong> pour améliorer l&apos;efficacité
-            énergétique de leur maison. Voici tout ce qu&apos;il faut savoir.
+            En 2026, les propriétaires peuvent obtenir jusqu&apos;à <strong>20 000 $</strong> selon l&apos;ampleur du projet pour
+            améliorer l&apos;efficacité énergétique de leur maison — le plafond a été relevé au-delà de l&apos;ancien maximum de
+            10 000 $, mais le montant exact dépend de votre dossier. Voici tout ce qu&apos;il faut savoir.
           </p>
         </div>
 
@@ -51,10 +52,10 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>? Subvention de <strong>100 $ à 10 000 $</strong> selon les travaux</li>
-            <li>? Cumulable avec LogisVert Hydro-Québec (jusqu&apos;à 6 700 $ de plus)</li>
+            <li>? Subvention de <strong>100 $ à 20 000 $</strong> selon les travaux (plafond relevé au-delà de l&apos;ancien maximum de 10 000 $)</li>
+            <li>? Combinable avec LogisVert Hydro-Québec pour des travaux distincts (ex. : isolation via Rénoclimat + thermopompe via LogisVert)</li>
             <li>? Évaluation énergétique obligatoire avant ET après les travaux</li>
-            <li>? Maisons construites avant 2012 seulement</li>
+            <li>? Habitation construite et habitée depuis au moins 12 mois (aucune restriction liée à l&apos;année de construction)</li>
           </ul>
         </div>
 
@@ -62,10 +63,13 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">C&apos;est quoi Rénoclimat exactement ?</h2>
           <p className="text-slate-600 leading-relaxed mb-3">
-            Rénoclimat est un programme administré par Transition énergétique Québec (TEQ) qui offre des subventions
-            aux propriétaires résidentiels pour améliorer l&apos;efficacité énergétique de leur logement.
-            L&apos;objectif est de réduire la consommation d&apos;énergie des bâtiments résidentiels, ce qui
-            bénéficie à la fois au portefeuille du propriétaire et à l&apos;environnement.
+            Rénoclimat est un programme du gouvernement du Québec qui offre des subventions aux propriétaires
+            résidentiels pour améliorer l&apos;efficacité énergétique de leur logement. L&apos;ancienne société d&apos;État
+            responsable, Transition énergétique Québec (TEQ), a été dissoute en 2020-2022; le programme est
+            aujourd&apos;hui administré par le ministère de l&apos;Environnement, de la Lutte contre les changements
+            climatiques, de la Faune et des Parcs (MELCCFP). L&apos;objectif est de réduire la consommation
+            d&apos;énergie des bâtiments résidentiels, ce qui bénéficie à la fois au portefeuille du propriétaire et à
+            l&apos;environnement.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Contrairement à plusieurs autres programmes, Rénoclimat est basé sur une <strong>évaluation énergétique</strong> :
@@ -83,10 +87,10 @@ function Content() {
           <div className="grid grid-cols-1 gap-3">
             {[
               { titre: "Isolation", desc: "Murs, toiture, fondation, vide sanitaire — souvent le meilleur retour sur investissement" },
-              { titre: "Thermopompe", desc: "Centrale ou mini-splits — cumulable avec LogisVert d'Hydro-Québec" },
               { titre: "Fenêtres et portes", desc: "Remplacement de fenêtres ou portes extérieures peu performantes" },
               { titre: "Ventilation", desc: "Système VRC (ventilation avec récupération de chaleur)" },
               { titre: "Chauffe-eau", desc: "Chauffe-eau thermodynamique ou solaire" },
+              { titre: "Étanchéité à l'air", desc: "Calfeutrage et scellement de l'enveloppe du bâtiment" },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
                 <p className="font-semibold text-slate-800 text-sm">{item.titre}</p>
@@ -94,6 +98,13 @@ function Content() {
               </div>
             ))}
           </div>
+          <p className="text-slate-500 text-sm mt-3">
+            Important : l&apos;installation, le remplacement ou la réparation d&apos;une <strong>thermopompe</strong>{" "}
+            n&apos;est pas admissible à l&apos;aide Rénoclimat elle-même — cet équipement relève du programme{" "}
+            <strong>LogisVert</strong> d&apos;Hydro-Québec. Les deux programmes peuvent être complémentaires dans un
+            même projet, mais uniquement pour des travaux distincts (par exemple : Rénoclimat pour l&apos;isolation,
+            LogisVert pour la thermopompe).
+          </p>
         </section>
 
         {/* Section 3 */}
@@ -109,8 +120,8 @@ function Content() {
               {[
                 { travaux: "Isolation du grenier", montant: "500 $ – 1 500 $" },
                 { travaux: "Isolation des murs", montant: "1 000 $ – 4 000 $" },
-                { travaux: "Thermopompe + isolation", montant: "3 000 $ – 7 000 $" },
-                { travaux: "Rénovation écoénergétique complète", montant: "7 000 $ – 10 000 $" },
+                { travaux: "Isolation + fenêtres et portes", montant: "3 000 $ – 7 000 $" },
+                { travaux: "Rénovation écoénergétique complète", montant: "7 000 $ – 20 000 $" },
               ].map((ex) => (
                 <div key={ex.travaux} className="flex justify-between text-sm">
                   <span className="text-blue-900">{ex.travaux}</span>
@@ -132,27 +143,27 @@ function Content() {
               {
                 num: "1",
                 titre: "Vérifiez votre admissibilité",
-                texte: "Votre maison doit avoir été construite avant 2012 et être votre résidence principale au Québec. Les copropriétés et immeubles locatifs sont aussi admissibles sous certaines conditions.",
+                texte: "Votre habitation doit être construite et habitée depuis au moins 12 mois — aucune année de construction n'est exclue. Rénoclimat accepte les maisons unifamiliales, duplex, triplex, petits multilogements, syndicats de copropriété, entreprises et OBNL, et même certains chalets quatre saisons; la propriété n'a pas besoin d'être votre résidence principale.",
               },
               {
                 num: "2",
                 titre: "Première évaluation énergétique",
-                texte: "Engagez un conseiller en énergie certifié Rénoclimat. Il évalue votre maison et établit une cote ÉnerGuide de départ. Cette étape est obligatoire — aucune subvention n'est possible sans elle. Coût typique : 150 $ à 300 $.",
+                texte: "Engagez un conseiller en énergie certifié Rénoclimat. Il évalue votre maison et établit une cote ÉnerGuide de départ. Cette étape est obligatoire — aucune subvention n'est possible sans elle. Coût : 150 $ + taxes.",
               },
               {
                 num: "3",
                 titre: "Réalisez vos travaux",
-                texte: "Faites effectuer les travaux par un entrepreneur qualifié RBQ. Gardez toutes vos factures — elles seront nécessaires pour votre demande.",
+                texte: "Rénoclimat n'exige pas que l'ensemble des travaux soit réalisé par un entrepreneur licencié RBQ — seuls les travaux réglementés (plomberie, électricité, etc.) doivent être confiés au professionnel requis par la loi. Gardez toutes vos factures — elles seront nécessaires pour votre demande.",
               },
               {
                 num: "4",
                 titre: "Deuxième évaluation énergétique",
-                texte: "Après les travaux, le même conseiller (ou un autre certifié) refait l'évaluation pour mesurer l'amélioration obtenue.",
+                texte: "Après les travaux, le même conseiller (ou un autre certifié) refait l'évaluation pour mesurer l'amélioration obtenue. Cette deuxième évaluation est gratuite.",
               },
               {
                 num: "5",
                 titre: "Soumettez votre demande",
-                texte: "Votre conseiller vous aide à soumettre la demande de subvention en ligne. Le remboursement arrive généralement dans les 4 à 12 semaines.",
+                texte: "Votre conseiller vous aide à soumettre la demande de subvention en ligne. Le versement arrive généralement 8 à 10 semaines après l'évaluation après travaux.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -172,26 +183,30 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Le truc des experts : cumuler les programmes</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Ce que beaucoup de propriétaires ignorent : Rénoclimat est <strong>cumulable</strong>{" "}avec d&apos;autres programmes.
-            En combinant les aides, certains projets peuvent être financés à plus de 50%.
+            Ce que beaucoup de propriétaires ignorent : Rénoclimat peut se combiner avec d&apos;autres programmes
+            dans un même projet de rénovation — <strong>à condition qu&apos;il s&apos;agisse de travaux distincts</strong>.
+            Rénoclimat et LogisVert ne paient jamais pour le même équipement : Rénoclimat ne couvre pas
+            l&apos;installation d&apos;une thermopompe, qui relève exclusivement de LogisVert.
           </p>
           <div className="bg-green-50 border border-green-200 rounded-2xl p-5">
-            <p className="font-bold text-green-800 mb-3">Exemple : installation d&apos;une thermopompe</p>
+            <p className="font-bold text-green-800 mb-3">Exemple : rénovation combinée isolation + thermopompe</p>
             <div className="space-y-2 text-sm mb-3">
               <div className="flex justify-between">
-                <span className="text-green-900">Rénoclimat</span>
-                <span className="font-bold text-green-800">jusqu&apos;à 3 000 $</span>
+                <span className="text-green-900">Rénoclimat — isolation des murs et du grenier</span>
+                <span className="font-bold text-green-800">jusqu&apos;à 4 000 $</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-green-900">LogisVert Hydro-Québec</span>
+                <span className="text-green-900">LogisVert — installation de la thermopompe</span>
                 <span className="font-bold text-green-800">jusqu&apos;à 6 700 $</span>
               </div>
               <div className="border-t border-green-200 pt-2 flex justify-between">
-                <span className="font-bold text-green-900">Total cumulé possible</span>
-                <span className="font-extrabold text-green-800 text-base">jusqu&apos;à 9 700 $</span>
+                <span className="font-bold text-green-900">Total combiné possible sur le projet</span>
+                <span className="font-extrabold text-green-800 text-base">jusqu&apos;à 10 700 $</span>
               </div>
             </div>
-            <p className="text-green-700 text-xs">Pour une thermopompe qui coûte typiquement 8 000 $ à 15 000 $.</p>
+            <p className="text-green-700 text-xs">
+              Deux aides distinctes pour deux volets distincts du même projet — pas deux subventions pour le même équipement.
+            </p>
           </div>
         </section>
 

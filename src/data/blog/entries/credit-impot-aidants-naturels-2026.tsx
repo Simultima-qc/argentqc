@@ -47,8 +47,9 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Des centaines de milliers de Québécois prennent soin d&apos;un proche sans en tirer de revenus.
-            Le crédit d&apos;impôt pour aidants naturels est une reconnaissance financière concrète :
-            selon votre situation, vous pouvez recevoir jusqu&apos;à <strong>1 383 $ remboursables</strong>{" "}
+            Le crédit d&apos;impôt pour personnes aidantes (anciennement appelé crédit pour aidants naturels) est une
+            reconnaissance financière concrète : selon votre situation, vous pouvez recevoir jusqu&apos;à{" "}
+            <strong>3 050 $ remboursables</strong>{" "}
             directement dans votre poche, même si vous ne payez pas d&apos;impôt.
           </p>
         </div>
@@ -57,57 +58,67 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Crédit <strong>remboursable</strong>{" "}— vous le recevez même sans impôt à payer</li>
-            <li>✓ Jusqu&apos;à <strong>1 383 $</strong>{" "}selon le niveau de soin apporté</li>
-            <li>✓ Admissible pour conjoint, parent, enfant ou autre proche en situation de dépendance</li>
-            <li>✓ Réclamé dans votre déclaration de revenus du Québec (annexe H)</li>
+            <li>✓ Jusqu&apos;à <strong>3 050 $</strong>{" "}en cohabitation avec un proche de 18 ans et plus ayant une déficience grave et prolongée</li>
+            <li>✓ Ou <strong>1 525 $</strong>{" "}en cohabitation avec un proche de 70 ans et plus, sans exigence de déficience</li>
+            <li>✓ Réclamé dans votre déclaration de revenus du Québec (annexe H, ligne 462)</li>
           </ul>
         </div>
 
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">Qui est considéré comme aidant naturel au sens fiscal ?</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Qui est considéré comme personne aidante au sens fiscal ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Au sens du crédit d&apos;impôt québécois, vous êtes un aidant naturel si vous habitez avec
-            une personne proche en situation de dépendance <strong>et</strong>{" "}que vous lui apportez
-            une aide régulière pour ses activités de la vie quotidienne.
+            Le crédit d&apos;impôt québécois pour personnes aidantes comporte deux volets distincts, selon la
+            personne que vous aidez — il ne varie plus selon votre lien de parenté avec elle.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-4">
-            <p className="font-semibold text-blue-800 text-sm mb-2">Personnes aidées admissibles</p>
-            <ul className="space-y-1 text-sm text-blue-900">
-              <li>• Votre conjoint (incluant conjoint de fait)</li>
-              <li>• Un de vos parents, grands-parents, beaux-parents</li>
-              <li>• Votre enfant, petit-enfant ou enfant de votre conjoint</li>
-              <li>• Votre frère, sœur, oncle, tante, neveu, nièce</li>
-            </ul>
+            <p className="font-semibold text-blue-800 text-sm mb-2">Volet 1 — Proche de 18 ans et plus</p>
+            <p className="text-sm text-blue-900">
+              Vous cohabitez avec un proche de 18 ans ou plus ayant une <strong>déficience grave et prolongée</strong>{" "}
+              de ses fonctions mentales ou physiques et vous lui apportez une aide régulière pour ses activités de la
+              vie quotidienne (conjoint, parent, enfant, ou toute autre personne, avec ou sans lien de parenté).
+            </p>
+          </div>
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-4">
+            <p className="font-semibold text-blue-800 text-sm mb-2">Volet 2 — Proche de 70 ans et plus</p>
+            <p className="text-sm text-blue-900">
+              Vous cohabitez avec un proche de 70 ans ou plus (autre que votre conjoint), sans qu&apos;une déficience
+              ne soit exigée.
+            </p>
           </div>
           <p className="text-slate-600 leading-relaxed">
-            La personne aidée doit avoir une <strong>déficience grave et prolongée</strong>{" "}de ses fonctions
-            mentales ou physiques, attestée par un professionnel de la santé.
+            Pour le volet 1, la déficience grave et prolongée de la personne aidée doit être attestée par un
+            professionnel de la santé.
           </p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants du crédit selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le crédit varie selon que vous aidez votre conjoint ou une autre personne, et selon le niveau de dépendance.
+            Le crédit varie selon le volet applicable et selon la cohabitation.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
             <p className="font-bold text-blue-800 mb-3">Montants remboursables 2026</p>
             <div className="space-y-3">
               {[
                 {
-                  situation: "Conjoint aidant — niveau de soin modéré",
-                  montant: "Jusqu&apos;à 868 $",
-                  note: "Cohabitation requise",
+                  situation: "Volet 1 — montant universel (cohabitation)",
+                  montant: "1 525 $",
+                  note: "Proche de 18 ans et plus avec déficience grave et prolongée",
                 },
                 {
-                  situation: "Conjoint aidant — niveau de soin élevé",
-                  montant: "Jusqu&apos;à 1 383 $",
-                  note: "Dépendance importante attestée",
+                  situation: "Volet 1 — montant additionnel réductible",
+                  montant: "Jusqu&apos;à 1 525 $ de plus",
+                  note: "Réductible selon le revenu de la personne aidée; cohabitation non exigée pour ce montant",
                 },
                 {
-                  situation: "Autre proche (parent, enfant, fratrie...)",
-                  montant: "Jusqu&apos;à 1 112 $",
-                  note: "Cohabitation avec la personne aidée",
+                  situation: "Volet 1 — total combiné en cohabitation",
+                  montant: "Jusqu&apos;à 3 050 $",
+                  note: "Montant universel + montant additionnel réductible",
+                },
+                {
+                  situation: "Volet 2 — proche de 70 ans et plus",
+                  montant: "1 525 $",
+                  note: "Montant universel, cohabitation requise, aucune déficience exigée",
                 },
               ].map((item) => (
                 <div key={item.situation} className="border-b border-blue-100 pb-3 last:border-0 last:pb-0">
@@ -123,8 +134,9 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-500 text-sm mt-3">
-            Ces montants sont réduits en fonction du revenu de la personne aidée. Si elle gagne plus
-            de 25 000 $, le crédit diminue progressivement.
+            Le montant additionnel réductible du volet 1 diminue en fonction du revenu de la personne aidée; le
+            seuil exact de réduction n&apos;a pas pu être confirmé avec certitude pour cette édition et doit être
+            vérifié auprès de Revenu Québec pour votre situation.
           </p>
         </section>
 
@@ -134,7 +146,7 @@ function Content() {
             {[
               {
                 titre: "Cohabitation",
-                desc: "Vous devez habiter la même résidence principale que la personne que vous aidez pendant au moins la moitié de l&apos;année.",
+                desc: "La période de cohabitation (ou d&apos;aide fournie sans cohabitation, pour le montant additionnel réductible du volet 1) doit avoir duré au moins 365 jours consécutifs, dont au moins 183 jours pendant l&apos;année d&apos;imposition visée.",
               },
               {
                 titre: "Attestation médicale",
@@ -169,7 +181,7 @@ function Content() {
               {
                 num: "2",
                 titre: "Remplissez l&apos;annexe H",
-                texte: "Dans votre déclaration de revenus du Québec, remplissez l&apos;annexe H consacrée aux crédits pour aidants naturels. La plupart des logiciels d&apos;impôt vous guident à travers ce formulaire.",
+                texte: "Dans votre déclaration de revenus du Québec, remplissez l&apos;annexe H consacrée au crédit d&apos;impôt pour personne aidante (ligne 462). La plupart des logiciels d&apos;impôt vous guident à travers ce formulaire.",
               },
               {
                 num: "3",
@@ -196,7 +208,7 @@ function Content() {
             {[
               {
                 aide: "Assurance-emploi — Prestations pour proches aidants (fédéral)",
-                desc: "Jusqu&apos;à 35 semaines de prestations d&apos;AE pour prendre soin d&apos;un proche gravement malade.",
+                desc: "Jusqu&apos;à 15 semaines pour un proche adulte (18 ans et plus) gravement malade, jusqu&apos;à 35 semaines si l&apos;enfant gravement malade a moins de 18 ans, ou jusqu&apos;à 26 semaines de prestations de compassion en fin de vie — trois programmes distincts aux durées différentes.",
               },
               {
                 aide: "RQAP — Prestations pour proches aidants (Québec)",
@@ -204,7 +216,7 @@ function Content() {
               },
               {
                 aide: "Crédit d&apos;impôt pour maintien à domicile (Québec)",
-                desc: "Jusqu&apos;à 6 000 $ de crédit pour les services à domicile d&apos;une personne de 70 ans et plus.",
+                desc: "Jusqu&apos;à 7 800 $ (aîné autonome) ou 10 200 $ (aîné non autonome) de crédit pour les services à domicile d&apos;une personne de 70 ans et plus.",
               },
             ].map((item) => (
               <div key={item.aide} className="bg-white border border-slate-100 rounded-xl px-4 py-3">
@@ -255,7 +267,7 @@ const article: BlogArticle = {
   slug,
   titre: "Crédit d'impôt pour aidants naturels 2026 : Reconnaissance financière pour les proches aidants",
   description:
-    "Tout sur le crédit d'impôt québécois pour aidants naturels en 2026 : qui est admissible, montants remboursables selon le niveau de soin et comment réclamer à l'impôt.",
+    "Tout sur le crédit d'impôt québécois pour personnes aidantes (anciennement aidants naturels) en 2026 : qui est admissible, montants remboursables selon le volet applicable et comment réclamer à l'impôt.",
   date: "2026-07-05",
   categorie: "Famille",
   tempsLecture: "6 min",

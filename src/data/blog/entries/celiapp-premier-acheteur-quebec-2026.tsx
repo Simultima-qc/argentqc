@@ -175,14 +175,14 @@ function Content() {
               </div>
               <div className="flex justify-between">
                 <span className="text-green-900">RAP REER (retrait remboursable)</span>
-                <span className="font-bold text-green-800">jusqu&apos;à 35 000 $</span>
+                <span className="font-bold text-green-800">jusqu&apos;à 60 000 $</span>
               </div>
               <div className="border-t border-green-200 pt-2 flex justify-between">
                 <span className="font-bold text-green-900">Total combiné possible</span>
-                <span className="font-extrabold text-green-800 text-base">jusqu&apos;à 75 000 $ par personne</span>
+                <span className="font-extrabold text-green-800 text-base">jusqu&apos;à 100 000 $ par personne</span>
               </div>
             </div>
-            <p className="text-green-700 text-xs">Pour un couple de deux premiers acheteurs : jusqu&apos;à 150 000 $ combinés.</p>
+            <p className="text-green-700 text-xs">Pour un couple de deux premiers acheteurs : jusqu&apos;à 200 000 $ combinés. Plafond RAP relevé de 35 000 $ à 60 000 $ pour les retraits effectués depuis le 16 avril 2024 (budget fédéral 2024).</p>
           </div>
           <p className="text-slate-600 leading-relaxed">
             La grande différence : le retrait CELIAPP n&apos;a pas à être remboursé (contrairement au RAP,
@@ -202,7 +202,7 @@ function Content() {
               { titre: "Avoir un accord d'achat signé", desc: "Vous devez avoir conclu une entente écrite pour acheter ou faire construire une propriété admissible" },
               { titre: "Ne pas avoir habité une propriété que vous possédiez", desc: "Vous (et votre conjoint) n'avez pas habité une propriété vous appartenant dans les 4 années précédentes" },
               { titre: "Habiter la propriété dans l'année", desc: "Vous devez avoir l'intention d'habiter la propriété comme résidence principale dans l'année suivant l'achat" },
-              { titre: "Retrait avant le 1er octobre", desc: "Pour acheter avant la fin d'une année, le retrait doit être fait avant le 1er octobre de cette même année" },
+              { titre: "Entente d'achat signée avant le 1er octobre suivant", desc: "Votre entente écrite d'achat ou de construction doit être conclue avant le 1er octobre de l'année civile suivant celle du retrait — pas nécessairement le retrait lui-même." },
             ].map((item) => (
               <div key={item.titre} className="bg-white rounded-xl border border-slate-100 px-4 py-3">
                 <p className="font-semibold text-slate-800 text-sm">{item.titre}</p>

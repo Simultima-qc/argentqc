@@ -47,7 +47,7 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Le Crédit d&apos;impôt pour personnes handicapées (CIPH) est souvent méconnu — et pourtant,
-            il vaut jusqu&apos;à <strong>9 428 $ par année</strong>{" "}en réduction d&apos;impôt. Mieux encore, être admissible
+            il vaut jusqu&apos;à <strong>10 341 $ par année</strong>{" "}en réduction d&apos;impôt. Mieux encore, être admissible
             au CIPH débloque l&apos;accès au REEI, au Supplément pour enfant handicapé (ACE) et à d&apos;autres
             programmes qui peuvent représenter des dizaines de milliers de dollars sur une vie.
           </p>
@@ -56,8 +56,8 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>✓ Crédit de base fédéral : <strong>9 428 $</strong>{" "}de revenu imposable réduit (≈ 1 414 $ d&apos;impôt économisé)</li>
-            <li>✓ Supplément pour enfants admissibles : <strong>5 500 $</strong>{" "}supplémentaires</li>
+            <li>✓ Crédit de base fédéral : <strong>10 341 $</strong>{" "}de revenu imposable réduit (≈ 1 448 $ d&apos;impôt économisé)</li>
+            <li>✓ Supplément pour enfants admissibles : <strong>6 032 $</strong>{" "}supplémentaires</li>
             <li>✓ Débloque l&apos;accès au <strong>REEI</strong>{" "}(jusqu&apos;à 90 000 $ de subventions gouvernementales)</li>
             <li>✓ Demande via formulaire T2201 — rempli par un professionnel de la santé</li>
           </ul>
@@ -111,10 +111,10 @@ function Content() {
             <p className="font-bold text-blue-800 mb-3">Valeur du CIPH fédéral 2026</p>
             <div className="space-y-2 text-sm">
               {[
-                { poste: "Montant de base du CIPH", valeur: "9 428 $", note: "Réduction du revenu imposable" },
-                { poste: "Crédit d&apos;impôt (taux 15 %)", valeur: "≈ 1 414 $", note: "Impôt économisé par an" },
-                { poste: "Supplément pour enfant (moins de 18 ans)", valeur: "+ 5 500 $", note: "Montant additionnel admissible" },
-                { poste: "Crédit pour enfant (taux 15 %)", valeur: "≈ + 825 $", note: "Impôt supplémentaire économisé" },
+                { poste: "Montant de base du CIPH", valeur: "10 341 $", note: "Réduction du revenu imposable" },
+                { poste: "Crédit d&apos;impôt (taux fédéral 14 %)", valeur: "≈ 1 448 $", note: "Impôt économisé par an" },
+                { poste: "Supplément pour enfant (moins de 18 ans)", valeur: "+ 6 032 $", note: "Montant additionnel admissible, réductible selon les frais de garde/de préposé aux soins déjà réclamés" },
+                { poste: "Crédit pour enfant (taux fédéral 14 %)", valeur: "≈ + 844 $", note: "Impôt supplémentaire économisé" },
               ].map((item) => (
                 <div key={item.poste} className="flex justify-between items-center border-b border-blue-100 pb-2 last:border-0 last:pb-0">
                   <div>
@@ -141,7 +141,7 @@ function Content() {
             {[
               {
                 programme: "REEI — Régime enregistré d&apos;épargne-invalidité",
-                valeur: "Jusqu&apos;à 90 000 $ de subventions + 20 000 $ de bons",
+                valeur: "Jusqu&apos;à 70 000 $ de subventions (SCEI) + 20 000 $ de bons (BCEI), soit 90 000 $ combinés",
                 desc: "Uniquement accessible si vous avez un certificat CIPH approuvé.",
               },
               {
@@ -150,9 +150,9 @@ function Content() {
                 desc: "Ajouté automatiquement à l&apos;Allocation canadienne pour enfants.",
               },
               {
-                programme: "PCT — Supplément pour handicapés",
-                valeur: "Jusqu&apos;à 784 $/an",
-                desc: "Complément à la Prestation canadienne pour les travailleurs.",
+                programme: "ACT — Supplément pour personnes handicapées",
+                valeur: "Jusqu&apos;à 860 $/an",
+                desc: "Complément à l&apos;Allocation canadienne pour les travailleurs (ACT), anciennement Prestation canadienne pour les travailleurs (PCT). Réduit progressivement au-delà de 37 740 $ de revenu net rajusté, nul au-delà de 43 360 $.",
               },
               {
                 programme: "Régime de rentes du Québec — rente d&apos;invalidité",
