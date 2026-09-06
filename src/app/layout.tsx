@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { buildAnalyticsBootstrapScript } from "@/utils/analytics-host";
 
 export const metadata: Metadata = {
   title: "ArgentQC.ca – Trouvez les aides gouvernementales auxquelles vous avez droit",
@@ -18,28 +19,16 @@ export default function RootLayout({
     <html lang="fr" className="h-full">
       <head>
         {/*
-          Google Analytics (GA4 production G-EHYFT9BFCN).
+          Google Analytics (GA4).
           Garde production (issue #103) : le tag n'est chargé et `window.gtag`
-          n'est défini QUE lorsque le hostname runtime est exactement
-          `argentqc.ca`. Sur localhost, previews Netlify et CI/Playwright,
+          n'est défini QUE lorsque le hostname runtime est exactement le
+          hostname de production. Sur localhost, previews Netlify et CI/Playwright,
           rien n'est injecté et aucun hit ne peut partir.
-          Règle alignée sur `isProductionAnalyticsHost()` de `src/utils/analytics-host.ts`.
+          Hostname et Measurement ID proviennent de `src/utils/analytics-host.ts`
+          (point de vérité unique, partagé avec `src/utils/analytics.ts`).
         */}
         <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            (function () {
-              if (window.location.hostname !== 'argentqc.ca') return;
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
-              gtag('js', new Date());
-              gtag('config', 'G-EHYFT9BFCN');
-              var s = document.createElement('script');
-              s.async = true;
-              s.src = 'https://www.googletagmanager.com/gtag/js?id=G-EHYFT9BFCN';
-              document.head.appendChild(s);
-            })();
-          `}
+          {buildAnalyticsBootstrapScript()}
         </Script>
       </head>
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">

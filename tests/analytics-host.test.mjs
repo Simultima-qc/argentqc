@@ -73,9 +73,35 @@ function loadAnalytics(hostname) {
   return { api, gtagCalls, win };
 }
 
+/**
+ * Exécute le bootstrap GA4 exact de `layout.tsx` (chaîne produite par
+ * `buildAnalyticsBootstrapScript()`) dans un DOM factice. Le sandbox vm EST
+ * l'objet `window` (comme dans un navigateur), donc `window`, `document` et
+ * `dataLayer` s'y résolvent globalement.
+ */
+function runBootstrap(hostname) {
+  const injected = [];
+  const win = {
+    location: { hostname },
+    document: {
+      createElement: () => ({ async: false, src: "" }),
+      head: { appendChild: (el) => injected.push(el) },
+    },
+  };
+  win.window = win;
+  vm.createContext(win);
+  vm.runInContext(buildAnalyticsBootstrapScript(), win);
+  return { win, injected };
+}
+
 // -- 1. Helper pur -----------------------------------------------------------
 
-const { isProductionAnalyticsHost, PRODUCTION_ANALYTICS_HOSTNAME } = loadAnalyticsHost();
+const {
+  isProductionAnalyticsHost,
+  PRODUCTION_ANALYTICS_HOSTNAME,
+  GA4_MEASUREMENT_ID,
+  buildAnalyticsBootstrapScript,
+} = loadAnalyticsHost();
 
 test("PRODUCTION_ANALYTICS_HOSTNAME est le domaine apex de production", () => {
   assert.equal(PRODUCTION_ANALYTICS_HOSTNAME, "argentqc.ca");
@@ -164,4 +190,42 @@ test("analytics.ts: l'attribution funnel (sessionStorage) fonctionne même hors 
   // persistQuestionnaireSource ne dépend pas de GA4 : la navigation ne doit pas être cassée.
   assert.equal(win.sessionStorage.getItem("argentqc_cta_name"), "hero");
   assert.equal(win.sessionStorage.getItem("argentqc_cta_location"), "home");
+});
+
+// -- 3. Bootstrap du tag (src/app/layout.tsx) ---------------------------------
+
+test("bootstrap: sur argentqc.ca, le tag GA4 est réellement chargé", () => {
+  const { win, injected } = runBootstrap(PRODUCTION_ANALYTICS_HOSTNAME);
+
+  // 1) window.gtag défini
+  assert.equal(typeof win.gtag, "function", "window.gtag doit être défini en production");
+
+  // 2) gtag('js', Date) puis gtag('config', <measurement id>)
+  const calls = win.dataLayer.map((args) => Array.from(args));
+  assert.deepEqual(calls[0].slice(0, 1), ["js"]);
+  // `Date` vient d'un autre realm vm -> pas d'`instanceof`, on vérifie le tag.
+  assert.equal(Object.prototype.toString.call(calls[0][1]), "[object Date]", "gtag('js', new Date())");
+  assert.deepEqual(calls[1], ["config", GA4_MEASUREMENT_ID]);
+
+  // 3) gtag.js réellement injecté, async, avec le bon Measurement ID
+  assert.equal(injected.length, 1, "exactement un <script> gtag.js injecté");
+  assert.equal(injected[0].async, true);
+  assert.equal(
+    injected[0].src,
+    `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`
+  );
+});
+
+for (const hostname of ["localhost", "127.0.0.1", "deploy-preview-3--argentqc.netlify.app", "www.argentqc.ca"]) {
+  test(`bootstrap: sur ${hostname}, aucun effet GA4 (early-return)`, () => {
+    const { win, injected } = runBootstrap(hostname);
+
+    assert.equal(win.gtag, undefined, "window.gtag doit rester indéfini");
+    assert.equal(win.dataLayer, undefined, "dataLayer ne doit pas être initialisé");
+    assert.equal(injected.length, 0, "gtag.js ne doit jamais être injecté");
+  });
+}
+
+test("bootstrap: le Measurement ID production reste G-EHYFT9BFCN (inchangé)", () => {
+  assert.equal(GA4_MEASUREMENT_ID, "G-EHYFT9BFCN");
 });
