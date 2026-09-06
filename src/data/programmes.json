@@ -188,13 +188,13 @@
     "niveau": "federal",
     "categorie": "renovation",
     "montant_min": 0,
-    "montant_max": 7500,
-    "montant_affiche": "Jusqu'à 7 500 $",
-    "description": "Crédit d'impôt remboursable de 15 % sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée. Le taux fédéral le plus bas est passé à 14 % en 2026 pour la plupart des crédits non remboursables, mais un mécanisme distinct pourrait maintenir certains crédits (dont potentiellement celui-ci) à 15 % jusqu'en 2030; le taux exact applicable à ce crédit précis n'a pas pu être confirmé directement auprès de l'ARC dans cet audit.",
+    "montant_max": 7000,
+    "montant_affiche": "Jusqu'à 7 000 $ (année d'imposition 2026)",
+    "description": "Crédit d'impôt remboursable de 14 % sur les dépenses admissibles (max 50 000 $) pour créer un logement secondaire pour un aîné ou une personne handicapée, pour un crédit maximal de 7 000 $ en 2026. Revalidé le 2026-09-05 (issue #98) : ce crédit est arrimé au taux d'imposition le plus bas du barème fédéral (Loi de l'impôt sur le revenu, art. 122.92 et par. 248(1)), fixé à 14 % pour l'année d'imposition 2026 et les suivantes par la Loi de 2026 sur l'abordabilité, et confirmé par les taux d'imposition 2026 de l'Agence du revenu du Canada (ARC) ainsi que par le rapport du ministère des Finances sur les dépenses fiscales fédérales 2026. Pour l'année d'imposition 2025 (déclarée en 2026), le taux transitoire était de 14,5 % (7 250 $), en raison du passage en cours d'année du taux fédéral de 15 % à 14 % le 1er juillet 2025 — cette valeur 2025 ne s'applique plus aux dépenses de 2026.",
     "conditions": [
       "Créer un logement secondaire dans votre domicile",
       "Le logement est destiné à un aîné (65+) ou une personne handicapée",
-      "Dépenses admissibles minimales de 500 $"
+      "Dépenses admissibles maximales de 50 000 $"
     ],
     "lien_officiel": "https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/sujets/tout-votre-declaration-revenus/declaration-revenus/remplir-declaration-revenus/deductions-credits-depenses/ligne-45355-cirhm.html",
     "criteres": {

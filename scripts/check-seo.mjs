@@ -56,23 +56,13 @@ const legitimateSeoRegistryExceptions = [
 // Pages explicitly allowed to keep a raw local Programme object literal
 // inside the governed `const programmes: Programme[] = [...]` array
 // instead of sourcing it via getProgrammeFromCatalogue (issue #96). Every
-// entry here must be a one-line justification and, other than this single
-// tracked case, must never be used to silence a real duplicate:
-//
-// - credit-impot-quebec/page.tsx: credit-loyer-qc, credit-tps-fed, and
-//   credit-reno-fed already match the catalogue's montant_min/montant_max
-//   exactly (no active P1 drift), but their prose has diverged from the
-//   catalogue - notably credit-reno-fed's flat "15%" rate claim vs. the
-//   catalogue's documented 2026 federal rate uncertainty. Per #96's stop
-//   condition, that factual divergence is tracked and revalidated in
-//   follow-up issue #98 rather than silently corrected here; this
-//   exception is temporary and must be removed once #98 migrates these
-//   three entries onto getProgrammeFromCatalogue(...).
-const governedProgrammeSourcingExceptions = [
-  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-loyer-qc" }, // tracked in #98
-  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-tps-fed" }, // tracked in #98
-  { filePath: "src/app/credit-impot-quebec/page.tsx", id: "credit-reno-fed" }, // tracked in #98
-];
+// entry here must be a one-line justification and must never be used to
+// silence a real duplicate. Currently empty: the temporary exception for
+// credit-impot-quebec/page.tsx (credit-loyer-qc, credit-tps-fed,
+// credit-reno-fed) was removed once issue #98 revalidated credit-reno-fed's
+// rate against an official ARC source and migrated all three entries onto
+// getProgrammeFromCatalogue(...).
+const governedProgrammeSourcingExceptions = [];
 
 const errors = [];
 
