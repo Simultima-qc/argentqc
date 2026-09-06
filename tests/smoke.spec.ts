@@ -434,3 +434,34 @@ test.describe("Sanite globale", () => {
     });
   }
 });
+
+// -- Garde production GA4 (issue #103) --
+// Ces smoke tests s'exécutent sur `localhost` (dev local ET `next start` en CI),
+// donc un hostname NON production : aucun tag GA4 ne doit se déclencher.
+
+test.describe("Garde production GA4 (issue #103)", () => {
+  test("sur localhost, gtag.js n'est jamais requis et window.gtag reste indéfini", async ({ page }) => {
+    const gaRequests: string[] = [];
+    page.on("request", (request) => {
+      const url = request.url();
+      if (url.includes("googletagmanager.com") || url.includes("google-analytics.com")) {
+        gaRequests.push(url);
+      }
+    });
+
+    await page.goto("/fr");
+    // Laisse le script afterInteractive s'exécuter.
+    await page.waitForLoadState("networkidle");
+
+    expect(gaRequests, `Requêtes GA4 inattendues : ${gaRequests.join(", ")}`).toEqual([]);
+    expect(await page.evaluate(() => typeof (window as unknown as { gtag?: unknown }).gtag)).toBe(
+      "undefined"
+    );
+  });
+
+  test("la garde de hostname est bien présente dans le HTML servi", async ({ page }) => {
+    const response = await page.goto("/fr");
+    const html = (await response?.text()) ?? "";
+    expect(html).toContain("window.location.hostname !== 'argentqc.ca'");
+  });
+});

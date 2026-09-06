@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { buildAnalyticsBootstrapScript } from "@/utils/analytics-host";
 
 export const metadata: Metadata = {
   title: "ArgentQC.ca – Trouvez les aides gouvernementales auxquelles vous avez droit",
@@ -17,18 +18,17 @@ export default function RootLayout({
   return (
     <html lang="fr" className="h-full">
       <head>
-        {/* Google Analytics – dans <head> pour validation Search Console */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-EHYFT9BFCN"
-          strategy="afterInteractive"
-        />
+        {/*
+          Google Analytics (GA4).
+          Garde production (issue #103) : le tag n'est chargé et `window.gtag`
+          n'est défini QUE lorsque le hostname runtime est exactement le
+          hostname de production. Sur localhost, previews Netlify et CI/Playwright,
+          rien n'est injecté et aucun hit ne peut partir.
+          Hostname et Measurement ID proviennent de `src/utils/analytics-host.ts`
+          (point de vérité unique, partagé avec `src/utils/analytics.ts`).
+        */}
         <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-EHYFT9BFCN');
-          `}
+          {buildAnalyticsBootstrapScript()}
         </Script>
       </head>
       <body className="min-h-full flex flex-col bg-slate-50 text-slate-900">
