@@ -1,3 +1,5 @@
+import { isProductionAnalyticsHost } from "./analytics-host";
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -15,7 +17,7 @@ export interface CtaClickParams {
 export function trackCtaClick(params: CtaClickParams): void {
   if (typeof window === "undefined") return;
   persistQuestionnaireSource(params);
-  if (!window.gtag) return;
+  if (!isProductionAnalyticsHost() || !window.gtag) return;
   window.gtag("event", "cta_click", withPageContext(params));
 }
 
@@ -156,7 +158,7 @@ function withFunnelAttribution<T extends object>(params: T): T & FunnelAttributi
 }
 
 function gtag(event: string, params: object): void {
-  if (typeof window === "undefined" || !window.gtag) return;
+  if (typeof window === "undefined" || !isProductionAnalyticsHost() || !window.gtag) return;
   window.gtag("event", event, withFunnelAttribution(params));
 }
 
