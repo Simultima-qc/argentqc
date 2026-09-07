@@ -59,7 +59,7 @@ export default function ComparateurInternetClient() {
       if (f.prix > budgetMax) return false;
       if (f.vitesseDL < vitesseMin) return false;
       if (typeConnexion !== "Tous" && f.type !== typeConnexion) return false;
-      if (sansContrat && f.contrat) return false;
+      if (sansContrat && f.contrat !== false) return false;
       return true;
     });
 
@@ -237,7 +237,7 @@ export default function ComparateurInternetClient() {
                 <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
                   {f.prix === prixMin && <span style={{ fontSize: "10px", color: "#065F46" }}>Meilleur prix</span>}
                   {f.vitesseDL === vitesseMax && <span style={{ fontSize: "10px", color: "#1D4ED8" }}>Meilleure vitesse</span>}
-                  {!f.contrat && <span style={{ fontSize: "10px", color: "#92400E" }}>Sans engagement</span>}
+                  {f.contrat === false && <span style={{ fontSize: "10px", color: "#92400E" }}>Sans engagement</span>}
                 </div>
               </div>
               <div style={{ textAlign: "right", flexShrink: 0 }}>
@@ -261,8 +261,8 @@ export default function ComparateurInternetClient() {
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontSize: "10px", color: "#A8A29E", marginBottom: "2px" }}>Contrat</div>
-                <div style={{ fontWeight: 800, fontSize: "12px", color: f.contrat ? "#DC2626" : "#059669" }}>
-                  {f.contrat ? f.dureeContrat : "Aucun"}
+                <div style={{ fontWeight: 800, fontSize: "12px", color: f.contrat === null ? "#92400E" : f.contrat ? "#DC2626" : "#059669" }}>
+                  {f.contrat === null ? "À confirmer" : f.contrat ? f.dureeContrat : "Aucun"}
                 </div>
               </div>
             </div>
@@ -273,6 +273,12 @@ export default function ComparateurInternetClient() {
               </span>
               <span style={{ fontSize: "11px", color: "#A8A29E" }}>{f.regions.join(", ")}</span>
             </div>
+
+            {f.conditions && (
+              <p style={{ fontSize: "12px", color: "#57534E", marginBottom: "10px" }}>
+                {f.conditions.fr}
+              </p>
+            )}
 
             {!f.termesVerifies && (
               <p
@@ -285,7 +291,7 @@ export default function ComparateurInternetClient() {
                   marginBottom: "10px",
                 }}
               >
-                ⚠ Prix, vitesse et disponibilité non reconfirmés récemment contre le site officiel — vérifiez avant de vous engager.
+                ⚠ {f.conditions ? "Disponibilité à votre adresse et durée du contrat à confirmer auprès du fournisseur." : "Prix, vitesse et disponibilité non reconfirmés récemment contre le site officiel — vérifiez avant de vous engager."}
               </p>
             )}
 
