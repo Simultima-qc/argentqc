@@ -72,7 +72,7 @@ export default function LocalizedInternetComparatorClient({ locale }: { locale: 
       if (offer.prix > budgetMax) return false;
       if (offer.vitesseDL < vitesseMin) return false;
       if (typeConnexion !== "Tous" && offer.type !== typeConnexion) return false;
-      if (sansContrat && offer.contrat) return false;
+      if (sansContrat && offer.contrat !== false) return false;
       return true;
     });
 
@@ -211,7 +211,7 @@ export default function LocalizedInternetComparatorClient({ locale }: { locale: 
                 <div className="flex flex-wrap gap-2 text-[10px]">
                   {offer.prix === prixMin && <span style={{ color: "#065F46" }}>{dictionary.bestPriceLabel}</span>}
                   {offer.vitesseDL === vitesseMax && <span style={{ color: "#1D4ED8" }}>{dictionary.bestSpeedLabel}</span>}
-                  {!offer.contrat && <span style={{ color: "#92400E" }}>{dictionary.noContractLabel}</span>}
+                  {offer.contrat === false && <span style={{ color: "#92400E" }}>{dictionary.noContractLabel}</span>}
                 </div>
               </div>
               <div className="shrink-0 text-right">
@@ -231,7 +231,7 @@ export default function LocalizedInternetComparatorClient({ locale }: { locale: 
               </div>
               <div className="text-center">
                 <div className="mb-1 text-[10px] text-stone-400">{dictionary.contractLabel}</div>
-                <div className="text-sm font-extrabold" style={{ color: offer.contrat ? "#DC2626" : "#059669" }}>{offer.contrat ? offer.dureeContrat : dictionary.noContractValue}</div>
+                <div className="text-sm font-extrabold" style={{ color: offer.contrat === null ? "#92400E" : offer.contrat ? "#DC2626" : "#059669" }}>{offer.contrat === null ? (locale === "fr" ? "À confirmer" : "To confirm") : offer.contrat ? offer.dureeContrat : dictionary.noContractValue}</div>
               </div>
             </div>
 
@@ -242,12 +242,16 @@ export default function LocalizedInternetComparatorClient({ locale }: { locale: 
               <span className="text-xs text-stone-400">{offer.regions.join(", ")}</span>
             </div>
 
+            {offer.conditions && (
+              <p className="mb-3 text-xs text-stone-600">{offer.conditions[locale]}</p>
+            )}
+
             {!offer.termesVerifies && (
               <p
                 className="mb-3 rounded-lg px-2 py-1.5 text-xs"
                 style={{ color: "#92400E", background: "#FEF3C7" }}
               >
-                ⚠ {dictionary.unverifiedPriceLabel}
+                ⚠ {offer.conditions ? (locale === "fr" ? "Disponibilité à votre adresse et durée du contrat à confirmer auprès du fournisseur." : "Confirm availability at your address and the contract term with the provider.") : dictionary.unverifiedPriceLabel}
               </p>
             )}
 

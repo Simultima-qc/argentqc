@@ -193,6 +193,36 @@ test("internet-offers-2026 freshness metadata documents the 4th revalidation pas
   assert.match(meta.sourceNote, /RAPPROCHEE/, "the note must document that nextReviewAt was brought closer, not pushed out");
 });
 
+test("issue #79 Bell Quebec prices retain their conditions and do not confuse credits with contract terms", () => {
+  for (const [speed, upload, price, credit, regular] of [[500, 500, 75, 5, 80], [1500, 940, 80, 10, 90]]) {
+    const offer = internetData.internetOffers2026.find((o) => o.fournisseur === "Bell" && o.vitesseDL === speed);
+    assert.equal(offer.vitesseUL, upload);
+    assert.equal(offer.prix, price);
+    assert.equal(offer.contrat, null, "24 months describes a credit, not a verified contract term");
+    assert.equal(offer.dureeContrat, undefined);
+    assert.equal(offer.modemInclus, true);
+    assert.equal(offer.termesVerifies, false, "address eligibility and contract term remain unconfirmed");
+    assert.ok(offer.conditions.fr.includes(`${credit} $/mois pendant 24 mois`));
+    assert.ok(offer.conditions.fr.includes(`${regular} $/mois`));
+    assert.ok(offer.conditions.en.includes(`$${credit}/month credit for 24 months`));
+    assert.ok(offer.conditions.en.includes(`$${regular}/month`));
+    assert.match(offer.conditions.fr, /Autopaiement.*31 jours/);
+    assert.match(offer.conditions.en, /Automatic debit.*31 days/);
+    assert.match(offer.conditions.fr, /Durée d’engagement non précisée sur la fiche Québec/);
+    assert.match(offer.conditions.en, /Québec product page does not specify the contract term/);
+    assert.match(offer.conditions.fr, /adresses admissibles.*Prix modifiable.*taxes en sus.*100 \$/);
+  }
+  const tek = internetData.internetOffers2026.find((o) => o.fournisseur === "TekSavvy");
+  assert.equal(tek.vitesseDL, 150);
+  assert.equal(tek.vitesseUL, 15);
+  assert.equal(tek.prix, 49);
+  assert.equal(tek.modemInclus, false);
+  assert.equal(tek.termesVerifies, false);
+  assert.equal(internetData.internetComparatorUi2026.meta.nextReviewAt, "2026-09-25");
+  assert.match(internetData.internetComparatorUi2026.meta.sourceNote, /issue #79/);
+  assert.match(internetData.internetComparatorUi2026.meta.sourceNote, /bell-quebec-issue-79-evidence-2026-09-08\.md/);
+});
+
 test("published comparator pages state the correct distinct provider count (5, no dangling Cogeco mention)", () => {
   const comparateurPage = read("src/app/internet/comparateur/page.tsx");
   assert.match(comparateurPage, /Comparez les forfaits de 5 fournisseurs internet au Qu[ée]bec/);
