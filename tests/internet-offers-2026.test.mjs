@@ -208,6 +208,8 @@ test("issue #79 Bell Quebec prices retain their conditions and do not confuse cr
     assert.ok(offer.conditions.en.includes(`$${regular}/month`));
     assert.match(offer.conditions.fr, /Autopaiement.*31 jours/);
     assert.match(offer.conditions.en, /Automatic debit.*31 days/);
+    assert.match(offer.conditions.fr, /Durée d’engagement non précisée sur la fiche Québec/);
+    assert.match(offer.conditions.en, /Québec product page does not specify the contract term/);
     assert.match(offer.conditions.fr, /adresses admissibles.*Prix modifiable.*taxes en sus.*100 \$/);
   }
   const tek = internetData.internetOffers2026.find((o) => o.fournisseur === "TekSavvy");
@@ -218,6 +220,7 @@ test("issue #79 Bell Quebec prices retain their conditions and do not confuse cr
   assert.equal(tek.termesVerifies, false);
   assert.equal(internetData.internetComparatorUi2026.meta.nextReviewAt, "2026-09-25");
   assert.match(internetData.internetComparatorUi2026.meta.sourceNote, /issue #79/);
+  assert.match(internetData.internetComparatorUi2026.meta.sourceNote, /bell-quebec-issue-79-evidence-2026-09-08\.md/);
 });
 
 test("published comparator pages state the correct distinct provider count (5, no dangling Cogeco mention)", () => {
