@@ -9,11 +9,21 @@ This version has breaking changes — APIs, conventions, and file structure may 
 ## Roles
 
 - Product Owner = project owner; decides product direction and authorizes consequential releases/mutations.
-- ChatGPT = chief of staff, independent reviewer, context keeper, and author of durable GitHub work orders.
-- Codex = implementation and technical operations engineer executing the assigned GitHub Issue.
-- GitHub = durable technical memory: issues define work, PRs/commits/comments preserve execution evidence.
+- ChatGPT / Engineering OS = chief of staff, independent reviewer, context keeper, author of durable GitHub work orders, default merge executor after explicit authorization, and executor of supported bounded control-plane work.
+- Codex and Claude Code = interchangeable implementation providers executing the assigned GitHub Issue according to the active Execution Strategy.
+- GitHub = durable technical memory: Issues define work, PRs/commits/comments preserve execution evidence.
 
-Recommended operating convention: **1 GitHub Issue = 1 new Codex conversation**. An issue must be autonomous enough for a fresh Codex thread.
+Recommended operating convention: **1 GitHub Issue = 1 new implementation-agent conversation** when Codex or Claude Code is used. An Issue must be autonomous enough for a fresh execution thread.
+
+## Central Playbook
+
+Cross-project workflow is governed by the latest `Simultima-qc/AI-Development-Playbook` on its default branch. Before significant software-development work, apply the current Playbook plus these ArgentQC-specific rules. In particular, use `WORKFLOW.md`, `MERGE-POLICY.md`, `RELEASE-POLICY.md`, `OPERATIONS-POLICY.md`, `REPOSITORY-INTEROPERABILITY.md`, `PULL-REQUEST-TEMPLATE.md`, `AGENT-ROUTING.md`, `VALIDATION-GATES.md`, `SECURITY.md`, `MODEL-CATALOG.yml` and `VERSION` as applicable.
+
+The central Playbook is authoritative for cross-project workflow, routing, validation, merge/release semantics and control-plane execution. This file remains authoritative for ArgentQC-specific architecture, data/claim reliability, SEO, commands and product constraints. A stricter project rule remains stricter; a true workflow conflict must be surfaced rather than silently resolved.
+
+When `.simultima/workflow.yml` exists, use it only as a non-secret discovery accelerator. Repository/runtime reality plus current central/local rules win if the profile becomes stale. On resumed work, refresh current PR/Issue/CI state plus material Playbook/local-instruction/profile drift; instruction drift alone does not require rebasing application code.
+
+For PR structure, resolve the template in this order: active branch `.github/pull_request_template.md`, default-branch template, then central `PULL-REQUEST-TEMPLATE.md`. Do not ask the Product Owner to relay a template already available in GitHub.
 
 ## Required reading before significant work
 
@@ -36,7 +46,7 @@ Strategic documentation is **not** implicit authorization to mutate production, 
 
 ## Git discipline
 
-Before work, Codex must inspect and report:
+Before work, the implementation agent must inspect and report:
 
 - current branch and HEAD;
 - reference remote branch and its SHA;
@@ -97,7 +107,7 @@ An audit/gate is not permission to repair every P2/P3 opportunistically. Record 
 
 ## Durable completion report
 
-When Codex finishes an Issue, publish the complete report in GitHub (Issue and/or linked PR). Include as applicable:
+When the implementation agent finishes an Issue, publish the complete report in GitHub (Issue and/or linked PR). Include as applicable:
 
 - preflight;
 - work performed;
@@ -114,4 +124,6 @@ When Codex finishes an Issue, publish the complete report in GitHub (Issue and/o
 - safest next action;
 - deviations from mandate.
 
-Never require the Product Owner to copy the report manually into ChatGPT. ChatGPT reviews the durable GitHub evidence independently.
+Never require the Product Owner to copy the report manually into ChatGPT. ChatGPT reviews the durable GitHub evidence independently. When a PR exists, the PR is the primary live coordination/revalidation thread. After `NO-GO`, consume findings directly from GitHub, fix only blockers inside scope, post `REVALIDATION READY`, and stop for revalidation.
+
+At merge-ready, Codex/Claude stop. ChatGPT / Engineering OS performs the merge only after explicit Product Owner authorization for the immediate gate. If ChatGPT cannot perform a suitable control-plane action because access/tooling is missing, use central access-recovery rules before asking for manual fallback.
