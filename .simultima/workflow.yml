@@ -1,0 +1,34 @@
+schema_version: 1
+
+# Non-secret operational profile. Repository/runtime reality and current
+# Playbook/local instructions remain authoritative if this file becomes stale.
+repository:
+  default_branch: main
+
+delivery:
+  default_mode: DIRECT
+  integration_branch: null
+  production_branch: main
+  production_deploy_from_implementation_merge: true
+
+validation:
+  commands:
+    test: "npm test"
+    lint: "npm run lint"
+    build: "npm run build"
+
+ci:
+  workflow_name: null
+
+deployment:
+  provider: "netlify"
+  # Keep null until preview support is established as a durable repository fact.
+  preview_supported: null
+
+database:
+  provider: null
+  migrations_path: null
+
+environments:
+  non_production: []
+  production: "PROD"
