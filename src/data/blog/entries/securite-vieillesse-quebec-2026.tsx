@@ -31,7 +31,7 @@ const metadata: Metadata = {
 const faqs = [
   {
     q: "Quel est le montant maximal de la Sécurité de la vieillesse en 2026?",
-    r: "De octobre à décembre 2026, le maximum mensuel est de 762,50 $ pour les 65 à 74 ans et de 838,75 $ pour les 75 ans et plus. Le montant réel peut être inférieur.",
+    r: "D’octobre à décembre 2026, le maximum mensuel est de 762,50 $ pour les 65 à 74 ans et de 838,75 $ pour les 75 ans et plus. Le montant réel peut être inférieur.",
   },
   {
     q: "Combien d'années faut-il avoir vécu au Canada pour recevoir la SV?",
@@ -79,7 +79,7 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             La pension de la Sécurité de la vieillesse (SV) est une prestation fédérale mensuelle offerte aux personnes
-            admissibles dès 65 ans. De octobre à décembre 2026, son maximum atteint <strong>762,50 $ par mois</strong>{' '}
+            admissibles dès 65 ans. D’octobre à décembre 2026, son maximum atteint <strong>762,50 $ par mois</strong>{' '}
             pour les 65 à 74 ans et <strong>838,75 $ pour les 75 ans et plus</strong>. Le montant réel dépend notamment
             de l&apos;âge, du revenu et des années de résidence au Canada.
           </p>
@@ -90,7 +90,7 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Admissible dès <strong>65 ans</strong>{' '} sous réserve du statut légal, de la résidence et du revenu</li>
-            <li>✓ Maximums de octobre à décembre 2026 : <strong>762,50 $/mois</strong>{' '} (65-74 ans) ou <strong>838,75 $/mois</strong>{' '} (75 ans et plus)</li>
+            <li>✓ Maximums d’octobre à décembre 2026 : <strong>762,50 $/mois</strong>{' '} (65-74 ans) ou <strong>838,75 $/mois</strong>{' '} (75 ans et plus)</li>
             <li>✓ Différer à 70 ans augmente la pension de <strong>36 %</strong>{' '} par rapport au montant à 65 ans</li>
             <li>✓ Cumul possible avec le SRG : jusqu&apos;à <strong>1 138,90 $ de plus</strong>{' '} par mois pour une personne seule admissible</li>
           </ul>
@@ -159,7 +159,7 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants de la SV en 2026</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Les montants sont indexés chaque trimestre. Voici les maximums officiels de octobre à décembre 2026 :
+            Les montants sont indexés chaque trimestre. Voici les maximums officiels d’octobre à décembre 2026 :
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
             <p className="font-bold text-blue-800 mb-3">Pension mensuelle maximale</p>
@@ -216,7 +216,7 @@ function Content() {
               ))}
             </div>
             <p className="text-green-700 text-xs mt-3">
-              Exemple fondé sur le maximum de octobre à décembre 2026. Le choix de reporter dépend notamment de vos
+              Exemple fondé sur le maximum d’octobre à décembre 2026. Le choix de reporter dépend notamment de vos
               autres revenus et de votre admissibilité au SRG; il n&apos;y a aucun avantage à reporter au-delà de 70 ans.{" "}
               <a href="https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/quand-debut.html" target="_blank" rel="noopener noreferrer" className="underline">Voir les règles officielles du report</a>.
             </p>
