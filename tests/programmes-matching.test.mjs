@@ -236,6 +236,25 @@ test("trouverProgrammes matches a retiree", () => {
   assert.equal(creditMaintien.admissibiliteAgeIncertaine, true);
 });
 
+
+test("SRG and SV catalogue values match the official October-December 2026 quarter (issue #80)", () => {
+  const programmes = loadProgrammesJson();
+  const srg = programmes.find((programme) => programme.id === "sre-fed");
+  const sv = programmes.find((programme) => programme.id === "psv-fed");
+
+  assert.ok(srg);
+  assert.ok(sv);
+
+  assert.equal(srg.montant_max, 13667);
+  assert.equal(srg.criteres.revenu_max, 23112);
+  assert.match(srg.montant_affiche, /1 138,90 \$\/mois, octobre-décembre 2026/i);
+  assert.match(srg.description, /685,56 \$\/mois.*octobre-décembre 2026/i);
+
+  assert.equal(sv.montant_max, 10065);
+  assert.match(sv.montant_affiche, /838,75 \$\/mois.*octobre-décembre 2026/i);
+  assert.match(sv.description, /762,50 \$\/mois.*838,75 \$\/mois.*octobre-décembre 2026/i);
+});
+
 // issue #58: age bucketing regression matrix.
 //
 // programme                     | borne réelle  | tranche   | avant (parseAge)          | après
