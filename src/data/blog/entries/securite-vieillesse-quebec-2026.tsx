@@ -31,7 +31,7 @@ const metadata: Metadata = {
 const faqs = [
   {
     q: "Quel est le montant maximal de la Sécurité de la vieillesse en 2026?",
-    r: "De juillet à septembre 2026, le maximum mensuel est de 751,97 $ pour les 65 à 74 ans et de 827,17 $ pour les 75 ans et plus. Le montant réel peut être inférieur.",
+    r: "De octobre à décembre 2026, le maximum mensuel est de 762,50 $ pour les 65 à 74 ans et de 838,75 $ pour les 75 ans et plus. Le montant réel peut être inférieur.",
   },
   {
     q: "Combien d'années faut-il avoir vécu au Canada pour recevoir la SV?",
@@ -79,8 +79,8 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             La pension de la Sécurité de la vieillesse (SV) est une prestation fédérale mensuelle offerte aux personnes
-            admissibles dès 65 ans. De juillet à septembre 2026, son maximum atteint <strong>751,97 $ par mois</strong>{' '}
-            pour les 65 à 74 ans et <strong>827,17 $ pour les 75 ans et plus</strong>. Le montant réel dépend notamment
+            admissibles dès 65 ans. De octobre à décembre 2026, son maximum atteint <strong>762,50 $ par mois</strong>{' '}
+            pour les 65 à 74 ans et <strong>838,75 $ pour les 75 ans et plus</strong>. Le montant réel dépend notamment
             de l&apos;âge, du revenu et des années de résidence au Canada.
           </p>
         </div>
@@ -90,9 +90,9 @@ function Content() {
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
             <li>✓ Admissible dès <strong>65 ans</strong>{' '} sous réserve du statut légal, de la résidence et du revenu</li>
-            <li>✓ Maximums de juillet à septembre 2026 : <strong>751,97 $/mois</strong>{' '} (65-74 ans) ou <strong>827,17 $/mois</strong>{' '} (75 ans et plus)</li>
+            <li>✓ Maximums de octobre à décembre 2026 : <strong>762,50 $/mois</strong>{' '} (65-74 ans) ou <strong>838,75 $/mois</strong>{' '} (75 ans et plus)</li>
             <li>✓ Différer à 70 ans augmente la pension de <strong>36 %</strong>{' '} par rapport au montant à 65 ans</li>
-            <li>✓ Cumul possible avec le SRG : jusqu&apos;à <strong>1 123,17 $ de plus</strong>{' '} par mois pour une personne seule admissible</li>
+            <li>✓ Cumul possible avec le SRG : jusqu&apos;à <strong>1 138,90 $ de plus</strong>{' '} par mois pour une personne seule admissible</li>
           </ul>
         </div>
 
@@ -159,14 +159,14 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants de la SV en 2026</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Les montants sont indexés chaque trimestre. Voici les maximums officiels de juillet à septembre 2026 :
+            Les montants sont indexés chaque trimestre. Voici les maximums officiels de octobre à décembre 2026 :
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
             <p className="font-bold text-blue-800 mb-3">Pension mensuelle maximale</p>
             <div className="space-y-3">
               {[
-                { groupe: "65 à 74 ans", montant: "751,97 $", note: "maximum mensuel, pension complète" },
-                { groupe: "75 ans et plus", montant: "827,17 $", note: "inclut l'augmentation automatique de 10 %" },
+                { groupe: "65 à 74 ans", montant: "762,50 $", note: "maximum mensuel, pension complète" },
+                { groupe: "75 ans et plus", montant: "838,75 $", note: "inclut l'augmentation automatique de 10 %" },
               ].map((row) => (
                 <div key={row.groupe} className="flex justify-between items-start text-sm">
                   <div>
@@ -203,8 +203,8 @@ function Content() {
             <p className="font-bold text-green-800 mb-3">Comparaison : 65 ans vs 70 ans (groupe 65-74)</p>
             <div className="space-y-2 text-sm">
               {[
-                { age: "Pension à 65 ans", mensuel: "751,97 $/mois", annuel: "9 024 $/an" },
-                { age: "Pension à 70 ans (+36 %)", mensuel: "1 022,68 $/mois", annuel: "12 272 $/an" },
+                { age: "Pension à 65 ans", mensuel: "762,50 $/mois", annuel: "9 150 $/an" },
+                { age: "Pension à 70 ans (+36 %)", mensuel: "1 037,00 $/mois", annuel: "12 444 $/an" },
               ].map((row) => (
                 <div key={row.age} className="flex justify-between">
                   <span className="text-green-900">{row.age}</span>
@@ -216,7 +216,7 @@ function Content() {
               ))}
             </div>
             <p className="text-green-700 text-xs mt-3">
-              Exemple fondé sur le maximum de juillet à septembre 2026. Le choix de reporter dépend notamment de vos
+              Exemple fondé sur le maximum de octobre à décembre 2026. Le choix de reporter dépend notamment de vos
               autres revenus et de votre admissibilité au SRG; il n&apos;y a aucun avantage à reporter au-delà de 70 ans.{" "}
               <a href="https://www.canada.ca/fr/services/prestations/pensionspubliques/securite-vieillesse/quand-debut.html" target="_blank" rel="noopener noreferrer" className="underline">Voir les règles officielles du report</a>.
             </p>
@@ -229,19 +229,19 @@ function Content() {
 
         {/* Section 5 — SRG */}
         <section className="mb-8">
-          <h2 className="text-xl font-bold text-slate-800 mb-3">Le SRG : jusqu&apos;à 1 123,17 $ de plus par mois</h2>
+          <h2 className="text-xl font-bold text-slate-800 mb-3">Le SRG : jusqu&apos;à 1 138,90 $ de plus par mois</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             Le Supplément de revenu garanti (SRG) est une prestation <strong>non imposable</strong>{' '} versée en plus de la
             pension SV aux aînés à faible revenu. Service Canada tente l&apos;inscription automatique lorsqu&apos;il possède
             assez de renseignements; produire sa déclaration de revenus chaque année aide à maintenir les paiements.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">SRG maximum mensuel — juillet à septembre 2026</p>
+            <p className="font-bold text-blue-800 mb-3">SRG maximum mensuel — octobre à décembre 2026</p>
             <div className="space-y-2 text-sm">
               {[
-                { situation: "Personne seule", srg: "1 123,17 $", revenu: "Revenu annuel &lt; 22 800 $" },
-                { situation: "Couple (2 bénéficiaires SV)", srg: "676,09 $ chacun", revenu: "Revenu du couple &lt; 30 096 $" },
-                { situation: "Couple (conjoint sans SV ni Allocation)", srg: "1 123,17 $", revenu: "Revenu du couple &lt; 54 624 $" },
+                { situation: "Personne seule", srg: "1 138,90 $", revenu: "Revenu annuel &lt; 23 112 $" },
+                { situation: "Couple (2 bénéficiaires SV)", srg: "685,56 $ chacun", revenu: "Revenu du couple &lt; 30 528 $" },
+                { situation: "Couple (conjoint sans SV ni Allocation)", srg: "1 138,90 $", revenu: "Revenu du couple &lt; 55 392 $" },
               ].map((row) => (
                 <div key={row.situation} className="flex justify-between items-start text-sm border-b border-blue-100 pb-2 last:border-0 last:pb-0">
                   <div>
@@ -255,7 +255,7 @@ function Content() {
           </div>
           <p className="text-slate-600 leading-relaxed text-sm">
             Pour une personne seule admissible de 65 à 74 ans, les maximums affichés totalisent jusqu&apos;à{" "}
-            <strong>1 875,14 $/mois</strong>, avant toute réduction liée au revenu ou à une pension partielle. La portion
+            <strong>1 901,40 $/mois</strong>, avant toute réduction liée au revenu ou à une pension partielle. La portion
             SRG est non imposable, tandis que la pension SV est imposable. Pour en savoir plus, consultez notre guide sur le{" "}
             <Link href="/supplement-revenu-garanti-2026" className="text-blue-700 underline">SRG 2026</Link>.
           </p>
@@ -359,7 +359,7 @@ function Content() {
 const article: BlogArticle = {
   slug,
   titre: "Sécurité de la vieillesse 2026 : Montants, admissibilité et comment faire votre demande",
-  description: "Pension SV 2026 : jusqu'à 827,17 $/mois à 75 ans, bonification de 36 % si vous reportez à 70 ans, et cumul possible avec le SRG.",
+  description: "Pension SV 2026 : jusqu'à 838,75 $/mois à 75 ans, bonification de 36 % si vous reportez à 70 ans, et cumul possible avec le SRG.",
   date: "2026-04-06",
   categorie: "Retraite",
   tempsLecture: "6 min",
