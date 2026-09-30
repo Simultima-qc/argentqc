@@ -551,11 +551,11 @@ test("SV and SRG amounts match the governed securite-vieillesse/supplement-reven
   const psv = programmes.find((programme) => programme.id === "psv-fed");
   const sre = programmes.find((programme) => programme.id === "sre-fed");
 
-  // Q3 2026 maxima per docs/claims/securite-vieillesse-quebec-2026.md and
-  // docs/claims/supplement-revenu-garanti-2026.md: SV 827,17 $/mois (75 ans et plus),
-  // SRG 1 123,17 $/mois (personne seule) -- annualized (x12).
-  assert.equal(psv.montant_max, 9926);
-  assert.equal(sre.montant_max, 13478);
+  // Q4 2026 maxima per docs/claims/securite-vieillesse-quebec-2026.md and
+  // docs/claims/supplement-revenu-garanti-2026.md: SV 838,75 $/mois (75 ans et plus),
+  // SRG 1 138,90 $/mois (personne seule) -- annualized and rounded to dollars.
+  assert.equal(psv.montant_max, 10065);
+  assert.equal(sre.montant_max, 13667);
 });
 
 test("RAP montant_max reflects the 60 000 $ limit raised by the April 2024 federal budget (issue #51)", () => {
