@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
-import articles from "@/data/articles";
+import { blogArticles } from "@/data/blog";
 import { blogIndexDefinition, seoPageDefinitions, siteUrl } from "@/data/seo-pages";
 import { getAlternateLinks, getLocalizedUrl } from "@/i18n/routing";
 import { localizedHubRouteKeys } from "@/i18n/hubs";
 import { localizedSubguideRouteKeys } from "@/i18n/subguides";
+import { getArticleSitemapUrl } from "@/lib/sitemap-canonical.mjs";
 
 const redirectedStaticPaths = new Set([
   "/",
@@ -76,12 +77,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.priority,
   }));
 
-  const articleEntries = articles.map((article) => ({
-    url: `${siteUrl}/blog/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const articleEntries = blogArticles.flatMap((article) => {
+    const url = getArticleSitemapUrl({
+      slug: article.slug,
+      canonical: article.metadata.alternates?.canonical,
+      siteUrl,
+    });
+
+    if (!url) {
+      return [];
+    }
+
+    return [{
+      url,
+      lastModified: new Date(article.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }];
+  });
 
   const legalEntries = ["/politique-confidentialite", "/contact"].map((path) => ({
     url: `${siteUrl}${path}`,
