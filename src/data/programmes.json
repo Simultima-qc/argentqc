@@ -210,9 +210,9 @@
     "niveau": "federal",
     "categorie": "sante",
     "montant_min": 1000,
-    "montant_max": 13478,
-    "montant_affiche": "Jusqu'à 13 478 $ par année (1 123,17 $/mois, juillet-septembre 2026)",
-    "description": "Prestations mensuelles non imposables pour les aînés à faible revenu qui reçoivent la Sécurité de la vieillesse. Maximum de 1 123,17 $/mois pour une personne seule (676,09 $/mois par personne si les deux conjoints reçoivent la SV) pour le trimestre juillet-septembre 2026; révisé trimestriellement selon l'IPC. Montant réel selon revenus et situation.",
+    "montant_max": 13667,
+    "montant_affiche": "Jusqu'à 13 667 $ par année (1 138,90 $/mois, octobre-décembre 2026)",
+    "description": "Prestations mensuelles non imposables pour les aînés à faible revenu qui reçoivent la Sécurité de la vieillesse. Maximum de 1 138,90 $/mois pour une personne seule (685,56 $/mois par personne si les deux conjoints reçoivent la SV) pour le trimestre octobre-décembre 2026; révisé trimestriellement selon l'IPC. Montant réel selon revenus et situation.",
     "conditions": [
       "Avoir 65 ans ou plus",
       "Recevoir la Sécurité de la vieillesse",
@@ -222,7 +222,7 @@
     "criteres": {
       "retraite": true,
       "age_min": 65,
-      "revenu_max": 22000,
+      "revenu_max": 23112,
       "provinces": ["QC", "ON", "BC", "AB", "MB", "SK", "NB", "NS", "PE", "NL"]
     }
   },
@@ -233,9 +233,9 @@
     "niveau": "federal",
     "categorie": "sante",
     "montant_min": 600,
-    "montant_max": 9926,
-    "montant_affiche": "Jusqu'à 9 926 $ par année (827,17 $/mois pour 75 ans et plus, juillet-septembre 2026)",
-    "description": "Pension mensuelle pour les personnes de 65 ans et plus qui ont résidé au Canada pendant au moins 10 ans après l'âge de 18 ans. Maximum de 751,97 $/mois (65-74 ans) ou 827,17 $/mois (75 ans et plus) pour le trimestre juillet-septembre 2026; révisé trimestriellement selon l'IPC.",
+    "montant_max": 10065,
+    "montant_affiche": "Jusqu'à 10 065 $ par année (838,75 $/mois pour 75 ans et plus, octobre-décembre 2026)",
+    "description": "Pension mensuelle pour les personnes de 65 ans et plus qui ont résidé au Canada pendant au moins 10 ans après l'âge de 18 ans. Maximum de 762,50 $/mois (65-74 ans) ou 838,75 $/mois (75 ans et plus) pour le trimestre octobre-décembre 2026; révisé trimestriellement selon l'IPC.",
     "conditions": [
       "Avoir 65 ans ou plus",
       "Résider ou avoir résidé au Canada",
