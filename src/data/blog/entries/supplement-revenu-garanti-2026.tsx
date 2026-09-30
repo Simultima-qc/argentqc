@@ -183,7 +183,7 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants du SRG en 2026 selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             Les montants sont révisés en janvier, avril, juillet et octobre selon l&apos;indice des prix à la
-            consommation. Voici les maximums officiels en vigueur de octobre à décembre 2026.
+            consommation. Voici les maximums officiels en vigueur d’octobre à décembre 2026.
           </p>
 
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
