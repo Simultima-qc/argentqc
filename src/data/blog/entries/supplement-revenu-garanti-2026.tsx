@@ -183,32 +183,32 @@ function Content() {
           <h2 className="text-xl font-bold text-slate-800 mb-3">Montants du SRG en 2026 selon votre situation</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
             Les montants sont révisés en janvier, avril, juillet et octobre selon l&apos;indice des prix à la
-            consommation. Voici les maximums officiels en vigueur de juillet à septembre 2026.
+            consommation. Voici les maximums officiels en vigueur de octobre à décembre 2026.
           </p>
 
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Maximums du SRG — juillet à septembre 2026</p>
+            <p className="font-bold text-blue-800 mb-3">Maximums du SRG — octobre à décembre 2026</p>
             <div className="space-y-3">
               {[
                 {
                   situation: "Personne seule, veuve ou divorcée",
-                  srg: "1 123,17 $/mois",
-                  seuil: "Revenu inférieur à 22 800 $",
+                  srg: "1 138,90 $/mois",
+                  seuil: "Revenu inférieur à 23 112 $",
                 },
                 {
                   situation: "Couple : les deux reçoivent la SV",
-                  srg: "676,09 $/mois par personne",
-                  seuil: "Revenu combiné inférieur à 30 096 $",
+                  srg: "685,56 $/mois par personne",
+                  seuil: "Revenu combiné inférieur à 30 528 $",
                 },
                 {
                   situation: "Couple : le conjoint reçoit l’Allocation",
-                  srg: "676,09 $/mois",
-                  seuil: "Revenu combiné inférieur à 42 144 $",
+                  srg: "685,56 $/mois",
+                  seuil: "Revenu combiné inférieur à 42 768 $",
                 },
                 {
                   situation: "Couple : le conjoint ne reçoit ni la SV ni l’Allocation",
-                  srg: "1 123,17 $/mois",
-                  seuil: "Revenu combiné inférieur à 54 624 $",
+                  srg: "1 138,90 $/mois",
+                  seuil: "Revenu combiné inférieur à 55 392 $",
                 },
               ].map((row) => (
                 <div key={row.situation} className="bg-white rounded-xl p-4 border border-blue-100">
@@ -258,13 +258,13 @@ function Content() {
           </p>
 
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-amber-800 mb-3">Seuils de revenu — juillet à septembre 2026</p>
+            <p className="font-bold text-amber-800 mb-3">Seuils de revenu — octobre à décembre 2026</p>
             <div className="space-y-2 text-sm">
               {[
-                { situation: "Personne seule, veuve ou divorcée", seuil: "Moins de 22 800 $" },
-                { situation: "Couple : les deux reçoivent la SV", seuil: "Moins de 30 096 $ combinés" },
-                { situation: "Couple : le conjoint reçoit l’Allocation", seuil: "Moins de 42 144 $ combinés" },
-                { situation: "Couple : le conjoint ne reçoit ni la SV ni l’Allocation", seuil: "Moins de 54 624 $ combinés" },
+                { situation: "Personne seule, veuve ou divorcée", seuil: "Moins de 23 112 $" },
+                { situation: "Couple : les deux reçoivent la SV", seuil: "Moins de 30 528 $ combinés" },
+                { situation: "Couple : le conjoint reçoit l’Allocation", seuil: "Moins de 42 768 $ combinés" },
+                { situation: "Couple : le conjoint ne reçoit ni la SV ni l’Allocation", seuil: "Moins de 55 392 $ combinés" },
               ].map((row) => (
                 <div key={row.situation} className="flex justify-between items-center py-1.5 border-b border-amber-200 last:border-0">
                   <span className="text-amber-900">{row.situation}</span>
@@ -278,12 +278,12 @@ function Content() {
             <p className="text-amber-800 text-xs mt-2">
               Source :{" "}
               <a
-                href="https://www.canada.ca/fr/emploi-developpement-social/programmes/pensions/pension/statistiques/rapport-trimestriel/2026-trimestriel-juillet-septembre.html"
+                href="https://www.canada.ca/fr/emploi-developpement-social/programmes/pensions/pension/statistiques/rapport-trimestriel/2026-trimestriel-octobre-decembre.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline"
               >
-                rapport trimestriel officiel de juillet à septembre 2026
+                rapport trimestriel officiel d’octobre à décembre 2026
               </a>.
             </p>
           </div>
