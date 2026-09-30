@@ -119,13 +119,10 @@ export const claimsRegistry = [
     ledgerFile: "docs/claims/supplement-revenu-garanti-2026.md",
     criticality: "critical",
     status: "governed",
-    nextReviewAt: "2026-10-01",
+    nextReviewAt: "2027-01-01",
     scopeNote:
-      "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SRG); prochaine indexation 2026-10-01. " +
-      "Revalidée le 2026-09-04 (issue #74, WebSearch, accès direct aux domaines gouvernementaux toujours bloqué) : aucune divergence " +
-      "trouvée sur le trimestre juillet-septembre 2026 publié. Le rapport trimestriel octobre-décembre 2026 n'était pas encore publié " +
-      "à la date de vérification; des projections tierces non officielles et mutuellement incohérentes pour ce trimestre ont été " +
-      "rejetées plutôt qu'appliquées. nextReviewAt délibérément laissé inchangé : voir docs/claims/supplement-revenu-garanti-2026.md.",
+      "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SRG). Revalidation issue #80 le 2026-09-30 : " +
+      "rapport officiel Canada.ca octobre-décembre 2026 publié le 2026-09-29 et valeurs synchronisées. Prochaine revalidation : 2027-01-01.",
   },
   {
     slug: "securite-vieillesse-quebec-2026",
@@ -134,13 +131,10 @@ export const claimsRegistry = [
     ledgerFile: "docs/claims/securite-vieillesse-quebec-2026.md",
     criticality: "critical",
     status: "governed",
-    nextReviewAt: "2026-10-01",
+    nextReviewAt: "2027-01-01",
     scopeNote:
-      "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SV); prochaine indexation 2026-10-01. " +
-      "Revalidée le 2026-09-04 (issue #74, WebSearch, accès direct aux domaines gouvernementaux toujours bloqué) : aucune divergence " +
-      "trouvée sur le trimestre juillet-septembre 2026 publié. Le rapport trimestriel octobre-décembre 2026 n'était pas encore publié " +
-      "à la date de vérification; des projections tierces non officielles et mutuellement incohérentes pour ce trimestre ont été " +
-      "rejetées plutôt qu'appliquées. nextReviewAt délibérément laissé inchangé : voir docs/claims/securite-vieillesse-quebec-2026.md.",
+      "Aucun module finance-2026 dédié. Montants indexés trimestriellement (SV). Revalidation issue #80 le 2026-09-30 : " +
+      "rapport officiel Canada.ca octobre-décembre 2026 publié le 2026-09-29 et valeurs synchronisées. Prochaine revalidation : 2027-01-01.",
   },
   {
     slug: "rqap-conge-parental-quebec-2026",
