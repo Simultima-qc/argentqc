@@ -19,7 +19,7 @@ function extractArticleIdentity(source, fileName) {
 
   return {
     slug: slugMatch[1],
-    canonical: canonicalMatch?.[1] ?? null,
+    canonical: canonicalMatch?.[1]?.replaceAll("${slug}", slugMatch[1]) ?? null,
   };
 }
 
