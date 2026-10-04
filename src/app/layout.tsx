@@ -10,11 +10,6 @@ export const metadata: Metadata = {
   keywords: ["subventions", "aides gouvernementales", "crédits d'impôt", "Québec", "Canada"],
 };
 
-const impactVerificationMeta = {
-  name: "impact-site-verification",
-  value: "edf7d6b-0cb9-49b4-a371-57bcc22a2ec7",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +19,7 @@ export default function RootLayout({
     <html lang="fr" className="h-full">
       <head>
         {/* Impact.com ownership verification only; no tracking script is loaded. */}
-        <meta {...impactVerificationMeta} />
+        <meta name="impact-site-verification" value="edf7d6b-0cb9-49b4-a371-57bcc22a2ec7" />
         {/*
           Google Analytics (GA4).
           Garde production (issue #103) : le tag n'est chargé et `window.gtag`
