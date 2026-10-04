@@ -3,6 +3,12 @@ import Script from "next/script";
 import "./globals.css";
 import { buildAnalyticsBootstrapScript } from "@/utils/analytics-host";
 
+declare module "react" {
+  interface MetaHTMLAttributes<T> {
+    value?: string;
+  }
+}
+
 export const metadata: Metadata = {
   title: "ArgentQC.ca – Trouvez les aides gouvernementales auxquelles vous avez droit",
   description:
