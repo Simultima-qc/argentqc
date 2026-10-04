@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="fr" className="h-full">
       <head>
         {/* Impact.com ownership verification only; no tracking script is loaded. */}
-        <meta name="impact-site-verification" value="edf7d6b-0cb9-49b4-a371-57bcc22a2ec7" />
+        {/* @ts-expect-error Impact.com requires the non-standard `value` attribute for site verification. */}\n        <meta name="impact-site-verification" value="edf7d6b-0cb9-49b4-a371-57bcc22a2ec7" />
         {/*
           Google Analytics (GA4).
           Garde production (issue #103) : le tag n'est chargé et `window.gtag`
