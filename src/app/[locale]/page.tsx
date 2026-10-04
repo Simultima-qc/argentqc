@@ -481,6 +481,11 @@ export default async function LocalizedHomePage({
               Politique de confidentialité
             </Link>
           </div>
+          {locale === "fr" ? (
+            <p className="mt-4 text-[10px]" style={{ color: "rgba(240,235,224,0.22)" }}>
+              Impact-Site-Verification: efdf7d6b-0cb9-49b4-a371-57bcc22a2ec7
+            </p>
+          ) : null}
         </div>
       </footer>
     </main>
