@@ -112,33 +112,30 @@ test("fractionnement-revenu-retraite-2026 is governed by issue #41 with a valid 
   assert.ok(isIsoDate(entry.nextReviewAt));
 });
 
-test("assurance-emploi-guide-complet-2026 is revalidated by issue #71 with nextReviewAt tied to the real 2026-10-10 temporary-measure expiry", () => {
+test("assurance-emploi-guide-complet-2026 is revalidated by issue #126 after the 2026-10-10 temporary-measure window", () => {
   const entry = claimsRegistry.find((candidate) => candidate.slug === "assurance-emploi-guide-complet-2026");
   assert.ok(entry, "registry entry must exist");
   assert.equal(entry.status, "governed");
   assert.equal(entry.criticality, "critical");
   assert.equal(entry.ledgerFile, "docs/claims/assurance-emploi-guide-complet-2026.md");
-  // This must stay exactly 2026-10-11: it is not a review-lapse date to push
-  // forward but the day after the temporary EI measures (waived waiting
-  // period, +20 weeks for long-tenured workers) actually expire. Moving it
-  // without new evidence would be the "mechanical bump" issue #71 forbids.
-  assert.equal(entry.nextReviewAt, "2026-10-11");
+  // Revalidated on 2026-10-21 against Service Canada: the temporary measures
+  // were extended (waiting period to 2027-10-09, +20 weeks to 2027-06-12).
+  // nextReviewAt is the next dated control in the ledger, not a mechanical bump.
+  assert.equal(entry.nextReviewAt, "2026-11-08");
+  assert.equal(entry.staleException, undefined);
 
-  // As of the issue #71 revalidation date, the claim must not be overdue...
-  const beforeExpiry = evaluateCalendarStatus(
+  const revalidated = evaluateCalendarStatus(
     { nextReviewAt: entry.nextReviewAt, criticality: entry.criticality },
-    { now: "2026-09-04" }
+    { now: "2026-10-21" }
   );
-  assert.equal(beforeExpiry.level, "ok");
+  assert.equal(revalidated.level, "ok");
 
-  // ...but must still correctly block if left unreviewed past the real
-  // expiry with no staleException, preserving the acceptance criterion that
-  // this critical claim cannot silently slip past 2026-10-11 unreviewed.
-  const afterExpiry = evaluateCalendarStatus(
+  // Must still block if left unreviewed past that date with no staleException.
+  const overdue = evaluateCalendarStatus(
     { nextReviewAt: entry.nextReviewAt, criticality: entry.criticality },
-    { now: "2026-10-12" }
+    { now: "2026-11-09" }
   );
-  assert.equal(afterExpiry.level, "blocking");
+  assert.equal(overdue.level, "blocking");
 });
 
 test("aide-financiere-etudes-quebec-2026 (prets-bourses-2026.ts) is revalidated by issue #71 with nextReviewAt aligned on its most volatile embedded claim", () => {
