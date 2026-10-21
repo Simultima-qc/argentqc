@@ -94,13 +94,13 @@ export const claimsRegistry = [
     ledgerFile: "docs/claims/assurance-emploi-guide-complet-2026.md",
     criticality: "critical",
     status: "governed",
-    nextReviewAt: "2026-10-11",
+    nextReviewAt: "2026-11-08",
     scopeNote:
-      "Aucun module finance-2026 dédié (ledger seul, schéma classique). Critique car une mesure temporaire (carence, +20 semaines) expire le 2026-10-10; nextReviewAt fixé au 2026-10-11 déclaré par le ledger. " +
-      "Revalidée le 2026-09-04 (issue #71, WebSearch, accès direct aux domaines gouvernementaux toujours bloqué) : aucune divergence " +
-      "trouvée, y compris confirmation additionnelle (Gazette du Canada DORS/2026-64) que les mesures temporaires ont bien été " +
-      "prolongées jusqu'au 2026-10-10. nextReviewAt délibérément laissé inchangé : c'est une échéance réelle liée à l'expiration " +
-      "des mesures, pas une date de vérification arbitraire à repousser. Voir docs/claims/assurance-emploi-guide-complet-2026.md.",
+      "Aucun module finance-2026 dédié (ledger seul, schéma classique). Critique car les mesures temporaires (carence, +20 semaines) ont une fenêtre de nouvelles demandes datée. " +
+      "Revalidées le 2026-10-21 (issue #126) sur la page Service Canada (mise à jour 2026-10-06) : fenêtres prolongées au 2027-10-09 (carence) et au 2027-06-12 (+20 semaines). " +
+      "Le texte réglementaire (Gazette du Canada / Justice Laws) n'était pas joignable : à confirmer en relecture indépendante. " +
+      "nextReviewAt = prochaine échéance datée du ledger (2026-11-08); la fin de la fenêtre +20 semaines (2027-06-12) impose une revalidation au plus tard le 2027-06-13. " +
+      "Voir docs/claims/assurance-emploi-guide-complet-2026.md.",
   },
   {
     slug: "aide-sociale-quebec-2026",

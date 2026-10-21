@@ -34,7 +34,7 @@ function Content() {
         <div className="mb-8">
           <div className="flex gap-2 mb-4">
             <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">Emploi</span>
-            <span className="text-xs text-slate-400 py-0.5">7 min de lecture · Publié le 1 juin 2026 · Vérifié le 8 août 2026</span>
+            <span className="text-xs text-slate-400 py-0.5">7 min de lecture · Publié le 1 juin 2026 · Vérifié le 8 août 2026 · Mesures temporaires revalidées le 21 octobre 2026</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 leading-tight mb-4">
             Assurance-emploi 2026 : Conditions, montants et comment faire votre demande
@@ -52,7 +52,7 @@ function Content() {
             <li>✓ Taux de prestations : <strong>55 % de votre salaire assurable</strong></li>
             <li>✓ Maximum : <strong>729 $/semaine</strong>{" "} (plafond de rémunération assurable : 68 900 $/an)</li>
             <li>✓ Heures requises : de <strong>420 à 700 heures</strong>{" "} selon votre région</li>
-            <li>✓ Délai de carence habituel temporairement annulé pour les demandes commençant au plus tard le 10 octobre 2026</li>
+            <li>✓ Délai de carence habituel temporairement annulé pour les demandes commençant entre le 30 mars 2025 et le 9 octobre 2027</li>
           </ul>
         </div>
 
@@ -140,7 +140,7 @@ function Content() {
           </p>
           <p className="text-slate-600 leading-relaxed mb-4">
             Une mesure temporaire peut ajouter 20 semaines, jusqu&apos;à un maximum de 65 semaines, à certains travailleurs de longue date
-            dont la demande commence au plus tard le 10 octobre 2026.
+            dont la demande commence entre le 15 juin 2025 et le 12 juin 2027 et qui respectent les autres conditions.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
             <p className="font-bold text-blue-800 mb-3">Exemples de durée de prestations</p>
@@ -160,7 +160,7 @@ function Content() {
           </div>
           <p className="text-slate-600 leading-relaxed">
             Le délai de carence habituel est d&apos;une semaine. Il est toutefois <strong>annulé pour les nouvelles demandes qui commencent
-            entre le 30 mars 2025 et le 10 octobre 2026</strong>. Les versements sont ensuite conditionnels à la remise de déclarations
+            entre le 30 mars 2025 et le 9 octobre 2027</strong>. Les versements sont ensuite conditionnels à la remise de déclarations
             toutes les deux semaines. Dans certains cas, conserver le délai peut être avantageux avec un régime de prestations
             supplémentaires de chômage; Service Canada précise cette exception dans la mesure temporaire.
           </p>
