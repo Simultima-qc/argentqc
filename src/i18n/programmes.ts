@@ -16,7 +16,7 @@ const enProgrammeTranslations: Record<string, ProgrammeTranslation> = {
     conditions: [
       "The home must be built and lived in for at least 12 months (no cutoff by construction year)",
       "Single-family homes, duplex/triplex/small multi-unit buildings, condo syndicates, businesses and non-profits in Quebec are eligible; the property does not need to be a principal residence",
-      "An energy evaluation must be completed before the work starts",
+      "An energy evaluation before the work is recommended but optional since October 1, 2026",
     ],
   },
   "logisvert-hydro": {

@@ -45,3 +45,20 @@ Risques principaux restants : (1) le nom exact et la structure interne du MELCCF
 (hors thermopompe, désormais exclue) n'a pas été revalidée exhaustivement contre la page officielle dans cette
 correction; une revalidation directe complète est recommandée dès qu'un accès à `quebec.ca` sera possible
 depuis cet environnement, plutôt que de se fier uniquement à des revues ponctuelles.
+
+## Mise à jour du 2026-10-21 (issue #124) — nouvelles modalités Rénoclimat en vigueur depuis le 2026-10-01
+
+Vérification directe des pages officielles quebec.ca le 2026-10-21 (accès réseau disponible pour ce domaine).
+Cette mise à jour ne rafraîchit pas mécaniquement les autres claims du ledger ci-dessus : seuls les énoncés
+clairement contredits par la source officielle ont été corrigés. `nextReviewAt` reste inchangé (2026-12-01).
+
+| claim | source officielle | date de vérification | statut | action |
+| --- | --- | --- | --- | --- |
+| « Évaluation énergétique obligatoire avant ET après les travaux » (encadré « En bref », section 1, étape 2). | quebec.ca, « Aide financière Rénoclimat pour améliorer la performance énergétique d'une habitation et l'adapter aux inondations » : « L'évaluation énergétique avant travaux n'est plus obligatoire, mais elle est recommandée […] Une aide financière pour l'évaluation énergétique est maintenant offerte » (jusqu'à 500 $). | 2026-10-21 | corrigé | Encadré, section 1 et étape 2 reformulés (facultative depuis le 2026-10-01, obligatoire sous les anciennes modalités). Le coût « 150 $ + taxes » est retiré : il décrivait les anciennes modalités. |
+| Transition et fin des anciennes modalités (absent de l'article). | Même page et page « systèmes mécaniques » : plus de rendez-vous avant travaux selon les anciennes modalités; si une évaluation a déjà eu lieu, travaux terminés et évaluation après travaux d'ici le 2027-03-31. | 2026-10-21 | ajouté | Encadré daté en tête d'article. |
+| Thermopompe / système de chauffage non admissible à Rénoclimat. | quebec.ca, page « systèmes mécaniques » : « Le programme Rénoclimat n'offre plus d'aide financière pour l'installation ou le remplacement d'un système de chauffage. » | 2026-10-21 | confirmé | Aucune réécriture de l'énoncé existant; mention ajoutée dans l'encadré. |
+| Plafond 20 000 $, exemples de subventions typiques (500–1 500 $, etc.), total combiné 10 700 $, deuxième évaluation gratuite, délai 8–10 semaines. | Non contredits ni confirmés par les pages consultées (nouveau barème par mesure : toit jusqu'à 2 000 $, murs 7 000 $, fondations 2 500 $, fenêtres 4 500 $ pour une maison). | 2026-10-21 | **non revalidé** | Inchangés; l'encadré avertit que ces montants reposent en partie sur les anciennes modalités. À revalider par le Product Owner (voir résidus). |
+
+Résidus (P3) : le plafond de 20 000 $ et `montant_affiche` de `renoclimat-qc` dans `programmes.json`, les exemples
+de montants et le total combiné « 10 700 $ » (somme de deux maximums sans preuve de cumul) ne sont pas revalidés
+contre le nouveau barème. Décision laissée au jalon #123 (2026-12-01).
