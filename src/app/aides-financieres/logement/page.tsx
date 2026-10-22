@@ -195,14 +195,14 @@ export default function AidesFinancieresLogementPage() {
                   badgeColor: "#EDE9FE",
                   badgeText: "#5B21B6",
                   titre: "Subventions rénovation (propriétaires)",
-                  montant: "Jusqu'à 15 000 $ selon les travaux",
+                  montant: "Montants variables selon le programme et les travaux",
                   qui: "Propriétaires effectuant des rénovations écoénergétiques",
-                  desc: "Plusieurs programmes (Rénoclimat, Chauffez vert, crédit fédéral) offrent des subventions pour les rénovations améliorant l'efficacité énergétique : isolation, fenêtres, thermopompe.",
+                  desc: "L'aide dépend du programme et des travaux. Les montants ci-dessous ne s'additionnent pas automatiquement : confirmez l'admissibilité et le cumul auprès de chaque programme. Situation au 21 octobre 2026.",
                   details: [
-                    "Rénoclimat : jusqu'à 10 000 $ pour travaux écoénergétiques",
-                    "Chauffez vert : jusqu'à 12 000 $ pour conversion du mazout",
-                    "Subvention thermopompe : jusqu'à 5 000 $",
-                    "Crédit fédéral rénovation : 15 % des travaux admissibles",
+                    "OUVERT — Rénoclimat : aide par mesure d'efficacité énergétique (ex. isolation du toit d'une maison : jusqu'à 2 000 $), selon les modalités en vigueur depuis le 1er octobre 2026",
+                    "FERMÉ — Rénoclimat n'offre plus d'aide pour l'installation ou le remplacement d'un système de chauffage, thermopompe comprise",
+                    "FERMÉ — Chauffez vert (conversion mazout ou propane) : plus aucune nouvelle demande depuis le 31 mars 2026",
+                    "ANNONCÉ — Rabais fédéral pour thermopompes annoncé le 8 octobre 2026 : demandes et admissibilité non confirmées, voir Canada.ca",
                   ],
                   lien: "/subventions-maison-quebec",
                   libelleBtn: "Guide subventions maison",
@@ -227,7 +227,7 @@ export default function AidesFinancieresLogementPage() {
                     <ul style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "5px", marginBottom: "14px" }}>
                       {prog.details.map((d) => (
                         <li key={d} style={{ display: "flex", gap: "8px", fontSize: "13px", color: "#44403C" }}>
-                          <span style={{ color: GREEN, flexShrink: 0 }}>✓</span>
+                          <span style={{ color: GREEN, flexShrink: 0 }}>{/^(FERMÉ|ANNONCÉ)/.test(d) ? "•" : "✓"}</span>
                           {d}
                         </li>
                       ))}

@@ -42,9 +42,42 @@ function Content() {
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed">
             Rénoclimat est le programme phare de subvention à la rénovation écoénergétique au Québec.
-            En 2026, les propriétaires peuvent obtenir jusqu&apos;à <strong>20 000 $</strong> selon l&apos;ampleur du projet pour
-            améliorer l&apos;efficacité énergétique de leur maison — le plafond a été relevé au-delà de l&apos;ancien maximum de
-            10 000 $, mais le montant exact dépend de votre dossier. Voici tout ce qu&apos;il faut savoir.
+            Selon les anciennes modalités (jusqu&apos;au 30 septembre 2026), les propriétaires pouvaient obtenir jusqu&apos;à{" "}
+            <strong>20 000 $</strong> selon l&apos;ampleur du projet. Depuis le 1er octobre 2026, l&apos;aide est établie par type
+            de travaux, avec un maximum par mesure : le plafond et les exemples ci-dessous n&apos;ont pas été revalidés
+            au nouveau barème. Voici tout ce qu&apos;il faut savoir.
+          </p>
+        </div>
+
+        {/* Mise à jour modalités 1er octobre 2026 */}
+        <div className="bg-amber-50 border border-amber-300 rounded-2xl p-5 mb-8">
+          <p className="font-bold text-amber-900 mb-2">Mise à jour du 21 octobre 2026 : nouvelles modalités depuis le 1er octobre</p>
+          <ul className="space-y-1.5 text-sm text-amber-900 list-disc pl-5">
+            <li>L&apos;évaluation énergétique avant travaux n&apos;est plus obligatoire (elle reste recommandée et une aide jusqu&apos;à 500 $ est offerte).</li>
+            <li>Aide par mesure : l&apos;aide est maintenant établie par type de travaux, avec des maximums distincts. Les montants et exemples plus bas reposent en partie sur les anciennes modalités : consultez le barème officiel avant de planifier vos travaux.</li>
+            <li>Transition : si votre habitation a déjà fait l&apos;objet d&apos;une évaluation, terminez vos travaux et obtenez une évaluation après travaux d&apos;ici le 31 mars 2027 pour bénéficier des anciennes modalités. Les demandes de rendez-vous avant travaux selon les anciennes modalités ne sont plus acceptées.</li>
+            <li>Rénoclimat n&apos;offre plus d&apos;aide pour l&apos;installation ou le remplacement d&apos;un système de chauffage, thermopompe comprise.</li>
+          </ul>
+          <p className="text-amber-800 text-xs mt-3">
+            Sources officielles :{" "}
+            <a
+              href="https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/renoclimat/nouveautes-adaptation-inondations"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              quebec.ca – nouveautés Rénoclimat
+            </a>
+            ,{" "}
+            <a
+              href="https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/renoclimat/aide-financiere/subvention-systemes-mecaniques"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              quebec.ca – systèmes mécaniques
+            </a>
+            . Vérifié le 21 octobre 2026.
           </p>
         </div>
 
@@ -52,9 +85,9 @@ function Content() {
         <div className="bg-green-50 border border-green-200 rounded-2xl p-5 mb-8">
           <p className="font-bold text-green-800 mb-2">En bref</p>
           <ul className="space-y-1.5 text-sm text-green-900">
-            <li>? Subvention de <strong>100 $ à 20 000 $</strong> selon les travaux (plafond relevé au-delà de l&apos;ancien maximum de 10 000 $)</li>
+            <li>? Anciennes modalités : subvention de <strong>100 $ à 20 000 $</strong> selon les travaux. Depuis le 1er octobre 2026 : maximum par type de travaux (barème officiel)</li>
             <li>? Combinable avec LogisVert Hydro-Québec pour des travaux distincts (ex. : isolation via Rénoclimat + thermopompe via LogisVert)</li>
-            <li>? Évaluation énergétique obligatoire avant ET après les travaux</li>
+            <li>? Évaluation énergétique avant travaux recommandée mais facultative depuis le 1er octobre 2026 (obligatoire sous les anciennes modalités)</li>
             <li>? Habitation construite et habitée depuis au moins 12 mois (aucune restriction liée à l&apos;année de construction)</li>
           </ul>
         </div>
@@ -72,9 +105,10 @@ function Content() {
             l&apos;environnement.
           </p>
           <p className="text-slate-600 leading-relaxed">
-            Contrairement à plusieurs autres programmes, Rénoclimat est basé sur une <strong>évaluation énergétique</strong> :
-            un conseiller certifié évalue votre maison avant les travaux, puis une deuxième évaluation après
-            les travaux confirme l&apos;amélioration. C&apos;est cette différence qui détermine le montant de votre subvention.
+            Contrairement à plusieurs autres programmes, Rénoclimat s&apos;appuie sur une <strong>évaluation énergétique</strong> :
+            sous les anciennes modalités, un conseiller certifié évaluait votre maison avant les travaux, puis une
+            deuxième évaluation après les travaux confirmait l&apos;amélioration, et cette différence déterminait le montant
+            de votre subvention. Depuis le 1er octobre 2026, l&apos;évaluation avant travaux n&apos;est plus obligatoire.
           </p>
         </section>
 
@@ -111,11 +145,17 @@ function Content() {
         <section className="mb-8">
           <h2 className="text-xl font-bold text-slate-800 mb-3">Combien pouvez-vous recevoir ?</h2>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Le montant de la subvention dépend de <strong>l&apos;amélioration de la cote énergétique</strong>{" "}de votre maison,
-            mesurée en unités ÉnerGuide. Plus l&apos;amélioration est grande, plus la subvention est élevée.
+            <strong>Nouvelles modalités (depuis le 1er octobre 2026) :</strong> l&apos;aide est établie selon le type de
+            travaux, avec un maximum par mesure. Pour une maison, par exemple : toit jusqu&apos;à 2 000 $, murs extérieurs
+            jusqu&apos;à 7 000 $, fondations jusqu&apos;à 2 500 $, fenêtres jusqu&apos;à 4 500 $ (300 $ par fenêtre). Les maximums
+            diffèrent pour les duplex, triplex et immeubles à logements multiples : consultez le barème officiel.
+          </p>
+          <p className="text-slate-600 leading-relaxed mb-4">
+            <strong>Anciennes modalités (transition) :</strong> le montant dépendait de{" "}
+            <strong>l&apos;amélioration de la cote énergétique</strong> de votre maison, mesurée en unités ÉnerGuide.
           </p>
           <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
-            <p className="font-bold text-blue-800 mb-3">Exemples de subventions typiques</p>
+            <p className="font-bold text-blue-800 mb-3">Exemples historiques (anciennes modalités)</p>
             <div className="space-y-2">
               {[
                 { travaux: "Isolation du grenier", montant: "500 $ – 1 500 $" },
@@ -131,7 +171,8 @@ function Content() {
             </div>
           </div>
           <p className="text-slate-500 text-sm">
-            * Ces montants sont indicatifs. Le montant réel dépend de l&apos;évaluation énergétique de votre maison.
+            * Ces montants sont indicatifs et reposent sur les anciennes modalités ; ils n&apos;ont pas été revalidés au
+            barème par mesure en vigueur depuis le 1er octobre 2026.
           </p>
         </section>
 
@@ -147,23 +188,23 @@ function Content() {
               },
               {
                 num: "2",
-                titre: "Première évaluation énergétique",
-                texte: "Engagez un conseiller en énergie certifié Rénoclimat. Il évalue votre maison et établit une cote ÉnerGuide de départ. Cette étape est obligatoire — aucune subvention n'est possible sans elle. Coût : 150 $ + taxes.",
+                titre: "Première évaluation énergétique (recommandée)",
+                texte: "Un conseiller en énergie certifié Rénoclimat évalue votre maison et établit une cote ÉnerGuide de départ. Depuis le 1er octobre 2026, cette étape n'est plus obligatoire, mais elle reste recommandée pour orienter vos choix de rénovation; une aide jusqu'à 500 $ est offerte pour l'évaluation énergétique. Sous les anciennes modalités (transition jusqu'au 31 mars 2027 pour les habitations déjà évaluées), elle était obligatoire.",
               },
               {
                 num: "3",
                 titre: "Réalisez vos travaux",
-                texte: "Rénoclimat n'exige pas que l'ensemble des travaux soit réalisé par un entrepreneur licencié RBQ — seuls les travaux réglementés (plomberie, électricité, etc.) doivent être confiés au professionnel requis par la loi. Gardez toutes vos factures — elles seront nécessaires pour votre demande.",
+                texte: "Nouvelles modalités : les travaux doivent avoir été effectués après le 1er octobre 2026 par un entrepreneur détenant les licences appropriées aux types de travaux (vérifiez la sous-catégorie de licence auprès de la RBQ). L'entrepreneur doit remplir et signer le formulaire d'attestation de conformité des travaux. Gardez vos factures et pièces justificatives. Sous les anciennes modalités (transition), seuls les travaux réglementés devaient être confiés au professionnel requis par la loi.",
               },
               {
                 num: "4",
-                titre: "Deuxième évaluation énergétique",
-                texte: "Après les travaux, le même conseiller (ou un autre certifié) refait l'évaluation pour mesurer l'amélioration obtenue. Cette deuxième évaluation est gratuite.",
+                titre: "Évaluation après travaux (anciennes modalités)",
+                texte: "Sous les anciennes modalités, le conseiller refait l'évaluation après les travaux pour mesurer l'amélioration obtenue; elle doit avoir lieu d'ici le 31 mars 2027 pour compléter la période de transition. Pour les nouvelles modalités, vérifiez dans le Guide du participant si une évaluation après travaux est requise pour votre projet.",
               },
               {
                 num: "5",
                 titre: "Soumettez votre demande",
-                texte: "Votre conseiller vous aide à soumettre la demande de subvention en ligne. Le versement arrive généralement 8 à 10 semaines après l'évaluation après travaux.",
+                texte: "Nouvelles modalités : selon la page officielle mise à jour le 13 octobre 2026, la demande se fera dans un nouveau portail Rénoclimat, en cours de développement et annoncé pour l'automne; d'ici là, conservez votre attestation signée, vos pièces justificatives et vos factures. Sous les anciennes modalités, votre conseiller vous aidait à soumettre la demande.",
               },
             ].map((etape) => (
               <div key={etape.num} className="flex gap-4 items-start">
@@ -206,6 +247,7 @@ function Content() {
             </div>
             <p className="text-green-700 text-xs">
               Deux aides distinctes pour deux volets distincts du même projet — pas deux subventions pour le même équipement.
+              Montants historiques (anciennes modalités) : le cumul affiché n&apos;a pas été revalidé au barème actuel et ne constitue pas une garantie.
             </p>
           </div>
         </section>

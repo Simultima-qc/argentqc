@@ -225,6 +225,47 @@ export default function SubventionThermopompeQuebecPage() {
       </section>
 
       <div className="mx-auto max-w-3xl px-4 py-8 sm:py-10">
+        <aside className="mb-10 rounded-2xl border border-amber-300 bg-amber-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.12em] text-amber-800">Annoncé — pas encore ouvert</p>
+          <h2 className="mt-1 text-lg font-extrabold text-slate-900">
+            Nouveau rabais fédéral annoncé le 8 octobre 2026 — demandes et admissibilité détaillée non confirmées au 21 octobre
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-slate-700">
+            Le gouvernement du Canada a annoncé un programme national de rabais pour les thermopompes :{" "}
+            <strong>jusqu&apos;à 10 000 $</strong> pour les ménages admissibles sous le revenu médian et{" "}
+            <strong>2 000 $</strong> pour les autres ménages admissibles. Ces montants sont <strong>annoncés</strong>,
+            non disponibles : aucune date d&apos;ouverture des demandes ni règle finale d&apos;admissibilité n&apos;est confirmée
+            ici, et le cumul avec les programmes provinciaux dépend de règles à venir. Ce rabais n&apos;est pas inclus dans
+            les montants illustratifs de cette page.
+          </p>
+          <p className="mt-2 text-sm leading-6 text-slate-700">
+            Du côté du Québec, Rénoclimat n&apos;offre plus d&apos;aide pour l&apos;installation ou le remplacement d&apos;un système de
+            chauffage, thermopompe comprise (modalités en vigueur depuis le 1er octobre 2026), et le volet Chauffez vert
+            pour la conversion du mazout ou du propane est fermé depuis le 31 mars 2026.
+          </p>
+          <p className="mt-2 text-xs leading-5 text-slate-600">
+            Information à jour au 21 octobre 2026. Sources officielles :{" "}
+            <a
+              href="https://www.canada.ca/fr/logement-infrastructures-collectivites/nouvelles/2026/10/le-premier-ministre-carney-annonce-un-investissement-sans-precedent-visant-a-renover-un-million-de-logements-ce-qui-permettra-de-reduire-les-couts-.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Canada.ca — annonce du 8 octobre 2026
+            </a>
+            ,{" "}
+            <a
+              href="https://www.quebec.ca/habitation-territoire/chauffage-consommation-energie/aide-financiere-renovation-ecoenergetique/renoclimat/aide-financiere/subvention-systemes-mecaniques"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Québec.ca — Rénoclimat, systèmes mécaniques
+            </a>
+            . Revenez à la page Canada.ca pour les règles finales avant toute décision.
+          </p>
+        </aside>
+
         <section className="mb-10">
           <div className="grid gap-4 rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm sm:grid-cols-3">
             {amountRanges.map((item) => (
